@@ -1,3 +1,19 @@
+2003-12-16 08:45  mastershadow
+
+    * panel-plugin/clipman.c: right mouse click allow users to remove a sigle
+    entry in the history. It ask for confirm and act properly.
+
+2003-12-15 09:00  mastershadow
+
+    * panel-plugin/clipman.c: now trailing spaces are removed from the popup
+    menu (a lot eyecandy :-).
+
+    * configure.ac: version update
+
+2003-11-09 12:04  mastershadow
+
+    * panel-plugin/clipman.c: changed text/plain d&d to UTF8_STRING
+
 2003-11-09 12:04  mastershadow
 
     * panel-plugin/clipman.c: bug removed! when you remove panel and select
