@@ -25,6 +25,7 @@ AC_HELP_STRING([--disable-$4], [Disable checking for $5]),
       AC_MSG_RESULT([yes])
       BM_DEPEND([$1], [$2], [$3])
       AC_DEFINE([HAVE_$1], [1], [Define if you have $2 >= $3])
+      $1_FOUND="yes"
     else
       AC_MSG_RESULT([no])
     fi
@@ -58,6 +59,22 @@ AC_HELP_STRING([--with-pluginsdir=DIR], [Install plugins dir DIR]),
 [$1_PLUGINSDIR=`$PKG_CONFIG --variable=pluginsdir xfce4-panel-1.0`])
 
   AC_MSG_CHECKING([where to install panel plugins])
+  AC_SUBST([$1_PLUGINSDIR])
+  AC_MSG_RESULT([$$1_PLUGINSDIR])
+])
+
+dnl
+dnl XFCE_MCS_PLUGIN(var, version)
+dnl
+dnl sets $var_CFLAGS, $var_LIBS and $var_PLUGINSDIR
+dnl
+AC_DEFUN([XFCE_MCS_PLUGIN],
+[
+  BM_DEPEND([$1], [xfce-mcs-manager], [$2])
+
+  dnl Check where to put the plugins to
+  AC_MSG_CHECKING([where to install MCS plugins])
+  $1_PLUGINSDIR=`$PKG_CONFIG --variable=pluginsdir xfce-mcs-manager`
   AC_SUBST([$1_PLUGINSDIR])
   AC_MSG_RESULT([$$1_PLUGINSDIR])
 ])
