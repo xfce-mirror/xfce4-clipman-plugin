@@ -92,6 +92,16 @@ clicked_menu (GtkWidget *widget, gpointer data)
 }
 
 static void
+drag_data_get_cb (GtkWidget *widget, GdkDragContext *dg, GtkSelectionData *seldata, gint i, gint t, gpointer user_data)
+{
+    t_action *action = user_data;
+    gint idx = action->idx;
+    gchar *text = action->clip->content[idx]->str;
+    gtk_selection_data_set(seldata, gdk_atom_intern("STRING", FALSE), 8, text, strlen(text));
+}
+
+
+static void
 clearClipboard (GtkWidget *widget, gpointer data)
 {
     gint i;
@@ -115,12 +125,18 @@ clicked_cb(GtkWidget *button, gpointer data)
 {
     GtkMenu    *menu = NULL;
     GtkWidget  *mi;
+    GtkTargetEntry *te;
     t_clipman  *clipman = data;
     t_action   *action = NULL;
     gboolean    hasOne = FALSE;
     gint        i;                  /* an index */
     guint       last;               /* latest item inserted */
     guint       num = 0;            /* just a counter */
+
+    te = g_new0(GtkTargetEntry,1);
+    te->target="text/plain";
+    te->flags=0;
+    te->info=0;
 
     menu = GTK_MENU(gtk_menu_new());
 
@@ -148,11 +164,13 @@ clicked_cb(GtkWidget *button, gpointer data)
     for (i=last;i>=0;i--){
         if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
             mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", ++num, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
+            gtk_drag_source_set(mi, GDK_BUTTON1_MASK, te, 1, GDK_ACTION_COPY | GDK_ACTION_MOVE);
             gtk_widget_show (mi);
             action = g_new(t_action, 1);
             action->clip = clipman;
             action->idx = i;
             g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action);
+            g_signal_connect (G_OBJECT (mi), "drag_data_get", G_CALLBACK (drag_data_get_cb), (gpointer)action);
             gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
             hasOne = TRUE;
         }
@@ -210,7 +228,7 @@ clicked_cb(GtkWidget *button, gpointer data)
     gtk_menu_popup (menu, NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 }
 
-static void checkClip (t_clipman *clipman) {
+static gboolean checkClip (t_clipman *clipman) {
     gchar *txt = NULL;
 
     /* Check for text in X clipboard */
@@ -241,6 +259,7 @@ static void checkClip (t_clipman *clipman) {
         g_free(txt);
         txt = NULL;
     }
+    return TRUE;
 }
 
 static t_clipman *
@@ -275,7 +294,7 @@ clipman_new(void)
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
     checkClip(clipman);
-    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
+    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, NULL);
     g_signal_connect(clipman->button, "clicked", G_CALLBACK(clicked_cb), clipman);
 
 	return(clipman);

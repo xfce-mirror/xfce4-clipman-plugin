@@ -1,3 +1,13 @@
+2003-11-08 23:10  mastershadow
+
+    * panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
+
+    * panel-plugin/clipman.c: fixed a bug that make crash the plugin when removing it
+    while something is writing in the clipboard.
+
+    * configure.ac: version update
+
+
 2003-11-04 21:37  mastershadow
 
     * panel-plugin/clipman.c: now items are shown with stack order
