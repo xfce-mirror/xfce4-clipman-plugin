@@ -1,34 +1,69 @@
-2003-10-08 21:26  mastershadow
+2003-11-04 21:37  mastershadow
 
-	* configure, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/clipman.c: Initial revision
+    * panel-plugin/clipman.c: now items are shown with stack order
+    (for first latest item and then others).
+    
+    * panel-plugin/clipman.c: Warnings fixed in resize functions
 
-2003-10-08 21:26  mastershadow
+2003-11-02 12:34  mastershadow
 
-	* configure, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/clipman.c: Initial import
+	* panel-plugin/clipman.c: now icon resize with the panel
 
-2003-10-08 21:23  mastershadow
+2003-11-01 23:56  mastershadow
 
-	* configure.ac, ltmain.sh, depcomp, install-sh, ltcf-c.sh, missing,
-	mkinstalldirs: Initial revision
+	* panel-plugin/clipman.c: clipboard clear feature added
+	Some small syntax fixes in checkClip function
 
-2003-10-08 21:23  mastershadow
+2003-10-25 20:10  mastershadow
+	
+	* panel-plugin/clipman.c: memory leaks fixed in gstring array and
+	crash fixed on removing the plugin from panel
+	
 
-	* configure.ac, ltmain.sh, depcomp, install-sh, ltcf-c.sh, missing,
-	mkinstalldirs: Initial import
+2003-10-08 11:23  mastershadow
 
-2003-10-08 21:19  mastershadow
+	* a lot of changes :-)
+	First public release of xfce4-clipman-plugin
 
-	* AUTHORS, COPYING, ChangeLog, Makefile.am, INSTALL, Makefile.in,
-	README, aclocal.m4, autogen.sh, compile, config.guess, config.h.in,
-	config.sub: Initial revision
+2003-07-11 15:56  huysmans
 
-2003-10-08 21:19  mastershadow
+	* panel-plugin/sample.c: Hmm, chinese translation updates that
+	didn't get picked up by my previous commit. Should have been in
+	rc1, sorry.
 
-	* AUTHORS, COPYING, ChangeLog, Makefile.am, INSTALL, Makefile.in,
-	README, aclocal.m4, autogen.sh, compile, config.guess, config.h.in,
-	config.sub: Initial import
+2003-07-11 09:33  huysmans
+
+	* ChangeLog: Update ChangeLog's for release
+
+2003-07-10 11:56  huysmans
+
+	* ChangeLog: Update ChangeLog's for release
+
+2003-07-06 22:14  huysmans
+
+	* ChangeLog: Update ChangeLogs
+
+2003-07-06 15:35  xfce
+
+	* Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
+	ltmain.sh, panel-plugin/Makefile.in: libtool update
+
+2003-07-02 12:18  bmeurer
+
+	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
+	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
+	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
+	Makefile.am, README, configure, configure.ac, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
+	the sample panel plugin.
+
+2003-07-02 12:18  bmeurer
+
+	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
+	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
+	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
+	Makefile.am, README, configure, configure.ac, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial revision
 

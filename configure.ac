@@ -1,15 +1,15 @@
 dnl configure.ac
 dnl
-dnl xfce4-clipman-plugin - Clipboard manager plugin
+dnl xfce4-sample-plugin - Sample plugin for xfce4-panel
 dnl
-dnl 2003 Eduard Roccatello <master@spine-group.org>
+dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
 AC_INIT([panel-plugin/clipman.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [0.11])
+AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [0.2.0])
 
 AM_MAINTAINER_MODE
 

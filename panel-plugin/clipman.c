@@ -46,7 +46,8 @@ typedef struct
 	GtkWidget   *button;
     GtkWidget   *img;
     GString     *content[MAXHISTORY];
-    guint       iter;
+    guint         iter;
+    gint         timeId;
 } t_clipman;
 
 typedef struct
@@ -85,9 +86,28 @@ static gchar* filterLFCR (gchar *txt)
 static void
 clicked_menu (GtkWidget *widget, gpointer data)
 {
-    t_action *act = data;
+    t_action *act = (t_action *)data;
     gtk_clipboard_set_text(defaultClip, act->clip->content[act->idx]->str, -1);
     gtk_clipboard_set_text(primaryClip, act->clip->content[act->idx]->str, -1);
+}
+
+static void
+clearClipboard (GtkWidget *widget, gpointer data)
+{
+    gint i;
+    t_clipman *clipman = (t_clipman *)data;
+
+    /* Clear History */
+    for (i=0; i<MAXHISTORY; i++)
+        g_string_assign(clipman->content[i], "");
+
+    /* Clear Clipboard */
+    gtk_clipboard_set_text(defaultClip, "", -1);
+    gtk_clipboard_set_text(primaryClip, "", -1);
+
+    /* Set iterator to the first element of the array */
+    clipman->iter = 0;
+
 }
 
 static void
@@ -98,7 +118,9 @@ clicked_cb(GtkWidget *button, gpointer data)
     t_clipman  *clipman = data;
     t_action   *action = NULL;
     gboolean    hasOne = FALSE;
-    guint       i;
+    gint        i;                  /* an index */
+    guint       last;               /* latest item inserted */
+    guint       num = 0;            /* just a counter */
 
     menu = GTK_MENU(gtk_menu_new());
 
@@ -112,6 +134,46 @@ clicked_cb(GtkWidget *button, gpointer data)
     gtk_widget_set_sensitive (mi, FALSE);
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
+    /*
+        Append cliboard history items.
+        I need to have an circular array scan. Latest item inserted in the array
+        is at iter-1 position so we need a special trick to scan the array
+    */
+
+    if (clipman->iter!=0)
+        last=clipman->iter-1;
+    else
+        last=MAXHISTORY-1;
+
+    for (i=last;i>=0;i--){
+        if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
+            mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", ++num, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
+            gtk_widget_show (mi);
+            action = g_new(t_action, 1);
+            action->clip = clipman;
+            action->idx = i;
+            g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action);
+            gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+            hasOne = TRUE;
+        }
+    }
+
+    if (last!=MAXHISTORY-1) {
+        for (i=MAXHISTORY-1;i>last;i--) {
+            if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
+                mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", ++num, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
+                gtk_widget_show (mi);
+                action = g_new(t_action, 1);
+                action->clip = clipman;
+                action->idx = i;
+                g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action);
+                gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+            }
+        }
+    }
+
+    /* Only an array scan :) It is here for security (other may be bugged)
+
     for (i=0; i < MAXHISTORY; i++) {
         if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
             mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", i+1, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
@@ -124,13 +186,26 @@ clicked_cb(GtkWidget *button, gpointer data)
             hasOne = TRUE;
         }
     }
+    */
 
+    /* If the clipboard is empty put a new informational item, else create the clear item */
     if (!hasOne) {
         mi = gtk_menu_item_new_with_label (N_("< Clipboard Empty >"));
         gtk_widget_show (mi);
         gtk_widget_set_sensitive (mi, FALSE);
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     }
+	else {
+        mi = gtk_separator_menu_item_new ();
+        gtk_widget_show (mi);
+        gtk_widget_set_sensitive (mi, FALSE);
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+
+        mi = gtk_menu_item_new_with_label (N_("Clear Clipboard"));
+        gtk_widget_show (mi);
+        g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clearClipboard), (gpointer)clipman);
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+	}
 
     gtk_menu_popup (menu, NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 }
@@ -141,28 +216,28 @@ static void checkClip (t_clipman *clipman) {
     /* Check for text in X clipboard */
     txt = gtk_clipboard_wait_for_text (primaryClip);
 
-    if (txt != NULL && !isThere(clipman, txt)) {
-            g_string_assign(clipman->content[clipman->iter], txt);
-            if (clipman->iter < (MAXHISTORY - 1))
-                clipman->iter++;
-            else
-                clipman->iter = 0;
-    }
-    if (txt != NULL && txt) {
+    if (txt != NULL) {
+        if (!isThere(clipman, txt)) {
+                g_string_assign(clipman->content[clipman->iter], txt);
+                if (clipman->iter < (MAXHISTORY - 1))
+                    clipman->iter++;
+                else
+                    clipman->iter = 0;
+        }
         g_free(txt);
         txt = NULL;
     }
 
     /* Check for text in default clipboard */
     txt = gtk_clipboard_wait_for_text (defaultClip);
-    if (txt != NULL && !isThere(clipman, txt)) {
+    if (txt != NULL) {
+        if (!isThere(clipman, txt)) {
             g_string_assign(clipman->content[clipman->iter], txt);
             if (clipman->iter < (MAXHISTORY - 1))
                 clipman->iter++;
             else
                 clipman->iter = 0;
-    }
-    if (txt != NULL && txt) {
+        }
         g_free(txt);
         txt = NULL;
     }
@@ -191,6 +266,7 @@ clipman_new(void)
 
     /* Element to be modified */
     clipman->iter = 0;
+	clipman->timeId = 0;
 
     for (i=0; i<MAXHISTORY; i++) {
         clipman->content[i] = g_string_new("");
@@ -199,7 +275,7 @@ clipman_new(void)
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
     checkClip(clipman);
-    g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
+    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
     g_signal_connect(clipman->button, "clicked", G_CALLBACK(clicked_cb), clipman);
 
 	return(clipman);
@@ -207,10 +283,8 @@ clipman_new(void)
 
 static void resetTimer (gpointer data)
 {
-#ifdef DEBUG
-    printf("Timer is dead!\n");
-#endif
-    g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
+    t_clipman *clipman = (t_clipman *)data;
+    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
 }
 
 static gboolean
@@ -242,14 +316,15 @@ clipman_free(Control *ctrl)
 
 	clipman = (t_clipman *)ctrl->data;
 
-    // FIX: Freeing items makes the panel crash
-    /*
+	if (clipman->timeId != 0)
+	    g_source_remove(clipman->timeId);
+
     for (i=0; i<MAXHISTORY; i++) {
-        if (clipman->content[i] != NULL && clipman->content[i])
-            g_string_free(clipman->content[i], FALSE);
+        if (clipman->content[i])
+            g_string_free(clipman->content[i], TRUE);
     }
-    
-	g_free(clipman);*/
+
+    g_free(clipman);
 }
 
 static void
@@ -278,7 +353,23 @@ clipman_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
 static void
 clipman_set_size(Control *ctrl, int size)
 {
-	/* do the resize */
+    t_clipman *clipman = (t_clipman *)ctrl->data;
+    switch (size) {
+        case 0:
+            gtk_image_set_from_stock (GTK_IMAGE(clipman->img), "gtk-paste", GTK_ICON_SIZE_MENU);
+            break;
+        case 1:
+            gtk_image_set_from_stock (GTK_IMAGE(clipman->img), "gtk-paste", GTK_ICON_SIZE_BUTTON);
+            break;
+        case 2:
+            gtk_image_set_from_stock (GTK_IMAGE(clipman->img), "gtk-paste", GTK_ICON_SIZE_DND);
+            break;
+        case 3:
+            gtk_image_set_from_stock (GTK_IMAGE(clipman->img), "gtk-paste", GTK_ICON_SIZE_DIALOG);
+            break;
+        default:
+            break;
+    }
 }
 
 /* options dialog */
@@ -310,7 +401,7 @@ xfce_control_class_init(ControlClass *cc)
 	 * Just define the set_size function to NULL, or rather, don't 
 	 * set it to something else.
 	 */
-	cc->set_size		= clipman_set_size;
+	cc->set_size    = clipman_set_size;
 
 	/* unused in the clipman:
 	 * ->set_orientation
