@@ -35,9 +35,16 @@
 #include <panel/plugins.h>
 #include <panel/xfce.h>
 
-#define MAXHISTORY 6
+#define MAXHISTORY 100
 #define MENUTXT_LEN 30
 #define CLIPMAN_TIMER_INTERVAL 500
+#define PLUGIN_NAME "clipboard"
+#define DEFHISTORY 6
+
+/* for xml store */
+#define BUFFERS_XML_KEY "Buffers"
+
+typedef GString* pGString; /* pointer to GString */
 
 typedef struct
 {
@@ -45,10 +52,12 @@ typedef struct
 	GtkWidget   *button;
     GtkWidget   *img;
     GtkWidget   *menu;
-    GString     *content[MAXHISTORY];
+    GString     **content;
     guint        iter;
     gint         timeId;
     gboolean     killing;
+    GtkTooltips *tooltip;
+    gint         content_size;
 } t_clipman;
 
 typedef struct
@@ -57,17 +66,23 @@ typedef struct
     guint       idx;
 } t_action;
 
+typedef struct
+{
+    t_clipman  *clip;
+    GtkWidget  *sb_clips; /* spin button for number of clips to store */
+} t_options;
+
 static GtkClipboard *primaryClip, *defaultClip;
 
 static void resetTimer (gpointer data);
 static gboolean isThere (t_clipman *clip, gchar *txt);
 static gchar* filterLFCR (gchar *txt);
 
-static gboolean isThere (t_clipman *clip, gchar *txt)
+static gboolean isThere (t_clipman *clipman, gchar *txt)
 {
     gint i;
-    for (i=0; i<MAXHISTORY; i++) {
-        if (strcmp(clip->content[i]->str, txt) == 0)
+    for (i=0; i<clipman->content_size; i++) {
+        if (strcmp(clipman->content[i]->str, txt) == 0)
             return TRUE;
     }
     return FALSE;
@@ -93,7 +108,7 @@ item_pressed_cb (GtkWidget *widget, GdkEventButton *ev, gpointer user_data)
         gtk_clipboard_set_text(defaultClip, act->clip->content[act->idx]->str, -1);
         gtk_clipboard_set_text(primaryClip, act->clip->content[act->idx]->str, -1);
     } else {
-        if (confirm(N_("Do you want to remove it from the hystory?"), "gtk-clear", NULL)) {
+        if (confirm(N_("Do you want to remove it from the history?"), "gtk-clear", NULL)) {
             gtk_clipboard_set_text(defaultClip, "", -1);
             gtk_clipboard_set_text(primaryClip, "", -1);
             g_string_assign(act->clip->content[act->idx], "");
@@ -121,7 +136,7 @@ clearClipboard (GtkWidget *widget, gpointer data)
     t_clipman *clipman = (t_clipman *)data;
 
     /* Clear History */
-    for (i=0; i<MAXHISTORY; i++)
+    for (i=0; i<clipman->content_size; i++)
         g_string_assign(clipman->content[i], "");
 
     /* Clear Clipboard */
@@ -172,7 +187,7 @@ clicked_cb(GtkWidget *button, gpointer data)
     if (clipman->iter!=0)
         last=clipman->iter-1;
     else
-        last=MAXHISTORY-1;
+        last=clipman->content_size-1;
 
     for (i=last;i>=0;i--){
         if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
@@ -189,8 +204,8 @@ clicked_cb(GtkWidget *button, gpointer data)
         }
     }
 
-    if (last!=MAXHISTORY-1) {
-        for (i=MAXHISTORY-1;i>last;i--) {
+    if (last!=clipman->content_size-1) {
+        for (i=clipman->content_size-1;i>last;i--) {
             if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
                 mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", ++num, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
                 gtk_widget_show (mi);
@@ -237,7 +252,7 @@ static gboolean checkClip (t_clipman *clipman) {
     if (txt != NULL) {
         if (!isThere(clipman, txt)) {
                 g_string_assign(clipman->content[clipman->iter], txt);
-                if (clipman->iter < (MAXHISTORY - 1))
+                if (clipman->iter < (clipman->content_size - 1))
                     clipman->iter++;
                 else
                     clipman->iter = 0;
@@ -251,7 +266,7 @@ static gboolean checkClip (t_clipman *clipman) {
     if (txt != NULL) {
         if (!isThere(clipman, txt)) {
             g_string_assign(clipman->content[clipman->iter], txt);
-            if (clipman->iter < (MAXHISTORY - 1))
+            if (clipman->iter < (clipman->content_size - 1))
                 clipman->iter++;
             else
                 clipman->iter = 0;
@@ -265,11 +280,31 @@ static gboolean checkClip (t_clipman *clipman) {
     return TRUE;
 }
 
+static void
+clipman_content_alloc(t_clipman *clipman, gint new_size)
+{
+    gint i;
+
+    if (clipman->content) { /* memory already allocated */
+        for (i=0; i<clipman->content_size; i++) { /* remove old */
+            if (clipman->content[i])
+                g_string_free(clipman->content[i], TRUE);
+        }
+        clipman->content = g_renew(pGString, clipman->content, new_size);
+    }
+    else /* first time */
+        clipman->content = g_new(pGString, new_size);
+
+    clipman->content_size=new_size;
+    for (i=0; i<clipman->content_size; i++) {
+        clipman->content[i] = g_string_new("");
+    }
+}
+
 static t_clipman *
 clipman_new(void)
 {
 	t_clipman *clipman;
-    gint       i;
 
 	clipman = g_new(t_clipman, 1);
 
@@ -277,6 +312,9 @@ clipman_new(void)
 	gtk_widget_show(clipman->ebox);
 
 	clipman->button = gtk_button_new();
+    clipman->tooltip = gtk_tooltips_new();
+    gtk_tooltips_set_tip (GTK_TOOLTIPS(clipman->tooltip), clipman->button, 
+            _("Clipboard Manager"), NULL);
     gtk_button_set_relief (GTK_BUTTON(clipman->button), GTK_RELIEF_NONE);
     gtk_widget_show(clipman->button);
 
@@ -290,10 +328,10 @@ clipman_new(void)
     clipman->iter = 0;
 	clipman->timeId = 0;
     clipman->killing = FALSE;
+    clipman->content = NULL;
 
-    for (i=0; i<MAXHISTORY; i++) {
-        clipman->content[i] = g_string_new("");
-    }
+    clipman_content_alloc(clipman, DEFHISTORY);
+
     defaultClip = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
@@ -348,24 +386,45 @@ clipman_free(Control *ctrl)
 
     clearClipboard (NULL, clipman);
 
-    for (i=0; i<MAXHISTORY; i++) {
+    for (i=0; i<clipman->content_size; i++) {
         if (clipman->content[i])
             g_string_free(clipman->content[i], TRUE);
     }
 
+    g_free(clipman->content);
     g_free(clipman);
 }
+
 
 static void
 clipman_read_config(Control *ctrl, xmlNodePtr parent)
 {
-	/* do something useful here */
+	t_clipman *clipman=(t_clipman *)ctrl->data;
+    xmlNodePtr node;
+    char      *str;
+	
+    if (!parent)
+        return;
+    for (node = parent->children; node; node = node->next) {
+        if (xmlStrEqual(node->name, PLUGIN_NAME))
+            if (str = xmlGetProp(node, BUFFERS_XML_KEY)) {
+                clipman_content_alloc(clipman,atoi(str));
+                xmlFree(str);
+                break; /* no need to check more nodes, we found ours */
+            }
+    }
 }
 
 static void
 clipman_write_config(Control *ctrl, xmlNodePtr parent)
 {
-	/* do something useful here */
+	t_clipman *clipman=(t_clipman *)ctrl->data;
+    xmlNodePtr root;
+    char       str[20];
+
+    root = xmlNewTextChild (parent, NULL, PLUGIN_NAME, NULL);
+    sprintf(str, "%d", clipman->content_size);
+    xmlSetProp(root, BUFFERS_XML_KEY, str);
 }
 
 static void
@@ -401,10 +460,64 @@ clipman_set_size(Control *ctrl, int size)
     }
 }
 
+static void
+clipman_process_options (GtkWidget *widget, t_options *options)
+{
+    t_clipman   *clipman=(t_clipman *)options->clip;
+    gint         val;
+
+    val=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(options->sb_clips)); 
+    clipman_content_alloc(clipman,val);
+}
+
+static void
+clipman_close_options (GtkWidget *widget, t_options *options)
+{
+    g_free(options); /* free memory used in options dialog */
+}
+
 /* options dialog */
 static void
-create_options (Control *ctrl, GtkContainer *con, GtkWidget *done)
+clipman_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done)
 {
+    t_clipman   *clipman=(t_clipman *)ctrl->data;
+    GtkWidget   *vbox1, *hbox1, *label1, *sbut1, *top;
+    GtkSizeGroup *sg1 = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+    GtkTooltips *tooltips=gtk_tooltips_new ();
+    t_options   *opt_data;
+
+    opt_data = g_new(t_options, 1);
+    opt_data->clip = (t_clipman *)ctrl->data;
+
+    top=gtk_widget_get_toplevel(done);
+    
+    vbox1 = gtk_vbox_new(FALSE, 6);
+    gtk_widget_show(vbox1);
+                                                                                
+    hbox1 = gtk_hbox_new(FALSE, 6);
+    gtk_widget_show(hbox1);
+    gtk_box_pack_start(GTK_BOX(vbox1), hbox1, FALSE, FALSE, 0);
+
+    label1 = gtk_label_new _("Number of clip buffers:");
+    gtk_misc_set_alignment(GTK_MISC(label1), 0, 0.5);
+    gtk_size_group_add_widget(sg1, label1);
+    gtk_widget_show(label1);
+    gtk_box_pack_start(GTK_BOX(hbox1), label1, FALSE, FALSE, 0);
+
+    opt_data->sb_clips = gtk_spin_button_new_with_range(1, MAXHISTORY, 1);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(opt_data->sb_clips), 
+        clipman->content_size); 
+    gtk_tooltips_set_tip(GTK_TOOLTIPS(tooltips), opt_data->sb_clips, 
+        _("How many clips should be stored and showed"), NULL);
+    gtk_widget_show(opt_data->sb_clips);
+    gtk_box_pack_start(GTK_BOX(hbox1), opt_data->sb_clips, FALSE, FALSE, 0);
+
+    g_signal_connect(done, "clicked",
+        G_CALLBACK(clipman_process_options), opt_data);
+    g_signal_connect(top, "destroy",
+        G_CALLBACK(clipman_close_options), opt_data);
+
+    gtk_container_add(con, vbox1);
 }
 
 /* initialization */
@@ -412,7 +525,7 @@ G_MODULE_EXPORT void
 xfce_control_class_init(ControlClass *cc)
 {
 	/* these are required */
-	cc->name		= "clipboard";
+	cc->name		= PLUGIN_NAME;
 	cc->caption		= _("Clipboard Manager");
 
 	cc->create_control	= (CreateControlFunc)clipman_control_new;
@@ -420,10 +533,10 @@ xfce_control_class_init(ControlClass *cc)
 	cc->free		= clipman_free;
 	cc->attach_callback	= clipman_attach_callback;
 
-	/* options; don't define if you don't have any ;) 
+	/* options; don't define if you don't have any ;)  */
 	cc->read_config		= clipman_read_config;
 	cc->write_config	= clipman_write_config;
-	cc->create_options	= clipman_create_options;*/
+	cc->create_options	= clipman_create_options;
 
 	/* Don't use this function at all if you want xfce to
 	 * do the sizing.
