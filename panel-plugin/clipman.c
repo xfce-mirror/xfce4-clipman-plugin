@@ -46,8 +46,9 @@ typedef struct
 	GtkWidget   *button;
     GtkWidget   *img;
     GString     *content[MAXHISTORY];
-    guint         iter;
+    guint        iter;
     gint         timeId;
+    gboolean     killing;
 } t_clipman;
 
 typedef struct
@@ -233,7 +234,6 @@ static gboolean checkClip (t_clipman *clipman) {
 
     /* Check for text in X clipboard */
     txt = gtk_clipboard_wait_for_text (primaryClip);
-
     if (txt != NULL) {
         if (!isThere(clipman, txt)) {
                 g_string_assign(clipman->content[clipman->iter], txt);
@@ -259,7 +259,7 @@ static gboolean checkClip (t_clipman *clipman) {
         g_free(txt);
         txt = NULL;
     }
-    return TRUE;
+    return (TRUE);
 }
 
 static t_clipman *
@@ -286,6 +286,7 @@ clipman_new(void)
     /* Element to be modified */
     clipman->iter = 0;
 	clipman->timeId = 0;
+    clipman->killing = FALSE;
 
     for (i=0; i<MAXHISTORY; i++) {
         clipman->content[i] = g_string_new("");
@@ -303,7 +304,11 @@ clipman_new(void)
 static void resetTimer (gpointer data)
 {
     t_clipman *clipman = (t_clipman *)data;
-    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
+    if (!(clipman->killing)) {
+        if (clipman->timeId != 0)
+            g_source_remove(clipman->timeId);
+        clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
+    }
 }
 
 static gboolean
@@ -335,8 +340,11 @@ clipman_free(Control *ctrl)
 
 	clipman = (t_clipman *)ctrl->data;
 
+    clipman->killing = TRUE;
 	if (clipman->timeId != 0)
 	    g_source_remove(clipman->timeId);
+
+    clearClipboard (NULL, clipman);
 
     for (i=0; i<MAXHISTORY; i++) {
         if (clipman->content[i])

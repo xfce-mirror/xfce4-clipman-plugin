@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/clipman.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [0.3.0])
+AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [0.3.1])
 
 AM_MAINTAINER_MODE
 

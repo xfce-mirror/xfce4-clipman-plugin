@@ -1721,7 +1721,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-clipman-plugin
- VERSION=0.3.0
+ VERSION=0.3.1
 
 
 cat >>confdefs.h <<_ACEOF

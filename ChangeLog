@@ -1,3 +1,18 @@
+2003-11-09 12:04  mastershadow
+
+    * panel-plugin/clipman.c: bug removed! when you remove panel and select
+    something now all is ok
+
+2003-11-09 11:48  mastershadow
+
+    * panel-plugin/clipman.c: fixed crash on remove but some troubles are still
+    present: if you select something when you have removed the plugin the panel
+    crash. This is due to the timer...
+
+2003-11-09 11:48  mastershadow
+
+    * panel-plugin/clipman.c: back to the old source for a timer bug
+
 2003-11-08 23:10  mastershadow
 
     * panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
