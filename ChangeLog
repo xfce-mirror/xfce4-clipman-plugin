@@ -1,47 +1,34 @@
-2003-10-08 11:23  mastershadow
+2003-10-08 21:26  mastershadow
 
-	* a lot of changes :-)
-	First public release of xfce4-clipman-plugin
+	* configure, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/clipman.c: Initial revision
 
-2003-07-11 15:56  huysmans
+2003-10-08 21:26  mastershadow
 
-	* panel-plugin/sample.c: Hmm, chinese translation updates that
-	didn't get picked up by my previous commit. Should have been in
-	rc1, sorry.
+	* configure, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/clipman.c: Initial import
 
-2003-07-11 09:33  huysmans
+2003-10-08 21:23  mastershadow
 
-	* ChangeLog: Update ChangeLog's for release
+	* configure.ac, ltmain.sh, depcomp, install-sh, ltcf-c.sh, missing,
+	mkinstalldirs: Initial revision
 
-2003-07-10 11:56  huysmans
+2003-10-08 21:23  mastershadow
 
-	* ChangeLog: Update ChangeLog's for release
+	* configure.ac, ltmain.sh, depcomp, install-sh, ltcf-c.sh, missing,
+	mkinstalldirs: Initial import
 
-2003-07-06 22:14  huysmans
+2003-10-08 21:19  mastershadow
 
-	* ChangeLog: Update ChangeLogs
+	* AUTHORS, COPYING, ChangeLog, Makefile.am, INSTALL, Makefile.in,
+	README, aclocal.m4, autogen.sh, compile, config.guess, config.h.in,
+	config.sub: Initial revision
 
-2003-07-06 15:35  xfce
+2003-10-08 21:19  mastershadow
 
-	* Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
-	ltmain.sh, panel-plugin/Makefile.in: libtool update
-
-2003-07-02 12:18  bmeurer
-
-	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-	Makefile.am, README, configure, configure.ac, m4/debug.m4,
-	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
-	the sample panel plugin.
-
-2003-07-02 12:18  bmeurer
-
-	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-	Makefile.am, README, configure, configure.ac, m4/debug.m4,
-	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial revision
+	* AUTHORS, COPYING, ChangeLog, Makefile.am, INSTALL, Makefile.in,
+	README, aclocal.m4, autogen.sh, compile, config.guess, config.h.in,
+	config.sub: Initial import
 
