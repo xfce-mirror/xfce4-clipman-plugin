@@ -41,8 +41,12 @@ AC_DEFUN([XFCE_PANEL_PLUGIN],
   BM_DEPEND([$1], [xfce4-panel-1.0], [$2])
 
   dnl Check where to put the plugins to
+  AC_ARG_WITH([pluginsdir],
+AC_HELP_STRING([--with-pluginsdir=DIR], [Install plugins dir DIR]),
+[$1_PLUGINSDIR=$withval],
+[$1_PLUGINSDIR=`$PKG_CONFIG --variable=pluginsdir xfce4-panel-1.0`])
+
   AC_MSG_CHECKING([where to install panel plugins])
-  $1_PLUGINSDIR=`$PKG_CONFIG --variable=pluginsdir xfce4-panel-1.0`
   AC_SUBST([$1_PLUGINSDIR])
   AC_MSG_RESULT([$$1_PLUGINSDIR])
 ])
