@@ -1,8 +1,5 @@
 /*
- * Copyright (c) 2003 Eduard Roccatello (master@spine-group.org)
- *
- * Based on xfce4-sample-plugin:
- * Copyright (c) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
+ * Copyright (c) 2004 Eduard Roccatello (eduard@xfce.org)
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -40,6 +37,7 @@
 
 #define MAXHISTORY 6
 #define MENUTXT_LEN 30
+#define CLIPMAN_TIMER_INTERVAL 500
 
 typedef struct
 {
@@ -105,16 +103,6 @@ item_pressed_cb (GtkWidget *widget, GdkEventButton *ev, gpointer user_data)
     }
     gtk_widget_destroy (act->clip->menu);
 }
-
-/*
-static void
-clicked_menu (GtkWidget *widget, gpointer data)
-{
-    t_action *act = (t_action *)data;
-    gtk_clipboard_set_text(defaultClip, act->clip->content[act->idx]->str, -1);
-    gtk_clipboard_set_text(primaryClip, act->clip->content[act->idx]->str, -1);
-}
-*/
 
 static void
 drag_data_get_cb (GtkWidget *widget, GdkDragContext *dg, GtkSelectionData *seldata, gint i, gint t, gpointer user_data)
@@ -194,7 +182,6 @@ clicked_cb(GtkWidget *button, gpointer data)
             action = g_new(t_action, 1);
             action->clip = clipman;
             action->idx = i;
-            /* g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action); */
             g_signal_connect (G_OBJECT (mi), "drag_data_get", G_CALLBACK (drag_data_get_cb), (gpointer)action);
             g_signal_connect (G_OBJECT(mi), "button_press_event", G_CALLBACK(item_pressed_cb), (gpointer)action);
             gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
@@ -212,27 +199,10 @@ clicked_cb(GtkWidget *button, gpointer data)
                 action->idx = i;
                 g_signal_connect (G_OBJECT(mi), "button_press_event", G_CALLBACK(item_pressed_cb), (gpointer)action);
                 g_signal_connect (G_OBJECT (mi), "drag_data_get", G_CALLBACK (drag_data_get_cb), (gpointer)action);
-                /*g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action);*/
                 gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
             }
         }
     }
-
-    /* Only an array scan :) It is here for security (other may be bugged)
-
-    for (i=0; i < MAXHISTORY; i++) {
-        if (clipman->content[i]->str != NULL && (strcmp(clipman->content[i]->str, "") != 0)) {
-            mi = gtk_menu_item_new_with_label (g_strdup_printf("%d. %s", i+1, filterLFCR(g_strndup(clipman->content[i]->str, 20))));
-            gtk_widget_show (mi);
-            action = g_new(t_action, 1);
-            action->clip = clipman;
-            action->idx = i;
-            g_signal_connect (G_OBJECT (mi), "activate", G_CALLBACK (clicked_menu), (gpointer)action);
-            gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-            hasOne = TRUE;
-        }
-    }
-    */
 
     /* If the clipboard is empty put a new informational item, else create the clear item */
     if (!hasOne) {
@@ -260,6 +230,8 @@ clicked_cb(GtkWidget *button, gpointer data)
 static gboolean checkClip (t_clipman *clipman) {
     gchar *txt = NULL;
 
+    XFCE_PANEL_LOCK();
+    
     /* Check for text in X clipboard */
     txt = gtk_clipboard_wait_for_text (primaryClip);
     if (txt != NULL) {
@@ -288,7 +260,9 @@ static gboolean checkClip (t_clipman *clipman) {
         txt = NULL;
     }
 
-    return (TRUE);
+    XFCE_PANEL_UNLOCK();
+
+    return TRUE;
 }
 
 static t_clipman *
@@ -323,11 +297,10 @@ clipman_new(void)
     defaultClip = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
-    checkClip(clipman);
-    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
+    clipman->timeId = g_timeout_add_full(G_PRIORITY_LOW, CLIPMAN_TIMER_INTERVAL, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
     g_signal_connect(clipman->button, "clicked", G_CALLBACK(clicked_cb), clipman);
 
-	return(clipman);
+	return clipman;
 }
 
 static void resetTimer (gpointer data)
@@ -336,7 +309,7 @@ static void resetTimer (gpointer data)
     if (!(clipman->killing)) {
         if (clipman->timeId != 0)
             g_source_remove(clipman->timeId);
-        clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
+        clipman->timeId = g_timeout_add_full(G_PRIORITY_LOW, CLIPMAN_TIMER_INTERVAL, (GSourceFunc)checkClip, data, (GDestroyNotify)resetTimer);
     }
 }
 
@@ -447,10 +420,10 @@ xfce_control_class_init(ControlClass *cc)
 	cc->free		= clipman_free;
 	cc->attach_callback	= clipman_attach_callback;
 
-	/* options; don't define if you don't have any ;) */
-	//cc->read_config		= clipman_read_config;
-	//cc->write_config	= clipman_write_config;
-	//cc->create_options	= clipman_create_options;
+	/* options; don't define if you don't have any ;) 
+	cc->read_config		= clipman_read_config;
+	cc->write_config	= clipman_write_config;
+	cc->create_options	= clipman_create_options;*/
 
 	/* Don't use this function at all if you want xfce to
 	 * do the sizing.
