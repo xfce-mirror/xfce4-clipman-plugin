@@ -294,7 +294,7 @@ clipman_new(void)
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
     checkClip(clipman);
-    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, NULL);
+    clipman->timeId = g_timeout_add_full(G_PRIORITY_DEFAULT, 512, (GSourceFunc)checkClip, clipman, (GDestroyNotify)resetTimer);
     g_signal_connect(clipman->button, "clicked", G_CALLBACK(clicked_cb), clipman);
 
 	return(clipman);
