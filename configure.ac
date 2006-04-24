@@ -1,38 +1,52 @@
 dnl configure.ac
 dnl
-dnl xfce4-sample-plugin - Sample plugin for xfce4-panel
+dnl xfce4-clipman-plugin - Clipboard manager for the Xfce desktop
 dnl
-dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
+dnl 2005 Eduard Roccatello <eduard@xfce.org>
+dnl 2005 Eduard Roccatello <nickschermer@gmail.com>
 dnl
 
-AC_INIT([panel-plugin/clipman.c])
+dnl version info
+m4_define([clipman_version], [0.6.0])
 
+dnl init autoconf
+AC_INIT([xfce4-clipman-plugin], [clipman_version], [nickschermer@gmail.com])
+AC_PREREQ([2.50])
+
+dnl init automake
+CLIPMAN_VERSION=clipman_version
+AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [$CLIPMAN_VERSION])
 AM_CONFIG_HEADER([config.h])
-
-AM_INIT_AUTOMAKE([xfce4-clipman-plugin], [0.4.1])
-
 AM_MAINTAINER_MODE
 
-dnl Check for UNIX variants
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
-
-dnl Check for basic programs
+dnl check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL()
 
-dnl Check for standard header files
+dnl check for standard header files
 AC_HEADER_STDC
 
-dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
+dnl Check for i18n support
+XDT_I18N([
+	  ])
 
-dnl Check for debugging support
-BM_DEBUG_SUPPORT
+dnl Check for X11 installed
+XDT_CHECK_LIBX11_REQUIRE
+XDT_CHECK_LIBSM
+
+dnl required
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.4.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.4.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.2.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
+
+dnl check for debugging support
+XDT_FEATURE_DEBUG()
 
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+po/Makefile.in
 ])

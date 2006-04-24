@@ -1,18 +1,36 @@
-plugindir = @XFCE4_PANEL_PLUGINSDIR@
+plugindir = $(libexecdir)/xfce4/panel-plugins
+plugin_PROGRAMS = xfce4-clipman-plugin
 
-plugin_LTLIBRARIES =							\
-	libclipman.la
+xfce4_clipman_plugin_SOURCES = \
+	clipman.h \
+	clipman.c \
+	clipman-dialogs.h \
+	clipman-dialogs.c
 
-libclipman_la_LDFLAGS =							\
-	-avoid-version							\
-	-export-dynamic							\
-	-module
+xfce4_clipman_plugin_CFLAGS =	 \
+	-I$(top_srcdir) \
+	@LIBXFCEGUI4_CFLAGS@ \
+	@LIBXFCE4PANEL_CFLAGS@ \
+	-DLOCALEDIR=\"$(localedir)\"
 
-libclipman_la_SOURCES =							\
-	clipman.c
+xfce4_clipman_plugin_LDFLAGS = \
+	@LIBXFCE4PANEL_LIBS@ \
+	@LIBXFCEGUI4_LIBS@
 
-libclipman_la_CFLAGS =							\
-	@XFCE4_PANEL_CFLAGS@
+desktop_in_in_files = clipman.desktop.in.in
+desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
+	
+desktopdir = $(datadir)/xfce4/panel-plugins
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
-libclipman_la_LIBADD = 							\
-	@XFCE4_PANEL_LIBS@
+EXTRA_DIST = 				\
+	$(desktop_in_in_files)
+
+DISTCLEANFILES =			\
+	$(desktop_DATA) $(desktop_in_files)
+	
+# get full path into .desktop file
+%.desktop.in: %.desktop.in.in
+	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+		$< > $@

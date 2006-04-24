@@ -1,3 +1,25 @@
+2005-10-10 19:35
+    * panel-plugin/clipman.c: New function for resizing the array
+
+2005-09-19 10:32 Nick Schermer
+    * panel-plugin/clipman.c: The selection function checks if button 1 is masked.
+
+2005-09-17 18:29 Nick Schermer
+    * panel-plugin/clipman.c:
+	* Save clipboard content on exit (option)
+	* Prevent empty clipboard (copy latest item when system clipboard is empty)
+	* Option to disable selection
+	* Slider for history size
+	* When resizing the history no content is lost
+	* Character number in menu items (option)
+	* New loop for creating menu items
+	* Copy icon for the menu item currently in the clipboard (is not always the latest)
+	* Icon for Clipboard History and clear clipboard
+	* Removed the drag/drop signal (couldn't figure out how to use it, so removed it)
+	* New option dialog
+	* Cleared some code, added more comments, use tabs
+	* Remove item numbers, it will be back later as an option (I hope :P)
+
 2003-12-16 08:45  mastershadow
 
     * panel-plugin/clipman.c: right mouse click allow users to remove a sigle

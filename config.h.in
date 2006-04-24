@@ -6,11 +6,38 @@
 /* Define for tracing support */
 #undef DEBUG_TRACE
 
+/* always defined to indicate that i18n is enabled */
+#undef ENABLE_NLS
+
+/* Name of default gettext domain */
+#undef GETTEXT_PACKAGE
+
+/* Define to 1 if you have the `bind_textdomain_codeset' function. */
+#undef HAVE_BIND_TEXTDOMAIN_CODESET
+
+/* Define to 1 if you have the `dcgettext' function. */
+#undef HAVE_DCGETTEXT
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H
 
+/* Define if the GNU gettext() function is already present or preinstalled. */
+#undef HAVE_GETTEXT
+
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
+
+/* Define if your <locale.h> file defines LC_MESSAGES. */
+#undef HAVE_LC_MESSAGES
+
+/* Define if libSM is available */
+#undef HAVE_LIBSM
+
+/* Define if libX11 is available */
+#undef HAVE_LIBX11
+
+/* Define to 1 if you have the <locale.h> header file. */
+#undef HAVE_LOCALE_H
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
@@ -60,19 +87,5 @@
 /* Version number of package */
 #undef VERSION
 
-/* Define to 1 if on AIX 3.
-   System headers sometimes define this.
-   We just want to avoid a redefinition error message.  */
-#ifndef _ALL_SOURCE
-# undef _ALL_SOURCE
-#endif
-
-/* Define to 1 if on MINIX. */
-#undef _MINIX
-
-/* Define to 2 if the system does not provide POSIX.1 features except with
-   this defined. */
-#undef _POSIX_1_SOURCE
-
-/* Define to 1 if you need to in order for `stat' and other things to work. */
-#undef _POSIX_SOURCE
+/* Define to 1 if the X Window System is missing or not being used. */
+#undef X_DISPLAY_MISSING
