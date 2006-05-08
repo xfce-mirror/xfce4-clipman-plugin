@@ -131,12 +131,14 @@ toggle_ignore_selection (GtkWidget *button, ClipmanOptions *options)
 void
 clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 {
-	DBG("Show the properties dialog");
-	
 	GtkWidget *dialog, *dialog_vbox, *header, *frame, *align, *button, *label;
 	GtkWidget *vbox, *hbox;
 	
 	ClipmanOptions *options;
+	GSList *group;
+
+	DBG("Show the properties dialog");
+
 	options = g_new0 (ClipmanOptions, 1);
 	options->clipman = clipman;
 	
@@ -197,7 +199,7 @@ clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 		g_signal_connect (G_OBJECT (button), "toggled",
 				G_CALLBACK (toggle_prevent_empty), options);
 		
-		GSList *group = NULL;
+		group = NULL;
 		
 		align = gtk_alignment_new (0.5, 0.5, 1, 1);
 			gtk_widget_show (align);
@@ -368,11 +370,11 @@ clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 void
 clipman_about (XfcePanelPlugin *plugin)
 {
-	DBG("Show the about dialog");
-	
 	XfceAboutInfo	*about;
 	GtkWidget	*dialog;
 	GdkPixbuf	*image;
+
+	DBG("Show the about dialog");
 	
 	about = xfce_about_info_new (_("Clipman"), "",
 		_("Clipboard manager for the Xfce desktop"), 

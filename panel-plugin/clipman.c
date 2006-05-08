@@ -116,8 +116,10 @@ clipman_check_array_len (ClipmanPlugin *clipman)
 static gchar *
 clipman_create_title (gchar *txt, gint chars)
 {
+	guint i;
+
 	txt = g_strndup(txt, chars);
-	guint i = 0;
+	i = 0;
 	while (txt[i] != '\0') {
 		if (txt[i] == '\n' || txt[i] == '\r' || txt[i] == '\t' || txt[i] == '<' || txt[i] == '>' || txt[i] == '&')
 			txt[i] = ' ';
@@ -299,13 +301,13 @@ clipman_create_menuitem (ClipmanAction *action, gint number, gboolean bold)
 static void
 clipman_clicked_separated (GtkMenu *menu, ClipmanPlugin *clipman)
 {
-	DBG("...");
-	
 	gchar *priClip, *defClip;
 	gint i, j;
 	ClipmanAction *action = NULL;
 	GtkWidget *mi;
 	
+	DBG("...");
+
 	defClip = gtk_clipboard_wait_for_text (defaultClip);
 	j = 0;
 	
@@ -405,13 +407,13 @@ clipman_clicked_separated (GtkMenu *menu, ClipmanPlugin *clipman)
 static void
 clipman_clicked_not_separated (GtkMenu *menu, ClipmanPlugin *clipman)
 {
-	DBG("...");
-	
 	gchar *priClip, *defClip;
 	gint i;
 	ClipmanAction *action = NULL;
 	GtkWidget *mi;
 	
+	DBG("...");
+
 	priClip = gtk_clipboard_wait_for_text (primaryClip);
 	defClip = gtk_clipboard_wait_for_text (defaultClip);
 	
@@ -454,12 +456,12 @@ clipman_clicked_not_separated (GtkMenu *menu, ClipmanPlugin *clipman)
 static void
 clipman_clicked (GtkWidget *button, ClipmanPlugin *clipman)
 {
-	DBG("...");
-	
 	GtkWidget *mi;
 	GtkMenu	*menu;
 	gchar *title;
 	
+	DBG("...");
+
 	/**
 	 * Optional, see if the plugin is blocked:
 	 * g_object_get_data (G_OBJECT (clipman->plugin), "xfce-panel-plugin-block") == GINT_TO_POINTER(1);
@@ -667,12 +669,13 @@ clipman_reset_timer (ClipmanPlugin *clipman)
 void
 clipman_save (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 {
-	DBG("...");
-	
 	XfceRc	*rc;
 	gchar	*file;
 	gint	i;
+	gchar name[13];
 	
+	DBG("...");
+
 	/* Open Clipman RC file */
 	file = xfce_panel_plugin_save_location (plugin, FALSE);
 	DBG("Save to file: %s", file);
@@ -705,8 +708,6 @@ clipman_save (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 	if (clipman->ExitSave && clipman->clips->len > 0)
 	{
 		DBG("Saving the clipboard history");
-		
-		gchar name[13];
 		
 		xfce_rc_write_int_entry	 (rc, "ClipsLen", clipman->clips->len);
 		
@@ -741,6 +742,9 @@ clipman_read (ClipmanPlugin *clipman)
 	XfceRc	*rc;
 	gchar	*file;
 	gint	i, clipslen;
+	gchar name[13];
+	gint type;
+	const gchar *value;
 	
 	file = xfce_panel_plugin_save_location (clipman->plugin, FALSE);
 	DBG("Read from file: %s", file);
@@ -785,10 +789,6 @@ clipman_read (ClipmanPlugin *clipman)
 	{
 		DBG("Restoring the clipboard");
 		
-		gchar name[13];
-		gint type;
-		const gchar *value;
-		
 		for (i = 0; i < clipslen; ++i)
 		{
 			g_snprintf (name, 13, "clip_%d_text", i);
@@ -817,11 +817,11 @@ clipman_read (ClipmanPlugin *clipman)
 static ClipmanPlugin *
 clipman_new (XfcePanelPlugin *plugin)
 {
-	DBG("...");
-	
 	GdkPixbuf *icon;
-	
 	ClipmanPlugin *clipman;
+
+	DBG("...");
+
 	clipman = g_new0 (ClipmanPlugin, 1);
 	
 	clipman->clips = g_ptr_array_new ();
@@ -865,9 +865,9 @@ clipman_new (XfcePanelPlugin *plugin)
 static void
 clipman_free (ClipmanPlugin *clipman)
 {
-	DBG("...");
-	
 	gint i;
+
+	DBG("...");
 	
 	g_object_unref (clipman->tooltip);
 	
@@ -911,9 +911,11 @@ clipman_set_size (XfcePanelPlugin *plugin, gint wsize, ClipmanPlugin *clipman)
 static void 
 clipman_construct (XfcePanelPlugin *plugin)
 {
+	ClipmanPlugin *clipman;
+
 	DBG("...");
 	
-	ClipmanPlugin *clipman = clipman_new (plugin);
+	clipman = clipman_new (plugin);
 	
 	gtk_container_add (GTK_CONTAINER (plugin), clipman->button);
 	
