@@ -2,7 +2,7 @@
 
 /*  $Id$
  *
- *  Copyright © 2005 Nick Schermer <nickschermer@gmail.com>
+ *  Copyright (c) 2006 Nick Schermer <nick@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,107 +18,92 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
- 
+
+#ifndef CLIPMAN_H
+#define CLIPMAN_H
+
 /* Dialog settings */
-#define BORDER			8
+#define BORDER            8
 
 /* History settings: default, min and max */
-#define DEFHISTORY		10
-#define MAXHISTORY		100
-#define MINHISTORY		5
+#define DEFHISTORY        10
+#define MAXHISTORY        100
+#define MINHISTORY        5
 
 /* Character settings: default, min and max */
-#define DEFCHARS		30
-#define MAXCHARS		200
-#define MINCHARS		10
+#define DEFCHARS        30
+#define MAXCHARS        200
+#define MINCHARS        10
 
 /* Default options */
-#define DEFEXITSAVE		FALSE
-#define DEFIGNORESELECT		FALSE
-#define DEFPREVENTEMPTY		TRUE
-#define DEFFROMONETYPE		TRUE
+#define DEFEXITSAVE        FALSE
+#define DEFIGNORESELECT    FALSE
+#define DEFPREVENTEMPTY    TRUE
+#define DEFBEHAVIOUR       1
 
-#define DEFITEMNUMBERS		FALSE
-#define DEFSEPARATEBOARDS	FALSE
-#define DEFCOLOREDITEMS		TRUE
-
-#define DEFPRICOLOR		"#000099"
-#define DEFDEFCOLOR		"#990000"
-#define DEFNUMCOLOR		"#999999"
+#define DEFITEMNUMBERS     FALSE
+#define DEFSEPMENU         TRUE
 
 /* milisecond to check the clipman(s) */
-#define TIMER_INTERVAL		500
+#define TIMER_INTERVAL        500
 
 typedef enum
 {
-	FROM_PRIMIRY,
-	FROM_DEFAULT,
+    PRIMARY,
+    DEFAULT,
 }
 ClipboardType;
 
+typedef enum
+{
+    NORMAL,
+    STRICTLY,
+}
+ClipboardBehaviour;
+
 typedef struct
 {
-	XfcePanelPlugin *plugin;
+    XfcePanelPlugin *plugin;
+    guint block:1;
 
-	GtkWidget	*menu;
-	GtkWidget	*button;
-	GtkTooltips	*tooltip;
-	
-	GPtrArray	*clips;
-	
-	gint		timeId;
-	gboolean	killTimeout;
-	
-	guint		ExitSave:1;
-	guint		IgnoreSelect:1;
-	guint		PreventEmpty:1;
-	guint		FromOneType:1;
-	
-	guint		ItemNumbers:1;
-	guint		SeparateBoards:1;
-	guint		ColoredItems:1;
-	
-	gint		HistoryItems;
-	gint		MenuCharacters;
-	
-	gchar		*DefColor;
-	gchar		*PriColor;
-	gchar		*NumColor;
+    GtkWidget    *icon;
+    GtkWidget    *button;
+    GtkTooltips  *tooltip;
+    
+    GPtrArray    *clips;
+    
+    gint     timeId;
+    gboolean killTimeout;
+    
+    guint  ExitSave:1;
+    guint  IgnoreSelect:1;
+    guint  PreventEmpty:1;
+    
+    ClipboardBehaviour Behaviour;
+    
+    guint  ItemNumbers:1;
+    guint  SeparateMenu:1;
+    
+    gint   HistoryItems;
+    gint   MenuCharacters;
 }
 ClipmanPlugin;
 
 typedef struct
 {
-	ClipmanPlugin	*clipman;
-	
-	GtkWidget	*G_ExitSave;
-	GtkWidget	*G_IgnoreSelection;
-	GtkWidget	*G_PreventEmpty;
-	GtkWidget	*G_FromOneType;
-	GtkWidget	*G_FromOneType_dup;
-	
-	GtkWidget	*M_ItemNumbers;
-	GtkWidget	*M_SepBoards;
-	GtkWidget	*M_ColoredItems;
-	
-	GtkWidget	*N_HistorySize;
-	GtkWidget	*N_ItemChars;
-}
-ClipmanOptions;
-
-typedef struct
-{
-	gchar		*text;
-	gchar		*title;		/* I've added the title to save
-					 * some time when opening the menu */
-	ClipboardType	fromtype;
+    gchar        *text;
+    gchar        *title;        /* I've added the title to save
+                                 * some time when opening the menu */
+    ClipboardType fromtype;
 }
 ClipmanClip;
 
 typedef struct
 {
-	ClipmanPlugin	*clipman;
-	ClipmanClip	*clip;
+    ClipmanPlugin  *clipman;
+    ClipmanClip    *clip;
+    
+    GtkWidget      *text;
 }
 ClipmanAction;
 
@@ -126,9 +111,23 @@ void
 clipman_check_array_len (ClipmanPlugin *clipman);
 
 void
-clipman_regenerate_titles (ClipmanPlugin *clipman);
+clipman_regenerate_titles (ClipmanPlugin *clipman, gint MenuCharacters);
 
 void
 clipman_save (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
 
+void
+clipman_free_clip (ClipmanClip *clip);
+
+gchar *
+clipman_create_title (gchar *txt, gint chars);
+
+void
+clipman_replace_text (gchar *o_string, gchar *n_string);
+
+void
+clipman_remove_selection_clips (ClipmanPlugin *clipman);
+
 GtkClipboard *primaryClip, *defaultClip;
+
+#endif /* CLIPMAN_H */

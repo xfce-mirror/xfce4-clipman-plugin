@@ -1,0 +1,132 @@
+# Japanese translations for xfce4-clipman-plugin package.
+# Copyright (C) 2005-2006 Nick Schermer.
+# This file is distributed under the same license as
+#   the xfce4-clipman-plugin package.
+# Daichi Kawahata <daichi@xfce.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-09 12:36+0900\n"
+"PO-Revision-Date: 2006-04-09 19:04+0900\n"
+"Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
+"Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/clipman-dialogs.c:140
+msgid "Properties"
+msgstr "プロパティ"
+
+#: ../panel-plugin/clipman-dialogs.c:154 ../panel-plugin/clipman-dialogs.c:340
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/clipman-dialogs.c:170
+msgid "Save clipboard contents on _exit"
+msgstr "終了時にクリップボードの内容を保存する(_E)"
+
+#: ../panel-plugin/clipman-dialogs.c:174
+msgid "_Ignore selections"
+msgstr "領域選択を無視する(_I)"
+
+#: ../panel-plugin/clipman-dialogs.c:181
+msgid "Pre_vent empty clipboard"
+msgstr "クリップボードを空にしない(_V)"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "<b>General</b>"
+msgstr "<b>全般</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:203
+msgid "Normal clipboard _management"
+msgstr "通常のクリップボード管理(_M)"
+
+#: ../panel-plugin/clipman-dialogs.c:212
+msgid "Strictly separate _both clipboards"
+msgstr "クリップボードを二つに分ける(_B)"
+
+#: ../panel-plugin/clipman-dialogs.c:221
+msgid "<b>Clipboard behaviour</b>"
+msgstr "<b>クリップボードの振る舞い</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:237
+msgid "_Show item numbers"
+msgstr "アイテム数を表示する(_S)"
+
+#: ../panel-plugin/clipman-dialogs.c:241
+msgid "Se_parate clipboards"
+msgstr "クリップボードを分割する(_P)"
+
+#: ../panel-plugin/clipman-dialogs.c:245
+msgid "Use _colored menu items"
+msgstr "メニューアイテムに色を付ける(_C)"
+
+#: ../panel-plugin/clipman-dialogs.c:249
+msgid "<b>Menu appearance</b>"
+msgstr "<b>メニューの外観</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:271
+msgid "Clipboard history items:"
+msgstr "クリップボードの履歴アイテム数:"
+
+#: ../panel-plugin/clipman-dialogs.c:295
+msgid "Menu item characters:"
+msgstr "メニューアイテムの文字数:"
+
+#: ../panel-plugin/clipman-dialogs.c:317
+msgid "<b>Numbers</b>"
+msgstr "<b>数</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Xfce デスクトップのクリップボードを管理します。"
+
+#: ../panel-plugin/clipman-dialogs.c:345 ../panel-plugin/clipman-dialogs.c:346
+msgid "Developer"
+msgstr "開発者"
+
+#: ../panel-plugin/clipman-dialogs.c:443
+msgid "Edit content"
+msgstr "内容を編集"
+
+#: ../panel-plugin/clipman-dialogs.c:538
+msgid "Question"
+msgstr "質問"
+
+#: ../panel-plugin/clipman-dialogs.c:561
+msgid "What to do with this clipboard item?"
+msgstr "このクリップボードアイテムで何を行いますか？"
+
+#: ../panel-plugin/clipman.c:105
+msgid "Are you sure you want to clear the history?"
+msgstr "履歴をクリアしてもよろしいですか？"
+
+#: ../panel-plugin/clipman.c:401
+msgid "< Default History Empty >"
+msgstr "< 空の標準履歴 >"
+
+#: ../panel-plugin/clipman.c:452
+msgid "< Selection History Empty >"
+msgstr "< 空の選択履歴 >"
+
+#: ../panel-plugin/clipman.c:464 ../panel-plugin/clipman.c:531
+msgid "Clear History"
+msgstr "履歴をクリア"
+
+#: ../panel-plugin/clipman.c:633
+msgid "Clipman History"
+msgstr "Clipman 履歴"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< 空のクリップボード >"
+
+#: ../panel-plugin/clipman.c:1022
+msgid "Clipboard Manager"
+msgstr "クリップボードマネージャー"

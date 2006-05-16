@@ -11,7 +11,7 @@ xfce4_clipman_plugin_CFLAGS =	 \
 	-I$(top_srcdir) \
 	@LIBXFCEGUI4_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@ \
-	-DLOCALEDIR=\"$(localedir)\"
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 xfce4_clipman_plugin_LDFLAGS = \
 	@LIBXFCE4PANEL_LIBS@ \

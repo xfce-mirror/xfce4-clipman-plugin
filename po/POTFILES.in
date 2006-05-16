@@ -1,2 +1,7 @@
-panel-plugin/clipman.c
+# List of source files containing translatable strings.
+
 panel-plugin/clipman-dialogs.c
+panel-plugin/clipman.c
+
+# Files added by intltool-prepare.
+panel-plugin/clipman.desktop.in.in

@@ -3,11 +3,11 @@ dnl
 dnl xfce4-clipman-plugin - Clipboard manager for the Xfce desktop
 dnl
 dnl 2005 Eduard Roccatello <eduard@xfce.org>
-dnl 2005 Eduard Roccatello <nickschermer@gmail.com>
+dnl 2006 Nick Schermer <nick@xfce.org>
 dnl
 
 dnl version info
-m4_define([clipman_version], [0.6.0])
+m4_define([clipman_version], [0.6.4])
 
 dnl init autoconf
 AC_INIT([xfce4-clipman-plugin], [clipman_version], [nickschermer@gmail.com])
@@ -29,7 +29,7 @@ dnl check for standard header files
 AC_HEADER_STDC
 
 dnl Check for i18n support
-XDT_I18N([
+XDT_I18N([ja
 	  ])
 
 dnl Check for X11 installed
@@ -37,10 +37,11 @@ XDT_CHECK_LIBX11_REQUIRE
 XDT_CHECK_LIBSM
 
 dnl required
-XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.4.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.4.0])
-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.2.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.6.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.90])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.90])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.90])
 
 dnl check for debugging support
 XDT_FEATURE_DEBUG()
