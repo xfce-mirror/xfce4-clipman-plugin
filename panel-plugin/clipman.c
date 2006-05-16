@@ -189,8 +189,6 @@ static void
 clipman_add_clip (ClipmanPlugin *clipman, gchar *txt, ClipboardType type)
 {
     ClipmanClip *new_clip;
-
-    DBG("...");
     
     if (txt != "" &&
         !clipman->block
