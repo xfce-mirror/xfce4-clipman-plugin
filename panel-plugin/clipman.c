@@ -38,7 +38,7 @@ static void clipman_construct (XfcePanelPlugin *plugin);
 /* Register Plugin */
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (clipman_construct);
 
-void
+static void
 clipman_free_clip (ClipmanClip *clip)
 {
     DBG("...");
@@ -47,24 +47,6 @@ clipman_free_clip (ClipmanClip *clip)
     g_free (clip->title);
     
     g_free (clip);
-}
-
-void
-clipman_replace_text (gchar *o_string, gchar *n_string)
-{
-    if ( gtk_clipboard_wait_for_text (defaultClip) &&
-         !strcmp(gtk_clipboard_wait_for_text (defaultClip), o_string)
-       )
-    {
-        gtk_clipboard_set_text(defaultClip, n_string, -1);
-    }
-        
-    if ( gtk_clipboard_wait_for_text (primaryClip) &&
-         !strcmp(gtk_clipboard_wait_for_text (primaryClip), o_string)
-       )
-    {
-        gtk_clipboard_set_text(primaryClip, n_string, -1);
-    }
 }
 
 static void
@@ -82,6 +64,8 @@ clipman_clear (GtkWidget      *mi,
                GdkEventButton *ev,
                ClipmanPlugin  *clipman)
 {
+    ClipmanClip *clip;
+
     if (xfce_confirm (_("Are you sure you want to clear the history?"), 
 	              "gtk-yes", 
                       NULL))
@@ -91,7 +75,7 @@ clipman_clear (GtkWidget      *mi,
         
         while (clipman->clips->len > 0)
         {
-            ClipmanClip *clip = g_ptr_array_index (clipman->clips, 0);
+            clip = g_ptr_array_index (clipman->clips, 0);
             g_ptr_array_remove (clipman->clips, clip);
             clipman_free_clip (clip);
         }
@@ -103,10 +87,7 @@ clipman_clear (GtkWidget      *mi,
 void
 clipman_check_array_len (ClipmanPlugin *clipman)
 {
-     ClipmanClip *clip;
-    
-    if (clipman->block)
-        return;
+    ClipmanClip *clip;
     
     while (clipman->clips->len > clipman->HistoryItems)
     {
@@ -114,11 +95,11 @@ clipman_check_array_len (ClipmanPlugin *clipman)
         g_ptr_array_remove (clipman->clips, clip);
         clipman_free_clip (clip);
         
-        DBG("A clip hase been removed");
+        DBG("A clip have been removed");
     }
 }
 
-gchar *
+static gchar *
 clipman_create_title (gchar *txt,
                       gint chars)
 {
@@ -186,13 +167,13 @@ clipman_regenerate_titles (ClipmanPlugin *clipman,
 }
 
 static void
-clipman_add_clip (ClipmanPlugin *clipman, gchar *txt, ClipboardType type)
+clipman_add_clip (ClipmanPlugin *clipman,
+                  gchar         *txt,
+                  ClipboardType  type)
 {
     ClipmanClip *new_clip;
     
-    if (txt != "" &&
-        !clipman->block
-       )
+    if (txt != "")
     {
         new_clip = g_new0 (ClipmanClip, 1);
         
@@ -275,7 +256,25 @@ clipman_item_clicked (GtkWidget      *mi,
     }
     else if (ev->button == 3)
     {
-        clipman_question (action);
+        if (xfce_confirm (_("Are you sure you want to remove this clip from the history?"), 
+	              "gtk-yes", 
+                      NULL))
+        {
+            DBG ("Removed the selected clip from the History");
+        
+            if (gtk_clipboard_wait_for_text (defaultClip) &&
+                !strcmp(gtk_clipboard_wait_for_text (defaultClip), action->clip->text)
+               )
+                gtk_clipboard_set_text(defaultClip, "", -1);
+        
+            if (gtk_clipboard_wait_for_text (primaryClip) &&
+                !strcmp(gtk_clipboard_wait_for_text (primaryClip), action->clip->text)
+               )
+                gtk_clipboard_set_text(primaryClip, "", -1);
+
+            g_ptr_array_remove (action->clipman->clips, action->clip);
+            clipman_free_clip (action->clip);
+        }
     }
     
     return FALSE;
@@ -673,10 +672,6 @@ clipman_check (ClipmanPlugin *clipman)
 {
     gchar           *txt;
     GdkModifierType  state;
-  
-    /* Do nothing when the clipboard is blocked */
-    if (G_UNLIKELY(clipman->block))
-        return TRUE;
     
     /* We ignore the selection clipboard entirely if you've activated this in the options dialog */
     if (!clipman->IgnoreSelect)
@@ -729,17 +724,20 @@ clipman_check (ClipmanPlugin *clipman)
 }
 
 static void
-clipman_reset_timer (ClipmanPlugin *clipman)
+clipman_reset_timeout (ClipmanPlugin *clipman)
 {
     DBG("...");
     
     if (!(clipman->killTimeout))
     {
-        if (clipman->timeId != 0)
-            g_source_remove(clipman->timeId);
+        if (clipman->TimeoutId != 0)
+            g_source_remove(clipman->TimeoutId);
         
-        clipman->timeId = g_timeout_add_full(G_PRIORITY_LOW, TIMER_INTERVAL,
-            (GSourceFunc)clipman_check, clipman, (GDestroyNotify)clipman_reset_timer);
+        clipman->TimeoutId = g_timeout_add_full(G_PRIORITY_LOW,
+                                                TIMER_INTERVAL,
+                                                (GSourceFunc) clipman_check,
+                                                clipman,
+                                                (GDestroyNotify) clipman_reset_timeout);
     }
 }
 
@@ -922,17 +920,19 @@ clipman_new (XfcePanelPlugin *plugin)
         gtk_button_set_focus_on_click (GTK_BUTTON (clipman->button), FALSE);
         
     gtk_tooltips_set_tip (GTK_TOOLTIPS(clipman->tooltip),
-                clipman->button, _("Clipboard Manager"),
-                NULL
-                 );
+                          clipman->button, _("Clipboard Manager"),
+                          NULL);
     
     g_signal_connect(clipman->button, "button_press_event",
             G_CALLBACK(clipman_clicked), clipman);
     
     /* Start the clipman_check function */
-    clipman->timeId = g_timeout_add_full(G_PRIORITY_LOW, TIMER_INTERVAL,
-        (GSourceFunc)clipman_check, clipman, (GDestroyNotify)clipman_reset_timer);
-            
+    clipman->TimeoutId = g_timeout_add_full(G_PRIORITY_LOW,
+                                            TIMER_INTERVAL,
+                                            (GSourceFunc) clipman_check,
+                                            clipman,
+                                            (GDestroyNotify) clipman_reset_timeout);
+    
     /* Connect to the clipboards */
     defaultClip = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
     primaryClip = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
@@ -955,13 +955,17 @@ clipman_free (XfcePanelPlugin *plugin,
 
     /* Stop the check loop */
     clipman->killTimeout = TRUE;
-    if (clipman->timeId != 0)
-        g_source_remove(clipman->timeId);
+    if (clipman->TimeoutId != 0)
+    {
+        g_source_remove(clipman->TimeoutId);
+        clipman->TimeoutId = 0;
+    }
     
     /* Remove clipboard items */
     for (i = 0; i < clipman->clips->len; ++i)
     {
         clip = g_ptr_array_index (clipman->clips, i);
+        g_ptr_array_remove_fast (clipman->clips, clip);
         clipman_free_clip (clip);
     }
     g_ptr_array_free (clipman->clips, TRUE);

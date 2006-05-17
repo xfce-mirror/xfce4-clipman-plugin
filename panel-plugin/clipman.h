@@ -23,12 +23,12 @@
 #define CLIPMAN_H
 
 /* Dialog settings */
-#define BORDER            8
+#define BORDER          8
 
 /* History settings: default, min and max */
-#define DEFHISTORY        10
-#define MAXHISTORY        100
-#define MINHISTORY        5
+#define DEFHISTORY      10
+#define MAXHISTORY      100
+#define MINHISTORY      5
 
 /* Character settings: default, min and max */
 #define DEFCHARS        30
@@ -36,16 +36,16 @@
 #define MINCHARS        10
 
 /* Default options */
-#define DEFEXITSAVE        FALSE
-#define DEFIGNORESELECT    FALSE
-#define DEFPREVENTEMPTY    TRUE
-#define DEFBEHAVIOUR       1
+#define DEFEXITSAVE     FALSE
+#define DEFIGNORESELECT FALSE
+#define DEFPREVENTEMPTY TRUE
+#define DEFBEHAVIOUR    1
 
-#define DEFITEMNUMBERS     FALSE
-#define DEFSEPMENU         TRUE
+#define DEFITEMNUMBERS  FALSE
+#define DEFSEPMENU      TRUE
 
 /* milisecond to check the clipman(s) */
-#define TIMER_INTERVAL        500
+#define TIMER_INTERVAL  500
 
 typedef enum
 {
@@ -64,7 +64,6 @@ ClipboardBehaviour;
 typedef struct
 {
     XfcePanelPlugin *plugin;
-    guint block:1;
 
     GtkWidget    *icon;
     GtkWidget    *button;
@@ -72,20 +71,20 @@ typedef struct
     
     GPtrArray    *clips;
     
-    gint     timeId;
-    gboolean killTimeout;
+    gint          TimeoutId;
+    gboolean      killTimeout;
     
-    guint  ExitSave:1;
-    guint  IgnoreSelect:1;
-    guint  PreventEmpty:1;
+    gboolean      ExitSave;
+    gboolean      IgnoreSelect;
+    gboolean      PreventEmpty;
     
     ClipboardBehaviour Behaviour;
     
-    guint  ItemNumbers:1;
-    guint  SeparateMenu:1;
+    gboolean      ItemNumbers;
+    gboolean      SeparateMenu;
     
-    gint   HistoryItems;
-    gint   MenuCharacters;
+    gint          HistoryItems;
+    gint          MenuCharacters;
 }
 ClipmanPlugin;
 
@@ -115,15 +114,6 @@ clipman_regenerate_titles (ClipmanPlugin *clipman, gint MenuCharacters);
 
 void
 clipman_save (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
-
-void
-clipman_free_clip (ClipmanClip *clip);
-
-gchar *
-clipman_create_title (gchar *txt, gint chars);
-
-void
-clipman_replace_text (gchar *o_string, gchar *n_string);
 
 void
 clipman_remove_selection_clips (ClipmanPlugin *clipman);

@@ -25,7 +25,4 @@
 void
 clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
 
-void
-clipman_question (ClipmanAction *action);
-
 #endif
