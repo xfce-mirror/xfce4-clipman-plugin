@@ -22,7 +22,11 @@
 #ifndef CLIPMAN_DIALOGS_H
 #define CLIPMAN_DIALOGS_H
 
+G_BEGIN_DECLS
+
 void
 clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
+
+G_END_DECLS
 
 #endif

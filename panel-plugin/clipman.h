@@ -22,6 +22,8 @@
 #ifndef CLIPMAN_H
 #define CLIPMAN_H
 
+G_BEGIN_DECLS
+
 /* Dialog settings */
 #define BORDER          8
 
@@ -37,26 +39,26 @@
 
 /* Default options */
 #define DEFEXITSAVE     FALSE
-#define DEFIGNORESELECT FALSE
+#define DEFIGNORESELECT TRUE
 #define DEFPREVENTEMPTY TRUE
 #define DEFBEHAVIOUR    1
 
 #define DEFITEMNUMBERS  FALSE
-#define DEFSEPMENU      TRUE
+#define DEFSEPMENU      FALSE
 
 /* milisecond to check the clipman(s) */
 #define TIMER_INTERVAL  500
 
 typedef enum
 {
-    PRIMARY,
+    PRIMARY = 0,
     DEFAULT,
 }
 ClipboardType;
 
 typedef enum
 {
-    NORMAL,
+    NORMAL = 0,
     STRICTLY,
 }
 ClipboardBehaviour;
@@ -83,8 +85,8 @@ typedef struct
     gboolean      ItemNumbers;
     gboolean      SeparateMenu;
     
-    gint          HistoryItems;
-    gint          MenuCharacters;
+    guint         HistoryItems;
+    guint         MenuCharacters;
 }
 ClipmanPlugin;
 
@@ -101,23 +103,23 @@ typedef struct
 {
     ClipmanPlugin  *clipman;
     ClipmanClip    *clip;
-    
-    GtkWidget      *text;
 }
 ClipmanAction;
 
 void
-clipman_check_array_len (ClipmanPlugin *clipman);
+clipman_check_array_len        (ClipmanPlugin *clipman);
 
 void
-clipman_regenerate_titles (ClipmanPlugin *clipman, gint MenuCharacters);
+clipman_regenerate_titles      (ClipmanPlugin *clipman, gint MenuCharacters);
 
 void
-clipman_save (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
+clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
 
 void
 clipman_remove_selection_clips (ClipmanPlugin *clipman);
 
 GtkClipboard *primaryClip, *defaultClip;
+
+G_END_DECLS
 
 #endif /* CLIPMAN_H */

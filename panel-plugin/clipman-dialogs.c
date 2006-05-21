@@ -89,7 +89,7 @@ static void
 set_scale_to_spin (GtkWidget *scalewidget,
                    GtkWidget *spinwidget)
 {
-    gint value;
+    guint value;
     value = gtk_range_get_value (GTK_RANGE (scalewidget));
     gtk_spin_button_set_value (GTK_SPIN_BUTTON(spinwidget), value);
 }
@@ -98,7 +98,7 @@ static void
 set_spin_to_scale (GtkWidget *spinwidget,
                    GtkWidget *scalewidget)
 {
-    gint value;
+    guint value;
     value = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON(spinwidget)); 
     gtk_range_set_value (GTK_RANGE (scalewidget), value);
 }
@@ -153,14 +153,11 @@ clipman_configure (XfcePanelPlugin *plugin,
     
     dialog = gtk_dialog_new_with_buttons (_("Properties"), 
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-        GTK_DIALOG_DESTROY_WITH_PARENT |
-        GTK_DIALOG_NO_SEPARATOR,
+        GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
         GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
-            NULL);
+        NULL);
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_name (GTK_WINDOW (dialog), "gtk-properties");
-    gtk_window_set_keep_above(GTK_WINDOW (dialog), TRUE);
-    gtk_window_stick (GTK_WINDOW (dialog));
+    gtk_window_set_icon_name (GTK_WINDOW (dialog), GTK_STOCK_PROPERTIES);
     
     g_object_set_data (G_OBJECT (clipman->plugin), "dialog", dialog);
     
