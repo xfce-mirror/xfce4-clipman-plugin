@@ -29,7 +29,7 @@ dnl check for standard header files
 AC_HEADER_STDC
 
 dnl Check for i18n support
-XDT_I18N([ja
+XDT_I18N([ja hu
 	  ])
 
 dnl Check for X11 installed
