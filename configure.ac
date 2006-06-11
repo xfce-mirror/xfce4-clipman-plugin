@@ -43,6 +43,14 @@ XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.90])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.90])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.90])
 
+AC_MSG_CHECKING([whether to use new header dialog])
+if $PKG_CONFIG --atleast-version 4.3.90.2 libxfcegui4-1.0 >/dev/null 2>&1; then
+  AC_DEFINE([USE_NEW_DIALOG], [1], [Define to use new header dialog])
+  AC_MSG_RESULT([yes])
+else
+  AC_MSG_RESULT([no])
+fi
+
 dnl check for debugging support
 XDT_FEATURE_DEBUG()
 

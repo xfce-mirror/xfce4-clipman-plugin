@@ -151,23 +151,36 @@ clipman_configure (XfcePanelPlugin *plugin,
     
     xfce_panel_plugin_block_menu (clipman->plugin);
     
+#ifdef USE_NEW_DIALOG
+    dialog = xfce_titled_dialog_new_with_buttons (_("Clipboard Manager"),
+                                                  GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                                                  GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
+                                                  GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                                  NULL);
+/*    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog),
+                                     _("Configure the clipboard manager plugin")); */
+#else    
     dialog = gtk_dialog_new_with_buttons (_("Properties"), 
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
         GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
         NULL);
+#endif
+
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_name (GTK_WINDOW (dialog), GTK_STOCK_PROPERTIES);
+    gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-settings");
     
     g_object_set_data (G_OBJECT (clipman->plugin), "dialog", dialog);
     
     dialog_vbox = GTK_DIALOG (dialog)->vbox;
-    
+
+#ifndef USE_NEW_DIALOG
     frame = xfce_create_header (NULL, _("Clipboard Manager"));
     gtk_widget_set_size_request (GTK_BIN (frame)->child, -1, 32);
     gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER-3);
     gtk_box_pack_start (GTK_BOX (dialog_vbox), frame, FALSE, TRUE, 0);
-	
+#endif
+
     notebook = gtk_notebook_new ();
     gtk_box_pack_start (GTK_BOX (dialog_vbox), notebook, FALSE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (notebook), BORDER-3);

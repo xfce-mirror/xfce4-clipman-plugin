@@ -29,6 +29,7 @@
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/xfce-panel-convenience.h>
 
 #include "clipman.h"
 #include "clipman-dialogs.h"
@@ -902,13 +903,12 @@ clipman_new (XfcePanelPlugin *plugin)
     clipman->plugin = plugin;
     
     clipman->tooltip = gtk_tooltips_new ();
+    g_object_ref (clipman->tooltip);
     
     clipman_read (clipman);
     
-    clipman->button = gtk_toggle_button_new ();
-        gtk_widget_show (clipman->button);
-        gtk_button_set_relief (GTK_BUTTON (clipman->button), GTK_RELIEF_NONE);
-        gtk_button_set_focus_on_click (GTK_BUTTON (clipman->button), FALSE);
+    clipman->button = xfce_create_panel_toggle_button ();
+    gtk_widget_show (clipman->button);
         
     gtk_tooltips_set_tip (GTK_TOOLTIPS(clipman->tooltip),
                           clipman->button, _("Clipboard Manager"),
@@ -961,10 +961,12 @@ clipman_free (XfcePanelPlugin *plugin,
     }
     g_ptr_array_free (clipman->clips, TRUE);
 
+    gtk_tooltips_set_tip (clipman->tooltip, clipman->button, NULL, NULL);
+    g_object_unref (clipman->tooltip);
+    
     gtk_widget_destroy (clipman->icon);
     gtk_widget_destroy (clipman->button);
     
-    g_free (clipman->tooltip);
     clipman->plugin = NULL;
     
     DBG ("Plugin Freed");
@@ -978,20 +980,22 @@ clipman_set_size (XfcePanelPlugin *plugin,
                   ClipmanPlugin   *clipman)
 {
     GdkPixbuf *pb;
-    gint       newsize;
+    gint       size;
     
     DBG("Set clipman button size");
 
-    newsize = wsize - 10;
-    if (newsize < 1)
-        newsize = 1;
-    
     gtk_widget_set_size_request (clipman->button, wsize, wsize);
+    
+    size = wsize - 2 - 2 * MAX (clipman->button->style->xthickness,
+                                clipman->button->style->ythickness);
+    
+    if (size < 1)
+        size = 1;
     
     if (clipman->icon)
         gtk_widget_destroy (clipman->icon);
     
-    pb = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (), "gtk-paste", newsize , 0, NULL);
+    pb = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (), "gtk-paste", size , 0, NULL);
     clipman->icon = gtk_image_new_from_pixbuf (pb);
     gtk_widget_show (clipman->icon);
     gtk_container_add (GTK_CONTAINER (clipman->button), clipman->icon);
