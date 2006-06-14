@@ -962,7 +962,7 @@ clipman_free (XfcePanelPlugin *plugin,
     g_ptr_array_free (clipman->clips, TRUE);
 
     gtk_tooltips_set_tip (clipman->tooltip, clipman->button, NULL, NULL);
-    g_object_unref (clipman->tooltip);
+    g_object_unref (G_OBJECT (clipman->tooltip));
     
     gtk_widget_destroy (clipman->icon);
     gtk_widget_destroy (clipman->button);
@@ -986,8 +986,8 @@ clipman_set_size (XfcePanelPlugin *plugin,
 
     gtk_widget_set_size_request (clipman->button, wsize, wsize);
     
-    size = wsize - 2 - 2 * MAX (clipman->button->style->xthickness,
-                                clipman->button->style->ythickness);
+    size = wsize - 2 - (2 * MAX (clipman->button->style->xthickness,
+                                 clipman->button->style->ythickness));
     
     if (size < 1)
         size = 1;
@@ -995,12 +995,13 @@ clipman_set_size (XfcePanelPlugin *plugin,
     if (clipman->icon)
         gtk_widget_destroy (clipman->icon);
     
-    pb = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (), "gtk-paste", size , 0, NULL);
+    pb = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
+                                   "gtk-paste", size , 0, NULL);
     clipman->icon = gtk_image_new_from_pixbuf (pb);
+    g_object_unref (G_OBJECT (pb));
+    
     gtk_widget_show (clipman->icon);
     gtk_container_add (GTK_CONTAINER (clipman->button), clipman->icon);
-    
-    g_object_unref (pb);
 
     return TRUE;
 }
