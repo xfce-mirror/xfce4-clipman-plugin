@@ -110,7 +110,7 @@ void
 clipman_check_array_len        (ClipmanPlugin *clipman);
 
 void
-clipman_regenerate_titles      (ClipmanPlugin *clipman, gint MenuCharacters);
+clipman_regenerate_titles      (ClipmanPlugin *clipman);
 
 void
 clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);

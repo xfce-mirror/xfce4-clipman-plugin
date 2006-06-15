@@ -65,13 +65,16 @@ clipman_configure_response (GtkWidget      *dialog,
             options->clipman->Behaviour = STRICTLY;
         
         if (options->clipman->HistoryItems != gtk_range_get_value (GTK_RANGE (options->HistorySize)))
+	{
+	    options->clipman->HistoryItems   = gtk_range_get_value (GTK_RANGE (options->HistorySize));
             clipman_check_array_len (options->clipman);
+	}
         
         if (options->clipman->MenuCharacters != gtk_range_get_value (GTK_RANGE (options->ItemChars)))
-            clipman_regenerate_titles (options->clipman, gtk_range_get_value (GTK_RANGE (options->ItemChars)));
-        
-        options->clipman->HistoryItems   = gtk_range_get_value (GTK_RANGE (options->HistorySize));
-        options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
+	{
+	    options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
+            clipman_regenerate_titles (options->clipman);
+	}
         
         clipman_save (options->clipman->plugin, options->clipman);
         

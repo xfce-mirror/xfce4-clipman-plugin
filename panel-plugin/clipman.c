@@ -51,7 +51,8 @@ clipman_free_clip (ClipmanClip *clip)
 }
 
 static void
-clipman_destroy_menu (GtkWidget *menu, ClipmanPlugin *clipman)
+clipman_destroy_menu (GtkWidget     *menu,
+                      ClipmanPlugin *clipman)
 {
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman->button), FALSE);
     
@@ -71,8 +72,8 @@ clipman_clear (GtkWidget      *mi,
 	              "gtk-yes", 
                       NULL))
     {
-        gtk_clipboard_set_text(primaryClip, "", -1);
-        gtk_clipboard_set_text(defaultClip, "", -1);
+        gtk_clipboard_clear (primaryClip);
+	gtk_clipboard_clear (defaultClip);
         
         while (clipman->clips->len > 0)
         {
@@ -159,8 +160,7 @@ clipman_remove_selection_clips (ClipmanPlugin *clipman)
 }
 
 void
-clipman_regenerate_titles (ClipmanPlugin *clipman,
-                           gint           MenuCharacters)
+clipman_regenerate_titles (ClipmanPlugin *clipman)
 {
     ClipmanClip *clip;
     guint        i;
@@ -172,7 +172,8 @@ clipman_regenerate_titles (ClipmanPlugin *clipman,
         clip = g_ptr_array_index (clipman->clips, i);
 	
 	g_free (clip->title);        
-        clip->title = clipman_create_title (clip->text, MenuCharacters);
+        clip->title = clipman_create_title (clip->text,
+	                                    clipman->MenuCharacters);
     }
 }
 
@@ -188,12 +189,13 @@ clipman_add_clip (ClipmanPlugin *clipman,
         new_clip = g_new0 (ClipmanClip, 1);
         
         new_clip->text     = g_strdup (txt);
-        new_clip->title    = clipman_create_title (txt, clipman->MenuCharacters);
+        new_clip->title    = clipman_create_title (txt,
+	                                           clipman->MenuCharacters);
         new_clip->fromtype = type;
         
         g_ptr_array_add (clipman->clips, new_clip);
         
-        DBG("Clips %d/%d", clipman->clips->len, clipman->HistoryItems);
+        DBG("Added clip %d of %d", clipman->clips->len, clipman->HistoryItems);
     }
 }
 
@@ -242,41 +244,60 @@ clipman_item_clicked (GtkWidget      *mi,
                       GdkEventButton *ev,
                       ClipmanAction  *action)
 {
+    gchar *dtext, *ptext;
+    
     if (ev->button == 1 && action->clipman->Behaviour == STRICTLY)
     {
         DBG("Clip copied to his own clipboard (STRICTLY)");
         
         if (action->clip->fromtype == DEFAULT)
-            gtk_clipboard_set_text(defaultClip, action->clip->text, -1);
+	{
+	    gtk_clipboard_clear (defaultClip);
+            gtk_clipboard_set_text (defaultClip, action->clip->text, -1);
+	}
         
         if (action->clip->fromtype == PRIMARY)
-            gtk_clipboard_set_text(primaryClip, action->clip->text, -1);
+	{
+	    gtk_clipboard_clear (primaryClip);
+            gtk_clipboard_set_text (primaryClip, action->clip->text, -1);
+	}
     }
     else if (ev->button == 1)
     {
-        DBG("Clip copied to both clipboards");
+        gtk_clipboard_clear (defaultClip);
+        gtk_clipboard_set_text (defaultClip, action->clip->text, -1);
+	DBG ("Clip copied to default clipboard");
         
-        gtk_clipboard_set_text(defaultClip, action->clip->text, -1);
-        gtk_clipboard_set_text(primaryClip, action->clip->text, -1);
+	if (!action->clipman->IgnoreSelect)
+	{
+	    gtk_clipboard_clear (primaryClip);
+	    gtk_clipboard_set_text (primaryClip, action->clip->text, -1);
+	    DBG ("Clip copied to primary clipboard");
+	}
     }
     else if (ev->button == 3)
     {
         if (xfce_confirm (_("Are you sure you want to remove this clip from the history?"), 
-	              "gtk-yes", 
-                      NULL))
+	              "gtk-yes", NULL))
         {
             DBG ("Removed the selected clip from the History");
 	    
-            if (gtk_clipboard_wait_for_text (defaultClip) &&
-                !strcmp(gtk_clipboard_wait_for_text (defaultClip), action->clip->text)
-               )
-                gtk_clipboard_set_text(defaultClip, "", -1);
+	    dtext = gtk_clipboard_wait_for_text (defaultClip);
+            if (dtext && !strcmp(dtext, action->clip->text))
+	    {
+                gtk_clipboard_clear (defaultClip);
+		gtk_clipboard_set_text (defaultClip, "", -1);
+	    }
+	    g_free (dtext);
 	    
-            if (gtk_clipboard_wait_for_text (primaryClip) &&
-                !strcmp(gtk_clipboard_wait_for_text (primaryClip), action->clip->text)
-               )
-                gtk_clipboard_set_text(primaryClip, "", -1);
-            
+	    ptext = gtk_clipboard_wait_for_text (primaryClip);
+            if (ptext && !strcmp(ptext, action->clip->text))
+	    {
+                gtk_clipboard_clear (primaryClip);
+		gtk_clipboard_set_text (primaryClip, "", -1);
+	    }
+            g_free (ptext);
+	    
             g_ptr_array_remove (action->clipman->clips, action->clip);
             clipman_free_clip (action->clip);
         }
@@ -320,14 +341,14 @@ static void
 clipman_clicked_separated (GtkWidget     *menu,
                            ClipmanPlugin *clipman)
 {
-    gchar         *priClip, *defClip;
+    gchar         *ptext, *dtext;
     guint          i, j;
     ClipmanAction *action = NULL;
     ClipmanClip   *clip;
     GtkWidget     *mi;
     
     /* Default Clips */
-    defClip = gtk_clipboard_wait_for_text (defaultClip);
+    dtext = gtk_clipboard_wait_for_text (defaultClip);
     j = 0;
     
     for (i = clipman->clips->len; i--; )
@@ -342,12 +363,13 @@ clipman_clicked_separated (GtkWidget     *menu,
             action->clipman = clipman;
             action->clip = clip;
             
-            if (defClip != NULL               && 
+            if (dtext != NULL                 && 
                 G_LIKELY (clip->text != NULL) && 
-                strcmp(clip->text, defClip) == 0)
+                strcmp(clip->text, dtext) == 0)
             {
                 mi = clipman_create_menuitem (action, j, TRUE);
-                defClip = NULL;
+		g_free (dtext);
+		dtext = NULL;
             }
             else
             {
@@ -361,7 +383,7 @@ clipman_clicked_separated (GtkWidget     *menu,
         }
     }
     
-    g_free (defClip);
+    g_free (dtext);
 
     if (j == 0)
     {
@@ -375,7 +397,7 @@ clipman_clicked_separated (GtkWidget     *menu,
     gtk_widget_set_sensitive (mi, FALSE);
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
         
-    priClip = gtk_clipboard_wait_for_text (primaryClip);
+    ptext = gtk_clipboard_wait_for_text (primaryClip);
     j = 0;
        
     for (i = clipman->clips->len; i--; )
@@ -390,12 +412,13 @@ clipman_clicked_separated (GtkWidget     *menu,
             action->clipman = clipman;
             action->clip = clip;
                 
-            if (priClip != NULL               && 
+            if (ptext != NULL                 && 
                 G_LIKELY (clip->text != NULL) && 
-                strcmp(clip->text, priClip) == 0)
+                strcmp(clip->text, ptext) == 0)
             {
                 mi = clipman_create_menuitem (action, j, TRUE);
-                priClip = NULL;
+                g_free (ptext);
+		ptext = NULL;
             }
             else
             {
@@ -409,7 +432,7 @@ clipman_clicked_separated (GtkWidget     *menu,
         }
     }
     
-    g_free (priClip);
+    g_free (ptext);
         
     if (j == 0)
     {
@@ -433,14 +456,14 @@ static void
 clipman_clicked_not_separated (GtkWidget     *menu,
                                ClipmanPlugin *clipman)
 {
-    gchar         *priClip, *defClip;
+    gchar         *ptext, *dtext;
     guint          i;
     ClipmanAction *action = NULL;
     ClipmanClip   *clip;
     GtkWidget     *mi;
     
-    priClip = gtk_clipboard_wait_for_text (primaryClip);
-    defClip = gtk_clipboard_wait_for_text (defaultClip);
+    ptext = gtk_clipboard_wait_for_text (primaryClip);
+    dtext = gtk_clipboard_wait_for_text (defaultClip);
     
     for (i = clipman->clips->len; i--;)
     {
@@ -450,19 +473,21 @@ clipman_clicked_not_separated (GtkWidget     *menu,
         action->clipman = clipman;
         action->clip = clip;
         
-        if (defClip != NULL               && 
+        if (dtext != NULL                 && 
             G_LIKELY (clip->text != NULL) && 
-            strcmp(clip->text, defClip) == 0)
+            strcmp(clip->text, dtext) == 0)
         {
             mi = clipman_create_menuitem (action, clipman->clips->len-i, TRUE);
-            defClip = NULL;
+            g_free (dtext);
+	    dtext = NULL;
         }
-        else if (priClip != NULL               && 
+        else if (ptext != NULL                 && 
                  G_LIKELY (clip->text != NULL) && 
-                 strcmp(clip->text, priClip) == 0)
+                 strcmp(clip->text, ptext) == 0)
         {
             mi = clipman_create_menuitem (action, clipman->clips->len-i, TRUE);
-            priClip = NULL;
+            g_free (ptext);
+	    ptext = NULL;
         }
         else
         {
@@ -475,8 +500,8 @@ clipman_clicked_not_separated (GtkWidget     *menu,
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     }
     
-    g_free (priClip);
-    g_free (defClip);
+    g_free (ptext);
+    g_free (dtext);
     
     mi = gtk_separator_menu_item_new ();
     gtk_widget_set_sensitive (mi, FALSE);
@@ -673,7 +698,7 @@ clipman_restore_empty (ClipmanPlugin *clipman,
 static gboolean
 clipman_check (ClipmanPlugin *clipman)
 {
-    gchar           *txt;
+    gchar           *ptext = NULL, *dtext;
     GdkModifierType  state;
     
     /* We ignore the selection clipboard entirely if you've activated this in the options dialog */
@@ -682,46 +707,40 @@ clipman_check (ClipmanPlugin *clipman)
 	/* Get mouse button information */
 	gdk_window_get_pointer(NULL, NULL, NULL, &state);
 	
-        txt = gtk_clipboard_wait_for_text (primaryClip);
+        ptext = gtk_clipboard_wait_for_text (primaryClip);
         
-        if (clipman->PreventEmpty && G_UNLIKELY (txt == NULL))
+        if (clipman->PreventEmpty && ptext == NULL)
         {
             clipman_restore_empty (clipman, PRIMARY);
         }
-        else if (txt != NULL &&
+        else if (ptext != NULL               &&
                  !(state & GDK_BUTTON1_MASK) && 
-                 !clipman_exists (clipman, txt, PRIMARY)
-                )
+                 !clipman_exists (clipman, ptext, PRIMARY))
         {
             DBG("Item added from primary clipboard");
-            clipman_add_clip (clipman, txt, PRIMARY);
+            clipman_add_clip (clipman, ptext, PRIMARY);
             clipman_check_array_len (clipman);
         }
         
-        g_free (txt);
-        txt = NULL;
+        g_free (ptext);
     }
     
-    txt = gtk_clipboard_wait_for_text (defaultClip);
+    dtext = gtk_clipboard_wait_for_text (defaultClip);
 
     /* Check default clipboard */
-    if (clipman->PreventEmpty && 
-        G_UNLIKELY (txt == NULL)
-       )
+    if (clipman->PreventEmpty && dtext == NULL)
     {
         clipman_restore_empty (clipman, DEFAULT);
     }
-    else if (G_LIKELY (txt != NULL))
+    else if (G_LIKELY (dtext != NULL) &&
+	     !clipman_exists (clipman, dtext, DEFAULT))
     {
-        if (!clipman_exists (clipman, txt, DEFAULT))
-        {
-            DBG("Item added from default clipboard");
-            clipman_add_clip (clipman, txt, DEFAULT);
-            clipman_check_array_len (clipman);
-        }
+        DBG("Item added from default clipboard");
+        clipman_add_clip (clipman, dtext, DEFAULT);
+        clipman_check_array_len (clipman);
     }
 
-    g_free (txt);
+    g_free (dtext);
     
     return TRUE;
 }
@@ -913,12 +932,18 @@ clipman_new (XfcePanelPlugin *plugin)
     clipman->plugin = plugin;
     
     clipman->tooltip = gtk_tooltips_new ();
-    g_object_ref (clipman->tooltip);
+    g_object_ref (G_OBJECT (clipman->tooltip));
     
+    /* Load Settings */
     clipman_read (clipman);
     
+    /* Create panel widgets */
     clipman->button = xfce_create_panel_toggle_button ();
     gtk_widget_show (clipman->button);
+    
+    clipman->icon = gtk_image_new ();
+    gtk_widget_show (clipman->icon);
+    gtk_container_add (GTK_CONTAINER (clipman->button), clipman->icon);
         
     gtk_tooltips_set_tip (GTK_TOOLTIPS(clipman->tooltip),
                           clipman->button, _("Clipboard Manager"),
@@ -992,27 +1017,17 @@ clipman_set_size (XfcePanelPlugin *plugin,
     GdkPixbuf *pb;
     gint       size;
     
-    DBG("Set clipman button size");
-
     gtk_widget_set_size_request (clipman->button, wsize, wsize);
     
     size = wsize - 2 - (2 * MAX (clipman->button->style->xthickness,
                                  clipman->button->style->ythickness));
-    
-    if (size < 1)
-        size = 1;
-    
-    if (clipman->icon)
-        gtk_widget_destroy (clipman->icon);
-    
-    pb = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                   "gtk-paste", size , 0, NULL);
-    clipman->icon = gtk_image_new_from_pixbuf (pb);
-    g_object_unref (G_OBJECT (pb));
-    
-    gtk_widget_show (clipman->icon);
-    gtk_container_add (GTK_CONTAINER (clipman->button), clipman->icon);
 
+    DBG("Set clipman button size to %dpx, load icon at %dpx", wsize, size);
+    
+    pb = xfce_themed_icon_load ("gtk-paste", size);
+    gtk_image_set_from_pixbuf (GTK_IMAGE (clipman->icon), pb);
+    g_object_unref (G_OBJECT (pb));
+ 
     return TRUE;
 }
 
