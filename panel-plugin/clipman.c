@@ -104,29 +104,35 @@ clipman_check_array_len (ClipmanPlugin *clipman)
 
 static gchar *
 clipman_create_title (gchar *txt,
-                      gint chars)
+                      gint   chars)
 {
-    guint i;
+    guint  i;
+    gchar *s, *t, *u;
     
-    txt = g_strndup(txt, chars);
+    s = g_strndup (txt, chars);
 
     i = 0;
-    while (txt[i] != '\0')
+    while (s[i] != '\0')
     {
-        if (txt[i] == '\n' || txt[i] == '\r' || txt[i] == '\t')
-            txt[i] = ' ';
+        if (s[i] == '\n' || s[i] == '\r' || s[i] == '\t')
+            s[i] = ' ';
         i++;
     }
 
-    if (!g_utf8_validate(txt, -1, NULL))
+    if (!g_utf8_validate(s, -1, NULL))
     {
-        txt = g_locale_to_utf8(txt, -1, NULL, NULL, NULL);
+        u = g_locale_to_utf8(s, -1, NULL, NULL, NULL);
+	g_free (s);
+	s = u;
         DBG("Title was not UTF-8 complaint");
     }
+
+    g_strstrip (s);
     
-    txt = g_markup_printf_escaped ("%s", txt);
-    txt = g_strstrip(txt);
-    return txt;
+    t = g_markup_escape_text (s, -1);
+    g_free (s);
+    
+    return t;
 }
 
 void
@@ -164,7 +170,8 @@ clipman_regenerate_titles (ClipmanPlugin *clipman,
     for (i = clipman->clips->len; i--; )
     {
         clip = g_ptr_array_index (clipman->clips, i);
-        
+	
+	g_free (clip->title);        
         clip->title = clipman_create_title (clip->text, MenuCharacters);
     }
 }
@@ -259,21 +266,23 @@ clipman_item_clicked (GtkWidget      *mi,
                       NULL))
         {
             DBG ("Removed the selected clip from the History");
-        
+	    
             if (gtk_clipboard_wait_for_text (defaultClip) &&
                 !strcmp(gtk_clipboard_wait_for_text (defaultClip), action->clip->text)
                )
                 gtk_clipboard_set_text(defaultClip, "", -1);
-        
+	    
             if (gtk_clipboard_wait_for_text (primaryClip) &&
                 !strcmp(gtk_clipboard_wait_for_text (primaryClip), action->clip->text)
                )
                 gtk_clipboard_set_text(primaryClip, "", -1);
-
+            
             g_ptr_array_remove (action->clipman->clips, action->clip);
             clipman_free_clip (action->clip);
         }
     }
+    
+    g_free (action);
     
     return FALSE;
 }
@@ -810,10 +819,9 @@ static void
 clipman_read (ClipmanPlugin *clipman)
 {
     XfceRc      *rc;
-    gchar       *file;
+    gchar       *file, *value;
     guint        type, i, clipslen;
     gchar        name[13];
-    const gchar *value;
     
     /* Because Clipman is unique, we use 1 config file */
     /*
@@ -878,15 +886,17 @@ clipman_read (ClipmanPlugin *clipman)
         for (i = 0; i < clipslen; ++i)
         {
             g_snprintf (name, 13, "clip_%d_text", i);
-            value = xfce_rc_read_entry (rc, name, "");
+            value = g_strdup (xfce_rc_read_entry (rc, name, ""));
             
             g_snprintf (name, 13, "clip_%d_from", i);
             type = xfce_rc_read_int_entry (rc, name, 0);
             
             if (type == 0)
-                clipman_add_clip (clipman, (gchar *)value, PRIMARY);
+                clipman_add_clip (clipman, value, PRIMARY);
             else
-                clipman_add_clip (clipman, (gchar *)value, DEFAULT);
+                clipman_add_clip (clipman, value, DEFAULT);
+	    
+	    g_free (value);
         }
     }
     
