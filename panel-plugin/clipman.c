@@ -34,9 +34,14 @@
 #include "clipman.h"
 #include "clipman-dialogs.h"
 
-static void clipman_construct (XfcePanelPlugin *plugin);
+/* The clipboards */
+static GtkClipboard *primaryClip;
+static GtkClipboard *defaultClip;
 
-/* Register Plugin */
+/* Register the plugin */
+static void
+clipman_construct (XfcePanelPlugin *plugin);
+
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (clipman_construct);
 
 static void
@@ -83,6 +88,9 @@ clipman_clear (GtkWidget      *mi,
         }
     }
     
+    /* 'Save' the empty clipboard */    
+    clipman_save (clipman->plugin, clipman);
+    
     return FALSE;
 }
 
@@ -103,7 +111,7 @@ clipman_check_array_len (ClipmanPlugin *clipman)
     }
 }
 
-static gchar *
+gchar *
 clipman_create_title (gchar *txt,
                       gint   chars)
 {
@@ -120,12 +128,21 @@ clipman_create_title (gchar *txt,
         i++;
     }
 
-    if (!g_utf8_validate(s, -1, NULL))
+    if (!g_utf8_validate (s, -1, NULL))
     {
-        u = g_locale_to_utf8(s, -1, NULL, NULL, NULL);
+	DBG ("Title is not utf8 complaint, we're going to convert it");
+	
+        u = g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
 	g_free (s);
 	s = u;
-        DBG("Title was not UTF-8 complaint");
+	
+	/* Check the title again */
+	if (!g_utf8_validate (s, -1, NULL))
+	{
+	    DBG ("Title is still not utf8 complaint, we going to drop this clip");
+	    g_free (s);
+	    return NULL;
+	}
     }
 
     g_strstrip (s);
@@ -188,9 +205,16 @@ clipman_add_clip (ClipmanPlugin *clipman,
     {
         new_clip = g_new0 (ClipmanClip, 1);
         
-        new_clip->text     = g_strdup (txt);
-        new_clip->title    = clipman_create_title (txt,
-	                                           clipman->MenuCharacters);
+        new_clip->title    = clipman_create_title (txt, clipman->MenuCharacters);
+	
+	/* No valid title could be created, drop it... */
+	if (new_clip->title == NULL)
+	{
+	    g_free (new_clip)
+	    return;
+	}
+	
+	new_clip->text     = g_strdup (txt);
         new_clip->fromtype = type;
         
         g_ptr_array_add (clipman->clips, new_clip);
@@ -973,7 +997,17 @@ clipman_free (XfcePanelPlugin *plugin,
     guint        i;
     ClipmanClip *clip;
     GtkWidget   *dialog;
+    
+    /* Valgrind notes:
+       - primaryClip and defaultClip should be cleared, but gtk
+         takes care about this
+    */
+    
+    /* Free the clipboards */
+    gtk_clipboard_clear (primaryClip);
+    gtk_clipboard_clear (defaultClip);
 
+    /* Destroy the setting dialog, if this open */
     dialog = g_object_get_data (G_OBJECT (plugin), "dialog");
 
     if (dialog)

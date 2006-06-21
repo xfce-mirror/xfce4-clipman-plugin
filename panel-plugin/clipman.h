@@ -118,8 +118,6 @@ clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman)
 void
 clipman_remove_selection_clips (ClipmanPlugin *clipman);
 
-GtkClipboard *primaryClip, *defaultClip;
-
 G_END_DECLS
 
 #endif /* CLIPMAN_H */
