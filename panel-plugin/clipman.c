@@ -210,7 +210,7 @@ clipman_add_clip (ClipmanPlugin *clipman,
 	/* No valid title could be created, drop it... */
 	if (new_clip->title == NULL)
 	{
-	    g_free (new_clip)
+	    g_free (new_clip);
 	    return;
 	}
 	
