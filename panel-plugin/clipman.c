@@ -111,7 +111,7 @@ clipman_check_array_len (ClipmanPlugin *clipman)
     }
 }
 
-gchar *
+static gchar *
 clipman_create_title (gchar *txt,
                       gint   chars)
 {
@@ -614,12 +614,12 @@ clipman_clicked (GtkWidget      *button,
                  GdkEventButton *ev,
                  ClipmanPlugin  *clipman)
 {
-    if (ev->button != 1)
-	return FALSE;
-    
     GtkWidget *mi;
     GtkWidget *menu;
     gchar     *title;
+    
+    if (ev->button != 1)
+	return FALSE;
     
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman->button), TRUE);
     

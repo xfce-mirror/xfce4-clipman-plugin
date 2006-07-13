@@ -52,14 +52,14 @@ G_BEGIN_DECLS
 typedef enum
 {
     PRIMARY = 0,
-    DEFAULT,
+    DEFAULT
 }
 ClipboardType;
 
 typedef enum
 {
     NORMAL = 0,
-    STRICTLY,
+    STRICTLY
 }
 ClipboardBehaviour;
 
