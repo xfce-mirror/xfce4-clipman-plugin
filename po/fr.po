@@ -1,0 +1,137 @@
+# French translations for xfce4-clipman-plugin package.
+# Copyright (C) 2005-2006 Nick Schermer.
+# This file is distributed under the same license as
+#   the xfce4-clipman-plugin package.
+# Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-09 12:36+0900\n"
+"PO-Revision-Date: 2006-07-28 12:50+0100\n"
+"Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
+"Language-Team: French <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/clipman-dialogs.c:140
+msgid "Properties"
+msgstr "Propriétés"
+
+#: ../panel-plugin/clipman-dialogs.c:154
+#: ../panel-plugin/clipman-dialogs.c:340
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/clipman-dialogs.c:170
+msgid "Save clipboard contents on _exit"
+msgstr "_Enregistrer le contenu du presse-papiers en quittant"
+
+#: ../panel-plugin/clipman-dialogs.c:174
+msgid "_Ignore selections"
+msgstr "_Ignorer les sélections"
+
+#: ../panel-plugin/clipman-dialogs.c:181
+msgid "Pre_vent empty clipboard"
+msgstr "Éviter un presse-papiers vide"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "<b>General</b>"
+msgstr "<b>Général</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:203
+msgid "Normal clipboard _management"
+msgstr "Gestion nor_male du presse-papiers"
+
+#: ../panel-plugin/clipman-dialogs.c:212
+msgid "Strictly separate _both clipboards"
+msgstr "Séparer les deux _presse-papiers"
+
+#: ../panel-plugin/clipman-dialogs.c:221
+msgid "<b>Clipboard behaviour</b>"
+msgstr "<b>Comportement du presse-papiers</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:237
+msgid "_Show item numbers"
+msgstr "_Afficher les numéros des éléments"
+
+#: ../panel-plugin/clipman-dialogs.c:241
+msgid "Se_parate clipboards"
+msgstr "Sé_parer les presses-papiers"
+
+#: ../panel-plugin/clipman-dialogs.c:245
+msgid "Use _colored menu items"
+msgstr "Éléments de menu en _couleur"
+
+#: ../panel-plugin/clipman-dialogs.c:249
+msgid "<b>Menu appearance</b>"
+msgstr "<b>Apparence du menu</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:271
+msgid "Clipboard history items:"
+msgstr "Éléments de l'historique du presse-papiers:"
+
+#: ../panel-plugin/clipman-dialogs.c:295
+msgid "Menu item characters:"
+msgstr "Caractères des éléments du menu:"
+
+#: ../panel-plugin/clipman-dialogs.c:317
+msgid "<b>Numbers</b>"
+msgstr "<b>Nombres</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Gestionnaire de presse-papiers pour l'environnement de bureau Xfce"
+
+#: ../panel-plugin/clipman-dialogs.c:345
+#: ../panel-plugin/clipman-dialogs.c:346
+msgid "Developer"
+msgstr "Développeur"
+
+#: ../panel-plugin/clipman-dialogs.c:443
+msgid "Edit content"
+msgstr "Éditer le contenu"
+
+#: ../panel-plugin/clipman-dialogs.c:538
+msgid "Question"
+msgstr "Question"
+
+#: ../panel-plugin/clipman-dialogs.c:561
+msgid "What to do with this clipboard item?"
+msgstr "Que faire de cet élément du presse-papiers?"
+
+#: ../panel-plugin/clipman.c:105
+msgid "Are you sure you want to clear the history?"
+msgstr "Êtes-vous certain de vouloir effacer l'historique?"
+
+#: ../panel-plugin/clipman.c:401
+msgid "< Default History Empty >"
+msgstr "< Historique par défaut vide >"
+
+#: ../panel-plugin/clipman.c:452
+msgid "< Selection History Empty >"
+msgstr "< Historique de la sélection vide >"
+
+#: ../panel-plugin/clipman.c:464
+#: ../panel-plugin/clipman.c:531
+msgid "Clear History"
+msgstr "Effacer l'historique"
+
+#: ../panel-plugin/clipman.c:633
+msgid "Clipman History"
+msgstr "Historique du presse-papiers"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< Presse-papiers vide >"
+
+#: ../panel-plugin/clipman.c:1022
+msgid "Clipboard Manager"
+msgstr "Gestionnaire de presse-papiers"
+
