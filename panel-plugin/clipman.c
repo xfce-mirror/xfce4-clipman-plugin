@@ -112,11 +112,12 @@ clipman_check_array_len (ClipmanPlugin *clipman)
 }
 
 static gchar *
-clipman_create_title (gchar *txt)
+clipman_create_title (gchar *txt,
+                      gint   length)
 {
     gchar *s, *t, *u;
     
-    s = g_strdup (txt);
+    s = g_strndup (txt, length*8);
 
     if (!g_utf8_validate (s, -1, NULL))
     {
@@ -177,7 +178,8 @@ clipman_add_clip (ClipmanPlugin *clipman,
     {
         new_clip = g_new0 (ClipmanClip, 1);
         
-        new_clip->title    = clipman_create_title (txt);
+        new_clip->title    = clipman_create_title (txt,
+                                                   clipman->MenuCharacters);
 	
 	/* No valid title could be created, drop it... */
 	if (new_clip->title == NULL)
