@@ -112,21 +112,11 @@ clipman_check_array_len (ClipmanPlugin *clipman)
 }
 
 static gchar *
-clipman_create_title (gchar *txt,
-                      gint   chars)
+clipman_create_title (gchar *txt)
 {
-    guint  i;
     gchar *s, *t, *u;
     
-    s = g_strndup (txt, chars);
-
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == '\n' || s[i] == '\r' || s[i] == '\t')
-            s[i] = ' ';
-        i++;
-    }
+    s = g_strdup (txt);
 
     if (!g_utf8_validate (s, -1, NULL))
     {
@@ -189,8 +179,7 @@ clipman_regenerate_titles (ClipmanPlugin *clipman)
         clip = g_ptr_array_index (clipman->clips, i);
 	
 	g_free (clip->title);        
-        clip->title = clipman_create_title (clip->text,
-	                                    clipman->MenuCharacters);
+        clip->title = clipman_create_title (clip->text);
     }
 }
 
@@ -205,7 +194,7 @@ clipman_add_clip (ClipmanPlugin *clipman,
     {
         new_clip = g_new0 (ClipmanClip, 1);
         
-        new_clip->title    = clipman_create_title (txt, clipman->MenuCharacters);
+        new_clip->title    = clipman_create_title (txt);
 	
 	/* No valid title could be created, drop it... */
 	if (new_clip->title == NULL)
@@ -334,10 +323,12 @@ clipman_item_clicked (GtkWidget      *mi,
 
 static GtkWidget *
 clipman_create_menuitem (ClipmanAction *action,
+                         guint          width,
                          guint          number,
                          gboolean       bold)
 {
     GtkWidget *mi;
+    GtkLabel  *label;
     gchar     *title;
 
     mi = gtk_menu_item_new_with_label  ("");
@@ -355,9 +346,13 @@ clipman_create_menuitem (ClipmanAction *action,
         else
             title = g_strdup_printf("<tt><span size=\"smaller\">%d.</span></tt> %s",  number ,title);
     }
-    
-    gtk_label_set_markup (GTK_LABEL(GTK_BIN(mi)->child), title);
-    
+
+    label = GTK_LABEL(GTK_BIN(mi)->child);
+    gtk_label_set_markup (label, title);
+    gtk_label_set_single_line_mode (label, TRUE);
+    gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
+    gtk_label_set_max_width_chars (label, width);
+
     return mi;
 }
 
@@ -391,13 +386,15 @@ clipman_clicked_separated (GtkWidget     *menu,
                 G_LIKELY (clip->text != NULL) && 
                 strcmp(clip->text, dtext) == 0)
             {
-                mi = clipman_create_menuitem (action, j, TRUE);
+                mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                              j, TRUE);
 		g_free (dtext);
 		dtext = NULL;
             }
             else
             {
-                mi = clipman_create_menuitem (action, j, FALSE);
+                mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                              j, FALSE);
             }
             
             g_signal_connect (G_OBJECT(mi), "button_release_event",
@@ -440,13 +437,15 @@ clipman_clicked_separated (GtkWidget     *menu,
                 G_LIKELY (clip->text != NULL) && 
                 strcmp(clip->text, ptext) == 0)
             {
-                mi = clipman_create_menuitem (action, j, TRUE);
+                mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                              j, TRUE);
                 g_free (ptext);
 		ptext = NULL;
             }
             else
             {
-                mi = clipman_create_menuitem (action, j, FALSE);
+                mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                              j, FALSE);
             }
                 
             g_signal_connect (G_OBJECT(mi), "button_release_event",
@@ -501,7 +500,8 @@ clipman_clicked_not_separated (GtkWidget     *menu,
             G_LIKELY (clip->text != NULL) && 
             strcmp(clip->text, dtext) == 0)
         {
-            mi = clipman_create_menuitem (action, clipman->clips->len-i, TRUE);
+            mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                          clipman->clips->len-i, TRUE);
             g_free (dtext);
 	    dtext = NULL;
         }
@@ -509,13 +509,15 @@ clipman_clicked_not_separated (GtkWidget     *menu,
                  G_LIKELY (clip->text != NULL) && 
                  strcmp(clip->text, ptext) == 0)
         {
-            mi = clipman_create_menuitem (action, clipman->clips->len-i, TRUE);
+            mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                          clipman->clips->len-i, TRUE);
             g_free (ptext);
 	    ptext = NULL;
         }
         else
         {
-            mi = clipman_create_menuitem (action, clipman->clips->len-i, FALSE);
+            mi = clipman_create_menuitem (action, clipman->MenuCharacters,
+                                          clipman->clips->len-i, FALSE);
         }
         
         g_signal_connect (G_OBJECT(mi), "button_release_event",
