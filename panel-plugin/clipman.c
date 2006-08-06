@@ -166,23 +166,6 @@ clipman_remove_selection_clips (ClipmanPlugin *clipman)
     }
 }
 
-void
-clipman_regenerate_titles (ClipmanPlugin *clipman)
-{
-    ClipmanClip *clip;
-    guint        i;
-
-    DBG ("Regenerating titles");
-    
-    for (i = clipman->clips->len; i--; )
-    {
-        clip = g_ptr_array_index (clipman->clips, i);
-	
-	g_free (clip->title);        
-        clip->title = clipman_create_title (clip->text);
-    }
-}
-
 static void
 clipman_add_clip (ClipmanPlugin *clipman,
                   gchar         *txt,

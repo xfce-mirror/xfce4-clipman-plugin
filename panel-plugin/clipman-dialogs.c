@@ -70,11 +70,7 @@ clipman_configure_response (GtkWidget      *dialog,
             clipman_check_array_len (options->clipman);
 	}
         
-        if (options->clipman->MenuCharacters != gtk_range_get_value (GTK_RANGE (options->ItemChars)))
-	{
-	    options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
-            clipman_regenerate_titles (options->clipman);
-	}
+        options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
         
         clipman_save (options->clipman->plugin, options->clipman);
         
