@@ -7,10 +7,10 @@ dnl 2006 Nick Schermer <nick@xfce.org>
 dnl
 
 dnl version info
-m4_define([clipman_version], [0.6.5])
+m4_define([clipman_version], [0.5.90.2])
 
 dnl init autoconf
-AC_INIT([xfce4-clipman-plugin], [clipman_version], [nickschermer@gmail.com])
+AC_INIT([xfce4-clipman-plugin], [clipman_version], [nick@xfce.org])
 AC_PREREQ([2.50])
 
 dnl init automake
