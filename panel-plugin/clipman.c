@@ -117,23 +117,32 @@ clipman_create_title (gchar *txt,
 {
     gchar *s, *t, *u;
     
-    s = g_strndup (txt, length*8);
-
-    if (!g_utf8_validate (s, -1, NULL))
+    s = g_strndup (txt, length*8 + 8);
+    if (!s)
     {
-	DBG ("Title is not utf8 complaint, we're going to convert it");
-	
+	DBG ("Eek, out of memory");
+	return NULL;
+    }
+
+    if (!g_utf8_validate (s, -1, &t))
+    {
+        /* Invalid char at/past length*8 & encoding is UTF-8? Get rid of it. */
+        if (t >= s + length * 8 && g_get_charset ((const gchar **)&u))
+            *t = 0;
+
+	DBG ("Title is not UTF-8 compliant, we're going to convert it");
+
         u = g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
-	g_free (s);
-	s = u;
-	
-	/* Check the title again */
-	if (!g_utf8_validate (s, -1, NULL))
-	{
-	    DBG ("Title is still not utf8 complaint, we going to drop this clip");
-	    g_free (s);
-	    return NULL;
-	}
+        g_free (s);
+        s = u;
+        
+        /* Check the title again */
+        if (!s || !g_utf8_validate (s, -1, NULL))
+        {
+            DBG ("Title is still not UTF-8 compliant, we're going to drop this clip");
+            g_free (s);
+            return NULL;
+        }
     }
 
     g_strstrip (s);
