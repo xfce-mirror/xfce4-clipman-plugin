@@ -124,7 +124,7 @@ clipman_create_title (gchar *txt,
 	return NULL;
     }
 
-    if (!g_utf8_validate (s, -1, &t))
+    if (!g_utf8_validate (s, -1, (const gchar **)&t))
     {
         /* Invalid char at/past length*8 & encoding is UTF-8? Get rid of it. */
         if (t >= s + length * 8 && g_get_charset ((const gchar **)&u))
