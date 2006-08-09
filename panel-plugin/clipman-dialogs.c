@@ -80,8 +80,7 @@ clipman_configure_response (GtkWidget      *dialog,
         
         gtk_widget_destroy (dialog);
         
-        g_free (options);
-    
+        panel_slice_free (ClipmanOptions, options);
 }
 
 static void
@@ -145,7 +144,7 @@ clipman_configure (XfcePanelPlugin *plugin,
 
     tooltips = gtk_tooltips_new ();
     
-    options = g_new0 (ClipmanOptions, 1);
+    options = panel_slice_new0 (ClipmanOptions);
     options->clipman = clipman;
     
     xfce_panel_plugin_block_menu (clipman->plugin);

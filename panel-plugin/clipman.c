@@ -50,7 +50,7 @@ clipman_free_clip (ClipmanClip *clip)
     g_free (clip->text);
     g_free (clip->title);
     
-    g_free (clip);
+    panel_slice_free (ClipmanClip, clip);
 
     DBG ("Clip successfully freed");
 }
@@ -185,7 +185,7 @@ clipman_add_clip (ClipmanPlugin *clipman,
     
     if (txt != "")
     {
-        new_clip = g_new0 (ClipmanClip, 1);
+        new_clip = panel_slice_new0 (ClipmanClip);
         
         new_clip->title    = clipman_create_title (txt,
                                                    clipman->MenuCharacters);
@@ -310,7 +310,7 @@ clipman_item_clicked (GtkWidget      *mi,
         }
     }
     
-    g_free (action);
+    panel_slice_free (ClipmanAction, action);
     
     return FALSE;
 }
@@ -372,7 +372,7 @@ clipman_clicked_separated (GtkWidget     *menu,
         {
             j++;
             
-            action = g_new0 (ClipmanAction, 1);
+            action = panel_slice_new0 (ClipmanAction);
             action->clipman = clipman;
             action->clip = clip;
             
@@ -423,7 +423,7 @@ clipman_clicked_separated (GtkWidget     *menu,
         {
             j++;
                 
-            action = g_new0 (ClipmanAction, 1);
+            action = panel_slice_new0 (ClipmanAction);
             action->clipman = clipman;
             action->clip = clip;
                 
@@ -486,7 +486,7 @@ clipman_clicked_not_separated (GtkWidget     *menu,
     {
         clip = g_ptr_array_index (clipman->clips, i);
         
-        action = g_new0 (ClipmanAction, 1);
+        action = panel_slice_new0 (ClipmanAction);
         action->clipman = clipman;
         action->clip = clip;
         
@@ -946,7 +946,7 @@ static ClipmanPlugin *
 clipman_new (XfcePanelPlugin *plugin)
 {
     ClipmanPlugin *clipman;
-    clipman = g_new0 (ClipmanPlugin, 1);
+    clipman = panel_slice_new0 (ClipmanPlugin);
     
     clipman->clips = g_ptr_array_new ();
     clipman->plugin = plugin;
@@ -1036,7 +1036,7 @@ clipman_free (XfcePanelPlugin *plugin,
     
     DBG ("Plugin Freed");
     
-    g_free (clipman);
+    panel_slice_free (ClipmanPlugin, clipman);
 }
 
 static gboolean
