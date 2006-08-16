@@ -1,6 +1,10 @@
+2006-08-16  Pau Rul-lan Ferragut <paurullan@bulma.net>
+
+	* LINGUAS, ca.po : Add Catalan translation
+
 2006-08-10  Piarres Beobide <pi@beobide.net>
 
-	* LINGUAS, eu.po : Add Basque trasnaltion
+	* LINGUAS, eu.po : Add Basque translation
 
 2006-07-29  Jean-François Wauthy <pollux@xfce.org>
 

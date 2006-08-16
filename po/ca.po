@@ -1,0 +1,137 @@
+# Catalan translations for xfce4-clipman-plugin package.
+# Copyright (C) 2005-2006 Nick Schermer.
+# This file is distributed under the same license as
+# the xfce4-clipman-plugin package.
+# Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: ca\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-09 12:36+0900\n"
+"PO-Revision-Date: 2006-08-16 15:45+0200\n"
+"Last-Translator: Pau Ruŀlan Ferragut <paurullan@bulma.net>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
+
+#: ../panel-plugin/clipman-dialogs.c:140
+msgid "Properties"
+msgstr "Propietats"
+
+#: ../panel-plugin/clipman-dialogs.c:154
+#: ../panel-plugin/clipman-dialogs.c:340
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Clip"
+
+#: ../panel-plugin/clipman-dialogs.c:170
+msgid "Save clipboard contents on _exit"
+msgstr "Desa el contingut del porta-retalls _en sortir"
+
+#: ../panel-plugin/clipman-dialogs.c:174
+msgid "_Ignore selections"
+msgstr "_Ignora les seleccions"
+
+#: ../panel-plugin/clipman-dialogs.c:181
+msgid "Pre_vent empty clipboard"
+msgstr "E_vita tenir el porta-retalls buit"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:203
+msgid "Normal clipboard _management"
+msgstr "Gestió del porta-retalls nor_mal"
+
+#: ../panel-plugin/clipman-dialogs.c:212
+msgid "Strictly separate _both clipboards"
+msgstr "Separa estríctament am_bdós porta-retalls"
+
+#: ../panel-plugin/clipman-dialogs.c:221
+msgid "<b>Clipboard behaviour</b>"
+msgstr "<b>Comportament del porta-retalls</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:237
+msgid "_Show item numbers"
+msgstr "Mo_stra el nombre de l’element"
+
+#: ../panel-plugin/clipman-dialogs.c:241
+msgid "Se_parate clipboards"
+msgstr "Se_para els porta-retalls"
+
+#: ../panel-plugin/clipman-dialogs.c:245
+msgid "Use _colored menu items"
+msgstr "Usa elements del menú _colorejats"
+
+#: ../panel-plugin/clipman-dialogs.c:249
+msgid "<b>Menu appearance</b>"
+msgstr "<b>Aparença del menú</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:271
+msgid "Clipboard history items:"
+msgstr "Historial del porta-retalls:"
+
+#: ../panel-plugin/clipman-dialogs.c:295
+msgid "Menu item characters:"
+msgstr "Menú dels caràcters dels elements:"
+
+#: ../panel-plugin/clipman-dialogs.c:317
+msgid "<b>Numbers</b>"
+msgstr "<b>Nombres</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Gestor de porta-retalls per l’escriptori Xfce"
+
+#: ../panel-plugin/clipman-dialogs.c:345
+#: ../panel-plugin/clipman-dialogs.c:346
+msgid "Developer"
+msgstr "Desenvolupador"
+
+#: ../panel-plugin/clipman-dialogs.c:443
+msgid "Edit content"
+msgstr "Edita el contingut"
+
+#: ../panel-plugin/clipman-dialogs.c:538
+msgid "Question"
+msgstr "Pregunta"
+
+#: ../panel-plugin/clipman-dialogs.c:561
+msgid "What to do with this clipboard item?"
+msgstr "Que voleu fer amb aquest element del porta-retalls?"
+
+#: ../panel-plugin/clipman.c:105
+msgid "Are you sure you want to clear the history?"
+msgstr "Esteu segur de voler esborrar l’historial?"
+
+#: ../panel-plugin/clipman.c:401
+msgid "< Default History Empty >"
+msgstr "< L’historial per omisió és buit >"
+
+#: ../panel-plugin/clipman.c:452
+msgid "< Selection History Empty >"
+msgstr "< Esculliu l’historial a buidar >"
+
+#: ../panel-plugin/clipman.c:464
+#: ../panel-plugin/clipman.c:531
+msgid "Clear History"
+msgstr "Buida l'historial"
+
+#: ../panel-plugin/clipman.c:633
+msgid "Clipman History"
+msgstr "Historial del clip"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< Porta-retalls buit >"
+
+#: ../panel-plugin/clipman.c:1022
+msgid "Clipboard Manager"
+msgstr "Gestor de porta-retalls"
+
