@@ -1,0 +1,140 @@
+# Czech translations for xfce4-clipman-plugin package.
+# Copyright (C) 2005-2006 Nick Schermer.
+# This file is distributed under the same license as
+# the xfce4-clipman-plugin package.
+# Michal Várady <miko.vaji@gmail.com>, 2006.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-09 12:36+0900\n"
+"PO-Revision-Date: 2006-08-26 21:16+0100\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
+"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/clipman-dialogs.c:140
+msgid "Properties"
+msgstr "Vlastnosti"
+
+#: ../panel-plugin/clipman-dialogs.c:154
+#: ../panel-plugin/clipman-dialogs.c:340
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Správce schránky"
+
+#: ../panel-plugin/clipman-dialogs.c:170
+msgid "Save clipboard contents on _exit"
+msgstr "Uložit obsah schránky při _ukončení"
+
+#: ../panel-plugin/clipman-dialogs.c:174
+msgid "_Ignore selections"
+msgstr "_Ignorovat výběry"
+
+#: ../panel-plugin/clipman-dialogs.c:181
+msgid "Pre_vent empty clipboard"
+msgstr "_Zamezit vyprázdnění schránky"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "<b>General</b>"
+msgstr "<b>Obecné</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:203
+msgid "Normal clipboard _management"
+msgstr "_Správa běžné schránky"
+
+#: ../panel-plugin/clipman-dialogs.c:212
+msgid "Strictly separate _both clipboards"
+msgstr "Striktně oddělit _obě schránky"
+
+#: ../panel-plugin/clipman-dialogs.c:221
+msgid "<b>Clipboard behaviour</b>"
+msgstr "<b>Chování schránky</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:237
+msgid "_Show item numbers"
+msgstr "_Zobrazovat čísla položek"
+
+#: ../panel-plugin/clipman-dialogs.c:241
+msgid "Se_parate clipboards"
+msgstr "O_ddělit schránky"
+
+#: ../panel-plugin/clipman-dialogs.c:245
+msgid "Use _colored menu items"
+msgstr "Použít _barevné položky nabídky"
+
+#: ../panel-plugin/clipman-dialogs.c:249
+msgid "<b>Menu appearance</b>"
+msgstr "<b>Vzhled nabídky</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:271
+msgid "Clipboard history items:"
+msgstr "Položky historie nabídky:"
+
+#: ../panel-plugin/clipman-dialogs.c:295
+msgid "Menu item characters:"
+msgstr "Znaky položek nabídky:"
+
+#: ../panel-plugin/clipman-dialogs.c:317
+msgid "<b>Numbers</b>"
+msgstr "<b>Čísla</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Správce schránky pro prostředí Xfce"
+
+#: ../panel-plugin/clipman-dialogs.c:345
+#: ../panel-plugin/clipman-dialogs.c:346
+msgid "Developer"
+msgstr "Vývojář"
+
+#: ../panel-plugin/clipman-dialogs.c:443
+msgid "Edit content"
+msgstr "Upravit obsah"
+
+#: ../panel-plugin/clipman-dialogs.c:538
+msgid "Question"
+msgstr "Otázka"
+
+#: ../panel-plugin/clipman-dialogs.c:561
+msgid "What to do with this clipboard item?"
+msgstr "Co chcete dělat s touto položkou schránky?"
+
+#: ../panel-plugin/clipman.c:105
+msgid "Are you sure you want to clear the history?"
+msgstr "Opravdu chcete vyprázdnit historii?"
+
+#: ../panel-plugin/clipman.c:401
+msgid "< Default History Empty >"
+msgstr "< Výchozí historie je prázdná >"
+
+#: ../panel-plugin/clipman.c:452
+msgid "< Selection History Empty >"
+msgstr "< Historie výběrů je prázdná >"
+
+#: ../panel-plugin/clipman.c:464
+#: ../panel-plugin/clipman.c:531
+msgid "Clear History"
+msgstr "Vyprázdnit historii"
+
+#: ../panel-plugin/clipman.c:633
+msgid "Clipman History"
+msgstr "Historie správce schránky"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< Schránka je prázdná >"
+
+#: ../panel-plugin/clipman.c:1022
+msgid "Clipboard Manager"
+msgstr "Správce schránky"
+
