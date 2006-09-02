@@ -1,229 +1,317 @@
-2006-05-17 19:19 Nick Schermer
+2006-09-02 21:33 nick
 
-    * Removed the "Edit Clip Dialog", since it not
-      usefull enough.
-    * Fix memleak in free function
-    * Use gboolean instead of guint x:1
-    * Some style fixes and var renames
+	* Remove executable bits
+	* Update ChangeLog
 
-2006-05-15 21:22 Nick Schermer
+2006-08-11 08:30 nick
 
-    * Fix 2.95 GCC warnings
-    * Code cleanup and layout
+	* Depend on xfce4-panel rev 22703, libxfcegui4 4.3.90.2 and
+	  libxfce4util 4.3.90.2
+	* Remove the old header code for < 4.3.90.2
 
-2006-04-20 15:15 Nick Schermer
+2006-08-10 10:23 piarres
 
-    * Version to 0.6.4
+	* add xfce4-clipman-plugin basque translation 
 
-2006-04-20 15:01 Nick Schermer
+2006-08-09 20:48 nick
 
-    * panel-plugin/clipman-dialog.c: 
-      * Destroy dialog when plugin is closed
-      * Toggle buttons now apply directly
-    * panel-plugin/clipman.c: 
-      * Fix mem leak in read function.
-      * Remove Primairy clips when selection is ignored
-      * Improved the menu destroy function stuff
+	* Use new panel_slice_* functions
 
-2006-04-09 19:50 Nick Schermer
+2006-08-08 19:21 nick
 
-    * Version to 0.6.3
+	* Fix compiler warning
 
-2006-04-09 19:46 Nick Schermer
+2006-08-07 23:58 nick
 
-    * panel-plugin/clipman-dialog.c: 
-      * Splitup in tabs
-      * Added tooltips
-      * Removed color button
-      * Removed about dialog
-    * panel-plugin/clipman.c: 
-      * Patch from Daichi
-      * Fix crash in free function
-      * Removed colors
-      * Fix toggle button problem
-      * Fix regeneration of titles
-      * Small improvements
+	* Change version to 0.6 beta 2
+	* Fix my own mail
 
-2005-12-01 15:20 Nick Schermer
+2006-08-07 08:09 nick
 
-    * Version to 0.6.2
+	* Patch from Darren Salt <linux@youmustbejoking.demon.co.uk>
+	  to use Pango's ellipsize.
+	* Added Darren to THANKS file
 
-2005-12-01 15:15 Nick Schermer
+2006-07-29 22:00 pollux
 
-    * panel-plugin/clipman-dialog.c: Added new behaviour options
-    * panel-plugin/clipman.c: Applied new behaviour to the functions
+	* Update French translations
 
-2005-12-01 13:29 Nick Schermer
+2006-06-21 21:06 nick
 
-    * panel-plugin/clipman.c: 
-      * Added function clipman_replace_text (code moved from clipman_item_clicked)
-      * Moke some functions shared for use with new dialogs
-    * panel-plugin/clipman-dialog.c: 
-      * Added new rightclick dialog with option to change the clip content.
-        clipman_question, clipman_question_response
-      * Added clipman_edit, clipman_edit_response
-      * Changed GTK_WIN_POS_CENTER_ALWAYS to GTK_WIN_POS_CENTER, because it's annoying
+	* Raise version number
+	* Fix some small problems
+	* Fix typo
 
-2005-12-01 19:31 Nick Schermer
+2006-06-21 20:45 nick
 
-    * panel-plugin/clipman.c: Make clipman_create_title UTF8 complaint.
+	* Added LINGUAS support
+	* Drop a new clip if we can't convert the new title
+	* Clear board on exit plugin
 
-2005-11-29 19:00 Nick Schermer
+2006-06-15 15:02 nick
 
-    * panel-plugin/clipman.c: Changed the toggle button handling a bit.
-    * panel-plugin/clipman.c: Spell Check.
+	* Better way to render the button icon
+	* Improve memory usage
+	* Various small changes
 
-2005-11-29 10:30 Nick Schermer
+2006-06-15 09:28 nick
 
-    * panel-plugin/clipman.c:
-      * Proper icon resize (I hope??)
-      * Popup menu position is now fixed when the panel is fixed.
-      * Toggle button
-      * Convert HTML Characters in menu items (remove new lines and tabs)
-      * Free everything when the plugin is closed
-    * configure.ac: version update, 0.6.1
+	* Make memory usage a bit saver
 
-2005-10-29 13:37 Nick Schermer
+2006-06-14 22:29 nick
 
-    * panel-plugin/clipman.c:
-      * Complete rewrite of the old plugin using GPtrArray to store the
-        clips. This will make the clipman plugin more stable and easier
-        to handle.
-      * Separate clipboard (option) with colors (option)
-      * Change clipboard colors in the clipboard rc file.
-      * Restore clip from same type (If the pri/def clipboard is empty copy the last pri/def clip)
-      * Fixed bug to stop the check clipboard thread when the plugin is closed
-    * configure.ac: version update, 0.6.0
+	* Use g_object_unref (G_OBJECT (...))
 
-2005-10-10 19:35 Nick Schermer
+2006-06-11 20:04 nick
 
-    * panel-plugin/clipman.c: New function for resizing the array
-    * configure.ac: version update, 0.5.0
+	* Use the convenience toggle button from libxfce4panel
+	* Better way to calculate icon size (from launcher)
+	* Free tooltip on plugin exit
+	* Use new titled dialog, if available
 
-2005-09-19 10:32 Nick Schermer
+2006-05-23 07:19 daichi
 
-    * panel-plugin/clipman.c: The selection function checks if button 1 is masked.
+	* Removed executable bits.
 
-2005-09-17 18:29 Nick Schermer
+2006-05-22 21:16 nick
 
-    * panel-plugin/clipman.c:
-      * Save clipboard content on exit (option)
-      * Prevent empty clipboard (copy latest item when system clipboard is empty)
-      * Option to disable selection
-      * Slider for history size
-      * When resizing the history no content is lost
-      * Character number in menu items (option)
-      * New loop for creating menu items
-      * Copy icon for the menu item currently in the clipboard (is not always the latest)
-      * Icon for Clipboard History and clear clipboard
-      * Removed the drag/drop signal (couldn't figure out how to use it, so removed it)
-      * New option dialog
-      * Cleared some code, added more comments, use tabs
-      * Remove item numbers, it will be back later as an option (I hope :P)
+	* Added hu to configure
+
+2006-05-22 14:19 satie
+
+	* clipman hu.po
+
+2006-05-21 20:58 nick
+
+	* Improved loops
+	* Cleanup some stuff
+	* Use guint where possible
+	* Some code cleanups
+
+2006-05-17 19:19 nick
+
+	* Removed the "Edit Clip Dialog", since it not usefull enough.
+	* Fix memleak in free function
+	* Use gboolean instead of guint x:1
+	* Some style fixes and var renames
+
+2006-05-15 21:22 nick
+
+	* Fix 2.95 GCC warnings
+	* Code cleanup and layout
+
+2006-04-20 15:15 nick
+
+	* Version to 0.6.4
+
+2006-04-20 15:01 nick
+
+	* panel-plugin/clipman-dialog.c: 
+  	* Destroy dialog when plugin is closed
+  	* Toggle buttons now apply directly
+	* panel-plugin/clipman.c: 
+  	* Fix mem leak in read function.
+  	* Remove Primairy clips when selection is ignored
+  	* Improved the menu destroy function stuff
+
+2006-04-09 19:50 nick
+
+	* Version to 0.6.3
+
+2006-04-09 19:46 nick
+
+	* panel-plugin/clipman-dialog.c: 
+  	* Splitup in tabs
+  	* Added tooltips
+  	* Removed color button
+  	* Removed about dialog
+	* panel-plugin/clipman.c: 
+  	* Patch from Daichi
+  	* Fix crash in free function
+  	* Removed colors
+  	* Fix toggle button problem
+  	* Fix regeneration of titles
+  	* Small improvements
+
+2005-12-01 15:20 nick
+
+	* Version to 0.6.2
+
+2005-12-01 15:15 nick
+
+	* panel-plugin/clipman-dialog.c: Added new behaviour options
+	* panel-plugin/clipman.c: Applied new behaviour to the functions
+
+2005-12-01 13:29 nick
+
+	* panel-plugin/clipman.c: 
+  	* Added function clipman_replace_text (code moved from clipman_item_clicked)
+  	* Moke some functions shared for use with new dialogs
+	* panel-plugin/clipman-dialog.c: 
+  	* Added new rightclick dialog with option to change the clip content.
+	  clipman_question, clipman_question_response
+  	* Added clipman_edit, clipman_edit_response
+  	* Changed GTK_WIN_POS_CENTER_ALWAYS to GTK_WIN_POS_CENTER, because it's annoying
+
+2005-12-01 19:31 nick
+
+	* panel-plugin/clipman.c: Make clipman_create_title UTF8 complaint.
+
+2005-11-29 19:00 nick
+
+	* panel-plugin/clipman.c: Changed the toggle button handling a bit.
+	* panel-plugin/clipman.c: Spell Check.
+
+2005-11-29 10:30 nick
+
+	* panel-plugin/clipman.c:
+  	* Proper icon resize (I hope??)
+  	* Popup menu position is now fixed when the panel is fixed.
+  	* Toggle button
+  	* Convert HTML Characters in menu items (remove new lines and tabs)
+  	* Free everything when the plugin is closed
+	* configure.ac: version update, 0.6.1
+
+2005-10-29 13:37 nick
+
+	* panel-plugin/clipman.c:
+  	* Complete rewrite of the old plugin using GPtrArray to store the
+	  clips. This will make the clipman plugin more stable and easier
+	  to handle.
+  	* Separate clipboard (option) with colors (option)
+  	* Change clipboard colors in the clipboard rc file.
+  	* Restore clip from same type (If the pri/def clipboard is empty copy the last pri/def clip)
+  	* Fixed bug to stop the check clipboard thread when the plugin is closed
+	* configure.ac: version update, 0.6.0
+
+2005-10-10 19:35 nick
+
+	* panel-plugin/clipman.c: New function for resizing the array
+	* configure.ac: version update, 0.5.0
+
+2005-09-19 10:32 nick
+
+	* panel-plugin/clipman.c: The selection function checks if button 1 is masked.
+
+2005-09-17 18:29 nick
+
+	* panel-plugin/clipman.c:
+  	* Save clipboard content on exit (option)
+  	* Prevent empty clipboard (copy latest item when system clipboard is empty)
+  	* Option to disable selection
+  	* Slider for history size
+  	* When resizing the history no content is lost
+  	* Character number in menu items (option)
+  	* New loop for creating menu items
+  	* Copy icon for the menu item currently in the clipboard (is not always the latest)
+  	* Icon for Clipboard History and clear clipboard
+  	* Removed the drag/drop signal (couldn't figure out how to use it, so removed it)
+  	* New option dialog
+  	* Cleared some code, added more comments, use tabs
+  	* Remove item numbers, it will be back later as an option (I hope :P)
 
 2003-12-16 08:45  mastershadow
 
-    * panel-plugin/clipman.c: right mouse click allow users to remove a sigle
-      entry in the history. It ask for confirm and act properly.
+	* panel-plugin/clipman.c: right mouse click allow users to remove a sigle
+	entry in the history. It ask for confirm and act properly.
 
 2003-12-15 09:00  mastershadow
 
-    * panel-plugin/clipman.c: now trailing spaces are removed from the popup
-      menu (a lot eyecandy :-).
-    * configure.ac: version update
+	* panel-plugin/clipman.c: now trailing spaces are removed from the popup
+	menu (a lot eyecandy :-).
+	* configure.ac: version update
 
 2003-11-09 12:04  mastershadow
 
-    * panel-plugin/clipman.c: changed text/plain d&d to UTF8_STRING
+	* panel-plugin/clipman.c: changed text/plain d&d to UTF8_STRING
 
 2003-11-09 12:04  mastershadow
 
-    * panel-plugin/clipman.c: bug removed! when you remove panel and select
-      something now all is ok
+	* panel-plugin/clipman.c: bug removed! when you remove panel and select
+	something now all is ok
 
 2003-11-09 11:48  mastershadow
 
-    * panel-plugin/clipman.c: fixed crash on remove but some troubles are still
-      present: if you select something when you have removed the plugin the panel
-      crash. This is due to the timer...
+	* panel-plugin/clipman.c: fixed crash on remove but some troubles are still
+	present: if you select something when you have removed the plugin the panel
+	crash. This is due to the timer...
 
 2003-11-09 11:48  mastershadow
 
-    * panel-plugin/clipman.c: back to the old source for a timer bug
+	* panel-plugin/clipman.c: back to the old source for a timer bug
 
 2003-11-08 23:10  mastershadow
 
-    * panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
-    * panel-plugin/clipman.c: fixed a bug that make crash the plugin when removing it
-      while something is writing in the clipboard.
-    * configure.ac: version update
+	* panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
+	* panel-plugin/clipman.c: fixed a bug that make crash the plugin when removing it
+	while something is writing in the clipboard.
+	* configure.ac: version update
 
 
 2003-11-04 21:37  mastershadow
 
-    * panel-plugin/clipman.c: now items are shown with stack order
-      (for first latest item and then others).
-    * panel-plugin/clipman.c: Warnings fixed in resize functions
+	* panel-plugin/clipman.c: now items are shown with stack order
+	(for first latest item and then others).
+	* panel-plugin/clipman.c: Warnings fixed in resize functions
 
 2003-11-02 12:34  mastershadow
 
-    * panel-plugin/clipman.c: now icon resize with the panel
+	* panel-plugin/clipman.c: now icon resize with the panel
 
 2003-11-01 23:56  mastershadow
 
-    * panel-plugin/clipman.c: clipboard clear feature added
-      Some small syntax fixes in checkClip function
+	* panel-plugin/clipman.c: clipboard clear feature added
+	Some small syntax fixes in checkClip function
 
 2003-10-25 20:10  mastershadow
 
-    * panel-plugin/clipman.c: memory leaks fixed in gstring array and
-      crash fixed on removing the plugin from panel
+	* panel-plugin/clipman.c: memory leaks fixed in gstring array and
+	crash fixed on removing the plugin from panel
 
 
 2003-10-08 11:23  mastershadow
 
-    * a lot of changes :-)
-      First public release of xfce4-clipman-plugin
+	* a lot of changes :-)
+	First public release of xfce4-clipman-plugin
 
 2003-07-11 15:56  huysmans
 
-    * panel-plugin/sample.c: Hmm, chinese translation updates that
-      didn't get picked up by my previous commit. Should have been in
-      rc1, sorry.
+	* panel-plugin/sample.c: Hmm, chinese translation updates that
+	didn't get picked up by my previous commit. Should have been in
+	rc1, sorry.
 
 2003-07-11 09:33  huysmans
 
-    * ChangeLog: Update ChangeLog's for release
+	* ChangeLog: Update ChangeLog's for release
 
 2003-07-10 11:56  huysmans
 
-    * ChangeLog: Update ChangeLog's for release
+	* ChangeLog: Update ChangeLog's for release
 
 2003-07-06 22:14  huysmans
 
-    * ChangeLog: Update ChangeLogs
+	* ChangeLog: Update ChangeLogs
 
 2003-07-06 15:35  xfce
 
-    * Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
-      ltmain.sh, panel-plugin/Makefile.in: libtool update
+	* Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
+	ltmain.sh, panel-plugin/Makefile.in: libtool update
 
 2003-07-02 12:18  bmeurer
 
-    * AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-      ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-      config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-      Makefile.am, README, configure, configure.ac, m4/debug.m4,
-      m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-      panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
-      the sample panel plugin.
+	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
+	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
+	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
+	Makefile.am, README, configure, configure.ac, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
+	the sample panel plugin.
 
 2003-07-02 12:18  bmeurer
 
-    * AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-      ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-      config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-      Makefile.am, README, configure, configure.ac, m4/debug.m4,
-      m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-      panel-plugin/Makefile.in, panel-plugin/sample.c: Initial revision
-
+	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
+	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
+	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
+	Makefile.am, README, configure, configure.ac, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial revision

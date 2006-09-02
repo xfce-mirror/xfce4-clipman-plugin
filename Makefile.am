@@ -1,5 +1,5 @@
 SUBDIRS = \
-	panel-plugin
+	panel-plugin po
 
 dist-bz2: dist
 	zcat $(PACKAGE)-$(VERSION).tar.gz | bzip2 --best -c > $(PACKAGE)-$(VERSION).tar.bz2
