@@ -1,4 +1,4 @@
-# translation of hu.po to Euskara
+# translation of eu.po to librezale
 # Japanese translations for xfce4-clipman-plugin package.
 # Copyright (C) 2005-2006 Nick Schermer.
 # This file is distributed under the same license as
@@ -8,23 +8,23 @@
 # Piarres Beobide <pi@beobide.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: hu\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-02 21:53+0200\n"
-"PO-Revision-Date: 2006-08-10 10:25+0200\n"
+"PO-Revision-Date: 2006-09-04 00:29+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Euskara <librezale@librezale.org>\n"
+"Language-Team: librezale <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: (n != 1)\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
-"X-Generator: Pootle 0.10rc1\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/clipman-dialogs.c:152 ../panel-plugin/clipman.c:969
 msgid "Clipboard Manager"
-msgstr "Vágólap kezelő"
+msgstr "Arbel Kudeatzailea"
 
 #: ../panel-plugin/clipman-dialogs.c:185
 msgid "Save clipboard contents on _exit"
@@ -35,16 +35,20 @@ msgid ""
 "Select this option to save the clipboard history when you exit Xfce and "
 "restore it when you login again."
 msgstr ""
+"Hautatu aukera hau xfce uztean arbel historia gordetzea eta saioa berriz "
+"astean berreskuratzea nahi baduzu."
 
 #: ../panel-plugin/clipman-dialogs.c:196
 msgid "_Ignore selections"
-msgstr "_Hautapenak ale batera utzi"
+msgstr "_Hautapenak alde batera utzi"
 
 #: ../panel-plugin/clipman-dialogs.c:201
 msgid ""
 "Select this option will prevent Clipman from including the contents of the "
 "selection in the history."
 msgstr ""
+"Hautatu aukera hau clipman-ek hautapenaren edukia historian gorde "
+"ez dezan."
 
 #: ../panel-plugin/clipman-dialogs.c:207
 msgid "Pre_vent empty clipboard"
@@ -55,6 +59,8 @@ msgid ""
 "Select this option to prevent an empty clipboard. The most recent history "
 "item will be added to the clipboard."
 msgstr ""
+"Hautatu aukera hau arbela hutsi geratzea sahiesteko. Azkenengo historia "
+"elementua arbelara gehitua izango da."
 
 #: ../panel-plugin/clipman-dialogs.c:218
 msgid "<b>General</b>"
@@ -72,6 +78,10 @@ msgid ""
 "When a history item is clicked, the content will be copied to both "
 "clipboards."
 msgstr ""
+"Clipman historian dagoeneko badagoen testu bat kopiatu edo mozterakoan.  "
+"Edukiaren kokalekua bakarrik aldatuko da.\n"
+"\n"
+"Historia elementu bat klikatzerakoan edukia bi arbeletara kopiatuko da."
 
 #: ../panel-plugin/clipman-dialogs.c:251
 msgid "Strictly separate _both clipboards"
@@ -89,9 +99,16 @@ msgid ""
 "This options will work best when you select the \"Separate Clipboards\" "
 "option from the Appearance tab."
 msgstr ""
+"Testu bat kopiatu edo ebakitzerakoan berau clipman historiara gehituko da, "
+"orduan errepikatze bat egongo da historian hautapen arbeletik.\n"
+"\n"
+"Hsitoria elementu bat klikatzerakoan, edukia jatorriz elementua zegoen "
+"arbelara kopiatua izango da.\n"
+"\n"
+"Aukera honek hobe funtzionatzen du \"Bereiziriko Arbelak\" hautatu ezkero "
+"Itxura fitxan."
 
 #: ../panel-plugin/clipman-dialogs.c:270
-#, fuzzy
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Arbela portaera</b>"
 
@@ -99,9 +116,8 @@ msgstr "<b>Arbela portaera</b>"
 #. * Notebook label
 #. *
 #: ../panel-plugin/clipman-dialogs.c:278
-#, fuzzy
 msgid "General"
-msgstr "<b>Orokorra</b>"
+msgstr "Orokorra"
 
 #: ../panel-plugin/clipman-dialogs.c:295
 msgid "_Show item numbers"
@@ -109,22 +125,23 @@ msgstr "Elementu _Zenbakiak Bistarazi"
 
 #: ../panel-plugin/clipman-dialogs.c:303
 msgid "Select this option to show item numbers in the history list."
-msgstr ""
+msgstr "Hautatu aukera hau elementu zenbakiak historia zerrendanbistaratzeko."
 
 #: ../panel-plugin/clipman-dialogs.c:305
 msgid "Se_parate clipboards"
-msgstr "Arbel bereizia_k"
+msgstr "Be_reiziriko arbelak"
 
 #: ../panel-plugin/clipman-dialogs.c:313
 msgid ""
 "Select this option to order the history list by primairy and selection "
 "clipboard."
 msgstr ""
+"Hautatu aukera hau historia arbela nagusi eta hautapenetan "
+"sailkatzeko."
 
 #: ../panel-plugin/clipman-dialogs.c:315
-#, fuzzy
 msgid "<b>Menu Appearance</b>"
-msgstr "<b>Menu itxura</b>"
+msgstr "<b>Menu Itxura</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:337
 msgid "Clipboard history items:"
@@ -132,7 +149,7 @@ msgstr "Arbela historia elementuak:"
 
 #: ../panel-plugin/clipman-dialogs.c:351
 msgid "The number of items stored in the history list."
-msgstr ""
+msgstr "Historia zerrendan gordeko diren elementu kopurua."
 
 #: ../panel-plugin/clipman-dialogs.c:364
 msgid "Menu item characters:"
@@ -143,6 +160,8 @@ msgid ""
 "The number of characters showed in the history list. After this amount of "
 "characters, the history label will be ellipsized."
 msgstr ""
+"Historia zerrendan agertuko den karaktere kopurua. Karakete kopuru "
+"honen ondoren historia etiketa laburtua izango da."
 
 #: ../panel-plugin/clipman-dialogs.c:389
 msgid "<b>Numbers</b>"
@@ -150,16 +169,15 @@ msgstr "<b>Zenbakiak</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:394
 msgid "Appearance"
-msgstr ""
+msgstr "Itxura"
 
 #: ../panel-plugin/clipman.c:76
 msgid "Are you sure you want to clear the history?"
 msgstr "Ziur historia garbitu nahi duzula?"
 
 #: ../panel-plugin/clipman.c:287
-#, fuzzy
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Ziur historia garbitu nahi duzula?"
+msgstr "Ziur elementu hau historiatik ezabatu nahi duzula?"
 
 #: ../panel-plugin/clipman.c:405
 msgid "< Default History Empty >"
@@ -171,15 +189,15 @@ msgstr "< Hautaturiko Historia Hutsa >"
 
 #: ../panel-plugin/clipman.c:465 ../panel-plugin/clipman.c:530
 msgid "Clear History"
-msgstr "Történet törlése"
+msgstr "Historia garbitu"
 
 #: ../panel-plugin/clipman.c:624
 msgid "Clipman History"
-msgstr "Vágólap történet"
+msgstr "Clipman Historia"
 
 #: ../panel-plugin/clipman.c:646
 msgid "< Clipboard Empty >"
-msgstr "< Vágólap üres >"
+msgstr "< Arbela Hutsa >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -189,20 +207,3 @@ msgstr "Xfce idazmahaierako arbel kudeatzailea"
 msgid "Clipman"
 msgstr "Clipman"
 
-#~ msgid "Properties"
-#~ msgstr "Propietateak"
-
-#~ msgid "Use _colored menu items"
-#~ msgstr "Menu elementu  _koloredunak erabili"
-
-#~ msgid "Developer"
-#~ msgstr "Garatzailea"
-
-#~ msgid "Edit content"
-#~ msgstr "Edukia editatu"
-
-#~ msgid "Question"
-#~ msgstr "Galdera"
-
-#~ msgid "What to do with this clipboard item?"
-#~ msgstr "Zer egin arbel elementu honekin?"
