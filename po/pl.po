@@ -1,0 +1,135 @@
+# Polish translations for xfce4-clipman-plugin package.
+# Copyright (C) 2005-2006 Nick Schermer.
+# This file is distributed under the same license as
+# the xfce4-clipman-plugin package.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-09 00:20+0200\n"
+"PO-Revision-Date: 2006-04-08 12:19+0900\n"
+"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/clipman-dialogs.c:140
+msgid "Properties"
+msgstr "Właściwości"
+
+#: ../panel-plugin/clipman-dialogs.c:154
+#: ../panel-plugin/clipman-dialogs.c:340
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Schowek"
+
+#: ../panel-plugin/clipman-dialogs.c:170
+msgid "Save clipboard contents on _exit"
+msgstr "Zapisuj zawartość Schowka przy zamykaniu"
+
+#: ../panel-plugin/clipman-dialogs.c:174
+msgid "_Ignore selections"
+msgstr "_Ignoruj zaznaczenia"
+
+#: ../panel-plugin/clipman-dialogs.c:181
+msgid "Pre_vent empty clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "<b>General</b>"
+msgstr "<b>Ogólne</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:203
+msgid "Normal clipboard _management"
+msgstr "_Normalne zarządzanie Schowkiem"
+
+#: ../panel-plugin/clipman-dialogs.c:212
+msgid "Strictly separate _both clipboards"
+msgstr "Rozdzielaj oba Schowki"
+
+#: ../panel-plugin/clipman-dialogs.c:221
+msgid "<b>Clipboard behaviour</b>"
+msgstr "<b>Zachowanie Schowkiem</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:237
+msgid "_Show item numbers"
+msgstr "_Pokazuj numery obiektów"
+
+#: ../panel-plugin/clipman-dialogs.c:241
+msgid "Se_parate clipboards"
+msgstr "Rozdziel Schowki"
+
+#: ../panel-plugin/clipman-dialogs.c:245
+msgid "Use _colored menu items"
+msgstr "Użyj kolorowych elementów menu"
+
+#: ../panel-plugin/clipman-dialogs.c:249
+msgid "<b>Menu appearance</b>"
+msgstr "<b>Wygląd menu</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:271
+msgid "Clipboard history items:"
+msgstr "Historia Schowka:"
+
+#: ../panel-plugin/clipman-dialogs.c:295
+msgid "Menu item characters:"
+msgstr "Menu obiektów:"
+
+#: ../panel-plugin/clipman-dialogs.c:317
+msgid "<b>Numbers</b>"
+msgstr "<b>Liczba</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Schowek dla pulpitu Xfce"
+
+#: ../panel-plugin/clipman-dialogs.c:345
+#: ../panel-plugin/clipman-dialogs.c:346
+msgid "Developer"
+msgstr "Twórca"
+
+#: ../panel-plugin/clipman-dialogs.c:443
+msgid "Edit content"
+msgstr "Edytuj"
+
+#: ../panel-plugin/clipman-dialogs.c:538
+msgid "Question"
+msgstr "Pytanie"
+
+#: ../panel-plugin/clipman-dialogs.c:561
+msgid "What to do with this clipboard item?"
+msgstr "Co zrobić z tym obiektem?"
+
+#: ../panel-plugin/clipman.c:105
+msgid "Are you sure you want to clear the history?"
+msgstr "Wyczyścić historię?"
+
+#: ../panel-plugin/clipman.c:401
+msgid "< Default History Empty >"
+msgstr "< Domyślna Historia Pusta >"
+
+#: ../panel-plugin/clipman.c:452
+msgid "< Selection History Empty >"
+msgstr "< Historia Zaznaczeń Pusta >"
+
+#: ../panel-plugin/clipman.c:464
+#: ../panel-plugin/clipman.c:531
+msgid "Clear History"
+msgstr "Wyczyść Historię"
+
+#: ../panel-plugin/clipman.c:633
+msgid "Clipman History"
+msgstr "Historia Schowka"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< Schowek Pusty >"
+
+#: ../panel-plugin/clipman.c:1022
+msgid "Clipboard Manager"
+msgstr "Menadżer Schowka"
+
