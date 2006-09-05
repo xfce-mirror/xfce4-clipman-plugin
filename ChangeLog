@@ -1,3 +1,8 @@
+2006-09-05 18:23 nick
+
+	* Bump version to 0.5.99.1 (0.6rc1)
+	* Depend on Xfce4-panel 4.3.99.1
+
 2006-09-02 21:33 nick
 
 	* Remove executable bits
