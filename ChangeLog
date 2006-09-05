@@ -1,3 +1,7 @@
+2006-09-05 22:00 nick
+
+	* Fix typo in desktop file
+
 2006-09-05 19:16 nick
 
 	* Improve Makefile.am files. Make distcheck works
