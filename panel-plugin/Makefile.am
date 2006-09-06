@@ -1,3 +1,5 @@
+# $Id$
+
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-clipman-plugin
 

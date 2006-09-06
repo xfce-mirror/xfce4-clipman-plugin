@@ -35,5 +35,3 @@ sed -e "s/@LINGUAS@/${linguas}/g" \
     < "configure.in.in" > "configure.in"
 
 exec xdt-autogen $@
-
-# vi:set ts=2 sw=2 et ai:

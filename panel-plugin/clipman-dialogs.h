@@ -1,5 +1,3 @@
-/* vim: set expandtab ts=8 sw=4: */
-
 /*  $Id$
  *
  *  Copyright (c) 2006 Nick Schermer <nick@xfce.org>

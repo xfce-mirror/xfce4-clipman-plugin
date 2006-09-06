@@ -1,5 +1,3 @@
-/* vim: set expandtab ts=8 sw=4: */
-
 /*  $Id$
  *
  *  Copyright (c) 2006 Nick Schermer <nick@xfce.org>
@@ -70,21 +68,21 @@ typedef struct
     GtkWidget    *icon;
     GtkWidget    *button;
     GtkTooltips  *tooltip;
-    
+
     GPtrArray    *clips;
-    
+
     gint          TimeoutId;
     gboolean      killTimeout;
-    
+
     gboolean      ExitSave;
     gboolean      IgnoreSelect;
     gboolean      PreventEmpty;
-    
+
     ClipboardBehaviour Behaviour;
-    
+
     gboolean      ItemNumbers;
     gboolean      SeparateMenu;
-    
+
     guint         HistoryItems;
     guint         MenuCharacters;
 }
