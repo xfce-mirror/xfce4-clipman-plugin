@@ -1,6 +1,10 @@
+2006-09-06  Hydonsingore Cia <hydonsingore@educities.edu.tw>
+
+	* LINGUAS, zh_TW.po: Add traditional Chinese translations.
+
 2006-09-04  Piarres Beobide <pi@beobide.net>
 
-        * eu.po : Add Basque translation
+	* eu.po : Add Basque translation
 
 2006-09-03  Jean-François Wauthy <pollux@xfce.org>
 
