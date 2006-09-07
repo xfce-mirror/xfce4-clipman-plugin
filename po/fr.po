@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-02 21:53+0200\n"
-"PO-Revision-Date: 2006-07-28 12:50+0100\n"
-"Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
+"PO-Revision-Date: 2006-09-03 23:18+0100\n"
+"Last-Translator: Gerald Barre <g.barre@free.fr>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/clipman-dialogs.c:152 ../panel-plugin/clipman.c:969
+#: ../panel-plugin/clipman-dialogs.c:152
+#: ../panel-plugin/clipman.c:969
 msgid "Clipboard Manager"
 msgstr "Gestionnaire de presse-papiers"
 
@@ -26,30 +27,24 @@ msgid "Save clipboard contents on _exit"
 msgstr "_Enregistrer le contenu du presse-papiers en quittant"
 
 #: ../panel-plugin/clipman-dialogs.c:193
-msgid ""
-"Select this option to save the clipboard history when you exit Xfce and "
-"restore it when you login again."
-msgstr ""
+msgid "Select this option to save the clipboard history when you exit Xfce and restore it when you login again."
+msgstr "Sélectionner cette option pour enregistrer l'historique du presse-papiers quand vous quittez Xfce et pour la restaurer quand vous accédez de nouveau à votre compte."
 
 #: ../panel-plugin/clipman-dialogs.c:196
 msgid "_Ignore selections"
 msgstr "_Ignorer les sélections"
 
 #: ../panel-plugin/clipman-dialogs.c:201
-msgid ""
-"Select this option will prevent Clipman from including the contents of the "
-"selection in the history."
-msgstr ""
+msgid "Select this option will prevent Clipman from including the contents of the selection in the history."
+msgstr "Sélectionner cette option pour empêcher Clipman d'inclure le contenu de la sélection dans l'historique. "
 
 #: ../panel-plugin/clipman-dialogs.c:207
 msgid "Pre_vent empty clipboard"
-msgstr "Éviter un presse-papiers vide"
+msgstr "Éviter un presse-papiers _vide"
 
 #: ../panel-plugin/clipman-dialogs.c:215
-msgid ""
-"Select this option to prevent an empty clipboard. The most recent history "
-"item will be added to the clipboard."
-msgstr ""
+msgid "Select this option to prevent an empty clipboard. The most recent history item will be added to the clipboard."
+msgstr "Sélectionner cette option pour éviter d'avoir un presse-papiers vide. L'élément le plus récent de l'historique sera ajouté au presse-papiers."
 
 #: ../panel-plugin/clipman-dialogs.c:218
 msgid "<b>General</b>"
@@ -61,12 +56,13 @@ msgstr "Gestion nor_male du presse-papiers"
 
 #: ../panel-plugin/clipman-dialogs.c:240
 msgid ""
-"When you've copied or cut some text and it is already in the Clipman history "
-"from the selection clipboard,  only the content location will be changed.\n"
+"When you've copied or cut some text and it is already in the Clipman history from the selection clipboard,  only the content location will be changed.\n"
 "\n"
-"When a history item is clicked, the content will be copied to both "
-"clipboards."
+"When a history item is clicked, the content will be copied to both clipboards."
 msgstr ""
+"Si vous avez copié ou coupé du texte et qu'il se trouve déjà dans l'historique du presse-papiers de sélection, seul l'emplacement du contenu sera changé.\n"
+"\n"
+"Si un élément de l'historique est cliqué, son contenu sera copié dans les deux presse-papiers."
 
 #: ../panel-plugin/clipman-dialogs.c:251
 msgid "Strictly separate _both clipboards"
@@ -74,19 +70,19 @@ msgstr "Séparer les deux _presse-papiers"
 
 #: ../panel-plugin/clipman-dialogs.c:255
 msgid ""
-"When you've copied or cut some text it will be added to the Clipman history, "
-"there will also be a duplicate  in the history from the selection "
-"clipboard.\n"
+"When you've copied or cut some text it will be added to the Clipman history, there will also be a duplicate  in the history from the selection clipboard.\n"
 "\n"
-"When a history item is clicked, the content will only be copied to the "
-"clipboard it origionally came from.\n"
+"When a history item is clicked, the content will only be copied to the clipboard it origionally came from.\n"
 "\n"
-"This options will work best when you select the \"Separate Clipboards\" "
-"option from the Appearance tab."
+"This options will work best when you select the \"Separate Clipboards\" option from the Appearance tab."
 msgstr ""
+"Quand vous avez copié ou coupé du texte, celui-ci sera ajouté dans l'historique du Presse-papiers, il sera aussi recopié dans l'historique du presse-papiers de sélection.\n"
+"\n"
+"Si un élément de l'historique est cliqué, le contenu de celui-ci ne sera copié que dans le presse-papiers d'origine.\n"
+"\n"
+"Cette option fonctionnera bien mieux si vous sélectionnez l'option \"Séparer les presses-papiers\" dans l'onglet Apparence."
 
 #: ../panel-plugin/clipman-dialogs.c:270
-#, fuzzy
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Comportement du presse-papiers</b>"
 
@@ -94,9 +90,8 @@ msgstr "<b>Comportement du presse-papiers</b>"
 #. * Notebook label
 #. *
 #: ../panel-plugin/clipman-dialogs.c:278
-#, fuzzy
 msgid "General"
-msgstr "<b>Général</b>"
+msgstr "Général"
 
 #: ../panel-plugin/clipman-dialogs.c:295
 msgid "_Show item numbers"
@@ -104,40 +99,35 @@ msgstr "_Afficher les numéros des éléments"
 
 #: ../panel-plugin/clipman-dialogs.c:303
 msgid "Select this option to show item numbers in the history list."
-msgstr ""
+msgstr "Sélectionner cette option pour afficher les numéros des éléments dans la liste de l'historique."
 
 #: ../panel-plugin/clipman-dialogs.c:305
 msgid "Se_parate clipboards"
 msgstr "Sé_parer les presses-papiers"
 
 #: ../panel-plugin/clipman-dialogs.c:313
-msgid ""
-"Select this option to order the history list by primairy and selection "
-"clipboard."
-msgstr ""
+msgid "Select this option to order the history list by primairy and selection clipboard."
+msgstr "Sélectionner cette option pour trier la liste de l'historique par sélections primaires du presse-papiers."
 
 #: ../panel-plugin/clipman-dialogs.c:315
-#, fuzzy
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Apparence du menu</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:337
 msgid "Clipboard history items:"
-msgstr "Éléments de l'historique du presse-papiers:"
+msgstr "Éléments de l'historique du presse-papiers :"
 
 #: ../panel-plugin/clipman-dialogs.c:351
 msgid "The number of items stored in the history list."
-msgstr ""
+msgstr "Le nombre d'éléments stockés dans la liste de l'historique."
 
 #: ../panel-plugin/clipman-dialogs.c:364
 msgid "Menu item characters:"
-msgstr "Caractères des éléments du menu:"
+msgstr "Caractères des éléments du menu :"
 
 #: ../panel-plugin/clipman-dialogs.c:377
-msgid ""
-"The number of characters showed in the history list. After this amount of "
-"characters, the history label will be ellipsized."
-msgstr ""
+msgid "The number of characters showed in the history list. After this amount of characters, the history label will be ellipsized."
+msgstr "Le nombre de caractères affichés dans la liste de l'historique. Au delà de ce nombre, l'étiquette de l'historique sera abrégée."
 
 #: ../panel-plugin/clipman-dialogs.c:389
 msgid "<b>Numbers</b>"
@@ -145,16 +135,15 @@ msgstr "<b>Nombres</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:394
 msgid "Appearance"
-msgstr ""
+msgstr "Apparence"
 
 #: ../panel-plugin/clipman.c:76
 msgid "Are you sure you want to clear the history?"
-msgstr "Êtes-vous certain de vouloir effacer l'historique?"
+msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
 
 #: ../panel-plugin/clipman.c:287
-#, fuzzy
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Êtes-vous certain de vouloir effacer l'historique?"
+msgstr "Êtes-vous certain de vouloir effacer cet élément de l'historique ?"
 
 #: ../panel-plugin/clipman.c:405
 msgid "< Default History Empty >"
@@ -164,7 +153,8 @@ msgstr "< Historique par défaut vide >"
 msgid "< Selection History Empty >"
 msgstr "< Historique de la sélection vide >"
 
-#: ../panel-plugin/clipman.c:465 ../panel-plugin/clipman.c:530
+#: ../panel-plugin/clipman.c:465
+#: ../panel-plugin/clipman.c:530
 msgid "Clear History"
 msgstr "Effacer l'historique"
 
@@ -186,18 +176,14 @@ msgstr "Clipman"
 
 #~ msgid "Properties"
 #~ msgstr "Propriétés"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Éléments de menu en _couleur"
-
 #~ msgid "Developer"
 #~ msgstr "Développeur"
-
 #~ msgid "Edit content"
 #~ msgstr "Éditer le contenu"
-
 #~ msgid "Question"
 #~ msgstr "Question"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Que faire de cet élément du presse-papiers?"
+
