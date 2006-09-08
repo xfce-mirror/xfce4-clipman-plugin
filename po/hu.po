@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-02 21:53+0200\n"
+"POT-Creation-Date: 2006-09-08 21:36+0200\n"
 "PO-Revision-Date: 2006-09-03 10:20+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
@@ -19,144 +19,164 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/clipman-dialogs.c:152
-#: ../panel-plugin/clipman.c:969
+#: ../panel-plugin/clipman-dialogs.c:150 ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
 msgstr "Vágólap kezelő"
 
-#: ../panel-plugin/clipman-dialogs.c:185
+#: ../panel-plugin/clipman-dialogs.c:183
 msgid "Save clipboard contents on _exit"
 msgstr "Vágólap tartalmak mentése kilépéskor"
 
-#: ../panel-plugin/clipman-dialogs.c:193
-msgid "Select this option to save the clipboard history when you exit Xfce and restore it when you login again."
-msgstr "E lehetőséggel az Xfce kilépéskor elmenti a vágólap történetet és a következő bejelentkezésnél visszaállítja."
+#: ../panel-plugin/clipman-dialogs.c:191
+msgid ""
+"Select this option to save the clipboard history when you exit Xfce and "
+"restore it when you login again."
+msgstr ""
+"E lehetőséggel az Xfce kilépéskor elmenti a vágólap történetet és a "
+"következő bejelentkezésnél visszaállítja."
 
-#: ../panel-plugin/clipman-dialogs.c:196
+#: ../panel-plugin/clipman-dialogs.c:194
 msgid "_Ignore selections"
 msgstr "Kijelölések k_ihagyása"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "Select this option will prevent Clipman from including the contents of the selection in the history."
-msgstr "E lehetőség megadásakor a Clipman nem őrzi meg kijelölés tartalmát a történetben."
+#: ../panel-plugin/clipman-dialogs.c:199
+msgid ""
+"Select this option will prevent Clipman from including the contents of the "
+"selection in the history."
+msgstr ""
+"E lehetőség megadásakor a Clipman nem őrzi meg kijelölés tartalmát a "
+"történetben."
 
-#: ../panel-plugin/clipman-dialogs.c:207
+#: ../panel-plugin/clipman-dialogs.c:205
 msgid "Pre_vent empty clipboard"
 msgstr "Üres vágólap tiltása"
 
-#: ../panel-plugin/clipman-dialogs.c:215
-msgid "Select this option to prevent an empty clipboard. The most recent history item will be added to the clipboard."
-msgstr "E lehetőség megelőzi az üres vágólapot. A legutolsó történet elem a vágólapra kerül."
+#: ../panel-plugin/clipman-dialogs.c:213
+msgid ""
+"Select this option to prevent an empty clipboard. The most recent history "
+"item will be added to the clipboard."
+msgstr ""
+"E lehetőség megelőzi az üres vágólapot. A legutolsó történet elem a "
+"vágólapra kerül."
 
-#: ../panel-plugin/clipman-dialogs.c:218
+#: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
 msgstr "<b>Általános</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:236
+#: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
 msgstr "Szokásos vágólap kezelés"
 
-#: ../panel-plugin/clipman-dialogs.c:240
+#: ../panel-plugin/clipman-dialogs.c:238
 msgid ""
-"When you've copied or cut some text and it is already in the Clipman history from the selection clipboard,  only the content location will be changed.\n"
+"When you've copied or cut some text and it is already in the Clipman history "
+"from the selection clipboard,  only the content location will be changed.\n"
 "\n"
-"When a history item is clicked, the content will be copied to both clipboards."
+"When a history item is clicked, the content will be copied to both "
+"clipboards."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:251
+#: ../panel-plugin/clipman-dialogs.c:249
 msgid "Strictly separate _both clipboards"
 msgstr "Vágólapok szigorú elválasztása"
 
-#: ../panel-plugin/clipman-dialogs.c:255
+#: ../panel-plugin/clipman-dialogs.c:253
 msgid ""
-"When you've copied or cut some text it will be added to the Clipman history, there will also be a duplicate  in the history from the selection clipboard.\n"
+"When you've copied or cut some text it will be added to the Clipman history, "
+"there will also be a duplicate  in the history from the selection "
+"clipboard.\n"
 "\n"
-"When a history item is clicked, the content will only be copied to the clipboard it origionally came from.\n"
+"When a history item is clicked, the content will only be copied to the "
+"clipboard it origionally came from.\n"
 "\n"
-"This options will work best when you select the \"Separate Clipboards\" option from the Appearance tab."
+"This options will work best when you select the \"Separate Clipboards\" "
+"option from the Appearance tab."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:270
+#: ../panel-plugin/clipman-dialogs.c:268
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Vágólap viselkedés</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:278
+#: ../panel-plugin/clipman-dialogs.c:276
 msgid "General"
 msgstr "Általános"
 
-#: ../panel-plugin/clipman-dialogs.c:295
+#: ../panel-plugin/clipman-dialogs.c:293
 msgid "_Show item numbers"
 msgstr "Elem_számok mutatása"
 
-#: ../panel-plugin/clipman-dialogs.c:303
+#: ../panel-plugin/clipman-dialogs.c:301
 msgid "Select this option to show item numbers in the history list."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:305
+#: ../panel-plugin/clipman-dialogs.c:303
 msgid "Se_parate clipboards"
 msgstr "Külön vágólapok"
 
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Select this option to order the history list by primairy and selection clipboard."
+#: ../panel-plugin/clipman-dialogs.c:311
+msgid ""
+"Select this option to order the history list by primairy and selection "
+"clipboard."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:315
+#: ../panel-plugin/clipman-dialogs.c:313
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Menü megjelenés</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:337
+#: ../panel-plugin/clipman-dialogs.c:335
 msgid "Clipboard history items:"
 msgstr "Vágólap történet elemek:"
 
-#: ../panel-plugin/clipman-dialogs.c:351
+#: ../panel-plugin/clipman-dialogs.c:349
 msgid "The number of items stored in the history list."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:364
+#: ../panel-plugin/clipman-dialogs.c:362
 msgid "Menu item characters:"
 msgstr "Menü elem karakterek:"
 
-#: ../panel-plugin/clipman-dialogs.c:377
-msgid "The number of characters showed in the history list. After this amount of characters, the history label will be ellipsized."
+#: ../panel-plugin/clipman-dialogs.c:375
+msgid ""
+"The number of characters showed in the history list. After this amount of "
+"characters, the history label will be ellipsized."
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:389
+#: ../panel-plugin/clipman-dialogs.c:387
 msgid "<b>Numbers</b>"
 msgstr "<b>Számok</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:394
+#: ../panel-plugin/clipman-dialogs.c:392
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: ../panel-plugin/clipman.c:76
+#: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
 msgstr "Tényleg törlöd az előzményeket?"
 
-#: ../panel-plugin/clipman.c:287
+#: ../panel-plugin/clipman.c:285
 msgid "Are you sure you want to remove this clip from the history?"
 msgstr "Tényleg törlöd e vágást az előzők közül?"
 
-#: ../panel-plugin/clipman.c:405
+#: ../panel-plugin/clipman.c:403
 msgid "< Default History Empty >"
 msgstr "< Alap történet üres >"
 
-#: ../panel-plugin/clipman.c:456
+#: ../panel-plugin/clipman.c:454
 msgid "< Selection History Empty >"
 msgstr "< Kijelölés történet üres >"
 
-#: ../panel-plugin/clipman.c:465
-#: ../panel-plugin/clipman.c:530
+#: ../panel-plugin/clipman.c:463 ../panel-plugin/clipman.c:528
 msgid "Clear History"
 msgstr "Történet törlése"
 
-#: ../panel-plugin/clipman.c:624
+#: ../panel-plugin/clipman.c:622
 msgid "Clipman History"
 msgstr "Vágólap történet"
 
-#: ../panel-plugin/clipman.c:646
+#: ../panel-plugin/clipman.c:644
 msgid "< Clipboard Empty >"
 msgstr "< Vágólap üres >"
 
@@ -170,14 +190,18 @@ msgstr "Clipman"
 
 #~ msgid "Properties"
 #~ msgstr "Tulajdonságok"
+
 #~ msgid "Use _colored menu items"
 #~ msgstr "Színes menüelemek"
+
 #~ msgid "Developer"
 #~ msgstr "Fejlesztő"
+
 #~ msgid "Edit content"
 #~ msgstr "Tartalom szerkesztése"
+
 #~ msgid "Question"
 #~ msgstr "Kérdés"
+
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Mit tegyünk e vágólap elemmel?"
-

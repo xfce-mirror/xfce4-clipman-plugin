@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-09 00:20+0200\n"
+"POT-Creation-Date: 2006-09-08 21:36+0200\n"
 "PO-Revision-Date: 2006-04-08 12:19+0900\n"
 "Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -16,120 +16,187 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:140
-msgid "Properties"
-msgstr "Właściwości"
+#: ../panel-plugin/clipman-dialogs.c:150 ../panel-plugin/clipman.c:967
+msgid "Clipboard Manager"
+msgstr "Menadżer Schowka"
 
-#: ../panel-plugin/clipman-dialogs.c:154
-#: ../panel-plugin/clipman-dialogs.c:340
-#: ../panel-plugin/clipman.desktop.in.in.h:2
-msgid "Clipman"
-msgstr "Schowek"
-
-#: ../panel-plugin/clipman-dialogs.c:170
+#: ../panel-plugin/clipman-dialogs.c:183
 msgid "Save clipboard contents on _exit"
 msgstr "Zapisuj zawartość Schowka przy zamykaniu"
 
-#: ../panel-plugin/clipman-dialogs.c:174
+#: ../panel-plugin/clipman-dialogs.c:191
+msgid ""
+"Select this option to save the clipboard history when you exit Xfce and "
+"restore it when you login again."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:194
 msgid "_Ignore selections"
 msgstr "_Ignoruj zaznaczenia"
 
-#: ../panel-plugin/clipman-dialogs.c:181
+#: ../panel-plugin/clipman-dialogs.c:199
+msgid ""
+"Select this option will prevent Clipman from including the contents of the "
+"selection in the history."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:205
 msgid "Pre_vent empty clipboard"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:185
+#: ../panel-plugin/clipman-dialogs.c:213
+msgid ""
+"Select this option to prevent an empty clipboard. The most recent history "
+"item will be added to the clipboard."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
 msgstr "<b>Ogólne</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:203
+#: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
 msgstr "_Normalne zarządzanie Schowkiem"
 
-#: ../panel-plugin/clipman-dialogs.c:212
+#: ../panel-plugin/clipman-dialogs.c:238
+msgid ""
+"When you've copied or cut some text and it is already in the Clipman history "
+"from the selection clipboard,  only the content location will be changed.\n"
+"\n"
+"When a history item is clicked, the content will be copied to both "
+"clipboards."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:249
 msgid "Strictly separate _both clipboards"
 msgstr "Rozdzielaj oba Schowki"
 
-#: ../panel-plugin/clipman-dialogs.c:221
-msgid "<b>Clipboard behaviour</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid ""
+"When you've copied or cut some text it will be added to the Clipman history, "
+"there will also be a duplicate  in the history from the selection "
+"clipboard.\n"
+"\n"
+"When a history item is clicked, the content will only be copied to the "
+"clipboard it origionally came from.\n"
+"\n"
+"This options will work best when you select the \"Separate Clipboards\" "
+"option from the Appearance tab."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:268
+#, fuzzy
+msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Zachowanie Schowkiem</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:237
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:276
+#, fuzzy
+msgid "General"
+msgstr "<b>Ogólne</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:293
 msgid "_Show item numbers"
 msgstr "_Pokazuj numery obiektów"
 
-#: ../panel-plugin/clipman-dialogs.c:241
+#: ../panel-plugin/clipman-dialogs.c:301
+msgid "Select this option to show item numbers in the history list."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:303
 msgid "Se_parate clipboards"
 msgstr "Rozdziel Schowki"
 
-#: ../panel-plugin/clipman-dialogs.c:245
-msgid "Use _colored menu items"
-msgstr "Użyj kolorowych elementów menu"
+#: ../panel-plugin/clipman-dialogs.c:311
+msgid ""
+"Select this option to order the history list by primairy and selection "
+"clipboard."
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:249
-msgid "<b>Menu appearance</b>"
+#: ../panel-plugin/clipman-dialogs.c:313
+#, fuzzy
+msgid "<b>Menu Appearance</b>"
 msgstr "<b>Wygląd menu</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:271
+#: ../panel-plugin/clipman-dialogs.c:335
 msgid "Clipboard history items:"
 msgstr "Historia Schowka:"
 
-#: ../panel-plugin/clipman-dialogs.c:295
+#: ../panel-plugin/clipman-dialogs.c:349
+msgid "The number of items stored in the history list."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:362
 msgid "Menu item characters:"
 msgstr "Menu obiektów:"
 
-#: ../panel-plugin/clipman-dialogs.c:317
+#: ../panel-plugin/clipman-dialogs.c:375
+msgid ""
+"The number of characters showed in the history list. After this amount of "
+"characters, the history label will be ellipsized."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:387
 msgid "<b>Numbers</b>"
 msgstr "<b>Liczba</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:341
+#: ../panel-plugin/clipman-dialogs.c:392
+msgid "Appearance"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:74
+msgid "Are you sure you want to clear the history?"
+msgstr "Wyczyścić historię?"
+
+#: ../panel-plugin/clipman.c:285
+#, fuzzy
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "Wyczyścić historię?"
+
+#: ../panel-plugin/clipman.c:403
+msgid "< Default History Empty >"
+msgstr "< Domyślna Historia Pusta >"
+
+#: ../panel-plugin/clipman.c:454
+msgid "< Selection History Empty >"
+msgstr "< Historia Zaznaczeń Pusta >"
+
+#: ../panel-plugin/clipman.c:463 ../panel-plugin/clipman.c:528
+msgid "Clear History"
+msgstr "Wyczyść Historię"
+
+#: ../panel-plugin/clipman.c:622
+msgid "Clipman History"
+msgstr "Historia Schowka"
+
+#: ../panel-plugin/clipman.c:644
+msgid "< Clipboard Empty >"
+msgstr "< Schowek Pusty >"
+
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
 msgstr "Schowek dla pulpitu Xfce"
 
-#: ../panel-plugin/clipman-dialogs.c:345
-#: ../panel-plugin/clipman-dialogs.c:346
-msgid "Developer"
-msgstr "Twórca"
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Schowek"
 
-#: ../panel-plugin/clipman-dialogs.c:443
-msgid "Edit content"
-msgstr "Edytuj"
+#~ msgid "Properties"
+#~ msgstr "Właściwości"
 
-#: ../panel-plugin/clipman-dialogs.c:538
-msgid "Question"
-msgstr "Pytanie"
+#~ msgid "Use _colored menu items"
+#~ msgstr "Użyj kolorowych elementów menu"
 
-#: ../panel-plugin/clipman-dialogs.c:561
-msgid "What to do with this clipboard item?"
-msgstr "Co zrobić z tym obiektem?"
+#~ msgid "Developer"
+#~ msgstr "Twórca"
 
-#: ../panel-plugin/clipman.c:105
-msgid "Are you sure you want to clear the history?"
-msgstr "Wyczyścić historię?"
+#~ msgid "Edit content"
+#~ msgstr "Edytuj"
 
-#: ../panel-plugin/clipman.c:401
-msgid "< Default History Empty >"
-msgstr "< Domyślna Historia Pusta >"
+#~ msgid "Question"
+#~ msgstr "Pytanie"
 
-#: ../panel-plugin/clipman.c:452
-msgid "< Selection History Empty >"
-msgstr "< Historia Zaznaczeń Pusta >"
-
-#: ../panel-plugin/clipman.c:464
-#: ../panel-plugin/clipman.c:531
-msgid "Clear History"
-msgstr "Wyczyść Historię"
-
-#: ../panel-plugin/clipman.c:633
-msgid "Clipman History"
-msgstr "Historia Schowka"
-
-#: ../panel-plugin/clipman.c:658
-msgid "< Clipboard Empty >"
-msgstr "< Schowek Pusty >"
-
-#: ../panel-plugin/clipman.c:1022
-msgid "Clipboard Manager"
-msgstr "Menadżer Schowka"
-
+#~ msgid "What to do with this clipboard item?"
+#~ msgstr "Co zrobić z tym obiektem?"
