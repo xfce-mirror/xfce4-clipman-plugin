@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-08 21:36+0200\n"
+"POT-Creation-Date: 2006-09-10 18:14+0200\n"
 "PO-Revision-Date: 2006-09-03 23:18+0100\n"
 "Last-Translator: Gerald Barre <g.barre@free.fr>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -17,158 +17,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/clipman-dialogs.c:150 ../panel-plugin/clipman.c:967
+#: ../panel-plugin/clipman-dialogs.c:72
+msgid "Visit the goodies website for more information about this plugin."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
 msgstr "Gestionnaire de presse-papiers"
 
-#: ../panel-plugin/clipman-dialogs.c:183
+#: ../panel-plugin/clipman-dialogs.c:204
 msgid "Save clipboard contents on _exit"
 msgstr "_Enregistrer le contenu du presse-papiers en quittant"
 
-#: ../panel-plugin/clipman-dialogs.c:191
-msgid ""
-"Select this option to save the clipboard history when you exit Xfce and "
-"restore it when you login again."
-msgstr ""
-"Sélectionner cette option pour enregistrer l'historique du presse-papiers "
-"quand vous quittez Xfce et pour la restaurer quand vous accédez de nouveau à "
-"votre compte."
-
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:211
 msgid "_Ignore selections"
 msgstr "_Ignorer les sélections"
 
-#: ../panel-plugin/clipman-dialogs.c:199
-msgid ""
-"Select this option will prevent Clipman from including the contents of the "
-"selection in the history."
-msgstr ""
-"Sélectionner cette option pour empêcher Clipman d'inclure le contenu de la "
-"sélection dans l'historique. "
-
-#: ../panel-plugin/clipman-dialogs.c:205
+#: ../panel-plugin/clipman-dialogs.c:218
 msgid "Pre_vent empty clipboard"
 msgstr "Éviter un presse-papiers _vide"
 
-#: ../panel-plugin/clipman-dialogs.c:213
-msgid ""
-"Select this option to prevent an empty clipboard. The most recent history "
-"item will be added to the clipboard."
-msgstr ""
-"Sélectionner cette option pour éviter d'avoir un presse-papiers vide. "
-"L'élément le plus récent de l'historique sera ajouté au presse-papiers."
-
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:226
 msgid "<b>General</b>"
 msgstr "<b>Général</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
+#: ../panel-plugin/clipman-dialogs.c:244
 msgid "Normal clipboard _management"
 msgstr "Gestion nor_male du presse-papiers"
 
-#: ../panel-plugin/clipman-dialogs.c:238
-msgid ""
-"When you've copied or cut some text and it is already in the Clipman history "
-"from the selection clipboard,  only the content location will be changed.\n"
-"\n"
-"When a history item is clicked, the content will be copied to both "
-"clipboards."
-msgstr ""
-"Si vous avez copié ou coupé du texte et qu'il se trouve déjà dans "
-"l'historique du presse-papiers de sélection, seul l'emplacement du contenu "
-"sera changé.\n"
-"\n"
-"Si un élément de l'historique est cliqué, son contenu sera copié dans les "
-"deux presse-papiers."
-
-#: ../panel-plugin/clipman-dialogs.c:249
+#: ../panel-plugin/clipman-dialogs.c:253
 msgid "Strictly separate _both clipboards"
 msgstr "Séparer les deux _presse-papiers"
 
-#: ../panel-plugin/clipman-dialogs.c:253
-msgid ""
-"When you've copied or cut some text it will be added to the Clipman history, "
-"there will also be a duplicate  in the history from the selection "
-"clipboard.\n"
-"\n"
-"When a history item is clicked, the content will only be copied to the "
-"clipboard it origionally came from.\n"
-"\n"
-"This options will work best when you select the \"Separate Clipboards\" "
-"option from the Appearance tab."
-msgstr ""
-"Quand vous avez copié ou coupé du texte, celui-ci sera ajouté dans "
-"l'historique du Presse-papiers, il sera aussi recopié dans l'historique du "
-"presse-papiers de sélection.\n"
-"\n"
-"Si un élément de l'historique est cliqué, le contenu de celui-ci ne sera "
-"copié que dans le presse-papiers d'origine.\n"
-"\n"
-"Cette option fonctionnera bien mieux si vous sélectionnez l'option \"Séparer "
-"les presses-papiers\" dans l'onglet Apparence."
-
-#: ../panel-plugin/clipman-dialogs.c:268
+#: ../panel-plugin/clipman-dialogs.c:262
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Comportement du presse-papiers</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:276
+#: ../panel-plugin/clipman-dialogs.c:270
 msgid "General"
 msgstr "Général"
 
-#: ../panel-plugin/clipman-dialogs.c:293
+#: ../panel-plugin/clipman-dialogs.c:287
 msgid "_Show item numbers"
 msgstr "_Afficher les numéros des éléments"
 
-#: ../panel-plugin/clipman-dialogs.c:301
-msgid "Select this option to show item numbers in the history list."
-msgstr ""
-"Sélectionner cette option pour afficher les numéros des éléments dans la "
-"liste de l'historique."
-
-#: ../panel-plugin/clipman-dialogs.c:303
+#: ../panel-plugin/clipman-dialogs.c:294
 msgid "Se_parate clipboards"
 msgstr "Sé_parer les presses-papiers"
 
-#: ../panel-plugin/clipman-dialogs.c:311
-msgid ""
-"Select this option to order the history list by primairy and selection "
-"clipboard."
-msgstr ""
-"Sélectionner cette option pour trier la liste de l'historique par sélections "
-"primaires du presse-papiers."
-
-#: ../panel-plugin/clipman-dialogs.c:313
+#: ../panel-plugin/clipman-dialogs.c:301
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Apparence du menu</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:335
+#: ../panel-plugin/clipman-dialogs.c:323
 msgid "Clipboard history items:"
 msgstr "Éléments de l'historique du presse-papiers :"
 
-#: ../panel-plugin/clipman-dialogs.c:349
-msgid "The number of items stored in the history list."
-msgstr "Le nombre d'éléments stockés dans la liste de l'historique."
-
-#: ../panel-plugin/clipman-dialogs.c:362
+#: ../panel-plugin/clipman-dialogs.c:347
 msgid "Menu item characters:"
 msgstr "Caractères des éléments du menu :"
 
-#: ../panel-plugin/clipman-dialogs.c:375
-msgid ""
-"The number of characters showed in the history list. After this amount of "
-"characters, the history label will be ellipsized."
-msgstr ""
-"Le nombre de caractères affichés dans la liste de l'historique. Au delà de "
-"ce nombre, l'étiquette de l'historique sera abrégée."
-
-#: ../panel-plugin/clipman-dialogs.c:387
+#: ../panel-plugin/clipman-dialogs.c:369
 msgid "<b>Numbers</b>"
 msgstr "<b>Nombres</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:392
+#: ../panel-plugin/clipman-dialogs.c:374
 msgid "Appearance"
 msgstr "Apparence"
 
@@ -207,6 +123,86 @@ msgstr "Gestionnaire de presse-papiers pour l'environnement de bureau Xfce"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "Sélectionner cette option pour enregistrer l'historique du presse-papiers "
+#~ "quand vous quittez Xfce et pour la restaurer quand vous accédez de "
+#~ "nouveau à votre compte."
+
+#~ msgid ""
+#~ "Select this option will prevent Clipman from including the contents of "
+#~ "the selection in the history."
+#~ msgstr ""
+#~ "Sélectionner cette option pour empêcher Clipman d'inclure le contenu de "
+#~ "la sélection dans l'historique. "
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr ""
+#~ "Sélectionner cette option pour éviter d'avoir un presse-papiers vide. "
+#~ "L'élément le plus récent de l'historique sera ajouté au presse-papiers."
+
+#~ msgid ""
+#~ "When you've copied or cut some text and it is already in the Clipman "
+#~ "history from the selection clipboard,  only the content location will be "
+#~ "changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both "
+#~ "clipboards."
+#~ msgstr ""
+#~ "Si vous avez copié ou coupé du texte et qu'il se trouve déjà dans "
+#~ "l'historique du presse-papiers de sélection, seul l'emplacement du "
+#~ "contenu sera changé.\n"
+#~ "\n"
+#~ "Si un élément de l'historique est cliqué, son contenu sera copié dans les "
+#~ "deux presse-papiers."
+
+#~ msgid ""
+#~ "When you've copied or cut some text it will be added to the Clipman "
+#~ "history, there will also be a duplicate  in the history from the "
+#~ "selection clipboard.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will only be copied to the "
+#~ "clipboard it origionally came from.\n"
+#~ "\n"
+#~ "This options will work best when you select the \"Separate Clipboards\" "
+#~ "option from the Appearance tab."
+#~ msgstr ""
+#~ "Quand vous avez copié ou coupé du texte, celui-ci sera ajouté dans "
+#~ "l'historique du Presse-papiers, il sera aussi recopié dans l'historique "
+#~ "du presse-papiers de sélection.\n"
+#~ "\n"
+#~ "Si un élément de l'historique est cliqué, le contenu de celui-ci ne sera "
+#~ "copié que dans le presse-papiers d'origine.\n"
+#~ "\n"
+#~ "Cette option fonctionnera bien mieux si vous sélectionnez l'option "
+#~ "\"Séparer les presses-papiers\" dans l'onglet Apparence."
+
+#~ msgid "Select this option to show item numbers in the history list."
+#~ msgstr ""
+#~ "Sélectionner cette option pour afficher les numéros des éléments dans la "
+#~ "liste de l'historique."
+
+#~ msgid ""
+#~ "Select this option to order the history list by primairy and selection "
+#~ "clipboard."
+#~ msgstr ""
+#~ "Sélectionner cette option pour trier la liste de l'historique par "
+#~ "sélections primaires du presse-papiers."
+
+#~ msgid "The number of items stored in the history list."
+#~ msgstr "Le nombre d'éléments stockés dans la liste de l'historique."
+
+#~ msgid ""
+#~ "The number of characters showed in the history list. After this amount of "
+#~ "characters, the history label will be ellipsized."
+#~ msgstr ""
+#~ "Le nombre de caractères affichés dans la liste de l'historique. Au delà "
+#~ "de ce nombre, l'étiquette de l'historique sera abrégée."
 
 #~ msgid "Properties"
 #~ msgstr "Propriétés"

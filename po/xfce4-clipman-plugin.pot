@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-08 21:36+0200\n"
+"POT-Creation-Date: 2006-09-10 18:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,130 +16,74 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:150 ../panel-plugin/clipman.c:967
+#: ../panel-plugin/clipman-dialogs.c:72
+msgid "Visit the goodies website for more information about this plugin."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:183
+#: ../panel-plugin/clipman-dialogs.c:204
 msgid "Save clipboard contents on _exit"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:191
-msgid ""
-"Select this option to save the clipboard history when you exit Xfce and "
-"restore it when you login again."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:211
 msgid "_Ignore selections"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:199
-msgid ""
-"Select this option will prevent Clipman from including the contents of the "
-"selection in the history."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:205
+#: ../panel-plugin/clipman-dialogs.c:218
 msgid "Pre_vent empty clipboard"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:213
-msgid ""
-"Select this option to prevent an empty clipboard. The most recent history "
-"item will be added to the clipboard."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:226
 msgid "<b>General</b>"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:234
+#: ../panel-plugin/clipman-dialogs.c:244
 msgid "Normal clipboard _management"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:238
-msgid ""
-"When you've copied or cut some text and it is already in the Clipman history "
-"from the selection clipboard,  only the content location will be changed.\n"
-"\n"
-"When a history item is clicked, the content will be copied to both "
-"clipboards."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:249
+#: ../panel-plugin/clipman-dialogs.c:253
 msgid "Strictly separate _both clipboards"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:253
-msgid ""
-"When you've copied or cut some text it will be added to the Clipman history, "
-"there will also be a duplicate  in the history from the selection "
-"clipboard.\n"
-"\n"
-"When a history item is clicked, the content will only be copied to the "
-"clipboard it origionally came from.\n"
-"\n"
-"This options will work best when you select the \"Separate Clipboards\" "
-"option from the Appearance tab."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:268
+#: ../panel-plugin/clipman-dialogs.c:262
 msgid "<b>Clipboard Behaviour</b>"
 msgstr ""
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:276
+#: ../panel-plugin/clipman-dialogs.c:270
 msgid "General"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:293
+#: ../panel-plugin/clipman-dialogs.c:287
 msgid "_Show item numbers"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:301
-msgid "Select this option to show item numbers in the history list."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:303
+#: ../panel-plugin/clipman-dialogs.c:294
 msgid "Se_parate clipboards"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:311
-msgid ""
-"Select this option to order the history list by primairy and selection "
-"clipboard."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:313
+#: ../panel-plugin/clipman-dialogs.c:301
 msgid "<b>Menu Appearance</b>"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:335
+#: ../panel-plugin/clipman-dialogs.c:323
 msgid "Clipboard history items:"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:349
-msgid "The number of items stored in the history list."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:362
+#: ../panel-plugin/clipman-dialogs.c:347
 msgid "Menu item characters:"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:375
-msgid ""
-"The number of characters showed in the history list. After this amount of "
-"characters, the history label will be ellipsized."
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:387
+#: ../panel-plugin/clipman-dialogs.c:369
 msgid "<b>Numbers</b>"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:392
+#: ../panel-plugin/clipman-dialogs.c:374
 msgid "Appearance"
 msgstr ""
 

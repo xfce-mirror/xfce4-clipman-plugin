@@ -1,3 +1,12 @@
+2006-09-20 18:16 nick
+
+	* Removed all the toolips in the configure dialog and
+	  added a help button (launch exo-open).
+
+2006-09-10 11:23 nick
+
+	* Fix typo in tooltip
+
 2006-09-05 22:00 nick
 
 	* Fix typo in desktop file
@@ -25,7 +34,7 @@
 
 2006-08-10 10:23 piarres
 
-	* add xfce4-clipman-plugin basque translation 
+	* add xfce4-clipman-plugin basque translation
 
 2006-08-09 20:48 nick
 
@@ -120,10 +129,10 @@
 
 2006-04-20 15:01 nick
 
-	* panel-plugin/clipman-dialog.c: 
+	* panel-plugin/clipman-dialog.c:
   	* Destroy dialog when plugin is closed
   	* Toggle buttons now apply directly
-	* panel-plugin/clipman.c: 
+	* panel-plugin/clipman.c:
   	* Fix mem leak in read function.
   	* Remove Primairy clips when selection is ignored
   	* Improved the menu destroy function stuff
@@ -134,12 +143,12 @@
 
 2006-04-09 19:46 nick
 
-	* panel-plugin/clipman-dialog.c: 
+	* panel-plugin/clipman-dialog.c:
   	* Splitup in tabs
   	* Added tooltips
   	* Removed color button
   	* Removed about dialog
-	* panel-plugin/clipman.c: 
+	* panel-plugin/clipman.c:
   	* Patch from Daichi
   	* Fix crash in free function
   	* Removed colors
@@ -158,10 +167,10 @@
 
 2005-12-01 13:29 nick
 
-	* panel-plugin/clipman.c: 
+	* panel-plugin/clipman.c:
   	* Added function clipman_replace_text (code moved from clipman_item_clicked)
   	* Moke some functions shared for use with new dialogs
-	* panel-plugin/clipman-dialog.c: 
+	* panel-plugin/clipman-dialog.c:
   	* Added new rightclick dialog with option to change the clip content.
 	  clipman_question, clipman_question_response
   	* Added clipman_edit, clipman_edit_response

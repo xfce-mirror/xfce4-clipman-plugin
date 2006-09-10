@@ -30,6 +30,9 @@
 #include "clipman.h"
 #include "clipman-dialogs.h"
 
+#define GOODIES "http://goodies.xfce.org"
+#define WEBSITE "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin"
+
 typedef struct
 {
     ClipmanPlugin *clipman;
@@ -53,32 +56,54 @@ clipman_configure_response (GtkWidget      *dialog,
                             int             response,
                             ClipmanOptions *options)
 {
-        DBG("Destroy the dialog");
+    GtkWidget *message;
 
-        g_object_set_data (G_OBJECT (options->clipman->plugin), "dialog", NULL);
-
-        if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (options->Behaviour)))
-            options->clipman->Behaviour = NORMAL;
-        else
-            options->clipman->Behaviour = STRICTLY;
-
-        if (options->clipman->HistoryItems != gtk_range_get_value (GTK_RANGE (options->HistorySize)))
+	if (response == GTK_RESPONSE_HELP)
 	{
-	    options->clipman->HistoryItems   = gtk_range_get_value (GTK_RANGE (options->HistorySize));
-            clipman_check_array_len (options->clipman);
+		if (!xfce_exec_on_screen (gtk_widget_get_screen (dialog),
+            "exo-open --launch WebBrowser " WEBSITE,
+            FALSE, FALSE, NULL))
+        {
+             message = gtk_message_dialog_new (GTK_WINDOW (gtk_widget_get_toplevel (dialog)),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_INFO,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n\n%s",
+                                  _("Visit the goodies website for more information about this plugin."),
+                                  GOODIES);
+             gtk_dialog_run (GTK_DIALOG (message));
+             gtk_widget_destroy (message);
+        }
+
+        return;
 	}
 
-        options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
+    DBG("Destroy the dialog");
 
-        clipman_save (options->clipman->plugin, options->clipman);
+    g_object_set_data (G_OBJECT (options->clipman->plugin), "dialog", NULL);
 
-        clipman_remove_selection_clips (options->clipman);
+    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (options->Behaviour)))
+        options->clipman->Behaviour = NORMAL;
+    else
+        options->clipman->Behaviour = STRICTLY;
 
-        xfce_panel_plugin_unblock_menu (options->clipman->plugin);
+    if (options->clipman->HistoryItems != gtk_range_get_value (GTK_RANGE (options->HistorySize)))
+    {
+        options->clipman->HistoryItems   = gtk_range_get_value (GTK_RANGE (options->HistorySize));
+        clipman_check_array_len (options->clipman);
+    }
 
-        gtk_widget_destroy (dialog);
+    options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
 
-        panel_slice_free (ClipmanOptions, options);
+    clipman_save (options->clipman->plugin, options->clipman);
+
+    clipman_remove_selection_clips (options->clipman);
+
+    xfce_panel_plugin_unblock_menu (options->clipman->plugin);
+
+    gtk_widget_destroy (dialog);
+
+    panel_slice_free (ClipmanOptions, options);
 }
 
 static void
@@ -136,11 +161,8 @@ clipman_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget      *dialog, *dialog_vbox, *frame, *button, *label;
     GtkWidget      *vbox, *hbox, *notebook_vbox, *notebook;
-    GtkTooltips    *tooltips;
     ClipmanOptions *options;
     GSList         *group;
-
-    tooltips = gtk_tooltips_new ();
 
     options = panel_slice_new0 (ClipmanOptions);
     options->clipman = clipman;
@@ -150,10 +172,9 @@ clipman_configure (XfcePanelPlugin *plugin,
     dialog = xfce_titled_dialog_new_with_buttons (_("Clipboard Manager"),
                                                   GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                   GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
+                                                  GTK_STOCK_HELP, GTK_RESPONSE_HELP,
                                                   GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
                                                   NULL);
-/*    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog),
-                                     _("Configure the clipboard manager plugin")); */
 
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
     gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-settings");
@@ -187,17 +208,9 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option to save the clipboard history when you exit Xfce and "
-			    "restore it when you login again."), NULL);
-
     button = options->IgnoreSelection = gtk_check_button_new_with_mnemonic (_("_Ignore selections"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->IgnoreSelect);
-
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option will prevent Clipman from including the contents of "
-			    "the selection in the history."), NULL);
 
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
@@ -209,9 +222,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option to prevent an empty clipboard. The most recent "
-			    "history item will be added to the clipboard."), NULL);
 
     label = gtk_label_new (_("<b>General</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
@@ -234,12 +244,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     button = options->Behaviour = gtk_radio_button_new_with_mnemonic (group, _("Normal clipboard _management"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("When you've copied or cut some text and it is already in the "
-			    "Clipman history from the selection clipboard,  only the content "
-			    "location will be changed.\n\nWhen a history item is clicked, the "
-			    "content will be copied to both clipboards."), NULL);
-
     gtk_radio_button_set_group (GTK_RADIO_BUTTON (button), group);
     group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (button));
 
@@ -248,16 +252,6 @@ clipman_configure (XfcePanelPlugin *plugin,
 
     button = gtk_radio_button_new_with_mnemonic (group, _("Strictly separate _both clipboards"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("When you've copied or cut some text it will be added to the Clipman history, "
-                            "there will also be a duplicate in the history from the selection clipboard."
-                            "\n\n"
-                            "When a history item is clicked, the content will only be copied to the "
-                            "clipboard it origionally came from."
-                            "\n\n"
-                            "This options will work best when you "
-                            "select the \"Separate Clipboards\" option from the Appearance tab."), NULL);
 
     gtk_radio_button_set_group (GTK_RADIO_BUTTON (button), group);
     group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (button));
@@ -297,18 +291,12 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option to show item numbers in the history list."), NULL);
-
     button = options->SeparateMenu = gtk_check_button_new_with_mnemonic (_("Se_parate clipboards"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->SeparateMenu);
 
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
-
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option to split up the clipboard and selection history."), NULL);
 
     label = gtk_label_new (_("<b>Menu Appearance</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
@@ -345,9 +333,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     gtk_scale_set_draw_value (GTK_SCALE (button), FALSE);
     gtk_scale_set_digits (GTK_SCALE (button), 0);
 
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("The number of items stored in the history list."), NULL);
-
     button = gtk_spin_button_new_with_range(MINHISTORY, MAXHISTORY, 1);
     gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, TRUE, 0);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(button), clipman->HistoryItems);
@@ -370,9 +355,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     gtk_box_pack_start (GTK_BOX (hbox), button, TRUE, TRUE, 10);
     gtk_scale_set_draw_value (GTK_SCALE (button), FALSE);
     gtk_scale_set_digits (GTK_SCALE (button), 0);
-
-    gtk_tooltips_set_tip (tooltips, button,
-                          _("The number of characters showed in the history list. After this amount of characters, the history label will be ellipsized."), NULL);
 
     button = gtk_spin_button_new_with_range(MINCHARS, MAXCHARS, 1);
     gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, TRUE, 0);

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-08 21:36+0200\n"
+"POT-Creation-Date: 2006-09-10 18:14+0200\n"
 "PO-Revision-Date: 2006-09-04 00:29+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -22,150 +22,74 @@ msgstr ""
 "X-Poedit-Country: HUNGARY\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/clipman-dialogs.c:150 ../panel-plugin/clipman.c:967
+#: ../panel-plugin/clipman-dialogs.c:72
+msgid "Visit the goodies website for more information about this plugin."
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
 msgstr "Arbel Kudeatzailea"
 
-#: ../panel-plugin/clipman-dialogs.c:183
+#: ../panel-plugin/clipman-dialogs.c:204
 msgid "Save clipboard contents on _exit"
 msgstr "_Irteterakoan arbel edukiak gorde"
 
-#: ../panel-plugin/clipman-dialogs.c:191
-msgid ""
-"Select this option to save the clipboard history when you exit Xfce and "
-"restore it when you login again."
-msgstr ""
-"Hautatu aukera hau xfce uztean arbel historia gordetzea eta saioa berriz "
-"astean berreskuratzea nahi baduzu."
-
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:211
 msgid "_Ignore selections"
 msgstr "_Hautapenak alde batera utzi"
 
-#: ../panel-plugin/clipman-dialogs.c:199
-msgid ""
-"Select this option will prevent Clipman from including the contents of the "
-"selection in the history."
-msgstr ""
-"Hautatu aukera hau clipman-ek hautapenaren edukia historian gorde ez dezan."
-
-#: ../panel-plugin/clipman-dialogs.c:205
+#: ../panel-plugin/clipman-dialogs.c:218
 msgid "Pre_vent empty clipboard"
 msgstr "Arbel hutsa Au_rreikusi"
 
-#: ../panel-plugin/clipman-dialogs.c:213
-msgid ""
-"Select this option to prevent an empty clipboard. The most recent history "
-"item will be added to the clipboard."
-msgstr ""
-"Hautatu aukera hau arbela hutsi geratzea sahiesteko. Azkenengo historia "
-"elementua arbelara gehitua izango da."
-
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:226
 msgid "<b>General</b>"
 msgstr "<b>Orokorra</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
+#: ../panel-plugin/clipman-dialogs.c:244
 msgid "Normal clipboard _management"
 msgstr "Arbel _kudeaketa arrunta"
 
-#: ../panel-plugin/clipman-dialogs.c:238
-msgid ""
-"When you've copied or cut some text and it is already in the Clipman history "
-"from the selection clipboard,  only the content location will be changed.\n"
-"\n"
-"When a history item is clicked, the content will be copied to both "
-"clipboards."
-msgstr ""
-"Clipman historian dagoeneko badagoen testu bat kopiatu edo mozterakoan.  "
-"Edukiaren kokalekua bakarrik aldatuko da.\n"
-"\n"
-"Historia elementu bat klikatzerakoan edukia bi arbeletara kopiatuko da."
-
-#: ../panel-plugin/clipman-dialogs.c:249
+#: ../panel-plugin/clipman-dialogs.c:253
 msgid "Strictly separate _both clipboards"
 msgstr "_Bi arbelak guztiz bereizi"
 
-#: ../panel-plugin/clipman-dialogs.c:253
-msgid ""
-"When you've copied or cut some text it will be added to the Clipman history, "
-"there will also be a duplicate  in the history from the selection "
-"clipboard.\n"
-"\n"
-"When a history item is clicked, the content will only be copied to the "
-"clipboard it origionally came from.\n"
-"\n"
-"This options will work best when you select the \"Separate Clipboards\" "
-"option from the Appearance tab."
-msgstr ""
-"Testu bat kopiatu edo ebakitzerakoan berau clipman historiara gehituko da, "
-"orduan errepikatze bat egongo da historian hautapen arbeletik.\n"
-"\n"
-"Hsitoria elementu bat klikatzerakoan, edukia jatorriz elementua zegoen "
-"arbelara kopiatua izango da.\n"
-"\n"
-"Aukera honek hobe funtzionatzen du \"Bereiziriko Arbelak\" hautatu ezkero "
-"Itxura fitxan."
-
-#: ../panel-plugin/clipman-dialogs.c:268
+#: ../panel-plugin/clipman-dialogs.c:262
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Arbela portaera</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:276
+#: ../panel-plugin/clipman-dialogs.c:270
 msgid "General"
 msgstr "Orokorra"
 
-#: ../panel-plugin/clipman-dialogs.c:293
+#: ../panel-plugin/clipman-dialogs.c:287
 msgid "_Show item numbers"
 msgstr "Elementu _Zenbakiak Bistarazi"
 
-#: ../panel-plugin/clipman-dialogs.c:301
-msgid "Select this option to show item numbers in the history list."
-msgstr "Hautatu aukera hau elementu zenbakiak historia zerrendanbistaratzeko."
-
-#: ../panel-plugin/clipman-dialogs.c:303
+#: ../panel-plugin/clipman-dialogs.c:294
 msgid "Se_parate clipboards"
 msgstr "Be_reiziriko arbelak"
 
-#: ../panel-plugin/clipman-dialogs.c:311
-msgid ""
-"Select this option to order the history list by primairy and selection "
-"clipboard."
-msgstr ""
-"Hautatu aukera hau historia arbela nagusi eta hautapenetan sailkatzeko."
-
-#: ../panel-plugin/clipman-dialogs.c:313
+#: ../panel-plugin/clipman-dialogs.c:301
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Menu Itxura</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:335
+#: ../panel-plugin/clipman-dialogs.c:323
 msgid "Clipboard history items:"
 msgstr "Arbela historia elementuak:"
 
-#: ../panel-plugin/clipman-dialogs.c:349
-msgid "The number of items stored in the history list."
-msgstr "Historia zerrendan gordeko diren elementu kopurua."
-
-#: ../panel-plugin/clipman-dialogs.c:362
+#: ../panel-plugin/clipman-dialogs.c:347
 msgid "Menu item characters:"
 msgstr "Menu elementu karaktereak:"
 
-#: ../panel-plugin/clipman-dialogs.c:375
-msgid ""
-"The number of characters showed in the history list. After this amount of "
-"characters, the history label will be ellipsized."
-msgstr ""
-"Historia zerrendan agertuko den karaktere kopurua. Karakete kopuru honen "
-"ondoren historia etiketa laburtua izango da."
-
-#: ../panel-plugin/clipman-dialogs.c:387
+#: ../panel-plugin/clipman-dialogs.c:369
 msgid "<b>Numbers</b>"
 msgstr "<b>Zenbakiak</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:392
+#: ../panel-plugin/clipman-dialogs.c:374
 msgid "Appearance"
 msgstr "Itxura"
 
@@ -204,3 +128,77 @@ msgstr "Xfce idazmahaierako arbel kudeatzailea"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "Hautatu aukera hau xfce uztean arbel historia gordetzea eta saioa berriz "
+#~ "astean berreskuratzea nahi baduzu."
+
+#~ msgid ""
+#~ "Select this option will prevent Clipman from including the contents of "
+#~ "the selection in the history."
+#~ msgstr ""
+#~ "Hautatu aukera hau clipman-ek hautapenaren edukia historian gorde ez "
+#~ "dezan."
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr ""
+#~ "Hautatu aukera hau arbela hutsi geratzea sahiesteko. Azkenengo historia "
+#~ "elementua arbelara gehitua izango da."
+
+#~ msgid ""
+#~ "When you've copied or cut some text and it is already in the Clipman "
+#~ "history from the selection clipboard,  only the content location will be "
+#~ "changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both "
+#~ "clipboards."
+#~ msgstr ""
+#~ "Clipman historian dagoeneko badagoen testu bat kopiatu edo mozterakoan.  "
+#~ "Edukiaren kokalekua bakarrik aldatuko da.\n"
+#~ "\n"
+#~ "Historia elementu bat klikatzerakoan edukia bi arbeletara kopiatuko da."
+
+#~ msgid ""
+#~ "When you've copied or cut some text it will be added to the Clipman "
+#~ "history, there will also be a duplicate  in the history from the "
+#~ "selection clipboard.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will only be copied to the "
+#~ "clipboard it origionally came from.\n"
+#~ "\n"
+#~ "This options will work best when you select the \"Separate Clipboards\" "
+#~ "option from the Appearance tab."
+#~ msgstr ""
+#~ "Testu bat kopiatu edo ebakitzerakoan berau clipman historiara gehituko "
+#~ "da, orduan errepikatze bat egongo da historian hautapen arbeletik.\n"
+#~ "\n"
+#~ "Hsitoria elementu bat klikatzerakoan, edukia jatorriz elementua zegoen "
+#~ "arbelara kopiatua izango da.\n"
+#~ "\n"
+#~ "Aukera honek hobe funtzionatzen du \"Bereiziriko Arbelak\" hautatu ezkero "
+#~ "Itxura fitxan."
+
+#~ msgid "Select this option to show item numbers in the history list."
+#~ msgstr ""
+#~ "Hautatu aukera hau elementu zenbakiak historia zerrendanbistaratzeko."
+
+#~ msgid ""
+#~ "Select this option to order the history list by primairy and selection "
+#~ "clipboard."
+#~ msgstr ""
+#~ "Hautatu aukera hau historia arbela nagusi eta hautapenetan sailkatzeko."
+
+#~ msgid "The number of items stored in the history list."
+#~ msgstr "Historia zerrendan gordeko diren elementu kopurua."
+
+#~ msgid ""
+#~ "The number of characters showed in the history list. After this amount of "
+#~ "characters, the history label will be ellipsized."
+#~ msgstr ""
+#~ "Historia zerrendan agertuko den karaktere kopurua. Karakete kopuru honen "
+#~ "ondoren historia etiketa laburtua izango da."
