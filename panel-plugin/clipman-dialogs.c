@@ -251,7 +251,7 @@ clipman_configure (XfcePanelPlugin *plugin,
 
     gtk_tooltips_set_tip (tooltips, button,
                           _("When you've copied or cut some text it will be added to the Clipman history, "
-                            "there will also be a duplicate  in the history from the selection clipboard."
+                            "there will also be a duplicate in the history from the selection clipboard."
                             "\n\n"
                             "When a history item is clicked, the content will only be copied to the "
                             "clipboard it origionally came from."
@@ -308,7 +308,7 @@ clipman_configure (XfcePanelPlugin *plugin,
             G_CALLBACK (toggle_button), options);
 
     gtk_tooltips_set_tip (tooltips, button,
-                          _("Select this option to order the history list by primairy and selection clipboard."), NULL);
+                          _("Select this option to split up the clipboard and selection history."), NULL);
 
     label = gtk_label_new (_("<b>Menu Appearance</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
