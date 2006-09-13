@@ -44,7 +44,7 @@ G_BEGIN_DECLS
 #define DEFITEMNUMBERS  FALSE
 #define DEFSEPMENU      FALSE
 
-/* milisecond to check the clipman(s) */
+/* Milisecond to check the clipboards(s) */
 #define TIMER_INTERVAL  500
 
 typedef enum

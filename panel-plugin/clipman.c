@@ -109,42 +109,55 @@ clipman_check_array_len (ClipmanPlugin *clipman)
     }
 }
 
+
+
 static gchar *
 clipman_create_title (gchar *txt,
                       gint   length)
 {
-    gchar *s, *t, *u;
-
+    gchar *s, *t, *u, *buf;
+    gint   i;
+    
+    /* rough string copy */
     s = g_strndup (txt, length*8 + 8);
-    if (!s)
+    
+    if (G_UNLIKELY (!s))
+        return NULL;
+
+    if (!g_utf8_validate (s, -1, NULL))
     {
-	DBG ("Eek, out of memory");
-	return NULL;
-    }
-
-    if (!g_utf8_validate (s, -1, (const gchar **)&t))
-    {
-        /* Invalid char at/past length*8 & encoding is UTF-8? Get rid of it. */
-        if (t >= s + length * 8 && g_get_charset ((const gchar **)&u))
-            *t = 0;
-
-	DBG ("Title is not UTF-8 compliant, we're going to convert it");
-
+        DBG ("Title is not utf8 complaint, we're going to convert it");
+        
         u = g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
         g_free (s);
         s = u;
-
+        
         /* Check the title again */
-        if (!s || !g_utf8_validate (s, -1, NULL))
+        if (!g_utf8_validate (s, -1, NULL))
         {
-            DBG ("Title is still not UTF-8 compliant, we're going to drop this clip");
+            DBG ("Title is still not utf8 complaint, we going to drop this clip");
             g_free (s);
             return NULL;
         }
     }
-
-    g_strstrip (s);
-
+    
+    /* create string length */
+    buf = g_malloc(length*6); /* max length of utf8 char is 6 */
+    g_utf8_strncpy (buf, s, length);
+    g_free (s);
+    s = buf;
+    
+    /* remove tabs and newlines */
+    /* this works when the string is utf8-valid */
+    i = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == '\n' || s[i] == '\r' || s[i] == '\t')
+            s[i] = ' ';
+        i++;
+    }
+    
+    /* remove html characters */
     t = g_markup_escape_text (s, -1);
     g_free (s);
 
@@ -181,12 +194,13 @@ clipman_add_clip (ClipmanPlugin *clipman,
 {
     ClipmanClip *new_clip;
 
-    if (txt != "")
+    if (G_LIKELY (txt != NULL) &&
+        G_LIKELY (strcmp (txt, "")))
     {
         new_clip = panel_slice_new0 (ClipmanClip);
 
-        new_clip->title    = clipman_create_title (txt,
-                                                   clipman->MenuCharacters);
+        new_clip->title = clipman_create_title (txt,
+                                                clipman->MenuCharacters);
 
 	/* No valid title could be created, drop it... */
 	if (new_clip->title == NULL)
