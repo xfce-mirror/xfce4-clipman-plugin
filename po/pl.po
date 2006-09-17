@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../panel-plugin/clipman-dialogs.c:72
 msgid "Visit the goodies website for more information about this plugin."
-msgstr ""
+msgstr "Odwiedź stronę Xfce goodies by dowiedzieć się więcej o tej wtyczce."
 
 #: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
@@ -34,7 +34,7 @@ msgstr "_Ignoruj zaznaczenia"
 
 #: ../panel-plugin/clipman-dialogs.c:218
 msgid "Pre_vent empty clipboard"
-msgstr ""
+msgstr "Za_pobiegaj pustemu schowkowi"
 
 #: ../panel-plugin/clipman-dialogs.c:226
 msgid "<b>General</b>"
@@ -49,17 +49,15 @@ msgid "Strictly separate _both clipboards"
 msgstr "Rozdzielaj oba Schowki"
 
 #: ../panel-plugin/clipman-dialogs.c:262
-#, fuzzy
 msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Zachowanie Schowkiem</b>"
+msgstr "<b>Zachowanie Schowka</b>"
 
 #. *
 #. * Notebook label
 #. *
 #: ../panel-plugin/clipman-dialogs.c:270
-#, fuzzy
 msgid "General"
-msgstr "<b>Ogólne</b>"
+msgstr "Ogólne"
 
 #: ../panel-plugin/clipman-dialogs.c:287
 msgid "_Show item numbers"
@@ -70,9 +68,8 @@ msgid "Se_parate clipboards"
 msgstr "Rozdziel Schowki"
 
 #: ../panel-plugin/clipman-dialogs.c:301
-#, fuzzy
 msgid "<b>Menu Appearance</b>"
-msgstr "<b>Wygląd menu</b>"
+msgstr "<b>Wygląd Menu</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:323
 msgid "Clipboard history items:"
@@ -88,16 +85,15 @@ msgstr "<b>Liczba</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:374
 msgid "Appearance"
-msgstr ""
+msgstr "Wygląd"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
 msgstr "Wyczyścić historię?"
 
 #: ../panel-plugin/clipman.c:285
-#, fuzzy
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Wyczyścić historię?"
+msgstr "Usunąć ten element ze schowka?"
 
 #: ../panel-plugin/clipman.c:403
 msgid "< Default History Empty >"
