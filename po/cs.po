@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-26 21:16+0100\n"
+"POT-Creation-Date: 2006-09-10 21:12+0200\n"
+"PO-Revision-Date: 2006-09-17 09:41+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -23,9 +23,10 @@ msgstr ""
 
 #: ../panel-plugin/clipman-dialogs.c:72
 msgid "Visit the goodies website for more information about this plugin."
-msgstr ""
+msgstr "Pro více informací o tomto zásuvném modulu navštivte webovou stránku Xfce Goodies."
 
-#: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
+#: ../panel-plugin/clipman-dialogs.c:172
+#: ../panel-plugin/clipman.c:967
 msgid "Clipboard Manager"
 msgstr "Správce schránky"
 
@@ -54,7 +55,6 @@ msgid "Strictly separate _both clipboards"
 msgstr "Striktně oddělit _obě schránky"
 
 #: ../panel-plugin/clipman-dialogs.c:262
-#, fuzzy
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Chování schránky</b>"
 
@@ -62,9 +62,8 @@ msgstr "<b>Chování schránky</b>"
 #. * Notebook label
 #. *
 #: ../panel-plugin/clipman-dialogs.c:270
-#, fuzzy
 msgid "General"
-msgstr "<b>Obecné</b>"
+msgstr "Obecné"
 
 #: ../panel-plugin/clipman-dialogs.c:287
 msgid "_Show item numbers"
@@ -75,7 +74,6 @@ msgid "Se_parate clipboards"
 msgstr "O_ddělit schránky"
 
 #: ../panel-plugin/clipman-dialogs.c:301
-#, fuzzy
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Vzhled nabídky</b>"
 
@@ -93,16 +91,15 @@ msgstr "<b>Čísla</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:374
 msgid "Appearance"
-msgstr ""
+msgstr "Vzhled"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
 msgstr "Opravdu chcete vyprázdnit historii?"
 
 #: ../panel-plugin/clipman.c:285
-#, fuzzy
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Opravdu chcete vyprázdnit historii?"
+msgstr "Opravdu chcete odebrat tuto položku z historie?"
 
 #: ../panel-plugin/clipman.c:403
 msgid "< Default History Empty >"
@@ -112,7 +109,8 @@ msgstr "< Výchozí historie je prázdná >"
 msgid "< Selection History Empty >"
 msgstr "< Historie výběrů je prázdná >"
 
-#: ../panel-plugin/clipman.c:463 ../panel-plugin/clipman.c:528
+#: ../panel-plugin/clipman.c:463
+#: ../panel-plugin/clipman.c:528
 msgid "Clear History"
 msgstr "Vyprázdnit historii"
 
@@ -134,18 +132,14 @@ msgstr "Správce schránky"
 
 #~ msgid "Properties"
 #~ msgstr "Vlastnosti"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Použít _barevné položky nabídky"
-
 #~ msgid "Developer"
 #~ msgstr "Vývojář"
-
 #~ msgid "Edit content"
 #~ msgstr "Upravit obsah"
-
 #~ msgid "Question"
 #~ msgstr "Otázka"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Co chcete dělat s touto položkou schránky?"
+
