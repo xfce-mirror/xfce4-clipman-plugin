@@ -1,3 +1,9 @@
+2006-11-15  Maximilian Schleiss <maxschleiss@bluewin.ch>
+
+	* pt_BR.po: Added the Brazilian portuguese translation
+	by Gunther Furtado <gunzera0@yahoo.com.br>
+	* fr.po: Modified description text
+
 2006-09-17  Jean-François Wauthy <pollux@xfce.org>
 
 	* cs.po: Updated Czech translations

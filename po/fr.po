@@ -1,7 +1,6 @@
-# French translations for xfce4-clipman-plugin package.
+# French translation of the xfce4-clipman-plugin package.
 # Copyright (C) 2005-2006 Nick Schermer.
-# This file is distributed under the same license as
-#   the xfce4-clipman-plugin package.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
 #
 msgid ""
