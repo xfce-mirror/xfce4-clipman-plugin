@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2006-12-20 17:47+0100\n"
 "PO-Revision-Date: 2006-09-12 14:51+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -22,74 +22,75 @@ msgstr ""
 "X-Poedit-Country: HUNGARY\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/clipman-dialogs.c:72
-msgid "Visit the goodies website for more information about this plugin."
-msgstr "Goodies webgunera joan plugin honetaz argibide gehiagorako."
+#: ../panel-plugin/clipman-dialogs.c:66
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:172 ../panel-plugin/clipman.c:967
+#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
 msgstr "Arbel Kudeatzailea"
 
-#: ../panel-plugin/clipman-dialogs.c:204
+#: ../panel-plugin/clipman-dialogs.c:194
 msgid "Save clipboard contents on _exit"
 msgstr "_Irteterakoan arbel edukiak gorde"
 
-#: ../panel-plugin/clipman-dialogs.c:211
+#: ../panel-plugin/clipman-dialogs.c:201
 msgid "_Ignore selections"
 msgstr "_Hautapenak alde batera utzi"
 
-#: ../panel-plugin/clipman-dialogs.c:218
+#: ../panel-plugin/clipman-dialogs.c:208
 msgid "Pre_vent empty clipboard"
 msgstr "Arbel hutsa Au_rreikusi"
 
-#: ../panel-plugin/clipman-dialogs.c:226
+#: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
 msgstr "<b>Orokorra</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:244
+#: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
 msgstr "Arbel _kudeaketa arrunta"
 
-#: ../panel-plugin/clipman-dialogs.c:253
+#: ../panel-plugin/clipman-dialogs.c:243
 msgid "Strictly separate _both clipboards"
 msgstr "_Bi arbelak guztiz bereizi"
 
-#: ../panel-plugin/clipman-dialogs.c:262
+#: ../panel-plugin/clipman-dialogs.c:252
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Arbela portaera</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:270
+#: ../panel-plugin/clipman-dialogs.c:260
 msgid "General"
 msgstr "Orokorra"
 
-#: ../panel-plugin/clipman-dialogs.c:287
+#: ../panel-plugin/clipman-dialogs.c:277
 msgid "_Show item numbers"
 msgstr "Elementu _Zenbakiak Bistarazi"
 
-#: ../panel-plugin/clipman-dialogs.c:294
+#: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
 msgstr "Be_reiziriko arbelak"
 
-#: ../panel-plugin/clipman-dialogs.c:301
+#: ../panel-plugin/clipman-dialogs.c:291
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Menu Itxura</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:323
+#: ../panel-plugin/clipman-dialogs.c:313
 msgid "Clipboard history items:"
 msgstr "Arbela historia elementuak:"
 
-#: ../panel-plugin/clipman-dialogs.c:347
+#: ../panel-plugin/clipman-dialogs.c:337
 msgid "Menu item characters:"
 msgstr "Menu elementu karaktereak:"
 
-#: ../panel-plugin/clipman-dialogs.c:369
+#: ../panel-plugin/clipman-dialogs.c:359
 msgid "<b>Numbers</b>"
 msgstr "<b>Zenbakiak</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:374
+#: ../panel-plugin/clipman-dialogs.c:364
 msgid "Appearance"
 msgstr "Itxura"
 
@@ -97,27 +98,27 @@ msgstr "Itxura"
 msgid "Are you sure you want to clear the history?"
 msgstr "Ziur historia garbitu nahi duzula?"
 
-#: ../panel-plugin/clipman.c:285
+#: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
 msgstr "Ziur elementu hau historiatik ezabatu nahi duzula?"
 
-#: ../panel-plugin/clipman.c:403
+#: ../panel-plugin/clipman.c:417
 msgid "< Default History Empty >"
 msgstr "< Lehenetsiriko Historia Hutsa >"
 
-#: ../panel-plugin/clipman.c:454
+#: ../panel-plugin/clipman.c:468
 msgid "< Selection History Empty >"
 msgstr "< Hautaturiko Historia Hutsa >"
 
-#: ../panel-plugin/clipman.c:463 ../panel-plugin/clipman.c:528
+#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
 msgid "Clear History"
 msgstr "Historia garbitu"
 
-#: ../panel-plugin/clipman.c:622
+#: ../panel-plugin/clipman.c:636
 msgid "Clipman History"
 msgstr "Clipman Historia"
 
-#: ../panel-plugin/clipman.c:644
+#: ../panel-plugin/clipman.c:658
 msgid "< Clipboard Empty >"
 msgstr "< Arbela Hutsa >"
 
@@ -129,3 +130,5 @@ msgstr "Xfce idazmahaierako arbel kudeatzailea"
 msgid "Clipman"
 msgstr "Clipman"
 
+#~ msgid "Visit the goodies website for more information about this plugin."
+#~ msgstr "Goodies webgunera joan plugin honetaz argibide gehiagorako."

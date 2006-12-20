@@ -30,8 +30,7 @@
 #include "clipman.h"
 #include "clipman-dialogs.h"
 
-#define GOODIES "http://goodies.xfce.org"
-#define WEBSITE "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin"
+#define PLUGIN_WEBSITE "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin"
 
 typedef struct
 {
@@ -56,24 +55,15 @@ clipman_configure_response (GtkWidget      *dialog,
                             int             response,
                             ClipmanOptions *options)
 {
-    GtkWidget *message;
+    gboolean result;
 
 	if (response == GTK_RESPONSE_HELP)
 	{
-		if (!xfce_exec_on_screen (gtk_widget_get_screen (dialog),
-            "exo-open --launch WebBrowser " WEBSITE,
-            FALSE, FALSE, NULL))
-        {
-             message = gtk_message_dialog_new (GTK_WINDOW (gtk_widget_get_toplevel (dialog)),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s\n\n%s",
-                                  _("Visit the goodies website for more information about this plugin."),
-                                  GOODIES);
-             gtk_dialog_run (GTK_DIALOG (message));
-             gtk_widget_destroy (message);
-        }
+		/* show help */
+        result = g_spawn_command_line_async ("exo-open --launch WebBrowser " PLUGIN_WEBSITE, NULL);
+
+        if (G_UNLIKELY (result == FALSE))
+            g_warning (_("Unable to open the following url: %s"), PLUGIN_WEBSITE);
 
         return;
 	}
