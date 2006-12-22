@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-09-11 12:45+0100\n"
+"PO-Revision-Date: 2006-12-22 18:06+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,9 +19,10 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Échec à l'ouverture du lien : %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
 msgstr "Gestionnaire de presse-papiers"
 
@@ -104,7 +105,8 @@ msgstr "< Historique par défaut vide >"
 msgid "< Selection History Empty >"
 msgstr "< Historique de la sélection vide >"
 
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
 msgid "Clear History"
 msgstr "Effacer l'historique"
 
@@ -126,7 +128,6 @@ msgstr "Clipman"
 
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr "Visitez le site web des goodies pour plus d'informations."
-
 #~ msgid ""
 #~ "Select this option to save the clipboard history when you exit Xfce and "
 #~ "restore it when you login again."
@@ -134,21 +135,18 @@ msgstr "Clipman"
 #~ "Sélectionner cette option pour enregistrer l'historique du presse-papiers "
 #~ "quand vous quittez Xfce et pour la restaurer quand vous accédez de "
 #~ "nouveau à votre compte."
-
 #~ msgid ""
 #~ "Select this option will prevent Clipman from including the contents of "
 #~ "the selection in the history."
 #~ msgstr ""
 #~ "Sélectionner cette option pour empêcher Clipman d'inclure le contenu de "
 #~ "la sélection dans l'historique. "
-
 #~ msgid ""
 #~ "Select this option to prevent an empty clipboard. The most recent history "
 #~ "item will be added to the clipboard."
 #~ msgstr ""
 #~ "Sélectionner cette option pour éviter d'avoir un presse-papiers vide. "
 #~ "L'élément le plus récent de l'historique sera ajouté au presse-papiers."
-
 #~ msgid ""
 #~ "When you've copied or cut some text and it is already in the Clipman "
 #~ "history from the selection clipboard,  only the content location will be "
@@ -163,7 +161,6 @@ msgstr "Clipman"
 #~ "\n"
 #~ "Si un élément de l'historique est cliqué, son contenu sera copié dans les "
 #~ "deux presse-papiers."
-
 #~ msgid ""
 #~ "When you've copied or cut some text it will be added to the Clipman "
 #~ "history, there will also be a duplicate  in the history from the "
@@ -184,43 +181,34 @@ msgstr "Clipman"
 #~ "\n"
 #~ "Cette option fonctionnera bien mieux si vous sélectionnez l'option "
 #~ "\"Séparer les presses-papiers\" dans l'onglet Apparence."
-
 #~ msgid "Select this option to show item numbers in the history list."
 #~ msgstr ""
 #~ "Sélectionner cette option pour afficher les numéros des éléments dans la "
 #~ "liste de l'historique."
-
 #~ msgid ""
 #~ "Select this option to order the history list by primairy and selection "
 #~ "clipboard."
 #~ msgstr ""
 #~ "Sélectionner cette option pour trier la liste de l'historique par "
 #~ "sélections primaires du presse-papiers."
-
 #~ msgid "The number of items stored in the history list."
 #~ msgstr "Le nombre d'éléments stockés dans la liste de l'historique."
-
 #~ msgid ""
 #~ "The number of characters showed in the history list. After this amount of "
 #~ "characters, the history label will be ellipsized."
 #~ msgstr ""
 #~ "Le nombre de caractères affichés dans la liste de l'historique. Au delà "
 #~ "de ce nombre, l'étiquette de l'historique sera abrégée."
-
 #~ msgid "Properties"
 #~ msgstr "Propriétés"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Éléments de menu en _couleur"
-
 #~ msgid "Developer"
 #~ msgstr "Développeur"
-
 #~ msgid "Edit content"
 #~ msgstr "Éditer le contenu"
-
 #~ msgid "Question"
 #~ msgstr "Question"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Que faire de cet élément du presse-papiers?"
+
