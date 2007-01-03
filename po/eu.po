@@ -25,7 +25,7 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Ezin da hurrengo url-a ireki: %s"
 
 #: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
