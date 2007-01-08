@@ -9,22 +9,22 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-09-27 21:29+0100\n"
+"PO-Revision-Date: 2007-01-08 09:08+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Az alábbi url nem nyitható meg: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
 msgstr "Vágólap kezelő"
 
@@ -107,7 +107,8 @@ msgstr "< Alap történet üres >"
 msgid "< Selection History Empty >"
 msgstr "< Kijelölés történet üres >"
 
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
 msgid "Clear History"
 msgstr "Történet törlése"
 
@@ -129,42 +130,34 @@ msgstr "Clipman"
 
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr "A cukik weblapján több leírást is lelsz e beillesztésről."
-
 #~ msgid ""
 #~ "Select this option to save the clipboard history when you exit Xfce and "
 #~ "restore it when you login again."
 #~ msgstr ""
 #~ "E lehetőséggel az Xfce kilépéskor elmenti a vágólap történetet és a "
 #~ "következő bejelentkezésnél visszaállítja."
-
 #~ msgid ""
 #~ "Select this option will prevent Clipman from including the contents of "
 #~ "the selection in the history."
 #~ msgstr ""
 #~ "E lehetőség megadásakor a Clipman nem őrzi meg kijelölés tartalmát a "
 #~ "történetben."
-
 #~ msgid ""
 #~ "Select this option to prevent an empty clipboard. The most recent history "
 #~ "item will be added to the clipboard."
 #~ msgstr ""
 #~ "E lehetőség megelőzi az üres vágólapot. A legutolsó történet elem a "
 #~ "vágólapra kerül."
-
 #~ msgid "Properties"
 #~ msgstr "Tulajdonságok"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Színes menüelemek"
-
 #~ msgid "Developer"
 #~ msgstr "Fejlesztő"
-
 #~ msgid "Edit content"
 #~ msgstr "Tartalom szerkesztése"
-
 #~ msgid "Question"
 #~ msgstr "Kérdés"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Mit tegyünk e vágólap elemmel?"
+
