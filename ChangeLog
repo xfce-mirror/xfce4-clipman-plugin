@@ -1,139 +1,148 @@
-2006-12-20 17:47 nick
+2006-01-17	Nick Schermer <nick@xfce.org>
+
+	* Improve configure files and Makefiles.
+	* A huge version bump: we going from 0.5.99.1 to 0.8.0 for
+	  the Xfce 4.4.0 release. This because there was an experimental
+	  version with the 0.6.4 version number (not very smart, I know),
+	  so this will make it easier for distros (Ubuntu) to update the
+	  package.
+
+2006-12-20	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman-dialog.c: Add help button with
 	  exo-open to clipman wiki website.
 	* po/*.po: Merge new string
 
-2006-09-20 18:16 nick
+2006-09-20	Nick Schermer <nick@xfce.org>
 
 	* Removed all the toolips in the configure dialog and
 	  added a help button (launch exo-open).
 
-2006-09-10 11:23 nick
+2006-09-10	Nick Schermer <nick@xfce.org>
 
 	* Fix typo in tooltip
 
-2006-09-05 22:00 nick
+2006-09-05	Nick Schermer <nick@xfce.org>
 
 	* Fix typo in desktop file
 
-2006-09-05 19:16 nick
+2006-09-05	Nick Schermer <nick@xfce.org>
 
 	* Improve Makefile.am files. Make distcheck works
 	  without any problems now.
 
-2006-09-05 18:23 nick
+2006-09-05	Nick Schermer <nick@xfce.org>
 
 	* Bump version to 0.5.99.1 (0.6rc1)
 	* Depend on Xfce4-panel 4.3.99.1
 
-2006-09-02 21:33 nick
+2006-09-02	Nick Schermer <nick@xfce.org>
 
 	* Remove executable bits
 	* Update ChangeLog
 
-2006-08-11 08:30 nick
+2006-08-11	Nick Schermer <nick@xfce.org>
 
 	* Depend on xfce4-panel rev 22703, libxfcegui4 4.3.90.2 and
 	  libxfce4util 4.3.90.2
 	* Remove the old header code for < 4.3.90.2
 
-2006-08-10 10:23 piarres
+2006-08-10	Nick Schermer <nick@xfce.org>
 
 	* add xfce4-clipman-plugin basque translation
 
-2006-08-09 20:48 nick
+2006-08-09	Nick Schermer <nick@xfce.org>
 
 	* Use new panel_slice_* functions
 
-2006-08-08 19:21 nick
+2006-08-08	Nick Schermer <nick@xfce.org>
 
 	* Fix compiler warning
 
-2006-08-07 23:58 nick
+2006-08-07	Nick Schermer <nick@xfce.org>
 
 	* Change version to 0.6 beta 2
 	* Fix my own mail
 
-2006-08-07 08:09 nick
+2006-08-07	Nick Schermer <nick@xfce.org>
 
 	* Patch from Darren Salt <linux@youmustbejoking.demon.co.uk>
 	  to use Pango's ellipsize.
 	* Added Darren to THANKS file
 
-2006-07-29 22:00 pollux
+2006-07-29	pollux
 
 	* Update French translations
 
-2006-06-21 21:06 nick
+2006-06-21	Nick Schermer <nick@xfce.org>
 
 	* Raise version number
 	* Fix some small problems
 	* Fix typo
 
-2006-06-21 20:45 nick
+2006-06-21	Nick Schermer <nick@xfce.org>
 
 	* Added LINGUAS support
 	* Drop a new clip if we can't convert the new title
 	* Clear board on exit plugin
 
-2006-06-15 15:02 nick
+2006-06-15	Nick Schermer <nick@xfce.org>
 
 	* Better way to render the button icon
 	* Improve memory usage
 	* Various small changes
 
-2006-06-15 09:28 nick
+2006-06-15	Nick Schermer <nick@xfce.org>
 
 	* Make memory usage a bit saver
 
-2006-06-14 22:29 nick
+2006-06-14	Nick Schermer <nick@xfce.org>
 
 	* Use g_object_unref (G_OBJECT (...))
 
-2006-06-11 20:04 nick
+2006-06-11	Nick Schermer <nick@xfce.org>
 
 	* Use the convenience toggle button from libxfce4panel
 	* Better way to calculate icon size (from launcher)
 	* Free tooltip on plugin exit
 	* Use new titled dialog, if available
 
-2006-05-23 07:19 daichi
+2006-05-23	daichi
 
 	* Removed executable bits.
 
-2006-05-22 21:16 nick
+2006-05-22	Nick Schermer <nick@xfce.org>
 
 	* Added hu to configure
 
-2006-05-22 14:19 satie
+2006-05-22	satie
 
 	* clipman hu.po
 
-2006-05-21 20:58 nick
+2006-05-21	Nick Schermer <nick@xfce.org>
 
 	* Improved loops
 	* Cleanup some stuff
 	* Use guint where possible
 	* Some code cleanups
 
-2006-05-17 19:19 nick
+2006-05-17	Nick Schermer <nick@xfce.org>
 
 	* Removed the "Edit Clip Dialog", since it not usefull enough.
 	* Fix memleak in free function
 	* Use gboolean instead of guint x:1
 	* Some style fixes and var renames
 
-2006-05-15 21:22 nick
+2006-05-15	Nick Schermer <nick@xfce.org>
 
 	* Fix 2.95 GCC warnings
 	* Code cleanup and layout
 
-2006-04-20 15:15 nick
+2006-04-20	Nick Schermer <nick@xfce.org>
 
 	* Version to 0.6.4
 
-2006-04-20 15:01 nick
+2006-04-20	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman-dialog.c:
   	* Destroy dialog when plugin is closed
@@ -143,11 +152,11 @@
   	* Remove Primairy clips when selection is ignored
   	* Improved the menu destroy function stuff
 
-2006-04-09 19:50 nick
+2006-04-09	Nick Schermer <nick@xfce.org>
 
 	* Version to 0.6.3
 
-2006-04-09 19:46 nick
+2006-04-09	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman-dialog.c:
   	* Splitup in tabs
@@ -162,16 +171,16 @@
   	* Fix regeneration of titles
   	* Small improvements
 
-2005-12-01 15:20 nick
+2005-12-01	Nick Schermer <nick@xfce.org>
 
 	* Version to 0.6.2
 
-2005-12-01 15:15 nick
+2005-12-01	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman-dialog.c: Added new behaviour options
 	* panel-plugin/clipman.c: Applied new behaviour to the functions
 
-2005-12-01 13:29 nick
+2005-12-01	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c:
   	* Added function clipman_replace_text (code moved from clipman_item_clicked)
@@ -182,16 +191,16 @@
   	* Added clipman_edit, clipman_edit_response
   	* Changed GTK_WIN_POS_CENTER_ALWAYS to GTK_WIN_POS_CENTER, because it's annoying
 
-2005-12-01 19:31 nick
+2005-12-01	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c: Make clipman_create_title UTF8 complaint.
 
-2005-11-29 19:00 nick
+2005-11-29	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c: Changed the toggle button handling a bit.
 	* panel-plugin/clipman.c: Spell Check.
 
-2005-11-29 10:30 nick
+2005-11-29	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c:
   	* Proper icon resize (I hope??)
@@ -201,7 +210,7 @@
   	* Free everything when the plugin is closed
 	* configure.ac: version update, 0.6.1
 
-2005-10-29 13:37 nick
+2005-10-29	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c:
   	* Complete rewrite of the old plugin using GPtrArray to store the
@@ -213,16 +222,16 @@
   	* Fixed bug to stop the check clipboard thread when the plugin is closed
 	* configure.ac: version update, 0.6.0
 
-2005-10-10 19:35 nick
+2005-10-10	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c: New function for resizing the array
 	* configure.ac: version update, 0.5.0
 
-2005-09-19 10:32 nick
+2005-09-19	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c: The selection function checks if button 1 is masked.
 
-2005-09-17 18:29 nick
+2005-09-17	Nick Schermer <nick@xfce.org>
 
 	* panel-plugin/clipman.c:
   	* Save clipboard content on exit (option)
@@ -239,37 +248,37 @@
   	* Cleared some code, added more comments, use tabs
   	* Remove item numbers, it will be back later as an option (I hope :P)
 
-2003-12-16 08:45  mastershadow
+2003-12-16	mastershadow
 
 	* panel-plugin/clipman.c: right mouse click allow users to remove a sigle
 	entry in the history. It ask for confirm and act properly.
 
-2003-12-15 09:00  mastershadow
+2003-12-15	mastershadow
 
 	* panel-plugin/clipman.c: now trailing spaces are removed from the popup
 	menu (a lot eyecandy :-).
 	* configure.ac: version update
 
-2003-11-09 12:04  mastershadow
+2003-11-09	mastershadow
 
 	* panel-plugin/clipman.c: changed text/plain d&d to UTF8_STRING
 
-2003-11-09 12:04  mastershadow
+2003-11-09	mastershadow
 
 	* panel-plugin/clipman.c: bug removed! when you remove panel and select
 	something now all is ok
 
-2003-11-09 11:48  mastershadow
+2003-11-09	mastershadow
 
 	* panel-plugin/clipman.c: fixed crash on remove but some troubles are still
 	present: if you select something when you have removed the plugin the panel
 	crash. This is due to the timer...
 
-2003-11-09 11:48  mastershadow
+2003-11-09	mastershadow
 
 	* panel-plugin/clipman.c: back to the old source for a timer bug
 
-2003-11-08 23:10  mastershadow
+2003-11-08	mastershadow
 
 	* panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
 	* panel-plugin/clipman.c: fixed a bug that make crash the plugin when removing it
@@ -277,22 +286,22 @@
 	* configure.ac: version update
 
 
-2003-11-04 21:37  mastershadow
+2003-11-04	mastershadow
 
 	* panel-plugin/clipman.c: now items are shown with stack order
 	(for first latest item and then others).
 	* panel-plugin/clipman.c: Warnings fixed in resize functions
 
-2003-11-02 12:34  mastershadow
+2003-11-02	mastershadow
 
 	* panel-plugin/clipman.c: now icon resize with the panel
 
-2003-11-01 23:56  mastershadow
+2003-11-01	mastershadow
 
 	* panel-plugin/clipman.c: clipboard clear feature added
 	Some small syntax fixes in checkClip function
 
-2003-10-25 20:10  mastershadow
+2003-10-25	mastershadow
 
 	* panel-plugin/clipman.c: memory leaks fixed in gstring array and
 	crash fixed on removing the plugin from panel
@@ -303,21 +312,21 @@
 	* a lot of changes :-)
 	First public release of xfce4-clipman-plugin
 
-2003-07-11 15:56  huysmans
+2003-07-11	Jasper Huijsmans <jasper@xfce.org>
 
 	* panel-plugin/sample.c: Hmm, chinese translation updates that
 	didn't get picked up by my previous commit. Should have been in
 	rc1, sorry.
 
-2003-07-11 09:33  huysmans
+2003-07-11	Jasper Huijsmans <jasper@xfce.org>
 
 	* ChangeLog: Update ChangeLog's for release
 
-2003-07-10 11:56  huysmans
+2003-07-10	Jasper Huijsmans <jasper@xfce.org>
 
 	* ChangeLog: Update ChangeLog's for release
 
-2003-07-06 22:14  huysmans
+2003-07-06	Jasper Huijsmans <jasper@xfce.org>
 
 	* ChangeLog: Update ChangeLogs
 
@@ -326,7 +335,7 @@
 	* Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
 	ltmain.sh, panel-plugin/Makefile.in: libtool update
 
-2003-07-02 12:18  bmeurer
+2003-07-02	Benedikt Meurer <benny@xfce.org>
 
 	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
 	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
@@ -336,7 +345,7 @@
 	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
 	the sample panel plugin.
 
-2003-07-02 12:18  bmeurer
+2003-07-02	Benedikt Meurer <benny@xfce.org>
 
 	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
 	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
