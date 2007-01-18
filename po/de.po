@@ -2,14 +2,15 @@
 # Copyright (C) 2005-2006 Nick Schermer.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006.
+# Fabian Nowak <timystery@arcor.de>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.5.99.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-09-10 19:25+0100\n"
-"Last-Translator: Enrico Tröger <enrico.troeger@uvena.de>\n"
+"PO-Revision-Date: 2007-01-18 08:43+0100\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Kann die folgende Adresse nicht öffnen: %s"
 
 #: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
