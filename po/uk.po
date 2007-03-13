@@ -1,0 +1,127 @@
+# Translation of xfce4-clipman-plugin to Ukrainian
+# Copyright (C) 2007 Dmitry Nikitin
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+#
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-13 14:20+0200\n"
+"PO-Revision-Date: 2007-03-08 00:51+0200\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../panel-plugin/clipman-dialogs.c:66
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "Неможливо відкрити наступне посилання: %s"
+
+#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+msgid "Clipboard Manager"
+msgstr "Керування буфером обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:194
+msgid "Save clipboard contents on _exit"
+msgstr "Зберігати вміст буферу обміну при _виході"
+
+#: ../panel-plugin/clipman-dialogs.c:201
+msgid "_Ignore selections"
+msgstr "_Ігнорувати виділене"
+
+#: ../panel-plugin/clipman-dialogs.c:208
+msgid "Pre_vent empty clipboard"
+msgstr "_Запобігати порожньому буферу обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:216
+msgid "<b>General</b>"
+msgstr "<b>Основне</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:234
+msgid "Normal clipboard _management"
+msgstr "Звичайне _керування буфером обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:243
+msgid "Strictly separate _both clipboards"
+msgstr "Жорстко розділити _обидва буфери обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:252
+msgid "<b>Clipboard Behaviour</b>"
+msgstr "<b>Поведінка буферу обміну</b>"
+
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:260
+msgid "General"
+msgstr "Основне"
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "_Show item numbers"
+msgstr "_Показувати номера пунктів"
+
+#: ../panel-plugin/clipman-dialogs.c:284
+msgid "Se_parate clipboards"
+msgstr "Роз_ділити буфери обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:291
+msgid "<b>Menu Appearance</b>"
+msgstr "<b>Меню зовнішнього вигляду</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:313
+msgid "Clipboard history items:"
+msgstr "Історія входжень до буферу обміну:"
+
+#: ../panel-plugin/clipman-dialogs.c:337
+msgid "Menu item characters:"
+msgstr "Меню входжень символів:"
+
+#: ../panel-plugin/clipman-dialogs.c:359
+msgid "<b>Numbers</b>"
+msgstr "<b>Номери</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:364
+msgid "Appearance"
+msgstr "Зовнішній вигляд"
+
+#: ../panel-plugin/clipman.c:74
+msgid "Are you sure you want to clear the history?"
+msgstr "Ви впевнені, що хочете очистити історію?"
+
+#: ../panel-plugin/clipman.c:299
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "Ви впевнені, що хочете видалити цей пункт з історії?"
+
+#: ../panel-plugin/clipman.c:417
+msgid "< Default History Empty >"
+msgstr "< Зазвичай історія порожня >"
+
+#: ../panel-plugin/clipman.c:468
+msgid "< Selection History Empty >"
+msgstr "< Вибрати очистити історію >"
+
+#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+msgid "Clear History"
+msgstr "Очистити історію"
+
+#: ../panel-plugin/clipman.c:636
+msgid "Clipman History"
+msgstr "Керування історією буферу обміну"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< Буфер обміну порожній >"
+
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "Керування буфером обміну для Xfce"
+
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Керування буфером обміну"
