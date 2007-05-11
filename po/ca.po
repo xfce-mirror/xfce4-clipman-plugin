@@ -3,15 +3,16 @@
 # This file is distributed under the same license as
 # the xfce4-clipman-plugin package.
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
-# 
-# 
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007.
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-08-16 15:45+0200\n"
-"Last-Translator: Pau Ruŀlan Ferragut <paurullan@bulma.net>\n"
+"PO-Revision-Date: 2007-05-11 19:05+0100\n"
+"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "No s'ha pogut obrir la url: %s"
 
 #: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
@@ -52,7 +53,6 @@ msgid "Strictly separate _both clipboards"
 msgstr "Separa estríctament am_bdós porta-retalls"
 
 #: ../panel-plugin/clipman-dialogs.c:252
-#, fuzzy
 msgid "<b>Clipboard Behaviour</b>"
 msgstr "<b>Comportament del porta-retalls</b>"
 
@@ -60,7 +60,6 @@ msgstr "<b>Comportament del porta-retalls</b>"
 #. * Notebook label
 #. *
 #: ../panel-plugin/clipman-dialogs.c:260
-#, fuzzy
 msgid "General"
 msgstr "<b>General</b>"
 
@@ -73,7 +72,6 @@ msgid "Se_parate clipboards"
 msgstr "Se_para els porta-retalls"
 
 #: ../panel-plugin/clipman-dialogs.c:291
-#, fuzzy
 msgid "<b>Menu Appearance</b>"
 msgstr "<b>Aparença del menú</b>"
 
@@ -91,16 +89,15 @@ msgstr "<b>Nombres</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:364
 msgid "Appearance"
-msgstr ""
+msgstr "Aparença"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
 msgstr "Esteu segur de voler esborrar l’historial?"
 
 #: ../panel-plugin/clipman.c:299
-#, fuzzy
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Esteu segur de voler esborrar l’historial?"
+msgstr "Esteu segur de voler esborrar aquest retall de l’historial?"
 
 #: ../panel-plugin/clipman.c:417
 msgid "< Default History Empty >"
@@ -116,7 +113,7 @@ msgstr "Buida l'historial"
 
 #: ../panel-plugin/clipman.c:636
 msgid "Clipman History"
-msgstr "Historial del clip"
+msgstr "Historial de retalls"
 
 #: ../panel-plugin/clipman.c:658
 msgid "< Clipboard Empty >"
@@ -128,7 +125,7 @@ msgstr "Gestor de porta-retalls per l’escriptori Xfce"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
-msgstr "Clip"
+msgstr "Porta-retalls «Clipman»"
 
 #~ msgid "Properties"
 #~ msgstr "Propietats"
