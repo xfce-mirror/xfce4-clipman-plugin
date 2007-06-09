@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-11-14 22:35-0300\n"
-"Last-Translator: Gunther Furtado <gunzera0@yahoo.com.br>\n"
+"PO-Revision-Date: 2007-06-07 16:30-0300\n"
+"Last-Translator: Pablo Lerina <pabloalr@gmail.com>\n"
 "Language-Team: Xfce-i18n <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: BRAZIL\n"
 "X-Poedit-Language: Portuguese\n"
@@ -20,9 +20,10 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Não foi possível abrir a url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
 msgstr "Gerenciador de área de transferência"
 
@@ -105,7 +106,8 @@ msgstr "< Histórico Padrão Vazio >"
 msgid "< Selection History Empty >"
 msgstr "< Histórico de seleções vazio >"
 
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
 msgid "Clear History"
 msgstr "Limpar Histórico"
 
@@ -131,14 +133,12 @@ msgstr "Clipman"
 #~ msgstr ""
 #~ "Selecione esta opção para salvar o histórico da área de transferência ao "
 #~ "sair do Xfce e restaurá-lo ao voltar."
-
 #~ msgid ""
 #~ "Select this option will prevent Clipman from including the contents of "
 #~ "the selection in the history."
 #~ msgstr ""
 #~ "Selecione esta opção para evitar que o Clipman inclua os conteúdos da "
 #~ "seleção no histórico."
-
 #~ msgid ""
 #~ "Select this option to prevent an empty clipboard. The most recent history "
 #~ "item will be added to the clipboard."
@@ -146,7 +146,6 @@ msgstr "Clipman"
 #~ "Selecione esta opção para evitar que a área de transferência fique vazia. "
 #~ "A entrada mais recente do histórico será adicionada à área de "
 #~ "transferência."
-
 #~ msgid ""
 #~ "When you've copied or cut some text and it is already in the Clipman "
 #~ "history from the selection clipboard,  only the content location will be "
@@ -161,7 +160,6 @@ msgstr "Clipman"
 #~ "\n"
 #~ "Quando um item do histórico for selecionado, seu conteúdo será copiado "
 #~ "para as duas áreas de transferêcia."
-
 #~ msgid ""
 #~ "When you've copied or cut some text it will be added to the Clipman "
 #~ "history, there will also be a duplicate  in the history from the "
@@ -181,25 +179,22 @@ msgstr "Clipman"
 #~ "\n"
 #~ "Esta opção funcionará melhor quando a opção \"Separar áreas de "
 #~ "transferência\" for selecionada a partir da aba Aparência."
-
 #~ msgid "Select this option to show item numbers in the history list."
 #~ msgstr ""
 #~ "Selecionar esta opção para mostrar números para os itens da lista do "
 #~ "histórico."
-
 #~ msgid ""
 #~ "Select this option to order the history list by primairy and selection "
 #~ "clipboard."
 #~ msgstr ""
 #~ "Selecionar esta opção para ordenar a lista do histórico por \n"
 #~ "área de transferência principal e de seleções."
-
 #~ msgid "The number of items stored in the history list."
 #~ msgstr "Número de itens armazenado na lista do histórico."
-
 #~ msgid ""
 #~ "The number of characters showed in the history list. After this amount of "
 #~ "characters, the history label will be ellipsized."
 #~ msgstr ""
 #~ "Número de caracteres mostrados na lista do histórico, após os quais, "
 #~ "serão adicionadas reticências ao item no histórico."
+
