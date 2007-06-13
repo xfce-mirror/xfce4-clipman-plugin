@@ -1,19 +1,17 @@
-# Catalan translations for xfce4-clipman-plugin package.
-# Copyright (C) 2005-2006 Nick Schermer.
-# This file is distributed under the same license as
-# the xfce4-clipman-plugin package.
+# Catalan translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007.
 #
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: ca\n"
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
 "PO-Revision-Date: 2007-05-11 19:05+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: Catalan\n"
+"Language-Team: Catalan <xfce-i18n@xfce.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

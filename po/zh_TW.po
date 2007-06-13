@@ -1,17 +1,16 @@
-# Japanese translations for xfce4-clipman-plugin package.
-# Copyright (C) 2005-2006 Nick Schermer.
-# This file is distributed under the same license as
-#   the xfce4-clipman-plugin package.
+# Traditional Chinese translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.6.2\n"
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
 "PO-Revision-Date: 2006-09-06 21:25+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
