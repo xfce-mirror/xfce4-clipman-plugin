@@ -1,3 +1,8 @@
+2007-06-20  Maximilian Schleiss <maximilian@xfce.org>
+
+	* pt_PT: European Portuguese translation Added
+	by Nuno Miguel <nunis@netcabo.pt>
+
 2007-06-13  Maximilian Schleiss <maximilian@xfce.org>
 
 	* it.po: Updated the translation
@@ -16,7 +21,8 @@
 
 2007-03-31  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
-  * gb.po: British translation by Jeff Bailes <thepizzaking@gmail.com>
+	* gb.po: British translation
+	by Jeff Bailes <thepizzaking@gmail.com>
 
 2007-02-02  Maximilian Schleiss <maximilian@xfce.org>
 
