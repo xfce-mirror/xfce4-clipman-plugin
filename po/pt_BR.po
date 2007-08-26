@@ -2,15 +2,16 @@
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Gunther Furtado <gunzera0@yahoo.com.br>
+# Vladimir Melo <vladimirmelo@foresightlinux.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2007-06-07 16:30-0300\n"
-"Last-Translator: Pablo Lerina <pabloalr@gmail.com>\n"
-"Language-Team: Xfce-i18n <xfce-i18n@xfce.org>\n"
+"PO-Revision-Date: 2007-08-26 11:11-0300\n"
+"Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
+"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,7 +50,7 @@ msgstr "Gerencia_mento normal de área de transferência"
 
 #: ../panel-plugin/clipman-dialogs.c:243
 msgid "Strictly separate _both clipboards"
-msgstr "Separar completamente as áreas de transferência (_b)"
+msgstr "Sepa_rar estritamente as áreas de transferência"
 
 #: ../panel-plugin/clipman-dialogs.c:252
 msgid "<b>Clipboard Behaviour</b>"
@@ -64,7 +65,7 @@ msgstr "Geral"
 
 #: ../panel-plugin/clipman-dialogs.c:277
 msgid "_Show item numbers"
-msgstr "Apresentar números dos itens (_S)"
+msgstr "Apre_sentar números dos itens"
 
 #: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
@@ -104,7 +105,7 @@ msgstr "< Histórico Padrão Vazio >"
 
 #: ../panel-plugin/clipman.c:468
 msgid "< Selection History Empty >"
-msgstr "< Histórico de seleções vazio >"
+msgstr "< Histórico de Seleções Vazio >"
 
 #: ../panel-plugin/clipman.c:477
 #: ../panel-plugin/clipman.c:542
@@ -117,7 +118,7 @@ msgstr "Histórico do Clipman"
 
 #: ../panel-plugin/clipman.c:658
 msgid "< Clipboard Empty >"
-msgstr "< Área de transferência vazia >"
+msgstr "< Área de Transferência Vazia >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
