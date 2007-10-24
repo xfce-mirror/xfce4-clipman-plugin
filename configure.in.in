@@ -21,7 +21,7 @@ dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2007
         The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-clipman-plugin], [clipman_version()], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
+AC_INIT([xfce4-clipman-plugin], [clipman_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([$Id$])
