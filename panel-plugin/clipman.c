@@ -117,21 +117,21 @@ clipman_create_title (gchar *txt,
 {
     gchar *s, *t, *u, *buf;
     gint   i;
-    
+
     /* rough string copy */
     s = g_strndup (txt, length*8 + 8);
-    
+
     if (G_UNLIKELY (!s))
         return NULL;
 
     if (!g_utf8_validate (s, -1, NULL))
     {
         DBG ("Title is not utf8 complaint, we're going to convert it");
-        
+
         u = g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
         g_free (s);
         s = u;
-        
+
         /* Check the title again */
         if (!g_utf8_validate (s, -1, NULL))
         {
@@ -140,13 +140,13 @@ clipman_create_title (gchar *txt,
             return NULL;
         }
     }
-    
+
     /* create string length */
     buf = g_malloc(length*6); /* max length of utf8 char is 6 */
     g_utf8_strncpy (buf, s, length);
     g_free (s);
     s = buf;
-    
+
     /* remove tabs and newlines */
     /* this works when the string is utf8-valid */
     i = 0;
@@ -156,7 +156,7 @@ clipman_create_title (gchar *txt,
             s[i] = ' ';
         i++;
     }
-    
+
     /* remove html characters */
     t = g_markup_escape_text (s, -1);
     g_free (s);
@@ -333,31 +333,41 @@ clipman_create_menuitem (ClipmanAction *action,
                          guint          number,
                          gboolean       bold)
 {
-    GtkWidget *mi;
-    GtkLabel  *label;
-    gchar     *title;
-
-    mi = gtk_menu_item_new_with_label  ("");
-
-    if (bold)
-        title = g_strdup_printf("<b>%s</b>", action->clip->title);
-    else
-	title = g_strdup_printf("%s", action->clip->title);
-
+    GtkWidget *mi, *label;
+    gchar     *title, *string_num;
 
     if (action->clipman->ItemNumbers)
     {
         if (number < 10)
-            title = g_strdup_printf("<tt><span size=\"smaller\">%d. </span></tt> %s", number ,title);
+            string_num = g_strdup_printf("<tt><span size=\"smaller\">%d. </span></tt> ", number);
         else
-            title = g_strdup_printf("<tt><span size=\"smaller\">%d.</span></tt> %s",  number ,title);
+            string_num = g_strdup_printf("<tt><span size=\"smaller\">%d.</span></tt> ", number);
+    }
+    else
+    {
+        string_num = g_strdup ("");
     }
 
-    label = GTK_LABEL(GTK_BIN(mi)->child);
-    gtk_label_set_markup (label, title);
-    gtk_label_set_single_line_mode (label, TRUE);
-    gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
-    gtk_label_set_max_width_chars (label, width);
+    if (bold)
+        title = g_strdup_printf("%s<b>%s</b>", action->cli action->clip->title);
+    else
+        title = g_strdup_printf("%s%s", string_num, action->clip->title);
+
+    g_free (string_num);
+
+
+    label = gtk_label_new (title);
+    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
+    gtk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
+    gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
+    gtk_label_set_max_width_chars (GTK_LABEL (label), width);
+
+    g_free (title);
+
+    mi = gtk_menu_item_new ();
+    gtk_container_add (GTK_CONTAINER (mi), label);
+    gtk_accel_label_set_accel_widget (GTK_ACCEL_LABEL (label), mi);
+    gtk_widget_show (label);
 
     return mi;
 }
