@@ -349,7 +349,7 @@ clipman_create_menuitem (ClipmanAction *action,
     }
 
     if (bold)
-        title = g_strdup_printf("%s<b>%s</b>", action->cli action->clip->title);
+        title = g_strdup_printf("%s<b>%s</b>", string_num, action->clip->title);
     else
         title = g_strdup_printf("%s%s", string_num, action->clip->title);
 
