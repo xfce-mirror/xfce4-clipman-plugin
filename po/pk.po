@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"PO-Revision-Date: 2007-10-26 20:09+0500\n"
+"Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/clipman-dialogs.c:66
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "یہ url کھولنے میں ناکامی: %s"
+
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
+msgid "Clipboard Manager"
+msgstr "کلپ بورڈ منیجر"
+
+#: ../panel-plugin/clipman-dialogs.c:194
+msgid "Save clipboard contents on _exit"
+msgstr "_برخاست پر کلپ بورڈ مواد محفوظ کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:201
+msgid "_Ignore selections"
+msgstr "ا_نتخاب نظر انداز کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:208
+msgid "Pre_vent empty clipboard"
+msgstr "خالی کپ بورڈ _منع کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:216
+msgid "<b>General</b>"
+msgstr "<b>عام</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:234
+msgid "Normal clipboard _management"
+msgstr "عام کلپ بورڈ ا_دارت"
+
+#: ../panel-plugin/clipman-dialogs.c:243
+msgid "Strictly separate _both clipboards"
+msgstr "سختی سے د_ونوں کلپ بورڈ الگ کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:252
+msgid "<b>Clipboard Behaviour</b>"
+msgstr "<b>کلپ بورڈ سلوک</b>"
+
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:260
+msgid "General"
+msgstr "عام"
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "_Show item numbers"
+msgstr "عناصر کے نمبر _ظاہر کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:284
+msgid "Se_parate clipboards"
+msgstr "کلپ بورڈز ال_گ کریں"
+
+#: ../panel-plugin/clipman-dialogs.c:291
+msgid "<b>Menu Appearance</b>"
+msgstr "<b>مینیو مظہر</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:313
+msgid "Clipboard history items:"
+msgstr "کلپ بورڈ محفوظات عناصر:"
+
+#: ../panel-plugin/clipman-dialogs.c:337
+msgid "Menu item characters:"
+msgstr "مینیو عنصر کیریکٹرز:"
+
+#: ../panel-plugin/clipman-dialogs.c:359
+msgid "<b>Numbers</b>"
+msgstr "<b>نمبر</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:364
+msgid "Appearance"
+msgstr "مظہر"
+
+#: ../panel-plugin/clipman.c:74
+msgid "Are you sure you want to clear the history?"
+msgstr "کیا آپ واقعی محفوظات صاف کرنا چاہتے ہیں؟"
+
+#: ../panel-plugin/clipman.c:299
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "کیا آپ واقعی یہ کلپ محفوظات سے ختم کرنا چاہتے ہیں؟"
+
+#: ../panel-plugin/clipman.c:417
+msgid "< Default History Empty >"
+msgstr "< طے شدہ محفوظات خالی >"
+
+#: ../panel-plugin/clipman.c:468
+msgid "< Selection History Empty >"
+msgstr "< انتخاب محفوظات خالی >"
+
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
+msgid "Clear History"
+msgstr "محفوظات صاف کریں"
+
+#: ../panel-plugin/clipman.c:636
+msgid "Clipman History"
+msgstr "Clipman محفوظات"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< کلپ بورڈ خالی >"
+
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr "ایکسفس ڈیسک ٹاپ کا کلپ بورڈ منیجر"
+
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr "Clipman"
+
