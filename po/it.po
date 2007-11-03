@@ -1,11 +1,11 @@
-# Italian translation of the xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
+# Italian translations for xfce4-clipman-plugin package.
+# Copyright (C) 2007 THE xfce4-clipman-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Fabio Riga <usul@aruba.it>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-clipman-plugin 0.8.0\n"
+"Project-Id-Version: xfce 4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
 "PO-Revision-Date: 2007-05-24 22:51+0200\n"
@@ -23,11 +23,11 @@ msgstr "Impossibile aprire il seguente url: %s"
 
 #: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
-msgstr "Gestore degli appunti"
+msgstr "Gestore bacheca"
 
 #: ../panel-plugin/clipman-dialogs.c:194
 msgid "Save clipboard contents on _exit"
-msgstr "Salva il contenuto degli appunti all'_uscita"
+msgstr "Salva il contenuto della bacheca all'_uscita"
 
 #: ../panel-plugin/clipman-dialogs.c:201
 msgid "_Ignore selections"
@@ -35,7 +35,7 @@ msgstr "_Ignora selezioni"
 
 #: ../panel-plugin/clipman-dialogs.c:208
 msgid "Pre_vent empty clipboard"
-msgstr "Pre_vieni appunti vuoti"
+msgstr "Pre_vieni bacheca vuota"
 
 #: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
@@ -43,15 +43,15 @@ msgstr "<b>Generale</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
-msgstr "Gestione _normale degli appunti"
+msgstr "Gestione _normale della bacheca"
 
 #: ../panel-plugin/clipman-dialogs.c:243
 msgid "Strictly separate _both clipboards"
-msgstr "Appunti _strettamente separati"
+msgstr "Due bacheche _strettamente separate"
 
 #: ../panel-plugin/clipman-dialogs.c:252
 msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Comportamento degli appunti</b>"
+msgstr "<b>Comportamento della bacheca</b>"
 
 #. *
 #. * Notebook label
@@ -62,11 +62,11 @@ msgstr "Generale"
 
 #: ../panel-plugin/clipman-dialogs.c:277
 msgid "_Show item numbers"
-msgstr "_Mostra il numero dell'elemento"
+msgstr "_Mostra i numeri degli elementi"
 
 #: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
-msgstr ""
+msgstr "Bacheche se_parate"
 
 #: ../panel-plugin/clipman-dialogs.c:291
 msgid "<b>Menu Appearance</b>"
@@ -74,52 +74,52 @@ msgstr "<b>Aspetto del menu</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:313
 msgid "Clipboard history items:"
-msgstr "Elementi dello storico degli appunti:"
+msgstr "Elementi nello storico della bacheca:"
 
 #: ../panel-plugin/clipman-dialogs.c:337
 msgid "Menu item characters:"
-msgstr ""
+msgstr "Caratteri nell'elemento del menu"
 
 #: ../panel-plugin/clipman-dialogs.c:359
 msgid "<b>Numbers</b>"
-msgstr ""
+msgstr "<b>Numeri</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:364
 msgid "Appearance"
-msgstr ""
+msgstr "Aspetto"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Cancellare lo storico?"
 
 #: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr ""
+msgstr "Rimuovere questo appunto dalla bacheca?"
 
 #: ../panel-plugin/clipman.c:417
 msgid "< Default History Empty >"
-msgstr ""
+msgstr "< Storico predefinito vuoto >"
 
 #: ../panel-plugin/clipman.c:468
 msgid "< Selection History Empty >"
-msgstr ""
+msgstr "< Storico delle selezioni vuoto >"
 
 #: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
 msgid "Clear History"
-msgstr ""
+msgstr "Cancella lo storico"
 
 #: ../panel-plugin/clipman.c:636
 msgid "Clipman History"
-msgstr ""
+msgstr "Storico della bacheca"
 
 #: ../panel-plugin/clipman.c:658
 msgid "< Clipboard Empty >"
-msgstr ""
+msgstr "< Bacheca vuota >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
-msgstr ""
+msgstr "Gestore della bacheca per l'ambiente Xfce"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
-msgstr ""
+msgstr "Bacheca"
