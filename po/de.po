@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2007-01-18 08:43+0100\n"
+"POT-Creation-Date: 2007-12-06 22:56+0100\n"
+"PO-Revision-Date: 2007-12-06 22:58+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "Kann die folgende Adresse nicht öffnen: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:991
 msgid "Clipboard Manager"
 msgstr "Verwaltung der Zwischenablage"
 
@@ -93,29 +93,30 @@ msgstr "Aussehen"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
-msgstr "Sind Sie sicher, den bisherigen Inhalt der Zwischenablage zu löschen?"
+msgstr ""
+"Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
 #: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Sind Sie sicher, den gewählten Eintrag aus der Liste zu löschen?"
+msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
 
-#: ../panel-plugin/clipman.c:417
+#: ../panel-plugin/clipman.c:427
 msgid "< Default History Empty >"
 msgstr "< Inhalt der Standard-Zwischenablage leer >"
 
-#: ../panel-plugin/clipman.c:468
+#: ../panel-plugin/clipman.c:478
 msgid "< Selection History Empty >"
 msgstr "< Inhalt der Auswahl-Zwischenablage leer >"
 
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:487 ../panel-plugin/clipman.c:552
 msgid "Clear History"
 msgstr "Bisherigen Inhalt löschen"
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:646
 msgid "Clipman History"
-msgstr "Clipman Inhalt"
+msgstr "Verlauf der Zwischenablage"
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:668
 msgid "< Clipboard Empty >"
 msgstr "< Zwischenablage leer >"
 
@@ -125,7 +126,7 @@ msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
-msgstr "Clipman"
+msgstr "Zwischenablage"
 
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr ""
