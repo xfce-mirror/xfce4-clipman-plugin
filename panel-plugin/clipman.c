@@ -325,7 +325,15 @@ clipman_plugin_set_size (ClipmanPlugin *clipman_plugin,
 
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GdkPixbuf *pixbuf = gtk_icon_theme_load_icon (icon_theme, GTK_STOCK_PASTE, size, 0, NULL);
-  g_return_val_if_fail (G_LIKELY (NULL != pixbuf), FALSE);
+  GdkPixbuf *scaled = gdk_pixbuf_scale_simple (pixbuf, size, size, GDK_INTERP_BILINEAR);
+  g_object_unref (G_OBJECT (pixbuf));
+  pixbuf = scaled;
+
+  if (G_UNLIKELY (NULL == pixbuf))
+    {
+      gtk_image_clear (GTK_IMAGE (clipman_plugin->icon));
+      return FALSE;
+    }
 
   gtk_image_set_from_pixbuf (GTK_IMAGE (clipman_plugin->icon), pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
