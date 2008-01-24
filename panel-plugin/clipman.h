@@ -41,7 +41,7 @@ G_BEGIN_DECLS
 #define MINCHARS        10
 
 /* Default options */
-#define DEFEXITSAVE     FALSE
+#define DEFEXITSAVE     TRUE
 #define DEFPREVENTEMPTY TRUE
 #define DEFIGNORESELECT FALSE
 #define DEFIGNORESTATIC FALSE
