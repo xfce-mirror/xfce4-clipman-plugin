@@ -60,7 +60,7 @@ clipman_configure_new (ClipmanPlugin *clipman)
 												NULL);
 
   gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-  gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-settings");
+  gtk_window_set_icon_name (GTK_WINDOW (dialog), GTK_STOCK_PASTE);
 
   g_object_set_data (G_OBJECT (clipman->panel_plugin), "dialog", dialog);
 
@@ -85,21 +85,24 @@ clipman_configure_new (ClipmanPlugin *clipman)
   button = options->ExitSave = gtk_check_button_new_with_mnemonic (_("Save clipboard contents on _exit"));
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->clipman_clips->save_on_exit);
-
-  g_signal_connect (G_OBJECT (button), "toggled",
-					G_CALLBACK (toggle_button), options);
-
-  button = options->IgnoreSelection = gtk_check_button_new_with_mnemonic (_("_Ignore selections"));
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->clipman_clips->ignore_primary);
-
   g_signal_connect (G_OBJECT (button), "toggled",
 					G_CALLBACK (toggle_button), options);
 
   button = options->PreventEmpty = gtk_check_button_new_with_mnemonic (_("Pre_vent empty clipboard"));
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->clipman_clips->prevent_empty);
+  g_signal_connect (G_OBJECT (button), "toggled",
+					G_CALLBACK (toggle_button), options);
 
+  button = options->IgnoreSelection = gtk_check_button_new_with_mnemonic (_("_Ignore selections"));
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->clipman_clips->ignore_primary);
+  g_signal_connect (G_OBJECT (button), "toggled",
+					G_CALLBACK (toggle_button), options);
+
+  button = options->IgnoreStatic = gtk_check_button_new_with_mnemonic (_("_Ignore static clipboard"));
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->clipman_clips->ignore_static_clipboard);
   g_signal_connect (G_OBJECT (button), "toggled",
 					G_CALLBACK (toggle_button), options);
 
@@ -342,19 +345,23 @@ toggle_button (GtkWidget *button,
                ClipmanOptions *options)
 {
   if (button == options->ExitSave)
-	options->clipman->clipman_clips->save_on_exit =
-	  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-
-  else if (button == options->IgnoreSelection)
-	options->clipman->clipman_clips->ignore_primary =
-	  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+    options->clipman->clipman_clips->save_on_exit =
+      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
   else if (button == options->PreventEmpty)
-	options->clipman->clipman_clips->prevent_empty =
-	  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+    options->clipman->clipman_clips->prevent_empty =
+      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+
+  else if (button == options->IgnoreSelection)
+    options->clipman->clipman_clips->ignore_primary =
+      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+
+  else if (button == options->IgnoreStatic)
+    options->clipman->clipman_clips->ignore_static_clipboard =
+      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
   else if (button == options->ItemNumbers)
-	options->clipman->menu_item_show_number =
-	  gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+    options->clipman->menu_item_show_number =
+      gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 }
 

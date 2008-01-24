@@ -32,8 +32,9 @@ struct _ClipmanOptions
   ClipmanPlugin        *clipman;
 
   GtkWidget            *ExitSave;
-  GtkWidget            *IgnoreSelection;
   GtkWidget            *PreventEmpty;
+  GtkWidget            *IgnoreSelection;
+  GtkWidget            *IgnoreStatic;
 
   GtkWidget            *Behaviour;
 

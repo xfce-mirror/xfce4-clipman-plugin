@@ -31,23 +31,23 @@ G_BEGIN_DECLS
 #define BORDER          8
 
 /* History settings: default, min and max */
-#define DEFHISTORY      10
+#define DEFHISTORY      15
 #define MAXHISTORY      100
 #define MINHISTORY      5
 
 /* Character settings: default, min and max */
-#define DEFCHARS        30
+#define DEFCHARS        40
 #define MAXCHARS        200
 #define MINCHARS        10
 
 /* Default options */
 #define DEFEXITSAVE     FALSE
-#define DEFIGNORESELECT TRUE
 #define DEFPREVENTEMPTY TRUE
+#define DEFIGNORESELECT TRUE
+#define DEFIGNORESTATIC FALSE
 #define DEFBEHAVIOUR    1
 
 #define DEFITEMNUMBERS  FALSE
-#define DEFSEPMENU      FALSE
 
 /* Milisecond to check the clipboards(s) */
 #define TIMER_INTERVAL  1000
@@ -55,7 +55,8 @@ G_BEGIN_DECLS
 typedef enum
 {
   DEFAULT,
-  PRIMARY
+  PRIMARY,
+  STATIC
 } ClipboardType;
 
 typedef enum
@@ -92,12 +93,14 @@ struct _ClipmanClips
   gint                  timeout;
 
   GSList               *history;
+  GSList               *static_clipboard;
 
   ClipboardBehavior     behavior;
   gint                  history_length;
   gboolean              save_on_exit;
-  gboolean              ignore_primary;
   gboolean              prevent_empty;
+  gboolean              ignore_primary;
+  gboolean              ignore_static_clipboard;
 };
 
 struct _ClipmanClip
