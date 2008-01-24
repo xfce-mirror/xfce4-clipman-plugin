@@ -42,8 +42,6 @@ static void                     clipman_plugin_free                 (ClipmanPlug
 
 static gboolean                 clipman_plugin_set_size             (ClipmanPlugin *clipman_plugin,
                                                                      gint size);
-static gboolean                 clipman_plugin_button_pressed       (ClipmanPlugin *clipman_plugin,
-                                                                     GdkEventButton *event);
 static gchar *                  clipman_plugin_get_short_text       (ClipmanPlugin *clipman_plugin,
                                                                      const gchar *text);
 static void                     clipman_plugin_menu_new             (ClipmanPlugin *clipman_plugin);
@@ -145,8 +143,8 @@ clipman_plugin_new (XfcePanelPlugin *panel_plugin)
   gtk_container_add (GTK_CONTAINER (panel_plugin), clipman_plugin->button);
 
   g_signal_connect_swapped (clipman_plugin->button,
-                            "button_press_event",
-                            G_CALLBACK (clipman_plugin_button_pressed),
+                            "toggled",
+                            G_CALLBACK (clipman_plugin_menu_popup),
                             clipman_plugin);
 
   clipman_plugin_load_data (clipman_plugin);
@@ -325,18 +323,6 @@ clipman_plugin_set_size (ClipmanPlugin *clipman_plugin,
 
   gtk_image_set_from_pixbuf (GTK_IMAGE (clipman_plugin->icon), pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
-
-  return TRUE;
-}
-
-static gboolean
-clipman_plugin_button_pressed (ClipmanPlugin *clipman_plugin,
-                               GdkEventButton *event)
-{
-  if (G_LIKELY (event->button != 1 || event->state & GDK_CONTROL_MASK))
-    return FALSE;
-
-  clipman_plugin_menu_popup (clipman_plugin);
 
   return TRUE;
 }
@@ -647,12 +633,10 @@ clipman_plugin_menu_insert_clip (ClipmanClip *clip,
 static void
 clipman_plugin_menu_popup (ClipmanPlugin *clipman_plugin)
 {
-  /* If the menu doesn't popup at time, the next popup will be a bit of segfault */
-  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (clipman_plugin->button)) == TRUE
-      && GTK_IS_MENU (clipman_plugin->menu))
+  gint rc = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (clipman_plugin->button));
+  if (rc == FALSE)
     return;
 
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman_plugin->button), TRUE);
   clipman_plugin_menu_new (clipman_plugin);
   gtk_menu_popup (GTK_MENU (clipman_plugin->menu),
                   NULL,
