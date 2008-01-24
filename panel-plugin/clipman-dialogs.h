@@ -1,4 +1,4 @@
-/*  $Id$
+/*  $Id: clipman-dialogs.h 2395 2007-01-17 17:42:53Z nick $
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
  *
@@ -22,8 +22,29 @@
 
 G_BEGIN_DECLS
 
+#define PLUGIN_WEBSITE "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin"
+
+typedef struct _ClipmanOptions      ClipmanOptions;
+
+struct _ClipmanOptions
+{
+  ClipmanPlugin        *clipman;
+
+  GtkWidget            *ExitSave;
+  GtkWidget            *IgnoreSelection;
+  GtkWidget            *PreventEmpty;
+
+  GtkWidget            *Behaviour;
+
+  GtkWidget            *ItemNumbers;
+  GtkWidget            *SeparateMenu;
+
+  GtkWidget            *HistorySize;
+  GtkWidget            *ItemChars;
+};
+
 void
-clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
+clipman_configure_new (ClipmanPlugin *clipman_plugin);
 
 G_END_DECLS
 

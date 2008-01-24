@@ -1,4 +1,4 @@
-/*  $Id$
+/*  $Id: clipman.h 2395 2007-01-17 17:42:53Z nick $
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
  *
@@ -19,6 +19,10 @@
 
 #ifndef CLIPMAN_H
 #define CLIPMAN_H
+
+#include <gtk/gtk.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfcegui4/libxfcegui4.h>
 
 G_BEGIN_DECLS
 
@@ -45,73 +49,62 @@ G_BEGIN_DECLS
 #define DEFSEPMENU      FALSE
 
 /* Milisecond to check the clipboards(s) */
-#define TIMER_INTERVAL  500
+#define TIMER_INTERVAL  1000
 
 typedef enum
 {
-    PRIMARY = 0,
-    DEFAULT
-}
-ClipboardType;
+  DEFAULT,
+  PRIMARY
+} ClipboardType;
 
 typedef enum
 {
-    NORMAL = 0,
-    STRICTLY
-}
-ClipboardBehaviour;
+  NORMAL,
+  STRICTLY
+} ClipboardBehavior;
 
-typedef struct
+typedef struct _ClipmanPlugin       ClipmanPlugin;
+typedef struct _ClipmanClips        ClipmanClips;
+typedef struct _ClipmanClip         ClipmanClip;
+
+struct _ClipmanPlugin
 {
-    XfcePanelPlugin *plugin;
+  XfcePanelPlugin      *panel_plugin;
+  ClipmanClips         *clipman_clips;
 
-    GtkWidget    *icon;
-    GtkWidget    *button;
-    GtkTooltips  *tooltip;
+  GtkWidget            *button;
+  GtkWidget            *icon;
+  GtkWidget            *menu;
 
-    GPtrArray    *clips;
+  gboolean              menu_separate_clipboards;
+  gboolean              menu_item_show_number;
+  gint                  menu_item_max_chars;
+};
 
-    gint          TimeoutId;
-    gboolean      killTimeout;
-
-    gboolean      ExitSave;
-    gboolean      IgnoreSelect;
-    gboolean      PreventEmpty;
-
-    ClipboardBehaviour Behaviour;
-
-    gboolean      ItemNumbers;
-    gboolean      SeparateMenu;
-
-    guint         HistoryItems;
-    guint         MenuCharacters;
-}
-ClipmanPlugin;
-
-typedef struct
+struct _ClipmanClips
 {
-    gchar        *text;
-    gchar        *title;        /* I've added the title to save
-                                 * some time when opening the menu */
-    ClipboardType fromtype;
-}
-ClipmanClip;
+  ClipmanPlugin        *clipman_plugin;
 
-typedef struct
+  GtkClipboard         *default_clipboard;
+  GtkClipboard         *primary_clipboard;
+
+  gint                  timeout;
+
+  GSList               *history;
+
+  ClipboardBehavior     behavior;
+  gint                  history_length;
+  gboolean              save_on_exit;
+  gboolean              ignore_primary;
+  gboolean              prevent_empty;
+};
+
+struct _ClipmanClip
 {
-    ClipmanPlugin  *clipman;
-    ClipmanClip    *clip;
-}
-ClipmanAction;
-
-void
-clipman_check_array_len        (ClipmanPlugin *clipman);
-
-void
-clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
-
-void
-clipman_remove_selection_clips (ClipmanPlugin *clipman);
+    ClipboardType       type;
+    gchar              *text;
+    gchar              *short_text; /* Saves cycles to add menu items */
+};
 
 G_END_DECLS
 
