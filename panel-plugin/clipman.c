@@ -1040,17 +1040,7 @@ clipman_clips_add_static (ClipmanClips *clipman_clips)
   gchar *text = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
   if (G_UNLIKELY (NULL == text))
     return;
-
-  ClipmanClip *clip = g_slice_new (ClipmanClip);
-  clip->type        = STATIC;
-  clip->text        = text;
-  clip->short_text  = NULL;
-
-  GSList *foobar = g_slist_find_custom (clipman_clips->static_clipboard, clip, (GCompareFunc)clipman_clips_compare);
-  if (G_UNLIKELY (NULL != foobar))
-    return;
-
-  clipman_clips->static_clipboard = g_slist_prepend (clipman_clips->static_clipboard, clip);
+  clipman_clips_add (clipman_clips, text, STATIC);
 
   /* Destroy the dialog */
   gtk_widget_destroy (dialog);
@@ -1071,29 +1061,39 @@ clipman_clips_add (ClipmanClips *clipman_clips,
   clip->text        = text;
   clip->short_text  = NULL;
 
-  if (clipman_clips->behavior == STRICTLY)
+  if (type == STATIC)
+    foobar = g_slist_find_custom (clipman_clips->static_clipboard, clip, (GCompareFunc)clipman_clips_compare);
+  else if (clipman_clips->behavior == STRICTLY)
     foobar = g_slist_find_custom (clipman_clips->history, clip, (GCompareFunc)clipman_clips_compare_with_type);
   else
     foobar = g_slist_find_custom (clipman_clips->history, clip, (GCompareFunc)clipman_clips_compare);
 
   if (G_UNLIKELY (NULL != foobar))
     {
-      /* Push the existing clip to the top */
-      clip = (ClipmanClip *)foobar->data;
-      clipman_clips->history = g_slist_remove (clipman_clips->history, clip);
-      clipman_clips->history = g_slist_prepend (clipman_clips->history, clip);
-
       /* Free this allocation that had should be used in the new clip */
       g_free (text);
+      g_slice_free (ClipmanClip, clip);
+
+      /* Push the existing clip to the top */
+      if (type != STATIC)
+        {
+          clip = (ClipmanClip *)foobar->data;
+          clipman_clips->history = g_slist_remove (clipman_clips->history, clip);
+          clipman_clips->history = g_slist_prepend (clipman_clips->history, clip);
+        }
 
       return;
     }
 
   DBG ("Add to clipboard (%d): `%s'", type, text);
-  clipman_clips->history = g_slist_prepend (clipman_clips->history, clip);
-
-  if (g_slist_length (clipman_clips->history) > clipman_clips->history_length)
-    clipman_clips_delete (clipman_clips, (ClipmanClip *)(g_slist_last (clipman_clips->history)->data));
+  if (type == STATIC)
+    clipman_clips->static_clipboard = g_slist_prepend (clipman_clips->static_clipboard, clip);
+  else
+    {
+      clipman_clips->history = g_slist_prepend (clipman_clips->history, clip);
+      if (g_slist_length (clipman_clips->history) > clipman_clips->history_length)
+        clipman_clips_delete (clipman_clips, (ClipmanClip *)(g_slist_last (clipman_clips->history)->data));
+    }
 }
 
 static gint
