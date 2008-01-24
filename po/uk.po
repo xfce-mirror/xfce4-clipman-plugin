@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-13 14:20+0200\n"
+"POT-Creation-Date: 2008-01-08 06:16+0100\n"
 "PO-Revision-Date: 2007-03-08 00:51+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
@@ -18,105 +18,135 @@ msgstr ""
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:84
+msgid "Clipboard Manager"
+msgstr "Керування буфером обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:108 ../panel-plugin/clipman-dialogs.c:112
+#: ../panel-plugin/clipman-dialogs.c:248
+msgid "General"
+msgstr "Основне"
+
+#: ../panel-plugin/clipman-dialogs.c:117
+msgid "Save clipboard contents on _exit"
+msgstr "Зберігати вміст буферу обміну при _виході"
+
+#: ../panel-plugin/clipman-dialogs.c:124
+msgid "Pre_vent empty clipboard"
+msgstr "_Запобігати порожньому буферу обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:131
+msgid "_Ignore selections"
+msgstr "_Ігнорувати виділене"
+
+#: ../panel-plugin/clipman-dialogs.c:139
+msgid "Clipboard Behavior"
+msgstr "Поведінка буферу обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:146
+msgid "Normal clipboard _management"
+msgstr "Звичайне _керування буфером обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:155
+msgid "Strictly separate _both clipboards"
+msgstr "Жорстко розділити _обидва буфери обміну"
+
+#: ../panel-plugin/clipman-dialogs.c:169
+msgid "Appearance"
+msgstr "Зовнішній вигляд"
+
+#: ../panel-plugin/clipman-dialogs.c:173
+msgid "Menu Appearance"
+msgstr "Меню зовнішнього вигляду"
+
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "_Show item numbers"
+msgstr "_Показувати номера пунктів"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "Numbers"
+msgstr "Номери"
+
+#. History length
+#: ../panel-plugin/clipman-dialogs.c:190
+msgid "Clipboard history items:"
+msgstr "Історія входжень до буферу обміну:"
+
+#. Max menu item chars
+#: ../panel-plugin/clipman-dialogs.c:214
+msgid "Menu item characters:"
+msgstr "Меню входжень символів:"
+
+#: ../panel-plugin/clipman-dialogs.c:244
+msgid "Static Clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "Ignore _static clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:261
+msgid "Select to Clipboards"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:268
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "Selection"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:286
+msgid "Both"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:314
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Неможливо відкрити наступне посилання: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
-msgid "Clipboard Manager"
-msgstr "Керування буфером обміну"
+#: ../panel-plugin/clipman.c:391
+msgid "< Clipboard Empty >"
+msgstr "< Буфер обміну порожній >"
 
-#: ../panel-plugin/clipman-dialogs.c:194
-msgid "Save clipboard contents on _exit"
-msgstr "Зберігати вміст буферу обміну при _виході"
+#: ../panel-plugin/clipman.c:408
+msgid "< Static Clipboard Empty >"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "_Ігнорувати виділене"
+#: ../panel-plugin/clipman.c:417 ../panel-plugin/clipman.c:968
+msgid "Add static clipboard"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "_Запобігати порожньому буферу обміну"
-
-#: ../panel-plugin/clipman-dialogs.c:216
-msgid "<b>General</b>"
-msgstr "<b>Основне</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "Звичайне _керування буфером обміну"
-
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Жорстко розділити _обидва буфери обміну"
-
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Поведінка буферу обміну</b>"
-
-#. *
-#. * Notebook label
-#. *
-#: ../panel-plugin/clipman-dialogs.c:260
-msgid "General"
-msgstr "Основне"
-
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "_Показувати номера пунктів"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "Роз_ділити буфери обміну"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Меню зовнішнього вигляду</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Історія входжень до буферу обміну:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Меню входжень символів:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Номери</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Зовнішній вигляд"
-
-#: ../panel-plugin/clipman.c:74
-msgid "Are you sure you want to clear the history?"
-msgstr "Ви впевнені, що хочете очистити історію?"
-
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Ви впевнені, що хочете видалити цей пункт з історії?"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Зазвичай історія порожня >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Вибрати очистити історію >"
-
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
-msgid "Clear History"
-msgstr "Очистити історію"
-
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:436
 msgid "Clipman History"
 msgstr "Керування історією буферу обміну"
 
-#: ../panel-plugin/clipman.c:658
-msgid "< Clipboard Empty >"
-msgstr "< Буфер обміну порожній >"
+#. Append clear history
+#: ../panel-plugin/clipman.c:442
+msgid "Clear History"
+msgstr "Очистити історію"
+
+#: ../panel-plugin/clipman.c:619
+msgid "< Selection History Empty >"
+msgstr "< Вибрати очистити історію >"
+
+#: ../panel-plugin/clipman.c:630
+msgid "< Default History Empty >"
+msgstr "< Зазвичай історія порожня >"
+
+#: ../panel-plugin/clipman.c:791
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "Ви впевнені, що хочете видалити цей пункт з історії?"
+
+#: ../panel-plugin/clipman.c:863
+msgid "Are you sure you want to clear the history?"
+msgstr "Ви впевнені, що хочете очистити історію?"
+
+#. Label
+#: ../panel-plugin/clipman.c:984
+msgid "Text:"
+msgstr ""
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -125,3 +155,6 @@ msgstr "Керування буфером обміну для Xfce"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Керування буфером обміну"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Основне</b>"

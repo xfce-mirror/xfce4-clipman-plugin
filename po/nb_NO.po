@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0svn-r2842\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"POT-Creation-Date: 2008-01-08 06:16+0100\n"
 "PO-Revision-Date: 2007-07-01 21:49+0200\n"
 "Last-Translator: Terje Uriansrud <ter@operamail.com>\n"
 "Language-Team: Norwegian Bokmal\n"
@@ -16,105 +16,135 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:84
+msgid "Clipboard Manager"
+msgstr "Utklippstavlebehandler"
+
+#: ../panel-plugin/clipman-dialogs.c:108 ../panel-plugin/clipman-dialogs.c:112
+#: ../panel-plugin/clipman-dialogs.c:248
+msgid "General"
+msgstr "Generelt"
+
+#: ../panel-plugin/clipman-dialogs.c:117
+msgid "Save clipboard contents on _exit"
+msgstr "Lagre utklippstavlens innhold ved _avslutning"
+
+#: ../panel-plugin/clipman-dialogs.c:124
+msgid "Pre_vent empty clipboard"
+msgstr "_Unngå tom utklippstavle"
+
+#: ../panel-plugin/clipman-dialogs.c:131
+msgid "_Ignore selections"
+msgstr "_Ignorer merket område"
+
+#: ../panel-plugin/clipman-dialogs.c:139
+msgid "Clipboard Behavior"
+msgstr "Utklippstavle oppførsel"
+
+#: ../panel-plugin/clipman-dialogs.c:146
+msgid "Normal clipboard _management"
+msgstr "_Normal utklippstavlestyring"
+
+#: ../panel-plugin/clipman-dialogs.c:155
+msgid "Strictly separate _both clipboards"
+msgstr "Separer _begge utklippstavlene"
+
+#: ../panel-plugin/clipman-dialogs.c:169
+msgid "Appearance"
+msgstr "Utseende"
+
+#: ../panel-plugin/clipman-dialogs.c:173
+msgid "Menu Appearance"
+msgstr "Menyutseende"
+
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "_Show item numbers"
+msgstr "_Vis elementnummer"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "Numbers"
+msgstr "Antall"
+
+#. History length
+#: ../panel-plugin/clipman-dialogs.c:190
+msgid "Clipboard history items:"
+msgstr "Utklippstavle historikkelementer"
+
+#. Max menu item chars
+#: ../panel-plugin/clipman-dialogs.c:214
+msgid "Menu item characters:"
+msgstr "Antall tegn i menyen"
+
+#: ../panel-plugin/clipman-dialogs.c:244
+msgid "Static Clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "Ignore _static clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:261
+msgid "Select to Clipboards"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:268
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "Selection"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:286
+msgid "Both"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:314
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Klarte ikke åpne følgende url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
-msgid "Clipboard Manager"
-msgstr "Utklippstavlebehandler"
+#: ../panel-plugin/clipman.c:391
+msgid "< Clipboard Empty >"
+msgstr "< Tom utklippstavle >"
 
-#: ../panel-plugin/clipman-dialogs.c:194
-msgid "Save clipboard contents on _exit"
-msgstr "Lagre utklippstavlens innhold ved _avslutning"
+#: ../panel-plugin/clipman.c:408
+msgid "< Static Clipboard Empty >"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "_Ignorer merket område"
+#: ../panel-plugin/clipman.c:417 ../panel-plugin/clipman.c:968
+msgid "Add static clipboard"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "_Unngå tom utklippstavle"
-
-#: ../panel-plugin/clipman-dialogs.c:216
-msgid "<b>General</b>"
-msgstr "<b>Generelt</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "_Normal utklippstavlestyring"
-
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Separer _begge utklippstavlene"
-
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Utklippstavle oppførsel</b>"
-
-#. *
-#. * Notebook label
-#. *
-#: ../panel-plugin/clipman-dialogs.c:260
-msgid "General"
-msgstr "Generelt"
-
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "_Vis elementnummer"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "Se_parate utklippstavler"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Menyutseende</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Utklippstavle historikkelementer"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Antall tegn i menyen"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Antall</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Utseende"
-
-#: ../panel-plugin/clipman.c:74
-msgid "Are you sure you want to clear the history?"
-msgstr "Er du sikker at du vil slette historikken?"
-
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Er du sikker du vil slette dette elementet fra historikken?"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Tom standard historikk >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Tom markert historikk >"
-
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
-msgid "Clear History"
-msgstr "Tøm historikk"
-
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:436
 msgid "Clipman History"
 msgstr "Utklippstavle historikk"
 
-#: ../panel-plugin/clipman.c:658
-msgid "< Clipboard Empty >"
-msgstr "< Tom utklippstavle >"
+#. Append clear history
+#: ../panel-plugin/clipman.c:442
+msgid "Clear History"
+msgstr "Tøm historikk"
+
+#: ../panel-plugin/clipman.c:619
+msgid "< Selection History Empty >"
+msgstr "< Tom markert historikk >"
+
+#: ../panel-plugin/clipman.c:630
+msgid "< Default History Empty >"
+msgstr "< Tom standard historikk >"
+
+#: ../panel-plugin/clipman.c:791
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "Er du sikker du vil slette dette elementet fra historikken?"
+
+#: ../panel-plugin/clipman.c:863
+msgid "Are you sure you want to clear the history?"
+msgstr "Er du sikker at du vil slette historikken?"
+
+#. Label
+#: ../panel-plugin/clipman.c:984
+msgid "Text:"
+msgstr ""
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -123,3 +153,6 @@ msgstr "Utklippstavlebehandler for Xfce skrivebordet"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Generelt</b>"
