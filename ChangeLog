@@ -1,3 +1,112 @@
+2008-01-24	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/clipman.c(clipman_plugin_set_size): Scale pixbuf.
+
+2008-01-24	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/Makefile.am: Add stuff in INCLUDES
+	* panel-plugin/clipman.c: Count padding of 2 (as done by other panel plugins)
+	  and correct the double xthickness to x/y.
+
+2008-01-14	Mike Massonnet <mmassonnet@gmail.com>
+
+	* .gitignore: Add *.swp.
+	* TODO: out of ideas. Deleted.
+	* po/: update french translation, fix changelog.
+
+2008-01-14	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Add .gitignore files.
+
+2008-01-14	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/Makefile.am,
+	  panel-plugin/xfce4-popup-clipman.c,
+	  panel-plugin/xfce4-popup-clipman.h,
+	  panel-plugin/clipman.c: Add popup command.
+
+2008-01-14	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/clipman.c(clipman_plugin_button_pressed),
+	  panel-plugin/clipman.c(clipman_plugin_new),
+	  panel-plugin/clipman.c(clipman_plugin_menu_popup):
+	  Replace "button_press_event" against a "toggled" signal.
+
+2008-01-14	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/clipman.c(clipman_plugin_load_data),
+	  panel-plugin/clipman.c(clipman_plugin_save_data): Replace g_return_if_fail
+	  with return since it wouldn't be a bug in the application, but a end-user
+	  problem (file permission, ...).
+	* panel-plugin/clipman.c(clipman_plugin_get_short_text): Replace the UTF-8
+	  ellipsis with "...".
+	* panel-plugin/clipman.c(clipman_plugin_menu_insert_clip),
+	  panel-plugin/clipman.c(clipman_plugin_menu_item_activate),
+	  panel-plugin/clipman.c(clipman_plugin_menu_item_pressed): Set a gobject data
+	  with the pointer of the clip.  Remove the g_slist_nth_data() calls.
+
+2008-01-09	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/clipman.h: Set save on exit by default.
+	* panel-plugin/clipman.c: Three new functions _plugin_add_static/with_text,
+	  _plugin_delete, where the GUI code fits better.  Remove _clips_add_static.
+	* panel-plugin/clipman.c(clipman_plugin_load_data): Use DEFBEHAVIOUR
+	  instead of NORMAL.
+	* panel-plugin/clipman.c(clipman_plugin_load_data),
+	  panel-plugin/clipman.c(clipman_plugin_save_data): Rename StaticClipboard
+	  to StaticClips.  Delete rc group StaticClips before save.
+	* panel-plugin/clipman.c(clipman_plugin_menu_item_pressed): Add button
+	  event 2 to copy to static clipboard.  Move code for button event 3 in
+	  function _plugin_delete.
+
+2008-01-08	Mike Massonnet <mmassonnet@gmail.com>
+
+	* po/*.po: make update-po.
+	* po/fr.po: Update french translation.
+
+2008-01-08	Mike Massonnet <mmassonnet@gmail.com>
+
+	* panel-plugin/clipman-dialogs.h: Move declarations inside clipman-dialogs.c.
+	* panel-plugin/clipman-dialogs.c: Refine the dialog.
+	* panel-plugin/clipman-dialogs.c, panel-plugin/clipman.c,
+	  panel-plugin/clipman.h: Add "static selection" option.
+
+2008-01-07	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Forget one clipman_clip_free replacement.
+
+2008-01-07	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Forget to clean short_text of static clipboard.
+
+2008-01-07	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Merge _clips_load_data inside _plugin_load_data.
+	* Merge _clips_save_data inside _plugin_save_data.
+	* Replace g_slist_length() > 0 with history != NULL.
+	* Replace loop while (clip = _nth_data()) with for (list = history; list
+	!= NULL; list = list->next).
+	* Add clipman_clip_new and clipman_clip_free.
+	* Declare _clips_delete outside and use it in clipman-dialogs.c to free
+	the overlap in the history.
+
+2008-01-06	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Extract code from _add_static to _add. Free ClipmanClip in _add if the
+	clip exists. Set default value for Ignore Primary to FALSE.
+
+2008-01-06	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Save/load the static clipboard. Get rid of some TRACEs.
+
+2008-01-06	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Add static clipboard
+
+2008-01-06	Mike Massonnet <mmassonnet@gmail.com>
+
+	* Remove more useless files in VCS.
+
 2008-01-05	Mike Massonnet <mmassonnet@xfce.org>
 
 	* configure.in.in, panel-plugin/clipman.c, panel-plugin/clipman.h,
