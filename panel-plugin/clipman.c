@@ -27,6 +27,7 @@
 
 #include "clipman.h"
 #include "clipman-dialogs.h"
+#include "xfce4-popup-clipman.h"
 
 
 
@@ -68,6 +69,10 @@ static void                     clipman_plugin_add_static_with_text (ClipmanPlug
                                                                      const gchar *text);
 static void                     clipman_plugin_delete               (ClipmanPlugin *clipman_plugin,
                                                                      ClipmanClip *clip);
+static gboolean                 clipman_plugin_message_received     (ClipmanPlugin *clipman_plugin,
+                                                                     GdkEventClient *ev);
+static gboolean                 clipman_plugin_set_selection        (ClipmanPlugin *clipman_plugin);
+
 
 
 
@@ -125,6 +130,7 @@ clipman_plugin_register (XfcePanelPlugin *panel_plugin)
 
   xfce_panel_plugin_menu_show_configure (panel_plugin);
   xfce_panel_plugin_add_action_widget (panel_plugin, clipman_plugin->button);
+  clipman_plugin_set_selection (clipman_plugin);
 
   gtk_widget_show_all (clipman_plugin->button);
 }
@@ -859,6 +865,60 @@ clipman_plugin_delete (ClipmanPlugin *clipman_plugin,
     }
 
   clipman_clips_delete (clipman_clips, clip);
+}
+
+static gboolean
+clipman_plugin_message_received (ClipmanPlugin *clipman_plugin,
+                                 GdkEventClient *ev)
+{
+  DBG ("Message received");
+  if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
+    {
+      if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
+        {
+          DBG ("`%s'", ev->data.b);
+          xfce_panel_plugin_set_panel_hidden (clipman_plugin->panel_plugin, FALSE);
+          while (gtk_events_pending ())
+            gtk_main_iteration ();
+          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman_plugin->button), TRUE);
+          return TRUE;
+        }
+    }
+  return FALSE;
+}
+
+static gboolean
+clipman_plugin_set_selection (ClipmanPlugin *clipman_plugin)
+{
+  GdkScreen          *gscreen;
+  gchar              *selection_name;
+  Atom                selection_atom;
+  GtkWidget          *win;
+  Window              id;
+
+  win = gtk_invisible_new ();
+  gtk_widget_realize (win);
+  id = GDK_WINDOW_XID (GTK_WIDGET (win)->window);
+
+  gscreen = gtk_widget_get_screen (win);
+  selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
+                                    gdk_screen_get_number (gscreen));
+  selection_atom = XInternAtom (GDK_DISPLAY (), selection_name, FALSE);
+
+  if (XGetSelectionOwner (GDK_DISPLAY (), selection_atom))
+    {
+      gtk_widget_destroy (win);
+      return FALSE;
+    }
+
+  XSelectInput (GDK_DISPLAY (), id, PropertyChangeMask);
+  XSetSelectionOwner (GDK_DISPLAY (), selection_atom, id, GDK_CURRENT_TIME);
+
+  g_signal_connect_swapped (win, "client-event",
+                            G_CALLBACK (clipman_plugin_message_received),
+                            clipman_plugin);
+
+  return TRUE;
 }
 
 

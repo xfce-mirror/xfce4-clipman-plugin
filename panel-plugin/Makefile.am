@@ -1,3 +1,18 @@
+bin_PROGRAMS = xfce4-popup-clipman
+
+xfce4_popup_clipman_SOURCES =						\
+	xfce4-popup-clipman.h						\
+	xfce4-popup-clipman.c
+
+xfce4_popup_clipman_CFLAGS =						\
+	@LIBX11_CFLAGS@							\
+	@GTK_CFLAGS@
+
+xfce4_popup_clipman_LDADD =						\
+	@LIBX11_LDFLAGS@						\
+	@LIBX11_LIBS@							\
+	@GTK_LIBS@
+	
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-clipman-plugin
 
