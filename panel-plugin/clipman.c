@@ -69,18 +69,12 @@ static gboolean                 clipman_plugin_menu_item_pressed    (GtkWidget *
 
 static ClipmanClips *           clipman_clips_new                   (ClipmanPlugin *clipman_plugin);
 
-static void                     clipman_clips_load_data             (ClipmanClips *clipman_clips);
-
-static void                     clipman_clips_save_data             (ClipmanClips *clipman_clips);
-
 static void                     clipman_clips_clear_history         (ClipmanClips *clipman_clips);
 
 static void                     clipman_clips_restore_empty         (ClipmanClips *clipman_clips,
                                                                      ClipboardType type);
 static gboolean                 clipman_clips_check_clipboard       (ClipmanClips *clipman_clips);
 
-static inline void              clipman_clips_delete                (ClipmanClips *clipman_clips,
-                                                                     ClipmanClip *clip);
 static void                     clipman_clips_add_static            (ClipmanClips *clipman_clips);
 
 static void                     clipman_clips_add                   (ClipmanClips *clipman_clips,
@@ -90,6 +84,12 @@ static gint                     clipman_clips_compare               (ClipmanClip
                                                                      ClipmanClip *two);
 static gint                     clipman_clips_compare_with_type     (ClipmanClip *one,
                                                                      ClipmanClip *two);
+
+
+
+static ClipmanClip *            clipman_clip_new                    (gchar *text, ClipboardType type);
+
+static void                     clipman_clip_free                   (ClipmanClip *clip);
 
 
 
@@ -155,21 +155,79 @@ clipman_plugin_load_data (ClipmanPlugin *clipman_plugin)
 {
   XfceRc               *rc;
   gchar                *file;
+  gint                  length;
+  ClipmanClips         *clipman_clips = clipman_plugin->clipman_clips;
 
   file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
+  /* NOTE: you cannot use g_return_if_fail if fail here, first because users
+   * can disable this check and returning null is possible in normal
+   * situations: permission problems */
   g_return_if_fail (G_LIKELY (NULL != file));
   rc = xfce_rc_simple_open (file, FALSE);
   g_free (file);
 
   xfce_rc_set_group (rc, "Properties");
 
-  clipman_plugin->menu_item_show_number     = xfce_rc_read_bool_entry   (rc, "ItemNumbers", DEFITEMNUMBERS);
-  clipman_plugin->menu_item_max_chars       = xfce_rc_read_int_entry    (rc, "MenuCharacters", DEFCHARS);
+  clipman_plugin->menu_item_show_number = xfce_rc_read_bool_entry (rc, "ItemNumbers", DEFITEMNUMBERS);
 
-  if (clipman_plugin->menu_item_max_chars > MAXCHARS)
-    clipman_plugin->menu_item_max_chars = MAXCHARS;
-  else if (clipman_plugin->menu_item_max_chars < MINCHARS)
-    clipman_plugin->menu_item_max_chars = MINCHARS;
+  length = xfce_rc_read_int_entry (rc, "MenuCharacters", DEFCHARS);
+  if (length > MAXCHARS)
+    length = MAXCHARS;
+  else if (length < MINCHARS)
+    length = MINCHARS;
+  clipman_plugin->menu_item_max_chars = length;
+
+  clipman_clips->behavior       = xfce_rc_read_int_entry    (rc, "Behaviour", NORMAL);
+  clipman_clips->save_on_exit   = xfce_rc_read_bool_entry   (rc, "ExitSave", DEFEXITSAVE);
+  clipman_clips->prevent_empty  = xfce_rc_read_bool_entry   (rc, "PreventEmpty", DEFPREVENTEMPTY);
+  clipman_clips->ignore_primary = xfce_rc_read_bool_entry   (rc, "IgnoreSelect", DEFIGNORESELECT);
+  clipman_clips->ignore_static_clipboard = xfce_rc_read_bool_entry (rc, "IgnoreStatic", DEFIGNORESTATIC);
+
+  length = xfce_rc_read_int_entry (rc, "HistoryItems", DEFHISTORY);
+  if (length > MAXHISTORY)
+    length = MAXHISTORY;
+  else if (length < MINHISTORY)
+    length = MINHISTORY;
+  clipman_clips->history_length = length;
+
+  xfce_rc_set_group (rc, "Clips");
+
+  gchar                 name[13];
+  gint                  n = sizeof (name);
+  gchar                *text = NULL; /* We use this allocation so no free() */
+  ClipboardType         type;
+
+  length = xfce_rc_read_int_entry (rc, "ClipsLen", 0);
+  if (length > MAXHISTORY)
+    length = MAXHISTORY;
+  if (length > 0 && clipman_clips->save_on_exit)
+    {
+      DBG ("Restoring the clipboard");
+
+      while (length-- > 0)
+        {
+          g_snprintf (name, n, "clip_%d_text", length);
+          text = g_strdup (xfce_rc_read_entry (rc, name, ""));
+          g_snprintf (name, n, "clip_%d_from", length);
+          type = (ClipboardType)xfce_rc_read_int_entry (rc, name, 0);
+          clipman_clips_add (clipman_clips, text, type);
+        }
+    }
+
+  xfce_rc_set_group (rc, "StaticClipboard");
+
+  length = xfce_rc_read_int_entry (rc, "ClipsLen", 0);
+  if (length > 0)
+    {
+      DBG ("Restoring the static clipboard");
+
+      while (length-- > 0)
+        {
+          g_snprintf (name, n, "clip_%d_text", length);
+          text = g_strdup (xfce_rc_read_entry (rc, name, ""));
+          clipman_clips_add (clipman_clips, text, STATIC);
+        }
+    }
 
   xfce_rc_close (rc);
 }
@@ -177,10 +235,12 @@ clipman_plugin_load_data (ClipmanPlugin *clipman_plugin)
 static void
 clipman_plugin_save_data (ClipmanPlugin *clipman_plugin)
 {
+  ClipmanClips         *clipman_clips = clipman_plugin->clipman_clips;
   XfceRc               *rc;
   gchar                *file;
 
   file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
+  /* NOTE same here */
   g_return_if_fail (G_LIKELY (NULL != file));
   rc = xfce_rc_simple_open (file, FALSE);
   g_free (file);
@@ -190,9 +250,56 @@ clipman_plugin_save_data (ClipmanPlugin *clipman_plugin)
   xfce_rc_write_bool_entry  (rc, "ItemNumbers",     clipman_plugin->menu_item_show_number);
   xfce_rc_write_int_entry   (rc, "MenuCharacters",  clipman_plugin->menu_item_max_chars);
 
-  xfce_rc_close (rc);
+  xfce_rc_write_bool_entry  (rc, "ExitSave",        clipman_clips->save_on_exit);
+  xfce_rc_write_int_entry   (rc, "Behaviour",       clipman_clips->behavior);
+  xfce_rc_write_int_entry   (rc, "HistoryItems",    clipman_clips->history_length);
+  xfce_rc_write_bool_entry  (rc, "PreventEmpty",    clipman_clips->prevent_empty);
+  xfce_rc_write_bool_entry  (rc, "IgnoreSelect",    clipman_clips->ignore_primary);
+  xfce_rc_write_bool_entry  (rc, "IgnoreStatic",    clipman_clips->ignore_static_clipboard);
 
-  clipman_clips_save_data (clipman_plugin->clipman_clips);
+  xfce_rc_delete_group (rc, "Clips", TRUE);
+
+  GSList               *list;
+  ClipmanClip          *clip;
+  gint                  i;
+  gchar                 name[13];
+  gint                  n = sizeof (name);
+
+  if (clipman_clips->save_on_exit && G_LIKELY (NULL != clipman_clips->history))
+    {
+      DBG ("Saving the clipboard history");
+
+      xfce_rc_set_group (rc, "Clips");
+
+      xfce_rc_write_int_entry (rc, "ClipsLen", g_slist_length (clipman_clips->history));
+
+      for (i = 0, list = clipman_clips->history; list != NULL; list = list->next, i++)
+        {
+          clip = (ClipmanClip *)list->data;
+          g_snprintf (name, n, "clip_%d_text", i);
+          xfce_rc_write_entry (rc, name, clip->text);
+          g_snprintf (name, n, "clip_%d_from", i);
+          xfce_rc_write_int_entry (rc, name, clip->type);
+        }
+    }
+
+  if (G_LIKELY (NULL != clipman_clips->static_clipboard))
+    {
+      DBG ("Saving the static clipboard");
+
+      xfce_rc_set_group (rc, "StaticClipboard");
+
+      xfce_rc_write_int_entry (rc, "ClipsLen", g_slist_length (clipman_clips->static_clipboard));
+
+      for (i = 0, list = clipman_clips->history; list != NULL; list = list->next, i++)
+        {
+          clip = (ClipmanClip *)list->data;
+          g_snprintf (name, n, "clip_%d_text", i);
+          xfce_rc_write_entry (rc, name, clip->text);
+        }
+    }
+
+  xfce_rc_close (rc);
 }
 
 static void
@@ -207,9 +314,13 @@ clipman_plugin_set_size (ClipmanPlugin *clipman_plugin,
                          gint size)
 {
   gtk_widget_set_size_request (GTK_WIDGET (clipman_plugin->panel_plugin), size, size);
-  size = size - (2 * MAX (clipman_plugin->button->style->xthickness,
-                          clipman_plugin->button->style->xthickness));
-  GdkPixbuf *pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
+  size -= 2 * MAX (clipman_plugin->button->style->xthickness,
+                   clipman_plugin->button->style->xthickness);
+
+  GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
+  GdkPixbuf *pixbuf = gtk_icon_theme_load_icon (icon_theme, GTK_STOCK_PASTE, size, 0, NULL);
+  g_return_val_if_fail (G_LIKELY (NULL != pixbuf), FALSE);
+
   gtk_image_set_from_pixbuf (GTK_IMAGE (clipman_plugin->icon), pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
 
@@ -269,7 +380,7 @@ clipman_plugin_menu_new (ClipmanPlugin *clipman_plugin)
   clipman_plugin->menu = gtk_menu_new ();
 
   /* Add clipboard entries */
-  if (g_slist_length (clipman_plugin->clipman_clips->history) > 0)
+  if (G_LIKELY (NULL != clipman_plugin->clipman_clips->history))
     g_slist_foreach (clipman_plugin->clipman_clips->history,
                      (GFunc)clipman_plugin_menu_insert_clip,
                      clipman_plugin);
@@ -286,7 +397,7 @@ clipman_plugin_menu_new (ClipmanPlugin *clipman_plugin)
       mi = gtk_separator_menu_item_new ();
       gtk_menu_shell_prepend (GTK_MENU_SHELL (clipman_plugin->menu), mi);
 
-      if (g_slist_length (clipman_plugin->clipman_clips->static_clipboard) > 0)
+      if (NULL != clipman_plugin->clipman_clips->static_clipboard)
         g_slist_foreach (clipman_plugin->clipman_clips->static_clipboard,
                          (GFunc)clipman_plugin_menu_insert_clip,
                          clipman_plugin);
@@ -362,18 +473,16 @@ clipman_plugin_menu_insert_clip (ClipmanClip *clip,
   g_return_if_fail (G_LIKELY (NULL != clip));
 
   /* Get current clipboards */
-  if ((clip->type == DEFAULT || clip->type == PRIMARY)
-      && G_UNLIKELY (NULL == clip_default))
+  if (clip->type != STATIC && G_UNLIKELY (NULL == clip_default))
     {
-      clip_default = g_slice_new0 (ClipmanClip);
-      clip_default->text = gtk_clipboard_wait_for_text (clipman_plugin->clipman_clips->default_clipboard);
-      clip_default->type = DEFAULT;
+      /* The allocation of text is used as-is in clipman_clip_new() */
+      text = gtk_clipboard_wait_for_text (clipman_plugin->clipman_clips->default_clipboard);
+      clip_default = clipman_clip_new (text, DEFAULT);
       if (G_UNLIKELY (NULL == clip_default->text))
         clip_default->text = g_strdup ("");
 
-      clip_primary = g_slice_new0 (ClipmanClip);
-      clip_primary->text = gtk_clipboard_wait_for_text (clipman_plugin->clipman_clips->primary_clipboard);
-      clip_primary->type = PRIMARY;
+      text = gtk_clipboard_wait_for_text (clipman_plugin->clipman_clips->primary_clipboard);
+      clip_primary = clipman_clip_new (text, PRIMARY);
       if (G_UNLIKELY (NULL == clip_primary->text))
         clip_primary->text = g_strdup ("");
     }
@@ -498,8 +607,7 @@ clipman_plugin_menu_insert_clip (ClipmanClip *clip,
   /* Check if the clip matches the last clip */
   if (clip == clip_last)
     {
-      if ((clip->type == DEFAULT || clip->type == PRIMARY)
-          && clipman_plugin->clipman_clips->behavior == STRICTLY)
+      if (clip->type != STATIC && clipman_plugin->clipman_clips->behavior == STRICTLY)
         {
           /* Add separators and check for empty clipboards */
           if (!clipman_plugin->clipman_clips->ignore_primary)
@@ -525,15 +633,9 @@ clipman_plugin_menu_insert_clip (ClipmanClip *clip,
 
       /* Free memory */
       if (NULL != clip_default)
-        {
-          g_free (clip_default->text);
-          g_slice_free (ClipmanClip, clip_default);
-        }
+        clipman_clip_free (clip_default);
       if (NULL != clip_primary)
-        {
-          g_free (clip_primary->text);
-          g_slice_free (ClipmanClip, clip_primary);
-        }
+        clipman_clip_free (clip_primary);
 
       /* Unset static variables */
       clip_default = clip_primary = clip_last = NULL;
@@ -546,7 +648,8 @@ static void
 clipman_plugin_menu_popup (ClipmanPlugin *clipman_plugin)
 {
   /* If the menu doesn't popup at time, the next popup will be a bit of segfault */
-  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (clipman_plugin->button)) == TRUE)
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (clipman_plugin->button)) == TRUE
+      && GTK_IS_MENU (clipman_plugin->menu))
     return;
 
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman_plugin->button), TRUE);
@@ -638,8 +741,7 @@ clipman_plugin_menu_item_activate (GtkWidget *widget,
 
   DBG ("Copy `%s' to clipboard", clip->text);
 
-  if ((clip->type == DEFAULT || clip->type == PRIMARY)
-      && clipman_plugin->clipman_clips->behavior == STRICTLY)
+  if (clip->type != STATIC && clipman_plugin->clipman_clips->behavior == STRICTLY)
     {
       if (clip->type == PRIMARY)
         gtk_clipboard_set_text (clipman_plugin->clipman_clips->primary_clipboard, clip->text, -1);
@@ -732,8 +834,6 @@ clipman_clips_new (ClipmanPlugin *clipman_plugin)
   clipman_clips->history = NULL;
   clipman_clips->static_clipboard = NULL;
 
-  clipman_clips_load_data (clipman_clips);
-
   clipman_clips->timeout =
     g_timeout_add_full (G_PRIORITY_LOW,
                         TIMER_INTERVAL,
@@ -745,147 +845,9 @@ clipman_clips_new (ClipmanPlugin *clipman_plugin)
 }
 
 static void
-clipman_clips_load_data (ClipmanClips *clipman_clips)
-{
-  XfceRc               *rc;
-  gchar                *file;
-  gint                  clips_length;
-
-  file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
-  g_return_if_fail (G_LIKELY (NULL != file));
-  rc = xfce_rc_simple_open (file, FALSE);
-  g_free (file);
-
-  xfce_rc_set_group (rc, "Properties");
-
-  clipman_clips->behavior       = xfce_rc_read_int_entry    (rc, "Behaviour", NORMAL);
-  clipman_clips->history_length = xfce_rc_read_int_entry    (rc, "HistoryItems", DEFHISTORY);
-  clipman_clips->save_on_exit   = xfce_rc_read_bool_entry   (rc, "ExitSave", DEFEXITSAVE);
-  clipman_clips->prevent_empty  = xfce_rc_read_bool_entry   (rc, "PreventEmpty", DEFPREVENTEMPTY);
-  clipman_clips->ignore_primary = xfce_rc_read_bool_entry   (rc, "IgnoreSelect", DEFIGNORESELECT);
-  clipman_clips->ignore_static_clipboard = xfce_rc_read_bool_entry (rc, "IgnoreStatic", DEFIGNORESTATIC);
-
-  if (clipman_clips->history_length > MAXHISTORY)
-    clipman_clips->history_length = MAXHISTORY;
-  if (clipman_clips->history_length < MINHISTORY)
-    clipman_clips->history_length = MINHISTORY;
-
-  xfce_rc_set_group (rc, "Clips");
-  clips_length = xfce_rc_read_int_entry (rc, "ClipsLen", 0);
-  if (clips_length > MAXHISTORY)
-    clips_length = MAXHISTORY;
-
-  if (clipman_clips->save_on_exit && clips_length > 0)
-    {
-      DBG ("Restoring the clipboard");
-
-      gint              i;
-      gchar             name[13];
-      gchar            *text = NULL; /* We use this allocation so no free() */
-      ClipboardType     type;
-
-      for (i = clips_length - 1; i >= 0; i--)
-        {
-          g_snprintf (name, 13, "clip_%d_text", i);
-          text = g_strdup (xfce_rc_read_entry (rc, name, ""));
-          g_snprintf (name, 13, "clip_%d_from", i);
-          type = (ClipboardType)xfce_rc_read_int_entry (rc, name, 0);
-          clipman_clips_add (clipman_clips, text, type);
-        }
-    }
-
-  xfce_rc_set_group (rc, "StaticClipboard");
-  clips_length = xfce_rc_read_int_entry (rc, "ClipsLen", 0);
-
-  if (clips_length > 0)
-    {
-      DBG ("Restoring the clipboard");
-
-      gint              i;
-      gchar             name[13];
-      gchar            *text = NULL; /* We use this allocation so no free() */
-
-      for (i = clips_length - 1; i >= 0; i--)
-        {
-          g_snprintf (name, 13, "clip_%d_text", i);
-          text = g_strdup (xfce_rc_read_entry (rc, name, ""));
-          clipman_clips_add (clipman_clips, text, STATIC);
-        }
-    }
-
-  xfce_rc_close (rc);
-}
-
-static void
-clipman_clips_save_data (ClipmanClips *clipman_clips)
-{
-  XfceRc               *rc;
-  gchar                *file;
-
-  file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
-  g_return_if_fail (G_LIKELY (NULL != file));
-  rc = xfce_rc_simple_open (file, FALSE);
-  g_free (file);
-
-  xfce_rc_set_group (rc, "Properties");
-
-  xfce_rc_write_bool_entry  (rc, "ExitSave",        clipman_clips->save_on_exit);
-  xfce_rc_write_int_entry   (rc, "Behaviour",       clipman_clips->behavior);
-  xfce_rc_write_int_entry   (rc, "HistoryItems",    clipman_clips->history_length);
-  xfce_rc_write_bool_entry  (rc, "PreventEmpty",    clipman_clips->prevent_empty);
-  xfce_rc_write_bool_entry  (rc, "IgnoreSelect",    clipman_clips->ignore_primary);
-  xfce_rc_write_bool_entry  (rc, "IgnoreStatic",    clipman_clips->ignore_static_clipboard);
-
-  xfce_rc_delete_group (rc, "Clips", TRUE);
-
-  if (clipman_clips->save_on_exit && g_slist_length (clipman_clips->history) > 0)
-    {
-      DBG ("Saving the clipboard history");
-
-      ClipmanClip      *clip;
-      gint              i = 0;
-      gchar             name[13];
-
-      xfce_rc_set_group (rc, "Clips");
-      xfce_rc_write_int_entry (rc, "ClipsLen", g_slist_length (clipman_clips->history));
-
-      while (NULL != (clip = g_slist_nth_data (clipman_clips->history, i)))
-        {
-          g_snprintf (name, 13, "clip_%d_text", i);
-          xfce_rc_write_entry (rc, name, clip->text);
-          g_snprintf (name, 13, "clip_%d_from", i);
-          xfce_rc_write_int_entry (rc, name, clip->type);
-		  i++;
-        }
-    }
-
-  if (g_slist_length (clipman_clips->static_clipboard) > 0)
-    {
-      DBG ("Saving the static clipboard");
-
-      ClipmanClip      *clip;
-      gint              i = 0;
-      gchar             name[13];
-
-      xfce_rc_set_group (rc, "StaticClipboard");
-      xfce_rc_write_int_entry (rc, "ClipsLen", g_slist_length (clipman_clips->static_clipboard));
-
-      while (NULL != (clip = g_slist_nth_data (clipman_clips->static_clipboard, i)))
-        {
-          g_snprintf (name, 13, "clip_%d_text", i);
-          xfce_rc_write_entry (rc, name, clip->text);
-		  i++;
-        }
-    }
-
-  xfce_rc_close (rc);
-}
-
-static void
 clipman_clips_clear_history (ClipmanClips *clipman_clips)
 {
-  gint                  i = 0;
-  ClipmanClip          *clip;
+  GSList               *list;
 
   GtkWidget *dialog =
     gtk_message_dialog_new (NULL,
@@ -898,14 +860,10 @@ clipman_clips_clear_history (ClipmanClips *clipman_clips)
   if (G_UNLIKELY (result != GTK_RESPONSE_YES))
     return;
 
-  while (NULL != (clip = (ClipmanClip *)g_slist_nth_data (clipman_clips->history, i++)))
-    {
-      g_free (clip->text);
-      g_free (clip->short_text);
-      g_slice_free (ClipmanClip, clip);
-    }
+  for (list = clipman_clips->history; list != NULL; list = list->next)
+    clipman_clip_free ((ClipmanClip *)list->data);
+  g_slist_free (list);
 
-  g_slist_free (clipman_clips->history);
   clipman_clips->history = NULL;
 
   gtk_clipboard_set_text (clipman_clips->default_clipboard, "", -1);
@@ -916,21 +874,22 @@ static void
 clipman_clips_restore_empty (ClipmanClips *clipman_clips,
                              ClipboardType type)
 {
-  if (G_UNLIKELY (g_slist_length (clipman_clips->history) == 0))
+  if (G_UNLIKELY (NULL == clipman_clips->history))
     return;
 
-  gint i = 0;
-  ClipmanClip *clip = (ClipmanClip *)g_slist_nth_data (clipman_clips->history, i++);
-  g_return_if_fail (G_LIKELY (NULL != clip));
+  GSList               *list = clipman_clips->history;
+  ClipmanClip          *clip = (ClipmanClip *)list->data;
 
   switch (clipman_clips->behavior)
     {
     case STRICTLY:
-      while (G_LIKELY (NULL != clip && clip->type != type))
-        clip = (ClipmanClip *)g_slist_nth_data (clipman_clips->history, i++);
-
-      if (G_UNLIKELY (NULL == clip))
-        return;
+      while (clip->type != type)
+        {
+          list = list->next;
+          if (G_UNLIKELY (NULL == list))
+            return;
+          clip = (ClipmanClip *)list->data;
+        }
 
       if (type == DEFAULT)
         gtk_clipboard_set_text (clipman_clips->default_clipboard, clip->text, -1);
@@ -945,6 +904,8 @@ clipman_clips_restore_empty (ClipmanClips *clipman_clips,
         gtk_clipboard_set_text (clipman_clips->primary_clipboard, clip->text, -1);
       break;
     }
+
+  DBG ("Restore clipboard to `%s'", clip->text);
 }
 
 static gboolean
@@ -955,12 +916,14 @@ clipman_clips_check_clipboard (ClipmanClips *clipman_clips)
                                  * gtk_clipboard_wait_for_text,
                                  * so no free() on that beotche */
 
+  /* Default clipboard */
   text = gtk_clipboard_wait_for_text (clipman_clips->default_clipboard);
   if (G_LIKELY (NULL != text))
     clipman_clips_add (clipman_clips, text, DEFAULT);
   else if (clipman_clips->prevent_empty == TRUE)
     clipman_clips_restore_empty (clipman_clips, DEFAULT);
 
+  /* Primary clipboard */
   if (!clipman_clips->ignore_primary)
     {
       gdk_window_get_pointer (NULL, NULL, NULL, &state);
@@ -977,20 +940,18 @@ clipman_clips_check_clipboard (ClipmanClips *clipman_clips)
   return TRUE;
 }
 
-static inline void
+void
 clipman_clips_delete (ClipmanClips *clipman_clips,
                       ClipmanClip *clip)
 {
   g_return_if_fail (G_LIKELY (NULL != clip));
 
-  g_free (clip->text);
-  g_free (clip->short_text);
-
   if (clip->type == STATIC)
     clipman_clips->static_clipboard = g_slist_remove (clipman_clips->static_clipboard, clip);
   else
     clipman_clips->history = g_slist_remove (clipman_clips->history, clip);
-  g_slice_free (ClipmanClip, clip);
+
+  clipman_clip_free (clip);
 }
 
 static void
@@ -1056,10 +1017,7 @@ clipman_clips_add (ClipmanClips *clipman_clips,
 
   g_return_if_fail (G_LIKELY (NULL != text));
 
-  clip              = g_slice_new (ClipmanClip);
-  clip->type        = type;
-  clip->text        = text;
-  clip->short_text  = NULL;
+  clip = clipman_clip_new (text, type);
 
   if (type == STATIC)
     foobar = g_slist_find_custom (clipman_clips->static_clipboard, clip, (GCompareFunc)clipman_clips_compare);
@@ -1112,5 +1070,28 @@ clipman_clips_compare_with_type (ClipmanClip *one,
   if (one->type == two->type)
     return g_ascii_strcasecmp (one->text, two->text);
   return -1;
+}
+
+
+
+
+static ClipmanClip *
+clipman_clip_new (gchar *text,
+                  ClipboardType type)
+{
+  ClipmanClip *clip = g_slice_new (ClipmanClip);
+  clip->type        = type;
+  clip->text        = text;
+  clip->short_text  = NULL;
+  return clip;
+}
+
+static void
+clipman_clip_free (ClipmanClip *clip)
+{
+  g_return_if_fail (G_LIKELY (NULL != clip));
+  g_free (clip->text);
+  g_free (clip->short_text);
+  g_slice_free (ClipmanClip, clip);
 }
 

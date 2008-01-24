@@ -110,6 +110,9 @@ struct _ClipmanClip
     gchar              *short_text; /* Saves cycles to add menu items */
 };
 
+void                            clipman_clips_delete                (ClipmanClips *clipman_clips,
+                                                                     ClipmanClip *clip);
+
 G_END_DECLS
 
 #endif /* CLIPMAN_H */

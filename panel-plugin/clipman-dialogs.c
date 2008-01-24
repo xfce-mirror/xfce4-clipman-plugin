@@ -290,12 +290,7 @@ clipman_configure_response (GtkWidget *dialog,
       while (history_length < length--)
         {
           clip = (ClipmanClip *)(g_slist_last (options->clipman->clipman_clips->history)->data);
-          options->clipman->clipman_clips->history =
-            g_slist_remove (options->clipman->clipman_clips->history, clip);
-
-          g_free (clip->text);
-          g_free (clip->short_text);
-          g_slice_free (ClipmanClip, clip);
+          clipman_clips_delete (options->clipman->clipman_clips, clip);
         }
     }
 
@@ -306,10 +301,11 @@ clipman_configure_response (GtkWidget *dialog,
       options->clipman->menu_item_max_chars = gtk_range_get_value (GTK_RANGE (options->ItemChars));
 
       /* Invalidate the old clip->short_text */
-      gint i = 0;
+      GSList *list;
       ClipmanClip *clip;
-      while (NULL != (clip = (ClipmanClip *)g_slist_nth_data (options->clipman->clipman_clips->history, i++)))
+      for (list = options->clipman->clipman_clips->history; list != NULL; list = list->next)
         {
+          clip = (ClipmanClip *)list->data;
           g_free (clip->short_text);
           clip->short_text = NULL;
         }
