@@ -23,28 +23,6 @@
 
 G_BEGIN_DECLS
 
-#define PLUGIN_WEBSITE "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin"
-
-typedef struct _ClipmanOptions      ClipmanOptions;
-
-struct _ClipmanOptions
-{
-  ClipmanPlugin        *clipman;
-
-  GtkWidget            *ExitSave;
-  GtkWidget            *PreventEmpty;
-  GtkWidget            *IgnoreSelection;
-  GtkWidget            *IgnoreStatic;
-
-  GtkWidget            *Behaviour;
-
-  GtkWidget            *ItemNumbers;
-  GtkWidget            *SeparateMenu;
-
-  GtkWidget            *HistorySize;
-  GtkWidget            *ItemChars;
-};
-
 void
 clipman_configure_new (ClipmanPlugin *clipman_plugin);
 

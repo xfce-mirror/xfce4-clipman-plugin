@@ -61,6 +61,13 @@ typedef enum
 
 typedef enum
 {
+  /* DEFAULT,
+   * PRIMARY, */
+  BOTH = 2
+} StaticSelection;
+
+typedef enum
+{
   NORMAL,
   STRICTLY
 } ClipboardBehavior;
@@ -101,6 +108,7 @@ struct _ClipmanClips
   gboolean              prevent_empty;
   gboolean              ignore_primary;
   gboolean              ignore_static_clipboard;
+  StaticSelection       static_selection;
 };
 
 struct _ClipmanClip

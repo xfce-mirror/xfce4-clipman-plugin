@@ -177,11 +177,12 @@ clipman_plugin_load_data (ClipmanPlugin *clipman_plugin)
     length = MINCHARS;
   clipman_plugin->menu_item_max_chars = length;
 
-  clipman_clips->behavior       = xfce_rc_read_int_entry    (rc, "Behaviour", NORMAL);
-  clipman_clips->save_on_exit   = xfce_rc_read_bool_entry   (rc, "ExitSave", DEFEXITSAVE);
-  clipman_clips->prevent_empty  = xfce_rc_read_bool_entry   (rc, "PreventEmpty", DEFPREVENTEMPTY);
-  clipman_clips->ignore_primary = xfce_rc_read_bool_entry   (rc, "IgnoreSelect", DEFIGNORESELECT);
-  clipman_clips->ignore_static_clipboard = xfce_rc_read_bool_entry (rc, "IgnoreStatic", DEFIGNORESTATIC);
+  clipman_clips->behavior                   = xfce_rc_read_int_entry    (rc, "Behaviour", NORMAL);
+  clipman_clips->save_on_exit               = xfce_rc_read_bool_entry   (rc, "ExitSave", DEFEXITSAVE);
+  clipman_clips->prevent_empty              = xfce_rc_read_bool_entry   (rc, "PreventEmpty", DEFPREVENTEMPTY);
+  clipman_clips->ignore_primary             = xfce_rc_read_bool_entry   (rc, "IgnoreSelect", DEFIGNORESELECT);
+  clipman_clips->ignore_static_clipboard    = xfce_rc_read_bool_entry	(rc, "IgnoreStatic", DEFIGNORESTATIC);
+  clipman_clips->static_selection           = xfce_rc_read_int_entry    (rc, "StaticSelection", PRIMARY);
 
   length = xfce_rc_read_int_entry (rc, "HistoryItems", DEFHISTORY);
   if (length > MAXHISTORY)
@@ -256,6 +257,7 @@ clipman_plugin_save_data (ClipmanPlugin *clipman_plugin)
   xfce_rc_write_bool_entry  (rc, "PreventEmpty",    clipman_clips->prevent_empty);
   xfce_rc_write_bool_entry  (rc, "IgnoreSelect",    clipman_clips->ignore_primary);
   xfce_rc_write_bool_entry  (rc, "IgnoreStatic",    clipman_clips->ignore_static_clipboard);
+  xfce_rc_write_int_entry   (rc, "StaticSelection", clipman_clips->static_selection);
 
   xfce_rc_delete_group (rc, "Clips", TRUE);
 
@@ -750,8 +752,12 @@ clipman_plugin_menu_item_activate (GtkWidget *widget,
     }
   else
     {
-      gtk_clipboard_set_text (clipman_plugin->clipman_clips->default_clipboard, clip->text, -1);
-      if (!clipman_plugin->clipman_clips->ignore_primary)
+      StaticSelection static_selection = clipman_plugin->clipman_clips->static_selection;
+
+      if (static_selection == DEFAULT || static_selection == BOTH)
+        gtk_clipboard_set_text (clipman_plugin->clipman_clips->default_clipboard, clip->text, -1);
+
+      if (static_selection == PRIMARY || static_selection == BOTH)
         gtk_clipboard_set_text (clipman_plugin->clipman_clips->primary_clipboard, clip->text, -1);
     }
 }
