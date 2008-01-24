@@ -309,6 +309,12 @@ clipman_configure_response (GtkWidget *dialog,
           g_free (clip->short_text);
           clip->short_text = NULL;
         }
+      for (list = options->clipman->clipman_clips->static_clipboard; list != NULL; list = list->next)
+        {
+          clip = (ClipmanClip *)list->data;
+          g_free (clip->short_text);
+          clip->short_text = NULL;
+        }
     }
 
   xfce_panel_plugin_unblock_menu (options->clipman->panel_plugin);
