@@ -320,8 +320,8 @@ clipman_plugin_set_size (ClipmanPlugin *clipman_plugin,
                          gint size)
 {
   gtk_widget_set_size_request (GTK_WIDGET (clipman_plugin->panel_plugin), size, size);
-  size -= 2 * MAX (clipman_plugin->button->style->xthickness,
-                   clipman_plugin->button->style->xthickness);
+  size -= 2 + 2 * MAX (clipman_plugin->button->style->xthickness,
+                       clipman_plugin->button->style->ythickness);
 
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GdkPixbuf *pixbuf = gtk_icon_theme_load_icon (icon_theme, GTK_STOCK_PASTE, size, 0, NULL);

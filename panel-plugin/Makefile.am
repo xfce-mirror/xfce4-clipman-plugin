@@ -1,3 +1,9 @@
+INCLUDES =								\
+	-I$(top_srcdir)							\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+
+
+
 bin_PROGRAMS = xfce4-popup-clipman
 
 xfce4_popup_clipman_SOURCES =						\
@@ -10,9 +16,10 @@ xfce4_popup_clipman_CFLAGS =						\
 
 xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LDFLAGS@						\
-	@LIBX11_LIBS@							\
 	@GTK_LIBS@
-	
+
+
+
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-clipman-plugin
 
@@ -23,16 +30,16 @@ xfce4_clipman_plugin_SOURCES =						\
 	clipman.c
 
 xfce4_clipman_plugin_CFLAGS =						\
-        -I$(top_srcdir)                                                 \
-        @LIBXFCE4PANEL_CFLAGS@                                          \
-        @LIBXFCE4UTIL_CFLAGS@                                           \
-        @LIBXFCEGUI4_CFLAGS@                                            \
-        -DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+	@LIBXFCE4PANEL_CFLAGS@						\
+	@LIBXFCE4UTIL_CFLAGS@						\
+	@LIBXFCEGUI4_CFLAGS@
 
 xfce4_clipman_plugin_LDADD =						\
-        @LIBXFCE4PANEL_LIBS@                                            \
-        @LIBXFCE4UTIL_LIBS@                                             \
-        @LIBXFCEGUI4_LIBS@
+	@LIBXFCE4PANEL_LIBS@						\
+	@LIBXFCE4UTIL_LIBS@						\
+	@LIBXFCEGUI4_LIBS@
+
+
 
 desktop_in_in_files = clipman.desktop.in.in
 desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
