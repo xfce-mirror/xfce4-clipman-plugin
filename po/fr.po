@@ -93,7 +93,7 @@ msgstr "Par défaut"
 
 #: ../panel-plugin/clipman-dialogs.c:277
 msgid "Selection"
-msgstr "De la sélection"
+msgstr "La sélection"
 
 #: ../panel-plugin/clipman-dialogs.c:286
 msgid "Both"
