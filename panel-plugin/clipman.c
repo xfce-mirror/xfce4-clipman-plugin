@@ -1028,9 +1028,8 @@ clipman_clips_add (ClipmanClips *clipman_clips,
 
   if (G_UNLIKELY (NULL != foobar))
     {
-      /* Free this allocation that had should be used in the new clip */
-      g_free (text);
-      g_slice_free (ClipmanClip, clip);
+      /* Free the clip */
+      clipman_clip_free (clip);
 
       /* Push the existing clip to the top */
       if (type != STATIC)
