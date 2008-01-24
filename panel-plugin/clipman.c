@@ -163,10 +163,8 @@ clipman_plugin_load_data (ClipmanPlugin *clipman_plugin)
   ClipmanClips         *clipman_clips = clipman_plugin->clipman_clips;
 
   file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
-  /* NOTE: you cannot use g_return_if_fail if fail here, first because users
-   * can disable this check and returning null is possible in normal
-   * situations: permission problems */
-  g_return_if_fail (G_LIKELY (NULL != file));
+  if (G_UNLIKELY (NULL == file))
+    return;
   rc = xfce_rc_simple_open (file, FALSE);
   g_free (file);
 
@@ -245,8 +243,8 @@ clipman_plugin_save_data (ClipmanPlugin *clipman_plugin)
   gchar                *file;
 
   file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
-  /* NOTE same here */
-  g_return_if_fail (G_LIKELY (NULL != file));
+  if (G_UNLIKELY (NULL == file))
+    return;
   rc = xfce_rc_simple_open (file, FALSE);
   g_free (file);
 
@@ -364,7 +362,7 @@ clipman_plugin_get_short_text (ClipmanPlugin *clipman_plugin,
       tmp = g_strndup (short_text, offset - short_text);
       g_free (short_text);
 
-      short_text = g_strconcat (tmp, "\342\200\246", NULL); /* Ellipsis U+2026 */
+      short_text = g_strconcat (tmp, "...", NULL); /* Ellipsis */
       g_free (tmp);
     }
 
@@ -556,9 +554,7 @@ clipman_plugin_menu_insert_clip (ClipmanClip *clip,
   gtk_label_set_markup (GTK_LABEL (GTK_BIN (mi)->child), text);
   g_free (text);
 
-  g_object_set_data (G_OBJECT (mi), "index", GINT_TO_POINTER (i+j));
-  if (clip->type == STATIC)
-    g_object_set_data (G_OBJECT (mi), "static", GINT_TO_POINTER (1));
+  g_object_set_data (G_OBJECT (mi), "clip", clip);
 
   /* Connect signals */
   g_signal_connect (mi,
@@ -733,18 +729,10 @@ clipman_plugin_menu_item_activate (GtkWidget *widget,
                                    ClipmanPlugin *clipman_plugin)
 {
   g_return_if_fail (G_LIKELY (GTK_IS_WIDGET (widget)));
-  gint i = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "index"));
-  gint type_is_static = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "static"));
-
-  ClipmanClip *clip = NULL;
-  if (type_is_static)
-    clip = (ClipmanClip *)g_slist_nth_data (clipman_plugin->clipman_clips->static_clipboard, i);
-  else
-    clip = (ClipmanClip *)g_slist_nth_data (clipman_plugin->clipman_clips->history, i);
+  ClipmanClip *clip = g_object_get_data (G_OBJECT (widget), "clip");
   g_return_if_fail (G_LIKELY (NULL != clip));
 
-  DBG ("Copy `%s' to clipboard", clip->text);
-
+  /* Copy the clip to the clipboard */
   if (clip->type != STATIC && clipman_plugin->clipman_clips->behavior == STRICTLY)
     {
       if (clip->type == PRIMARY)
@@ -752,6 +740,7 @@ clipman_plugin_menu_item_activate (GtkWidget *widget,
       else
         gtk_clipboard_set_text (clipman_plugin->clipman_clips->default_clipboard, clip->text, -1);
     }
+  /* Copy the static clip to the clipboard */
   else
     {
       StaticSelection static_selection = clipman_plugin->clipman_clips->static_selection;
@@ -769,20 +758,12 @@ clipman_plugin_menu_item_pressed (GtkWidget *widget,
                                   GdkEventButton *event,
                                   ClipmanPlugin *clipman_plugin)
 {
-  g_return_val_if_fail (G_LIKELY (GTK_IS_WIDGET (widget)), FALSE);
-
   if (event->button != 3 && event->button != 2)
     return FALSE;
 
-  gint i = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "index"));
-  gint type_is_static = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "static"));
-
-  ClipmanClip *clip = NULL;
-  if (type_is_static)
-    clip = (ClipmanClip *)g_slist_nth_data (clipman_plugin->clipman_clips->static_clipboard, i);
-  else
-    clip = (ClipmanClip *)g_slist_nth_data (clipman_plugin->clipman_clips->history, i);
-  g_return_val_if_fail (G_LIKELY (NULL != clip), TRUE);
+  g_return_val_if_fail (G_LIKELY (GTK_IS_WIDGET (widget)), FALSE);
+  ClipmanClip *clip = g_object_get_data (G_OBJECT (widget), "clip");
+  g_return_val_if_fail (G_LIKELY (NULL != clip), FALSE);
 
   /* Copy clip to static clipboard */
   if (event->button == 2)
