@@ -1,5 +1,9 @@
 2008-01-25  Nick Schermer <nick@xfce.org>
 	
+	* README: Fix missing character ^_^.
+
+2008-01-25  Nick Schermer <nick@xfce.org>
+	
 	* panel-plugin/clipman.c: Fix missing include.
 	* panel-plugin/Makefile.am: Some improvements.
 	* README: Small improvement.
