@@ -8,20 +8,22 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-08 06:16+0100\n"
-"PO-Revision-Date: 2007-01-08 09:08+0100\n"
+"PO-Revision-Date: 2008-01-25 23:40+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural>1;\n"
 "X-Poedit-Country: HUNGARY\n"
+"X-Poedit-Language: Hungarian\n"
 
 #: ../panel-plugin/clipman-dialogs.c:84
 msgid "Clipboard Manager"
 msgstr "Vágólap kezelő"
 
-#: ../panel-plugin/clipman-dialogs.c:108 ../panel-plugin/clipman-dialogs.c:112
+#: ../panel-plugin/clipman-dialogs.c:108
+#: ../panel-plugin/clipman-dialogs.c:112
 #: ../panel-plugin/clipman-dialogs.c:248
 msgid "General"
 msgstr "Általános"
@@ -113,7 +115,8 @@ msgstr "< Vágólap üres >"
 msgid "< Static Clipboard Empty >"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:417 ../panel-plugin/clipman.c:968
+#: ../panel-plugin/clipman.c:417
+#: ../panel-plugin/clipman.c:968
 msgid "Add static clipboard"
 msgstr ""
 
@@ -145,7 +148,7 @@ msgstr "Tényleg törlöd az előzményeket?"
 #. Label
 #: ../panel-plugin/clipman.c:984
 msgid "Text:"
-msgstr ""
+msgstr "Szöveg:"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -157,45 +160,36 @@ msgstr "Clipman"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Általános</b>"
-
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr "A cukik weblapján több leírást is lelsz e beillesztésről."
-
 #~ msgid ""
 #~ "Select this option to save the clipboard history when you exit Xfce and "
 #~ "restore it when you login again."
 #~ msgstr ""
 #~ "E lehetőséggel az Xfce kilépéskor elmenti a vágólap történetet és a "
 #~ "következő bejelentkezésnél visszaállítja."
-
 #~ msgid ""
 #~ "Select this option will prevent Clipman from including the contents of "
 #~ "the selection in the history."
 #~ msgstr ""
 #~ "E lehetőség megadásakor a Clipman nem őrzi meg kijelölés tartalmát a "
 #~ "történetben."
-
 #~ msgid ""
 #~ "Select this option to prevent an empty clipboard. The most recent history "
 #~ "item will be added to the clipboard."
 #~ msgstr ""
 #~ "E lehetőség megelőzi az üres vágólapot. A legutolsó történet elem a "
 #~ "vágólapra kerül."
-
 #~ msgid "Properties"
 #~ msgstr "Tulajdonságok"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Színes menüelemek"
-
 #~ msgid "Developer"
 #~ msgstr "Fejlesztő"
-
 #~ msgid "Edit content"
 #~ msgstr "Tartalom szerkesztése"
-
 #~ msgid "Question"
 #~ msgstr "Kérdés"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Mit tegyünk e vágólap elemmel?"
+
