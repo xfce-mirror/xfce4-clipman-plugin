@@ -1,3 +1,14 @@
+2008-03-04	Mike Massonnet <mmassonnet@xfce.org>
+
+	* === Release 0.8.1 ===
+	* INSTALL: Delete autogenerate file
+	* COPYING: Fix licence to GPL2 as it is the case for the c sources
+	* configure.in.in: Bump minimum Xfce versions to 4.4.0
+	* panel-plugin/clipman.c:
+	  - (clipman_create_title) Generate fine UTF-8 titles with ellipsis (bug #3304)
+	  - (clipman_create_menuitem) Use gtk_menu_item_new_with_label which
+	  aligns the label on the left by default
+
 2006-01-17	Nick Schermer <nick@xfce.org>
 
 	* Improve configure files and Makefiles.
