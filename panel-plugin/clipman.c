@@ -1,6 +1,7 @@
 /*  $Id$
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
+ *                     2008 Mike Massonnet <mmassonnet@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -112,56 +113,34 @@ clipman_check_array_len (ClipmanPlugin *clipman)
 
 
 static gchar *
-clipman_create_title (gchar *txt,
+clipman_create_title (gchar *text,
                       gint   length)
 {
-    gchar *s, *t, *u, *buf;
-    gint   i;
+  gchar                *short_text, *tmp = NULL;
+  const gchar          *offset;
 
-    /* rough string copy */
-    s = g_strndup (txt, length*8 + 8);
+  g_return_val_if_fail (G_LIKELY (NULL != text), NULL);
+  g_return_val_if_fail (G_LIKELY (g_utf8_validate (text, -1, NULL)), NULL);
 
-    if (G_UNLIKELY (!s))
-        return NULL;
+  short_text = g_strstrip (g_strdup (text));
 
-    if (!g_utf8_validate (s, -1, NULL))
+  /* Shorten */
+  if (g_utf8_strlen (short_text, -1) > length)
     {
-        DBG ("Title is not utf8 complaint, we're going to convert it");
+      offset = g_utf8_offset_to_pointer (short_text, length);
+      tmp = g_strndup (short_text, offset - short_text);
+      g_free (short_text);
 
-        u = g_locale_to_utf8 (s, -1, NULL, NULL, NULL);
-        g_free (s);
-        s = u;
-
-        /* Check the title again */
-        if (!g_utf8_validate (s, -1, NULL))
-        {
-            DBG ("Title is still not utf8 complaint, we going to drop this clip");
-            g_free (s);
-            return NULL;
-        }
+      short_text = g_strconcat (tmp, "...", NULL); /* Ellipsis */
+      g_free (tmp);
     }
 
-    /* create string length */
-    buf = g_malloc(length*6); /* max length of utf8 char is 6 */
-    g_utf8_strncpy (buf, s, length);
-    g_free (s);
-    s = buf;
+  /* Cleanup */
+  tmp = g_strdelimit (short_text, "\n\r\t", ' ');
+  short_text = g_markup_escape_text (tmp, -1);
+  g_free (tmp);
 
-    /* remove tabs and newlines */
-    /* this works when the string is utf8-valid */
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == '\n' || s[i] == '\r' || s[i] == '\t')
-            s[i] = ' ';
-        i++;
-    }
-
-    /* remove html characters */
-    t = g_markup_escape_text (s, -1);
-    g_free (s);
-
-    return t;
+  return short_text;
 }
 
 void
@@ -333,7 +312,7 @@ clipman_create_menuitem (ClipmanAction *action,
                          guint          number,
                          gboolean       bold)
 {
-    GtkWidget *mi, *label;
+    GtkWidget *mi;
     gchar     *title, *string_num;
 
     if (action->clipman->ItemNumbers)
@@ -356,18 +335,9 @@ clipman_create_menuitem (ClipmanAction *action,
     g_free (string_num);
 
 
-    label = gtk_label_new (title);
-    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-    gtk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
-    gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
-    gtk_label_set_max_width_chars (GTK_LABEL (label), width);
-
+    mi = gtk_menu_item_new_with_label ("");
+    gtk_label_set_markup (GTK_LABEL (GTK_BIN (mi)->child), title);
     g_free (title);
-
-    mi = gtk_menu_item_new ();
-    gtk_container_add (GTK_CONTAINER (mi), label);
-    gtk_accel_label_set_accel_widget (GTK_ACCEL_LABEL (label), mi);
-    gtk_widget_show (label);
 
     return mi;
 }
