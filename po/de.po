@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-08 06:16+0100\n"
+"POT-Creation-Date: 2007-12-06 22:56+0100\n"
 "PO-Revision-Date: 2007-12-06 22:58+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
@@ -19,135 +19,106 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
-#: ../panel-plugin/clipman-dialogs.c:84
-msgid "Clipboard Manager"
-msgstr "Verwaltung der Zwischenablage"
-
-#: ../panel-plugin/clipman-dialogs.c:108 ../panel-plugin/clipman-dialogs.c:112
-#: ../panel-plugin/clipman-dialogs.c:248
-msgid "General"
-msgstr "Allgemein"
-
-#: ../panel-plugin/clipman-dialogs.c:117
-msgid "Save clipboard contents on _exit"
-msgstr "_Inhalt der Zwischenablage beim Verlassen speichern"
-
-#: ../panel-plugin/clipman-dialogs.c:124
-msgid "Pre_vent empty clipboard"
-msgstr "_Leere Zwischenablage vermeiden"
-
-#: ../panel-plugin/clipman-dialogs.c:131
-msgid "_Ignore selections"
-msgstr "_Auswahl ignorieren"
-
-#: ../panel-plugin/clipman-dialogs.c:139
-msgid "Clipboard Behavior"
-msgstr "Verhalten"
-
-#: ../panel-plugin/clipman-dialogs.c:146
-msgid "Normal clipboard _management"
-msgstr "_Normales Verwalten der Zwischenablagen"
-
-#: ../panel-plugin/clipman-dialogs.c:155
-msgid "Strictly separate _both clipboards"
-msgstr "_Beide Zwischenablagen strikt getrennt verwalten"
-
-#: ../panel-plugin/clipman-dialogs.c:169
-msgid "Appearance"
-msgstr "Aussehen"
-
-#: ../panel-plugin/clipman-dialogs.c:173
-msgid "Menu Appearance"
-msgstr "Menü-Aussehen"
-
-#: ../panel-plugin/clipman-dialogs.c:177
-msgid "_Show item numbers"
-msgstr "_Nummeriere Einträge"
-
-#: ../panel-plugin/clipman-dialogs.c:185
-msgid "Numbers"
-msgstr "Werte"
-
-#. History length
-#: ../panel-plugin/clipman-dialogs.c:190
-msgid "Clipboard history items:"
-msgstr "Größe des Verlaufsspeichers:"
-
-#. Max menu item chars
-#: ../panel-plugin/clipman-dialogs.c:214
-msgid "Menu item characters:"
-msgstr "Länge der Menüeinträge:"
-
-#: ../panel-plugin/clipman-dialogs.c:244
-msgid "Static Clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:253
-msgid "Ignore _static clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:261
-msgid "Select to Clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:268
-msgid "Default"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "Selection"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:286
-msgid "Both"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:314
+#: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Kann die folgende Adresse nicht öffnen: %s"
 
-#: ../panel-plugin/clipman.c:391
-msgid "< Clipboard Empty >"
-msgstr "< Zwischenablage leer >"
+#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:991
+msgid "Clipboard Manager"
+msgstr "Verwaltung der Zwischenablage"
 
-#: ../panel-plugin/clipman.c:408
-msgid "< Static Clipboard Empty >"
+#: ../panel-plugin/clipman-dialogs.c:194
+msgid "Save clipboard contents on _exit"
+msgstr "_Inhalt der Zwischenablage beim Verlassen speichern"
+
+#: ../panel-plugin/clipman-dialogs.c:201
+msgid "_Ignore selections"
+msgstr "_Auswahl ignorieren"
+
+#: ../panel-plugin/clipman-dialogs.c:208
+msgid "Pre_vent empty clipboard"
+msgstr "_Leere Zwischenablage vermeiden"
+
+#: ../panel-plugin/clipman-dialogs.c:216
+msgid "<b>General</b>"
+msgstr "<b>Allgemein</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:234
+msgid "Normal clipboard _management"
+msgstr "_Normales Verwalten der Zwischenablagen"
+
+#: ../panel-plugin/clipman-dialogs.c:243
+msgid "Strictly separate _both clipboards"
+msgstr "_Beide Zwischenablagen strikt getrennt verwalten"
+
+#: ../panel-plugin/clipman-dialogs.c:252
+msgid "<b>Clipboard Behaviour</b>"
+msgstr "<b>Verhalten</b>"
+
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:260
+msgid "General"
+msgstr "Allgemein"
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "_Show item numbers"
+msgstr "_Nummeriere Einträge"
+
+#: ../panel-plugin/clipman-dialogs.c:284
+msgid "Se_parate clipboards"
+msgstr "_Zwischenablagen getrennt verwalten"
+
+#: ../panel-plugin/clipman-dialogs.c:291
+msgid "<b>Menu Appearance</b>"
+msgstr "<b>Menü-Aussehen</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:313
+msgid "Clipboard history items:"
+msgstr "Größe des Verlaufsspeichers:"
+
+#: ../panel-plugin/clipman-dialogs.c:337
+msgid "Menu item characters:"
+msgstr "Länge der Menüeinträge:"
+
+#: ../panel-plugin/clipman-dialogs.c:359
+msgid "<b>Numbers</b>"
+msgstr "<b>Werte</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:364
+msgid "Appearance"
+msgstr "Aussehen"
+
+#: ../panel-plugin/clipman.c:74
+msgid "Are you sure you want to clear the history?"
 msgstr ""
+"Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
-#: ../panel-plugin/clipman.c:417 ../panel-plugin/clipman.c:968
-msgid "Add static clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:436
-msgid "Clipman History"
-msgstr "Verlauf der Zwischenablage"
-
-#. Append clear history
-#: ../panel-plugin/clipman.c:442
-msgid "Clear History"
-msgstr "Bisherigen Inhalt löschen"
-
-#: ../panel-plugin/clipman.c:619
-msgid "< Selection History Empty >"
-msgstr "< Inhalt der Auswahl-Zwischenablage leer >"
-
-#: ../panel-plugin/clipman.c:630
-msgid "< Default History Empty >"
-msgstr "< Inhalt der Standard-Zwischenablage leer >"
-
-#: ../panel-plugin/clipman.c:791
+#: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
 msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
 
-#: ../panel-plugin/clipman.c:863
-msgid "Are you sure you want to clear the history?"
-msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
+#: ../panel-plugin/clipman.c:427
+msgid "< Default History Empty >"
+msgstr "< Inhalt der Standard-Zwischenablage leer >"
 
-#. Label
-#: ../panel-plugin/clipman.c:984
-msgid "Text:"
-msgstr ""
+#: ../panel-plugin/clipman.c:478
+msgid "< Selection History Empty >"
+msgstr "< Inhalt der Auswahl-Zwischenablage leer >"
+
+#: ../panel-plugin/clipman.c:487 ../panel-plugin/clipman.c:552
+msgid "Clear History"
+msgstr "Bisherigen Inhalt löschen"
+
+#: ../panel-plugin/clipman.c:646
+msgid "Clipman History"
+msgstr "Verlauf der Zwischenablage"
+
+#: ../panel-plugin/clipman.c:668
+msgid "< Clipboard Empty >"
+msgstr "< Zwischenablage leer >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -156,9 +127,6 @@ msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Zwischenablage"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Allgemein</b>"
 
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr ""

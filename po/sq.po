@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-08 06:16+0100\n"
+"POT-Creation-Date: 2006-12-20 17:47+0100\n"
 "PO-Revision-Date: 2007-01-27 17:55+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <xfce-i18n@xfce.org>\n"
@@ -15,135 +15,108 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:84
-msgid "Clipboard Manager"
-msgstr "Përgjegjës i Së Papastrës"
 
-#: ../panel-plugin/clipman-dialogs.c:108 ../panel-plugin/clipman-dialogs.c:112
-#: ../panel-plugin/clipman-dialogs.c:248
-msgid "General"
-msgstr "Të përgjithshme"
-
-#: ../panel-plugin/clipman-dialogs.c:117
-msgid "Save clipboard contents on _exit"
-msgstr "Ruaj përmbajtjen e së papastrës gjatë daljes"
-
-#: ../panel-plugin/clipman-dialogs.c:124
-msgid "Pre_vent empty clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:131
-msgid "_Ignore selections"
-msgstr "_Shpërfill përzgjedhje"
-
-#: ../panel-plugin/clipman-dialogs.c:139
-msgid "Clipboard Behavior"
-msgstr "Sjellje e së Papastrës"
-
-#: ../panel-plugin/clipman-dialogs.c:146
-msgid "Normal clipboard _management"
-msgstr "A_dministrim të papastre normale"
-
-#: ../panel-plugin/clipman-dialogs.c:155
-msgid "Strictly separate _both clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:169
-msgid "Appearance"
-msgstr "Dukje"
-
-#: ../panel-plugin/clipman-dialogs.c:173
-msgid "Menu Appearance"
-msgstr "Dukje Menuje"
-
-#: ../panel-plugin/clipman-dialogs.c:177
-msgid "_Show item numbers"
-msgstr "_Shfaq numra objektesh"
-
-#: ../panel-plugin/clipman-dialogs.c:185
-msgid "Numbers"
-msgstr "Numra"
-
-#. History length
-#: ../panel-plugin/clipman-dialogs.c:190
-msgid "Clipboard history items:"
-msgstr "Objekte historiku të papastre:"
-
-#. Max menu item chars
-#: ../panel-plugin/clipman-dialogs.c:214
-msgid "Menu item characters:"
-msgstr "Gërma objekti menuje:"
-
-#: ../panel-plugin/clipman-dialogs.c:244
-msgid "Static Clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:253
-msgid "Ignore _static clipboard"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:261
-msgid "Select to Clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:268
-msgid "Default"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "Selection"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:286
-msgid "Both"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:314
+#: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "I pazoti të hap url-në vijuese: %s"
 
-#: ../panel-plugin/clipman.c:391
-msgid "< Clipboard Empty >"
-msgstr "< E papastra Bosh >"
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
+msgid "Clipboard Manager"
+msgstr "Përgjegjës i Së Papastrës"
 
-#: ../panel-plugin/clipman.c:408
-msgid "< Static Clipboard Empty >"
+#: ../panel-plugin/clipman-dialogs.c:194
+msgid "Save clipboard contents on _exit"
+msgstr "Ruaj përmbajtjen e së papastrës gjatë daljes"
+
+#: ../panel-plugin/clipman-dialogs.c:201
+msgid "_Ignore selections"
+msgstr "_Shpërfill përzgjedhje"
+
+#: ../panel-plugin/clipman-dialogs.c:208
+msgid "Pre_vent empty clipboard"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:417 ../panel-plugin/clipman.c:968
-msgid "Add static clipboard"
+#: ../panel-plugin/clipman-dialogs.c:216
+msgid "<b>General</b>"
+msgstr "<b>Të përgjithshme</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:234
+msgid "Normal clipboard _management"
+msgstr "A_dministrim të papastre normale"
+
+#: ../panel-plugin/clipman-dialogs.c:243
+msgid "Strictly separate _both clipboards"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:436
-msgid "Clipman History"
-msgstr "Historik"
+#: ../panel-plugin/clipman-dialogs.c:252
+msgid "<b>Clipboard Behaviour</b>"
+msgstr "<b>Sjellje e së Papastrës</b>"
 
-#. Append clear history
-#: ../panel-plugin/clipman.c:442
-msgid "Clear History"
-msgstr "Pastro Historikun"
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:260
+msgid "General"
+msgstr "Të përgjithshme"
 
-#: ../panel-plugin/clipman.c:619
-msgid "< Selection History Empty >"
-msgstr "< Historiku i Përzgjedhjes është Bosh >"
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "_Show item numbers"
+msgstr "_Shfaq numra objektesh"
 
-#: ../panel-plugin/clipman.c:630
-msgid "< Default History Empty >"
-msgstr "< Historiku Parazgjedhje është Bosh >"
+#: ../panel-plugin/clipman-dialogs.c:284
+msgid "Se_parate clipboards"
+msgstr "N_daj të papastra"
 
-#: ../panel-plugin/clipman.c:791
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Jeni i sigurtë se doni të fshihet ky shënim nga historiku?"
+#: ../panel-plugin/clipman-dialogs.c:291
+msgid "<b>Menu Appearance</b>"
+msgstr "<b>Dukje Menuje</b>"
 
-#: ../panel-plugin/clipman.c:863
+#: ../panel-plugin/clipman-dialogs.c:313
+msgid "Clipboard history items:"
+msgstr "Objekte historiku të papastre:"
+
+#: ../panel-plugin/clipman-dialogs.c:337
+msgid "Menu item characters:"
+msgstr "Gërma objekti menuje:"
+
+#: ../panel-plugin/clipman-dialogs.c:359
+msgid "<b>Numbers</b>"
+msgstr "<b>Numra</b>"
+
+#: ../panel-plugin/clipman-dialogs.c:364
+msgid "Appearance"
+msgstr "Dukje"
+
+#: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
 msgstr "Jeni të sigurtë se doni të fshihet historiku?"
 
-#. Label
-#: ../panel-plugin/clipman.c:984
-msgid "Text:"
-msgstr ""
+#: ../panel-plugin/clipman.c:299
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr "Jeni i sigurtë se doni të fshihet ky shënim nga historiku?"
+
+#: ../panel-plugin/clipman.c:417
+msgid "< Default History Empty >"
+msgstr "< Historiku Parazgjedhje është Bosh >"
+
+#: ../panel-plugin/clipman.c:468
+msgid "< Selection History Empty >"
+msgstr "< Historiku i Përzgjedhjes është Bosh >"
+
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
+msgid "Clear History"
+msgstr "Pastro Historikun"
+
+#: ../panel-plugin/clipman.c:636
+msgid "Clipman History"
+msgstr "Historik"
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr "< E papastra Bosh >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
@@ -154,5 +127,3 @@ msgstr "Përgjegjësin i Së Papastrës për Desktopin Xfce 4"
 msgid "Clipman"
 msgstr "Clipman"
 
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Të përgjithshme</b>"

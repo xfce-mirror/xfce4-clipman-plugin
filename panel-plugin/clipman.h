@@ -1,7 +1,6 @@
-/*  $Id: clipman.h 2395 2007-01-17 17:42:53Z nick $
+/*  $Id$
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
- *  Copyright (c)      2007 Mike Massonnet <mmassonnet@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,105 +20,98 @@
 #ifndef CLIPMAN_H
 #define CLIPMAN_H
 
-#include <gtk/gtk.h>
-#include <libxfce4panel/xfce-panel-plugin.h>
-#include <libxfcegui4/libxfcegui4.h>
-
 G_BEGIN_DECLS
 
 /* Dialog settings */
 #define BORDER          8
 
 /* History settings: default, min and max */
-#define DEFHISTORY      15
+#define DEFHISTORY      10
 #define MAXHISTORY      100
 #define MINHISTORY      5
 
 /* Character settings: default, min and max */
-#define DEFCHARS        40
+#define DEFCHARS        30
 #define MAXCHARS        200
 #define MINCHARS        10
 
 /* Default options */
-#define DEFEXITSAVE     TRUE
+#define DEFEXITSAVE     FALSE
+#define DEFIGNORESELECT TRUE
 #define DEFPREVENTEMPTY TRUE
-#define DEFIGNORESELECT FALSE
-#define DEFIGNORESTATIC FALSE
 #define DEFBEHAVIOUR    1
 
 #define DEFITEMNUMBERS  FALSE
+#define DEFSEPMENU      FALSE
 
 /* Milisecond to check the clipboards(s) */
-#define TIMER_INTERVAL  1000
+#define TIMER_INTERVAL  500
 
 typedef enum
 {
-  DEFAULT,
-  PRIMARY,
-  STATIC
-} ClipboardType;
+    PRIMARY = 0,
+    DEFAULT
+}
+ClipboardType;
 
 typedef enum
 {
-  /* DEFAULT,
-   * PRIMARY, */
-  BOTH = 2
-} StaticSelection;
+    NORMAL = 0,
+    STRICTLY
+}
+ClipboardBehaviour;
 
-typedef enum
+typedef struct
 {
-  NORMAL,
-  STRICTLY
-} ClipboardBehavior;
+    XfcePanelPlugin *plugin;
 
-typedef struct _ClipmanPlugin       ClipmanPlugin;
-typedef struct _ClipmanClips        ClipmanClips;
-typedef struct _ClipmanClip         ClipmanClip;
+    GtkWidget    *icon;
+    GtkWidget    *button;
+    GtkTooltips  *tooltip;
 
-struct _ClipmanPlugin
+    GPtrArray    *clips;
+
+    gint          TimeoutId;
+    gboolean      killTimeout;
+
+    gboolean      ExitSave;
+    gboolean      IgnoreSelect;
+    gboolean      PreventEmpty;
+
+    ClipboardBehaviour Behaviour;
+
+    gboolean      ItemNumbers;
+    gboolean      SeparateMenu;
+
+    guint         HistoryItems;
+    guint         MenuCharacters;
+}
+ClipmanPlugin;
+
+typedef struct
 {
-  XfcePanelPlugin      *panel_plugin;
-  ClipmanClips         *clipman_clips;
+    gchar        *text;
+    gchar        *title;        /* I've added the title to save
+                                 * some time when opening the menu */
+    ClipboardType fromtype;
+}
+ClipmanClip;
 
-  GtkWidget            *button;
-  GtkWidget            *icon;
-  GtkWidget            *menu;
-
-  gboolean              menu_separate_clipboards;
-  gboolean              menu_item_show_number;
-  gint                  menu_item_max_chars;
-};
-
-struct _ClipmanClips
+typedef struct
 {
-  ClipmanPlugin        *clipman_plugin;
+    ClipmanPlugin  *clipman;
+    ClipmanClip    *clip;
+}
+ClipmanAction;
 
-  GtkClipboard         *default_clipboard;
-  GtkClipboard         *primary_clipboard;
+void
+clipman_check_array_len        (ClipmanPlugin *clipman);
 
-  gint                  timeout;
+void
+clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
 
-  GSList               *history;
-  GSList               *static_clipboard;
-
-  ClipboardBehavior     behavior;
-  gint                  history_length;
-  gboolean              save_on_exit;
-  gboolean              prevent_empty;
-  gboolean              ignore_primary;
-  gboolean              ignore_static_clipboard;
-  StaticSelection       static_selection;
-};
-
-struct _ClipmanClip
-{
-    ClipboardType       type;
-    gchar              *text;
-    gchar              *short_text; /* Saves cycles to add menu items */
-};
-
-void                            clipman_clips_delete                (ClipmanClips *clipman_clips,
-                                                                     ClipmanClip *clip);
+void
+clipman_remove_selection_clips (ClipmanPlugin *clipman);
 
 G_END_DECLS
 
