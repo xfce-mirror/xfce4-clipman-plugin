@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2008-03-06 15:36+0100\n"
+"PO-Revision-Date: 2008-03-18 14:49+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Gestor de área de transferência"
 
 #: ../panel-plugin/clipman-dialogs.c:194
 msgid "Save clipboard contents on _exit"
-msgstr "Salvar o cont_eúdo da área de transferência ao sair"
+msgstr "Gravar o conteúdo da área de transferência ao _sair"
 
 #: ../panel-plugin/clipman-dialogs.c:201
 msgid "_Ignore selections"
@@ -43,11 +43,11 @@ msgstr "<b>Geral</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
-msgstr "Gestão normal de área de transferência"
+msgstr "_Gestão normal de área de transferência"
 
 #: ../panel-plugin/clipman-dialogs.c:243
 msgid "Strictly separate _both clipboards"
-msgstr "Separar completamente as áreas de transferência"
+msgstr "Separar _estritamente as áreas de transferência"
 
 #: ../panel-plugin/clipman-dialogs.c:252
 msgid "<b>Clipboard Behaviour</b>"
