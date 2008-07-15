@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"PO-Revision-Date: 2008-07-15 22:57+0200\n"
+"Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
+"Language-Team: Arabeyes <doc@arabeyes.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Arabic\n"
+
+#: ../panel-plugin/clipman-dialogs.c:66
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:162
+#: ../panel-plugin/clipman.c:981
+msgid "Clipboard Manager"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:194
+msgid "Save clipboard contents on _exit"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:201
+msgid "_Ignore selections"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:208
+msgid "Pre_vent empty clipboard"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:216
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:234
+msgid "Normal clipboard _management"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:243
+msgid "Strictly separate _both clipboards"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:252
+msgid "<b>Clipboard Behaviour</b>"
+msgstr ""
+
+#. *
+#. * Notebook label
+#. *
+#: ../panel-plugin/clipman-dialogs.c:260
+msgid "General"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:277
+msgid "_Show item numbers"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:284
+msgid "Se_parate clipboards"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:291
+msgid "<b>Menu Appearance</b>"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:313
+msgid "Clipboard history items:"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:337
+msgid "Menu item characters:"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:359
+msgid "<b>Numbers</b>"
+msgstr ""
+
+#: ../panel-plugin/clipman-dialogs.c:364
+msgid "Appearance"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:74
+msgid "Are you sure you want to clear the history?"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:299
+msgid "Are you sure you want to remove this clip from the history?"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:417
+msgid "< Default History Empty >"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:468
+msgid "< Selection History Empty >"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:477
+#: ../panel-plugin/clipman.c:542
+msgid "Clear History"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:636
+msgid "Clipman History"
+msgstr ""
+
+#: ../panel-plugin/clipman.c:658
+msgid "< Clipboard Empty >"
+msgstr ""
+
+#: ../panel-plugin/clipman.desktop.in.in.h:1
+msgid "Clipboard manager for the Xfce desktop"
+msgstr ""
+
+#: ../panel-plugin/clipman.desktop.in.in.h:2
+msgid "Clipman"
+msgstr ""
+
