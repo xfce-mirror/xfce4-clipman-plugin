@@ -16,8 +16,7 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:162
-#: ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
 msgid "Clipboard Manager"
 msgstr ""
 
@@ -100,8 +99,7 @@ msgstr ""
 msgid "< Selection History Empty >"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:477
-#: ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
 msgid "Clear History"
 msgstr ""
 
@@ -120,4 +118,3 @@ msgstr ""
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr ""
-
