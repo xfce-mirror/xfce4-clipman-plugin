@@ -2,17 +2,21 @@
 # Copyright (C) 2007 THE xfce4-clipman-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
+# Per Kongstad <p_kongstad@op.pl>, 2008
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin\n"
+"Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2008-05-21 10:11+0100\n"
-"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"PO-Revision-Date: 2008-10-07 15:23+0100\n"
+"Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
@@ -34,11 +38,11 @@ msgstr "_Ignorér markeringer"
 
 #: ../panel-plugin/clipman-dialogs.c:208
 msgid "Pre_vent empty clipboard"
-msgstr "For_hindr tomt klippebord"
+msgstr "For_hindre tomt klippebord"
 
 #: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
-msgstr "<b>Generelt</b>"
+msgstr "<b>Generel</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:234
 msgid "Normal clipboard _management"
@@ -57,15 +61,15 @@ msgstr "<b>Klippebordsopførsel</b>"
 #. *
 #: ../panel-plugin/clipman-dialogs.c:260
 msgid "General"
-msgstr "Generelt"
+msgstr "Generel"
 
 #: ../panel-plugin/clipman-dialogs.c:277
 msgid "_Show item numbers"
-msgstr "_Vis indgangstal"
+msgstr "_Vis elementnumre"
 
 #: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
-msgstr "Se_parate klippeborde"
+msgstr "Se_perér klippeborde"
 
 #: ../panel-plugin/clipman-dialogs.c:291
 msgid "<b>Menu Appearance</b>"
@@ -89,11 +93,11 @@ msgstr "Udseende"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
-msgstr "Er du sikker på at du ønsker at slette historikken?"
+msgstr "Er du sikker på at, du ønsker at slette historikken?"
 
 #: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Er du sikker på at du ønsker at fjerne dette udklip fra historikken?"
+msgstr "Er du sikker på, at du ønsker at fjerne dette udklip fra historikken?"
 
 #: ../panel-plugin/clipman.c:417
 msgid "< Default History Empty >"
@@ -101,7 +105,7 @@ msgstr "< Standard-historik tom >"
 
 #: ../panel-plugin/clipman.c:468
 msgid "< Selection History Empty >"
-msgstr "< Udvalgshistorik tom>"
+msgstr "< Valgte historik tom >"
 
 #: ../panel-plugin/clipman.c:477
 #: ../panel-plugin/clipman.c:542
@@ -118,7 +122,7 @@ msgstr "< Tomt klippebord >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
-msgstr "Klippebords-håndtering for Xfce-skrivebordet"
+msgstr "Klippebords-håndtering for Xfce-skrivebordsmiljø"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
