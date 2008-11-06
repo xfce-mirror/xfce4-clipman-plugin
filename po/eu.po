@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-20 17:47+0100\n"
-"PO-Revision-Date: 2006-09-12 14:51+0200\n"
+"PO-Revision-Date: 2008-11-05 14:23+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Basque <xfce-i18n@xfce.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.0\n"
 
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
@@ -62,7 +64,7 @@ msgstr "Orokorra"
 
 #: ../panel-plugin/clipman-dialogs.c:277
 msgid "_Show item numbers"
-msgstr "Elementu _Zenbakiak Bistarazi"
+msgstr "_Ikusi elementu zenbakiak"
 
 #: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
