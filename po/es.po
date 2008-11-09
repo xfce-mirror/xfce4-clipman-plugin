@@ -1,9 +1,14 @@
+# Spanish translations of xfce4-clipman-plugin
+# Copyright (C) 2008 Roberto, Abel Martín
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Roberto <roberdmd@gmail.com>, Abel Martín <abel.martin.ruiz@gmail.com>, 2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-06-11 11:05+0100\n"
-"Last-Translator: Roberto <roberdmd@gmail.com>\n"
+"PO-Revision-Date: 2008-11-02 20:35+0100\n"
+"Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -15,7 +20,7 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:66
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr "Imposible abrir el siguiente url: %s"
+msgstr "Imposible abrir la siguiente URL: %s"
 
 #: ../panel-plugin/clipman-dialogs.c:162
 #: ../panel-plugin/clipman.c:981
@@ -24,7 +29,7 @@ msgstr "Gestor del portapapeles"
 
 #: ../panel-plugin/clipman-dialogs.c:194
 msgid "Save clipboard contents on _exit"
-msgstr "Guardar contenido del portapapel_es al salir"
+msgstr "Guardar contenido del portapapeles al _salir"
 
 #: ../panel-plugin/clipman-dialogs.c:201
 msgid "_Ignore selections"
@@ -32,7 +37,7 @@ msgstr "_Ignorar selecciones"
 
 #: ../panel-plugin/clipman-dialogs.c:208
 msgid "Pre_vent empty clipboard"
-msgstr "Pre_venir portapapeles vacío"
+msgstr "E_vitar el borrado del portapapeles"
 
 #: ../panel-plugin/clipman-dialogs.c:216
 msgid "<b>General</b>"
@@ -58,9 +63,8 @@ msgid "General"
 msgstr "General"
 
 #: ../panel-plugin/clipman-dialogs.c:277
-#, fuzzy
 msgid "_Show item numbers"
-msgstr "Mo_strar números de ítem"
+msgstr "_Mostrar número de elemento"
 
 #: ../panel-plugin/clipman-dialogs.c:284
 msgid "Se_parate clipboards"
@@ -72,12 +76,11 @@ msgstr "<b>Apariencia del menú</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:313
 msgid "Clipboard history items:"
-msgstr "Histórico del portapapeles:"
+msgstr "Elementos del historial del portapapeles:"
 
 #: ../panel-plugin/clipman-dialogs.c:337
-#, fuzzy
 msgid "Menu item characters:"
-msgstr "Caracteres de los ítems del menú"
+msgstr "Caracteres de los elementos del menú:"
 
 #: ../panel-plugin/clipman-dialogs.c:359
 msgid "<b>Numbers</b>"
@@ -89,15 +92,15 @@ msgstr "Apariencia"
 
 #: ../panel-plugin/clipman.c:74
 msgid "Are you sure you want to clear the history?"
-msgstr "Estás seguro de querer borrar el historial?"
+msgstr "¿Está seguro de querer borrar el historial?"
 
 #: ../panel-plugin/clipman.c:299
 msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Estás seguro de querer borrar este clip del historial?"
+msgstr "¿Está seguro de querer borrar este clip del historial?"
 
 #: ../panel-plugin/clipman.c:417
 msgid "< Default History Empty >"
-msgstr "< Historial por defecto vacío >"
+msgstr "< Historial predeterminado vacío >"
 
 #: ../panel-plugin/clipman.c:468
 msgid "< Selection History Empty >"
@@ -109,9 +112,8 @@ msgid "Clear History"
 msgstr "Limpiar historial"
 
 #: ../panel-plugin/clipman.c:636
-#, fuzzy
 msgid "Clipman History"
-msgstr "Histórico de Clipman"
+msgstr "Historial de Clipman"
 
 #: ../panel-plugin/clipman.c:658
 msgid "< Clipboard Empty >"
