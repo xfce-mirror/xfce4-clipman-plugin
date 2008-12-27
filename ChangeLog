@@ -1,4 +1,10 @@
+2008-12-27	Mike Massonnet <mmassonnet@xfce.org>
+
+	* panel-plugin/clipman.c (clipman_check): Don't restore the clipboard 
+	  if it actually contains an image (patch from David Collins)
+
 2008-09-21	Mike Massonnet <mmassonnet@xfce.org>
+
 	* Fix build for libtool 2.2 (or at least for ArchLinux)
 
 2008-03-04	Mike Massonnet <mmassonnet@xfce.org>

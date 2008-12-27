@@ -710,6 +710,7 @@ clipman_restore_empty (ClipmanPlugin *clipman,
 static gboolean
 clipman_check (ClipmanPlugin *clipman)
 {
+    gboolean         clipboard_has_image;
     gchar           *ptext = NULL, *dtext;
     GdkModifierType  state;
 
@@ -719,9 +720,11 @@ clipman_check (ClipmanPlugin *clipman)
 	/* Get mouse button information */
 	gdk_window_get_pointer(NULL, NULL, NULL, &state);
 
+        clipboard_has_image = gtk_clipboard_wait_is_image_available (primaryClip);
+
         ptext = gtk_clipboard_wait_for_text (primaryClip);
 
-        if (clipman->PreventEmpty && ptext == NULL)
+        if (clipman->PreventEmpty && ptext == NULL && clipboard_has_image == FALSE)
         {
             clipman_restore_empty (clipman, PRIMARY);
         }
@@ -739,8 +742,10 @@ clipman_check (ClipmanPlugin *clipman)
 
     dtext = gtk_clipboard_wait_for_text (defaultClip);
 
+    clipboard_has_image = gtk_clipboard_wait_is_image_available (defaultClip);
+
     /* Check default clipboard */
-    if (clipman->PreventEmpty && dtext == NULL)
+    if (clipman->PreventEmpty && dtext == NULL && clipboard_has_image == FALSE)
     {
         clipman_restore_empty (clipman, DEFAULT);
     }
