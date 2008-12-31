@@ -1,3 +1,21 @@
+2008-12-31	Mike Massonnet <mmassonnet@xfce.org>
+
+This is the first part of the rewrite to make it more userfriendly, work done
+by David Collins.  The patches are applied as-is until his work is clearly done
+to avoid merge processes during that time.
+
+	- Drop the behaviors NORMAL and STRICTLY
+	- Drop PREVENTEMPTY which will be the case by default
+	- Replace IGNORESELECT against ADDSELECT to avoid double negation reads
+	in the code
+	- New definitions ClipDataType and ClipMenuFormat
+	- Keep an index of the latest clipboard in the plugin struct for easier
+	find on menu item clicks
+	- Display always one list in the menu, thus merge the functions
+	clipman_clicked_separated and not_separated
+	- The clipboards are checked out on events with the owner-change signal
+	from the GtkClipboards classes
+
 2008-12-27	Mike Massonnet <mmassonnet@xfce.org>
 
 	* panel-plugin/clipman.c (clipman_check): Don't restore the clipboard 

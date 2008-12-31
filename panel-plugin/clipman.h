@@ -37,12 +37,8 @@ G_BEGIN_DECLS
 
 /* Default options */
 #define DEFEXITSAVE     FALSE
-#define DEFIGNORESELECT TRUE
-#define DEFPREVENTEMPTY TRUE
-#define DEFBEHAVIOUR    1
-
+#define DEFADDSELECT    FALSE
 #define DEFITEMNUMBERS  FALSE
-#define DEFSEPMENU      FALSE
 
 /* Milisecond to check the clipboards(s) */
 #define TIMER_INTERVAL  500
@@ -56,10 +52,18 @@ ClipboardType;
 
 typedef enum
 {
-    NORMAL = 0,
-    STRICTLY
+    RAWTEXT,
+    IMAGE
 }
-ClipboardBehaviour;
+ClipDataType;
+
+typedef enum
+{
+    PLAIN,
+    BOLD,
+    ITALICS
+}
+ClipMenuFormat;
 
 typedef struct
 {
@@ -69,19 +73,17 @@ typedef struct
     GtkWidget    *button;
     GtkTooltips  *tooltip;
 
-    GPtrArray    *clips;
-
     gint          TimeoutId;
     gboolean      killTimeout;
 
     gboolean      ExitSave;
-    gboolean      IgnoreSelect;
-    gboolean      PreventEmpty;
+    gboolean      AddSelect;
 
-    ClipboardBehaviour Behaviour;
+    GPtrArray    *clips;
+    gint          DefaultIndex;
+    gint          PrimaryIndex;
 
     gboolean      ItemNumbers;
-    gboolean      SeparateMenu;
 
     guint         HistoryItems;
     guint         MenuCharacters;
@@ -91,9 +93,8 @@ ClipmanPlugin;
 typedef struct
 {
     gchar        *text;
-    gchar        *title;        /* I've added the title to save
-                                 * some time when opening the menu */
-    ClipboardType fromtype;
+    gchar        *title;  /* Save time when creating the menu */
+    ClipDataType  datatype;
 }
 ClipmanClip;
 
@@ -101,6 +102,7 @@ typedef struct
 {
     ClipmanPlugin  *clipman;
     ClipmanClip    *clip;
+    gint            index;
 }
 ClipmanAction;
 
@@ -116,3 +118,4 @@ clipman_remove_selection_clips (ClipmanPlugin *clipman);
 G_END_DECLS
 
 #endif /* CLIPMAN_H */
+

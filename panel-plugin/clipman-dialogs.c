@@ -37,13 +37,9 @@ typedef struct
     ClipmanPlugin *clipman;
 
     GtkWidget     *ExitSave;
-    GtkWidget     *IgnoreSelection;
-    GtkWidget     *PreventEmpty;
-
-    GtkWidget     *Behaviour;
+    GtkWidget     *AddSelection;
 
     GtkWidget     *ItemNumbers;
-    GtkWidget     *SeparateMenu;
 
     GtkWidget     *HistorySize;
     GtkWidget     *ItemChars;
@@ -72,22 +68,15 @@ clipman_configure_response (GtkWidget      *dialog,
 
     g_object_set_data (G_OBJECT (options->clipman->plugin), "dialog", NULL);
 
-    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (options->Behaviour)))
-        options->clipman->Behaviour = NORMAL;
-    else
-        options->clipman->Behaviour = STRICTLY;
-
     if (options->clipman->HistoryItems != gtk_range_get_value (GTK_RANGE (options->HistorySize)))
     {
         options->clipman->HistoryItems   = gtk_range_get_value (GTK_RANGE (options->HistorySize));
-        clipman_check_array_len (options->clipman);
+        clipman_array_remove_oldest (options->clipman);
     }
 
     options->clipman->MenuCharacters = gtk_range_get_value (GTK_RANGE (options->ItemChars));
 
     clipman_save (options->clipman->plugin, options->clipman);
-
-    clipman_remove_selection_clips (options->clipman);
 
     xfce_panel_plugin_unblock_menu (options->clipman->plugin);
 
@@ -122,26 +111,12 @@ toggle_button (GtkWidget      *button,
         options->clipman->ExitSave =
            gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
-    else if (button == options->IgnoreSelection)
-    {
-        options->clipman->IgnoreSelect =
-           gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-
-        if (options->clipman->IgnoreSelect)
-            gtk_widget_set_sensitive (options->SeparateMenu, FALSE);
-        else
-            gtk_widget_set_sensitive (options->SeparateMenu, TRUE);
-    }
-    else if (button == options->PreventEmpty)
-        options->clipman->PreventEmpty =
+    else if (button == options->AddSelection)
+        options->clipman->AddSelect =
            gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
     else if (button == options->ItemNumbers)
         options->clipman->ItemNumbers =
-           gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-
-    else if (button == options->SeparateMenu)
-        options->clipman->SeparateMenu =
            gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 }
 
@@ -152,7 +127,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     GtkWidget      *dialog, *dialog_vbox, *frame, *button, *label;
     GtkWidget      *vbox, *hbox, *notebook_vbox, *notebook;
     ClipmanOptions *options;
-    GSList         *group;
 
     options = panel_slice_new0 (ClipmanOptions);
     options->clipman = clipman;
@@ -198,58 +172,14 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    button = options->IgnoreSelection = gtk_check_button_new_with_mnemonic (_("_Ignore selections"));
+    button = options->AddSelection = gtk_check_button_new_with_mnemonic (_("_Add selections"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->IgnoreSelect);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->AddSelect);
 
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
-
-    button = options->PreventEmpty = gtk_check_button_new_with_mnemonic (_("Pre_vent empty clipboard"));
-    gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->PreventEmpty);
-
-    g_signal_connect (G_OBJECT (button), "toggled",
-            G_CALLBACK (toggle_button), options);
-
 
     label = gtk_label_new (_("<b>General</b>"));
-    gtk_frame_set_label_widget (GTK_FRAME (frame), label);
-    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-    gtk_misc_set_padding (GTK_MISC (label), 2, 0);
-
-    /**
-     * separate clipboards frame
-     **/
-    frame = gtk_frame_new (NULL);
-    gtk_box_pack_start (GTK_BOX (notebook_vbox), frame, FALSE, TRUE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER-3);
-
-    vbox = gtk_vbox_new (FALSE, 2);
-    gtk_container_add (GTK_CONTAINER (frame), vbox);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
-
-    group = NULL;
-
-    button = options->Behaviour = gtk_radio_button_new_with_mnemonic (group, _("Normal clipboard _management"));
-    gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-
-    gtk_radio_button_set_group (GTK_RADIO_BUTTON (button), group);
-    group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (button));
-
-    if(clipman->Behaviour == NORMAL)
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-
-    button = gtk_radio_button_new_with_mnemonic (group, _("Strictly separate _both clipboards"));
-    gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-
-    gtk_radio_button_set_group (GTK_RADIO_BUTTON (button), group);
-    group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (button));
-
-    if(clipman->Behaviour == STRICTLY)
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-
-    label = gtk_label_new (_("<b>Clipboard Behaviour</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
     gtk_misc_set_padding (GTK_MISC (label), 2, 0);
@@ -281,13 +211,6 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    button = options->SeparateMenu = gtk_check_button_new_with_mnemonic (_("Se_parate clipboards"));
-    gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->SeparateMenu);
-
-    g_signal_connect (G_OBJECT (button), "toggled",
-            G_CALLBACK (toggle_button), options);
-
     label = gtk_label_new (_("<b>Menu Appearance</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
@@ -297,7 +220,7 @@ clipman_configure (XfcePanelPlugin *plugin,
      * Call some functions
      **/
 
-   toggle_button (options->IgnoreSelection, options);
+   toggle_button (options->AddSelection, options);
 
     /**
      * Numbers frame
