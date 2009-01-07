@@ -40,6 +40,7 @@ static GtkClipboard *defaultClip;
 /* For event-driven clipboard_change() function */
 gboolean MouseSelecting=FALSE;
 gboolean ShiftSelecting=FALSE;
+gboolean IgnoreSignal=FALSE;
 
 /* Register the plugin */
 static void
@@ -50,12 +51,28 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (clipman_construct);
 static void
 clipman_free_clip (ClipmanClip *clip)
 {
-    g_free (clip->text);
+    if (clip->datatype == RAWTEXT) {
+      g_free (clip->data);
+    } else if (clip->datatype == IMAGE) {
+      g_object_unref(clip->data);
+    }
     g_free (clip->title);
 
     panel_slice_free (ClipmanClip, clip);
 
     DBG ("Clip successfully freed");
+}
+
+static void
+clipman_set_data (ClipmanClip *clip, GtkClipboard *clipboard)
+{
+    DBG ("Clipman_set_data ..");
+    if (clip->datatype == RAWTEXT) {
+      gtk_clipboard_set_text (clipboard, clip->data, -1);
+    } else if (clip->datatype == IMAGE) {
+      gtk_clipboard_set_image (clipboard, (GdkPixbuf *)clip->data);
+    }
+    DBG ("Clip data copied to clipboard");
 }
 
 static void
@@ -71,18 +88,17 @@ clipman_destroy_menu (GtkWidget     *menu,
 
 /* Clear list of items AND both clipboards */
 static gboolean
-clipman_clear (GtkWidget      *mi,
-               GdkEventButton *ev,
-               ClipmanPlugin  *clipman)
-{
+clipman_clear (GtkWidget *mi, GdkEventButton *ev, ClipmanPlugin *clipman) {
+
     ClipmanClip *clip;
 
     if (xfce_confirm (_("Are you sure you want to clear the history?"),
-	              "gtk-yes",
-                      NULL))
-    {
+	                                                      "gtk-yes", NULL)) {
+	              
       gtk_clipboard_clear (primaryClip);
 	    gtk_clipboard_clear (defaultClip);
+      clipman->DefaultIndex=-1;
+      clipman->PrimaryIndex=-1;
 
       while (clipman->clips->len > 0)
       {
@@ -90,8 +106,6 @@ clipman_clear (GtkWidget      *mi,
         g_ptr_array_remove (clipman->clips, clip);
         clipman_free_clip (clip);
       }
-      clipman->DefaultIndex=-1;
-      clipman->PrimaryIndex=-1;
     }
     return FALSE;
 }
@@ -103,8 +117,6 @@ clipman_array_remove_oldest (ClipmanPlugin *clipman)
     ClipmanClip *clip;
     gint i;
     
-    DBG ("Checking Array Length");
-
     while (clipman->clips->len > clipman->HistoryItems) {
 
       // Leave items in list if they are active
@@ -123,6 +135,26 @@ clipman_array_remove_oldest (ClipmanPlugin *clipman)
     }
 }
 
+void
+clipman_array_remove_image_data (ClipmanPlugin *clipman)
+{
+    ClipmanClip *clip;
+    gint i;
+    
+    DBG ("Removing image data from array");
+
+    for (i=0; i<clipman->clips->len; ++i) {
+
+      clip = g_ptr_array_index (clipman->clips, i);
+      if (clip->datatype == IMAGE) {
+        g_ptr_array_remove (clipman->clips, clip);
+        clipman_free_clip (clip);
+        /* Adjust indexes to clipboard data */
+        if (clipman->DefaultIndex == i) clipman->DefaultIndex=-1;
+        if (clipman->DefaultIndex > i) --clipman->DefaultIndex;
+      }
+    }
+}
 
 static gchar *
 clipman_create_title (gchar *text,
@@ -157,45 +189,56 @@ clipman_create_title (gchar *text,
 
 /* Add new item to the end of the list */
 static void
-clipman_add_clip (ClipmanPlugin *clipman,
-                  gchar         *txt,
-                  ClipboardType  type) {
+clipman_add_clip (ClipmanPlugin *clipman, void *data, ClipboardType cliptype, ClipDataType datatype) {
                   
-  ClipmanClip *new_clip;
+  ClipmanClip *clip;
 
-  if (G_LIKELY (txt != NULL) &&
-        G_LIKELY (strcmp (txt, "")))
-    {
-    new_clip = panel_slice_new0 (ClipmanClip);
-    new_clip->title = clipman_create_title (txt, clipman->MenuCharacters);
+  if (G_LIKELY (data != NULL)) {
+      // &&  G_LIKELY (strcmp (data, ""))) {
+    
+    clip = panel_slice_new0 (ClipmanClip);
+    
+    if (datatype == RAWTEXT) {
+      clip->title = clipman_create_title (data, clipman->MenuCharacters);
+    } else {
+      clip->title = clipman_create_title (CLIPIMAGETITLE, clipman->MenuCharacters);
+    }
 
-  	/* No valid title could be created, drop it... */
-	  if (new_clip->title == NULL)
-    {
-	    g_free (new_clip);
+  	/* No valid title could be created, drop it */
+	  if (clip->title == NULL) {
+	    DBG("A title couldn't be created");
+	    g_free (clip);
 	    return;
 	  }
 
-	  new_clip->text     = g_strdup (txt);
-
-    g_ptr_array_add (clipman->clips, new_clip);
-    
+    /* Make a copy of the data and add to the pointer array */
+    if (datatype == RAWTEXT) {
+      clip->data = g_strdup(data);
+      clip->datatype = RAWTEXT;
+    } else if (datatype == IMAGE) {
+      clip->data = gdk_pixbuf_copy((GdkPixbuf *)data);
+      DBG("Made copy of image");
+      clip->datatype = IMAGE;
+      // Remove any other image data first ..
+      clipman_array_remove_image_data(clipman);
+    }
+    g_ptr_array_add (clipman->clips, clip);
+                                                         
     /* Indicate this item is in the clipboard */
-    if (type == DEFAULT) {
+    if (cliptype == DEFAULT) {
       clipman->DefaultIndex=clipman->clips->len-1;
-    } else if (type == PRIMARY) {
+    } else if (cliptype == PRIMARY) {
       clipman->PrimaryIndex=clipman->clips->len-1;
     }
     DBG("Added clip %d of %d", clipman->clips->len, clipman->HistoryItems);
   }
 }
 
-/* If we are looking for a DEFAULT value in the list and it matches a PRIMARY value,
-   then simply change the Primary value to a Default value and indicate that it exists. */
+/* See if the text/image is already in the list.  If so, mark it as the current DEFAULT or PRIMARY clipboard.
+   If not found then return FALSE.
+   Currently, this will always return FALSE for IMAGE data. */
 static gboolean
-clipman_exists (ClipmanPlugin *clipman,
-                gchar         *txt,
-                ClipboardType  type) {
+clipman_exists (ClipmanPlugin *clipman, void *data, ClipboardType cliptype, ClipDataType datatype) {
                 
     gint        i;
     ClipmanClip *clip;
@@ -204,21 +247,22 @@ clipman_exists (ClipmanPlugin *clipman,
      * if the text exists, this will probably be the newest */
     for (i=(gint)clipman->clips->len-1; i>=0; i--) {
     
-        clip = g_ptr_array_index (clipman->clips, i);
+      clip = g_ptr_array_index (clipman->clips, i);
 
-        if (G_LIKELY ((clip->text != NULL) &&
-                      (strcmp(clip->text, txt) == 0))) {
-          if (type == PRIMARY) {
+      if (G_LIKELY(clip->data != NULL)) {
+        if (datatype == RAWTEXT && strcmp(clip->data, data) == 0) {
+          if (cliptype == PRIMARY) {
             clipman->PrimaryIndex=i;
             DBG("String re-selected");
-          } else if (type == DEFAULT) {
+          } else if (cliptype == DEFAULT) {
             clipman->DefaultIndex=i;
             DBG("Selection Copied");
           }
           return TRUE;
         }
-    }
-    return FALSE;
+      }
+  }
+  return FALSE;
 }
 
 static gboolean
@@ -226,19 +270,23 @@ clipman_item_clicked (GtkWidget      *mi,
                       GdkEventButton *ev,
                       ClipmanAction  *action)
 {
-    gchar *dtext, *ptext;
     gboolean defaultcleared, primarycleared; 
+
+    // This will fucntion will send a clipboard 'owner-change' signal
+    // which we will ignore.
+    IgnoreSignal=TRUE;
     
     /* Left mouse button - put item in BOTH clipboards */
     if (ev->button == 1) {
       gtk_clipboard_clear (defaultClip);
-      gtk_clipboard_set_text (defaultClip, action->clip->text, -1);
+      clipman_set_data (action->clip, defaultClip);      
+      //gtk_clipboard_set_text (defaultClip, action->clip->data, -1);
       action->clipman->DefaultIndex = action->index;
 	    DBG ("Clip copied to default clipboard");
 
 	    if (action->clipman->AddSelect)	{
 	      gtk_clipboard_clear (primaryClip);
-	      gtk_clipboard_set_text (primaryClip, action->clip->text, -1);
+        clipman_set_data (action->clip, primaryClip);      
         action->clipman->PrimaryIndex = action->index;
 	      DBG ("Clip copied to primary clipboard");
 	    }
@@ -278,11 +326,11 @@ clipman_item_clicked (GtkWidget      *mi,
       /* List is now empty */
       if (len == 0) {
   		  if (defaultcleared) {
-   		    gtk_clipboard_set_text (defaultClip, "", -1);
+   		    gtk_clipboard_set_text (defaultClip, "", -1); // this might not be needed?
    		    action->clipman->DefaultIndex = -1;
    		  }
    		  if (primarycleared) {
-   		    gtk_clipboard_set_text (primaryClip, "", -1);
+   		    gtk_clipboard_set_text (primaryClip, "", -1); // this might not be needed?
      		  action->clipman->PrimaryIndex = -1;
    		  }
 
@@ -292,11 +340,11 @@ clipman_item_clicked (GtkWidget      *mi,
 
         /* If Clipboard has been cleared, put in a replacement */
     		if (defaultcleared) {
-    		  gtk_clipboard_set_text (defaultClip, clip->text, -1);
+          clipman_set_data (clip, defaultClip);      
     		  action->clipman->DefaultIndex = len-1;
     		}
     		if (primarycleared) {
-    		  gtk_clipboard_set_text (primaryClip, clip->text, -1);
+          clipman_set_data (clip, primaryClip);      
     		  action->clipman->PrimaryIndex = len-1;
     		}
     	} 
@@ -330,7 +378,7 @@ clipman_create_menuitem (ClipmanAction *action,
         title = g_strdup_printf("%s<b>%s</b>", string_num, action->clip->title);
     else if (format==ITALICS)
         title = g_strdup_printf("%s<i>%s</i>", string_num, action->clip->title);
-    else if (format==PLAIN)
+    else
         title = g_strdup_printf("%s%s", string_num, action->clip->title);
 
     g_free (string_num);
@@ -510,17 +558,16 @@ static void
 clipman_refill_clipboard (ClipmanPlugin *clipman,
                        ClipboardType  type)
 {
-    guint        i;
     ClipmanClip *clip;
 
     if (clipman->clips->len > 0) {
     
         if (type == DEFAULT) {
           clip = g_ptr_array_index(clipman->clips, clipman->DefaultIndex);
-          gtk_clipboard_set_text(defaultClip, clip->text, -1);
+          clipman_set_data (clip, defaultClip);      
         } else if (type == PRIMARY) {
           clip = g_ptr_array_index(clipman->clips, clipman->PrimaryIndex);
-          gtk_clipboard_set_text(primaryClip, clip->text, -1);
+          clipman_set_data (clip, primaryClip);      
         }
         DBG("Active clip restored");
     }
@@ -532,52 +579,75 @@ clipman_refill_clipboard (ClipmanPlugin *clipman,
   - program holding the DEFAULT clipboard closes down - populate DEFAULT clipboard with active list item
   - program holding the PRIMARY clipboard closes down - populate PRIMARY clipboard with active list item
 */
-static void clipman_populate_clipboard(GtkClipboard *clipboard, ClipmanPlugin *clipman, GdkOwnerChange reason) {
+static void clipman_clipboard_changed(GtkClipboard *clipboard, ClipmanPlugin *clipman, GdkOwnerChange reason) {
 
   gchar *ptext = NULL, *dtext;
-  GdkModifierType  state;
 
-  /* DEFAULT clipboard */
+  // Information for the programmer
+  if (reason == GDK_OWNER_CHANGE_DESTROY) {
+    DBG("GDK_OWNER_CHANGE_DESTROY");
+  }
+
+  /* DEFAULT clipboard - 'Copied' data */
   if (clipboard == defaultClip) {
        
     // Program holding selection has closed
-    if (reason == GDK_OWNER_CHANGE_CLOSE) {
+    // (Mousepad gives GDK_OWNER_CHANGE_CLOSE, Kolorpaint gives GDK_OWNER_CHANGE_DESTROY)
+    if (reason == GDK_OWNER_CHANGE_CLOSE || reason == GDK_OWNER_CHANGE_DESTROY) {
       clipman_refill_clipboard (clipman, DEFAULT);
       return;
     }
 
-    dtext = gtk_clipboard_wait_for_text (defaultClip);
-    if (G_LIKELY (dtext != NULL) && reason == GDK_OWNER_CHANGE_NEW_OWNER &&
-	                             !clipman_exists (clipman, dtext, DEFAULT)) {
-        DBG("Item added from default clipboard");
-        DBG("Copy done");
-        clipman_add_clip (clipman, dtext, DEFAULT);
-        clipman_array_remove_oldest (clipman);
+    // User copied data to clipboard
+    if (reason == GDK_OWNER_CHANGE_NEW_OWNER) {
+
+      dtext = gtk_clipboard_wait_for_text (defaultClip);
+      if (dtext != NULL) {
+        if (!clipman_exists (clipman, dtext, DEFAULT, RAWTEXT)) {
+          DBG("Text copy ..");
+          clipman_add_clip (clipman, dtext, DEFAULT, RAWTEXT);
+          clipman_array_remove_oldest (clipman);
+        }
+        g_free (dtext);
+      } else {
+        GdkPixbuf *image = gtk_clipboard_wait_for_image(defaultClip);
+        if (image != NULL) {
+          if (!clipman_exists (clipman, image, DEFAULT, IMAGE)) {
+            DBG("Image copy ..");
+            clipman_add_clip (clipman, image, DEFAULT, IMAGE);
+            clipman_array_remove_oldest (clipman);
+          }
+          g_object_unref(image);
+        }
+      }
     }
-    g_free (dtext);
   }
 
   /* PRIMARY - only if 'Add Selections' is ticked */
-  if (clipboard == primaryClip && clipman->AddSelect)
-  {
-      // Program holding selection has closed - no action required.
-      if (reason == GDK_OWNER_CHANGE_CLOSE) {
-        clipman_refill_clipboard (clipman, PRIMARY);
-        return;
-      }
-      
-      // Get selection
+  if (clipboard == primaryClip && clipman->AddSelect) {
+    // Program holding selection has closed - restore Primary clipboard
+    if (reason == GDK_OWNER_CHANGE_CLOSE || reason == GDK_OWNER_CHANGE_DESTROY) {
+      clipman_refill_clipboard (clipman, PRIMARY);
+      return;
+    }
+     
+    if (reason == GDK_OWNER_CHANGE_NEW_OWNER) {
+      // Get selected - TEXT only
       ptext = gtk_clipboard_wait_for_text (primaryClip);
       // User has selected text.
-      if (ptext != NULL && reason == GDK_OWNER_CHANGE_NEW_OWNER &&
-               !clipman_exists (clipman, ptext, PRIMARY))
-      {
-          DBG("Item added from primary clipboard");
-          DBG("Select done");
-          clipman_add_clip (clipman, ptext, PRIMARY);
+      if (ptext != NULL) {
+        if (!clipman_exists (clipman, ptext, PRIMARY, RAWTEXT)) {
+          DBG("Text select done");
+          clipman_add_clip (clipman, ptext, PRIMARY, RAWTEXT);
           clipman_array_remove_oldest (clipman);
+        }
+        g_free (ptext);
+        
+      // If an image has been selected, don't process it - but reset PrimaryIndex
+      } else if (gtk_clipboard_wait_is_image_available(primaryClip)) {
+        clipman->PrimaryIndex=-1;
       }
-      g_free (ptext);
+    }
   }
 
 }
@@ -589,6 +659,13 @@ static void clipman_populate_clipboard(GtkClipboard *clipboard, ClipmanPlugin *c
 */
 static void clipboard_changed(GtkClipboard *clipboard, GdkEvent *event, ClipmanPlugin *clipman) {
 
+  // Signal has been sent by this plugin
+  if (IgnoreSignal) {
+    DBG("Signal Ignored");
+    IgnoreSignal=FALSE;
+    return;
+  }
+  
   /* Note this extra effort is only required for the PRIMARY selects
      in some applications */
   if (clipboard == primaryClip && clipman->AddSelect) {
@@ -604,20 +681,19 @@ static void clipboard_changed(GtkClipboard *clipboard, GdkEvent *event, ClipmanP
       return;  // not done yet
     }
   }
-  
-  /* Why the signal was sent */
+       
+  /* Reason the signal was sent */
   GdkOwnerChange reason = ((GdkEventOwnerChange*)event)->reason;
-  clipman_populate_clipboard(clipboard, clipman, reason);
+  clipman_clipboard_changed(clipboard, clipman, reason);
 
 }
 
 /* This runs every 0.5 seconds - minimize what it does. */
-static gboolean clipman_check (ClipmanPlugin *clipman)
+static gboolean clipman_timed_poll (ClipmanPlugin *clipman)
 {
     // Nearly always, this is all this function will do ..
     if (!MouseSelecting && !ShiftSelecting) return TRUE;
 
-    printf(".");    
     GdkModifierType  state;
     gdk_window_get_pointer(NULL, NULL, NULL, &state);
     if (MouseSelecting==TRUE && !(state & GDK_BUTTON1_MASK)) MouseSelecting=FALSE;
@@ -625,8 +701,8 @@ static gboolean clipman_check (ClipmanPlugin *clipman)
 
     // Now that the selection is finished, run the necessary code ..
     if (!MouseSelecting && !ShiftSelecting) {
-      printf("Finished selecting.\n");    
-      clipman_populate_clipboard(primaryClip, clipman, GDK_OWNER_CHANGE_NEW_OWNER);
+      DBG("Finished selecting");    
+      clipman_clipboard_changed(primaryClip, clipman, GDK_OWNER_CHANGE_NEW_OWNER);
     }
     
     return TRUE;
@@ -642,7 +718,7 @@ clipman_reset_timeout (ClipmanPlugin *clipman)
 
         clipman->TimeoutId = g_timeout_add_full (G_PRIORITY_LOW,
                                                  TIMER_INTERVAL,
-                                                 (GSourceFunc) clipman_check,
+                                                 (GSourceFunc) clipman_timed_poll,
                                                  clipman,
                                                  (GDestroyNotify) clipman_reset_timeout);
     }
@@ -696,7 +772,7 @@ clipman_save (XfcePanelPlugin *plugin,
             clip = g_ptr_array_index (clipman->clips, i);
 
             g_snprintf (name, 13, "clip_%d_text", i);
-            xfce_rc_write_entry (rc, name, clip->text);
+            xfce_rc_write_entry (rc, name, clip->data);
 
             g_snprintf (name, 13, "clip_%d_from", i);
             xfce_rc_write_int_entry (rc, name, 1);
@@ -768,9 +844,9 @@ clipman_read (ClipmanPlugin *clipman)
             type = xfce_rc_read_int_entry (rc, name, 0);
 
             if (type == 0)
-                clipman_add_clip (clipman, value, PRIMARY);
+                clipman_add_clip (clipman, value, PRIMARY, RAWTEXT);
             else
-                clipman_add_clip (clipman, value, DEFAULT);
+                clipman_add_clip (clipman, value, DEFAULT, RAWTEXT);
 
 	    g_free (value);
         }
@@ -812,10 +888,10 @@ clipman_new (XfcePanelPlugin *plugin)
     g_signal_connect(clipman->button, "button_press_event",
             G_CALLBACK(clipman_icon_clicked), clipman);
 
-    /* Start the clipman_check function */
+    /* Start the clipman_timed_poll function */
     clipman->TimeoutId = g_timeout_add_full(G_PRIORITY_LOW,
                                             TIMER_INTERVAL,
-                                            (GSourceFunc) clipman_check,
+                                            (GSourceFunc) clipman_timed_poll,
                                             clipman,
                                             (GDestroyNotify) clipman_reset_timeout);
 

@@ -43,6 +43,8 @@ G_BEGIN_DECLS
 /* Milisecond to check the clipboards(s) */
 #define TIMER_INTERVAL  500
 
+#define CLIPIMAGETITLE   "**IMAGE**"
+
 typedef enum
 {
     PRIMARY = 0,
@@ -92,8 +94,8 @@ ClipmanPlugin;
 
 typedef struct
 {
-    gchar        *text;
-    gchar        *title;  /* Save time when creating the menu */
+    void         *data;
+    gchar        *title;
     ClipDataType  datatype;
 }
 ClipmanClip;
@@ -107,13 +109,11 @@ typedef struct
 ClipmanAction;
 
 void
-clipman_check_array_len        (ClipmanPlugin *clipman);
+clipman_array_remove_oldest   (ClipmanPlugin *clipman);
 
 void
-clipman_save                   (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
+clipman_save                  (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
 
-void
-clipman_remove_selection_clips (ClipmanPlugin *clipman);
 
 G_END_DECLS
 

@@ -1,3 +1,11 @@
+2008-01-02	Mike Massonnet <mmassonnet@xfce.org>
+
+This is the second part of the rewrite that introduces the storage of an image
+inside the panel plugin.  This part already marks the end of David's work.
+Thank you for putting your efforts into this plugin.
+
+	- Introduce a single pixbuf storage inside the plugin
+
 2008-12-31	Mike Massonnet <mmassonnet@xfce.org>
 
 This is the first part of the rewrite to make it more userfriendly, work done
