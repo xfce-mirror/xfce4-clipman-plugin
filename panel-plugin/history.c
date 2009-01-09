@@ -228,9 +228,7 @@ clipman_history_add_text (ClipmanHistory *history,
     }
 
   /* Cleanup special characters from preview */
-  tmp2 = g_strdelimit (tmp1, "\n\r\t", ' ');
-  tmp1 = g_markup_escape_text (tmp2, -1);
-  g_free (tmp2);
+  tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
 
   /* Set preview */
   item->preview.text = tmp1;
@@ -394,7 +392,7 @@ clipman_history_init (ClipmanHistory *history)
 static void
 clipman_history_finalize (GObject *object)
 {
-  /* TODO Free the GSLists */
+  clipman_history_clear (CLIPMAN_HISTORY (object));
   G_OBJECT_CLASS (clipman_history_parent_class)->finalize (object);
 }
 

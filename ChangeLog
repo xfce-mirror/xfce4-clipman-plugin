@@ -1,4 +1,19 @@
 2009-01-09	Mike Massonnet
+Some small fixes.
+
+	- panel-plugin/history.c(clipman_history_add_text):
+		Don't escape the text for markups as the preview is displayed
+		as a label, and not as a markup.
+	- panel-plugin/history.c(clipman_history_finalize):
+		Clear the GSLists stored inside ClipmanHistory on finalize.
+	- panel-plugin/menu.c(_clipman_menu_update_list):
+		Set the clear history menu item sensitive/insensitive given the
+		status of the history.  For that store a pointer of the menu
+		item inside the private data.
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Make sure the image is not NULL before adding it to the history
+
+2009-01-09	Mike Massonnet
 Major rewrite of the plugin using GObjects and Xfconf.
 
 	- The plugin now uses GObjects with properties binded to Xfconf for easy

@@ -140,7 +140,8 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
       else if (has_image)
         {
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
-          clipman_history_add_image (collector->priv->history, image, collector->priv->default_clipboard);
+          if (image != NULL)
+            clipman_history_add_image (collector->priv->history, image, collector->priv->default_clipboard);
           g_object_unref (image);
         }
     }

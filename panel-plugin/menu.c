@@ -39,6 +39,7 @@ G_DEFINE_TYPE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
 
 struct _ClipmanMenuPrivate
 {
+  GtkWidget            *mi_clear_history;
   ClipmanHistory       *history;
   GSList               *list;
 };
@@ -139,6 +140,9 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   /* Clear the previous menu items */
   _clipman_menu_free_list (menu);
 
+  /* Set the clear history item sensitive */
+  gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
+
   /* Insert an updated list of menu items */
   for (i = 0; i < 2; i++)
     {
@@ -183,11 +187,15 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
   if (pos == 0)
     {
+      /* Insert empty menu item */
       mi = gtk_menu_item_new_with_label (_("Clipboard is empty"));
       menu->priv->list = g_slist_prepend (menu->priv->list, mi);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
       gtk_widget_set_sensitive (mi, FALSE);
       gtk_widget_show (mi);
+
+      /* Set the clear history item insensitive */
+      gtk_widget_set_sensitive (menu->priv->mi_clear_history, FALSE);
     }
 }
 
@@ -245,7 +253,7 @@ clipman_menu_init (ClipmanMenu *menu)
   mi = gtk_separator_menu_item_new ();
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
-  mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_CLEAR, NULL);
+  menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_CLEAR, NULL);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate",
                             G_CALLBACK (cb_clear_history), menu);
