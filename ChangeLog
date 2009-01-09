@@ -1,5 +1,11 @@
 2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
 
+Update the settings dialog.
+
+	- Move everything to the General tab
+
+2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
+
 A quick review over the changes.
 
 	- Fix g_free(clip) against panel_slice_free(clip)

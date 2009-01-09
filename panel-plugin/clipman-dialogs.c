@@ -2,6 +2,7 @@
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
  *  Copyright (c) 2008      David Collins <david.8.collins@gmail.com>
+ *  Copyright (c) 2009      Mike Massonnet <mmassonnet@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,7 +61,7 @@ clipman_configure_response (GtkWidget      *dialog,
         result = g_spawn_command_line_async ("exo-open --launch WebBrowser " PLUGIN_WEBSITE, NULL);
 
         if (G_UNLIKELY (result == FALSE))
-            g_warning (_("Unable to open the following url: %s"), PLUGIN_WEBSITE);
+            xfce_warn (_("Unable to open the following url: %s"), PLUGIN_WEBSITE);
 
         return;
 	}
@@ -173,37 +174,12 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    button = options->AddSelection = gtk_check_button_new_with_mnemonic (_("_Add selections"));
+    button = options->AddSelection = gtk_check_button_new_with_mnemonic (_("A_dd selections to the history"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), clipman->AddSelect);
 
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
-
-    label = gtk_label_new (_("<b>General</b>"));
-    gtk_frame_set_label_widget (GTK_FRAME (frame), label);
-    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-    gtk_misc_set_padding (GTK_MISC (label), 2, 0);
-
-    /**
-     * Notebook label
-     **/
-    label = gtk_label_new (_("General"));
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 0), label);
-
-    notebook_vbox = gtk_vbox_new (FALSE, 2);
-    gtk_container_add (GTK_CONTAINER (notebook), notebook_vbox);
-
-    /**
-     * Menu appearance frame
-     **/
-    frame = gtk_frame_new (NULL);
-    gtk_box_pack_start (GTK_BOX (notebook_vbox), frame, FALSE, TRUE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER-3);
-
-    vbox = gtk_vbox_new (FALSE, 2);
-    gtk_container_add (GTK_CONTAINER (frame), vbox);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
 
     button = options->ItemNumbers = gtk_check_button_new_with_mnemonic (_("_Show item numbers"));
     gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -212,16 +188,10 @@ clipman_configure (XfcePanelPlugin *plugin,
     g_signal_connect (G_OBJECT (button), "toggled",
             G_CALLBACK (toggle_button), options);
 
-    label = gtk_label_new (_("<b>Menu Appearance</b>"));
+    label = gtk_label_new (_("<b>General</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (frame), label);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
     gtk_misc_set_padding (GTK_MISC (label), 2, 0);
-
-    /**
-     * Call some functions
-     **/
-
-   toggle_button (options->AddSelection, options);
 
     /**
      * Numbers frame
@@ -285,8 +255,17 @@ clipman_configure (XfcePanelPlugin *plugin,
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
     gtk_misc_set_padding (GTK_MISC (label), 4, 0);
 
-    label = gtk_label_new (_("Appearance"));
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 1), label);
+    /**
+     * Notebook label
+     **/
+    label = gtk_label_new (_("General"));
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 0), label);
+
+    /**
+     * Call some functions
+     **/
+
+   toggle_button (options->AddSelection, options);
 
     g_signal_connect(dialog, "response",
         G_CALLBACK(clipman_configure_response), options);
