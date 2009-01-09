@@ -1,7 +1,9 @@
 /*  $Id$
  *
  *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
- *                     2008 Mike Massonnet <mmassonnet@xfce.org>
+ *                2008-2009 Mike Massonnet <mmassonnet@xfce.org>
+ *                2008-2009 David Collins <david.8.collins@gmail.com>
+ *
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
