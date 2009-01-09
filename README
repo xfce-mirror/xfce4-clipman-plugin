@@ -1,0 +1,42 @@
+ Xfce4-clipman-plugin
+======================
+
+A simple clipboard history for the Xfce4 Panel.
+
+
+ Homepage
+----------
+
+http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/
+
+
+ Dependencies
+--------------
+
+* glib-2.0 2.16
+* gtk+-2.0 2.12
+* exo-0.3 0.3.0
+* libxfce4util 4.4.0
+* libxfcegui4 4.4.0
+* xfconf 4.5.92
+
+
+ Install
+---------
+
+% tar xf xfce4-clipman-plugin-<version>.tar.bz2
+% ./configure
+% make
+% make install
+
+See the INSTALL file for more instructions.
+
+
+ Report bugs
+-------------
+You can report bugs and feature requests at http://bugs.xfce.org.  Choose the
+product Xfce Panel Plugins and the component clipman.
+
+You can also join the Xfce Goodies mailing-list:
+http://foo-projects.org/mailman/listinfo/goodies-dev.
+

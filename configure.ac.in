@@ -1,0 +1,94 @@
+dnl $Id$
+dnl
+dnl Clipman plugin - Clipboards manager for the Xfce4 panel
+dnl
+dnl 2005      Eduard Roccatello <eduard@xfce.org>
+dnl 2006-2007 Nick Schermer <nick@xfce.org>
+dnl 2008-2009 Mike Massonnet <mmassonnet@xfce.org>
+dnl
+
+dnl ***************************
+dnl *** Version information ***
+dnl ***************************
+m4_define([project_version_major], [1])
+m4_define([project_version_minor], [0])
+m4_define([project_version_micro], [0])
+m4_define([project_version_build], [r@REVISION@])
+m4_define([project_version_tag], [svn]) # leave empty for release
+m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [svn], [project_version_tag()-project_version_build()], [project_version_tag()])])
+
+dnl ***************************
+dnl *** Initialize autoconf ***
+dnl ***************************
+AC_COPYRIGHT([Copyright (c) 2005-2009
+        The Xfce development team. All rights reserved.])
+AC_INIT([xfce4-clipman-plugin], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
+AC_PREREQ([2.50])
+AC_CANONICAL_TARGET()
+AC_REVISION([project_version_build])
+
+dnl ***************************
+dnl *** Initialize automake ***
+dnl ***************************
+AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar])
+AM_CONFIG_HEADER([config.h])
+AM_MAINTAINER_MODE()
+
+dnl ********************************
+dnl *** Check for basic programs ***
+dnl ********************************
+AC_PROG_CC()
+AM_PROG_CC_C_O()
+AC_PROG_LD()
+AC_PROG_INSTALL()
+AC_PROG_LIBTOOL()
+AC_PROG_INTLTOOL()
+
+dnl **********************************
+dnl *** Check for standard headers ***
+dnl **********************************
+AC_HEADER_STDC()
+
+dnl *******************************
+dnl *** Check for X11 installed ***
+dnl *******************************
+XDT_CHECK_LIBX11_REQUIRE()
+
+dnl ***********************************
+dnl *** Check for required packages ***
+dnl ***********************************
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.12.0])
+XDT_CHECK_PACKAGE([EXO], [exo-0.3], [0.3.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.5.92])
+
+dnl ******************************
+dnl *** Check for i18n support ***
+dnl ******************************
+XDT_I18N([@LINGUAS@])
+
+dnl ***********************************
+dnl *** Check for debugging support ***
+dnl ***********************************
+XDT_FEATURE_DEBUG()
+
+dnl ************************
+dnl *** Makefile outputs ***
+dnl ************************
+AC_OUTPUT([
+Makefile
+panel-plugin/Makefile
+po/Makefile.in
+])
+
+dnl ***************************
+dnl *** Print configuration ***
+dnl ***************************
+echo
+echo "Build Configuration:"
+echo
+echo "* Debug Support:    $enable_debug"
+echo
+

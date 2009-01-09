@@ -1,0 +1,9 @@
+2009-01-09	Mike Massonnet
+Major rewrite of the plugin using GObjects and Xfconf.
+
+	- The plugin now uses GObjects with properties binded to Xfconf for easy
+	configuration.
+	- The plugin is able to store texts and images.
+	- The changes over the clipboards are noticed with signals and no more
+	a timeout which saves a lot of CPU wakeups.
+

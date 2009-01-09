@@ -1,0 +1,5 @@
+panel-plugin/xfce4-clipman-plugin.desktop.in.in
+panel-plugin/panel-plugin.c
+panel-plugin/collector.c
+panel-plugin/history.c
+panel-plugin/menu.c

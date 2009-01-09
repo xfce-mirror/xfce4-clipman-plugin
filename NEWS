@@ -1,0 +1,9 @@
+Version 1.0.0 - 2009-xx-xx
+
+Major rewrite of the plugin, using GObjects and Xfconf.
+
+Version 0.9.0 - 2009-xx-xx
+
+A rewrite to make it more user-friendly and introduce image support.  Work done
+by David Collins.
+
