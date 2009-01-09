@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2008-03-24 23:52+0200\n"
 "Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -16,103 +16,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Αδυναμία πρόσβασης στο παρακάτω url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Διαχειριστής πρoχείρου"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr "Αποθήκευση περιεχομένων προχείρου στον έξ_οδο"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "Α_γνόησε επιλογές"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "Απότρ_εψε κενό πρόχειρο"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
+msgstr "Ε_μφάνισε αριθμούς αντικειμένων"
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr "<b>Γενικά</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "Κανονική διαχείριση π_ροχείρου"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
+msgstr "Αντικείμενα ιστορικού προχείρου:"
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Αυστηρά διαχώρισε α_μφότερα πρόχειρα"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
+msgstr "Χαρακτήρες αντικειμένων μενού:"
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Συμπεριφορά προχείρου</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
+msgstr "<b>Αριθμοί</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr "Γενικά"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "Ε_μφάνισε αριθμούς αντικειμένων"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "Δια_χωρισμένα πρόχειρα"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Εμφάνιση Μενού</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Αντικείμενα ιστορικού προχείρου:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Χαρακτήρες αντικειμένων μενού:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Αριθμοί</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Εμφάνιση"
-
-#: ../panel-plugin/clipman.c:74
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε τον καθαρισμό του ιστορικού;"
 
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Είστε σίγουροι ότι επιθυμείτε την διαγραφή αυτού του αντικειμένου από το ιστορικό;"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Κενό Εξ'ορισμού ιστορικό >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Κενό ιστορικό επιλογών >"
-
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr "Καθαρισμός ιστορικού"
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr "Ιστορικό clipman"
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr "< Κενό πρόχειρο >"
 
@@ -124,3 +84,37 @@ msgstr "Διαχειριστής προχείρου για την οθόνη τ�
 msgid "Clipman"
 msgstr "Clipman"
 
+#~ msgid "_Ignore selections"
+#~ msgstr "Α_γνόησε επιλογές"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "Απότρ_εψε κενό πρόχειρο"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Κανονική διαχείριση π_ροχείρου"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Αυστηρά διαχώρισε α_μφότερα πρόχειρα"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Συμπεριφορά προχείρου</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Δια_χωρισμένα πρόχειρα"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Εμφάνιση Μενού</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Εμφάνιση"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr ""
+#~ "Είστε σίγουροι ότι επιθυμείτε την διαγραφή αυτού του αντικειμένου από το "
+#~ "ιστορικό;"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Κενό Εξ'ορισμού ιστορικό >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Κενό ιστορικό επιλογών >"

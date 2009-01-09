@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2008-07-15 22:57+0200\n"
 "Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
@@ -11,103 +11,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Arabic\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
 msgstr ""
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:74
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr ""
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr ""
 

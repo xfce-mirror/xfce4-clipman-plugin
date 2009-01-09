@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2008-06-19 11:15+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -15,103 +15,63 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Tak dapat membuka url berikut: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Manajer Papan Klip"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr "Simpan isi papan klip saat _keluar"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "_Abaikan seleksi"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "Ce_gah papan klip kosong"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
+msgstr "_Tampilkan nomor item"
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr "<b>Umum</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "Manajemen _papan klip normal"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
+msgstr "Item riwayat papan klip:"
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Ketat memisahkan _kedua papan klip"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
+msgstr "Karakter item menu:"
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Perilaku Papan Klip</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
+msgstr "<b>Nomor</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr "Umum"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "_Tampilkan nomor item"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "Pi_sahkan papan klip"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Tampilan Menu</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Item riwayat papan klip:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Karakter item menu:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Nomor</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Tampilan"
-
-#: ../panel-plugin/clipman.c:74
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda yakin ingin membersihkan riwayat?"
 
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Anda yakin ingin menghapus klip ini dari riwayat?"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Riwayat Standar Kosong >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Riwayat Seleksi Kosong >"
-
-#: ../panel-plugin/clipman.c:477 ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr "Bersihkan Riwayat"
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr "Riwayat Clipman"
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr "< Papan Klip Kosong >"
 
@@ -122,3 +82,36 @@ msgstr "Manajer papan klip untuk destop Xfce"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
+
+#~ msgid "_Ignore selections"
+#~ msgstr "_Abaikan seleksi"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "Ce_gah papan klip kosong"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Manajemen _papan klip normal"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Ketat memisahkan _kedua papan klip"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Perilaku Papan Klip</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Pi_sahkan papan klip"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Tampilan Menu</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Tampilan"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Anda yakin ingin menghapus klip ini dari riwayat?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Riwayat Standar Kosong >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Riwayat Seleksi Kosong >"

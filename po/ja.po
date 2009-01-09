@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-09 15:30+0900\n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2008-12-04 00:54+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
@@ -17,103 +17,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "次の URL を開く事ができませんでした: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162 ../panel-plugin/clipman.c:961
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "クリップボードマネージャ"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr "終了時にクリップボードの内容を保存する(_E)"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "領域選択を無視する(_I)"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "クリップボードを空にしない(_V)"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
+msgstr "アイテム数を表示する(_S)"
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr "<b>全般</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "通常のクリップボード管理(_M)"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
+msgstr "クリップボードの履歴アイテム数:"
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "クリップボードを二つに分ける(_B)"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
+msgstr "メニューアイテムの文字数:"
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>クリップボードの振る舞い</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
+msgstr "<b>数</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr "全般"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "アイテム数を表示する(_S)"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "クリップボードを分割する(_P)"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>メニューの外観</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "クリップボードの履歴アイテム数:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "メニューアイテムの文字数:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>数</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "外観"
-
-#: ../panel-plugin/clipman.c:75
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr "履歴をクリアしてもよろしいですか?"
 
-#: ../panel-plugin/clipman.c:278
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "履歴からこのクリップを削除してもよろしいですか?"
-
-#: ../panel-plugin/clipman.c:397
-msgid "< Default History Empty >"
-msgstr "< デフォルト履歴は空です >"
-
-#: ../panel-plugin/clipman.c:448
-msgid "< Selection History Empty >"
-msgstr "< 選択履歴は空です >"
-
-#: ../panel-plugin/clipman.c:457 ../panel-plugin/clipman.c:522
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr "履歴をクリア"
 
-#: ../panel-plugin/clipman.c:616
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr "Clipman 履歴"
 
-#: ../panel-plugin/clipman.c:638
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr "< クリップボードは空です >"
 
@@ -124,3 +84,36 @@ msgstr "Xfce デスクトップのクリップボードを管理します。"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
+
+#~ msgid "_Ignore selections"
+#~ msgstr "領域選択を無視する(_I)"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "クリップボードを空にしない(_V)"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "通常のクリップボード管理(_M)"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "クリップボードを二つに分ける(_B)"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>クリップボードの振る舞い</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "クリップボードを分割する(_P)"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>メニューの外観</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "外観"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "履歴からこのクリップを削除してもよろしいですか?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< デフォルト履歴は空です >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< 選択履歴は空です >"

@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2008-11-02 20:35+0100\n"
 "Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: \n"
@@ -17,105 +18,63 @@ msgstr ""
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Imposible abrir la siguiente URL: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162
-#: ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Gestor del portapapeles"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr "Guardar contenido del portapapeles al _salir"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "_Ignorar selecciones"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "E_vitar el borrado del portapapeles"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
+msgstr "_Mostrar número de elemento"
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "Gestión nor_mal del portapapeles"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
+msgstr "Elementos del historial del portapapeles:"
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Separar estrictamente am_bos portapapeles"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
+msgstr "Caracteres de los elementos del menú:"
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Comportamiento del portapapeles</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
+msgstr "<b>Números</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr "General"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "_Mostrar número de elemento"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "Se_parar portapapeles"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Apariencia del menú</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Elementos del historial del portapapeles:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Caracteres de los elementos del menú:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Números</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Apariencia"
-
-#: ../panel-plugin/clipman.c:74
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr "¿Está seguro de querer borrar el historial?"
 
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "¿Está seguro de querer borrar este clip del historial?"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Historial predeterminado vacío >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Historial de selección vacío >"
-
-#: ../panel-plugin/clipman.c:477
-#: ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr "Limpiar historial"
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr "Historial de Clipman"
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr "< Portapapeles vacío >"
 
@@ -127,3 +86,35 @@ msgstr "Gestor de portapapeles para el escritorio Xfce"
 msgid "Clipman"
 msgstr "Clipman"
 
+#~ msgid "_Ignore selections"
+#~ msgstr "_Ignorar selecciones"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "E_vitar el borrado del portapapeles"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Gestión nor_mal del portapapeles"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Separar estrictamente am_bos portapapeles"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Comportamiento del portapapeles</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Se_parar portapapeles"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Apariencia del menú</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Apariencia"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "¿Está seguro de querer borrar este clip del historial?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Historial predeterminado vacío >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Historial de selección vacío >"

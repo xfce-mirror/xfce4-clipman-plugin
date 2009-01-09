@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 17:47+0100\n"
+"POT-Creation-Date: 2009-01-09 14:34+0100\n"
 "PO-Revision-Date: 2007-11-16 20:16+0300\n"
 "Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
 "Language-Team: Latvian <rprieditis@inbox.lv>\n"
@@ -15,105 +15,63 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Neizdevās atvērt sekojošu url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162
-#: ../panel-plugin/clipman.c:981
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Starpliktuves Pārvaldnieks"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:170
 msgid "Save clipboard contents on _exit"
 msgstr "Saglabāt starpliktuves saturu uz aizv_eršanu"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr "_Ignorēt atlasi"
+#: ../panel-plugin/clipman-dialogs.c:177
+msgid "A_dd selections to the history"
+msgstr ""
 
-#: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr "Novēr_st tukšu starpliktuvi"
+#: ../panel-plugin/clipman-dialogs.c:184
+msgid "_Show item numbers"
+msgstr "_Rādīt vienumu skaitu"
 
-#: ../panel-plugin/clipman-dialogs.c:216
+#: ../panel-plugin/clipman-dialogs.c:191
 msgid "<b>General</b>"
 msgstr "<b>Vispārēji</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr "Parastā starpliktuves _pārvaldība"
+#: ../panel-plugin/clipman-dialogs.c:207
+msgid "Clipboard history items:"
+msgstr "Starpliktuves vēstures vienumi:"
 
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr "Strikti atdalī_t starpliktuves"
+#: ../panel-plugin/clipman-dialogs.c:231
+msgid "Menu item characters:"
+msgstr "Izvēlnes vienuma rakstzīmes:"
 
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr "<b>Starpliktuves Uzvedība</b>"
+#: ../panel-plugin/clipman-dialogs.c:253
+msgid "<b>Numbers</b>"
+msgstr "<b>Skaitļi</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:261
 msgid "General"
 msgstr "Vispārēji"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr "_Rādīt vienumu skaitu"
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr "At_dalīt starpliktuvi"
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr "<b>Izvēlņu Izskats</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr "Starpliktuves vēstures vienumi:"
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr "Izvēlnes vienuma rakstzīmes:"
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr "<b>Skaitļi</b>"
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Izskats"
-
-#: ../panel-plugin/clipman.c:74
+#: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
 msgstr "Esat drošs, ka vēlaties notīrīt vēsturi?"
 
-#: ../panel-plugin/clipman.c:299
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr "Esat drošs, ka vēlaties dzēst no starpliktuves vēstures?"
-
-#: ../panel-plugin/clipman.c:417
-msgid "< Default History Empty >"
-msgstr "< Noklusētā Vēsture ir Tukša >"
-
-#: ../panel-plugin/clipman.c:468
-msgid "< Selection History Empty >"
-msgstr "< Atlases Vēsture ir Tukša >"
-
-#: ../panel-plugin/clipman.c:477
-#: ../panel-plugin/clipman.c:542
+#: ../panel-plugin/clipman.c:456
 msgid "Clear History"
 msgstr "Notīrīt Vēsturi"
 
-#: ../panel-plugin/clipman.c:636
+#: ../panel-plugin/clipman.c:550
 msgid "Clipman History"
 msgstr "Starpliktuves Vēsture"
 
-#: ../panel-plugin/clipman.c:658
+#: ../panel-plugin/clipman.c:563
 msgid "< Clipboard Empty >"
 msgstr "< Starpliktuve ir Tukša >"
 
@@ -125,3 +83,35 @@ msgstr "Starpliktuves pārvaldnieks Xfce videi"
 msgid "Clipman"
 msgstr "Starpliktuve"
 
+#~ msgid "_Ignore selections"
+#~ msgstr "_Ignorēt atlasi"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "Novēr_st tukšu starpliktuvi"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Parastā starpliktuves _pārvaldība"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Strikti atdalī_t starpliktuves"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Starpliktuves Uzvedība</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "At_dalīt starpliktuvi"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Izvēlņu Izskats</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Izskats"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Esat drošs, ka vēlaties dzēst no starpliktuves vēstures?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Noklusētā Vēsture ir Tukša >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Atlases Vēsture ir Tukša >"
