@@ -25,6 +25,7 @@
 #include <string.h>
 #include <gtk/gtk.h>
 
+#include <exo/exo.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
@@ -164,7 +165,9 @@ clipman_create_title (gchar *text,
   const gchar          *offset;
 
   g_return_val_if_fail (G_LIKELY (NULL != text), NULL);
-  g_return_val_if_fail (G_LIKELY (g_utf8_validate (text, -1, NULL)), NULL);
+
+  if (G_UNLIKELY (!g_utf8_validate (text, -1, NULL)))
+    return NULL;
 
   short_text = g_strstrip (g_strdup (text));
 
@@ -201,13 +204,15 @@ clipman_add_clip (ClipmanPlugin *clipman, void *data, ClipboardType cliptype, Cl
     if (datatype == RAWTEXT) {
       clip->title = clipman_create_title (data, clipman->MenuCharacters);
     } else {
+      /* Change this to store a pixbuf preview */
       clip->title = clipman_create_title (CLIPIMAGETITLE, clipman->MenuCharacters);
+      clip->preview = exo_gdk_pixbuf_scale_ratio (GDK_PIXBUF (data), 128);
     }
 
   	/* No valid title could be created, drop it */
 	  if (clip->title == NULL) {
 	    DBG("A title couldn't be created");
-	    g_free (clip);
+        panel_slice_free (ClipmanClip, clip);
 	    return;
 	  }
 
@@ -272,12 +277,12 @@ clipman_item_clicked (GtkWidget      *mi,
 {
     gboolean defaultcleared, primarycleared; 
 
-    // This will fucntion will send a clipboard 'owner-change' signal
-    // which we will ignore.
-    IgnoreSignal=TRUE;
-    
+    /* This function will send a clipboard 'owner-change' signal which we will
+     * ignore by setting IgnoreSignal to TRUE. */
+
     /* Left mouse button - put item in BOTH clipboards */
     if (ev->button == 1) {
+      IgnoreSignal=TRUE;
       gtk_clipboard_clear (defaultClip);
       clipman_set_data (action->clip, defaultClip);      
       //gtk_clipboard_set_text (defaultClip, action->clip->data, -1);
@@ -285,6 +290,7 @@ clipman_item_clicked (GtkWidget      *mi,
 	    DBG ("Clip copied to default clipboard");
 
 	    if (action->clipman->AddSelect)	{
+          IgnoreSignal=TRUE;
 	      gtk_clipboard_clear (primaryClip);
         clipman_set_data (action->clip, primaryClip);      
         action->clipman->PrimaryIndex = action->index;
@@ -390,6 +396,18 @@ clipman_create_menuitem (ClipmanAction *action,
     return mi;
 }
 
+static GtkWidget *
+clipman_create_imagemenuitem (ClipmanAction *action) {
+
+    GtkWidget *mi, *image;
+
+    mi = gtk_menu_item_new ();
+    image = gtk_image_new_from_pixbuf (action->clip->preview);
+    gtk_container_add (GTK_CONTAINER (mi), image);
+
+    return mi;
+}
+
 static void
 clipman_build_menu_body (GtkWidget *menu, ClipmanPlugin *clipman) {
                                
@@ -406,18 +424,24 @@ clipman_build_menu_body (GtkWidget *menu, ClipmanPlugin *clipman) {
         action->clip = clip;
         action->index = i;
 
-        if (clipman->DefaultIndex == i) {
+        if (clip->datatype == RAWTEXT) {
+          if (clipman->DefaultIndex == i) {
             mi = clipman_create_menuitem (action, clipman->MenuCharacters,
                                           clipman->clips->len-i, BOLD);
-        }
-        else if (clipman->PrimaryIndex == i) {
+          }
+          else if (clipman->PrimaryIndex == i) {
             mi = clipman_create_menuitem (action, clipman->MenuCharacters,
                                           clipman->clips->len-i, ITALICS);
-        } else {
+          } else {
             mi = clipman_create_menuitem (action, clipman->MenuCharacters,
                                           clipman->clips->len-i, PLAIN);
+          }
+        } else if (clip->datatype == IMAGE) {
+          mi = clipman_create_imagemenuitem (action);
         }
 
+        /* TODO action ends in a leak as it gets never freed in the items that
+         * are not clicked */
         g_signal_connect (G_OBJECT(mi), "button_release_event",
                 G_CALLBACK(clipman_item_clicked), action);
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
@@ -771,6 +795,10 @@ clipman_save (XfcePanelPlugin *plugin,
         {
             clip = g_ptr_array_index (clipman->clips, i);
 
+            /* Don't save the image */
+            if (clip->datatype == IMAGE)
+              continue;
+
             g_snprintf (name, 13, "clip_%d_text", i);
             xfce_rc_write_entry (rc, name, clip->data);
 
@@ -889,6 +917,7 @@ clipman_new (XfcePanelPlugin *plugin)
             G_CALLBACK(clipman_icon_clicked), clipman);
 
     /* Start the clipman_timed_poll function */
+    /* TODO Run the timeout only if the plugin takes care of the selections */
     clipman->TimeoutId = g_timeout_add_full(G_PRIORITY_LOW,
                                             TIMER_INTERVAL,
                                             (GSourceFunc) clipman_timed_poll,

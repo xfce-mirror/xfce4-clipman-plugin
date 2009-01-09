@@ -1,3 +1,14 @@
+2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
+
+A quick review over the changes.
+
+	- Fix g_free(clip) against panel_slice_free(clip)
+	- Add dependency on exo and use exo_gdk_pixbuf_scale_ratio to create a
+	preview of the image inside the menu
+	- Don't save image data inside the rc file
+	- Left two topics as TODO inside the code
+	- At last but not least, bump release to 0.9.0
+
 2008-01-02	Mike Massonnet <mmassonnet@xfce.org>
 
 This is the second part of the rewrite that introduces the storage of an image

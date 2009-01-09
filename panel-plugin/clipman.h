@@ -96,6 +96,7 @@ typedef struct
 {
     void         *data;
     gchar        *title;
+    GdkPixbuf    *preview;
     ClipDataType  datatype;
 }
 ClipmanClip;

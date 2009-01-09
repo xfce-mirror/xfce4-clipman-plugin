@@ -21,10 +21,12 @@ xfce4_clipman_plugin_SOURCES =						\
 	clipman-dialogs.c
 
 xfce4_clipman_plugin_CFLAGS =						\
+	$(EXO_CFLAGS)							\
 	$(LIBXFCEGUI4_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)
 
 xfce4_clipman_plugin_LDADD =						\
+	$(EXO_LIBS)							\
 	$(LIBXFCE4PANEL_LIBS)						\
 	$(LIBXFCEGUI4_LIBS)
 

@@ -4,3 +4,8 @@ Contributors:
 
  Darren Salt <linux@youmustbejoking.demon.co.uk>
   * Patches
+
+ David Collins <david.8.collins@gmail.com>
+  * Rewrite with the motivation to make the plugin more user-friendly and
+    introduce the storage of an image
+
