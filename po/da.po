@@ -2,13 +2,13 @@
 # Copyright (C) 2007 THE xfce4-clipman-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
-# Per Kongstad <p_kongstad@op.pl>, 2008
+# Per Kongstad <p_kongstad@op.pl>, 2008, 09
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
+"Project-Id-Version: xfce4-clipman-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2008-10-07 15:23+0100\n"
+"PO-Revision-Date: 2009-01-09 15:19+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,10 @@ msgstr ""
 #: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr "Kunne ikke åbne denne url: %s"
+msgstr "Kan ikke åbne denne url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Klippebords-håndtering"
 
@@ -33,7 +34,7 @@ msgstr "Gem klippebordsindhold ved _afslutning"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "Ti_lføj markering til historikken"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -64,7 +65,7 @@ msgstr "Generel"
 
 #: ../panel-plugin/clipman.c:98
 msgid "Are you sure you want to clear the history?"
-msgstr "Er du sikker på at, du ønsker at slette historikken?"
+msgstr "Er du sikker på, at du ønsker at slette historikken?"
 
 #: ../panel-plugin/clipman.c:456
 msgid "Clear History"
@@ -80,69 +81,8 @@ msgstr "< Tomt klippebord >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
-msgstr "Klippebords-håndtering for Xfce-skrivebordsmiljø"
+msgstr "Klippebords-håndtering til Xfce-skrivebordsmiljø"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
-
-#~ msgid "_Ignore selections"
-#~ msgstr "_Ignorér markeringer"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "For_hindre tomt klippebord"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "Normal klippebords-_håndtering"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Hold _begge klippeborde strengt adskilte"
-
-#~ msgid "<b>Clipboard Behaviour</b>"
-#~ msgstr "<b>Klippebordsopførsel</b>"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Se_perér klippeborde"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Menuudseende</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Udseende"
-
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr ""
-#~ "Er du sikker på, at du ønsker at fjerne dette udklip fra historikken?"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Standard-historik tom >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Valgte historik tom >"
-
-#~ msgid "Static Clipboard"
-#~ msgstr "Statisk klippebord"
-
-#~ msgid "Ignore _static clipboard"
-#~ msgstr "Ignorér _statisk klippebord"
-
-#~ msgid "Select to Clipboards"
-#~ msgstr "Vælg til klippeborde"
-
-#~ msgid "Default"
-#~ msgstr "Standard"
-
-#~ msgid "Selection"
-#~ msgstr "Markering"
-
-#~ msgid "Both"
-#~ msgstr "Begge"
-
-#~ msgid "< Static Clipboard Empty >"
-#~ msgstr "< Statisk klippebord er tomt >"
-
-#~ msgid "Add static clipboard"
-#~ msgstr "Tilføj statisk klippebord"
-
-#~ msgid "Text:"
-#~ msgstr "Tekst:"
