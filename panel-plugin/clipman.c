@@ -43,7 +43,6 @@ static GtkClipboard *defaultClip;
 /* For event-driven clipboard_change() function */
 gboolean MouseSelecting=FALSE;
 gboolean ShiftSelecting=FALSE;
-gboolean IgnoreSignal=FALSE;
 
 /* Register the plugin */
 static void
@@ -279,12 +278,8 @@ clipman_item_clicked (GtkWidget      *mi,
 {
     gboolean defaultcleared, primarycleared; 
 
-    /* This function will send a clipboard 'owner-change' signal which we will
-     * ignore by setting IgnoreSignal to TRUE. */
-
     /* Left mouse button - put item in BOTH clipboards */
     if (ev->button == 1) {
-      IgnoreSignal=TRUE;
       gtk_clipboard_clear (defaultClip);
       clipman_set_data (action->clip, defaultClip);      
       //gtk_clipboard_set_text (defaultClip, action->clip->data, -1);
@@ -292,7 +287,6 @@ clipman_item_clicked (GtkWidget      *mi,
 	    DBG ("Clip copied to default clipboard");
 
 	    if (action->clipman->AddSelect)	{
-          IgnoreSignal=TRUE;
 	      gtk_clipboard_clear (primaryClip);
         clipman_set_data (action->clip, primaryClip);      
         action->clipman->PrimaryIndex = action->index;
@@ -686,9 +680,9 @@ static void clipman_clipboard_changed(GtkClipboard *clipboard, ClipmanPlugin *cl
 static void clipboard_changed(GtkClipboard *clipboard, GdkEvent *event, ClipmanPlugin *clipman) {
 
   // Signal has been sent by this plugin
-  if (IgnoreSignal) {
+  // (Found a GdkWindow that wraps the native X-window)
+  if (gdk_window_lookup(((GdkEventOwnerChange*)event)->owner)!=NULL) {
     DBG("Signal Ignored");
-    IgnoreSignal=FALSE;
     return;
   }
   

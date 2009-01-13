@@ -1,7 +1,12 @@
+2008-01-13	Mike Massonnet <mmassonnet@xfce.org>
+
+	- Lookup the GdkWindow of the owner to notice if the clipboard was set
+	from within Clipman and drop the IgnoreSignal variable (patch from
+	David Collins)
+
 2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
 
-Update the settings dialog.
-
+	- Update the settings dialog
 	- Move everything to the General tab
 
 2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
