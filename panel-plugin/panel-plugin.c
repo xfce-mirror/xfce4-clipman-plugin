@@ -63,6 +63,10 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
 static gboolean         panel_plugin_set_size           (XfcePanelPlugin *panel_plugin,
                                                          int size,
                                                          MyPlugin *plugin);
+static void             panel_plugin_load               (XfcePanelPlugin *panel_plugin,
+                                                         MyPlugin *plugin);
+static void             panel_plugin_save               (XfcePanelPlugin *panel_plugin,
+                                                         MyPlugin *plugin);
 static void             panel_plugin_free               (XfcePanelPlugin *panel_plugin,
                                                          MyPlugin *plugin);
 static void             cb_button_toggled               (GtkToggleButton *button,
@@ -133,8 +137,13 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Panel Plugin Signals */
   g_signal_connect (panel_plugin, "size-changed",
                     G_CALLBACK (panel_plugin_set_size), plugin);
+  g_signal_connect (panel_plugin, "save",
+                    G_CALLBACK (panel_plugin_save), plugin);
   g_signal_connect (panel_plugin, "free-data",
                     G_CALLBACK (panel_plugin_free), plugin);
+
+  /* Load the data */
+  panel_plugin_load (panel_plugin, plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
@@ -155,6 +164,118 @@ panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
   g_object_unref (G_OBJECT (pixbuf));
 
   return TRUE;
+}
+
+static void
+panel_plugin_load (XfcePanelPlugin *panel_plugin,
+                   MyPlugin *plugin)
+{
+  GtkClipboard *clipboard;
+  GKeyFile *keyfile;
+  gchar **texts = NULL;
+  gchar *filename;
+  GdkPixbuf *image;
+  gint i = 0;
+
+  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+
+  /* Load images */
+  while (TRUE)
+    {
+      filename = g_strdup_printf ("%s/xfce4/clipman/image%d", g_get_user_cache_dir (), i++);
+      DBG ("Loading image from cache file %s", filename);
+      image = gdk_pixbuf_new_from_file (filename, NULL);
+      g_unlink (filename);
+      g_free (filename);
+      if (image == NULL)
+        break;
+
+      clipman_history_add_image (plugin->history, image, clipboard);
+      g_object_unref (image);
+    }
+
+  /* Load texts */
+  filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
+  DBG ("Loading texts from cache file %s", filename);
+  keyfile = g_key_file_new ();
+  if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, NULL))
+    {
+      texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
+      for (i = 0; texts != NULL && texts[i] != NULL; i++)
+        clipman_history_add_text (plugin->history, texts[i], clipboard);
+      g_unlink (filename);
+    }
+
+  g_key_file_free (keyfile);
+  g_strfreev (texts);
+  g_free (filename);
+
+  /* Set no current item */
+  clipman_history_set_item_to_restore (plugin->history, NULL);
+}
+
+static void
+panel_plugin_save (XfcePanelPlugin *panel_plugin,
+                   MyPlugin *plugin)
+{
+  GSList *list, *l;
+  const ClipmanHistoryItem *item;
+  GKeyFile *keyfile;
+  const gchar **texts;
+  gchar *data;
+  gchar *filename;
+  gint n_texts, n_images;
+
+  /* Create initial directory */
+  filename = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
+  g_free (filename);
+
+  /* Save the history */
+  list = clipman_history_get_list (plugin->history);
+  if (list != NULL)
+    {
+      texts = g_malloc0 (g_slist_length (list));
+      for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
+        {
+          item = l->data;
+
+          switch (item->type)
+            {
+            case CLIPMAN_HISTORY_TYPE_TEXT:
+              texts[n_texts++] = item->content.text;
+              break;
+
+            case CLIPMAN_HISTORY_TYPE_IMAGE:
+              filename = g_strdup_printf ("%s/xfce4/clipman/image%d", g_get_user_cache_dir (), n_images++);
+              if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
+                g_debug ("Failed to save image to cache file %s", filename);
+              else
+                DBG ("Saved image to cache file %s", filename);
+              g_free (filename);
+              break;
+
+            default:
+              g_assert_not_reached ();
+            }
+        }
+
+      if (n_texts > 0)
+        {
+          filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
+          keyfile = g_key_file_new ();
+          g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
+          data = g_key_file_to_data (keyfile, NULL, NULL);
+          g_file_set_contents (filename, data, -1, NULL);
+          DBG ("Saved texts to cache file %s", filename);
+
+          g_key_file_free (keyfile);
+          g_free (data);
+          g_free (filename);
+          g_free (texts);
+        }
+
+      g_slist_free (list);
+    }
 }
 
 static void

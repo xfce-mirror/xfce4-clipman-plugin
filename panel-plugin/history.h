@@ -89,8 +89,7 @@ void                        clipman_history_add_text               (ClipmanHisto
 void                        clipman_history_add_image              (ClipmanHistory *history,
                                                                     const GdkPixbuf *image,
                                                                     GtkClipboard *clipboard);
-const GSList *              clipman_history_get_texts              (ClipmanHistory *history);
-const GSList *              clipman_history_get_images             (ClipmanHistory *history);
+GSList *                    clipman_history_get_list               (ClipmanHistory *history);
 const ClipmanHistoryItem *  clipman_history_get_item_to_restore    (ClipmanHistory *history);
 void                        clipman_history_set_item_to_restore    (ClipmanHistory *history,
                                                                     const ClipmanHistoryItem *item);

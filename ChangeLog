@@ -1,3 +1,16 @@
+2009-01-13	Mike Massonnet
+Save the history on disk.
+
+	- panel-plugin/history.c, panel-plugin/history.h:
+		New function clipman_history_get_list() and drop the functions
+		clipman_history_get_texts() and clipman_history_get_images().
+	- panel-plugin/menu.c(_clipman_menu_update_list):
+		Use the new function replacement from ClipmanHistory.
+	- panel-plugin/panel-plugin.c:
+		Implement new functions panel_plugin_load() and
+		panel_plugin_save() to respectively load the history (images
+		and texts) and save the history.
+
 2009-01-09	Mike Massonnet
 Some small fixes.
 

@@ -131,7 +131,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   GtkWidget *mi, *image;
   ClipmanHistoryItem *item;
   const ClipmanHistoryItem *item_to_restore;
-  const GSList *list;
+  GSList *list, *l;
   gint pos = 0, i;
 
   /* Get the most recent item in the history */
@@ -144,46 +144,40 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
 
   /* Insert an updated list of menu items */
-  for (i = 0; i < 2; i++)
+  list = clipman_history_get_list (menu->priv->history);
+  for (l = list; l != NULL; l = l->next)
     {
-      if (i == 0)
-        list = clipman_history_get_images (menu->priv->history);
-      else if (i == 1)
-        list = clipman_history_get_texts (menu->priv->history);
+      item = l->data;
 
-      for (; list != NULL; list = list->next)
+      switch (item->type)
         {
-          item = list->data;
+        case CLIPMAN_HISTORY_TYPE_TEXT:
+          mi = gtk_image_menu_item_new_with_label (item->preview.text);
+          g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
+          break;
 
-          switch (item->type)
-            {
-            case CLIPMAN_HISTORY_TYPE_TEXT:
-              mi = gtk_image_menu_item_new_with_label (item->preview.text);
-              g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-              break;
+        case CLIPMAN_HISTORY_TYPE_IMAGE:
+          mi = gtk_image_menu_item_new ();
+          image = gtk_image_new_from_pixbuf (item->preview.image);
+          gtk_container_add (GTK_CONTAINER (mi), image);
+          g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
+          break;
 
-            case CLIPMAN_HISTORY_TYPE_IMAGE:
-              mi = gtk_image_menu_item_new ();
-              image = gtk_image_new_from_pixbuf (item->preview.image);
-              gtk_container_add (GTK_CONTAINER (mi), image);
-              g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-              break;
-
-            default:
-              g_assert_not_reached ();
-            }
-
-          if (item == item_to_restore)
-            {
-              image = gtk_image_new_from_stock (GTK_STOCK_GO_FORWARD, GTK_ICON_SIZE_MENU);
-              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-            }
-
-          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
-          gtk_widget_show_all (mi);
+        default:
+          g_assert_not_reached ();
         }
+
+      if (item == item_to_restore)
+        {
+          image = gtk_image_new_from_stock (GTK_STOCK_GO_FORWARD, GTK_ICON_SIZE_MENU);
+          gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+        }
+
+      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
+      gtk_widget_show_all (mi);
     }
+  g_slist_free (list);
 
   if (pos == 0)
     {

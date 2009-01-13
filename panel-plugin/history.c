@@ -180,6 +180,15 @@ __g_slist_compare_texts (gconstpointer a,
  * Public methods
  */
 
+/**
+ * clipman_history_add_text:
+ * @history:    a #ClipmanHistory
+ * @text:       the text to add to the history
+ * @clipboard:  the #GtkClipboard from where the text is originating from
+ *
+ * Stores a text inside the history.  If the history is growing over the
+ * maximum number of items, it will delete the oldest text.
+ */
 void
 clipman_history_add_text (ClipmanHistory *history,
                           const gchar *text,
@@ -236,6 +245,15 @@ clipman_history_add_text (ClipmanHistory *history,
   _clipman_history_add_item (history, item);
 }
 
+/**
+ * clipman_history_add_image:
+ * @history:    a #ClipmanHistory
+ * @image:      the image to add to the history
+ * @clipboard:  the #GtkClipboard from where the image is originating from
+ *
+ * Stores an image inside the history.  If the history is growing over the
+ * maximum number of items, it will delete the oldest image.
+ */
 void
 clipman_history_add_image (ClipmanHistory *history,
                            const GdkPixbuf *image,
@@ -259,16 +277,18 @@ clipman_history_add_image (ClipmanHistory *history,
   _clipman_history_add_item (history, item);
 }
 
-const GSList *
-clipman_history_get_texts (ClipmanHistory *history)
+/**
+ * clipman_history_get_list:
+ * @history: a #ClipmanHistory
+ *
+ * Returns a unique list of the images and texts.
+ *
+ * Returns: a newly allocated #GSList that must be freed with g_slist_free()
+ */
+GSList *
+clipman_history_get_list (ClipmanHistory *history)
 {
-  return history->priv->texts;
-}
-
-const GSList *
-clipman_history_get_images (ClipmanHistory *history)
-{
-  return history->priv->images;
+  return g_slist_concat (g_slist_copy (history->priv->images), g_slist_copy (history->priv->texts));
 }
 
 /**
