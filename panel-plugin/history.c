@@ -40,15 +40,17 @@ struct _ClipmanHistoryPrivate
 {
   GSList               *texts;
   GSList               *images;
+  const ClipmanHistoryItem *item_to_restore;
   guint                 max_texts_in_history;
   guint                 max_images_in_history;
-  const ClipmanHistoryItem *item_to_restore;
+  gboolean              save_on_quit;
 };
 
 enum
 {
   MAX_TEXTS_IN_HISTORY = 1,
   MAX_IMAGES_IN_HISTORY,
+  SAVE_ON_QUIT,
 };
 
 static void             clipman_history_class_init         (ClipmanHistoryClass *klass);
@@ -401,6 +403,13 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                       "The number of maximum images in history",
                                                       0, 5, 1,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+  g_object_class_install_property (object_class,
+                                   SAVE_ON_QUIT,
+                                   g_param_spec_boolean ("save-on-quit",
+                                                         "SaveOnQuit",
+                                                         "True if the history must be saved on quit",
+                                                         TRUE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -434,6 +443,10 @@ clipman_history_set_property (GObject *object,
       priv->max_images_in_history = g_value_get_uint (value);
       break;
 
+    case SAVE_ON_QUIT:
+      priv->save_on_quit = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -455,6 +468,10 @@ clipman_history_get_property (GObject *object,
 
     case MAX_IMAGES_IN_HISTORY:
       g_value_set_uint (value, priv->max_images_in_history);
+      break;
+
+    case SAVE_ON_QUIT:
+      g_value_set_boolean (value, priv->save_on_quit);
       break;
 
     default:

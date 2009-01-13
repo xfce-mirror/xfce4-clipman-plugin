@@ -113,6 +113,8 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                           G_TYPE_UINT, plugin->history, "max-texts-in-history");
   xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history",
                           G_TYPE_UINT, plugin->history, "max-images-in-history");
+  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit",
+                          G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
 
   /* ClipmanCollector */
   plugin->collector = clipman_collector_get ();
@@ -176,6 +178,12 @@ panel_plugin_load (XfcePanelPlugin *panel_plugin,
   gchar *filename;
   GdkPixbuf *image;
   gint i = 0;
+  gboolean save_on_quit;
+
+  /* Return if the history must not be saved */
+  g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
+  if (save_on_quit == FALSE)
+    return;
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
 
@@ -225,6 +233,12 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
   gchar *data;
   gchar *filename;
   gint n_texts, n_images;
+  gboolean save_on_quit;
+
+  /* Return if the history must not be saved */
+  g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
+  if (save_on_quit == FALSE)
+    return;
 
   /* Create initial directory */
   filename = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);

@@ -1,4 +1,13 @@
 2009-01-13	Mike Massonnet
+New property in ClipmanHistory "save-on-quit".
+
+	- panel-plugin/history.c:
+		Install new property "save-on-quit".
+	- panel-plugin/panel-plugin.c:
+		Bind property "save-on-quit" from ClipmanHistory to Xfconf and
+		use it in plugin_panel_load() and plugin_panel_save().
+
+2009-01-13	Mike Massonnet
 Save the history on disk.
 
 	- panel-plugin/history.c, panel-plugin/history.h:
