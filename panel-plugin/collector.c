@@ -24,6 +24,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <xfconf/xfconf.h>
 
+#include "common.h"
 #include "history.h"
 
 #include "collector.h"
@@ -42,13 +43,13 @@ struct _ClipmanCollectorPrivate
   GtkClipboard         *default_clipboard;
   GtkClipboard         *primary_clipboard;
   guint                 primary_clipboard_timeout;
-  gboolean              ignore_primary_clipboard;
+  gboolean              add_primary_clipboard;
   gboolean              restoring;
 };
 
 enum
 {
-  IGNORE_PRIMARY_CLIPBOARD = 1,
+  ADD_PRIMARY_CLIPBOARD = 1,
 };
 
 static void             clipman_collector_class_init        (ClipmanCollectorClass *klass);
@@ -117,7 +118,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
            * (Ctrl+Q in general).  Most of the time the primary clipboard will
            * be set empty ("") instead of being destroyed when the application
            * closes (Alt+F4). */
-          if (!collector->priv->ignore_primary_clipboard)
+          if (collector->priv->add_primary_clipboard)
             _clipman_collector_restore_clipboard (collector, collector->priv->primary_clipboard);
         }
 
@@ -151,7 +152,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
        * actually check inside a delayed timeout if the mouse is still pressed
        * or if the shift key is hold down, and once both are released the
        * content will go to the history. */
-      if (!collector->priv->ignore_primary_clipboard)
+      if (collector->priv->add_primary_clipboard)
         {
           if (collector->priv->primary_clipboard_timeout == 0)
             collector->priv->primary_clipboard_timeout =
@@ -277,11 +278,11 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
   object_class->set_property = clipman_collector_set_property;
   object_class->get_property = clipman_collector_get_property;
 
-  g_object_class_install_property (object_class, IGNORE_PRIMARY_CLIPBOARD,
-                                   g_param_spec_boolean ("ignore-primary-clipboard",
-                                                         "IgnorePrimaryClipboard",
-                                                         "Ignore the primary clipboard",
-                                                         TRUE,
+  g_object_class_install_property (object_class, ADD_PRIMARY_CLIPBOARD,
+                                   g_param_spec_boolean ("add-primary-clipboard",
+                                                         "AddPrimaryClipboard",
+                                                         "Add the primary clipboard to the history",
+                                                         DEFAULT_ADD_PRIMARY_CLIPBOARD,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
@@ -330,8 +331,8 @@ clipman_collector_set_property (GObject *object,
 
   switch (property_id)
     {
-    case IGNORE_PRIMARY_CLIPBOARD:
-      priv->ignore_primary_clipboard = g_value_get_boolean (value);
+    case ADD_PRIMARY_CLIPBOARD:
+      priv->add_primary_clipboard = g_value_get_boolean (value);
       break;
 
     default:
@@ -349,8 +350,8 @@ clipman_collector_get_property (GObject *object,
 
   switch (property_id)
     {
-    case IGNORE_PRIMARY_CLIPBOARD:
-      g_value_set_boolean (value, priv->ignore_primary_clipboard);
+    case ADD_PRIMARY_CLIPBOARD:
+      g_value_set_boolean (value, priv->add_primary_clipboard);
       break;
 
     default:

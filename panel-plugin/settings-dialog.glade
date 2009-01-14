@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Wed Jan 14 20:13:28 2009 -->
+<glade-interface>
+  <requires lib="xfce4"/>
+  <widget class="XfceTitledDialog" id="settings-dialog">
+    <property name="title">Clipman</property>
+    <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <property name="icon_name">gtk-paste</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+    <property name="has_separator">False</property>
+    <property name="subtitle" translatable="yes">Configure the plugin</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <widget class="GtkNotebook" id="notebook1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="border_width">6</property>
+            <property name="show_tabs">False</property>
+            <child>
+              <widget class="GtkVBox" id="vbox1">
+                <property name="visible">True</property>
+                <property name="border_width">6</property>
+                <property name="spacing">2</property>
+                <child>
+                  <widget class="GtkFrame" id="frame1">
+                    <property name="visible">True</property>
+                    <property name="label_xalign">0</property>
+                    <property name="shadow_type">GTK_SHADOW_NONE</property>
+                    <child>
+                      <widget class="GtkAlignment" id="alignment1">
+                        <property name="visible">True</property>
+                        <property name="top_padding">6</property>
+                        <property name="left_padding">12</property>
+                        <child>
+                          <widget class="GtkVBox" id="vbox2">
+                            <property name="visible">True</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <widget class="GtkCheckButton" id="save-on-quit">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="tooltip" translatable="yes">If checked, this option will restore the history on every new Xfce session</property>
+                                <property name="label" translatable="yes">Save on _quit</property>
+                                <property name="use_underline">True</property>
+                                <property name="response_id">0</property>
+                                <property name="draw_indicator">True</property>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkCheckButton" id="add-selections">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="tooltip" translatable="yes">If checked, the selections will go into the history. This behavior can be very verbose and make the whole history unusable. However it can be useful if you wish to always copy the selections to the default clipboard, in a way that you can paste what you select.</property>
+                                <property name="label" translatable="yes">Add _selections</property>
+                                <property name="use_underline">True</property>
+                                <property name="response_id">0</property>
+                                <property name="draw_indicator">True</property>
+                              </widget>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkCheckButton" id="store-an-image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="tooltip" translatable="yes">If checked, this option allows to store one image inside the history</property>
+                                <property name="label" translatable="yes">Store an _image</property>
+                                <property name="use_underline">True</property>
+                                <property name="response_id">0</property>
+                                <property name="draw_indicator">True</property>
+                              </widget>
+                              <packing>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkHBox" id="hbox1">
+                                <property name="visible">True</property>
+                                <child>
+                                  <widget class="GtkLabel" id="label5">
+                                    <property name="visible">True</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Size of the _history:</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="mnemonic_widget">max-texts-in-history</property>
+                                  </widget>
+                                </child>
+                                <child>
+                                  <widget class="GtkSpinButton" id="max-texts-in-history">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="adjustment">6 5 100 1 10 10</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="position">3</property>
+                              </packing>
+                            </child>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkLabel" id="label3">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;b&gt;History&lt;/b&gt;</property>
+                        <property name="use_markup">True</property>
+                      </widget>
+                      <packing>
+                        <property name="type">label_item</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">General</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox3">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="border_width">6</property>
+                <child>
+                  <widget class="GtkScrolledWindow" id="scrolledwindow1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="shadow_type">GTK_SHADOW_IN</property>
+                    <child>
+                      <widget class="GtkTreeView" id="actions">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="rules_hint">True</property>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkHButtonBox" id="hbuttonbox1">
+                    <property name="visible">True</property>
+                    <property name="border_width">6</property>
+                    <property name="homogeneous">True</property>
+                    <property name="layout_style">GTK_BUTTONBOX_SPREAD</property>
+                    <child>
+                      <widget class="GtkButton" id="button2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="label" translatable="yes">gtk-add</property>
+                        <property name="use_stock">True</property>
+                        <property name="response_id">0</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkButton" id="button3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="label" translatable="yes">gtk-remove</property>
+                        <property name="use_stock">True</property>
+                        <property name="response_id">0</property>
+                      </widget>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label2">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Actions</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">GTK_BUTTONBOX_END</property>
+            <child>
+              <widget class="GtkButton" id="button1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">gtk-close</property>
+                <property name="use_stock">True</property>
+                <property name="response_id">0</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

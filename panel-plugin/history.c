@@ -26,6 +26,8 @@
 #include <exo/exo.h>
 #include <libxfce4util/libxfce4util.h>
 
+#include "common.h"
+
 #include "history.h"
 
 /*
@@ -394,21 +396,21 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                    g_param_spec_uint ("max-texts-in-history",
                                                       "MaxTextsInHistory",
                                                       "The number of maximum texts in history",
-                                                      5, 100, 10,
+                                                      5, 100, DEFAULT_MAX_TEXTS_IN_HISTORY,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
                                    MAX_IMAGES_IN_HISTORY,
                                    g_param_spec_uint ("max-images-in-history",
                                                       "MaxImagesInHistory",
                                                       "The number of maximum images in history",
-                                                      0, 5, 1,
+                                                      0, 5, DEFAULT_MAX_IMAGES_IN_HISTORY,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
                                    SAVE_ON_QUIT,
                                    g_param_spec_boolean ("save-on-quit",
                                                          "SaveOnQuit",
                                                          "True if the history must be saved on quit",
-                                                         TRUE,
+                                                         DEFAULT_SAVE_ON_QUIT,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 

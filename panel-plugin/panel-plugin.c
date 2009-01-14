@@ -26,7 +26,10 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4panel/xfce-panel-convenience.h>
 #include <xfconf/xfconf.h>
+#include <glade/glade.h>
 
+#include "common.h"
+#include "settings-dialog_glade.h"
 #include "collector.h"
 #include "history.h"
 #include "menu.h"
@@ -62,6 +65,8 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
 
 static gboolean         panel_plugin_set_size           (XfcePanelPlugin *panel_plugin,
                                                          int size,
+                                                         MyPlugin *plugin);
+static void             panel_plugin_configure          (XfcePanelPlugin *panel_plugin,
                                                          MyPlugin *plugin);
 static void             panel_plugin_load               (XfcePanelPlugin *panel_plugin,
                                                          MyPlugin *plugin);
@@ -118,8 +123,8 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   /* ClipmanCollector */
   plugin->collector = clipman_collector_get ();
-  xfconf_g_property_bind (plugin->channel, "/settings/ignore-primary-clipboard",
-                          G_TYPE_BOOLEAN, plugin->collector, "ignore-primary-clipboard");
+  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
+                          G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
 
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
@@ -139,6 +144,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Panel Plugin Signals */
   g_signal_connect (panel_plugin, "size-changed",
                     G_CALLBACK (panel_plugin_set_size), plugin);
+  xfce_panel_plugin_menu_show_configure (panel_plugin);
+  g_signal_connect (panel_plugin, "configure-plugin",
+                    G_CALLBACK (panel_plugin_configure), plugin);
   g_signal_connect (panel_plugin, "save",
                     G_CALLBACK (panel_plugin_save), plugin);
   g_signal_connect (panel_plugin, "free-data",
@@ -166,6 +174,44 @@ panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
   g_object_unref (G_OBJECT (pixbuf));
 
   return TRUE;
+}
+
+static void
+panel_plugin_configure (XfcePanelPlugin *panel_plugin,
+                        MyPlugin *plugin)
+{
+  GladeXML *gxml;
+  GtkWidget *dialog;
+
+  /* Get GladeXML and the dialog */
+  gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
+  dialog = glade_xml_get_widget (gxml, "settings-dialog");
+
+  /* Set default values */
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "save-on-quit")),
+                                DEFAULT_SAVE_ON_QUIT);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "add-selections")),
+                                DEFAULT_ADD_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "store-an-image")),
+                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (gxml, "max-texts-in-history")),
+                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
+
+  /* Bind the properties to Xfconf */
+  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (gxml, "save-on-quit")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (gxml, "add-selections")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history", G_TYPE_UINT,
+                          G_OBJECT (glade_xml_get_widget (gxml, "store-an-image")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history", G_TYPE_UINT,
+                          G_OBJECT (glade_xml_get_widget (gxml, "max-texts-in-history")), "value");
+
+  /* Run the dialog */
+  gtk_dialog_run (GTK_DIALOG (dialog));
+
+  gtk_widget_destroy (dialog);
+  g_object_unref (gxml);
 }
 
 static void

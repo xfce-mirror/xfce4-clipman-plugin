@@ -1,3 +1,19 @@
+2009-01-14	Mike Massonnet
+The settings dialog is in.
+
+	- configure.ac.in, panel-plugin/Makefile.am:
+		Add Glade dependency for the settings dialog.
+	- panel-plugin/common.h, panel-plugin/history.c,
+	panel-plugin/collector.c:
+		Declare define names for the default values, also rename the
+		property ignore-primary-clipboard from ClipmanCollector to
+		add-primary-clipboard to keep the easiness of Xfconf bindings
+		inside the settings dialog.
+	- panel-plugin/panel-plugin.c:
+		Connect configure function from XfcePanelPlugin.
+	- panel-plugin/settings-dialog.glade:
+		The Glade interface of the settings dialog.
+
 2009-01-13	Mike Massonnet
 New property in ClipmanHistory "save-on-quit".
 
