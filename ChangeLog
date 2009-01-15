@@ -2,6 +2,8 @@
 
 	- Fix a leak by freeing the ClipmanAction structs
 	- Don't show the tabs in the settings dialog and use the gtk-paste icon
+	- Backport from xfce-4-6 branch to save/load the history to/from cached
+	files living inside ~/.cache.
 
 2008-01-13	Mike Massonnet <mmassonnet@xfce.org>
 

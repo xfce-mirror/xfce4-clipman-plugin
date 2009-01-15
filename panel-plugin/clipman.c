@@ -752,13 +752,16 @@ void
 clipman_save (XfcePanelPlugin *plugin,
               ClipmanPlugin   *clipman)
 {
+    gchar       *file, *image_path;
     XfceRc      *rc;
-    gchar       *file;
-    guint        i;
-    gchar        name[13];
+    GKeyFile    *keyfile;
+    gchar       *data;
+    const gchar **texts;
+    gint        i, n_texts;
     ClipmanClip *clip;
 
-    DBG("Saving clipman settings");
+    /* Save the preferences */
+    DBG("Saving clipman preferences");
 
     file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
 
@@ -768,7 +771,6 @@ clipman_save (XfcePanelPlugin *plugin,
     rc = xfce_rc_simple_open (file, FALSE);
     g_free (file);
 
-    /* Save the preferences */
     xfce_rc_set_group (rc, "Properties");
 
     xfce_rc_write_bool_entry (rc, "ExitSave",     clipman->ExitSave);
@@ -779,44 +781,62 @@ clipman_save (XfcePanelPlugin *plugin,
     xfce_rc_write_int_entry (rc, "HistoryItems",   clipman->HistoryItems);
     xfce_rc_write_int_entry (rc, "MenuCharacters", clipman->MenuCharacters);
 
-    /* Remove old content and create a new one */
-    xfce_rc_delete_group (rc, "Clips", TRUE );
+    xfce_rc_close (rc);
 
+    /* Save history */
     if (clipman->ExitSave &&
         clipman->clips->len > 0
        )
     {
         DBG("Saving the clipboard history");
 
-        xfce_rc_set_group (rc, "Clips");
-        xfce_rc_write_int_entry (rc, "ClipsLen", clipman->clips->len);
+        file = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/textsrc", TRUE);
+        if (file == NULL)
+        {
+            g_warning ("Unable to save the clipman history");
+            return;
+        }
 
-        for (i = 0; i < clipman->clips->len; ++i)
+        texts = g_malloc0 (clipman->clips->len);
+        for (n_texts = i = 0; i < clipman->clips->len; i++)
         {
             clip = g_ptr_array_index (clipman->clips, i);
 
-            /* Don't save the image */
+            /* Save the image */
             if (clip->datatype == IMAGE)
-              continue;
+            {
+                image_path = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/image.png", FALSE);
+                gdk_pixbuf_save (GDK_PIXBUF (clip->data), image_path, "png", NULL, NULL);
+                g_free (image_path);
+                continue;
+            }
 
-            g_snprintf (name, 13, "clip_%d_text", i);
-            xfce_rc_write_entry (rc, name, clip->data);
-
-            g_snprintf (name, 13, "clip_%d_from", i);
-            xfce_rc_write_int_entry (rc, name, 1);
+            texts[n_texts++] = clip->data;
         }
-    }
 
-    xfce_rc_close (rc);
+        if (n_texts > 0)
+        {
+            keyfile = g_key_file_new ();
+            g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
+            data = g_key_file_to_data (keyfile, NULL, NULL);
+            g_file_set_contents (file, data, -1, NULL);
+            g_free (data);
+            g_key_file_free (keyfile);
+        }
+        g_free (texts);
+        g_free (file);
+    }
 }
 
 static void
 clipman_read (ClipmanPlugin *clipman)
 {
+    gchar       *file;
     XfceRc      *rc;
-    gchar       *file, *value;
-    guint        type, i, clipslen;
-    gchar        name[13];
+    GKeyFile    *keyfile;
+    gchar       **texts = NULL;
+    GdkPixbuf   *image;
+    gint        i;
 
     /* Because Clipman is unique, we use 1 config file */
     /*
@@ -824,6 +844,8 @@ clipman_read (ClipmanPlugin *clipman)
     DBG("Read from file: %s", file);
     */
 
+    /* Restore the preferences */
+    DBG ("Restoring preferences");
     file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/clipman.rc", TRUE);
 
     if (G_UNLIKELY (!file))
@@ -851,36 +873,38 @@ clipman_read (ClipmanPlugin *clipman)
     if (clipman->MenuCharacters < MINCHARS)
         clipman->MenuCharacters = MINCHARS;
 
-    xfce_rc_set_group (rc, "Clips");
-    clipslen = xfce_rc_read_int_entry (rc, "ClipsLen", 0);
+    xfce_rc_close (rc);
 
-    if (clipslen > MAXHISTORY)
-        clipslen = MAXHISTORY;
+    if (!clipman->ExitSave)
+      return;
 
-    if (clipman->ExitSave &&
-        clipslen > 0
-       )
+    /* Restore the history */
+    DBG("Restoring the clipboard");
+    file = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/textsrc", FALSE);
+    keyfile = g_key_file_new ();
+    if (g_key_file_load_from_file (keyfile, file, G_KEY_FILE_NONE, NULL))
     {
-        DBG("Restoring the clipboard");
+        texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
+        for (i = 0; texts != NULL && texts[i] != NULL && i < clipman->HistoryItems; i++)
+          clipman_add_clip (clipman, texts[i], DEFAULT, RAWTEXT);
+        g_unlink (file);
+    }
+    g_key_file_free (keyfile);
+    g_strfreev (texts);
+    g_free (file);
 
-        for (i = 0; i < clipslen; ++i)
-        {
-            g_snprintf (name, 13, "clip_%d_text", i);
-            value = g_strdup (xfce_rc_read_entry (rc, name, ""));
-
-            g_snprintf (name, 13, "clip_%d_from", i);
-            type = xfce_rc_read_int_entry (rc, name, 0);
-
-            if (type == 0)
-                clipman_add_clip (clipman, value, PRIMARY, RAWTEXT);
-            else
-                clipman_add_clip (clipman, value, DEFAULT, RAWTEXT);
-
-	    g_free (value);
-        }
+    file = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/image.png", FALSE);
+    image = gdk_pixbuf_new_from_file (file, NULL);
+    g_unlink (file);
+    g_free (file);
+    if (image != NULL)
+    {
+        clipman_add_clip (clipman, image, DEFAULT, IMAGE);
+        g_object_unref (image);
     }
 
-    xfce_rc_close (rc);
+    clipman->DefaultIndex = -1;
+    clipman->PrimaryIndex = -1;
 }
 
 static ClipmanPlugin *
