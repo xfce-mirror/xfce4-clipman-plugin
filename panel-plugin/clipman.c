@@ -665,6 +665,7 @@ static void clipman_clipboard_changed(GtkClipboard *clipboard, ClipmanPlugin *cl
           clipman_add_clip (clipman, ptext, PRIMARY, RAWTEXT);
           clipman_array_remove_oldest (clipman);
         }
+        //gtk_clipboard_set_text (defaultClip, ptext, -1);
         g_free (ptext);
         
       // If an image has been selected, don't process it - but reset PrimaryIndex
@@ -797,7 +798,7 @@ clipman_save (XfcePanelPlugin *plugin,
             return;
         }
 
-        texts = g_malloc0 (clipman->clips->len);
+        texts = g_malloc0 (clipman->clips->len * sizeof (gchar*));
         for (n_texts = i = 0; i < clipman->clips->len; i++)
         {
             clip = g_ptr_array_index (clipman->clips, i);
