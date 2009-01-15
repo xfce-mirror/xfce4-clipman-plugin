@@ -1,3 +1,17 @@
+2009-01-15	Mike Massonnet
+Some minor changes.
+
+	- panel-plugin/panel-plugin.c(panel_plugin_configure),
+	panel-plugin/settings-dialog.glade:
+		The menu is blocked while the dialog is shown.  Set the dialog
+		transient for the panel plugin toplevel window and destroy with
+		the parent (this introduces a bug: the panel button remains
+		unclickable but dunno why).
+	- panel-plugin/collector.c(cb_check_primary_clipboard):
+		Change the behavior of the "add-primary-selection" option to
+		copy the text to the default clipboard, so that it now behaves
+		like "what you select can be pasted".
+
 2009-01-14	Mike Massonnet
 The settings dialog is in.
 

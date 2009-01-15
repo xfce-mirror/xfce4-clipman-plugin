@@ -177,7 +177,13 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
     {
       text = gtk_clipboard_wait_for_text (collector->priv->primary_clipboard);
       if (text != NULL && text[0] != '\0')
-        clipman_history_add_text (collector->priv->history, text, collector->priv->primary_clipboard);
+        {
+          clipman_history_add_text (collector->priv->history, text, collector->priv->primary_clipboard);
+
+          /* Make a copy inside the default clipboard */
+          collector->priv->restoring = TRUE;
+          gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+        }
       g_free (text);
     }
   else

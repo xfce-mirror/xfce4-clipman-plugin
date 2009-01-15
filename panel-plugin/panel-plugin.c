@@ -186,6 +186,10 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   /* Get GladeXML and the dialog */
   gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
   dialog = glade_xml_get_widget (gxml, "settings-dialog");
+  /* FIXME Doing this with Glade makes the panel button unclickable... but
+   * still we need to destroy the dialog when the panel quits, so keep it. */
+  gtk_window_set_transient_for (GTK_WINDOW (dialog),
+                                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
 
   /* Set default values */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "save-on-quit")),
@@ -197,7 +201,7 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (gxml, "max-texts-in-history")),
                              (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
 
-  /* Bind the properties to Xfconf */
+  /* Bind the Xfconf properties to the widgets */
   xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
                           G_OBJECT (glade_xml_get_widget (gxml, "save-on-quit")), "active");
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
@@ -208,7 +212,9 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
                           G_OBJECT (glade_xml_get_widget (gxml, "max-texts-in-history")), "value");
 
   /* Run the dialog */
+  xfce_panel_plugin_block_menu (panel_plugin);
   gtk_dialog_run (GTK_DIALOG (dialog));
+  xfce_panel_plugin_unblock_menu (panel_plugin);
 
   gtk_widget_destroy (dialog);
   g_object_unref (gxml);
