@@ -11,6 +11,8 @@ Some minor changes.
 		Change the behavior of the "add-primary-selection" option to
 		copy the text to the default clipboard, so that it now behaves
 		like "what you select can be pasted".
+	- panel-plugin/panel-plugin.c(panel_plugin_load,panel_plugin_save):
+		Load/Save the images with the extension ".png".
 
 2009-01-14	Mike Massonnet
 The settings dialog is in.

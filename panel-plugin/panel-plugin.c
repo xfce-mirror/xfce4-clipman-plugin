@@ -242,7 +242,7 @@ panel_plugin_load (XfcePanelPlugin *panel_plugin,
   /* Load images */
   while (TRUE)
     {
-      filename = g_strdup_printf ("%s/xfce4/clipman/image%d", g_get_user_cache_dir (), i++);
+      filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), i++);
       DBG ("Loading image from cache file %s", filename);
       image = gdk_pixbuf_new_from_file (filename, NULL);
       g_unlink (filename);
@@ -312,7 +312,7 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
               break;
 
             case CLIPMAN_HISTORY_TYPE_IMAGE:
-              filename = g_strdup_printf ("%s/xfce4/clipman/image%d", g_get_user_cache_dir (), n_images++);
+              filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), n_images++);
               if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
                 g_debug ("Failed to save image to cache file %s", filename);
               else
