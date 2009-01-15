@@ -86,6 +86,7 @@ typedef struct
     GPtrArray    *clips;
     gint          DefaultIndex;
     gint          PrimaryIndex;
+    GSList       *actions;
 
     gboolean      ItemNumbers;
 

@@ -1,3 +1,8 @@
+2008-01-15	Mike Massonnet <mmassonnet@xfce.org>
+
+	- Fix a leak by freeing the ClipmanAction structs
+	- Don't show the tabs in the settings dialog and use the gtk-paste icon
+
 2008-01-13	Mike Massonnet <mmassonnet@xfce.org>
 
 	- Lookup the GdkWindow of the owner to notice if the clipboard was set

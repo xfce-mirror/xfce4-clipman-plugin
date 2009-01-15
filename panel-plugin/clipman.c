@@ -81,9 +81,17 @@ static void
 clipman_destroy_menu (GtkWidget     *menu,
                       ClipmanPlugin *clipman)
 {
+    GSList *l;
+
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (clipman->button), FALSE);
 
     gtk_widget_destroy (menu);
+
+    /* Clear ClipmanAction structs */
+    for (l = clipman->actions; l != NULL; l = l->next)
+      panel_slice_free (ClipmanAction, l->data);
+    g_slist_free (clipman->actions);
+    clipman->actions = NULL;
 
     DBG ("Menu Destroyed");
 }
@@ -352,9 +360,6 @@ clipman_item_clicked (GtkWidget      *mi,
     	} 
     }
 
-    // Menu disappears ..
-    panel_slice_free (ClipmanAction, action);
-
     return FALSE;
 }
 
@@ -436,8 +441,7 @@ clipman_build_menu_body (GtkWidget *menu, ClipmanPlugin *clipman) {
           mi = clipman_create_imagemenuitem (action);
         }
 
-        /* TODO action ends in a leak as it gets never freed in the items that
-         * are not clicked */
+        clipman->actions = g_slist_prepend (clipman->actions, action);
         g_signal_connect (G_OBJECT(mi), "button_release_event",
                 G_CALLBACK(clipman_item_clicked), action);
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);

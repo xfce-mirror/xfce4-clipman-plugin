@@ -143,13 +143,14 @@ clipman_configure (XfcePanelPlugin *plugin,
                                                   NULL);
 
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-settings");
+    gtk_window_set_icon_name (GTK_WINDOW (dialog), "gtk-paste");
 
     g_object_set_data (G_OBJECT (clipman->plugin), "dialog", dialog);
 
     dialog_vbox = GTK_DIALOG (dialog)->vbox;
 
     notebook = gtk_notebook_new ();
+    gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
     gtk_box_pack_start (GTK_BOX (dialog_vbox), notebook, FALSE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (notebook), BORDER-3);
 
