@@ -300,7 +300,7 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
   list = clipman_history_get_list (plugin->history);
   if (list != NULL)
     {
-      texts = g_malloc0 (g_slist_length (list));
+      texts = g_malloc0 (g_slist_length (list) * sizeof (gchar *));
       for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
         {
           item = l->data;

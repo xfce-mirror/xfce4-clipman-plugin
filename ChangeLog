@@ -13,6 +13,8 @@ Some minor changes.
 		like "what you select can be pasted".
 	- panel-plugin/panel-plugin.c(panel_plugin_load,panel_plugin_save):
 		Load/Save the images with the extension ".png".
+	- panel-plugin/panel-plugin.c(panel_plugin_load,panel_plugin_save):
+		Correct the size allocated to texts.  Fixes a free corruption!
 
 2009-01-14	Mike Massonnet
 The settings dialog is in.
