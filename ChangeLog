@@ -1,4 +1,8 @@
-2008-01-15	Mike Massonnet <mmassonnet@xfce.org>
+2009-01-18	Mike Massonnet <mmassonnet@xfce.org>
+
+Release version 0.9.0
+
+2009-01-15	Mike Massonnet <mmassonnet@xfce.org>
 
 	- Fix a leak by freeing the ClipmanAction structs
 	- Fix a free corruption by allocating the correct size for the string array
@@ -6,18 +10,18 @@
 	- Backport from xfce-4-6 branch to save/load the history to/from cached
 	files living inside ~/.cache.
 
-2008-01-13	Mike Massonnet <mmassonnet@xfce.org>
+2009-01-13	Mike Massonnet <mmassonnet@xfce.org>
 
 	- Lookup the GdkWindow of the owner to notice if the clipboard was set
 	from within Clipman and drop the IgnoreSignal variable (patch from
 	David Collins)
 
-2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
+2009-01-09	Mike Massonnet <mmassonnet@xfce.org>
 
 	- Update the settings dialog
 	- Move everything to the General tab
 
-2008-01-09	Mike Massonnet <mmassonnet@xfce.org>
+2009-01-09	Mike Massonnet <mmassonnet@xfce.org>
 
 A quick review over the changes.
 
@@ -28,7 +32,7 @@ A quick review over the changes.
 	- Left two topics as TODO inside the code
 	- At last but not least, bump release to 0.9.0
 
-2008-01-02	Mike Massonnet <mmassonnet@xfce.org>
+2009-01-02	Mike Massonnet <mmassonnet@xfce.org>
 
 This is the second part of the rewrite that introduces the storage of an image
 inside the panel plugin.  This part already marks the end of David's work.
