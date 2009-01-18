@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2008-03-18 14:49+0100\n"
+"PO-Revision-Date: 2009-01-09 16:31+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,8 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "Incapaz de abrir o seguinte url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Gestor de área de transferência"
 
@@ -30,7 +31,7 @@ msgstr "Gravar o conteúdo da área de transferência ao _sair"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "A_dicionar selecções ao histórico"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -85,33 +86,24 @@ msgstr "Clipman"
 
 #~ msgid "_Ignore selections"
 #~ msgstr "_Ignorar selecções"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar área de transferência vazia"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "_Gestão normal de área de transferência"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separar _estritamente as áreas de transferência"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Comportamento da área de transferência</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_parar áreas de transferência"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Aparência do Menu</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Aparência"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Tem certeza de que quer remover esta entrada do histórico?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Histórico Padrão Vazio >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Histórico de selecções vazio >"
+

@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2008-11-09 10:27+0200\n"
-"Last-Translator: Utku Aydın <utkuaydin54@gmail.com>\n"
+"PO-Revision-Date: 2009-01-13 16:49+0200\n"
+"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,7 +20,8 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "Bağlantı adresi açılamadı: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Pano Yöneticisi"
 
@@ -30,7 +31,7 @@ msgstr "Pano içeriğini _çıkışta kaydet"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "Seçilenleri geçmiş_e ekle"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -85,33 +86,24 @@ msgstr "Clipman"
 
 #~ msgid "_Ignore selections"
 #~ msgstr "_Seçimleri yoksay"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "Panonun boşalmasını engelle"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Normal pano _yönetimi"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Panoları harfi harfine ayır"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Pano Davranışı</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Panoları _ayır"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Menü Görünümü</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Görünüm"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Bu öğeyi geçmişten silmek istediğinize emin misiniz?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Öntanımlı Geçmiş Boş >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Seçim Geçmişi Boş >"
+

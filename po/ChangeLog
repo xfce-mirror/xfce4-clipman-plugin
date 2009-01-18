@@ -1,10 +1,17 @@
+2009-01-18  Maximilian Schleiss <maximilian@xfce.org>
+
+	* ca.po: Catalan translation update (Carles Muñoz Gorriz)
+	* ja.po: Japanese translation update (Masato Hashimoto)
+	* pt_PT: European Portuguese translation update (Nuno Miguel)
+	* tr.po: turkish translation update (Samed Beyribey)
+
 2009-01-16 Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation.
 
 2009-01-13  Mike Massonnet <mmassonnet@xfce.org>
 
-	* nl.po: Add new Dutch translation (Vincent)
+	* nl.po, LINGUAS: Add new Dutch translation (Vincent Tunru)
 
 2009-01-13  Alexander Toresson <eulex@xfce.org>
 
@@ -25,7 +32,7 @@
 
 2008-11-17  Eren Türkay <erenturkay@xfce.org>
 
-        * tr.po: Turkish translation update (Turkish translation team)
+	* tr.po: Turkish translation update (Turkish translation team)
 
 2008-11-09  Maximilian Schleiss <maximilian@xfce.org>
 
