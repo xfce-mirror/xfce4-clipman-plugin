@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2006-12-20 20:54+0100\n"
+"PO-Revision-Date: 2009-01-19 01:48+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,8 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "Nelze otevřít následující adresu url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Správce schránky"
 
@@ -34,7 +35,7 @@ msgstr "Uložit obsah schránky při _ukončení"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "Přidat výběry do historie"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -89,56 +90,40 @@ msgstr "Správce schránky"
 
 #~ msgid "_Ignore selections"
 #~ msgstr "_Ignorovat výběry"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "_Zamezit vyprázdnění schránky"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "_Správa běžné schránky"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Striktně oddělit _obě schránky"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Chování schránky</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "O_ddělit schránky"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Vzhled nabídky</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Vzhled"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Opravdu chcete odebrat tuto položku z historie?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Výchozí historie je prázdná >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Historie výběrů je prázdná >"
-
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr ""
 #~ "Pro více informací o tomto zásuvném modulu navštivte webovou stránku Xfce "
 #~ "Goodies."
-
 #~ msgid "Properties"
 #~ msgstr "Vlastnosti"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Použít _barevné položky nabídky"
-
 #~ msgid "Developer"
 #~ msgstr "Vývojář"
-
 #~ msgid "Edit content"
 #~ msgstr "Upravit obsah"
-
 #~ msgid "Question"
 #~ msgstr "Otázka"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Co chcete dělat s touto položkou schránky?"
+
