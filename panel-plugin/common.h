@@ -29,4 +29,5 @@
 
 /* Collector */
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD           FALSE
+#define DEFAULT_ENABLE_ACTIONS                  FALSE
 

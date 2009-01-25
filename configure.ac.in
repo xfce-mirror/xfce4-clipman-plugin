@@ -81,6 +81,7 @@ dnl ************************
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+tests/Makefile
 po/Makefile.in
 ])
 

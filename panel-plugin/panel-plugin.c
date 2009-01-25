@@ -20,6 +20,7 @@
 #include <config.h>
 #endif
 
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
@@ -30,6 +31,7 @@
 
 #include "common.h"
 #include "settings-dialog_glade.h"
+#include "actions.h"
 #include "collector.h"
 #include "history.h"
 #include "menu.h"
@@ -45,6 +47,7 @@ struct _MyPlugin
 {
   XfcePanelPlugin      *panel_plugin;
   XfconfChannel        *channel;
+  ClipmanActions       *actions;
   ClipmanCollector     *collector;
   ClipmanHistory       *history;
   GtkWidget            *button;
@@ -112,6 +115,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* XfconfChannel */
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
+  /* ClipmanActions */
+  plugin->actions = clipman_actions_get ();
+
   /* ClipmanHistory */
   plugin->history = clipman_history_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history",
@@ -125,6 +131,8 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   plugin->collector = clipman_collector_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
+  xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
+                          G_TYPE_BOOLEAN, plugin->collector, "enable-actions");
 
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
@@ -351,6 +359,7 @@ panel_plugin_free (XfcePanelPlugin *panel_plugin,
   gtk_widget_destroy (plugin->menu);
   gtk_widget_destroy (plugin->button);
   g_object_unref (plugin->channel);
+  g_object_unref (plugin->actions);
   g_object_unref (plugin->collector);
   g_object_unref (plugin->history);
   g_slice_free (MyPlugin, plugin);

@@ -1,3 +1,20 @@
+2009-01-25	Mike Massonnet
+Actions are available but hard-coded at this time.
+
+	- configure.ac.in, tests/*:
+		Add a test program for the actions.
+	- panel-plugin/actions.c, panel-plugin/actions.h,
+	panel-plugin/Makefile.am:
+		A new GObject ClipmanActions with methods to add and remove
+		commands for a specific regex.  The code to save and load from
+		an XML file still needs to be written.
+	- panel-plugin/collector.c, panel-plugin/panel-plugin.c:
+		Install new property "enable-actions" which will match the
+		clipboard texts for actions.  Bind the property to xfconf
+		inside panel_plugin_register().
+	- panel-plugin/settings-dialog.glade:
+		New dialogs for the actions.
+
 2009-01-15	Mike Massonnet
 Some minor changes.
 

@@ -14,6 +14,7 @@ plugin_PROGRAMS = xfce4-clipman-plugin
 xfce4_clipman_plugin_SOURCES =						\
 	panel-plugin.c							\
 	common.h							\
+	actions.c			actions.h			\
 	collector.c			collector.h			\
 	history.c			history.h			\
 	menu.c				menu.h				\

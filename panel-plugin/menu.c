@@ -132,7 +132,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   ClipmanHistoryItem *item;
   const ClipmanHistoryItem *item_to_restore;
   GSList *list, *l;
-  gint pos = 0, i;
+  gint pos = 0;
 
   /* Get the most recent item in the history */
   item_to_restore = clipman_history_get_item_to_restore (menu->priv->history);

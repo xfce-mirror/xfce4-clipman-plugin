@@ -25,6 +25,7 @@
 #include <xfconf/xfconf.h>
 
 #include "common.h"
+#include "actions.h"
 #include "history.h"
 
 #include "collector.h"
@@ -39,17 +40,20 @@ G_DEFINE_TYPE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
 
 struct _ClipmanCollectorPrivate
 {
+  ClipmanActions       *actions;
   ClipmanHistory       *history;
   GtkClipboard         *default_clipboard;
   GtkClipboard         *primary_clipboard;
   guint                 primary_clipboard_timeout;
-  gboolean              add_primary_clipboard;
   gboolean              restoring;
+  gboolean              add_primary_clipboard;
+  gboolean              enable_actions;
 };
 
 enum
 {
   ADD_PRIMARY_CLIPBOARD = 1,
+  ENABLE_ACTIONS,
 };
 
 static void             clipman_collector_class_init        (ClipmanCollectorClass *klass);
@@ -152,11 +156,11 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
        * actually check inside a delayed timeout if the mouse is still pressed
        * or if the shift key is hold down, and once both are released the
        * content will go to the history. */
-      if (collector->priv->add_primary_clipboard)
+      if (collector->priv->add_primary_clipboard || collector->priv->enable_actions)
         {
           if (collector->priv->primary_clipboard_timeout == 0)
             collector->priv->primary_clipboard_timeout =
-              g_timeout_add (500, (GSourceFunc)cb_check_primary_clipboard, collector);
+              g_timeout_add (250, (GSourceFunc)cb_check_primary_clipboard, collector);
         }
     }
 }
@@ -178,15 +182,22 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
       text = gtk_clipboard_wait_for_text (collector->priv->primary_clipboard);
       if (text != NULL && text[0] != '\0')
         {
-          clipman_history_add_text (collector->priv->history, text, collector->priv->primary_clipboard);
+          if (collector->priv->add_primary_clipboard)
+            {
+              clipman_history_add_text (collector->priv->history, text, collector->priv->primary_clipboard);
 
-          /* Make a copy inside the default clipboard */
-          collector->priv->restoring = TRUE;
-          gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+              /* Make a copy inside the default clipboard */
+              collector->priv->restoring = TRUE;
+              gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+            }
+
+          /* Match for actions */
+          if (collector->priv->enable_actions)
+            clipman_actions_match_with_menu (collector->priv->actions, text);
         }
       g_free (text);
     }
-  else
+  else if (collector->priv->add_primary_clipboard)
     {
       DBG ("The primary clipboard is empty");
       _clipman_collector_restore_clipboard (collector, collector->priv->primary_clipboard);
@@ -290,6 +301,13 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "Add the primary clipboard to the history",
                                                          DEFAULT_ADD_PRIMARY_CLIPBOARD,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, ENABLE_ACTIONS,
+                                   g_param_spec_boolean ("enable-actions",
+                                                         "EnableActions",
+                                                         "Set to TRUE to enable actions (match the clipboard texts against regex's)",
+                                                         DEFAULT_ENABLE_ACTIONS,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -300,6 +318,9 @@ clipman_collector_init (ClipmanCollector *collector)
   /* This bit is set to TRUE when a clipboard has to be set from within clipman
    * while avoiding to re-add it to the history. */
   collector->priv->restoring = FALSE;
+
+  /* ClipmanActions */
+  collector->priv->actions = clipman_actions_get ();
 
   /* ClipmanHistory */
   collector->priv->history = clipman_history_get ();
@@ -341,6 +362,10 @@ clipman_collector_set_property (GObject *object,
       priv->add_primary_clipboard = g_value_get_boolean (value);
       break;
 
+    case ENABLE_ACTIONS:
+      priv->enable_actions = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -358,6 +383,10 @@ clipman_collector_get_property (GObject *object,
     {
     case ADD_PRIMARY_CLIPBOARD:
       g_value_set_boolean (value, priv->add_primary_clipboard);
+      break;
+
+    case ENABLE_ACTIONS:
+      g_value_set_boolean (value, priv->enable_actions);
       break;
 
     default:
