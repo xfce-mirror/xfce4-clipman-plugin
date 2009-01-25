@@ -1,4 +1,11 @@
 2009-01-25	Mike Massonnet
+Forget to add support for GLib < 2.16 to save the actions.
+
+	- panel-plugin/actions.c:
+		I somehow was too hasty to commit, and forgot about support
+		for GLib < 2.16 to save the actions to the XML file.
+
+2009-01-25	Mike Massonnet
 Fix g_debug().
 
 	- Looks like I left some g_debug() calls in the code.

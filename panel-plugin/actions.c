@@ -60,7 +60,10 @@ static gint           __clipman_actions_entry_compare_name  (gpointer a,
                                                              gpointer b);
 static void           __clipman_actions_entry_free          (ClipmanActionsEntry *entry);
 #if !GLIB_CHECK_VERSION (2,16,0)
-static void           __g_hash_table_foreach_entry          (gpointer key,
+static void           __foreach_command_create_mi           (gpointer key,
+                                                             gpointer value,
+                                                             gpointer user_data);
+static void           __foreach_command_write_xml           (gpointer key,
                                                              gpointer value,
                                                              gpointer user_data);
 #endif
@@ -332,9 +335,9 @@ __clipman_actions_entry_free (ClipmanActionsEntry *entry)
 
 #if !GLIB_CHECK_VERSION (2,16,0)
 static void
-__g_hash_table_foreach_entry (gpointer key,
-                              gpointer value,
-                              gpointer user_data)
+__foreach_command_create_mi (gpointer key,
+                             gpointer value,
+                             gpointer user_data)
 {
   gchar *command_name = key;
   gchar *command = value;
@@ -347,6 +350,29 @@ __g_hash_table_foreach_entry (gpointer key,
   g_object_set_data (G_OBJECT (mi), "regex", g_object_get_data (G_OBJECT (menu), "regex"));
   gtk_container_add (GTK_CONTAINER (menu), mi);
   g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
+}
+
+static void
+__foreach_command_write_xml (gpointer key,
+                             gpointer value,
+                             gpointer user_data)
+{
+  gchar *command_name = key;
+  gchar *command = value;
+  GString *output = user_data;
+  gchar *tmp;
+
+  g_string_append (output, "\t\t\t<command>\n");
+
+  tmp = g_markup_escape_text (command_name, -1);
+  g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
+  g_free (tmp);
+
+  tmp = g_markup_escape_text (command, -1);
+  g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
+  g_free (tmp);
+
+  g_string_append (output, "\t\t\t</command>\n");
 }
 #endif
 
@@ -552,7 +578,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
         }
 #else
       g_object_set_data (G_OBJECT (actions->priv->menu), "regex", entry->regex);
-      g_hash_table_foreach (entry->commands, (GHFunc)__g_hash_table_foreach_entry, actions->priv->menu);
+      g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_create_mi, actions->priv->menu);
 #endif
 
       mi = gtk_separator_menu_item_new ();
@@ -667,6 +693,8 @@ clipman_actions_save (ClipmanActions *actions)
 
           g_string_append (output, "\t\t\t</command>\n");
         }
+#else
+      g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_write_xml, output);
 #endif
 
       g_string_append (output, "\t\t</commands>\n");
