@@ -1,4 +1,22 @@
 2009-01-25	Mike Massonnet
+Actions are saved/loaded to/from an XML file.
+
+	- panel-plugin/actions.c(clipman_actions_load):
+		Load actions from an XML file from the user config directory
+		or fallback to a system wide config directory.  Drop the
+		hard-coded actions.
+	- panel-plugin/actions.c(clipman_actions_save):
+		Save the actions in an XML format inside the user config
+		directory.
+	- panel-plugin/actions.c(clipman_actions_add):
+		Create the regex with the flag "anchored" to force the regex'
+		with a starting ^ and an ending $.
+	- panel-plugin/Makefile.am:
+		Declare SYSCONFDIF and add XML actions file.
+	- panel-plugin/xfce4-clipman-actions.xml:
+	 	Default system wide configuration file of the actions.
+
+2009-01-25	Mike Massonnet
 Actions are available but hard-coded at this time.
 
 	- configure.ac.in, tests/*:
@@ -12,6 +30,9 @@ Actions are available but hard-coded at this time.
 		Install new property "enable-actions" which will match the
 		clipboard texts for actions.  Bind the property to xfconf
 		inside panel_plugin_register().
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Change timeout from 500 to 250 milliseconds to make the
+		actions respond faster on a mouse release.
 	- panel-plugin/settings-dialog.glade:
 		New dialogs for the actions.
 

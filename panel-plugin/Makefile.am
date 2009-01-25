@@ -2,6 +2,7 @@ NULL =
 
 INCLUDES =								\
 	-I${top_srcdir}							\
+	-DSYSCONFDIR=\"$(sysconfdir)\"					\
 	-DDATADIR=\"$(datadir)\"					\
 	-DSRCDIR=\"$(top_srcdir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
@@ -45,6 +46,9 @@ BUILT_SOURCES = settings-dialog_glade.h
 settings-dialog_glade.h: settings-dialog.glade
 	exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
 endif
+
+actionsdir = $(sysconfdir)/xdg/xfce4/panel
+actions_DATA = xfce4-clipman-actions.xml
 
 desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_in_in_files = xfce4-clipman-plugin.desktop.in.in

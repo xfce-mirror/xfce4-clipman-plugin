@@ -1,6 +1,9 @@
 /*
  *  Copyright (c) 2009 Mike Massonnet <mmassonnet@xfce.org>
  *
+ *  XML parsing based on Xfce4 Panel:
+ *  Copyright (c) 2005 Jasper Huijsmans <jasper@xfce.org>
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
  *  as published by the Free Software Foundation; either version 2
@@ -70,6 +73,207 @@ static void             cb_entry_activated                  (GtkMenuItem *mi,
                                                              gpointer user_data);
 
 /*
+ * XML Parser declarations
+ */
+
+static void             start_element_handler               (GMarkupParseContext *context,
+                                                             const gchar *element_name,
+                                                             const gchar **attribute_names,
+                                                             const gchar **attribute_values,
+                                                             gpointer user_data,
+                                                             GError **error);
+static void             end_element_handler                 (GMarkupParseContext *context,
+                                                             const gchar *element_name,
+                                                             gpointer user_data,
+                                                             GError **error);
+static void             text_handler                        (GMarkupParseContext *context,
+                                                             const gchar *text,
+                                                             gsize text_len,  
+                                                             gpointer user_data,
+                                                             GError **error);
+
+static GMarkupParser markup_parser =
+{
+  start_element_handler,
+  end_element_handler,
+  text_handler,
+  NULL,
+  NULL,
+};
+
+typedef enum
+{
+  START,
+  ACTIONS,
+  ACTION,
+  ICON_NAME,
+  ACTION_NAME,
+  REGEX,
+  COMMANDS,
+  COMMAND,
+  COMMAND_NAME,
+  EXEC,
+} ParserState;
+
+typedef struct _EntryParser EntryParser;
+struct _EntryParser
+{
+  ClipmanActions *actions;
+  ParserState state;
+  gchar *icon_name;
+  gchar *action_name;
+  gchar *regex;
+  gchar *command_name;
+  gchar *command;
+};
+
+
+
+/*
+ * XML Parser
+ */
+
+static void
+start_element_handler (GMarkupParseContext *context,
+                       const gchar *element_name,
+                       const gchar **attribute_names,
+                       const gchar **attribute_values,
+                       gpointer user_data,
+                       GError **error)
+{
+  EntryParser *parser = user_data;
+
+  switch (parser->state)
+    {
+    case START:
+      if (!g_ascii_strcasecmp (element_name, "actions"))
+        parser->state = ACTIONS;
+      break;
+
+    case ACTIONS:
+      if (!g_ascii_strcasecmp (element_name, "action"))
+        parser->state = ACTION;
+      break;
+
+    case ACTION:
+      if (!g_ascii_strcasecmp (element_name, "icon"))
+        parser->state = ICON_NAME;
+      if (!g_ascii_strcasecmp (element_name, "name"))
+        parser->state = ACTION_NAME;
+      else if (!g_ascii_strcasecmp (element_name, "regex"))
+        parser->state = REGEX;
+      else if (!g_ascii_strcasecmp (element_name, "commands"))
+        parser->state = COMMANDS;
+      break;
+
+    case COMMANDS:
+      if (!g_ascii_strcasecmp (element_name, "command"))
+        parser->state = COMMAND;
+      break;
+
+    case COMMAND:
+      if (!g_ascii_strcasecmp (element_name, "name"))
+        parser->state = COMMAND_NAME;
+      else if (!g_ascii_strcasecmp (element_name, "exec"))
+        parser->state = EXEC;
+      break;
+
+    default:
+      break;
+    }
+}
+
+static void
+end_element_handler (GMarkupParseContext *context,
+                     const gchar *element_name,
+                     gpointer user_data,
+                     GError **error)
+{
+  EntryParser *parser = user_data;
+
+  switch (parser->state)
+    {
+    case ACTION:
+      g_free (parser->action_name);
+      g_free (parser->regex);
+      parser->action_name = NULL;
+      parser->regex = NULL;
+
+      parser->state = ACTIONS;
+      break;
+
+    case ICON_NAME:
+    case ACTION_NAME:
+    case REGEX:
+    case COMMANDS:
+      parser->state = ACTION;
+      break;
+
+    case COMMAND:
+      if (parser->action_name == NULL || parser->regex == NULL)
+        g_warning ("Closing a command but no action name nor regex set");
+      else
+        {
+          g_debug ("new action: %s %s %s %s", parser->action_name, parser->regex, parser->command_name, parser->command);
+          clipman_actions_add (parser->actions, parser->action_name, parser->regex,
+                               parser->command_name, parser->command);
+        }
+
+      g_free (parser->command_name);
+      g_free (parser->command);
+
+      parser->state = COMMANDS;
+      break;
+
+    case COMMAND_NAME:
+    case EXEC:
+      parser->state = COMMAND;
+      break;
+
+    default:
+      break;
+    }
+}
+
+static void
+text_handler (GMarkupParseContext *context,
+              const gchar *text,
+              gsize text_len,  
+              gpointer user_data,
+              GError **error)
+{
+  EntryParser *parser = user_data;
+
+  switch (parser->state)
+    {
+    case ICON_NAME:
+      parser->icon_name = g_strdup (text);
+      break;
+
+    case ACTION_NAME:
+      parser->action_name = g_strdup (text);
+      g_debug ("action_name: %s", text);
+      break;
+
+    case REGEX:
+      parser->regex = g_strdup (text);
+      g_debug ("regex: %s", text);
+      break;
+
+    case COMMAND_NAME:
+      parser->command_name = g_strdup (text);
+      break;
+
+    case EXEC:
+      parser->command = g_strdup (text);
+      break;
+
+    default:
+      break;
+    }
+}
+
+/*
  * Callbacks
  */
 
@@ -88,7 +292,7 @@ cb_entry_activated (GtkMenuItem *mi,
   regex = g_object_get_data (G_OBJECT (mi), "regex");
 
   real_command = g_regex_replace (regex, text, -1, 0, command, 0, NULL);
-  
+
   DBG ("Execute command `%s'", real_command);
 
   xfce_exec (real_command, FALSE, FALSE, &error);
@@ -194,7 +398,7 @@ clipman_actions_add (ClipmanActions *actions,
   if (l == NULL)
     {
       /* Validate the regex */
-      _regex = g_regex_new (regex, 0, 0, NULL);
+      _regex = g_regex_new (regex, 0, G_REGEX_MATCH_ANCHORED, NULL);
       if (_regex == NULL)
         return FALSE;
 
@@ -379,38 +583,34 @@ clipman_actions_load (ClipmanActions *actions)
 {
   gchar *filename;
   gchar *data;
+  gsize size;
   gboolean load;
+  GMarkupParseContext *context;
+  EntryParser *parser;
 
-  filename = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/panel/xfce4-clipman-plugin-actions.xml", FALSE);
+  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
   load = g_file_get_contents (filename, &data, NULL, NULL);
 
   if (!load)
     {
       g_free (filename);
-      filename = g_strdup (DATADIR"/xfce4/panel-plugins/xfce4-clipman-plugin-actions.xml");
-      load = g_file_get_contents (filename, &data, NULL, NULL);
+      filename = g_strdup (SYSCONFDIR"/xdg/xfce4/panel/xfce4-clipman-actions.xml");
+      load = g_file_get_contents (filename, &data, &size, NULL);
     }
+
+  if (!load)
+    g_warning ("Unable to load actions from an XML file");
 
   if (load)
     {
-      /* TODO Add actions from data */
-    }
-  else
-    {
-      /* TODO Move these actions to the system wide XML file */
-      /* Add default actions */
-      clipman_actions_add (actions, _("Web URL"), "^https?://[@:a-zA-Z0-9+.-]+(:[0-9]+)?[/a-zA-Z0-9$-_.+!*'(),?=;%]*$",
-                           _("Open with default application"), "exo-open \\0");
-      clipman_actions_add (actions, _("Web URL"), NULL,
-                           _("Open in Firefox"), "firefox \\0");
-      clipman_actions_add (actions, _("Image"), "^(/|http|ftp).+\\.(jpg|png|gif)$",
-                           _("View in Ristretto"), "ristretto \\0");
-      clipman_actions_add (actions, _("Image"), NULL,
-                           _("Edit in Gimp"), "gimp \\0");
-      clipman_actions_add (actions, _("Bugz"), "(bug #|bug |Bug #|Bug )([0-9]+)",
-                           _("Xfce Bug"), "exo-open http://bugzilla.xfce.org/show_bug.cgi?id=\\2");
-      clipman_actions_add (actions, _("Bugz"), NULL,
-                           _("GNOME Bug"), "exo-open http://bugzilla.gnome.org/show_bug.cgi?id=\\2");
+      parser = g_slice_new0 (EntryParser);
+      parser->actions = actions;
+      context = g_markup_parse_context_new (&markup_parser, 0, parser, NULL);
+      g_markup_parse_context_parse (context, data, (gssize)size, NULL);
+      if (!g_markup_parse_context_end_parse (context, NULL))
+        g_warning ("Error parsing the XML file");
+      g_markup_parse_context_free (context);
+      g_slice_free (EntryParser, parser);
     }
 
   g_free (filename);
@@ -425,6 +625,70 @@ clipman_actions_load (ClipmanActions *actions)
 void
 clipman_actions_save (ClipmanActions *actions)
 {
+  ClipmanActionsEntry *entry;
+  gchar *filename;
+  gchar *data;
+  GString *output;
+  gchar *tmp;
+  GSList *l;
+
+  output = g_string_new ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                         "<actions>\n");
+
+  for (l = actions->priv->entries; l != NULL; l = l->next)
+    {
+      entry = l->data;
+
+      g_string_append (output, "\t<action>\n");
+
+      if (entry->icon_name != NULL)
+        g_string_append_printf (output, "\t\t<icon>%s</icon>\n", entry->icon_name);
+
+      tmp = g_markup_escape_text (entry->action_name, -1);
+      g_string_append_printf (output, "\t\t<name>%s</name>\n", tmp);
+      g_free (tmp);
+
+      tmp = g_markup_escape_text (g_regex_get_pattern (entry->regex), -1);
+      g_string_append_printf (output, "\t\t<regex>%s</regex>\n", tmp);
+      g_free (tmp);
+
+      g_string_append (output, "\t\t<commands>\n");
+
+#if GLIB_CHECK_VERSION (2,16,0)
+      GHashTableIter iter;
+      gpointer key, value;
+      g_hash_table_iter_init (&iter, entry->commands);
+      while (g_hash_table_iter_next (&iter, &key, &value))
+        {
+          g_string_append (output, "\t\t\t<command>\n");
+
+          tmp = g_markup_escape_text (key, -1);
+          g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
+          g_free (tmp);
+
+          tmp = g_markup_escape_text (value, -1);
+          g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
+          g_free (tmp);
+
+          g_string_append (output, "\t\t\t</command>\n");
+        }
+#endif
+
+      g_string_append (output, "\t\t</commands>\n");
+
+      g_string_append (output, "\t</action>\n");
+    }
+
+  g_string_append (output, "</actions>");
+
+  /* And now write output to the xml file */
+  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
+  data = g_string_free (output, FALSE);
+  if (!g_file_set_contents (filename, data, -1, NULL))
+    g_warning ("Unable to write the actions to the XML file %s", filename);
+
+  g_free (filename);
+  g_free (data);
 }
 
 /**
