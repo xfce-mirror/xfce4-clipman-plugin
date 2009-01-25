@@ -1,4 +1,9 @@
 2009-01-25	Mike Massonnet
+Fix g_debug().
+
+	- Looks like I left some g_debug() calls in the code.
+
+2009-01-25	Mike Massonnet
 Actions are saved/loaded to/from an XML file.
 
 	- panel-plugin/actions.c(clipman_actions_load):

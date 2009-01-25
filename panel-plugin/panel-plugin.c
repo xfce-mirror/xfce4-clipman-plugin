@@ -322,7 +322,7 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
             case CLIPMAN_HISTORY_TYPE_IMAGE:
               filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), n_images++);
               if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
-                g_debug ("Failed to save image to cache file %s", filename);
+                g_warning ("Failed to save image to cache file %s", filename);
               else
                 DBG ("Saved image to cache file %s", filename);
               g_free (filename);

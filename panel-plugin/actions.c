@@ -213,11 +213,8 @@ end_element_handler (GMarkupParseContext *context,
       if (parser->action_name == NULL || parser->regex == NULL)
         g_warning ("Closing a command but no action name nor regex set");
       else
-        {
-          g_debug ("new action: %s %s %s %s", parser->action_name, parser->regex, parser->command_name, parser->command);
-          clipman_actions_add (parser->actions, parser->action_name, parser->regex,
-                               parser->command_name, parser->command);
-        }
+        clipman_actions_add (parser->actions, parser->action_name, parser->regex,
+                             parser->command_name, parser->command);
 
       g_free (parser->command_name);
       g_free (parser->command);
@@ -252,12 +249,10 @@ text_handler (GMarkupParseContext *context,
 
     case ACTION_NAME:
       parser->action_name = g_strdup (text);
-      g_debug ("action_name: %s", text);
       break;
 
     case REGEX:
       parser->regex = g_strdup (text);
-      g_debug ("regex: %s", text);
       break;
 
     case COMMAND_NAME:
