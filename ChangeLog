@@ -1,3 +1,12 @@
+2009-01-26	Mike Massonnet
+Small tweak in the GRegex.
+
+	- panel-plugin/actions.c(clipman_actions_add):
+		Add the compile flag "caseless" and move the match option
+		"anchored" to the compile flags.
+	- configure.ac.in:
+		Add GTK+/GLib requirements to 2.10/2.14.
+
 2009-01-25	Mike Massonnet
 Forget to add support for GLib < 2.16 to save the actions.
 

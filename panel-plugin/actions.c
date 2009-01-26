@@ -419,7 +419,7 @@ clipman_actions_add (ClipmanActions *actions,
   if (l == NULL)
     {
       /* Validate the regex */
-      _regex = g_regex_new (regex, 0, G_REGEX_MATCH_ANCHORED, NULL);
+      _regex = g_regex_new (regex, G_REGEX_CASELESS|G_REGEX_ANCHORED, 0, NULL);
       if (_regex == NULL)
         return FALSE;
 

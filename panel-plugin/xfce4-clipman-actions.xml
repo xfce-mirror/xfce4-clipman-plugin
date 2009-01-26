@@ -27,7 +27,7 @@
 	</action>
 	<action>
 		<name>Bugz</name>
-		<regex>.*(bug #|bug |Bug #|Bug )([0-9]+).*</regex>
+		<regex>.*(bug #?)([0-9]+).*</regex>
 		<commands>
 			<command>
 				<name>Xfce Bug</name>
