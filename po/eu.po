@@ -1,22 +1,23 @@
+# translation of eu.po to Euskara
 # Basque translation of the xfce4-clipman-plugin package.
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Piarres Beobide <pi@beobide.net>, 2006.
 #
+# Piarres Beobide <pi@beobide.net>, 2006, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2008-11-05 14:23+0200\n"
+"PO-Revision-Date: 2009-01-28 01:14+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Basque <xfce-i18n@xfce.org>\n"
+"Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.2.0\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
@@ -33,7 +34,7 @@ msgstr "_Irteterakoan arbel edukiak gorde"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "Ge_hitu hautapenak historiara"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -86,38 +87,3 @@ msgstr "Xfce idazmahaierako arbel kudeatzailea"
 msgid "Clipman"
 msgstr "Clipman"
 
-#~ msgid "_Ignore selections"
-#~ msgstr "_Hautapenak alde batera utzi"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "Arbel hutsa Au_rreikusi"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "Arbel _kudeaketa arrunta"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "_Bi arbelak guztiz bereizi"
-
-#~ msgid "<b>Clipboard Behaviour</b>"
-#~ msgstr "<b>Arbela portaera</b>"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Be_reiziriko arbelak"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Menu Itxura</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Itxura"
-
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "Ziur elementu hau historiatik ezabatu nahi duzula?"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Lehenetsiriko Historia Hutsa >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Hautaturiko Historia Hutsa >"
-
-#~ msgid "Visit the goodies website for more information about this plugin."
-#~ msgstr "Goodies webgunera joan plugin honetaz argibide gehiagorako."
