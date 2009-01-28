@@ -1,1 +1,6 @@
-- Add actions
+Actions:
+- Add support for GLib < 2.16 for the actions settings (the commands treeview)
+- Set sensitivity of "ok" buttons in the actions settings dialogs
+- Sanity check for action_name on "add action"
+- Sanity check on the regex
+- A regex validator dialog
