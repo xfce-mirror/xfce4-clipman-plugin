@@ -21,11 +21,11 @@ int main (int argc, char *argv[])
 
   gtk_main ();
 
-  clipman_actions_remove (actions, "Image", "GPicView");
-  clipman_actions_remove (actions, "Image", "GPicView");
-  clipman_actions_remove (actions, "Image", "view");
-  clipman_actions_remove (actions, "Image", "Ristretto");
-  clipman_actions_remove (actions, "Text", "Mousepad");
+  clipman_actions_remove_command (actions, "Image", "GPicView");
+  clipman_actions_remove_command (actions, "Image", "GPicView");
+  clipman_actions_remove_command (actions, "Image", "view");
+  clipman_actions_remove_command (actions, "Image", "Ristretto");
+  clipman_actions_remove_command (actions, "Text", "Mousepad");
 
   return 0;
 }

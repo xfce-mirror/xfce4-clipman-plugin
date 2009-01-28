@@ -1,4 +1,24 @@
 2009-01-26	Mike Massonnet
+Actions are configurable through the settings dialog.
+
+	- panel-plugin/actions.c:
+		Fix a crasher in clipman_actions_load() when reading the XML
+		file from the user config directory.  Add debug messages when
+		loading and saving the XML file.
+	- panel-plugin/actions.c(clipman_actions_get_entries):
+		New method to retrieve the list of every acion.
+	- panel-plugin/actions.c(clipman_actions_remove_command):
+		Renamed the method clipman_actions_remove() to
+		clipman_actions_remove_command() and re-implement
+		clipman_actions_remove() to remove an entry entirely.
+	- panel-plugin/settings-dialog.glade:
+		Rename some widgets and add signal handlers.
+	- panel-plugin/panel-plugin.c:
+		Set up the actions dialog in panel_plugin_configure() and a
+		add a load of new callbacks and functions specific to the
+		settings dialog to add/edit/delete actions.
+
+2009-01-26	Mike Massonnet
 Small tweak in the GRegex.
 
 	- panel-plugin/actions.c(clipman_actions_add):

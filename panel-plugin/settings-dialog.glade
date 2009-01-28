@@ -155,7 +155,6 @@
             <child>
               <widget class="GtkVBox" id="vbox3">
                 <property name="visible">True</property>
-                <property name="sensitive">False</property>
                 <property name="border_width">6</property>
                 <property name="spacing">6</property>
                 <child>
@@ -191,6 +190,7 @@
                             <property name="can_focus">True</property>
                             <property name="headers_visible">False</property>
                             <property name="rules_hint">True</property>
+                            <signal name="row_activated" handler="cb_actions_row_activated"/>
                           </widget>
                         </child>
                       </widget>
@@ -203,10 +203,11 @@
                         <property name="visible">True</property>
                         <property name="spacing">6</property>
                         <child>
-                          <widget class="GtkButton" id="add-action2">
+                          <widget class="GtkButton" id="button-add-action">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_add_action"/>
                             <child>
                               <widget class="GtkImage" id="image1">
                                 <property name="visible">True</property>
@@ -222,10 +223,12 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkButton" id="button3">
+                          <widget class="GtkButton" id="button-edit-action">
                             <property name="visible">True</property>
+                            <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_edit_action"/>
                             <child>
                               <widget class="GtkImage" id="image2">
                                 <property name="visible">True</property>
@@ -241,10 +244,12 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkButton" id="remove-action2">
+                          <widget class="GtkButton" id="button-delete-action">
                             <property name="visible">True</property>
+                            <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_delete_action"/>
                             <child>
                               <widget class="GtkImage" id="image3">
                                 <property name="visible">True</property>
@@ -331,11 +336,17 @@
       </widget>
     </child>
   </widget>
-  <widget class="GtkDialog" id="action-entry-dialog">
-    <property name="border_width">5</property>
+  <widget class="GtkDialog" id="entry-dialog">
     <property name="title" translatable="yes">Edit Action</property>
+    <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
+    <property name="default_width">300</property>
+    <property name="default_height">380</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon_name">system-run</property>
     <property name="type_hint">normal</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="transient_for">settings-dialog</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox2">
@@ -357,7 +368,6 @@
                     <property name="visible">True</property>
                     <property name="n_rows">2</property>
                     <property name="n_columns">2</property>
-                    <property name="column_spacing">6</property>
                     <property name="row_spacing">6</property>
                     <child>
                       <widget class="GtkEntry" id="regex">
@@ -394,7 +404,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkEntry" id="action-nam">
+                      <widget class="GtkEntry" id="action-name">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                       </widget>
@@ -450,6 +460,8 @@
                           <widget class="GtkTreeView" id="commands">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="headers_visible">False</property>
+                            <property name="rules_hint">True</property>
                           </widget>
                         </child>
                       </widget>
@@ -462,10 +474,11 @@
                         <property name="visible">True</property>
                         <property name="spacing">6</property>
                         <child>
-                          <widget class="GtkButton" id="add-command">
+                          <widget class="GtkButton" id="button-add-command">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_add_command"/>
                             <child>
                               <widget class="GtkImage" id="image1">
                                 <property name="visible">True</property>
@@ -481,10 +494,12 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkButton" id="remove-command">
+                          <widget class="GtkButton" id="button-delete-command">
                             <property name="visible">True</property>
+                            <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_delete_command"/>
                             <child>
                               <widget class="GtkImage" id="image3">
                                 <property name="visible">True</property>
@@ -530,7 +545,7 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <widget class="GtkButton" id="button1">
+              <widget class="GtkButton" id="button2">
                 <property name="label" translatable="yes">gtk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -542,8 +557,9 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button2">
-                <property name="label" translatable="yes">gtk-ok</property>
+              <widget class="GtkButton" id="entry-dialogbutton-ok1">
+                <property name="label" translatable="yes">gtk-apply</property>
+                <property name="response_id">1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -568,8 +584,10 @@
     <property name="title" translatable="yes">Edit Command</property>
     <property name="resizable">False</property>
     <property name="window_position">center-on-parent</property>
+    <property name="destroy_with_parent">True</property>
     <property name="icon_name">system-run</property>
     <property name="type_hint">normal</property>
+    <property name="transient_for">entry-dialog</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">
@@ -595,7 +613,7 @@
               <widget class="GtkLabel" id="label3">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
-                <property name="label" translatable="yes">You can use the matching regex parameters "\1", "\2", and so on in the command to replace it against the matched sub-texts. The parameter "\0" represents the complete text.</property>
+                <property name="label" translatable="yes">You can use the matching regex parameters "\1", "\2" and so on in the command to replace it against the matched sub-texts. The parameter "\0" represents the complete text.</property>
                 <property name="wrap">True</property>
               </widget>
               <packing>
@@ -613,7 +631,6 @@
             <property name="border_width">6</property>
             <property name="n_rows">2</property>
             <property name="n_columns">2</property>
-            <property name="column_spacing">6</property>
             <property name="row_spacing">6</property>
             <child>
               <widget class="GtkLabel" id="label1">
@@ -640,7 +657,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkEntry" id="entry1">
+              <widget class="GtkEntry" id="command-name">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
               </widget>
@@ -651,7 +668,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkEntry" id="entry2">
+              <widget class="GtkEntry" id="command">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
               </widget>
@@ -687,6 +704,7 @@
             <child>
               <widget class="GtkButton" id="button2">
                 <property name="label" translatable="yes">gtk-ok</property>
+                <property name="response_id">1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

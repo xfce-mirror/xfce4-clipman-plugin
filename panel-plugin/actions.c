@@ -448,6 +448,38 @@ clipman_actions_add (ClipmanActions *actions,
  * clipman_actions_remove:
  * @actions:        a #ClipmanActions
  * @action_name:    the human readable name for the regex
+ *
+ * Removes a #ClipmanActionsEntry from the list of actions.
+ *
+ * Returns: FALSE if no action could be removed
+ */
+gboolean
+clipman_actions_remove (ClipmanActions *actions,
+                        const gchar *action_name)
+{
+  ClipmanActionsEntry *entry;
+  GSList *l;
+
+  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  if (l == NULL)
+    {
+      g_warning ("No corresponding entry `%s'", action_name);
+      return FALSE;
+    }
+
+  DBG ("Drop the entry `%s'", action_name);
+
+  entry = l->data;
+  __clipman_actions_entry_free (entry);
+  actions->priv->entries = g_slist_delete_link (actions->priv->entries, l);
+
+  return TRUE;
+}
+
+/**
+ * clipman_actions_remove_command:
+ * @actions:        a #ClipmanActions
+ * @action_name:    the human readable name for the regex
  * @command_name:   the command to remove
  *
  * Removes a command from the list of actions.  If the command is the last
@@ -457,9 +489,9 @@ clipman_actions_add (ClipmanActions *actions,
  * Returns: FALSE if no command could be removed
  */
 gboolean
-clipman_actions_remove (ClipmanActions *actions,
-                        const gchar *action_name,
-                        const gchar *command_name)
+clipman_actions_remove_command (ClipmanActions *actions,
+                                const gchar *action_name,
+                                const gchar *command_name)
 {
   ClipmanActionsEntry *entry;
   GSList *l;
@@ -467,7 +499,10 @@ clipman_actions_remove (ClipmanActions *actions,
 
   l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
   if (l == NULL)
-    return FALSE;
+    {
+      g_warning ("No corresponding entry `%s'", action_name);
+      return FALSE;
+    }
 
   entry = l->data;
   found = g_hash_table_remove (entry->commands, command_name);
@@ -486,6 +521,18 @@ clipman_actions_remove (ClipmanActions *actions,
     }
 
   return found;
+}
+
+/**
+ * clipman_actions_get_entries:
+ * @actions:    a #ClipmanActions
+ *
+ * Returns: a #const #GSList owned by #ClipmanActions
+ */
+const GSList *
+clipman_actions_get_entries (ClipmanActions *actions)
+{
+  return actions->priv->entries;
 }
 
 /**
@@ -610,7 +657,7 @@ clipman_actions_load (ClipmanActions *actions)
   EntryParser *parser;
 
   filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
-  load = g_file_get_contents (filename, &data, NULL, NULL);
+  load = g_file_get_contents (filename, &data, &size, NULL);
 
   if (!load)
     {
@@ -621,6 +668,8 @@ clipman_actions_load (ClipmanActions *actions)
 
   if (!load)
     g_warning ("Unable to load actions from an XML file");
+
+  DBG ("Load actions from file %s", filename);
 
   if (load)
     {
@@ -653,6 +702,7 @@ clipman_actions_save (ClipmanActions *actions)
   gchar *tmp;
   GSList *l;
 
+  /* Generate the XML output format */
   output = g_string_new ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                          "<actions>\n");
 
@@ -706,6 +756,7 @@ clipman_actions_save (ClipmanActions *actions)
 
   /* And now write output to the xml file */
   filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
+  DBG ("Save actions to file %s", filename);
   data = g_string_free (output, FALSE);
   if (!g_file_set_contents (filename, data, -1, NULL))
     g_warning ("Unable to write the actions to the XML file %s", filename);

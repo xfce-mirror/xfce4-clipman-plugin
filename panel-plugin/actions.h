@@ -74,8 +74,11 @@ gboolean                clipman_actions_add                    (ClipmanActions *
                                                                 const gchar *command_name,
                                                                 const gchar *command);
 gboolean                clipman_actions_remove                 (ClipmanActions *actions,
+                                                                const gchar *action_name);
+gboolean                clipman_actions_remove_command         (ClipmanActions *actions,
                                                                 const gchar *action_name,
-                                                                const gchar *command);
+                                                                const gchar *command_name);
+const GSList *          clipman_actions_get_entries            (ClipmanActions *actions);
 GSList *                clipman_actions_match                  (ClipmanActions *actions,
                                                                 const gchar *match);
 void                    clipman_actions_match_with_menu        (ClipmanActions *actions,
