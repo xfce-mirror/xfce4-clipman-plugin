@@ -4,3 +4,6 @@ Actions:
 - Sanity check for action_name on "add action"
 - Sanity check on the regex
 - A regex validator dialog
+Collector:
+- I think I catched a crasher when the collector tries to restore but the history is empty
+- Drop the restore code and push the clipboard data inside the plugin so it's the owner
