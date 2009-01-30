@@ -512,19 +512,14 @@ setup_actions_treeview (GtkTreeView *treeview,
   GtkCellRenderer *cell;
 
   /* Define the model */
-  model = gtk_list_store_new (3, G_TYPE_POINTER, G_TYPE_STRING, G_TYPE_STRING);
+  model = gtk_list_store_new (2, G_TYPE_POINTER, G_TYPE_STRING);
   gtk_tree_view_set_model (treeview, GTK_TREE_MODEL (model));
   g_object_unref (model);
 
   /* Define the columns */
-  cell = gtk_cell_renderer_pixbuf_new ();
-  /* TODO Drop the comment once the icon is supported */
-  //g_object_set (cell, "width", 32, "height", 32, NULL);
-  gtk_tree_view_insert_column_with_attributes (treeview, -1, "Icon", cell, "icon-name", 1, NULL);
-
   cell = gtk_cell_renderer_text_new ();
   g_object_set (cell, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-  gtk_tree_view_insert_column_with_attributes (treeview, -1, "Action", cell, "markup", 2, NULL);
+  gtk_tree_view_insert_column_with_attributes (treeview, -1, "Action", cell, "markup", 1, NULL);
 
   refresh_actions_treeview (treeview, plugin);
 
@@ -552,7 +547,7 @@ refresh_actions_treeview (GtkTreeView *treeview,
 
       title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", entry->action_name, g_regex_get_pattern (entry->regex));
       gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-      gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, entry, 1, entry->icon_name, 2, title, -1);
+      gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, entry, 1, title, -1);
       g_free (title);
     }
 }

@@ -28,7 +28,6 @@
 typedef struct _ClipmanActionsEntry ClipmanActionsEntry;
 struct _ClipmanActionsEntry
 {
-  gchar                *icon_name;
   gchar                *action_name;
   GRegex               *regex;
   GHashTable           *commands;

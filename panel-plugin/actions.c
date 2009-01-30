@@ -109,7 +109,6 @@ typedef enum
   START,
   ACTIONS,
   ACTION,
-  ICON_NAME,
   ACTION_NAME,
   REGEX,
   COMMANDS,
@@ -123,7 +122,6 @@ struct _EntryParser
 {
   ClipmanActions *actions;
   ParserState state;
-  gchar *icon_name;
   gchar *action_name;
   gchar *regex;
   gchar *command_name;
@@ -159,8 +157,6 @@ start_element_handler (GMarkupParseContext *context,
       break;
 
     case ACTION:
-      if (!g_ascii_strcasecmp (element_name, "icon"))
-        parser->state = ICON_NAME;
       if (!g_ascii_strcasecmp (element_name, "name"))
         parser->state = ACTION_NAME;
       else if (!g_ascii_strcasecmp (element_name, "regex"))
@@ -205,7 +201,6 @@ end_element_handler (GMarkupParseContext *context,
       parser->state = ACTIONS;
       break;
 
-    case ICON_NAME:
     case ACTION_NAME:
     case REGEX:
     case COMMANDS:
@@ -246,10 +241,6 @@ text_handler (GMarkupParseContext *context,
 
   switch (parser->state)
     {
-    case ICON_NAME:
-      parser->icon_name = g_strdup (text);
-      break;
-
     case ACTION_NAME:
       parser->action_name = g_strdup (text);
       break;
@@ -711,9 +702,6 @@ clipman_actions_save (ClipmanActions *actions)
       entry = l->data;
 
       g_string_append (output, "\t<action>\n");
-
-      if (entry->icon_name != NULL)
-        g_string_append_printf (output, "\t\t<icon>%s</icon>\n", entry->icon_name);
 
       tmp = g_markup_escape_text (entry->action_name, -1);
       g_string_append_printf (output, "\t\t<name>%s</name>\n", tmp);

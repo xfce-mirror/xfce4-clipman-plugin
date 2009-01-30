@@ -1,4 +1,13 @@
 2009-01-30	Mike Massonnet
+Drop the idea of an icon for an action.
+
+	- panel-plugin/panel-plugin.c, panel-plugin/actions.c,
+	panel-plugin/actions.h:
+		Remove the code that was intended to show an icon for an
+		action.  It is more a waste of time to set it, and not that
+		useful inside the menu.
+
+2009-01-30	Mike Massonnet
 Add support for GLib < 2.16 for the commands treeview.
 
 	- panel-plugin/panel-plugin.c:
