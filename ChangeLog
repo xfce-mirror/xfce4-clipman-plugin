@@ -1,3 +1,13 @@
+2009-01-30	Mike Massonnet
+Set the settings dialog "buggy".
+
+	- panel-plugin/panel-plugin.c:
+		In a way to fix weird bugs, the settings dialog is no more
+		transient for the top level widget of the panel plugin.
+	- panel-plugin/settings-dialog.glade:
+		Both dialogs "action-dialog" and "command-dialog" skip the
+		taskbar and have the type hint "dialog".
+
 2009-01-26	Mike Massonnet
 Actions are configurable through the settings dialog.
 

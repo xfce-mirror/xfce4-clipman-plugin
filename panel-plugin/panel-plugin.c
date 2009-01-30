@@ -229,12 +229,13 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
 
   /* Settings dialog */
   dialog = glade_xml_get_widget (plugin->gxml, "settings-dialog");
-  /* FIXME Doing this with Glade makes the panel button unclickable... but
-   * still we need to destroy the dialog when the panel quits, so keep it. */
-  /* FIXME Now with the actions this bit is getting nastier... when the menu
-   * with actions should popup it is "hidden" while this dialog is shown. */
+  /* NOTE Normally the dialog should be set transient for the top level widget
+   * of the panel plugin, but it renders weird bugs doing so with either glade
+   * or glade+xfce_titled_dialog. */
+  /*
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
+  */
 
   /* General settings */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
