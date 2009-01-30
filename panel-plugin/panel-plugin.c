@@ -114,6 +114,11 @@ static void             setup_commands_treeview         (GtkTreeView *treeview,
                                                          MyPlugin *plugin);
 static void             entry_dialog_cleanup            (GtkDialog *dialog,
                                                          MyPlugin *plugin);
+#if !GLIB_CHECK_VERSION(2,16,0)
+static void           __foreach_command_fill_commands   (gpointer key,
+                                                         gpointer value,
+                                                         gpointer user_data);
+#endif
 static void             cb_commands_selection_changed   (GtkTreeSelection *selection,
                                                          MyPlugin *plugin);
 static void             cb_add_command                  (GtkButton *button,
@@ -682,6 +687,8 @@ cb_actions_row_activated (GtkTreeView *treeview,
       gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
       g_free (title);
     }
+#else
+  g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_fill_commands, commands_model);
 #endif
 
   res = gtk_dialog_run (GTK_DIALOG (dialog));
@@ -750,6 +757,23 @@ entry_dialog_cleanup (GtkDialog *dialog,
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
   gtk_list_store_clear (GTK_LIST_STORE (model));
 }
+
+#if !GLIB_CHECK_VERSION(2,16,0)
+static void
+__foreach_command_fill_commands (gpointer key,
+                                 gpointer value,
+                                 gpointer user_data)
+{
+  GtkTreeModel *model = user_data;
+  GtkTreeIter iter;
+  gchar *title;
+
+  title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
+  gtk_list_store_append (GTK_LIST_STORE (_model), &iter);
+  gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title, 1, key, 2, value, -1);
+  g_free (title);
+}
+#endif
 
 static void
 cb_commands_selection_changed (GtkTreeSelection *selection,

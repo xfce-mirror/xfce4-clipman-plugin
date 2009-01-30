@@ -1,4 +1,11 @@
 2009-01-30	Mike Massonnet
+Add support for GLib < 2.16 for the commands treeview.
+
+	- panel-plugin/panel-plugin.c:
+		New function __foreach_command_fill_commands for versions of
+		GLib prior to 2.16.
+
+2009-01-30	Mike Massonnet
 Fix a crasher.
 
 	- panel-plugin/history.c(clipman_history_clear):
