@@ -315,7 +315,7 @@ panel_plugin_load (XfcePanelPlugin *panel_plugin,
       if (image == NULL)
         break;
 
-      clipman_history_add_image (plugin->history, image, clipboard);
+      clipman_history_add_image (plugin->history, image);
       g_object_unref (image);
     }
 
@@ -327,7 +327,7 @@ panel_plugin_load (XfcePanelPlugin *panel_plugin,
     {
       texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
       for (i = 0; texts != NULL && texts[i] != NULL; i++)
-        clipman_history_add_text (plugin->history, texts[i], clipboard);
+        clipman_history_add_text (plugin->history, texts[i]);
       g_unlink (filename);
     }
 

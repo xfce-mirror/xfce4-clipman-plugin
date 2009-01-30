@@ -188,15 +188,13 @@ __g_slist_compare_texts (gconstpointer a,
  * clipman_history_add_text:
  * @history:    a #ClipmanHistory
  * @text:       the text to add to the history
- * @clipboard:  the #GtkClipboard from where the text is originating from
  *
  * Stores a text inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest text.
  */
 void
 clipman_history_add_text (ClipmanHistory *history,
-                          const gchar *text,
-                          GtkClipboard *clipboard)
+                          const gchar *text)
 {
   ClipmanHistoryItem *item;
   gchar *tmp1, *tmp2;
@@ -214,10 +212,9 @@ clipman_history_add_text (ClipmanHistory *history,
     }
 
   /* Store the text */
-  DBG ("Store text `%s' from clipboard (%p)", text, clipboard);
+  DBG ("Store text `%s')", text);
 
   item = g_slice_new0 (ClipmanHistoryItem);
-  item->clipboard = clipboard;
   item->type = CLIPMAN_HISTORY_TYPE_TEXT;
   item->content.text = g_strdup (text);
 
@@ -253,25 +250,22 @@ clipman_history_add_text (ClipmanHistory *history,
  * clipman_history_add_image:
  * @history:    a #ClipmanHistory
  * @image:      the image to add to the history
- * @clipboard:  the #GtkClipboard from where the image is originating from
  *
  * Stores an image inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest image.
  */
 void
 clipman_history_add_image (ClipmanHistory *history,
-                           const GdkPixbuf *image,
-                           GtkClipboard *clipboard)
+                           const GdkPixbuf *image)
 {
   ClipmanHistoryItem *item;
 
   if (history->priv->max_images_in_history == 0)
     return;
 
-  DBG ("Store image (%p) from clipboard (%p)", image, clipboard);
+  DBG ("Store image (%p)", image);
 
   item = g_slice_new0 (ClipmanHistoryItem);
-  item->clipboard = clipboard;
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
   item->preview.image = exo_gdk_pixbuf_scale_ratio (GDK_PIXBUF (image), 128);

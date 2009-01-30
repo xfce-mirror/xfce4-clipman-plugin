@@ -139,14 +139,14 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
         {
           text = gtk_clipboard_wait_for_text (collector->priv->default_clipboard);
           if (text != NULL && text[0] != '\0')
-            clipman_history_add_text (collector->priv->history, text, collector->priv->default_clipboard);
+            clipman_history_add_text (collector->priv->history, text);
           g_free (text);
         }
       else if (has_image)
         {
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
-            clipman_history_add_image (collector->priv->history, image, collector->priv->default_clipboard);
+            clipman_history_add_image (collector->priv->history, image);
           g_object_unref (image);
         }
     }
@@ -184,7 +184,7 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
         {
           if (collector->priv->add_primary_clipboard)
             {
-              clipman_history_add_text (collector->priv->history, text, collector->priv->primary_clipboard);
+              clipman_history_add_text (collector->priv->history, text);
 
               /* Make a copy inside the default clipboard */
               collector->priv->restoring = TRUE;

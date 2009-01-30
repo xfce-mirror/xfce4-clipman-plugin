@@ -1,4 +1,13 @@
 2009-01-30	Mike Massonnet
+Remove the origin of the clipboard from the history items.
+
+	- panel-plugin/history.h, panel-plugin/history.c:
+		Don't store from where a clipboard originated from (useless).
+		Update the public methods and the struct ClipmanHistoryItem.
+	- panel-plugin/collector.c, panel-plugin/panel-plugin.c:
+		Update the code to use the new function declarations.
+
+2009-01-30	Mike Massonnet
 Set the settings dialog "buggy".
 
 	- panel-plugin/panel-plugin.c:

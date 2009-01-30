@@ -35,7 +35,6 @@ typedef enum
 typedef struct _ClipmanHistoryItem ClipmanHistoryItem;
 struct _ClipmanHistoryItem
 {
-  GtkClipboard             *clipboard;
   ClipmanHistoryType        type;
   union
     {
@@ -84,11 +83,9 @@ GType                       clipman_history_get_type               ();
 
 ClipmanHistory *            clipman_history_get                    ();
 void                        clipman_history_add_text               (ClipmanHistory *history,
-                                                                    const gchar *text,
-                                                                    GtkClipboard *clipboard);
+                                                                    const gchar *text);
 void                        clipman_history_add_image              (ClipmanHistory *history,
-                                                                    const GdkPixbuf *image,
-                                                                    GtkClipboard *clipboard);
+                                                                    const GdkPixbuf *image);
 GSList *                    clipman_history_get_list               (ClipmanHistory *history);
 const ClipmanHistoryItem *  clipman_history_get_item_to_restore    (ClipmanHistory *history);
 void                        clipman_history_set_item_to_restore    (ClipmanHistory *history,
