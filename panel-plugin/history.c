@@ -349,6 +349,8 @@ clipman_history_clear (ClipmanHistory *history)
 
   history->priv->texts = NULL;
   history->priv->images = NULL;
+
+  history->priv->item_to_restore = NULL;
 }
 
 ClipmanHistory *

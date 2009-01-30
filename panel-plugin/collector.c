@@ -219,11 +219,14 @@ _clipman_collector_restore_clipboard (ClipmanCollector *collector,
    * empty clipboards. */
   const ClipmanHistoryItem *item;
 
-  DBG ("Restore the clipboard with the most recent content from ClipmanHistory");
-
   collector->priv->restoring = TRUE;
 
   item = clipman_history_get_item_to_restore (collector->priv->history);
+  if (item == NULL)
+    return;
+
+  DBG ("Restore the clipboard with the most recent content from ClipmanHistory");
+
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:

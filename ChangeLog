@@ -1,4 +1,12 @@
 2009-01-30	Mike Massonnet
+Fix a crasher.
+
+	- panel-plugin/history.c(clipman_history_clear):
+		Set the item_to_restore to NULL when clearing the history.
+	- panel-plugin/collector.c(_clipman_collector_restore_clipboard):
+		Check if the item to restore is not NULL.
+
+2009-01-30	Mike Massonnet
 Remove the origin of the clipboard from the history items.
 
 	- panel-plugin/history.h, panel-plugin/history.c:
