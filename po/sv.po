@@ -1,127 +1,89 @@
 # Swedish translation for xfce4-clipman-plugin.
-# Copyright (C) 2008 Free Software Foundation, Inc.
+# Copyright (C) 2008, 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Daniel Nylander <po@danielnylander.se>, 2008.
+# Daniel Nylander <po@danielnylander.se>, 2008, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-14 15:57+0100\n"
-"PO-Revision-Date: 2008-12-21 19:25+0100\n"
+"POT-Creation-Date: 2009-02-01 18:54+0100\n"
+"PO-Revision-Date: 2009-02-01 18:56+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/clipman-dialogs.c:66
+#: ../panel-plugin/clipman-dialogs.c:64
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr ""
+msgstr "Kunde inte öppna följande url: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:162
-#: ../panel-plugin/clipman.c:961
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:938
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Urklippshanterare"
 
-#: ../panel-plugin/clipman-dialogs.c:194
+#: ../panel-plugin/clipman-dialogs.c:171
 msgid "Save clipboard contents on _exit"
-msgstr ""
+msgstr "Spara urklippsinnehåll vid a_vslut"
 
-#: ../panel-plugin/clipman-dialogs.c:201
-msgid "_Ignore selections"
-msgstr ""
+#: ../panel-plugin/clipman-dialogs.c:178
+msgid "A_dd selections to the history"
+msgstr "Lägg till _markeringar till historiken"
+
+#: ../panel-plugin/clipman-dialogs.c:185
+msgid "_Show item numbers"
+msgstr "_Visa objektnummer"
+
+#: ../panel-plugin/clipman-dialogs.c:192
+msgid "<b>General</b>"
+msgstr "<b>Allmänt</b>"
 
 #: ../panel-plugin/clipman-dialogs.c:208
-msgid "Pre_vent empty clipboard"
-msgstr ""
+msgid "Clipboard history items:"
+msgstr "Historik för urklippsobjekt:"
 
-#: ../panel-plugin/clipman-dialogs.c:216
-msgid "<b>General</b>"
-msgstr ""
+#: ../panel-plugin/clipman-dialogs.c:232
+msgid "Menu item characters:"
+msgstr "Menyobjektstecken:"
 
-#: ../panel-plugin/clipman-dialogs.c:234
-msgid "Normal clipboard _management"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:243
-msgid "Strictly separate _both clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:252
-msgid "<b>Clipboard Behaviour</b>"
-msgstr ""
+#: ../panel-plugin/clipman-dialogs.c:254
+msgid "<b>Numbers</b>"
+msgstr "<b>Nummer</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:260
+#: ../panel-plugin/clipman-dialogs.c:262
 msgid "General"
 msgstr "Allmänt"
 
-#: ../panel-plugin/clipman-dialogs.c:277
-msgid "_Show item numbers"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:284
-msgid "Se_parate clipboards"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:291
-msgid "<b>Menu Appearance</b>"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:313
-msgid "Clipboard history items:"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:337
-msgid "Menu item characters:"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:359
-msgid "<b>Numbers</b>"
-msgstr ""
-
-#: ../panel-plugin/clipman-dialogs.c:364
-msgid "Appearance"
-msgstr "Utseende"
-
-#: ../panel-plugin/clipman.c:75
+#: ../panel-plugin/clipman.c:105
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Är du säker på att du vill tömma historiken?"
 
-#: ../panel-plugin/clipman.c:278
-msgid "Are you sure you want to remove this clip from the history?"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:397
-msgid "< Default History Empty >"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:448
-msgid "< Selection History Empty >"
-msgstr ""
-
-#: ../panel-plugin/clipman.c:457
-#: ../panel-plugin/clipman.c:522
+#: ../panel-plugin/clipman.c:454
 msgid "Clear History"
-msgstr ""
+msgstr "Töm historik"
 
-#: ../panel-plugin/clipman.c:616
+#: ../panel-plugin/clipman.c:548
 msgid "Clipman History"
-msgstr ""
+msgstr "Historik för Clipman"
 
-#: ../panel-plugin/clipman.c:638
+#: ../panel-plugin/clipman.c:561
 msgid "< Clipboard Empty >"
-msgstr ""
+msgstr "< Urklippet är tomt >"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:1
 msgid "Clipboard manager for the Xfce desktop"
-msgstr ""
+msgstr "Urklippshanterare för Xfce-skrivbordet"
 
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
-msgstr ""
+msgstr "Clipman"
+
+#~ msgid "Appearance"
+#~ msgstr "Utseende"
 
