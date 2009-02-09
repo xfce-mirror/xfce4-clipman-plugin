@@ -1,3 +1,11 @@
+2009-02-09	Mike Massonnet <mmassonnet@xfce.org>
+
+Copy selections back to default clipboard.
+
+	- Copy the primary clipboard text back to the default clipboard text
+	- Start the timeout only as-needed and not every 0.5 seconds
+	- Include gstdio as needed for g_unlink
+
 2009-01-18	Mike Massonnet <mmassonnet@xfce.org>
 
 Release version 0.9.0

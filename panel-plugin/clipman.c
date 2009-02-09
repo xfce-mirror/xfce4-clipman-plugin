@@ -25,6 +25,7 @@
 #endif
 
 #include <string.h>
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
 
 #include <exo/exo.h>
@@ -39,10 +40,6 @@
 /* The clipboards */
 static GtkClipboard *primaryClip;
 static GtkClipboard *defaultClip;
-
-/* For event-driven clipboard_change() function */
-gboolean MouseSelecting=FALSE;
-gboolean ShiftSelecting=FALSE;
 
 /* Register the plugin */
 static void
@@ -664,8 +661,8 @@ static void clipman_clipboard_changed(GtkClipboard *clipboard, ClipmanPlugin *cl
           DBG("Text select done");
           clipman_add_clip (clipman, ptext, PRIMARY, RAWTEXT);
           clipman_array_remove_oldest (clipman);
+          gtk_clipboard_set_text (defaultClip, ptext, -1);
         }
-        //gtk_clipboard_set_text (defaultClip, ptext, -1);
         g_free (ptext);
         
       // If an image has been selected, don't process it - but reset PrimaryIndex
@@ -682,6 +679,8 @@ static void clipman_clipboard_changed(GtkClipboard *clipboard, ClipmanPlugin *cl
   - user copies data to clipboard
   - program holding a clipboard closes down
 */
+static gboolean clipman_timed_poll (ClipmanPlugin *clipman);
+static void clipman_reset_timeout (ClipmanPlugin *clipman);
 static void clipboard_changed(GtkClipboard *clipboard, GdkEvent *event, ClipmanPlugin *clipman) {
 
   // Signal has been sent by this plugin
@@ -694,40 +693,37 @@ static void clipboard_changed(GtkClipboard *clipboard, GdkEvent *event, ClipmanP
   /* Note this extra effort is only required for the PRIMARY selects
      in some applications */
   if (clipboard == primaryClip && clipman->AddSelect) {
-    GdkModifierType  state;
-    gdk_window_get_pointer(NULL, NULL, NULL, &state);
-    if (state & GDK_BUTTON1_MASK) {
-      DBG("Left btn pressed");
-      MouseSelecting=TRUE;
-      return;  // not done yet
-    } else if (state & GDK_SHIFT_MASK) {
-      DBG("Shift key pressed");
-      ShiftSelecting=TRUE;
-      return;  // not done yet
-    }
+    /* Start the clipman_timed_poll function */
+    if (clipman->TimeoutId == 0)
+      clipman->TimeoutId =
+        g_timeout_add_full(G_PRIORITY_LOW,
+                           TIMER_INTERVAL,
+                           (GSourceFunc) clipman_timed_poll,
+                           clipman,
+                           (GDestroyNotify) clipman_reset_timeout);
+  } else if (clipboard == defaultClip) {
+    /* Reason the signal was sent */
+    GdkOwnerChange reason = ((GdkEventOwnerChange*)event)->reason;
+    clipman_clipboard_changed(clipboard, clipman, reason);
   }
-       
-  /* Reason the signal was sent */
-  GdkOwnerChange reason = ((GdkEventOwnerChange*)event)->reason;
-  clipman_clipboard_changed(clipboard, clipman, reason);
-
 }
 
 /* This runs every 0.5 seconds - minimize what it does. */
 static gboolean clipman_timed_poll (ClipmanPlugin *clipman)
 {
-    // Nearly always, this is all this function will do ..
-    if (!MouseSelecting && !ShiftSelecting) return TRUE;
-
+    gboolean MouseSelecting = TRUE;
+    gboolean ShiftSelecting = TRUE;
     GdkModifierType  state;
+
     gdk_window_get_pointer(NULL, NULL, NULL, &state);
-    if (MouseSelecting==TRUE && !(state & GDK_BUTTON1_MASK)) MouseSelecting=FALSE;
-    if (ShiftSelecting==TRUE && !(state & GDK_SHIFT_MASK))   ShiftSelecting=FALSE;
+    if (!(state & GDK_BUTTON1_MASK)) MouseSelecting=FALSE;
+    if (!(state & GDK_SHIFT_MASK))   ShiftSelecting=FALSE;
 
     // Now that the selection is finished, run the necessary code ..
     if (!MouseSelecting && !ShiftSelecting) {
       DBG("Finished selecting");    
       clipman_clipboard_changed(primaryClip, clipman, GDK_OWNER_CHANGE_NEW_OWNER);
+      return FALSE;
     }
     
     return TRUE;
@@ -741,11 +737,7 @@ clipman_reset_timeout (ClipmanPlugin *clipman)
         if (clipman->TimeoutId != 0)
             g_source_remove (clipman->TimeoutId);
 
-        clipman->TimeoutId = g_timeout_add_full (G_PRIORITY_LOW,
-                                                 TIMER_INTERVAL,
-                                                 (GSourceFunc) clipman_timed_poll,
-                                                 clipman,
-                                                 (GDestroyNotify) clipman_reset_timeout);
+        clipman->TimeoutId = 0;
     }
 }
 
@@ -940,14 +932,6 @@ clipman_new (XfcePanelPlugin *plugin)
 
     g_signal_connect(clipman->button, "button_press_event",
             G_CALLBACK(clipman_icon_clicked), clipman);
-
-    /* Start the clipman_timed_poll function */
-    /* TODO Run the timeout only if the plugin takes care of the selections */
-    clipman->TimeoutId = g_timeout_add_full(G_PRIORITY_LOW,
-                                            TIMER_INTERVAL,
-                                            (GSourceFunc) clipman_timed_poll,
-                                            clipman,
-                                            (GDestroyNotify) clipman_reset_timeout);
 
     /* Connect to the clipboards */
     defaultClip = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
