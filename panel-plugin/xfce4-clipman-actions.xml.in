@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE actions [
+	<!ELEMENT actions (action+)>
+	<!ELEMENT action (name,regex,commands)>
+	<!ELEMENT commands (command+)>
+	<!ELEMENT command (name,exec)>
+
+	<!ELEMENT name (#PCDATA)>
+	<!ATTLIST name xml:lang CDATA #IMPLIED>
+	<!ELEMENT regex (#PCDATA)>
+	<!ELEMENT exec (#PCDATA)>
+]>
+<!--
+  Copyright (c) 2009 Mike Massonnet <mmassonnet@xfce.org>
+
+  Default Clipman actions configuration file, which gets installed system-wide.
+  This should act more like an example, and is therefore kept simple.
+-->
+<actions>
+	<action>
+		<_name>Image</_name>
+		<regex>(/|http|ftp).+\.(jpg|png|gif)</regex>
+		<commands>
+			<command>
+				<_name>View with Ristretto</_name>
+				<exec>ristretto &quot;\0&quot;</exec>
+			</command>
+			<command>
+				<_name>Edit with Gimp</_name>
+				<exec>gimp &quot;\0&quot;</exec>
+			</command>
+		</commands>
+	</action>
+	<action>
+		<_name>Bugz</_name>
+		<regex>.*bug #?([0-9]+).*</regex>
+		<commands>
+			<command>
+				<_name>Xfce Bug</_name>
+				<exec>exo-open http://bugzilla.xfce.org/show_bug.cgi?id=\1</exec>
+			</command>
+			<command>
+				<_name>GNOME Bug</_name>
+				<exec>exo-open http://bugzilla.gnome.org/show_bug.cgi?id=\1</exec>
+			</command>
+		</commands>
+	</action>
+</actions>

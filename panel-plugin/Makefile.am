@@ -48,7 +48,9 @@ settings-dialog_glade.h: settings-dialog.glade
 endif
 
 actionsdir = $(sysconfdir)/xdg/xfce4/panel
-actions_DATA = xfce4-clipman-actions.xml
+actions_in_files = xfce4-clipman-actions.xml.in
+actions_DATA = $(actions_in_files:.xml.in=.xml)
+@INTLTOOL_XML_RULE@
 
 desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_in_in_files = xfce4-clipman-plugin.desktop.in.in

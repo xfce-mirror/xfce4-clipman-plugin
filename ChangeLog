@@ -1,3 +1,16 @@
+2009-02-11	Mike Massonnet
+Add i18n support for the default XML actions file.
+
+	- panel-plugin/actions.c, panel-plugin/xfce4-clipman-actions.xml.in,
+	panel-plugin/Makefile.am:
+		Make it possible to have the action and command names
+		translated inside the settings dialog just like it is done
+		with the Thunar User Custom Actions.
+	- panel-plugin/xfce4-clipman-actions.xml:
+		This file is now auto-generated, delete it.
+	- po/POTFILES.in:
+		Add the new .xml.in file to the list of files to translate.
+
 2009-01-30	Mike Massonnet
 Drop the idea of an icon for an action.
 

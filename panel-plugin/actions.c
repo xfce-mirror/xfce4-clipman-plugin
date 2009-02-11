@@ -4,6 +4,9 @@
  *  XML parsing based on Xfce4 Panel:
  *  Copyright (c) 2005 Jasper Huijsmans <jasper@xfce.org>
  *
+ *  Internationalization of the XML file based on Thunar User Custom Actions:
+ *  Copyright (c) 2005-2006 Benedikt Meurer <benny@xfce.org>
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
  *  as published by the Free Software Foundation; either version 2
@@ -21,6 +24,10 @@
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#endif
+
+#ifdef HAVE_LOCALE_H
+#include <locale.h>
 #endif
 
 #include <exo/exo.h>
@@ -122,6 +129,11 @@ struct _EntryParser
 {
   ClipmanActions *actions;
   ParserState state;
+
+  gchar *locale;
+  gboolean name_use;
+  gint name_match;
+
   gchar *action_name;
   gchar *regex;
   gchar *command_name;
@@ -143,6 +155,8 @@ start_element_handler (GMarkupParseContext *context,
                        GError **error)
 {
   EntryParser *parser = user_data;
+  gint n;
+  gint match;
 
   switch (parser->state)
     {
@@ -152,27 +166,53 @@ start_element_handler (GMarkupParseContext *context,
       break;
 
     case ACTIONS:
+      parser->name_use = FALSE;
+      parser->name_match = XFCE_LOCALE_NO_MATCH;
+
       if (!g_ascii_strcasecmp (element_name, "action"))
         parser->state = ACTION;
       break;
 
-    case ACTION:
-      if (!g_ascii_strcasecmp (element_name, "name"))
-        parser->state = ACTION_NAME;
-      else if (!g_ascii_strcasecmp (element_name, "regex"))
-        parser->state = REGEX;
-      else if (!g_ascii_strcasecmp (element_name, "commands"))
-        parser->state = COMMANDS;
-      break;
-
     case COMMANDS:
+      parser->name_use = FALSE;
+      parser->name_match = XFCE_LOCALE_NO_MATCH;
+
       if (!g_ascii_strcasecmp (element_name, "command"))
         parser->state = COMMAND;
       break;
 
+    case ACTION:
     case COMMAND:
       if (!g_ascii_strcasecmp (element_name, "name"))
-        parser->state = COMMAND_NAME;
+        {
+          for (n = 0; attribute_names[n] != NULL; n++)
+            {
+              if (!g_ascii_strcasecmp (attribute_names[n], "xml:lang"))
+                break;
+            }
+
+          if (attribute_names[n] == NULL)
+            {
+              parser->name_use = (parser->name_match <= XFCE_LOCALE_NO_MATCH);
+            }
+          else
+            {
+              match = xfce_locale_match (parser->locale, attribute_values[n]);
+              if (parser->name_match < match)
+                {
+                  parser->name_match = match;
+                  parser->name_use = TRUE;
+                }
+              else
+                parser->name_use = FALSE;
+            }
+
+          parser->state = (parser->state == ACTION) ? ACTION_NAME : COMMAND_NAME;
+        }
+      else if (!g_ascii_strcasecmp (element_name, "regex"))
+        parser->state = REGEX;
+      else if (!g_ascii_strcasecmp (element_name, "commands"))
+        parser->state = COMMANDS;
       else if (!g_ascii_strcasecmp (element_name, "exec"))
         parser->state = EXEC;
       break;
@@ -216,6 +256,8 @@ end_element_handler (GMarkupParseContext *context,
 
       g_free (parser->command_name);
       g_free (parser->command);
+      parser->command_name = NULL;
+      parser->command = NULL;
 
       parser->state = COMMANDS;
       break;
@@ -242,7 +284,11 @@ text_handler (GMarkupParseContext *context,
   switch (parser->state)
     {
     case ACTION_NAME:
-      parser->action_name = g_strdup (text);
+      if (parser->name_use)
+        {
+          g_free (parser->action_name);
+          parser->action_name = g_strdup (text);
+        }
       break;
 
     case REGEX:
@@ -250,7 +296,11 @@ text_handler (GMarkupParseContext *context,
       break;
 
     case COMMAND_NAME:
-      parser->command_name = g_strdup (text);
+      if (parser->name_use)
+        {
+          g_free (parser->command_name);
+          parser->command_name = g_strdup (text);
+        }
       break;
 
     case EXEC:
@@ -666,6 +716,7 @@ clipman_actions_load (ClipmanActions *actions)
     {
       parser = g_slice_new0 (EntryParser);
       parser->actions = actions;
+      parser->locale = setlocale (LC_MESSAGES, NULL);
       context = g_markup_parse_context_new (&markup_parser, 0, parser, NULL);
       g_markup_parse_context_parse (context, data, (gssize)size, NULL);
       if (!g_markup_parse_context_end_parse (context, NULL))

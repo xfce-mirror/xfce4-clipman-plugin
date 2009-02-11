@@ -1,3 +1,4 @@
+panel-plugin/xfce4-clipman-actions.xml.in
 panel-plugin/xfce4-clipman-plugin.desktop.in.in
 panel-plugin/panel-plugin.c
 panel-plugin/collector.c
