@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-09 14:34+0100\n"
-"PO-Revision-Date: 2008-11-02 20:35+0100\n"
+"PO-Revision-Date: 2009-01-19 00:18+0100\n"
 "Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,8 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "Imposible abrir la siguiente URL: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138
+#: ../panel-plugin/clipman.c:915
 msgid "Clipboard Manager"
 msgstr "Gestor del portapapeles"
 
@@ -33,7 +34,7 @@ msgstr "Guardar contenido del portapapeles al _salir"
 
 #: ../panel-plugin/clipman-dialogs.c:177
 msgid "A_dd selections to the history"
-msgstr ""
+msgstr "Aña_dir selecciones al historial"
 
 #: ../panel-plugin/clipman-dialogs.c:184
 msgid "_Show item numbers"
@@ -88,33 +89,24 @@ msgstr "Clipman"
 
 #~ msgid "_Ignore selections"
 #~ msgstr "_Ignorar selecciones"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar el borrado del portapapeles"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Gestión nor_mal del portapapeles"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separar estrictamente am_bos portapapeles"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Comportamiento del portapapeles</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_parar portapapeles"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Apariencia del menú</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Apariencia"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "¿Está seguro de querer borrar este clip del historial?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Historial predeterminado vacío >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Historial de selección vacío >"
+
