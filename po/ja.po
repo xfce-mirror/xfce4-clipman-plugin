@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 15:22+0900\n"
-"PO-Revision-Date: 2009-01-11 15:27+0900\n"
+"POT-Creation-Date: 2009-03-05 17:29+0900\n"
+"PO-Revision-Date: 2009-03-15 23:20+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,59 +22,58 @@ msgstr ""
 msgid "Unable to open the following url: %s"
 msgstr "次の URL を開く事ができません: %s"
 
-#: ../panel-plugin/clipman-dialogs.c:138
-#: ../panel-plugin/clipman.c:915
+#: ../panel-plugin/clipman-dialogs.c:138 ../panel-plugin/clipman.c:930
 msgid "Clipboard Manager"
 msgstr "クリップボードマネージャ"
 
-#: ../panel-plugin/clipman-dialogs.c:170
+#: ../panel-plugin/clipman-dialogs.c:171
 msgid "Save clipboard contents on _exit"
 msgstr "終了時にクリップボードの内容を保存する(_E)"
 
-#: ../panel-plugin/clipman-dialogs.c:177
+#: ../panel-plugin/clipman-dialogs.c:178
 msgid "A_dd selections to the history"
 msgstr "選択した領域を履歴に追加する(_D)"
 
-#: ../panel-plugin/clipman-dialogs.c:184
+#: ../panel-plugin/clipman-dialogs.c:185
 msgid "_Show item numbers"
 msgstr "アイテム数を表示する(_S)"
 
-#: ../panel-plugin/clipman-dialogs.c:191
+#: ../panel-plugin/clipman-dialogs.c:192
 msgid "<b>General</b>"
 msgstr "<b>全般</b>"
 
-#: ../panel-plugin/clipman-dialogs.c:207
+#: ../panel-plugin/clipman-dialogs.c:208
 msgid "Clipboard history items:"
 msgstr "クリップボードの履歴アイテム数:"
 
-#: ../panel-plugin/clipman-dialogs.c:231
+#: ../panel-plugin/clipman-dialogs.c:232
 msgid "Menu item characters:"
 msgstr "メニューアイテムの文字数:"
 
-#: ../panel-plugin/clipman-dialogs.c:253
+#: ../panel-plugin/clipman-dialogs.c:254
 msgid "<b>Numbers</b>"
 msgstr "<b>数</b>"
 
 #. *
 #. * Notebook label
 #. *
-#: ../panel-plugin/clipman-dialogs.c:261
+#: ../panel-plugin/clipman-dialogs.c:262
 msgid "General"
 msgstr "全般"
 
-#: ../panel-plugin/clipman.c:98
+#: ../panel-plugin/clipman.c:102
 msgid "Are you sure you want to clear the history?"
 msgstr "履歴をクリアしてもよろしいですか?"
 
-#: ../panel-plugin/clipman.c:456
+#: ../panel-plugin/clipman.c:451
 msgid "Clear History"
 msgstr "履歴をクリア"
 
-#: ../panel-plugin/clipman.c:550
+#: ../panel-plugin/clipman.c:545
 msgid "Clipman History"
 msgstr "Clipman 履歴"
 
-#: ../panel-plugin/clipman.c:563
+#: ../panel-plugin/clipman.c:558
 msgid "< Clipboard Empty >"
 msgstr "< クリップボードは空です >"
 
@@ -85,9 +84,3 @@ msgstr "Xfce デスクトップのクリップボードを管理します。"
 #: ../panel-plugin/clipman.desktop.in.in.h:2
 msgid "Clipman"
 msgstr "Clipman"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>メニューの外観</b>"
-#~ msgid "Appearance"
-#~ msgstr "外観"
-
