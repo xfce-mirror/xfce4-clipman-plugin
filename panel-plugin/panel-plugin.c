@@ -123,6 +123,8 @@ static void             cb_commands_selection_changed   (GtkTreeSelection *selec
                                                          MyPlugin *plugin);
 static void             cb_add_command                  (GtkButton *button,
                                                          MyPlugin *plugin);
+static void             cb_refresh_command              (GtkButton *button,
+                                                         MyPlugin *plugin);
 static void             cb_delete_command               (GtkButton *button,
                                                          MyPlugin *plugin);
 
@@ -228,19 +230,16 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
                         MyPlugin *plugin)
 {
   GtkWidget *dialog;
+  GtkWindowGroup *group;
 
   /* GladeXML */
   plugin->gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
 
   /* Settings dialog */
   dialog = glade_xml_get_widget (plugin->gxml, "settings-dialog");
-  /* NOTE Normally the dialog should be set transient for the top level widget
-   * of the panel plugin, but it renders weird bugs doing so with either glade
-   * or glade+xfce_titled_dialog. */
-  /*
-  gtk_window_set_transient_for (GTK_WINDOW (dialog),
-                                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
-  */
+  gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
+  group = gtk_window_group_new ();
+  gtk_window_group_add_window (group, GTK_WINDOW (dialog));
 
   /* General settings */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
@@ -251,7 +250,6 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
                                 (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")),
                              (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
-
   xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
                           G_OBJECT (glade_xml_get_widget (plugin->gxml, "save-on-quit")), "active");
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
@@ -272,6 +270,7 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   glade_xml_signal_connect_data (plugin->gxml, "cb_delete_action", G_CALLBACK (cb_delete_action), plugin);
   glade_xml_signal_connect_data (plugin->gxml, "cb_actions_row_activated", G_CALLBACK (cb_actions_row_activated), plugin);
   glade_xml_signal_connect_data (plugin->gxml, "cb_add_command", G_CALLBACK (cb_add_command), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), plugin);
   glade_xml_signal_connect_data (plugin->gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), plugin);
 
   setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "actions")), plugin);
@@ -283,6 +282,7 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   xfce_panel_plugin_unblock_menu (panel_plugin);
 
   gtk_widget_destroy (dialog);
+  g_object_unref (group);
   g_object_unref (plugin->gxml);
   plugin->gxml = NULL;
 
@@ -775,49 +775,94 @@ cb_commands_selection_changed (GtkTreeSelection *selection,
                                MyPlugin *plugin)
 {
   GtkTreeModel *model;
+  GtkTreeIter iter;
   gboolean sensitive;
+  gchar *command_name = NULL;
+  gchar *command = NULL;
 
-  sensitive = gtk_tree_selection_get_selected (selection, &model, NULL);
+  sensitive = gtk_tree_selection_get_selected (selection, &model, &iter);
 
+  gtk_widget_set_sensitive (glade_xml_get_widget (plugin->gxml, "button-refresh-command"), sensitive);
   gtk_widget_set_sensitive (glade_xml_get_widget (plugin->gxml, "button-delete-command"), sensitive);
+
+  if (sensitive)
+    {
+      gtk_tree_model_get (model, &iter, 1, &command_name, 2, &command, -1);
+      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "command-name")), command_name);
+      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "command")), command);
+      g_free (command_name);
+      g_free (command);
+    }
+  else
+    {
+      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "command-name")), "");
+      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "command")), "");
+    }
 }
 
 static void
 cb_add_command (GtkButton *button,
                 MyPlugin *plugin)
 {
-  GtkWidget *dialog;
   GtkWidget *command_name;
   GtkWidget *command;
   GtkTreeModel *model;
   GtkTreeIter iter;
   gchar *title;
-  gint res;
 
-  dialog = glade_xml_get_widget (plugin->gxml, "command-dialog");
   command_name = glade_xml_get_widget (plugin->gxml, "command-name");
   command = glade_xml_get_widget (plugin->gxml, "command");
 
-  res = gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_hide (dialog);
+  if (gtk_entry_get_text (GTK_ENTRY (command_name))[0] == '\0'
+      && gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
+    return;
 
-  /* TODO remove the get_text checks once the sensitivity of ok button is handled */
-  if (res == 1 && gtk_entry_get_text (GTK_ENTRY (command_name))[0] != '\0'
-      && gtk_entry_get_text (GTK_ENTRY (command))[0] != '\0')
-    {
-      model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
-      title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
-                               gtk_entry_get_text (GTK_ENTRY (command_name)),
-                               gtk_entry_get_text (GTK_ENTRY (command)));
-      gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-      gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
-                          1, gtk_entry_get_text (GTK_ENTRY (command_name)),
-                          2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
-      g_free (title);
-    }
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
+  title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
+                           gtk_entry_get_text (GTK_ENTRY (command_name)),
+                           gtk_entry_get_text (GTK_ENTRY (command)));
+  gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+  gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
+                      1, gtk_entry_get_text (GTK_ENTRY (command_name)),
+                      2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
+  g_free (title);
 
   gtk_entry_set_text (GTK_ENTRY (command_name), "");
   gtk_entry_set_text (GTK_ENTRY (command), "");
+}
+
+static void
+cb_refresh_command (GtkButton *button,
+                    MyPlugin *plugin)
+{
+  GtkWidget *treeview;
+  GtkTreeSelection *selection;
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+  GtkWidget *command_name;
+  GtkWidget *command;
+  gchar *title;
+
+  treeview = glade_xml_get_widget (plugin->gxml, "commands");
+
+  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
+  if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+    {
+      g_critical ("Trying to refresh a command but got no selection");
+      return;
+    }
+
+  command_name = glade_xml_get_widget (plugin->gxml, "command-name");
+  command = glade_xml_get_widget (plugin->gxml, "command");
+  title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
+                           gtk_entry_get_text (GTK_ENTRY (command_name)),
+                           gtk_entry_get_text (GTK_ENTRY (command)));
+  gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
+                      1, gtk_entry_get_text (GTK_ENTRY (command_name)),
+                      2, gtk_entry_get_text (GTK_ENTRY (command)));
+  g_free (title);
+
+  gtk_tree_selection_unselect_all (selection);
 }
 
 static void

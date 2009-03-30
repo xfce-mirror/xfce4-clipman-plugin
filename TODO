@@ -1,10 +1,7 @@
 Deps:
 - Check deps versions
 Actions:
-- Finish the Glade rewrite
-- ?Set sensitivity of "ok" buttons in the actions settings dialogs
-- Sanity check for action_name on "add action"
-- Sanity check on the regex
+- Set sensitivity of "ok" button in the actions settings dialogs
 - A regex validator dialog
 Collector:
 - Drop the restore code and push the clipboard data inside the plugin so it's the owner

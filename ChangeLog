@@ -1,3 +1,17 @@
+2009-03-30	Mike Massonnet
+Redesign the actions settings dialog
+
+	- panel-plugin/settings-dialog.glade:
+		Unify the commands and the actions dialog.  Add a refresh
+		button for the command (makes the commands editable).
+	- panel-plugin/panel-plugin.c:
+		Implement the new callbacks.  Set the settings dialog
+		back to transient and put it inside a window group (cause
+		gtk_dialog_run makes the dialog modal, cf. bug #4977).
+		group + make it transient
+	- panel-plugin/xfce4-clipman-actions.xml.in:
+		Change the regex' a little bit.
+
 2009-02-11	Mike Massonnet
 Add i18n support for the default XML actions file.
 
