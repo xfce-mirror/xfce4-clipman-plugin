@@ -1,0 +1,183 @@
+# French translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Maximilian Schleiss <maximilian@xfce.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2006-12-22 18:06+0100\n"
+"Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
+"Language-Team: French <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Gestionnaire de presse-papiers"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>Nombres</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "A_jouter les sélections à l'historique"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Général"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< Presse-papiers vide >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "Échec à l'ouverture du lien : %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "_Enregistrer le contenu du presse-papiers en quittant"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "_Afficher les numéros des éléments"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Général</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "Éléments de l'historique du presse-papiers :"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "Caractères des éléments du menu :"
+
+#~ msgid "Clear History"
+#~ msgstr "Effacer l'historique"
+
+#~ msgid "Clipman History"
+#~ msgstr "Historique du presse-papiers"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "Gestionnaire de presse-papiers pour l'environnement de bureau Xfce"

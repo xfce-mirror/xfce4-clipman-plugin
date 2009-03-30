@@ -1,0 +1,254 @@
+# Hungarian translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# SZERVÁC Attila <sas@321.hu>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2007-01-08 09:08+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Hungarian <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Country: HUNGARY\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Vágólap kezelő"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>Számok</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "Kijelölések k_ihagyása"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+#, fuzzy
+msgid "Edit Action"
+msgstr "Tartalom szerkesztése"
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Általános"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "Tényleg törlöd az előzményeket?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< Vágólap üres >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "Az alábbi url nem nyitható meg: %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "Vágólap tartalmak mentése kilépéskor"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "Elem_számok mutatása"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Általános</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "Vágólap történet elemek:"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "Menü elem karakterek:"
+
+#~ msgid "Clear History"
+#~ msgstr "Történet törlése"
+
+#~ msgid "Clipman History"
+#~ msgstr "Vágólap történet"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "Egy Xfce vágólap kezelő"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "Üres vágólap tiltása"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Szokásos vágólap kezelés"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Vágólapok szigorú elválasztása"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Vágólap viselkedés</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Külön vágólapok"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Menü megjelenés</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Megjelenés"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Tényleg törlöd e vágást az előzők közül?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Alap történet üres >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Kijelölés történet üres >"
+
+#~ msgid "Visit the goodies website for more information about this plugin."
+#~ msgstr "A cukik weblapján több leírást is lelsz e beillesztésről."
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "E lehetőséggel az Xfce kilépéskor elmenti a vágólap történetet és a "
+#~ "következő bejelentkezésnél visszaállítja."
+
+#~ msgid ""
+#~ "Select this option will prevent Clipman from including the contents of "
+#~ "the selection in the history."
+#~ msgstr ""
+#~ "E lehetőség megadásakor a Clipman nem őrzi meg kijelölés tartalmát a "
+#~ "történetben."
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr ""
+#~ "E lehetőség megelőzi az üres vágólapot. A legutolsó történet elem a "
+#~ "vágólapra kerül."
+
+#~ msgid "Properties"
+#~ msgstr "Tulajdonságok"
+
+#~ msgid "Use _colored menu items"
+#~ msgstr "Színes menüelemek"
+
+#~ msgid "Developer"
+#~ msgstr "Fejlesztő"
+
+#~ msgid "Question"
+#~ msgstr "Kérdés"
+
+#~ msgid "What to do with this clipboard item?"
+#~ msgstr "Mit tegyünk e vágólap elemmel?"

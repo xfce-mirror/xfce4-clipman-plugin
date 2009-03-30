@@ -1,0 +1,297 @@
+# Brazilian portuguese translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Gunther Furtado <gunzera0@yahoo.com.br>
+# Vladimir Melo <vladimirmelo@foresightlinux.org>, 2008.
+# Og Maciel <ogmaciel@gnome.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2009-01-16 12:22-0500\n"
+"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Language: Portuguese\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Gerenciador de área de transferência"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>Números</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "_Ignorar seleções"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Geral"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+#, fuzzy
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+"Selecionar esta opção para mostrar números para os itens da lista do "
+"histórico."
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "Você tem certeza que deseja limpar o histórico?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< Área de transferência vazia >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "Não foi possível abrir a url: %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "Salvar o cont_eúdo da área de transferência ao sair"
+
+#~ msgid "A_dd selections to the history"
+#~ msgstr "A_dicionar as seleções ao histórico"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "Apre_sentar números dos itens"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Geral</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "Itens do histórico da área de transferência:"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "Caracteres do item de menu:"
+
+#~ msgid "Clear History"
+#~ msgstr "Limpar histórico"
+
+#~ msgid "Clipman History"
+#~ msgstr "Histórico do Clipman"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr ""
+#~ "Gerenciador da área de transferência para a área de trabalho do Xfce"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "E_vitar área de transferência vazia"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Gerencia_mento normal de área de transferência"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Sepa_rar estritamente as áreas de transferência"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Comportamento da área de transferência</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Se_parar áreas de transferência"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Aparência do Menu</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Aparência"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Tem certeza de que quer remover esta entrada do histórico?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Histórico Padrão Vazio >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Histórico de Seleções Vazio >"
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "Selecione esta opção para salvar o histórico da área de transferência ao "
+#~ "sair do Xfce e restaurá-lo ao voltar."
+
+#~ msgid ""
+#~ "Select this option will prevent Clipman from including the contents of "
+#~ "the selection in the history."
+#~ msgstr ""
+#~ "Selecione esta opção para evitar que o Clipman inclua os conteúdos da "
+#~ "seleção no histórico."
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr ""
+#~ "Selecione esta opção para evitar que a área de transferência fique vazia. "
+#~ "A entrada mais recente do histórico será adicionada à área de "
+#~ "transferência."
+
+#~ msgid ""
+#~ "When you've copied or cut some text and it is already in the Clipman "
+#~ "history from the selection clipboard,  only the content location will be "
+#~ "changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both "
+#~ "clipboards."
+#~ msgstr ""
+#~ "Quando for copiado ou recortado algum texto que já esteja no histórico do "
+#~ "Clipman proveniente da área de transferência de seleções, somente a "
+#~ "localização do conteúdo será modificada.\n"
+#~ "\n"
+#~ "Quando um item do histórico for selecionado, seu conteúdo será copiado "
+#~ "para as duas áreas de transferêcia."
+
+#~ msgid ""
+#~ "When you've copied or cut some text it will be added to the Clipman "
+#~ "history, there will also be a duplicate  in the history from the "
+#~ "selection clipboard.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will only be copied to the "
+#~ "clipboard it origionally came from.\n"
+#~ "\n"
+#~ "This options will work best when you select the \"Separate Clipboards\" "
+#~ "option from the Appearance tab."
+#~ msgstr ""
+#~ "Quando algum texto for copiado ou recortado, será adicionado ao histórico "
+#~ "do Clipman e também ao histórico da área de transferência de seleções.\n"
+#~ "\n"
+#~ "Quando um item do histórico é selecionado, seu conteúdo será copiado "
+#~ "somente para a área de transferência da qual veio originalmente.\n"
+#~ "\n"
+#~ "Esta opção funcionará melhor quando a opção \"Separar áreas de "
+#~ "transferência\" for selecionada a partir da aba Aparência."
+
+#~ msgid ""
+#~ "Select this option to order the history list by primairy and selection "
+#~ "clipboard."
+#~ msgstr ""
+#~ "Selecionar esta opção para ordenar a lista do histórico por \n"
+#~ "área de transferência principal e de seleções."
+
+#~ msgid "The number of items stored in the history list."
+#~ msgstr "Número de itens armazenado na lista do histórico."
+
+#~ msgid ""
+#~ "The number of characters showed in the history list. After this amount of "
+#~ "characters, the history label will be ellipsized."
+#~ msgstr ""
+#~ "Número de caracteres mostrados na lista do histórico, após os quais, "
+#~ "serão adicionadas reticências ao item no histórico."

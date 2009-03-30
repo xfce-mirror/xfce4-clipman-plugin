@@ -1,5 +1,6 @@
 panel-plugin/xfce4-clipman-actions.xml.in
 panel-plugin/xfce4-clipman-plugin.desktop.in.in
+panel-plugin/settings-dialog.glade
 panel-plugin/panel-plugin.c
 panel-plugin/collector.c
 panel-plugin/history.c

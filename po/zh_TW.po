@@ -1,0 +1,241 @@
+# Traditional Chinese translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:25+0800\n"
+"Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
+"Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "剪貼簿管理程式"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+msgid "<b>Commands</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "忽視選取的區域(_I)"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "一般"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+#, fuzzy
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "選取此項可顯示歷史字句清單中的項目編號。"
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "您確定您想要清除歷史字句嗎？"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< 歷史字句空白 >"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "離開時儲存剪貼簿內容(_E)"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "顯示項目編號(_S)"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>一般</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "剪貼簿歷史字句項目："
+
+#~ msgid "Menu item characters:"
+#~ msgstr "選單項目字數："
+
+#~ msgid "Clear History"
+#~ msgstr "清除歷史字句"
+
+#~ msgid "Clipman History"
+#~ msgstr "Clipman 歷史字句"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "Xfce 桌面環境的剪貼簿管理程式"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "防止剪貼簿空白(_V)"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "正常的剪貼簿管理(_M)"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "嚴格區分兩份剪貼簿(_B)"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>剪貼簿行為</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "分離剪貼簿(_P)"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>選單外觀</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "外觀"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< 預設歷史字句空白 >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< 選取歷史字句空白 >"
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "選取此項可使剪貼簿中成為歷史的字句在您離開 Xfce 時得以保存，並於您再度登入"
+#~ "時恢復。"
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr "選取此項來防止剪貼簿空白。最近的歷史項目將被放入剪貼簿中。"
+
+#~ msgid ""
+#~ "When you've copied or cut some text and it is already in the Clipman "
+#~ "history from the selection clipboard,  only the content location will be "
+#~ "changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both "
+#~ "clipboards."
+#~ msgstr ""
+#~ "當您從選取的剪貼簿複製或減下 Clipman 歷史中已經有的字句時，只有內容的位置"
+#~ "會改變。\n"
+#~ "\n"
+#~ "當歷史項目被點擊時，該內容將會複製到兩份剪貼簿。"
+
+#~ msgid "The number of items stored in the history list."
+#~ msgstr "歷史字句清單包含的項目多寡。"
+
+#~ msgid ""
+#~ "The number of characters showed in the history list. After this amount of "
+#~ "characters, the history label will be ellipsized."
+#~ msgstr ""
+#~ "歷史字句清單中顯示的字數。超過此字數的的部份，歷史標籤將被省略符號取代。"

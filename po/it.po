@@ -1,0 +1,213 @@
+# Italian translations for xfce4-clipman-plugin package.
+# Copyright (C) 2007 THE xfce4-clipman-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Fabio Riga <usul@aruba.it>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce 4-clipman-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2007-05-24 22:51+0200\n"
+"Last-Translator: Fabio Riga <usul@aruba.it>\n"
+"Language-Team: Italian <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Gestore bacheca"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Bacheca"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>Numeri</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "_Ignora selezioni"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Generale"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "Cancellare lo storico?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< Bacheca vuota >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "Impossibile aprire il seguente url: %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "Salva il contenuto della bacheca all'_uscita"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "_Mostra i numeri degli elementi"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Generale</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "Elementi nello storico della bacheca:"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "Caratteri nell'elemento del menu"
+
+#~ msgid "Clear History"
+#~ msgstr "Cancella lo storico"
+
+#~ msgid "Clipman History"
+#~ msgstr "Storico della bacheca"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "Gestore della bacheca per l'ambiente Xfce"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "Pre_vieni bacheca vuota"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "Gestione _normale della bacheca"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "Due bacheche _strettamente separate"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Comportamento della bacheca</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "Bacheche se_parate"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Aspetto del menu</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Aspetto"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Rimuovere questo appunto dalla bacheca?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Storico predefinito vuoto >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Storico delle selezioni vuoto >"

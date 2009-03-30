@@ -1,0 +1,299 @@
+# German translation of the xfce4-clipman-plugin package.
+# Copyright (C) 2005-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Enrico Tröger <enrico.troeger@uvena.de>, 2006.
+# Fabian Nowak <timystery@arcor.de>, 2007.
+# Simon Schneider <simon@schneiderimtal.de>, 2009
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2009-02-24 22:09+0000\n"
+"Last-Translator: Simon Schneider <simon@schneiderimtal.de>\n"
+"Language-Team: German <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Verwaltung der Zwischenablage"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Zwischenablage"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>Werte</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "_Auswahl ignorieren"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Allgemein"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+#, fuzzy
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+"Aktivieren Sie diese Option, um die Einträge des Verlaufsspeichers zu "
+"nummerieren."
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< Zwischenablage leer >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "Kann die folgende Adresse nicht öffnen: %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "_Inhalt der Zwischenablage beim Verlassen speichern"
+
+#~ msgid "A_dd selections to the history"
+#~ msgstr "Auswahl zur Chronik _hinzufügen"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "_Nummeriere Einträge"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Allgemein</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "Größe des Verlaufsspeichers:"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "Länge der Menüeinträge:"
+
+#~ msgid "Clear History"
+#~ msgstr "Bisherigen Inhalt löschen"
+
+#~ msgid "Clipman History"
+#~ msgstr "Verlauf der Zwischenablage"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "_Leere Zwischenablage vermeiden"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "_Normales Verwalten der Zwischenablagen"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "_Beide Zwischenablagen strikt getrennt verwalten"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>Verhalten</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "_Zwischenablagen getrennt verwalten"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>Menü-Aussehen</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "Aussehen"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< Inhalt der Standard-Zwischenablage leer >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< Inhalt der Auswahl-Zwischenablage leer >"
+
+#~ msgid "Visit the goodies website for more information about this plugin."
+#~ msgstr ""
+#~ "Besuchen Sie die Goodies-Webseite, um weitere Informationen über dieses "
+#~ "Plugin zu erhalten."
+
+#~ msgid ""
+#~ "Select this option to save the clipboard history when you exit Xfce and "
+#~ "restore it when you login again."
+#~ msgstr ""
+#~ "Aktivieren Sie diese Option, um den Verlaufsspeicher der Zwischenablage "
+#~ "beim Verlassen von Xfce zu speichern und beim nächsten Starten wieder "
+#~ "herzustellen."
+
+#~ msgid ""
+#~ "Select this option will prevent Clipman from including the contents of "
+#~ "the selection in the history."
+#~ msgstr ""
+#~ "Diese Option verhindert, dass die aktuelle Auswahl in den "
+#~ "Verlaufsspeicher gesichert wird."
+
+#~ msgid ""
+#~ "Select this option to prevent an empty clipboard. The most recent history "
+#~ "item will be added to the clipboard."
+#~ msgstr ""
+#~ "Diese Option verhindert eine leere Zwischenablage. Der letzte Eintrag des "
+#~ "Verlaufsspeichers wird als aktueller Inhalt der Zwischenablage genutzt."
+
+#~ msgid ""
+#~ "When you've copied or cut some text and it is already in the Clipman "
+#~ "history from the selection clipboard,  only the content location will be "
+#~ "changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both "
+#~ "clipboards."
+#~ msgstr ""
+#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, der bereits im "
+#~ "Verlaufsspeicher ist, dann wird kein neuer Eintrag erstellt.\n"
+#~ "\n"
+#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der "
+#~ "Text in beide Zwischenablagen kopiert."
+
+#, fuzzy
+#~ msgid ""
+#~ "When you've copied or cut some text it will be added to the Clipman "
+#~ "history, there will also be a duplicate in the history from the selection "
+#~ "clipboard.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will only be copied to the "
+#~ "clipboard it origionally came from.\n"
+#~ "\n"
+#~ "This options will work best when you select the \"Separate Clipboards\" "
+#~ "option from the Appearance tab."
+#~ msgstr ""
+#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, wird ein neuer Eintrag "
+#~ "im Verlaufsspeicher beider Zwischenablagen angelegt.\n"
+#~ "\n"
+#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der "
+#~ "Text nur in die Zwischenablage kopiert, aus der der Text gelesen wurde.\n"
+#~ "\n"
+#~ "Diese Option ist nützlich, wenn »Zwischenablagen getrennt verwalten« in "
+#~ "dem Aussehen-Reiter gewählt wurde."
+
+#, fuzzy
+#~ msgid "Select this option to split up the clipboard and selection history."
+#~ msgstr ""
+#~ "Aktivieren Sie diese Option, um den bisherigen Inhalt der Zwischenablage "
+#~ "nach den beiden Zwischenablagen(PRIMARY und CLIPBOARD) zu sortieren."
+
+#~ msgid "The number of items stored in the history list."
+#~ msgstr "Legt die Anzahl der Einträge im Verlaufsspeicher fest."
+
+#~ msgid ""
+#~ "The number of characters showed in the history list. After this amount of "
+#~ "characters, the history label will be ellipsized."
+#~ msgstr ""
+#~ "Die Anzahl der Zeichen für die Menüeinträge. Wenn ein Eintrag länger ist, "
+#~ "wird er nach diesem Wert abgekürzt."

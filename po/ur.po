@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"PO-Revision-Date: 2007-10-26 20:09+0500\n"
+"Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Xfce Bug"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "کلپ بورڈ منیجر"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/panel-plugin.c:145
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Commands</b>"
+msgstr "<b>نمبر</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+#, fuzzy
+msgid "Add _selections"
+msgstr "ا_نتخاب نظر انداز کریں"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "Configure the plugin"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Edit Command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid ""
+"Enable the actions to match the clipboard texts against regular expressions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "عام"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the selections will go into the history. This behavior can be "
+"very verbose and make the whole history unusable. However it can be useful "
+"if you wish to always copy the selections to the default clipboard, in a way "
+"that you can paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Regex:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Store an _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid ""
+"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
+"command to replace it against the matched sub-texts. The parameter \"\\0\" "
+"represents the complete text."
+msgstr ""
+
+#: ../panel-plugin/menu.c:112
+msgid "Are you sure you want to clear the history?"
+msgstr "کیا آپ واقعی محفوظات صاف کرنا چاہتے ہیں؟"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:185
+#, fuzzy
+msgid "Clipboard is empty"
+msgstr "< کلپ بورڈ خالی >"
+
+#~ msgid "Unable to open the following url: %s"
+#~ msgstr "یہ url کھولنے میں ناکامی: %s"
+
+#~ msgid "Save clipboard contents on _exit"
+#~ msgstr "_برخاست پر کلپ بورڈ مواد محفوظ کریں"
+
+#~ msgid "_Show item numbers"
+#~ msgstr "عناصر کے نمبر _ظاہر کریں"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>عام</b>"
+
+#~ msgid "Clipboard history items:"
+#~ msgstr "کلپ بورڈ محفوظات عناصر:"
+
+#~ msgid "Menu item characters:"
+#~ msgstr "مینیو عنصر کیریکٹرز:"
+
+#~ msgid "Clear History"
+#~ msgstr "محفوظات صاف کریں"
+
+#~ msgid "Clipman History"
+#~ msgstr "Clipman محفوظات"
+
+#~ msgid "Clipboard manager for the Xfce desktop"
+#~ msgstr "ایکسفس ڈیسک ٹاپ کا کلپ بورڈ منیجر"
+
+#~ msgid "Pre_vent empty clipboard"
+#~ msgstr "خالی کپ بورڈ _منع کریں"
+
+#~ msgid "Normal clipboard _management"
+#~ msgstr "عام کلپ بورڈ ا_دارت"
+
+#~ msgid "Strictly separate _both clipboards"
+#~ msgstr "سختی سے د_ونوں کلپ بورڈ الگ کریں"
+
+#~ msgid "<b>Clipboard Behaviour</b>"
+#~ msgstr "<b>کلپ بورڈ سلوک</b>"
+
+#~ msgid "Se_parate clipboards"
+#~ msgstr "کلپ بورڈز ال_گ کریں"
+
+#~ msgid "<b>Menu Appearance</b>"
+#~ msgstr "<b>مینیو مظہر</b>"
+
+#~ msgid "Appearance"
+#~ msgstr "مظہر"
+
+#~ msgid "Are you sure you want to remove this clip from the history?"
+#~ msgstr "کیا آپ واقعی یہ کلپ محفوظات سے ختم کرنا چاہتے ہیں؟"
+
+#~ msgid "< Default History Empty >"
+#~ msgstr "< طے شدہ محفوظات خالی >"
+
+#~ msgid "< Selection History Empty >"
+#~ msgstr "< انتخاب محفوظات خالی >"
