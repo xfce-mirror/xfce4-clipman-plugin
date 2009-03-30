@@ -13,12 +13,12 @@ http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/
  Dependencies
 --------------
 
-* glib-2.0 2.16
-* gtk+-2.0 2.12
+* glib-2.0 2.14
+* gtk+-2.0 2.10
 * exo-0.3 0.3.0
 * libxfce4util 4.4.0
 * libxfcegui4 4.4.0
-* xfconf 4.5.92
+* xfconf 4.6.0
 
 
  Install
