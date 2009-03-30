@@ -1,447 +1,215 @@
-2009-03-30	Mike Massonnet <mmassonnet@xfce.org>
+2009-02-11	Mike Massonnet
+Add i18n support for the default XML actions file.
+
+	- panel-plugin/actions.c, panel-plugin/xfce4-clipman-actions.xml.in,
+	panel-plugin/Makefile.am:
+		Make it possible to have the action and command names
+		translated inside the settings dialog just like it is done
+		with the Thunar User Custom Actions.
+	- panel-plugin/xfce4-clipman-actions.xml:
+		This file is now auto-generated, delete it.
+	- po/POTFILES.in:
+		Add the new .xml.in file to the list of files to translate.
+
+2009-01-30	Mike Massonnet
+Drop the idea of an icon for an action.
+
+	- panel-plugin/panel-plugin.c, panel-plugin/actions.c,
+	panel-plugin/actions.h:
+		Remove the code that was intended to show an icon for an
+		action.  It is more a waste of time to set it, and not that
+		useful inside the menu.
+
+2009-01-30	Mike Massonnet
+Add support for GLib < 2.16 for the commands treeview.
+
+	- panel-plugin/panel-plugin.c:
+		New function __foreach_command_fill_commands for versions of
+		GLib prior to 2.16.
+
+2009-01-30	Mike Massonnet
+Fix a crasher.
+
+	- panel-plugin/history.c(clipman_history_clear):
+		Set the item_to_restore to NULL when clearing the history.
+	- panel-plugin/collector.c(_clipman_collector_restore_clipboard):
+		Check if the item to restore is not NULL.
+
+2009-01-30	Mike Massonnet
+Remove the origin of the clipboard from the history items.
+
+	- panel-plugin/history.h, panel-plugin/history.c:
+		Don't store from where a clipboard originated from (useless).
+		Update the public methods and the struct ClipmanHistoryItem.
+	- panel-plugin/collector.c, panel-plugin/panel-plugin.c:
+		Update the code to use the new function declarations.
+
+2009-01-30	Mike Massonnet
+Set the settings dialog "buggy".
+
+	- panel-plugin/panel-plugin.c:
+		In a way to fix weird bugs, the settings dialog is no more
+		transient for the top level widget of the panel plugin.
+	- panel-plugin/settings-dialog.glade:
+		Both dialogs "action-dialog" and "command-dialog" skip the
+		taskbar and have the type hint "dialog".
+
+2009-01-26	Mike Massonnet
+Actions are configurable through the settings dialog.
+
+	- panel-plugin/actions.c:
+		Fix a crasher in clipman_actions_load() when reading the XML
+		file from the user config directory.  Add debug messages when
+		loading and saving the XML file.
+	- panel-plugin/actions.c(clipman_actions_get_entries):
+		New method to retrieve the list of every acion.
+	- panel-plugin/actions.c(clipman_actions_remove_command):
+		Renamed the method clipman_actions_remove() to
+		clipman_actions_remove_command() and re-implement
+		clipman_actions_remove() to remove an entry entirely.
+	- panel-plugin/settings-dialog.glade:
+		Rename some widgets and add signal handlers.
+	- panel-plugin/panel-plugin.c:
+		Set up the actions dialog in panel_plugin_configure() and a
+		add a load of new callbacks and functions specific to the
+		settings dialog to add/edit/delete actions.
+
+2009-01-26	Mike Massonnet
+Small tweak in the GRegex.
+
+	- panel-plugin/actions.c(clipman_actions_add):
+		Add the compile flag "caseless" and move the match option
+		"anchored" to the compile flags.
+	- configure.ac.in:
+		Add GTK+/GLib requirements to 2.10/2.14.
+
+2009-01-25	Mike Massonnet
+Forget to add support for GLib < 2.16 to save the actions.
+
+	- panel-plugin/actions.c:
+		I somehow was too hasty to commit, and forgot about support
+		for GLib < 2.16 to save the actions to the XML file.
+
+2009-01-25	Mike Massonnet
+Fix g_debug().
+
+	- Looks like I left some g_debug() calls in the code.
+
+2009-01-25	Mike Massonnet
+Actions are saved/loaded to/from an XML file.
+
+	- panel-plugin/actions.c(clipman_actions_load):
+		Load actions from an XML file from the user config directory
+		or fallback to a system wide config directory.  Drop the
+		hard-coded actions.
+	- panel-plugin/actions.c(clipman_actions_save):
+		Save the actions in an XML format inside the user config
+		directory.
+	- panel-plugin/actions.c(clipman_actions_add):
+		Create the regex with the flag "anchored" to force the regex'
+		with a starting ^ and an ending $.
+	- panel-plugin/Makefile.am:
+		Declare SYSCONFDIF and add XML actions file.
+	- panel-plugin/xfce4-clipman-actions.xml:
+	 	Default system wide configuration file of the actions.
+
+2009-01-25	Mike Massonnet
+Actions are available but hard-coded at this time.
+
+	- configure.ac.in, tests/*:
+		Add a test program for the actions.
+	- panel-plugin/actions.c, panel-plugin/actions.h,
+	panel-plugin/Makefile.am:
+		A new GObject ClipmanActions with methods to add and remove
+		commands for a specific regex.  The code to save and load from
+		an XML file still needs to be written.
+	- panel-plugin/collector.c, panel-plugin/panel-plugin.c:
+		Install new property "enable-actions" which will match the
+		clipboard texts for actions.  Bind the property to xfconf
+		inside panel_plugin_register().
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Change timeout from 500 to 250 milliseconds to make the
+		actions respond faster on a mouse release.
+	- panel-plugin/settings-dialog.glade:
+		New dialogs for the actions.
+
+2009-01-15	Mike Massonnet
+Some minor changes.
+
+	- panel-plugin/panel-plugin.c(panel_plugin_configure),
+	panel-plugin/settings-dialog.glade:
+		The menu is blocked while the dialog is shown.  Set the dialog
+		transient for the panel plugin toplevel window and destroy with
+		the parent (this introduces a bug: the panel button remains
+		unclickable but dunno why).
+	- panel-plugin/collector.c(cb_check_primary_clipboard):
+		Change the behavior of the "add-primary-selection" option to
+		copy the text to the default clipboard, so that it now behaves
+		like "what you select can be pasted".
+	- panel-plugin/panel-plugin.c(panel_plugin_load,panel_plugin_save):
+		Load/Save the images with the extension ".png".
+	- panel-plugin/panel-plugin.c(panel_plugin_load,panel_plugin_save):
+		Correct the size allocated to texts.  Fixes a free corruption!
+
+2009-01-14	Mike Massonnet
+The settings dialog is in.
+
+	- configure.ac.in, panel-plugin/Makefile.am:
+		Add Glade dependency for the settings dialog.
+	- panel-plugin/common.h, panel-plugin/history.c,
+	panel-plugin/collector.c:
+		Declare define names for the default values, also rename the
+		property ignore-primary-clipboard from ClipmanCollector to
+		add-primary-clipboard to keep the easiness of Xfconf bindings
+		inside the settings dialog.
+	- panel-plugin/panel-plugin.c:
+		Connect configure function from XfcePanelPlugin.
+	- panel-plugin/settings-dialog.glade:
+		The Glade interface of the settings dialog.
+
+2009-01-13	Mike Massonnet
+New property in ClipmanHistory "save-on-quit".
+
+	- panel-plugin/history.c:
+		Install new property "save-on-quit".
+	- panel-plugin/panel-plugin.c:
+		Bind property "save-on-quit" from ClipmanHistory to Xfconf and
+		use it in plugin_panel_load() and plugin_panel_save().
+
+2009-01-13	Mike Massonnet
+Save the history on disk.
+
+	- panel-plugin/history.c, panel-plugin/history.h:
+		New function clipman_history_get_list() and drop the functions
+		clipman_history_get_texts() and clipman_history_get_images().
+	- panel-plugin/menu.c(_clipman_menu_update_list):
+		Use the new function replacement from ClipmanHistory.
+	- panel-plugin/panel-plugin.c:
+		Implement new functions panel_plugin_load() and
+		panel_plugin_save() to respectively load the history (images
+		and texts) and save the history.
+
+2009-01-09	Mike Massonnet
+Some small fixes.
+
+	- panel-plugin/history.c(clipman_history_add_text):
+		Don't escape the text for markups as the preview is displayed
+		as a label, and not as a markup.
+	- panel-plugin/history.c(clipman_history_finalize):
+		Clear the GSLists stored inside ClipmanHistory on finalize.
+	- panel-plugin/menu.c(_clipman_menu_update_list):
+		Set the clear history menu item sensitive/insensitive given the
+		status of the history.  For that store a pointer of the menu
+		item inside the private data.
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Make sure the image is not NULL before adding it to the history
+
+2009-01-09	Mike Massonnet
+Major rewrite of the plugin using GObjects and Xfconf.
+
+	- The plugin now uses GObjects with properties binded to Xfconf for easy
+	configuration.
+	- The plugin is able to store texts and images.
+	- The changes over the clipboards are noticed with signals and no more
+	a timeout which saves a lot of CPU wakeups.
 
-Release version 0.9.1
-
-2009-02-09	Mike Massonnet <mmassonnet@xfce.org>
-
-Copy selections back to default clipboard.
-
-	- Copy the primary clipboard text back to the default clipboard text
-	- Start the timeout only as-needed and not every 0.5 seconds
-	- Include gstdio as needed for g_unlink
-
-2009-01-18	Mike Massonnet <mmassonnet@xfce.org>
-
-Release version 0.9.0
-
-2009-01-15	Mike Massonnet <mmassonnet@xfce.org>
-
-	- Fix a leak by freeing the ClipmanAction structs
-	- Fix a free corruption by allocating the correct size for the string array
-	- Don't show the tabs in the settings dialog and use the gtk-paste icon
-	- Backport from xfce-4-6 branch to save/load the history to/from cached
-	files living inside ~/.cache.
-
-2009-01-13	Mike Massonnet <mmassonnet@xfce.org>
-
-	- Lookup the GdkWindow of the owner to notice if the clipboard was set
-	from within Clipman and drop the IgnoreSignal variable (patch from
-	David Collins)
-
-2009-01-09	Mike Massonnet <mmassonnet@xfce.org>
-
-	- Update the settings dialog
-	- Move everything to the General tab
-
-2009-01-09	Mike Massonnet <mmassonnet@xfce.org>
-
-A quick review over the changes.
-
-	- Fix g_free(clip) against panel_slice_free(clip)
-	- Add dependency on exo and use exo_gdk_pixbuf_scale_ratio to create a
-	preview of the image inside the menu
-	- Don't save image data inside the rc file
-	- Left two topics as TODO inside the code
-	- At last but not least, bump release to 0.9.0
-
-2009-01-02	Mike Massonnet <mmassonnet@xfce.org>
-
-This is the second part of the rewrite that introduces the storage of an image
-inside the panel plugin.  This part already marks the end of David's work.
-Thank you for putting your efforts into this plugin.
-
-	- Introduce a single pixbuf storage inside the plugin
-
-2008-12-31	Mike Massonnet <mmassonnet@xfce.org>
-
-This is the first part of the rewrite to make it more userfriendly, work done
-by David Collins.  The patches are applied as-is until his work is clearly done
-to avoid merge processes during that time.
-
-	- Drop the behaviors NORMAL and STRICTLY
-	- Drop PREVENTEMPTY which will be the case by default
-	- Replace IGNORESELECT against ADDSELECT to avoid double negation reads
-	in the code
-	- New definitions ClipDataType and ClipMenuFormat
-	- Keep an index of the latest clipboard in the plugin struct for easier
-	find on menu item clicks
-	- Display always one list in the menu, thus merge the functions
-	clipman_clicked_separated and not_separated
-	- The clipboards are checked out on events with the owner-change signal
-	from the GtkClipboards classes
-
-2008-12-27	Mike Massonnet <mmassonnet@xfce.org>
-
-	* panel-plugin/clipman.c (clipman_check): Don't restore the clipboard 
-	  if it actually contains an image (patch from David Collins)
-
-2008-09-21	Mike Massonnet <mmassonnet@xfce.org>
-
-	* Fix build for libtool 2.2 (or at least for ArchLinux)
-
-2008-03-04	Mike Massonnet <mmassonnet@xfce.org>
-
-	* === Release 0.8.1 ===
-	* INSTALL: Delete autogenerate file
-	* COPYING: Fix licence to GPL2 as it is the case for the c sources
-	* configure.in.in: Bump minimum Xfce versions to 4.4.0
-	* panel-plugin/clipman.c:
-	  - (clipman_create_title) Generate fine UTF-8 titles with ellipsis (bug #3304)
-	  - (clipman_create_menuitem) Use gtk_menu_item_new_with_label which
-	  aligns the label on the left by default
-
-2006-01-17	Nick Schermer <nick@xfce.org>
-
-	* Improve configure files and Makefiles.
-	* A huge version bump: we going from 0.5.99.1 to 0.8.0 for
-	  the Xfce 4.4.0 release. This because there was an experimental
-	  version with the 0.6.4 version number (not very smart, I know),
-	  so this will make it easier for distros (Ubuntu) to update the
-	  package.
-
-2006-12-20	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman-dialog.c: Add help button with
-	  exo-open to clipman wiki website.
-	* po/*.po: Merge new string
-
-2006-09-20	Nick Schermer <nick@xfce.org>
-
-	* Removed all the toolips in the configure dialog and
-	  added a help button (launch exo-open).
-
-2006-09-10	Nick Schermer <nick@xfce.org>
-
-	* Fix typo in tooltip
-
-2006-09-05	Nick Schermer <nick@xfce.org>
-
-	* Fix typo in desktop file
-
-2006-09-05	Nick Schermer <nick@xfce.org>
-
-	* Improve Makefile.am files. Make distcheck works
-	  without any problems now.
-
-2006-09-05	Nick Schermer <nick@xfce.org>
-
-	* Bump version to 0.5.99.1 (0.6rc1)
-	* Depend on Xfce4-panel 4.3.99.1
-
-2006-09-02	Nick Schermer <nick@xfce.org>
-
-	* Remove executable bits
-	* Update ChangeLog
-
-2006-08-11	Nick Schermer <nick@xfce.org>
-
-	* Depend on xfce4-panel rev 22703, libxfcegui4 4.3.90.2 and
-	  libxfce4util 4.3.90.2
-	* Remove the old header code for < 4.3.90.2
-
-2006-08-10	Nick Schermer <nick@xfce.org>
-
-	* add xfce4-clipman-plugin basque translation
-
-2006-08-09	Nick Schermer <nick@xfce.org>
-
-	* Use new panel_slice_* functions
-
-2006-08-08	Nick Schermer <nick@xfce.org>
-
-	* Fix compiler warning
-
-2006-08-07	Nick Schermer <nick@xfce.org>
-
-	* Change version to 0.6 beta 2
-	* Fix my own mail
-
-2006-08-07	Nick Schermer <nick@xfce.org>
-
-	* Patch from Darren Salt <linux@youmustbejoking.demon.co.uk>
-	  to use Pango's ellipsize.
-	* Added Darren to THANKS file
-
-2006-07-29	pollux
-
-	* Update French translations
-
-2006-06-21	Nick Schermer <nick@xfce.org>
-
-	* Raise version number
-	* Fix some small problems
-	* Fix typo
-
-2006-06-21	Nick Schermer <nick@xfce.org>
-
-	* Added LINGUAS support
-	* Drop a new clip if we can't convert the new title
-	* Clear board on exit plugin
-
-2006-06-15	Nick Schermer <nick@xfce.org>
-
-	* Better way to render the button icon
-	* Improve memory usage
-	* Various small changes
-
-2006-06-15	Nick Schermer <nick@xfce.org>
-
-	* Make memory usage a bit saver
-
-2006-06-14	Nick Schermer <nick@xfce.org>
-
-	* Use g_object_unref (G_OBJECT (...))
-
-2006-06-11	Nick Schermer <nick@xfce.org>
-
-	* Use the convenience toggle button from libxfce4panel
-	* Better way to calculate icon size (from launcher)
-	* Free tooltip on plugin exit
-	* Use new titled dialog, if available
-
-2006-05-23	daichi
-
-	* Removed executable bits.
-
-2006-05-22	Nick Schermer <nick@xfce.org>
-
-	* Added hu to configure
-
-2006-05-22	satie
-
-	* clipman hu.po
-
-2006-05-21	Nick Schermer <nick@xfce.org>
-
-	* Improved loops
-	* Cleanup some stuff
-	* Use guint where possible
-	* Some code cleanups
-
-2006-05-17	Nick Schermer <nick@xfce.org>
-
-	* Removed the "Edit Clip Dialog", since it not usefull enough.
-	* Fix memleak in free function
-	* Use gboolean instead of guint x:1
-	* Some style fixes and var renames
-
-2006-05-15	Nick Schermer <nick@xfce.org>
-
-	* Fix 2.95 GCC warnings
-	* Code cleanup and layout
-
-2006-04-20	Nick Schermer <nick@xfce.org>
-
-	* Version to 0.6.4
-
-2006-04-20	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman-dialog.c:
-  	* Destroy dialog when plugin is closed
-  	* Toggle buttons now apply directly
-	* panel-plugin/clipman.c:
-  	* Fix mem leak in read function.
-  	* Remove Primairy clips when selection is ignored
-  	* Improved the menu destroy function stuff
-
-2006-04-09	Nick Schermer <nick@xfce.org>
-
-	* Version to 0.6.3
-
-2006-04-09	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman-dialog.c:
-  	* Splitup in tabs
-  	* Added tooltips
-  	* Removed color button
-  	* Removed about dialog
-	* panel-plugin/clipman.c:
-  	* Patch from Daichi
-  	* Fix crash in free function
-  	* Removed colors
-  	* Fix toggle button problem
-  	* Fix regeneration of titles
-  	* Small improvements
-
-2005-12-01	Nick Schermer <nick@xfce.org>
-
-	* Version to 0.6.2
-
-2005-12-01	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman-dialog.c: Added new behaviour options
-	* panel-plugin/clipman.c: Applied new behaviour to the functions
-
-2005-12-01	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c:
-  	* Added function clipman_replace_text (code moved from clipman_item_clicked)
-  	* Moke some functions shared for use with new dialogs
-	* panel-plugin/clipman-dialog.c:
-  	* Added new rightclick dialog with option to change the clip content.
-	  clipman_question, clipman_question_response
-  	* Added clipman_edit, clipman_edit_response
-  	* Changed GTK_WIN_POS_CENTER_ALWAYS to GTK_WIN_POS_CENTER, because it's annoying
-
-2005-12-01	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c: Make clipman_create_title UTF8 complaint.
-
-2005-11-29	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c: Changed the toggle button handling a bit.
-	* panel-plugin/clipman.c: Spell Check.
-
-2005-11-29	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c:
-  	* Proper icon resize (I hope??)
-  	* Popup menu position is now fixed when the panel is fixed.
-  	* Toggle button
-  	* Convert HTML Characters in menu items (remove new lines and tabs)
-  	* Free everything when the plugin is closed
-	* configure.ac: version update, 0.6.1
-
-2005-10-29	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c:
-  	* Complete rewrite of the old plugin using GPtrArray to store the
-	  clips. This will make the clipman plugin more stable and easier
-	  to handle.
-  	* Separate clipboard (option) with colors (option)
-  	* Change clipboard colors in the clipboard rc file.
-  	* Restore clip from same type (If the pri/def clipboard is empty copy the last pri/def clip)
-  	* Fixed bug to stop the check clipboard thread when the plugin is closed
-	* configure.ac: version update, 0.6.0
-
-2005-10-10	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c: New function for resizing the array
-	* configure.ac: version update, 0.5.0
-
-2005-09-19	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c: The selection function checks if button 1 is masked.
-
-2005-09-17	Nick Schermer <nick@xfce.org>
-
-	* panel-plugin/clipman.c:
-  	* Save clipboard content on exit (option)
-  	* Prevent empty clipboard (copy latest item when system clipboard is empty)
-  	* Option to disable selection
-  	* Slider for history size
-  	* When resizing the history no content is lost
-  	* Character number in menu items (option)
-  	* New loop for creating menu items
-  	* Copy icon for the menu item currently in the clipboard (is not always the latest)
-  	* Icon for Clipboard History and clear clipboard
-  	* Removed the drag/drop signal (couldn't figure out how to use it, so removed it)
-  	* New option dialog
-  	* Cleared some code, added more comments, use tabs
-  	* Remove item numbers, it will be back later as an option (I hope :P)
-
-2003-12-16	mastershadow
-
-	* panel-plugin/clipman.c: right mouse click allow users to remove a sigle
-	entry in the history. It ask for confirm and act properly.
-
-2003-12-15	mastershadow
-
-	* panel-plugin/clipman.c: now trailing spaces are removed from the popup
-	menu (a lot eyecandy :-).
-	* configure.ac: version update
-
-2003-11-09	mastershadow
-
-	* panel-plugin/clipman.c: changed text/plain d&d to UTF8_STRING
-
-2003-11-09	mastershadow
-
-	* panel-plugin/clipman.c: bug removed! when you remove panel and select
-	something now all is ok
-
-2003-11-09	mastershadow
-
-	* panel-plugin/clipman.c: fixed crash on remove but some troubles are still
-	present: if you select something when you have removed the plugin the panel
-	crash. This is due to the timer...
-
-2003-11-09	mastershadow
-
-	* panel-plugin/clipman.c: back to the old source for a timer bug
-
-2003-11-08	mastershadow
-
-	* panel-plugin/clipman.c: added drag and drop feature by Andre Lerche
-	* panel-plugin/clipman.c: fixed a bug that make crash the plugin when removing it
-	while something is writing in the clipboard.
-	* configure.ac: version update
-
-
-2003-11-04	mastershadow
-
-	* panel-plugin/clipman.c: now items are shown with stack order
-	(for first latest item and then others).
-	* panel-plugin/clipman.c: Warnings fixed in resize functions
-
-2003-11-02	mastershadow
-
-	* panel-plugin/clipman.c: now icon resize with the panel
-
-2003-11-01	mastershadow
-
-	* panel-plugin/clipman.c: clipboard clear feature added
-	Some small syntax fixes in checkClip function
-
-2003-10-25	mastershadow
-
-	* panel-plugin/clipman.c: memory leaks fixed in gstring array and
-	crash fixed on removing the plugin from panel
-
-
-2003-10-08 11:23  mastershadow
-
-	* a lot of changes :-)
-	First public release of xfce4-clipman-plugin
-
-2003-07-11	Jasper Huijsmans <jasper@xfce.org>
-
-	* panel-plugin/sample.c: Hmm, chinese translation updates that
-	didn't get picked up by my previous commit. Should have been in
-	rc1, sorry.
-
-2003-07-11	Jasper Huijsmans <jasper@xfce.org>
-
-	* ChangeLog: Update ChangeLog's for release
-
-2003-07-10	Jasper Huijsmans <jasper@xfce.org>
-
-	* ChangeLog: Update ChangeLog's for release
-
-2003-07-06	Jasper Huijsmans <jasper@xfce.org>
-
-	* ChangeLog: Update ChangeLogs
-
-2003-07-06 15:35  xfce
-
-	* Makefile.in, aclocal.m4, config.h.in, configure, ltconfig,
-	ltmain.sh, panel-plugin/Makefile.in: libtool update
-
-2003-07-02	Benedikt Meurer <benny@xfce.org>
-
-	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-	Makefile.am, README, configure, configure.ac, m4/debug.m4,
-	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial import of
-	the sample panel plugin.
-
-2003-07-02	Benedikt Meurer <benny@xfce.org>
-
-	* AUTHORS, COPYING, INSTALL, autogen.sh, config.guess, config.sub,
-	ltconfig, ltcf-c.sh, ltmain.sh, Makefile.in, aclocal.m4, compile,
-	config.h.in, depcomp, install-sh, missing, mkinstalldirs,
-	Makefile.am, README, configure, configure.ac, m4/debug.m4,
-	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in, panel-plugin/sample.c: Initial revision

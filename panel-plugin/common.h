@@ -1,6 +1,7 @@
-/*  $Id$
+/*
+ *  common.h -- defines default values to use between the components
  *
- *  Copyright (c) 2006-2007 Nick Schermer <nick@xfce.org>
+ *  Copyright (c) 2009 Mike Massonnet <mmassonnet@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -10,21 +11,23 @@
  *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Library General Public License for more details.
+ *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#ifndef CLIPMAN_DIALOGS_H
-#define CLIPMAN_DIALOGS_H
+/*
+ * Default values
+ */
 
-G_BEGIN_DECLS
+/* History */
+#define DEFAULT_MAX_TEXTS_IN_HISTORY            10
+#define DEFAULT_MAX_IMAGES_IN_HISTORY           1
+#define DEFAULT_SAVE_ON_QUIT                    TRUE
 
-void
-clipman_configure (XfcePanelPlugin *plugin, ClipmanPlugin *clipman);
+/* Collector */
+#define DEFAULT_ADD_PRIMARY_CLIPBOARD           FALSE
+#define DEFAULT_ENABLE_ACTIONS                  FALSE
 
-G_END_DECLS
-
-#endif

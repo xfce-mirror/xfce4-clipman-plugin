@@ -1,8 +1,0 @@
-[Xfce Panel]
-Type=X-XFCE-PanelPlugin
-Encoding=UTF-8
-_Name=Clipman
-_Comment=Clipboard manager for the Xfce desktop
-Icon=gtk-paste
-X-XFCE-Exec=@libexecdir@/xfce4/panel-plugins/xfce4-clipman-plugin
-X-XFCE-Unique=true
