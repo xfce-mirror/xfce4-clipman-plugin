@@ -12,9 +12,9 @@ dnl *** Version information ***
 dnl ***************************
 m4_define([clipman_version_major], [0])
 m4_define([clipman_version_minor], [9])
-m4_define([clipman_version_micro], [1])
+m4_define([clipman_version_micro], [2])
 m4_define([clipman_version_build], [r@REVISION@])
-m4_define([clipman_version_tag], [])
+m4_define([clipman_version_tag], [svn])
 m4_define([clipman_version], [clipman_version_major().clipman_version_minor().clipman_version_micro()ifelse(clipman_version_tag(), [svn], [clipman_version_tag()-clipman_version_build()], [clipman_version_tag()])])
 
 dnl ***************************
