@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-01 01:24+0200\n"
-"PO-Revision-Date: 2009-04-01 01:25+0200\n"
+"PO-Revision-Date: 2009-04-01 01:29+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "Ouvrir avec Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "bogue Xfce"
+msgstr "Bogue Xfce"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 msgid "Clipboards manager"
