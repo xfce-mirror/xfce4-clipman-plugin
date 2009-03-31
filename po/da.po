@@ -5,10 +5,10 @@
 # Per Kongstad <p_kongstad@op.pl>, 2008, 09
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.9.0\n"
+"Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-30 15:06+0200\n"
-"PO-Revision-Date: 2009-01-09 15:19+0100\n"
+"PO-Revision-Date: 2009-03-30 23:38+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -20,32 +20,31 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Fejl"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Redigér med Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "GNOME-fejl"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Billede"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Vis med Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Xfce-fejl"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
-msgstr "Klippebords-håndtering"
+msgstr "Klippebordshåndtering"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/panel-plugin.c:145
@@ -54,98 +53,87 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Handling</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Tal</b>"
+msgstr "<b>Kommandoer</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historik</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "Ti_lføj markering til historikken"
+msgstr "Tilføj _markeringer"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Kommando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Indstil udvidelsesmodulet"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Redigér handling"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Edit Command"
-msgstr ""
+msgstr "Redigér kommando"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Enable _actions"
-msgstr ""
+msgstr "Slå h_andlinger til"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"Enable the actions to match the clipboard texts against regular expressions"
-msgstr ""
+msgid "Enable the actions to match the clipboard texts against regular expressions"
+msgstr "Slå handlingerne til for at overensstemme klippebordets tekster imod regulære udtryk"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Generel"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the selections will go into the history. This behavior can be "
-"very verbose and make the whole history unusable. However it can be useful "
-"if you wish to always copy the selections to the default clipboard, in a way "
-"that you can paste what you select."
-msgstr ""
+msgid "If checked, the selections will go into the history. This behavior can be very verbose and make the whole history unusable. However it can be useful if you wish to always copy the selections to the default clipboard, in a way that you can paste what you select."
+msgstr "Hvis afkrydset, vil markeringerne blive gemt i historikken. Denne opførsel kan være meget uddybende og hele historikken ubrugelig. Det kan dog være brugbart, hvis du altid ønsker at kopiere afmærkningerne til standardklippebordet, på en måde, så du kan indsætte hvad du vælger."
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni historikken"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Name:"
-msgstr ""
+msgstr "Navn:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Regex:"
-msgstr ""
+msgstr "Reg. udtryk:"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Save on _quit"
-msgstr ""
+msgstr "Gem ved _afslut"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Størrelse af _historikken:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Store an _image"
-msgstr ""
+msgstr "Gem et _billede"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
-msgid ""
-"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
-"command to replace it against the matched sub-texts. The parameter \"\\0\" "
-"represents the complete text."
-msgstr ""
+msgid "You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the command to replace it against the matched sub-texts. The parameter \"\\0\" represents the complete text."
+msgstr "Du kan bruge overensstemmende regulære udtryksparametre \"\\1\", \"\\2\" og så videre i kommandoen, for at erstatte det med den overensstemmende undertekst. Parameteren \"\\0\" repræsenterer den fulde tekst."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -153,33 +141,25 @@ msgstr "Er du sikker på, at du ønsker at slette historikken?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Tomt klippebord >"
+msgstr "Klippebord er tomt"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kan ikke åbne denne url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Gem klippebordsindhold ved _afslutning"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Vis elementnumre"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Generel</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Klippebordshistorik:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Menupunkts-tegn:"
-
 #~ msgid "Clear History"
 #~ msgstr "Slet historik"
-
 #~ msgid "Clipman History"
 #~ msgstr "Clipman-historik"
-
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Klippebords-håndtering til Xfce-skrivebordsmiljø"
+
