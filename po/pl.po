@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:06+0200\n"
+"POT-Creation-Date: 2009-04-01 01:24+0200\n"
 "PO-Revision-Date: 2009-02-24 20:38+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish\n"
@@ -144,10 +144,10 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid ""
-"You can use the substitution regex parameters \"\\1\", \"\\2\" and so on in "
-"the commands. The parameter \"\\0\" represents the complete text. If you "
-"don't know regular expressions, have a look at the documentation of Clipman "
-"that has an introdution for them."
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
 msgstr ""
 
 #: ../panel-plugin/menu.c:112
