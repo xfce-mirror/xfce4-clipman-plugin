@@ -1,3 +1,11 @@
+2009-04-01	Mike Massonnet
+April April I restore the actions
+
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		I broked the actions earlier, fixed now.
+	- panel-plugin/xfce4-clipman-actions.xml.in:
+		New action for long URLs with a command to send the link to TinyURL
+
 2009-03-31	Mike Massonnet
 Set sensitivity of OK button in action dialog
 

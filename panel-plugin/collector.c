@@ -93,7 +93,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   GdkPixbuf *image;
 
   /* Take only care of new clipboard content */
-  if (event != GDK_OWNER_CHANGE_NEW_OWNER)
+  if (event->reason != GDK_OWNER_CHANGE_NEW_OWNER)
     return;
 
   /* Jump over if the content is set from within clipman */

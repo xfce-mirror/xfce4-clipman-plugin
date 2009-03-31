@@ -45,4 +45,14 @@
 			</command>
 		</commands>
 	</action>
+	<action>
+		<_name>Long URL</_name>
+		<regex>http://.{80}[^ ]+</regex>
+		<commands>
+			<command>
+				<_name>Make a tiny URL</_name>
+				<exec>exo-open http://tinyurl.com/create.php?url=\0</exec>
+			</command>
+		</commands>
+	</action>
 </actions>
