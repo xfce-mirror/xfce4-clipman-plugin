@@ -45,7 +45,7 @@ struct _ClipmanCollectorPrivate
   GtkClipboard         *default_clipboard;
   GtkClipboard         *primary_clipboard;
   guint                 primary_clipboard_timeout;
-  gboolean              restoring;
+  gboolean              internal_change;
   gboolean              add_primary_clipboard;
   gboolean              enable_actions;
 };
@@ -70,13 +70,6 @@ static void             clipman_collector_get_property      (GObject *object,
                                                              GParamSpec *pspec);
 
 /*
- * Private methods declarations
- */
-
-static void            _clipman_collector_restore_clipboard (ClipmanCollector *collector,
-                                                             GtkClipboard *clipboard);
-
-/*
  * Callbacks declarations
  */
 
@@ -99,33 +92,14 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gchar *text;
   GdkPixbuf *image;
 
+  /* Take only care of new clipboard content */
+  if (event != GDK_OWNER_CHANGE_NEW_OWNER)
+    return;
+
   /* Jump over if the content is set from within clipman */
-  if (collector->priv->restoring)
+  if (collector->priv->internal_change)
     {
-      collector->priv->restoring = FALSE;
-      return;
-    }
-
-  /* Prevent the clipboard from getting empty */
-  if (event->reason == GDK_OWNER_CHANGE_DESTROY || event->reason == GDK_OWNER_CHANGE_CLOSE)
-    {
-      if (event->selection == GDK_SELECTION_CLIPBOARD)
-        {
-          DBG ("The default clipboard is empty");
-          _clipman_collector_restore_clipboard (collector, collector->priv->default_clipboard);
-        }
-      else if (event->selection == GDK_SELECTION_PRIMARY)
-        {
-          DBG ("The primary clipboard is empty");
-          /* This case is seldomly reached, the experience showed that it only
-           * happens when the application is properly quit through the menu
-           * (Ctrl+Q in general).  Most of the time the primary clipboard will
-           * be set empty ("") instead of being destroyed when the application
-           * closes (Alt+F4). */
-          if (collector->priv->add_primary_clipboard)
-            _clipman_collector_restore_clipboard (collector, collector->priv->primary_clipboard);
-        }
-
+      collector->priv->internal_change = FALSE;
       return;
     }
 
@@ -139,14 +113,28 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
         {
           text = gtk_clipboard_wait_for_text (collector->priv->default_clipboard);
           if (text != NULL && text[0] != '\0')
-            clipman_history_add_text (collector->priv->history, text);
+            {
+              /* Make Clipman the owner */
+              collector->priv->internal_change = TRUE;
+              gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+
+              /* Add to history */
+              clipman_history_add_text (collector->priv->history, text);
+            }
           g_free (text);
         }
       else if (has_image)
         {
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
-            clipman_history_add_image (collector->priv->history, image);
+            {
+              /* Make Clipman the owner */
+              collector->priv->internal_change = TRUE;
+              gtk_clipboard_set_image (collector->priv->default_clipboard, image);
+
+              /* Add to history */
+              clipman_history_add_image (collector->priv->history, image);
+            }
           g_object_unref (image);
         }
     }
@@ -184,10 +172,11 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
         {
           if (collector->priv->add_primary_clipboard)
             {
+              /* Add to history */
               clipman_history_add_text (collector->priv->history, text);
 
               /* Make a copy inside the default clipboard */
-              collector->priv->restoring = TRUE;
+              collector->priv->internal_change = TRUE;
               gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
             }
 
@@ -197,49 +186,9 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
         }
       g_free (text);
     }
-  else if (collector->priv->add_primary_clipboard)
-    {
-      DBG ("The primary clipboard is empty");
-      _clipman_collector_restore_clipboard (collector, collector->priv->primary_clipboard);
-    }
 
   collector->priv->primary_clipboard_timeout = 0;
   return FALSE;
-}
-
-/*
- * Private methods
- */
-
-static void
-_clipman_collector_restore_clipboard (ClipmanCollector *collector,
-                                      GtkClipboard *clipboard)
-{
-  /* TODO See how to store the content in clipman, instead of trying to restore
-   * empty clipboards. */
-  const ClipmanHistoryItem *item;
-
-  collector->priv->restoring = TRUE;
-
-  item = clipman_history_get_item_to_restore (collector->priv->history);
-  if (item == NULL)
-    return;
-
-  DBG ("Restore the clipboard with the most recent content from ClipmanHistory");
-
-  switch (item->type)
-    {
-    case CLIPMAN_HISTORY_TYPE_TEXT:
-      gtk_clipboard_set_text (clipboard, item->content.text, -1);
-      break;
-
-    case CLIPMAN_HISTORY_TYPE_IMAGE:
-      gtk_clipboard_set_image (clipboard, item->content.image);
-      break;
-
-    default:
-      g_assert_not_reached ();
-    }
 }
 
 /*
@@ -260,7 +209,7 @@ _clipman_collector_restore_clipboard (ClipmanCollector *collector,
 void
 clipman_collector_set_is_restoring (ClipmanCollector *collector)
 {
-  collector->priv->restoring = TRUE;
+  collector->priv->internal_change = TRUE;
 }
 
 ClipmanCollector *
@@ -320,7 +269,7 @@ clipman_collector_init (ClipmanCollector *collector)
 
   /* This bit is set to TRUE when a clipboard has to be set from within clipman
    * while avoiding to re-add it to the history. */
-  collector->priv->restoring = FALSE;
+  collector->priv->internal_change = FALSE;
 
   /* ClipmanActions */
   collector->priv->actions = clipman_actions_get ();

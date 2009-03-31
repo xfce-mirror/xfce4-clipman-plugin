@@ -1,7 +1,3 @@
-Deps:
-- Check deps versions
 Actions:
 - Set sensitivity of "ok" button in the actions settings dialogs
 - A regex validator dialog
-Collector:
-- Drop the restore code and push the clipboard data inside the plugin so it's the owner

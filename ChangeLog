@@ -1,4 +1,15 @@
 2009-03-31	Mike Massonnet
+Make Clipman the owner of the clipboard contents
+
+	- panel-plugin/collector.c:
+		Rename priv->restoring to priv->internal_change.  Drop function
+		_clipman_collector_restore_clipboard in favor of making Clipman
+		automatically the owner of the clipboard contents.  This doesn't work
+		for the primary clipboard as it would destroy the selection under hand
+		thus it will lack this functionnality, but all-in-all this clipboard
+		is not as mandatory as the default clipboard.
+
+2009-03-31	Mike Massonnet
 Save/Load the history in the correct order
 
 	- panel-plugin/panel-plugin.c(panel_plugin_save):
