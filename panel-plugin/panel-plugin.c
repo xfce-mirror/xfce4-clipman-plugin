@@ -127,6 +127,8 @@ static void             cb_refresh_command              (GtkButton *button,
                                                          MyPlugin *plugin);
 static void             cb_delete_command               (GtkButton *button,
                                                          MyPlugin *plugin);
+static void             cb_set_action_dialog_button_ok  (GtkWidget *widget,
+                                                         MyPlugin *plugin);
 
 
 
@@ -230,6 +232,7 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
                         MyPlugin *plugin)
 {
   GtkWidget *dialog;
+  GtkWidget *action_dialog;
   GtkWindowGroup *group;
 
   /* GladeXML */
@@ -240,6 +243,10 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
   group = gtk_window_group_new ();
   gtk_window_group_add_window (group, GTK_WINDOW (dialog));
+
+  /* Action dialog */
+  action_dialog = glade_xml_get_widget (plugin->gxml, "action-dialog");
+  gtk_window_group_add_window (group, GTK_WINDOW (action_dialog));
 
   /* General settings */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
@@ -259,7 +266,7 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history", G_TYPE_UINT,
                           G_OBJECT (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")), "value");
 
-  /* Actions */
+  /* Actions tab and dialog */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "enable-actions")),
                                 DEFAULT_ENABLE_ACTIONS);
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
@@ -276,11 +283,22 @@ panel_plugin_configure (XfcePanelPlugin *panel_plugin,
   setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "actions")), plugin);
   setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")), plugin);
 
+  /* Callbacks for the OK button sensitivity in the actions dialog */
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "action-name"), "changed",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "regex"), "changed",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-add-command"), "clicked",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-delete-command"), "clicked",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+
   /* Run the dialog */
   xfce_panel_plugin_block_menu (panel_plugin);
   gtk_dialog_run (GTK_DIALOG (dialog));
   xfce_panel_plugin_unblock_menu (panel_plugin);
 
+  gtk_widget_destroy (action_dialog);
   gtk_widget_destroy (dialog);
   g_object_unref (group);
   g_object_unref (plugin->gxml);
@@ -612,7 +630,7 @@ cb_add_action (GtkButton *button,
   GtkWidget *dialog;
   gint res;
 
-  dialog = glade_xml_get_widget (plugin->gxml, "entry-dialog");
+  dialog = glade_xml_get_widget (plugin->gxml, "action-dialog");
   entry_dialog_cleanup (GTK_DIALOG (dialog), plugin);
 
   res = gtk_dialog_run (GTK_DIALOG (dialog));
@@ -661,15 +679,12 @@ cb_actions_row_activated (GtkTreeView *treeview,
   gchar *title;
   gint res;
 
-  dialog = glade_xml_get_widget (plugin->gxml, "entry-dialog");
+  dialog = glade_xml_get_widget (plugin->gxml, "action-dialog");
   entry_dialog_cleanup (GTK_DIALOG (dialog), plugin);
 
   actions_model = gtk_tree_view_get_model (treeview);
   gtk_tree_model_get_iter (actions_model, &iter, path);
   gtk_tree_model_get (actions_model, &iter, 0, &entry, -1);
-
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "action-name")), entry->action_name);
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "regex")), g_regex_get_pattern (entry->regex));
 
   commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
 #if GLIB_CHECK_VERSION (2,16,0)
@@ -686,6 +701,9 @@ cb_actions_row_activated (GtkTreeView *treeview,
 #else
   g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_fill_commands, commands_model);
 #endif
+
+  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "action-name")), entry->action_name);
+  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "regex")), g_regex_get_pattern (entry->regex));
 
   res = gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_hide (dialog);
@@ -746,6 +764,8 @@ entry_dialog_cleanup (GtkDialog *dialog,
                       MyPlugin *plugin)
 {
   GtkTreeModel *model;
+
+  gtk_widget_set_sensitive (glade_xml_get_widget (plugin->gxml, "action-dialog-button-ok"), FALSE);
 
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "action-name")), "");
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "regex")), "");
@@ -815,7 +835,7 @@ cb_add_command (GtkButton *button,
   command = glade_xml_get_widget (plugin->gxml, "command");
 
   if (gtk_entry_get_text (GTK_ENTRY (command_name))[0] == '\0'
-      && gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
+      || gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
     return;
 
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
@@ -844,8 +864,14 @@ cb_refresh_command (GtkButton *button,
   GtkWidget *command;
   gchar *title;
 
-  treeview = glade_xml_get_widget (plugin->gxml, "commands");
+  command_name = glade_xml_get_widget (plugin->gxml, "command-name");
+  command = glade_xml_get_widget (plugin->gxml, "command");
 
+  if (gtk_entry_get_text (GTK_ENTRY (command_name))[0] == '\0'
+      || gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
+    return;
+
+  treeview = glade_xml_get_widget (plugin->gxml, "commands");
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
     {
@@ -853,14 +879,12 @@ cb_refresh_command (GtkButton *button,
       return;
     }
 
-  command_name = glade_xml_get_widget (plugin->gxml, "command-name");
-  command = glade_xml_get_widget (plugin->gxml, "command");
   title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
                            gtk_entry_get_text (GTK_ENTRY (command_name)),
                            gtk_entry_get_text (GTK_ENTRY (command)));
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
                       1, gtk_entry_get_text (GTK_ENTRY (command_name)),
-                      2, gtk_entry_get_text (GTK_ENTRY (command)));
+                      2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
   g_free (title);
 
   gtk_tree_selection_unselect_all (selection);
@@ -885,5 +909,35 @@ cb_delete_command (GtkButton *button,
     }
 
   gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+}
+
+static void
+cb_set_action_dialog_button_ok (GtkWidget *widget,
+                                   MyPlugin *plugin)
+{
+  const gchar *action_name;
+  const gchar *regex_pattern;
+  GRegex *regex;
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+  gboolean has_commands;
+  gboolean sensitive = FALSE;
+
+  action_name = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "action-name")));
+  regex_pattern = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (plugin->gxml, "regex")));
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
+  has_commands = gtk_tree_model_get_iter_first (model, &iter);
+
+  if (action_name[0] != '\0' && regex_pattern[0] != '\0' && has_commands)
+    {
+      if (regex = g_regex_new (regex_pattern, 0, 0, NULL))
+        {
+          sensitive = TRUE;
+          g_regex_unref (regex);
+        }
+    }
+
+  gtk_widget_set_sensitive (glade_xml_get_widget (plugin->gxml, "action-dialog-button-ok"), sensitive);
+  return;
 }
 

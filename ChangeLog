@@ -1,4 +1,24 @@
 2009-03-31	Mike Massonnet
+Set sensitivity of OK button in actions dialog
+
+	- panel-plugin/panel-plugin.c(panel_plugin_configure):
+		Put the actions dialog in the same window group as the settings dialog
+		to respect the its modal state.
+	- panel-plugin/panel-plugin;c(panel_plugin_configure):
+		Connect action-name, regex, and buttons add-command/delete-command to
+		the new callback cb_set_action_dialog_button_ok to set automatically
+		the sensitivity of the OK button in the actions dialog.
+	- panel-plugin/panel-plugin.c(cb_actions_row_activated):
+		Set the text after the commands in the treeview so it updates the OK
+		button accordingly wrt to the entry text changes.
+	- panel-plugin/panel-plugin.c(cb_add_command):
+		Fix the condition to add a new command and do the same check in
+		cb_refresh_command.
+	- panel-plugin/panel-plugin.c(cb_set_action_dialog_button_ok):
+		Verify that there is a command-name, a valid regex, and at least one
+		command and set the OK button sensitive, otherwise not.
+
+2009-03-31	Mike Massonnet
 Make Clipman the owner of the clipboard contents
 
 	- panel-plugin/collector.c:
