@@ -1,4 +1,7 @@
 2009-04-01	Mike Massonnet
+Update the strings
+
+2009-04-01	Mike Massonnet
 April April I restore the actions
 
 	- panel-plugin/collector.c(cb_clipboard_owner_change):

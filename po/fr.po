@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-30 15:06+0200\n"
-"PO-Revision-Date: 2006-12-22 18:06+0100\n"
+"POT-Creation-Date: 2009-04-01 01:06+0200\n"
+"PO-Revision-Date: 2009-04-01 01:07+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,132 +18,146 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bogue"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Éditer avec Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Bogue GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "View with Ristretto"
-msgstr ""
+msgid "Long URL"
+msgstr "Longue URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr "Rétrécir l'URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "View with Ristretto"
+msgstr "Ouvrir avec Ristretto"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "bogue Xfce"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
 msgstr "Gestionnaire de presse-papiers"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:145
+#: ../panel-plugin/panel-plugin.c:149
 msgid "Clipman"
 msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Action</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Nombres</b>"
+msgstr "<b>Commandes</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historique</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "A_jouter les sélections à l'historique"
+msgstr "A_jouter les sélections"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Commande :"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Configurer le greffon"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Éditer l'action"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
-msgid "Edit Command"
-msgstr ""
+msgid "Enable _actions"
+msgstr "Activer les _actions"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "Enable _actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"Enable the actions to match the clipboard texts against regular expressions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Général"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid ""
-"If checked, the selections will go into the history. This behavior can be "
-"very verbose and make the whole history unusable. However it can be useful "
-"if you wish to always copy the selections to the default clipboard, in a way "
-"that you can paste what you select."
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
 msgstr ""
+"Si coché, le contenu du presse-papier sera comparé aux expressions "
+"régulières et un menu affichera les actions possibles"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid ""
+"If checked, the selections will go into the history. This behavior can bring "
+"the history to be unreadable, however it can be interesting in case you "
+"always want to paste what you select."
+msgstr ""
+"Si coché, les sélections iront dans l'historique. Ce comportement peut "
+"rendre l'historique illisible, cependant il peut être intéressant si vous "
+"désirez toujours coller ce que vous sélectionnez."
+
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
+"Si coché, cette option vous permet de stocker une image à l'intérieur de "
+"l'historique"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
+"Si coché, cette option restaure l'historique à chaque nouvelle session Xfce"
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid "Name:"
+msgstr "Nom :"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Name:"
-msgstr ""
+msgid "Regex:"
+msgstr "Regex :"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid "Regex:"
-msgstr ""
+msgid "Save on _quit"
+msgstr "Sauvegarder avant de _quitter"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid "Save on _quit"
-msgstr ""
+msgid "Size of the _history:"
+msgstr "Taille de l'_historique :"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
-msgid "Size of the _history:"
-msgstr ""
+msgid "Store an _image"
+msgstr "Stocker une _image"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid "Store an _image"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:21
 msgid ""
-"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
-"command to replace it against the matched sub-texts. The parameter \"\\0\" "
-"represents the complete text."
+"You can use the substitution regex parameters \"\\1\", \"\\2\" and so on in "
+"the commands. The parameter \"\\0\" represents the complete text. If you "
+"don't know regular expressions, have a look at the documentation of Clipman "
+"that has an introdution for them."
 msgstr ""
+"Vous pouvez utiliser les paramètres de substitution \"\\1\", \"\\2\" et "
+"ainsi de suite dans les commandes. Le paramètre \"\\0\" représente le texte "
+"complet. Si vous ne connaissez pas les expressions régulières, consultez la "
+"documentation de Clipman qui possède une introduction pour elles."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -151,9 +165,8 @@ msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Presse-papiers vide >"
+msgstr "Le presse-papier est vide"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Échec à l'ouverture du lien : %s"

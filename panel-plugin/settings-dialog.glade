@@ -62,7 +62,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="tooltip" translatable="yes">If checked, the selections will go into the history. This behavior can be very verbose and make the whole history unusable. However it can be useful if you wish to always copy the selections to the default clipboard, in a way that you can paste what you select.</property>
+                                <property name="tooltip" translatable="yes">If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select.</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </widget>
@@ -163,7 +163,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="tooltip" translatable="yes">Enable the actions to match the clipboard texts against regular expressions</property>
+                    <property name="tooltip" translatable="yes">If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions</property>
                     <property name="use_underline">True</property>
                     <property name="draw_indicator">True</property>
                   </widget>
@@ -376,7 +376,7 @@
               <widget class="GtkLabel" id="label8">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
-                <property name="label" translatable="yes">You can use the matching regex parameters "\1", "\2" and so on in the command to replace it against the matched sub-texts. The parameter "\0" represents the complete text. If you don't know how to write regex' have a look at the documentation of Clipman, it introduces them.</property>
+                <property name="label" translatable="yes">You can use the substitution regex parameters "\1", "\2" and so on in the commands. The parameter "\0" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them.</property>
                 <property name="wrap">True</property>
               </widget>
               <packing>

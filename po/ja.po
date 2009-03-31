@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"POT-Creation-Date: 2009-04-01 01:06+0200\n"
 "PO-Revision-Date: 2009-03-15 23:20+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
@@ -34,10 +34,18 @@ msgid "Image"
 msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "View with Ristretto"
+msgid "Long URL"
 msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "View with Ristretto"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr ""
 
@@ -47,7 +55,7 @@ msgid "Clipboards manager"
 msgstr "クリップボードマネージャ"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:145
+#: ../panel-plugin/panel-plugin.c:149
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -86,64 +94,61 @@ msgid "Edit Action"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:9
-msgid "Edit Command"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Enable _actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"Enable the actions to match the clipboard texts against regular expressions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
 msgstr "全般"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid ""
-"If checked, the selections will go into the history. This behavior can be "
-"very verbose and make the whole history unusable. However it can be useful "
-"if you wish to always copy the selections to the default clipboard, in a way "
-"that you can paste what you select."
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid ""
+"If checked, the selections will go into the history. This behavior can bring "
+"the history to be unreadable, however it can be interesting in case you "
+"always want to paste what you select."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Regex:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid ""
-"You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the "
-"command to replace it against the matched sub-texts. The parameter \"\\0\" "
-"represents the complete text."
+"You can use the substitution regex parameters \"\\1\", \"\\2\" and so on in "
+"the commands. The parameter \"\\0\" represents the complete text. If you "
+"don't know regular expressions, have a look at the documentation of Clipman "
+"that has an introdution for them."
 msgstr ""
 
 #: ../panel-plugin/menu.c:112

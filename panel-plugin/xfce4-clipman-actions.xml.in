@@ -50,7 +50,7 @@
 		<regex>http://.{80}[^ ]+</regex>
 		<commands>
 			<command>
-				<_name>Make a tiny URL</_name>
+				<_name>Shrink the URL</_name>
 				<exec>exo-open http://tinyurl.com/create.php?url=\0</exec>
 			</command>
 		</commands>
