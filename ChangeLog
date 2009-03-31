@@ -1,3 +1,13 @@
+2009-03-31	Mike Massonnet
+Save/Load the history in the correct order
+
+	- panel-plugin/panel-plugin.c(panel_plugin_save):
+		Obviously I was sure I did that already, but then no trace in
+		the logs, so once again, the history was displayed in the
+		reverse order each time the plugin restarted, so the list is
+		reversed before being saved.  Also free the memory allocated
+		to texts as it has to even if there is no texts to be saved.
+
 2009-03-30	Mike Massonnet
 Redesign the actions settings dialog
 
@@ -8,7 +18,6 @@ Redesign the actions settings dialog
 		Implement the new callbacks.  Set the settings dialog
 		back to transient and put it inside a window group (cause
 		gtk_dialog_run makes the dialog modal, cf. bug #4977).
-		group + make it transient
 	- panel-plugin/xfce4-clipman-actions.xml.in:
 		Change the regex' a little bit.
 

@@ -368,6 +368,7 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
 
   /* Save the history */
   list = clipman_history_get_list (plugin->history);
+  list = g_slist_reverse (list);
   if (list != NULL)
     {
       texts = g_malloc0 (g_slist_length (list) * sizeof (gchar *));
@@ -407,9 +408,9 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
           g_key_file_free (keyfile);
           g_free (data);
           g_free (filename);
-          g_free (texts);
         }
 
+      g_free (texts);
       g_slist_free (list);
     }
 }
