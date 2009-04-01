@@ -1,4 +1,10 @@
 2009-04-01	Mike Massonnet
+Set long URLs to 120 characters at least
+
+	- panel-plugin/xfce4-clipman-actions.xml.in:
+		Change the minimum size of long URLs from 80 to 120
+
+2009-04-01	Mike Massonnet
 Update the strings, yet again
 
 2009-04-01	Mike Massonnet
