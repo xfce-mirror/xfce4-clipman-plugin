@@ -1,54 +1,53 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Clipman plugin Turkish translation.
+# Copyright (C) 2009
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Samed Beyribey <ras0ir@eventualis.org>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-01 01:24+0200\n"
-"PO-Revision-Date: 2009-01-13 16:49+0200\n"
+"PO-Revision-Date: 2009-04-01 21:57+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Hatalar"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Gimp ile Düzenle"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "GNOME Hatası"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Resim"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "Uzun URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "URL'yi kısalt"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Ristretto ile görüntüle"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Xfce Hatası"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
 msgstr "Pano Yöneticisi"
 
@@ -59,95 +58,83 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Eylem</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Sayılar</b>"
+msgstr "<b>Komutlar</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Geçmiş</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Eylemler"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "_Seçimleri yoksay"
+msgstr "_Seçim ekle"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Komut:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Eklentiyi yapılandır"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Eylemi Düzenle"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Enable _actions"
-msgstr ""
+msgstr "Eylemleri etkinleş_tir"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
 msgstr "Genel"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve menüde kullanılabilir işlemler gösterilecektir"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
-msgid ""
-"If checked, the selections will go into the history. This behavior can bring "
-"the history to be unreadable, however it can be interesting in case you "
-"always want to paste what you select."
-msgstr ""
+msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+msgstr "Eğer seçilmişse, seçimler geçmiş kayıtlarına yazılacaktır. Bu davranış geçmiş kayıtlarını  okunamaz yapabilir, ancak yapıştırmak istediğiniz seçim konusunda yardımcı olabilir. "
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün kılar"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son kullanıldığı şekilde göstermektedir."
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
-msgstr ""
+msgstr "İsim:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Regex:"
-msgstr ""
+msgstr "Düzenli İfade:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
-msgstr ""
+msgstr "Çıkışta _kaydet"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Geçmiş _boyutu:"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
-msgstr ""
+msgstr "Res_im sakla"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu inceleyebilirsiniz. "
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -155,66 +142,47 @@ msgstr "Geçmişi temizlemek istediğinizden emin misiniz?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Pano Boş >"
+msgstr "Pano boş"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Bağlantı adresi açılamadı: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Pano içeriğini _çıkışta kaydet"
-
 #~ msgid "A_dd selections to the history"
 #~ msgstr "Seçilenleri geçmiş_e ekle"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Öğe numaralarını göster"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Genel</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Pano geçmiş öğeleri:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Menü öğe karakterleri:"
-
 #~ msgid "Clear History"
 #~ msgstr "Geçmişi temizle"
-
 #~ msgid "Clipman History"
 #~ msgstr "Clipman Geçmişi"
-
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Xfce için pano yöneticisi"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "Panonun boşalmasını engelle"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Normal pano _yönetimi"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Panoları harfi harfine ayır"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Pano Davranışı</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Panoları _ayır"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Menü Görünümü</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Görünüm"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Bu öğeyi geçmişten silmek istediğinize emin misiniz?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Öntanımlı Geçmiş Boş >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Seçim Geçmişi Boş >"
+

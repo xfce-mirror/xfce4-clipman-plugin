@@ -1,54 +1,53 @@
 # Portuguese translation of the xfce4-clipman-plugin package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Nuno Miguel <nunis@netcabo.pt>, 2007.
+# Copyright (C) 2005-2009 THE Xfce development team.
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Nuno Miguel <nunis@netcabo.pt>, 2007, 2008, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-01 01:24+0200\n"
-"PO-Revision-Date: 2009-01-09 16:31+0100\n"
+"PO-Revision-Date: 2009-04-01 18:29+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bugs"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Editar com Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Bug do GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Imagem"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "URL longo"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Encurtar URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Ver com Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Bug do Xfce"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
 msgstr "Gestor de área de transferência"
 
@@ -59,95 +58,83 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Acção</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Números</b>"
+msgstr "<b>Comandos</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Histórico</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Acções"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "_Ignorar selecções"
+msgstr "Adicionar _selecções"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Comando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Configurar plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Editar Acção"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Enable _actions"
-msgstr ""
+msgstr "Activar a_cções"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
 msgstr "Geral"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Se activa o textos da área de transferência serão correspondidos com expressões regulares e um menu irá mostrar possíveis acções"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
-msgid ""
-"If checked, the selections will go into the history. This behavior can bring "
-"the history to be unreadable, however it can be interesting in case you "
-"always want to paste what you select."
-msgstr ""
+msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+msgstr "Se activa, as selecções irão para o histórico. Este comportamento pode tornar o histórico ilegível, porém pode ser interessante no caso de sempre querer colar o que seleccionou."
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Se activa, esta opção permite guardar uma imagem dentro do histórico"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Se activa, esta opção irá restaurar o histórico em cada nova sessão do Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Regex:"
-msgstr ""
+msgstr "Exp. regular:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
-msgstr ""
+msgstr "Gravar ao sai_r"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Tamanho do _histórico:"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
-msgstr ""
+msgstr "Guardar uma _imagem"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Pode usar os parâmetros \"\\1\", \"\\2\" e outros nos comandos. O parâmetro \"\\0\" representa o texto completo. Se não conhece expressões regulares, veja a documentação do Clipman que tem uma introdução para elas."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -155,66 +142,47 @@ msgstr "Tem certeza que deseja limpar o histórico?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Área de transferência vazia >"
+msgstr "Área de transferência vazia"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Incapaz de abrir o seguinte url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Gravar o conteúdo da área de transferência ao _sair"
-
 #~ msgid "A_dd selections to the history"
 #~ msgstr "A_dicionar selecções ao histórico"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar números dos itens"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Geral</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Itens do histórico da área de transferência:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres do item de menu:"
-
 #~ msgid "Clear History"
 #~ msgstr "Limpar Histórico"
-
 #~ msgid "Clipman History"
 #~ msgstr "Histórico do Clipman"
-
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Gestor da área de transferência para o ambiente de trabalho Xfce"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar área de transferência vazia"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "_Gestão normal de área de transferência"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separar _estritamente as áreas de transferência"
-
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Comportamento da área de transferência</b>"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_parar áreas de transferência"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Aparência do Menu</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Aparência"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Tem certeza de que quer remover esta entrada do histórico?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Histórico Padrão Vazio >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Histórico de selecções vazio >"
+
