@@ -2,14 +2,15 @@
 # This file is distributed under the same license as
 #   the xfce4-clipman-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
+# Hunt Xu <huntxu@live.cn>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-01 01:24+0200\n"
-"PO-Revision-Date: 2008-03-12 13:l1+0800\n"
-"Last-Translator: Vern Sun <s5unty@gmail.com>\n"
+"PO-Revision-Date: 2009-04-01 18:18+0800\n"
+"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,39 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "查看错误报告"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "使用 Gimp 编辑"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "查看GNOME错误报告"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "图像"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "长URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "缩短URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "使用 Ristretto 查看"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "查看Xfce错误报告"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
-msgstr "剪贴板管理程式"
+msgstr "剪贴板管理器"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/panel-plugin.c:149
@@ -60,41 +60,39 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>动作</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>数字</b>"
+msgstr "<b>命令</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "历史"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "动作"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "忽略选取的区域(_I)"
+msgstr "添加选取的区域(_s)"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "命令:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "配置此插件"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "修改动作"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Enable _actions"
-msgstr ""
+msgstr "允许动作(_a)"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
@@ -105,6 +103,8 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
+"如果选中该项，剪切板中的文字将会使用正则表达式进行匹配，"
+"并弹出供选择动作的菜单"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid ""
@@ -112,35 +112,38 @@ msgid ""
 "the history to be unreadable, however it can be interesting in case you "
 "always want to paste what you select."
 msgstr ""
+"如果选中该项，所选择内容将会保存在历史记录中。"
+"历史记录中的内容可能无法被阅读，但如果您需要经常粘贴您所选择的内容，"
+"选中该项将对您有相当的帮助。"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "选中该项将允许在历史记录中保存一幅图像"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "选中该项将在每次Xfce会话启动时恢复历史记录"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
-msgstr ""
+msgstr "名字:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Regex:"
-msgstr ""
+msgstr "正则表达式:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
-msgstr ""
+msgstr "退出时保存(_q)"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
-msgstr ""
+msgstr "历史文件大小(_h):"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
-msgstr ""
+msgstr "保存一幅图像(_i)"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid ""
@@ -149,6 +152,8 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
+"您可以在命令中使用替换参数\"\\1\"、\"\\2\"等。参数\"\\0\"代表整个文本。"
+"如果您不熟悉正则表达式，请参看Clipman的文档中相关的介绍。"
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -156,7 +161,6 @@ msgstr "您确定您想要清除历史记录吗？"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
 msgstr "< 历史记录空白 >"
 
