@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-01 01:24+0200\n"
-"PO-Revision-Date: 2009-03-07 12:35+0100\n"
+"PO-Revision-Date: 2009-04-01 15:18+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -22,40 +22,39 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Erros"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Editar co Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Erro de GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Imaxe"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "URL longo"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Acurtar o URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Ver con Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Erro de Xfce"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
-msgstr "Xestor do portarretallos"
+msgstr "Xestor de portarretallos"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/panel-plugin.c:149
@@ -64,95 +63,83 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Acción</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Números</b>"
+msgstr "<b>Comandos</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historial</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Accións"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "Enga_dir as seleccións ó historial"
+msgstr "Engadir as _seleccións"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Comando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Configurar o engadido"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Modificar a acción"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Enable _actions"
-msgstr ""
+msgstr "Activar as _accións"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
 msgstr "Xeral"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Se está marcado, os textos do portarretallos hanse comparar con expresións regulares e mostrarase un menú cas posibles accións"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
-msgid ""
-"If checked, the selections will go into the history. This behavior can bring "
-"the history to be unreadable, however it can be interesting in case you "
-"always want to paste what you select."
-msgstr ""
+msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+msgstr "Se está marcado, as seleccións irán ó historial. Este comportamento pode facer que o historial sexa ilexible, aínda que pode ser interesante no caso de que sempre queira pegar o que selecciona."
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Se está marcado, esta opción permite almacenar unha imaxe no historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Se está marcado, esta opción restablecerá o historial en cada vez que se inicie unha nova sesión de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Regex:"
-msgstr ""
+msgstr "Expresión regular:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
-msgstr ""
+msgstr "Gardar ó _saír"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Tamaño do _historial:"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
-msgstr ""
+msgstr "Almacenar unha _imaxe"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nos comandos. O parámetro \"\\0\" representa o texto completo. Se non sabe usar as expresións regulares, bótelle unha ollada á documentación de Clipman porque ten unha breve introdución a elas."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -160,36 +147,27 @@ msgstr "Está seguro de que desexa limpar o historial?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Portarretallos baleiro >"
+msgstr "O portarretallos está baleiro"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Non foi posible abrir o seguinte url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Gardar o contido do portarretallos ó saír"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar os números de elemento"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Xeral</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Elementos do historial do portarretallos:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres de elemento do menú:"
-
 #~ msgid "Clear History"
 #~ msgstr "Limpar o historial"
-
 #~ msgid "Clipman History"
 #~ msgstr "Historial de Clipman"
-
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Xestor de portarretallos para o escritorio Xfce"
-
 #~ msgid "Appearance"
 #~ msgstr "Aparencia"
+
