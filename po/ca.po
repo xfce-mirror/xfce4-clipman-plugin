@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-02 13:42+0200\n"
-"PO-Revision-Date: 2009-04-02 11:40+0100\n"
+"PO-Revision-Date: 2009-04-02 15:29+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "Nom:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Pattern:"
-msgstr ""
+msgstr "Patró:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
