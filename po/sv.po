@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2009-02-01 18:56+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -53,7 +53,7 @@ msgid "Clipboards manager"
 msgstr "Urklippshanterare"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -126,7 +126,7 @@ msgid "Name:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
+msgid "Pattern:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17

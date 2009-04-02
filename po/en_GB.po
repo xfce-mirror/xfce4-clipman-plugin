@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2007-03-30 20:24+1000\n"
 "Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
 "Language-Team: British English <xfce-i18n@xfce.org>\n"
@@ -53,7 +53,7 @@ msgid "Clipboards manager"
 msgstr "Clipboard Manager"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -126,7 +126,7 @@ msgid "Name:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
+msgid "Pattern:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17

@@ -1,5 +1,10 @@
 2009-04-02  Mike Massonnet <mmassonnet@xfce.org>
 
+	* *.po, *.pot: make update-po
+	* fr.po: French translation update
+
+2009-04-02  Mike Massonnet <mmassonnet@xfce.org>
+
 	* ca.po: Catalan translation update (Harald Servat)
 
 2009-04-01  Mike Massonnet <mmassonnet@xfce.org>

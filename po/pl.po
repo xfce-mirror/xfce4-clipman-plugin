@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2009-02-24 20:38+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish\n"
@@ -54,7 +54,7 @@ msgid "Clipboards manager"
 msgstr "Menedżer schowka"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Menedżer schowka"
 
@@ -127,7 +127,7 @@ msgid "Name:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
+msgid "Pattern:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2009-04-02 11:40+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
@@ -55,7 +55,7 @@ msgid "Clipboards manager"
 msgstr "Gestor de porta-retalls"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Porta-retalls «Clipman»"
 
@@ -134,8 +134,8 @@ msgid "Name:"
 msgstr "Nom:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
-msgstr "Expressió regular:"
+msgid "Pattern:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
@@ -169,6 +169,9 @@ msgstr "Voleu buidar l’històric?"
 #: ../panel-plugin/menu.c:185
 msgid "Clipboard is empty"
 msgstr "El porta-retalls és buit"
+
+#~ msgid "Regex:"
+#~ msgstr "Expressió regular:"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "No s'ha pogut obrir la url: %s"

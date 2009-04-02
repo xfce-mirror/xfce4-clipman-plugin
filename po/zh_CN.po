@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2009-04-01 18:18+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese <xfce-i18n@xfce.org>\n"
@@ -54,7 +54,7 @@ msgid "Clipboards manager"
 msgstr "剪贴板管理器"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -103,8 +103,8 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"如果选中该项，剪切板中的文字将会使用正则表达式进行匹配，"
-"并弹出供选择动作的菜单"
+"如果选中该项，剪切板中的文字将会使用正则表达式进行匹配，并弹出供选择动作的菜"
+"单"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid ""
@@ -112,9 +112,8 @@ msgid ""
 "the history to be unreadable, however it can be interesting in case you "
 "always want to paste what you select."
 msgstr ""
-"如果选中该项，所选择内容将会保存在历史记录中。"
-"历史记录中的内容可能无法被阅读，但如果您需要经常粘贴您所选择的内容，"
-"选中该项将对您有相当的帮助。"
+"如果选中该项，所选择内容将会保存在历史记录中。历史记录中的内容可能无法被阅"
+"读，但如果您需要经常粘贴您所选择的内容，选中该项将对您有相当的帮助。"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
@@ -130,8 +129,8 @@ msgid "Name:"
 msgstr "名字:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
-msgstr "正则表达式:"
+msgid "Pattern:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
@@ -152,8 +151,8 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"您可以在命令中使用替换参数\"\\1\"、\"\\2\"等。参数\"\\0\"代表整个文本。"
-"如果您不熟悉正则表达式，请参看Clipman的文档中相关的介绍。"
+"您可以在命令中使用替换参数\"\\1\"、\"\\2\"等。参数\"\\0\"代表整个文本。如果您"
+"不熟悉正则表达式，请参看Clipman的文档中相关的介绍。"
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -163,6 +162,9 @@ msgstr "您确定您想要清除历史记录吗？"
 #: ../panel-plugin/menu.c:185
 msgid "Clipboard is empty"
 msgstr "< 历史记录空白 >"
+
+#~ msgid "Regex:"
+#~ msgstr "正则表达式:"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "无法打开以下链接: %s"

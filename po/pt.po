@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-01 01:24+0200\n"
+"POT-Creation-Date: 2009-04-02 13:42+0200\n"
 "PO-Revision-Date: 2009-04-01 18:29+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgid "Clipboards manager"
 msgstr "Gestor de área de transferência"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:149
+#: ../panel-plugin/panel-plugin.c:157
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -97,28 +97,40 @@ msgid "General"
 msgstr "Geral"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Se activa o textos da área de transferência serão correspondidos com expressões regulares e um menu irá mostrar possíveis acções"
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Se activa o textos da área de transferência serão correspondidos com "
+"expressões regulares e um menu irá mostrar possíveis acções"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
-msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
-msgstr "Se activa, as selecções irão para o histórico. Este comportamento pode tornar o histórico ilegível, porém pode ser interessante no caso de sempre querer colar o que seleccionou."
+msgid ""
+"If checked, the selections will go into the history. This behavior can bring "
+"the history to be unreadable, however it can be interesting in case you "
+"always want to paste what you select."
+msgstr ""
+"Se activa, as selecções irão para o histórico. Este comportamento pode "
+"tornar o histórico ilegível, porém pode ser interessante no caso de sempre "
+"querer colar o que seleccionou."
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Se activa, esta opção permite guardar uma imagem dentro do histórico"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "Se activa, esta opção irá restaurar o histórico em cada nova sessão do Xfce"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Se activa, esta opção irá restaurar o histórico em cada nova sessão do Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
 msgstr "Nome:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "Regex:"
-msgstr "Exp. regular:"
+msgid "Pattern:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
@@ -133,8 +145,15 @@ msgid "Store an _image"
 msgstr "Guardar uma _imagem"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Pode usar os parâmetros \"\\1\", \"\\2\" e outros nos comandos. O parâmetro \"\\0\" representa o texto completo. Se não conhece expressões regulares, veja a documentação do Clipman que tem uma introdução para elas."
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Pode usar os parâmetros \"\\1\", \"\\2\" e outros nos comandos. O parâmetro "
+"\"\\0\" representa o texto completo. Se não conhece expressões regulares, "
+"veja a documentação do Clipman que tem uma introdução para elas."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -145,44 +164,65 @@ msgstr "Tem certeza que deseja limpar o histórico?"
 msgid "Clipboard is empty"
 msgstr "Área de transferência vazia"
 
+#~ msgid "Regex:"
+#~ msgstr "Exp. regular:"
+
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Incapaz de abrir o seguinte url: %s"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Gravar o conteúdo da área de transferência ao _sair"
+
 #~ msgid "A_dd selections to the history"
 #~ msgstr "A_dicionar selecções ao histórico"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar números dos itens"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Geral</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Itens do histórico da área de transferência:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres do item de menu:"
+
 #~ msgid "Clear History"
 #~ msgstr "Limpar Histórico"
+
 #~ msgid "Clipman History"
 #~ msgstr "Histórico do Clipman"
+
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Gestor da área de transferência para o ambiente de trabalho Xfce"
+
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar área de transferência vazia"
+
 #~ msgid "Normal clipboard _management"
 #~ msgstr "_Gestão normal de área de transferência"
+
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separar _estritamente as áreas de transferência"
+
 #~ msgid "<b>Clipboard Behaviour</b>"
 #~ msgstr "<b>Comportamento da área de transferência</b>"
+
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_parar áreas de transferência"
+
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Aparência do Menu</b>"
+
 #~ msgid "Appearance"
 #~ msgstr "Aparência"
+
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Tem certeza de que quer remover esta entrada do histórico?"
+
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Histórico Padrão Vazio >"
+
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Histórico de selecções vazio >"
-
