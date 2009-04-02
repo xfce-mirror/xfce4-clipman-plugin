@@ -89,6 +89,14 @@ static void             my_plugin_position_menu         (GtkMenu *menu,
                                                          MyPlugin *plugin);
 
 /*
+ * Selection for the popup command declarations
+ */
+
+static gboolean         my_plugin_set_selection         (MyPlugin *plugin);
+static gboolean         cb_message_received             (MyPlugin *plugin,
+                                                         GdkEventClient *ev);
+
+/*
  * Settings Dialog functions declarations
  */
 
@@ -205,6 +213,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   /* Load the data */
   panel_plugin_load (panel_plugin, plugin);
+
+  /* Set the selection for the popup command */
+  my_plugin_set_selection (plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
@@ -515,6 +526,62 @@ my_plugin_position_menu (GtkMenu *menu,
     default:
       break;
     }
+}
+
+/*
+ * Selection for the popup command
+ */
+
+static gboolean
+my_plugin_set_selection (MyPlugin *plugin)
+{
+  GdkScreen          *gscreen;
+  gchar              *selection_name;
+  Atom                selection_atom;
+  GtkWidget          *win;
+  Window              id;
+
+  win = gtk_invisible_new ();
+  gtk_widget_realize (win);
+  id = GDK_WINDOW_XID (GTK_WIDGET (win)->window);
+
+  gscreen = gtk_widget_get_screen (win);
+  selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
+                                    gdk_screen_get_number (gscreen));
+  selection_atom = XInternAtom (GDK_DISPLAY(), selection_name, FALSE);
+
+  if (XGetSelectionOwner (GDK_DISPLAY(), selection_atom))
+    {
+      gtk_widget_destroy (win);
+      return FALSE;
+    }
+
+  XSelectInput (GDK_DISPLAY(), id, PropertyChangeMask);
+  XSetSelectionOwner (GDK_DISPLAY(), selection_atom, id, GDK_CURRENT_TIME);
+
+  g_signal_connect_swapped (win, "client-event",
+                            G_CALLBACK (cb_message_received), plugin);
+
+  return TRUE;
+}
+
+static gboolean
+cb_message_received (MyPlugin *plugin,
+                     GdkEventClient *ev)
+{
+  if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
+    {
+      if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
+        {
+          DBG ("Message received: %s", ev->data.b);
+          xfce_panel_plugin_set_panel_hidden (plugin->panel_plugin, FALSE);
+          while (gtk_events_pending ())
+            gtk_main_iteration ();
+          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+          return TRUE;
+        }
+    }
+  return FALSE;
 }
 
 /*

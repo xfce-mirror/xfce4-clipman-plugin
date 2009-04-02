@@ -31,3 +31,10 @@
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD           FALSE
 #define DEFAULT_ENABLE_ACTIONS                  FALSE
 
+/*
+ * Selection for the popup command
+ */
+
+#define XFCE_CLIPMAN_SELECTION    "XFCE_CLIPMAN_SELECTION"
+#define XFCE_CLIPMAN_MESSAGE      "MENU"
+

@@ -1,3 +1,14 @@
+2009-04-02	Mike Massonnet
+Install a popup command
+
+	- configure.ac.in, panel-plugin/Makefile.am:
+		Install the new binary xfce4-popup-clipman.
+	- panel-plugin/panel-plugin.c, panel-plugin/common.h:
+		Add an X11 selection on the panel plugin and listen to it.
+	- panel-plugin/xfce4-popup-clipman.c:
+		New binary that sends a message to the X11 selection installed
+		in the panel plugin.
+
 2009-04-01	Mike Massonnet
 Set long URLs to 120 characters at least
 

@@ -9,6 +9,39 @@ INCLUDES =								\
 	-DLOCALEDIR=\"$(localedir)\"					\
 	$(NULL)
 
+EXTRA_DIST =								\
+	settings-dialog.glade						\
+	$(NULL)
+
+CLEANFILES =								\
+	$(desktop_DATA)							\
+	$(NULL)
+
+#
+# Popup Command
+#
+
+bin_PROGRAMS = xfce4-popup-clipman
+
+xfce4_popup_clipman_SOURCES =						\
+	xfce4-popup-clipman.c						\
+	$(NULL)
+
+xfce4_popup_clipman_CFLAGS =                                            \
+	@LIBX11_CFLAGS@							\
+	@GTK_CFLAGS@							\
+	@GTK_CFLAGS@							\
+	$(NULL)
+
+xfce4_popup_clipman_LDADD =						\
+	@LIBX11_LIBS@							\
+	@GTK_LIBS@							\
+	$(NULL)
+
+#
+# Plugin
+#
+
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-clipman-plugin
 
@@ -47,10 +80,18 @@ settings-dialog_glade.h: settings-dialog.glade
 	exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
 endif
 
+#
+# Actions
+#
+
 actionsdir = $(sysconfdir)/xdg/xfce4/panel
 actions_in_files = xfce4-clipman-actions.xml.in
 actions_DATA = $(actions_in_files:.xml.in=.xml)
 @INTLTOOL_XML_RULE@
+
+#
+# Desktop Entry File
+#
 
 desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_in_in_files = xfce4-clipman-plugin.desktop.in.in
@@ -61,12 +102,4 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 %.desktop.in: %.desktop.in.in
 	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
 		$< > $@
-
-EXTRA_DIST =								\
-	settings-dialog.glade						\
-	$(NULL)
-
-CLEANFILES =								\
-	$(desktop_DATA)							\
-	$(NULL)
 
