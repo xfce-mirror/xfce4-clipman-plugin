@@ -25,16 +25,18 @@ bin_PROGRAMS = xfce4-popup-clipman
 
 xfce4_popup_clipman_SOURCES =						\
 	xfce4-popup-clipman.c						\
+	common.h							\
 	$(NULL)
 
 xfce4_popup_clipman_CFLAGS =                                            \
 	@LIBX11_CFLAGS@							\
-	@GTK_CFLAGS@							\
+	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	$(NULL)
 
 xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LIBS@							\
+	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	$(NULL)
 

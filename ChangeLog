@@ -1,4 +1,10 @@
 2009-04-02	Mike Massonnet
+Fix Makefile
+
+	- panel-plugin/Makefile.am:
+		I forgot to finish the changes on this file...
+
+2009-04-02	Mike Massonnet
 Install a popup command
 
 	- configure.ac.in, panel-plugin/Makefile.am:
