@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-02 13:42+0200\n"
-"PO-Revision-Date: 2009-04-01 10:08+0100\n"
+"PO-Revision-Date: 2009-04-06 17:46+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -100,35 +100,20 @@ msgid "General"
 msgstr "Generel"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Hvis afkrydset, vil klippebordets tekst blive kontrolleret op imod regulære "
-"udtryk og en menu vil blive vist for mulige handlinger"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Hvis afkrydset, vil klippebordets tekst blive kontrolleret op imod regulære udtryk og en menu vil blive vist for mulige handlinger"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
-msgid ""
-"If checked, the selections will go into the history. This behavior can bring "
-"the history to be unreadable, however it can be interesting in case you "
-"always want to paste what you select."
-msgstr ""
-"Hvis afkrydset, vil markeringerne blive gemt i historikken. Denne opførsel "
-"kan gøre hele historikken ubrugelig. Det kan dog være interessant for dig, "
-"hvis du altid vil indsætte hele din markering."
+msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+msgstr "Hvis afkrydset, vil markeringerne blive gemt i historikken. Denne opførsel kan gøre hele historikken ubrugelig. Det kan dog være interessant for dig, hvis du altid vil indsætte hele din markering."
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni "
-"historikken"
+msgstr "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni historikken"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
-"Xfce-session"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
@@ -136,7 +121,7 @@ msgstr "Navn:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Pattern:"
-msgstr ""
+msgstr "Mønster:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
@@ -151,16 +136,8 @@ msgid "Store an _image"
 msgstr "Gem et _billede"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i "
-"kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke "
-"har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman "
-"for at få kendskab til dem."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman for at få kendskab til dem."
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -173,40 +150,30 @@ msgstr "Klippebord er tomt"
 
 #~ msgid "Regex:"
 #~ msgstr "Reg. udtryk:"
-
 #~ msgid ""
 #~ "Enable the actions to match the clipboard texts against regular "
 #~ "expressions"
 #~ msgstr ""
 #~ "Slå handlingerne til for at overensstemme klippebordets tekster imod "
 #~ "regulære udtryk"
-
 #~ msgid "Edit Command"
 #~ msgstr "Redigér kommando"
-
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kan ikke åbne denne url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Gem klippebordsindhold ved _afslutning"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Vis elementnumre"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Generel</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Klippebordshistorik:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Menupunkts-tegn:"
-
 #~ msgid "Clear History"
 #~ msgstr "Slet historik"
-
 #~ msgid "Clipman History"
 #~ msgstr "Clipman-historik"
-
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Klippebords-håndtering til Xfce-skrivebordsmiljø"
+
