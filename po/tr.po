@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-02 13:42+0200\n"
-"PO-Revision-Date: 2009-04-01 21:57+0200\n"
+"PO-Revision-Date: 2009-04-07 21:53+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -133,7 +133,7 @@ msgstr "İsim:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Pattern:"
-msgstr ""
+msgstr "Desen:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
