@@ -1,4 +1,14 @@
 2009-04-02	Mike Massonnet
+Set Clipman the owner of a text content only on specific target
+
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Check target of text content and make Clipman the owner of the
+		text only if the targets text/plain or text/html is available.
+	- panel-plugin/collector.c(cb_check_primary_clipboard):
+		Useless call to clipman_history_add_text() as the text is going
+		into the default clipboard.
+
+2009-04-02	Mike Massonnet
 New test program to report targets
 
 2009-04-02	Mike Massonnet

@@ -91,6 +91,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gboolean has_image;
   gchar *text;
   GdkPixbuf *image;
+  GdkAtom text_plain, text_html;
 
   /* Take only care of new clipboard content */
   if (event->reason != GDK_OWNER_CHANGE_NEW_OWNER)
@@ -114,9 +115,15 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           text = gtk_clipboard_wait_for_text (collector->priv->default_clipboard);
           if (text != NULL && text[0] != '\0')
             {
-              /* Make Clipman the owner */
-              collector->priv->internal_change = TRUE;
-              gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+              /* Make Clipman the owner only if it has the target text/plain or text/html */
+              text_plain = gdk_atom_intern_static_string ("text/plain");
+              text_html = gdk_atom_intern_static_string ("text/html");
+              if (gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_plain)
+                  || gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_html))
+                {
+                  collector->priv->internal_change = TRUE;
+                  gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+                }
 
               /* Add to history */
               clipman_history_add_text (collector->priv->history, text);
@@ -170,15 +177,9 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
       text = gtk_clipboard_wait_for_text (collector->priv->primary_clipboard);
       if (text != NULL && text[0] != '\0')
         {
+          /* Make a copy inside the default clipboard */
           if (collector->priv->add_primary_clipboard)
-            {
-              /* Add to history */
-              clipman_history_add_text (collector->priv->history, text);
-
-              /* Make a copy inside the default clipboard */
-              collector->priv->internal_change = TRUE;
-              gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
-            }
+            gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
 
           /* Match for actions */
           if (collector->priv->enable_actions)
