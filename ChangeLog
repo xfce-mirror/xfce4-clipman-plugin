@@ -1,4 +1,11 @@
 2009-04-13	Mike Massonnet
+Forgot the desktop entry files
+
+	- panel-plugin/xfce4-clipman-plugin.desktop.in.in,
+	xfce4-clipman-plugin.desktop.in:
+		Use the new icons in these files aswell.
+
+2009-04-13	Mike Massonnet
 Add home-made icon for the touch of personalization
 
 	- Makefile.am, configure.ac.in, icons/*:
