@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+_Name=Clipman
+_Comment=Clipboards manager
+TryExec=xfce4-clipman-plugin
+Exec=xfce4-clipman-plugin
+Icon=gtk-paste
+Terminal=false
+Categories=GTK;Utility;TrayIcon;
+StartupNotify=true

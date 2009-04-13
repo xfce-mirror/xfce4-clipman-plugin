@@ -1,6 +1,7 @@
 Actions:
 - A regex validator dialog
 Collector:
-- As of the last "set clipman automatically the owner" change, for instance
-Thunar copy files has a special type but reported as utf8 string, it is
-necessary to have a proper filter on what is to be copied and not
+- Set ownership on the XAtom CLIPBOARD_MANAGER
+- Instead of getting ownership of the clipboard content only for text (plain
+and html) and images, replicate the clipboard content with the same
+SAVE_TARGETS so it works for everything

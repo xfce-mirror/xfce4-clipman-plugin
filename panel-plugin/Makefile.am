@@ -21,7 +21,7 @@ CLEANFILES =								\
 # Popup Command
 #
 
-bin_PROGRAMS = xfce4-popup-clipman
+bin_PROGRAMS = xfce4-clipman-plugin xfce4-popup-clipman
 
 xfce4_popup_clipman_SOURCES =						\
 	xfce4-popup-clipman.c						\
@@ -44,11 +44,8 @@ xfce4_popup_clipman_LDADD =						\
 # Plugin
 #
 
-plugindir = $(libexecdir)/xfce4/panel-plugins
-plugin_PROGRAMS = xfce4-clipman-plugin
-
 xfce4_clipman_plugin_SOURCES =						\
-	panel-plugin.c							\
+	main.c								\
 	common.h							\
 	actions.c			actions.h			\
 	collector.c			collector.h			\
@@ -102,6 +99,6 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(bindir)^" \
 		$< > $@
 

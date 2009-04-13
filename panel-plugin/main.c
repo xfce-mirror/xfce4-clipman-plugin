@@ -46,6 +46,7 @@ typedef struct _MyPlugin MyPlugin;
 struct _MyPlugin
 {
   XfcePanelPlugin      *panel_plugin;
+  GtkStatusIcon        *status_icon;
   XfconfChannel        *channel;
   ClipmanActions       *actions;
   ClipmanCollector     *collector;
@@ -54,30 +55,47 @@ struct _MyPlugin
   GtkWidget            *button;
   GtkWidget            *image;
   GtkWidget            *menu;
+  GtkWidget            *popup_menu;
 };
 
 /*
- * Panel Plugin registration
+ * Status Icon
  */
 
-static void panel_plugin_register (XfcePanelPlugin *panel_plugin);
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
+static MyPlugin*        status_icon_register            ();
+static gboolean         cb_status_icon_is_embedded      (GtkStatusIcon *status_icon);
+static void             cb_status_icon_activate         (MyPlugin *plugin);
+static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
+                                                         guint button,
+                                                         guint activate_time);
+static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
+                                                         gint size);
 
 /*
- * Panel Plugin functions declarations
+ * Panel Plugin
  */
 
-static gboolean         panel_plugin_set_size           (XfcePanelPlugin *panel_plugin,
-                                                         int size,
-                                                         MyPlugin *plugin);
-static void             panel_plugin_configure          (XfcePanelPlugin *panel_plugin,
-                                                         MyPlugin *plugin);
-static void             panel_plugin_load               (XfcePanelPlugin *panel_plugin,
-                                                         MyPlugin *plugin);
-static void             panel_plugin_save               (XfcePanelPlugin *panel_plugin,
-                                                         MyPlugin *plugin);
-static void             panel_plugin_free               (XfcePanelPlugin *panel_plugin,
-                                                         MyPlugin *plugin);
+static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
+static gboolean         panel_plugin_set_size           (MyPlugin *plugin,
+                                                         gint size);
+
+/*
+ * Plugin Registration
+ */
+
+static gboolean         plugin_preinit                  (gint argc,
+                                                         gchar *argv[]);
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL_FULL (panel_plugin_register, plugin_preinit, NULL);
+
+/*
+ * Plugin Functions
+ */
+
+static MyPlugin*        plugin_register                 ();
+static void             plugin_load                     (MyPlugin *plugin);
+static void             plugin_save                     (MyPlugin *plugin);
+static void             plugin_free                     (MyPlugin *plugin);
+static void             plugin_configure                (MyPlugin *plugin);
 static void             cb_button_toggled               (GtkToggleButton *button,
                                                          MyPlugin *plugin);
 static void             cb_menu_deactivate              (GtkMenuShell *menu,
@@ -89,7 +107,7 @@ static void             my_plugin_position_menu         (GtkMenu *menu,
                                                          MyPlugin *plugin);
 
 /*
- * Selection for the popup command declarations
+ * X11 Selection for the popup command
  */
 
 static gboolean         my_plugin_set_selection         (MyPlugin *plugin);
@@ -97,7 +115,7 @@ static gboolean         cb_message_received             (MyPlugin *plugin,
                                                          GdkEventClient *ev);
 
 /*
- * Settings Dialog functions declarations
+ * Settings Dialog
  */
 
 static void             setup_actions_treeview          (GtkTreeView *treeview,
@@ -141,29 +159,44 @@ static void             cb_set_action_dialog_button_ok  (GtkWidget *widget,
 
 
 /*
- * Panel Plugin functions
+ * Plugin Registration
  */
 
-static void
-panel_plugin_register (XfcePanelPlugin *panel_plugin)
+static gboolean
+plugin_preinit (gint argc,
+                gchar *argv[])
 {
   MyPlugin *plugin;
 
-  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
-  xfconf_init (NULL);
+  if (argc == 1)
+    {
+      /* 
+       * Consider the plugin to be run by command line
+       */
+      gtk_init (&argc, &argv);
+      plugin = status_icon_register ();
+      gtk_main ();
+      plugin_save (plugin);
+      plugin_free (plugin);
+      return FALSE;
+    }
 
-  /* XfcePanelPlugin widget */
-#if GTK_CHECK_VERSION (2,12,0)
-  gtk_widget_set_tooltip_text (GTK_WIDGET (panel_plugin), _("Clipman"));
-#endif
+  return TRUE;
+}
 
+static MyPlugin *
+plugin_register ()
+{
   /* MyPlugin */
-  plugin = g_slice_new0 (MyPlugin);
+  MyPlugin *plugin = g_slice_new0 (MyPlugin);
+  plugin->panel_plugin = NULL;
+  plugin->status_icon = NULL;
 
-  /* Keep a pointer on the panel plugin */
-  plugin->panel_plugin = panel_plugin;
+  /* Text Domain and Locale */
+  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-  /* XfconfChannel */
+  /* Xfconf */
+  xfconf_init (NULL);
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
   /* ClipmanActions */
@@ -185,6 +218,116 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
                           G_TYPE_BOOLEAN, plugin->collector, "enable-actions");
 
+  /* ClipmanMenu */
+  plugin->menu = clipman_menu_new ();
+
+  /* Load the data */
+  plugin_load (plugin);
+
+  /* Set the selection for the popup command */
+  my_plugin_set_selection (plugin);
+
+  return plugin;
+}
+
+/*
+ * Status Icon
+ */
+
+static MyPlugin *
+status_icon_register ()
+{
+  MyPlugin *plugin = plugin_register ();
+
+  /* Status Icon */
+  plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
+  gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
+  g_idle_add ((GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
+
+  /* Signals */
+  g_signal_connect_swapped (plugin->status_icon, "activate",
+                            G_CALLBACK (cb_status_icon_activate), plugin);
+  g_signal_connect_swapped (plugin->status_icon, "popup-menu",
+                            G_CALLBACK (cb_status_icon_popup_menu), plugin);
+  g_signal_connect_swapped (plugin->status_icon, "size-changed",
+                            G_CALLBACK (cb_status_icon_set_size), plugin);
+
+  return plugin;
+}
+
+static gboolean
+cb_status_icon_is_embedded (GtkStatusIcon *status_icon)
+{
+  if (!gtk_status_icon_is_embedded (status_icon))
+    gtk_main_quit ();
+  return FALSE;
+}
+
+static void
+cb_status_icon_activate (MyPlugin *plugin)
+{
+  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
+  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                  (GtkMenuPositionFunc)gtk_status_icon_position_menu, plugin->status_icon,
+                  0, gtk_get_current_event_time ());
+}
+
+static void
+cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
+{
+  GtkWidget *mi;
+
+  if (G_UNLIKELY (plugin->popup_menu == NULL))
+    {
+      plugin->popup_menu = gtk_menu_new ();
+      mi = gtk_menu_item_new_with_label (_("Clipman"));
+      gtk_widget_set_sensitive (mi, FALSE);
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      mi = gtk_separator_menu_item_new ();
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_PROPERTIES, NULL);
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_configure), plugin);
+      mi = gtk_separator_menu_item_new ();
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_REMOVE, NULL);
+      g_signal_connect (mi, "activate", G_CALLBACK (gtk_main_quit), NULL);
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      gtk_widget_show_all (plugin->popup_menu);
+    }
+  gtk_menu_set_screen (GTK_MENU (plugin->popup_menu), gtk_status_icon_get_screen (plugin->status_icon));
+  gtk_menu_popup (GTK_MENU (plugin->popup_menu), NULL, NULL,
+                  (GtkMenuPositionFunc)NULL, NULL,
+                  0, gtk_get_current_event_time ());
+}
+
+static gboolean
+cb_status_icon_set_size (MyPlugin *plugin, gint size)
+{
+  GdkPixbuf *pixbuf;
+ 
+  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
+  gtk_status_icon_set_from_pixbuf (plugin->status_icon, pixbuf);
+  g_object_unref (G_OBJECT (pixbuf));
+
+  return TRUE;
+}
+
+/*
+ * Panel Plugin
+ */
+
+static void
+panel_plugin_register (XfcePanelPlugin *panel_plugin)
+{
+  MyPlugin *plugin = plugin_register ();
+
+  /* Panel Plugin */
+  plugin->panel_plugin = panel_plugin;
+#if GTK_CHECK_VERSION (2,12,0)
+  gtk_widget_set_tooltip_text (GTK_WIDGET (panel_plugin), _("Clipman"));
+#endif
+
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
   /* The image is set through the set_size callback */
@@ -195,35 +338,25 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   g_signal_connect (plugin->button, "toggled",
                     G_CALLBACK (cb_button_toggled), plugin);
 
-  /* ClipmanMenu */
-  plugin->menu = clipman_menu_new ();
+  /* Signals */
+  g_signal_connect_swapped (panel_plugin, "size-changed",
+                            G_CALLBACK (panel_plugin_set_size), plugin);
+  xfce_panel_plugin_menu_show_configure (panel_plugin);
+  g_signal_connect_swapped (panel_plugin, "configure-plugin",
+                            G_CALLBACK (plugin_configure), plugin);
+  g_signal_connect_swapped (panel_plugin, "save",
+                            G_CALLBACK (plugin_save), plugin);
+  g_signal_connect_swapped (panel_plugin, "free-data",
+                            G_CALLBACK (plugin_free), plugin);
   g_signal_connect (plugin->menu, "deactivate",
                     G_CALLBACK (cb_menu_deactivate), plugin);
-
-  /* Panel Plugin Signals */
-  g_signal_connect (panel_plugin, "size-changed",
-                    G_CALLBACK (panel_plugin_set_size), plugin);
-  xfce_panel_plugin_menu_show_configure (panel_plugin);
-  g_signal_connect (panel_plugin, "configure-plugin",
-                    G_CALLBACK (panel_plugin_configure), plugin);
-  g_signal_connect (panel_plugin, "save",
-                    G_CALLBACK (panel_plugin_save), plugin);
-  g_signal_connect (panel_plugin, "free-data",
-                    G_CALLBACK (panel_plugin_free), plugin);
-
-  /* Load the data */
-  panel_plugin_load (panel_plugin, plugin);
-
-  /* Set the selection for the popup command */
-  my_plugin_set_selection (plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
 
 static gboolean
-panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
-                       int size,
-                       MyPlugin *plugin)
+panel_plugin_set_size (MyPlugin *plugin,
+                       gint size)
 {
   GdkPixbuf *pixbuf;
 
@@ -238,90 +371,12 @@ panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
   return TRUE;
 }
 
-static void
-panel_plugin_configure (XfcePanelPlugin *panel_plugin,
-                        MyPlugin *plugin)
-{
-  GtkWidget *dialog;
-  GtkWidget *action_dialog;
-  GtkWindowGroup *group;
-
-  /* GladeXML */
-  plugin->gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
-
-  /* Settings dialog */
-  dialog = glade_xml_get_widget (plugin->gxml, "settings-dialog");
-  gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel_plugin))));
-  group = gtk_window_group_new ();
-  gtk_window_group_add_window (group, GTK_WINDOW (dialog));
-
-  /* Action dialog */
-  action_dialog = glade_xml_get_widget (plugin->gxml, "action-dialog");
-  gtk_window_group_add_window (group, GTK_WINDOW (action_dialog));
-
-  /* General settings */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
-                                DEFAULT_SAVE_ON_QUIT);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "add-selections")),
-                                DEFAULT_ADD_PRIMARY_CLIPBOARD);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "store-an-image")),
-                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
-  gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")),
-                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
-  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "save-on-quit")), "active");
-  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "add-selections")), "active");
-  xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history", G_TYPE_UINT,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "store-an-image")), "active");
-  xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history", G_TYPE_UINT,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")), "value");
-
-  /* Actions tab and dialog */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "enable-actions")),
-                                DEFAULT_ENABLE_ACTIONS);
-  xfconf_g_property_bind (plugin->channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "enable-actions")), "active");
-
-  glade_xml_signal_connect_data (plugin->gxml, "cb_add_action", G_CALLBACK (cb_add_action), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_edit_action", G_CALLBACK (cb_edit_action), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_delete_action", G_CALLBACK (cb_delete_action), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_actions_row_activated", G_CALLBACK (cb_actions_row_activated), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_add_command", G_CALLBACK (cb_add_command), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), plugin);
-  glade_xml_signal_connect_data (plugin->gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), plugin);
-
-  setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "actions")), plugin);
-  setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")), plugin);
-
-  /* Callbacks for the OK button sensitivity in the actions dialog */
-  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "action-name"), "changed",
-                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
-  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "regex"), "changed",
-                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
-  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-add-command"), "clicked",
-                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
-  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-delete-command"), "clicked",
-                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
-
-  /* Run the dialog */
-  xfce_panel_plugin_block_menu (panel_plugin);
-  gtk_dialog_run (GTK_DIALOG (dialog));
-  xfce_panel_plugin_unblock_menu (panel_plugin);
-
-  gtk_widget_destroy (action_dialog);
-  gtk_widget_destroy (dialog);
-  g_object_unref (group);
-  g_object_unref (plugin->gxml);
-  plugin->gxml = NULL;
-
-  /* Save the actions */
-  clipman_actions_save (plugin->actions);
-}
+/*
+ * Plugin Functions
+ */
 
 static void
-panel_plugin_load (XfcePanelPlugin *panel_plugin,
-                   MyPlugin *plugin)
+plugin_load (MyPlugin *plugin)
 {
   GtkClipboard *clipboard;
   GKeyFile *keyfile;
@@ -374,8 +429,7 @@ panel_plugin_load (XfcePanelPlugin *panel_plugin,
 }
 
 static void
-panel_plugin_save (XfcePanelPlugin *panel_plugin,
-                   MyPlugin *plugin)
+plugin_save (MyPlugin *plugin)
 {
   GSList *list, *l;
   const ClipmanHistoryItem *item;
@@ -445,17 +499,108 @@ panel_plugin_save (XfcePanelPlugin *panel_plugin,
 }
 
 static void
-panel_plugin_free (XfcePanelPlugin *panel_plugin,
-                   MyPlugin *plugin)
+plugin_free (MyPlugin *plugin)
 {
   gtk_widget_destroy (plugin->menu);
-  gtk_widget_destroy (plugin->button);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);
   g_object_unref (plugin->collector);
   g_object_unref (plugin->history);
+
+  if (plugin->panel_plugin != NULL)
+    {
+      gtk_widget_destroy (plugin->button);
+    }
+  else if (plugin->status_icon != NULL)
+    {
+      gtk_widget_destroy (plugin->popup_menu);
+    }
+
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
+}
+
+static void
+plugin_configure (MyPlugin *plugin)
+{
+  GtkWidget *dialog;
+  GtkWidget *action_dialog;
+  GtkWindowGroup *group;
+
+  /* GladeXML */
+  plugin->gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
+
+  /* Settings dialog */
+  dialog = glade_xml_get_widget (plugin->gxml, "settings-dialog");
+  if (plugin->panel_plugin != NULL)
+    gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin->panel_plugin))));
+  group = gtk_window_group_new ();
+  gtk_window_group_add_window (group, GTK_WINDOW (dialog));
+
+  /* Action dialog */
+  action_dialog = glade_xml_get_widget (plugin->gxml, "action-dialog");
+  gtk_window_group_add_window (group, GTK_WINDOW (action_dialog));
+
+  /* General settings */
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
+                                DEFAULT_SAVE_ON_QUIT);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "add-selections")),
+                                DEFAULT_ADD_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "store-an-image")),
+                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")),
+                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
+  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "save-on-quit")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "add-selections")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history", G_TYPE_UINT,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "store-an-image")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history", G_TYPE_UINT,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")), "value");
+
+  /* Actions tab and dialog */
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "enable-actions")),
+                                DEFAULT_ENABLE_ACTIONS);
+  xfconf_g_property_bind (plugin->channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "enable-actions")), "active");
+
+  glade_xml_signal_connect_data (plugin->gxml, "cb_add_action", G_CALLBACK (cb_add_action), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_edit_action", G_CALLBACK (cb_edit_action), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_delete_action", G_CALLBACK (cb_delete_action), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_actions_row_activated", G_CALLBACK (cb_actions_row_activated), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_add_command", G_CALLBACK (cb_add_command), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), plugin);
+
+  setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "actions")), plugin);
+  setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")), plugin);
+
+  /* Callbacks for the OK button sensitivity in the actions dialog */
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "action-name"), "changed",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "regex"), "changed",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-add-command"), "clicked",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+  g_signal_connect_after (glade_xml_get_widget (plugin->gxml, "button-delete-command"), "clicked",
+                          G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
+
+  /* Run the dialog */
+  if (plugin->panel_plugin != NULL)
+    xfce_panel_plugin_block_menu (plugin->panel_plugin);
+  gtk_dialog_run (GTK_DIALOG (dialog));
+  if (plugin->panel_plugin != NULL)
+    xfce_panel_plugin_unblock_menu (plugin->panel_plugin);
+
+  gtk_widget_destroy (action_dialog);
+  gtk_widget_destroy (dialog);
+  g_object_unref (group);
+  g_object_unref (plugin->gxml);
+  plugin->gxml = NULL;
+
+  /* Save the actions */
+  clipman_actions_save (plugin->actions);
 }
 
 static void
@@ -529,7 +674,7 @@ my_plugin_position_menu (GtkMenu *menu,
 }
 
 /*
- * Selection for the popup command
+ * X11 Selection for the popup command
  */
 
 static gboolean
@@ -574,10 +719,17 @@ cb_message_received (MyPlugin *plugin,
       if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
         {
           DBG ("Message received: %s", ev->data.b);
-          xfce_panel_plugin_set_panel_hidden (plugin->panel_plugin, FALSE);
+
+          if (plugin->panel_plugin != NULL)
+            xfce_panel_plugin_set_panel_hidden (plugin->panel_plugin, FALSE);
+
           while (gtk_events_pending ())
             gtk_main_iteration ();
-          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+
+          if (plugin->panel_plugin != NULL)
+            gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+          else if (plugin->status_icon != NULL)
+            g_signal_emit_by_name (plugin->status_icon, "activate", NULL);
           return TRUE;
         }
     }
@@ -585,7 +737,7 @@ cb_message_received (MyPlugin *plugin,
 }
 
 /*
- * Settings Dialog functions
+ * Settings Dialog
  */
 
 /* Actions */

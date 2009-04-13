@@ -1,4 +1,17 @@
 2009-04-02	Mike Massonnet
+Make the plugin run as a standalone application
+
+	- panel-plugin/main.c:
+		Rename panel-plugin.c to main.c and use the Full register
+		function from libxfce4panel to check if the plugin is run from
+		the command line and build a status icon instead of the panel
+		plugin with a button.
+	- panel-plugin/Makefile.am:
+		Install the plugin to bindir.
+	- Makefile.am, xfce4-clipman-plugin.desktop.in:
+		Install a desktop entry file for the menu.
+
+2009-04-02	Mike Massonnet
 Set Clipman the owner of a text content only on specific target
 
 	- panel-plugin/collector.c(cb_clipboard_owner_change):
