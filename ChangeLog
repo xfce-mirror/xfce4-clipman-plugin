@@ -1,4 +1,21 @@
 2009-04-13	Mike Massonnet
+Add Inhibit option in the Clipman menu
+
+	- panel-plugin/collector.c, panel-plugin/collector.h:
+		Add a GObject property inhibit and ignore changes happening on
+		the clipboards in the clipboard owner changes callback if it is
+		set to TRUE.
+		Add a public function clipman_collector_inhibit().
+	- panel-plugin/menu.c:
+		Add a Enable check item in the menu. Use libexo to bind the
+		active property of the check item to the inhibit property of
+		ClipmanCollector -- with a negation as inhibit on TRUE would
+		mean disabled.
+	- panel-plugin/main.c:
+		Bind the inhibit property of ClipmanCollector to the new xfconf
+		property inhibit.
+
+2009-04-13	Mike Massonnet
 Set ownership on CLIPBOARD_MANAGER
 
 	- panel-plugin/main.c:

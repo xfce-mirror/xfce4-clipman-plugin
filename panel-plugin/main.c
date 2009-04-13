@@ -237,6 +237,8 @@ plugin_register ()
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
                           G_TYPE_BOOLEAN, plugin->collector, "enable-actions");
+  xfconf_g_property_bind (plugin->channel, "/inhibit",
+                          G_TYPE_BOOLEAN, plugin->collector, "inhibit");
 
   /* ClipmanMenu */
   plugin->menu = clipman_menu_new ();

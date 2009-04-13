@@ -48,12 +48,14 @@ struct _ClipmanCollectorPrivate
   gboolean              internal_change;
   gboolean              add_primary_clipboard;
   gboolean              enable_actions;
+  gboolean              inhibit;
 };
 
 enum
 {
   ADD_PRIMARY_CLIPBOARD = 1,
   ENABLE_ACTIONS,
+  INHIBIT,
 };
 
 static void             clipman_collector_class_init        (ClipmanCollectorClass *klass);
@@ -92,6 +94,10 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gchar *text;
   GdkPixbuf *image;
   GdkAtom text_plain, text_html;
+
+  /* Skip if the collector is inhibit */
+  if (collector->priv->inhibit == TRUE)
+    return;
 
   /* Take only care of new clipboard content */
   if (event->reason != GDK_OWNER_CHANGE_NEW_OWNER)
@@ -213,6 +219,21 @@ clipman_collector_set_is_restoring (ClipmanCollector *collector)
   collector->priv->internal_change = TRUE;
 }
 
+/**
+ * clipman_collector_inhibit:
+ * @collector: a #ClipmanCollector
+ * @inhibit: TRUE if the collector should be deactivated
+ *
+ * Set to TRUE to disable the collector, FALSE to let it read the clipboard
+ * contents.
+ */
+void
+clipman_collector_inhibit (ClipmanCollector *collector,
+                           gboolean inhibit)
+{
+  g_object_set (collector, "inhibit", inhibit, NULL);
+}
+
 ClipmanCollector *
 clipman_collector_get ()
 {
@@ -260,6 +281,13 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "EnableActions",
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, INHIBIT,
+                                   g_param_spec_boolean ("inhibit",
+                                                         "Inhibit",
+                                                         "Set to TRUE to disable the collector",
+                                                         FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
@@ -319,6 +347,10 @@ clipman_collector_set_property (GObject *object,
       priv->enable_actions = g_value_get_boolean (value);
       break;
 
+    case INHIBIT:
+      priv->inhibit = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -340,6 +372,10 @@ clipman_collector_get_property (GObject *object,
 
     case ENABLE_ACTIONS:
       g_value_set_boolean (value, priv->enable_actions);
+      break;
+
+    case INHIBIT:
+      g_value_set_boolean (value, priv->inhibit);
       break;
 
     default:

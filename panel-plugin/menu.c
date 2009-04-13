@@ -20,6 +20,7 @@
 #include <config.h>
 #endif
 
+#include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4util/libxfce4util.h>
@@ -40,6 +41,7 @@ G_DEFINE_TYPE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
 struct _ClipmanMenuPrivate
 {
   GtkWidget            *mi_clear_history;
+  GtkWidget            *mi_inhibit;
   ClipmanHistory       *history;
   GSList               *list;
 };
@@ -59,6 +61,7 @@ static void            _clipman_menu_free_list          (ClipmanMenu *menu);
  */
 
 static void             cb_set_clipboard                (const ClipmanHistoryItem *item);
+static void             cb_inhibit                      (ClipmanMenu *menu);
 static void             cb_clear_history                (ClipmanMenu *menu);
 
 
@@ -102,6 +105,14 @@ cb_set_clipboard (const ClipmanHistoryItem *item)
     default:
       g_assert_not_reached ();
     }
+}
+
+static void
+cb_inhibit (ClipmanMenu *menu)
+{
+  ClipmanCollector *collector = clipman_collector_get ();
+  clipman_collector_inhibit (collector, !(GTK_CHECK_MENU_ITEM (menu->priv->mi_inhibit)->active));
+  g_object_unref (collector);
 }
 
 static void
@@ -234,6 +245,7 @@ static void
 clipman_menu_init (ClipmanMenu *menu)
 {
   GtkWidget *mi;
+  ClipmanCollector *collector;
 
   menu->priv = GET_PRIVATE (menu);
 
@@ -247,10 +259,16 @@ clipman_menu_init (ClipmanMenu *menu)
   mi = gtk_separator_menu_item_new ();
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
+  menu->priv->mi_inhibit = mi = gtk_check_menu_item_new_with_mnemonic (_("_Enable"));
+  collector = clipman_collector_get ();
+  exo_binding_new_with_negation (G_OBJECT (collector), "inhibit", G_OBJECT (mi), "active");
+  g_object_unref (collector);
+  gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+  g_signal_connect_swapped (mi, "toggled", G_CALLBACK (cb_inhibit), menu);
+
   menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_CLEAR, NULL);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-  g_signal_connect_swapped (mi, "activate",
-                            G_CALLBACK (cb_clear_history), menu);
+  g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
 
   /* Show all the items */
   gtk_widget_show_all (GTK_WIDGET (menu));
