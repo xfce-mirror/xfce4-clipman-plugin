@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-02 13:42+0200\n"
+"POT-Creation-Date: 2009-04-13 19:35+0200\n"
 "PO-Revision-Date: 2009-04-05 22:37+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+msgid "Clipboards manager"
+msgstr "Verwaltung der Zwischenablagen"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
+#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+msgid "Clipman"
+msgstr "Zwischenablage"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
@@ -50,15 +62,6 @@ msgstr "Mit Ristretto betrachten"
 msgid "Xfce Bug"
 msgstr "Fehler bei Xfce"
 
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-msgid "Clipboards manager"
-msgstr "Verwaltung der Zwischenablagen"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:157
-msgid "Clipman"
-msgstr "Zwischenablage"
-
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Aktion</b>"
@@ -76,30 +79,40 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Activate only on default clipboard"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Add _selections"
 msgstr "_Auswahl hinzufügen"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
 msgstr "Befehl:"
 
-#: ../panel-plugin/settings-dialog.glade.h:7
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
 msgstr "Plugin einrichten"
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
 msgstr "Aktion bearbeiten"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "_Aktionen ermöglichen"
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Allgemein"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -107,7 +120,7 @@ msgstr ""
 "Aktivieren Sie diese Option, um die Clipboard-Texte mit regulären Ausdrücken "
 "zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will go into the history. This behavior can bring "
 "the history to be unreadable, however it can be interesting in case you "
@@ -118,39 +131,39 @@ msgstr ""
 "führen, kann jedoch nützlich sein, wenn Sie jede Auswahl auch immer einfügen "
 "wollen."
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Aktivieren Sie diese Option, um ein Bild im Verlaufsspeicher aufzunehmen"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
 "wiederherzustellen."
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Name:"
 msgstr "Name:"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Pattern:"
 msgstr "Muster:"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Save on _quit"
 msgstr "Beim _Verlassen speichern"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Size of the _history:"
 msgstr "_Größe des Verlaufs:"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Store an _image"
 msgstr "_Bild speichern"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -159,17 +172,25 @@ msgid ""
 msgstr ""
 "Sie können die Ersetzungsplatzhalter »\\1«, »\\2« usw. in den Befehlen "
 "verwenden. Der Parameter »\\0« stellt den vollständigen Text dar. Wenn Sie "
-"keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu Clipman "
-"nach, dort ist eine Einführung zu diesen vorhanden."
+"keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu "
+"Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
-#: ../panel-plugin/menu.c:112
+#: ../panel-plugin/main.c:717
+msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:196
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
+
+#: ../panel-plugin/menu.c:262
+msgid "_Enable"
+msgstr ""
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kann die folgende Adresse nicht öffnen: %s"

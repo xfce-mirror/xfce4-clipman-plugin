@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-02 13:42+0200\n"
+"POT-Creation-Date: 2009-04-13 19:35+0200\n"
 "PO-Revision-Date: 2009-02-20 12:48+0700\n"
 "Last-Translator: Pavel Labushev <p.labushev@gmail.com>\n"
 "Language-Team: Russian <xfce-i18n-ru@xfce.org>\n"
@@ -16,6 +16,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Clipboards manager"
+msgstr "Менеджер буфера обмена"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
+#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+msgid "Clipman"
+msgstr "Менеджер буфера обмена (Clipman)"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
@@ -49,16 +62,6 @@ msgstr ""
 msgid "Xfce Bug"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
-msgid "Clipboards manager"
-msgstr "Менеджер буфера обмена"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:157
-msgid "Clipman"
-msgstr "Менеджер буфера обмена (Clipman)"
-
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr ""
@@ -77,73 +80,83 @@ msgid "Actions"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Activate only on default clipboard"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:6
 #, fuzzy
 msgid "Add _selections"
 msgstr "Добавлять _выделенный текст в историю"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Command:"
-msgstr ""
-
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "Configure the plugin"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
-msgid "Edit Action"
+msgid "Command:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:9
-msgid "Enable _actions"
+msgid "Configure the plugin"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Edit Action"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid "Enable _actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Основные настройки"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will go into the history. This behavior can bring "
 "the history to be unreadable, however it can be interesting in case you "
 "always want to paste what you select."
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Name:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Pattern:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Save on _quit"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Size of the _history:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Store an _image"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -151,15 +164,23 @@ msgid ""
 "has an introdution for them."
 msgstr ""
 
-#: ../panel-plugin/menu.c:112
+#: ../panel-plugin/main.c:717
+msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
 msgstr "Вы действительно хотите очистить историю?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:196
 #, fuzzy
 msgid "Clipboard is empty"
 msgstr "< Буфер обмена пуст >"
+
+#: ../panel-plugin/menu.c:262
+msgid "_Enable"
+msgstr ""
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Невозможно открыть URL: %s"

@@ -7,13 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-02 13:42+0200\n"
+"POT-Creation-Date: 2009-04-13 19:35+0200\n"
 "PO-Revision-Date: 2009-04-07 21:53+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+msgid "Clipboards manager"
+msgstr "Pano Yöneticisi"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
+#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
@@ -47,15 +59,6 @@ msgstr "Ristretto ile görüntüle"
 msgid "Xfce Bug"
 msgstr "Xfce Hatası"
 
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-msgid "Clipboards manager"
-msgstr "Pano Yöneticisi"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:157
-msgid "Clipman"
-msgstr "Clipman"
-
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Eylem</b>"
@@ -73,30 +76,40 @@ msgid "Actions"
 msgstr "Eylemler"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Activate only on default clipboard"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Add _selections"
 msgstr "_Seçim ekle"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
 msgstr "Komut:"
 
-#: ../panel-plugin/settings-dialog.glade.h:7
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
 msgstr "Eklentiyi yapılandır"
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
 msgstr "Eylemi Düzenle"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Eylemleri etkinleş_tir"
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Genel"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -104,7 +117,7 @@ msgstr ""
 "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve "
 "menüde kullanılabilir işlemler gösterilecektir"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will go into the history. This behavior can bring "
 "the history to be unreadable, however it can be interesting in case you "
@@ -114,40 +127,40 @@ msgstr ""
 "geçmiş kayıtlarını  okunamaz yapabilir, ancak yapıştırmak istediğiniz seçim "
 "konusunda yardımcı olabilir. "
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün "
 "kılar"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son "
 "kullanıldığı şekilde göstermektedir."
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Name:"
 msgstr "İsim:"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Pattern:"
 msgstr "Desen:"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Save on _quit"
 msgstr "Çıkışta _kaydet"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Size of the _history:"
 msgstr "Geçmiş _boyutu:"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Store an _image"
 msgstr "Res_im sakla"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -159,14 +172,22 @@ msgstr ""
 "düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu "
 "inceleyebilirsiniz. "
 
-#: ../panel-plugin/menu.c:112
+#: ../panel-plugin/main.c:717
+msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
 msgstr "Geçmişi temizlemek istediğinizden emin misiniz?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:196
 msgid "Clipboard is empty"
 msgstr "Pano boş"
+
+#: ../panel-plugin/menu.c:262
+msgid "_Enable"
+msgstr ""
 
 #~ msgid "Regex:"
 #~ msgstr "Düzenli İfade:"

@@ -8,13 +8,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-30 15:06+0200\n"
+"POT-Creation-Date: 2009-04-13 19:35+0200\n"
 "PO-Revision-Date: 2009-04-08 13:31+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+msgid "Clipboards manager"
+msgstr "Zarządza skopiowanymi elementami"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
+#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+msgid "Clipman"
+msgstr "Menedżer schowka"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
@@ -33,21 +45,20 @@ msgid "Image"
 msgstr "Obraz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Long URL"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Otwórz za pomocą Ristretto"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Błąd Xfce"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-msgid "Clipboards manager"
-msgstr "Zarządza skopiowanymi elementami"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/panel-plugin.c:145
-msgid "Clipman"
-msgstr "Menedżer schowka"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -66,98 +77,152 @@ msgid "Actions"
 msgstr "Akcje"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Activate only on default clipboard"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Add _selections"
 msgstr "_Dodawanie zaznaczeń do historii"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
 msgstr "Polecenie: "
 
-#: ../panel-plugin/settings-dialog.glade.h:7
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
 msgstr "Konfiguruje ustawienia wtyczki"
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
 msgstr "Edycja akcji"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
-msgid "Edit Command"
-msgstr "Edycja polecenia"
-
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "_Włączenie"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
-msgid "Enable the actions to match the clipboard texts against regular expressions"
-msgstr "Przyporządkowywuje akcje do tekstu schowka na podstawie wyrażeń regularnych"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Ogólne"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the selections will go into the history. This behavior can be very verbose and make the whole history unusable. However it can be useful if you wish to always copy the selections to the default clipboard, in a way that you can paste what you select."
-msgstr "Dodaje do historii schowka ciągi, po ich zaznaczeniu."
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:14
+#, fuzzy
+msgid ""
+"If checked, the selections will go into the history. This behavior can bring "
+"the history to be unreadable, however it can be interesting in case you "
+"always want to paste what you select."
+msgstr "Dodaje do historii schowka ciągi, po ich zaznaczeniu."
+
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Umożliwia przechowywanie jednego obrazu w historii schowka"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, this option will restore the history on every new Xfce session"
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
 msgstr "Przywraca historię schowka po zalogowaniu"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Name:"
 msgstr "Nazwa: "
 
-#: ../panel-plugin/settings-dialog.glade.h:17
-msgid "Regex:"
-msgstr "Wyrażenie regularne: "
-
 #: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Pattern:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Save on _quit"
 msgstr "Zapisywanie zawartości przed z_akończeniem"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Size of the _history:"
 msgstr "Ilość _elementów:"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Store an _image"
 msgstr "Przechowywanie _obrazów"
 
-#: ../panel-plugin/settings-dialog.glade.h:21
-msgid "You can use the matching regex parameters \"\\1\", \"\\2\" and so on in the command to replace it against the matched sub-texts. The parameter \"\\0\" represents the complete text."
-msgstr "W wierszu poleceń użyć można parametrów „\\1”, „\\2”, itd... Reprezentują one kolejne człony ciągu znaków, określone w wyrażeniu regularnym. Parametr „\\0” reprezentuje cały ciąg."
+#: ../panel-plugin/settings-dialog.glade.h:22
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
 
-#: ../panel-plugin/menu.c:112
+#: ../panel-plugin/main.c:717
+msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
 msgstr "Wyczyścić historię schowka?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:196
 msgid "Clipboard is empty"
 msgstr "Schowek jest pusty"
 
+#: ../panel-plugin/menu.c:262
+msgid "_Enable"
+msgstr ""
+
+#~ msgid "Edit Command"
+#~ msgstr "Edycja polecenia"
+
+#~ msgid ""
+#~ "Enable the actions to match the clipboard texts against regular "
+#~ "expressions"
+#~ msgstr ""
+#~ "Przyporządkowywuje akcje do tekstu schowka na podstawie wyrażeń "
+#~ "regularnych"
+
+#~ msgid "Regex:"
+#~ msgstr "Wyrażenie regularne: "
+
+#~ msgid ""
+#~ "You can use the matching regex parameters \"\\1\", \"\\2\" and so on in "
+#~ "the command to replace it against the matched sub-texts. The parameter "
+#~ "\"\\0\" represents the complete text."
+#~ msgstr ""
+#~ "W wierszu poleceń użyć można parametrów „\\1”, „\\2”, itd... Reprezentują "
+#~ "one kolejne człony ciągu znaków, określone w wyrażeniu regularnym. "
+#~ "Parametr „\\0” reprezentuje cały ciąg."
+
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Nie można otworzyć adresu URL: %s"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Zapisywanie zawartości przed z_akończeniem"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Numery obiektów"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Ogólne</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Historia schowka:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Znaki pozycji menu:"
+
 #~ msgid "Clear History"
 #~ msgstr "Wyczyść"
+
 #~ msgid "Clipman History"
 #~ msgstr "Historia schowka"
+
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "Zarządza skopiowanymi elementami"
-
