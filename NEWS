@@ -1,9 +1,21 @@
-Version 1.0.0 - 2009-xx-xx
+Version 1.0.0 - 2009-04-xx
 
-Major rewrite of the plugin, using GObjects and Xfconf.
+- Major rewrite of the plugin using GObjects and Xfconf.
+- The external plugin is provided as a bundle, it can be added to the Xfce
+  Panel and executed as a standalone application living inside the notification
+  area. An item is installed inside the applications menu.
+- New feature "Actions" which brings the possibility to execute commands on
+  specific text selections by matching them against regexes.
+- Takes ownership over CLIPBOARD_MANAGER.
 
-Version 0.9.0 - 2009-xx-xx
+Version 0.9.1 - 2009-03-30
 
-A rewrite to make it more user-friendly and introduce image support.  Work done
-by David Collins.
+- Bug fix release
+
+Version 0.9.0 - 2009-01-15
+
+- A rewrite to make it more user-friendly and introduce image support. Work
+  done by David Collins.
+- Drop the repetitive timeout against a callback/signal to check for clipboard
+  changes.
 
