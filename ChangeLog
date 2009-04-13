@@ -1,4 +1,14 @@
 2009-04-13	Mike Massonnet
+Add (invisible) option in the action settings dialog
+
+	- panel-plugin/settings-dialog.glade:
+		Add a new checkbox for individual actions "Activate only on
+		default clipboard" to restrict the use of an action only when
+		manually copied (for instance a URL pattern). For the moment
+		this setting is left unimplemented, but there so it can
+		already be translated for the time being.
+
+2009-04-13	Mike Massonnet
 Add Inhibit option in the Clipman menu
 
 	- panel-plugin/collector.c, panel-plugin/collector.h:

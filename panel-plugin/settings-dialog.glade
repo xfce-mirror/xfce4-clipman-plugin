@@ -404,7 +404,7 @@
                 <child>
                   <widget class="GtkTable" id="table1">
                     <property name="visible">True</property>
-                    <property name="n_rows">2</property>
+                    <property name="n_rows">3</property>
                     <property name="n_columns">2</property>
                     <property name="column_spacing">2</property>
                     <property name="row_spacing">6</property>
@@ -478,6 +478,20 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">1</property>
                         <property name="bottom_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkCheckButton" id="checkbutton1">
+                        <property name="label" translatable="yes">Activate only on default clipboard</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip" translatable="yes">By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">2</property>
+                        <property name="bottom_attach">3</property>
                       </packing>
                     </child>
                   </widget>
