@@ -1,6 +1,7 @@
 NULL = 
 
 SUBDIRS =								\
+	icons								\
 	panel-plugin							\
 	po								\
 	$(NULL)

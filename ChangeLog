@@ -1,4 +1,12 @@
 2009-04-13	Mike Massonnet
+Add home-made icon for the touch of personalization
+
+	- Makefile.am, configure.ac.in, icons/*:
+		Build and install icons.
+	- panel-plugin/main.c, panel-plugin/settings-dialog.glade:
+		Use new icon (keep the stock icon as fallback).
+
+2009-04-13	Mike Massonnet
 Add (invisible) option in the action settings dialog
 
 	- panel-plugin/settings-dialog.glade:
