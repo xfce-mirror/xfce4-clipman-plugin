@@ -1,4 +1,17 @@
-2009-04-02	Mike Massonnet
+2009-04-13	Mike Massonnet
+Set ownership on CLIPBOARD_MANAGER
+
+	- panel-plugin/main.c:
+		Add a panel plugin check function and acquire ownership on the
+		X11 Selection CLIPBOARD_MANAGER. Quit the application if there
+		is an application already with the ownership. This part follows
+		the "clipboard manager spec" from freedesktop, but it doesn't
+		implement the possibility to be replaced by another manager.
+	- panel-plugin/main.c(plugin_preinit):
+		Set human readable name for the application if run in the
+		notification area.
+
+2009-04-13	Mike Massonnet
 Make the plugin run as a standalone application
 
 	- panel-plugin/main.c:
@@ -11,7 +24,7 @@ Make the plugin run as a standalone application
 	- Makefile.am, xfce4-clipman-plugin.desktop.in:
 		Install a desktop entry file for the menu.
 
-2009-04-02	Mike Massonnet
+2009-04-11	Mike Massonnet
 Set Clipman the owner of a text content only on specific target
 
 	- panel-plugin/collector.c(cb_clipboard_owner_change):
@@ -21,7 +34,7 @@ Set Clipman the owner of a text content only on specific target
 		Useless call to clipman_history_add_text() as the text is going
 		into the default clipboard.
 
-2009-04-02	Mike Massonnet
+2009-04-10	Mike Massonnet
 New test program to report targets
 
 2009-04-02	Mike Massonnet

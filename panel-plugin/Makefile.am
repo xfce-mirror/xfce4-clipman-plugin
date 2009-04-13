@@ -54,6 +54,8 @@ xfce4_clipman_plugin_SOURCES =						\
 	$(NULL)
 
 xfce4_clipman_plugin_CFLAGS =						\
+	@LIBX11_CFLAGS@							\
+	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@EXO_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
@@ -64,6 +66,8 @@ xfce4_clipman_plugin_CFLAGS =						\
 	$(NULL)
 
 xfce4_clipman_plugin_LDADD =						\
+	@LIBX11_LIBS@							\
+	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\

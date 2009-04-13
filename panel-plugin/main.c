@@ -21,6 +21,8 @@
 #endif
 
 #include <glib/gstdio.h>
+#include <X11/Xlib.h>
+#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
@@ -85,7 +87,9 @@ static gboolean         panel_plugin_set_size           (MyPlugin *plugin,
 
 static gboolean         plugin_preinit                  (gint argc,
                                                          gchar *argv[]);
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL_FULL (panel_plugin_register, plugin_preinit, NULL);
+static gboolean         plugin_check                    (GdkScreen *screen);
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL_FULL (panel_plugin_register,
+                                          plugin_preinit, plugin_check);
 
 /*
  * Plugin Functions
@@ -105,6 +109,12 @@ static void             my_plugin_position_menu         (GtkMenu *menu,
                                                          gint *y,
                                                          gboolean *push_in,
                                                          MyPlugin *plugin);
+
+/*
+ * X11 Selection on CLIPBOARD_MANAGER
+ */
+
+static gboolean         my_plugin_take_ownership        ();
 
 /*
  * X11 Selection for the popup command
@@ -170,10 +180,13 @@ plugin_preinit (gint argc,
 
   if (argc == 1)
     {
-      /* 
-       * Consider the plugin to be run by command line
-       */
+      /* Consider the plugin to be run by command line */
       gtk_init (&argc, &argv);
+
+      if (!plugin_check (NULL))
+        return FALSE;
+
+      g_set_application_name (_("Clipman"));
       plugin = status_icon_register ();
       gtk_main ();
       plugin_save (plugin);
@@ -182,6 +195,13 @@ plugin_preinit (gint argc,
     }
 
   return TRUE;
+}
+
+static gboolean
+plugin_check (GdkScreen *screen)
+{
+  /* Take Ownership on CLIPBOARD_MANAGER */
+  return my_plugin_take_ownership ();
 }
 
 static MyPlugin *
@@ -674,6 +694,37 @@ my_plugin_position_menu (GtkMenu *menu,
 }
 
 /*
+ * X11 Selection on CLIPBOARD_MANAGER
+ */
+
+static gboolean
+my_plugin_take_ownership ()
+{
+  Display      *display;
+  Window        root;
+  Atom          atom;
+  GtkWidget    *dialog;
+
+  display = GDK_DISPLAY ();
+  root = XDefaultRootWindow (display);
+
+  atom = XInternAtom (display, "CLIPBOARD_MANAGER", FALSE);
+  if (XGetSelectionOwner (display, atom))
+    {
+      dialog = gtk_message_dialog_new (NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+                                       _("There is already a clipboard manager running"),
+                                       NULL);
+      gtk_window_set_keep_above (GTK_WINDOW (dialog), TRUE);
+      gtk_dialog_run (GTK_DIALOG (dialog));
+      gtk_widget_destroy (dialog);
+      return FALSE;
+    }
+  XSetSelectionOwner (display, atom, root, GDK_CURRENT_TIME);
+
+  return TRUE;
+}
+
+/*
  * X11 Selection for the popup command
  */
 
@@ -688,7 +739,7 @@ my_plugin_set_selection (MyPlugin *plugin)
 
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
-  id = GDK_WINDOW_XID (GTK_WIDGET (win)->window);
+  id = GDK_WINDOW_XID (win->window);
 
   gscreen = gtk_widget_get_screen (win);
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
