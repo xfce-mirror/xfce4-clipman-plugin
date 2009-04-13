@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-02 13:42+0200\n"
-"PO-Revision-Date: 2009-01-27 22:54+0700\n"
+"PO-Revision-Date: 2009-04-11 15:52-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,40 +17,39 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Sunting dengan Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Kutu GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Citra"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "URL Panjang"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Kecilkan URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Tampilkan dengan Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Kutu Xfce"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
-msgstr "Manajer Papan Klip"
+msgstr "Manajer papan klip"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/panel-plugin.c:157
@@ -59,41 +58,39 @@ msgstr "Clipman"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Aksi</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Nomor</b>"
+msgstr "<b>Perintah</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Riwayat</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Aksi"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
-#, fuzzy
 msgid "Add _selections"
-msgstr "_Abaikan seleksi"
+msgstr "Tambah _seleksi"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Command:"
-msgstr ""
+msgstr "Perintah:"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Atur plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Edit Action"
-msgstr ""
+msgstr "Sunting Aksi"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Enable _actions"
-msgstr ""
+msgstr "Aktifkan _aksi"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "General"
@@ -104,6 +101,8 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
+"Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler "
+"dan sebuah menu akan menampilkan aksi yang memungkinkan"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid ""
@@ -111,35 +110,42 @@ msgid ""
 "the history to be unreadable, however it can be interesting in case you "
 "always want to paste what you select."
 msgstr ""
+"Jika dicentang, seleksi akan masuk ke dalam riwayat. Perilaku ini dapat "
+"menjadikan riwayat tak dapat dibaca, akan tetapi perilaku ini dapat "
+"menjadi menarik jika anda selalu ingin merekatkan apa yang anda pilih."
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
+"Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di "
+"dalam riwayat"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
+"Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce "
+"baru"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "Name:"
-msgstr ""
+msgstr "Nama:"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "Pattern:"
-msgstr ""
+msgstr "Pola:"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Save on _quit"
-msgstr ""
+msgstr "Simpan saat _keluar"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Ukuran _riwayat:"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Store an _image"
-msgstr ""
+msgstr "Simpan _citra"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid ""
@@ -148,6 +154,10 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
+"Anda dapat menggunakan parameter penggantian \"\\1\", \"\\2\" dan "
+"seterusnya di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. "
+"Jika anda tidak mengerti ekspresi reguler, silakan lihat dokumentasi "
+"Clipman yang memiliki pengenalan terhadap itu"
 
 #: ../panel-plugin/menu.c:112
 msgid "Are you sure you want to clear the history?"
@@ -155,9 +165,8 @@ msgstr "Anda yakin ingin membersihkan riwayat?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:185
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Papan Klip Kosong >"
+msgstr "Papan klip kosong"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Tak dapat membuka url berikut: %s"
