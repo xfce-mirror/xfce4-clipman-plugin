@@ -1,4 +1,10 @@
 2009-04-13	Mike Massonnet
+Block status icon popup menu if settings dialog is open
+
+	- panel-plugin/main.c(cb_status_icon_popup_menu):
+		Don't popup the menu if the settings dialog is open.
+
+2009-04-13	Mike Massonnet
 Forgot the desktop entry files
 
 	- panel-plugin/xfce4-clipman-plugin.desktop.in.in,

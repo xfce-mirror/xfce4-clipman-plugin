@@ -299,6 +299,9 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
 {
   GtkWidget *mi;
 
+  if (plugin->gxml != NULL)
+    return;
+
   if (G_UNLIKELY (plugin->popup_menu == NULL))
     {
       plugin->popup_menu = gtk_menu_new ();
@@ -317,6 +320,7 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       gtk_widget_show_all (plugin->popup_menu);
     }
+
   gtk_menu_set_screen (GTK_MENU (plugin->popup_menu), gtk_status_icon_get_screen (plugin->status_icon));
   gtk_menu_popup (GTK_MENU (plugin->popup_menu), NULL, NULL,
                   (GtkMenuPositionFunc)NULL, NULL,
