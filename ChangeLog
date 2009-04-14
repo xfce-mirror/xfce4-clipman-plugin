@@ -1,4 +1,10 @@
-2009-04-13	Mike Massonnet
+2009-04-14	Mike Massonnet
+Drop startup notification from the desktop entry file
+
+	- xfce4-clipman-plugin.desktop.in:
+		Set StartupNotify to false
+
+2009-04-14	Mike Massonnet
 Block status icon popup menu if settings dialog is open
 
 	- panel-plugin/main.c(cb_status_icon_popup_menu):

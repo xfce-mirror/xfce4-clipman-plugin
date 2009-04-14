@@ -188,7 +188,9 @@ plugin_preinit (gint argc,
 
       g_set_application_name (_("Clipman"));
       plugin = status_icon_register ();
+
       gtk_main ();
+
       plugin_save (plugin);
       plugin_free (plugin);
       return FALSE;
@@ -281,7 +283,10 @@ static gboolean
 cb_status_icon_is_embedded (GtkStatusIcon *status_icon)
 {
   if (!gtk_status_icon_is_embedded (status_icon))
-    gtk_main_quit ();
+    {
+      g_warning ("Status Icon is not embedded");
+      gtk_main_quit ();
+    }
   return FALSE;
 }
 

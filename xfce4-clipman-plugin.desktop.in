@@ -8,4 +8,4 @@ Exec=xfce4-clipman-plugin
 Icon=xfce4-clipman-plugin
 Terminal=false
 Categories=GTK;Utility;TrayIcon;
-StartupNotify=true
+StartupNotify=false
