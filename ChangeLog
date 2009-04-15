@@ -1,4 +1,11 @@
 2009-04-15	Mike Massonnet
+Use a WeakNotify callback... useless but well...
+
+	- panel-plugin/main.c:
+		Unref the status icon and move the plugin_save/free calls to a
+		WeakNotify callback on the status icon.
+
+2009-04-15	Mike Massonnet
 Install autostart file automagically
 
 	- panel-plugin/xfce4-clipman-plugin-autostart.desktop.in,

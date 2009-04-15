@@ -72,6 +72,7 @@ static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint activate_time);
 static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
                                                          gint size);
+static void             cb_status_icon_finalize         (MyPlugin *plugin);
 static void             install_autostart_file          ();
 
 /*
@@ -193,8 +194,8 @@ plugin_preinit (gint argc,
 
       gtk_main ();
 
-      plugin_save (plugin);
-      plugin_free (plugin);
+      g_object_unref (plugin->status_icon);
+
       return FALSE;
     }
 
@@ -277,6 +278,7 @@ status_icon_register ()
                             G_CALLBACK (cb_status_icon_popup_menu), plugin);
   g_signal_connect_swapped (plugin->status_icon, "size-changed",
                             G_CALLBACK (cb_status_icon_set_size), plugin);
+  g_object_weak_ref (G_OBJECT (plugin->status_icon), (GWeakNotify)cb_status_icon_finalize, plugin);
 
   return plugin;
 }
@@ -346,6 +348,13 @@ cb_status_icon_set_size (MyPlugin *plugin, gint size)
   g_object_unref (G_OBJECT (pixbuf));
 
   return TRUE;
+}
+
+static void
+cb_status_icon_finalize (MyPlugin *plugin)
+{
+  plugin_save (plugin);
+  plugin_free (plugin);
 }
 
 static void
