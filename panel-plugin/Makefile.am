@@ -106,3 +106,12 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(bindir)^" \
 		$< > $@
 
+#
+# Autostart File
+#
+
+autostartdir = $(sysconfdir)/xdg/autostart
+autostart_in_files = xfce4-clipman-plugin-autostart.desktop.in
+autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
+

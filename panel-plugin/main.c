@@ -72,6 +72,7 @@ static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint activate_time);
 static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
                                                          gint size);
+static void             install_autostart_file          ();
 
 /*
  * Panel Plugin
@@ -188,6 +189,7 @@ plugin_preinit (gint argc,
 
       g_set_application_name (_("Clipman"));
       plugin = status_icon_register ();
+      install_autostart_file ();
 
       gtk_main ();
 
@@ -344,6 +346,52 @@ cb_status_icon_set_size (MyPlugin *plugin, gint size)
   g_object_unref (G_OBJECT (pixbuf));
 
   return TRUE;
+}
+
+static void
+install_autostart_file ()
+{
+  gchar *sysfile;
+  gchar *userfile;
+  gint res;
+  GKeyFile *keyfile;
+  gchar *data;
+
+  sysfile = g_strdup (SYSCONFDIR"/xdg/autostart/"PACKAGE"-autostart.desktop");
+  userfile = g_strdup_printf ("%s/autostart/"PACKAGE"-autostart.desktop", g_get_user_config_dir ());
+
+  if (!g_file_test (sysfile, G_FILE_TEST_EXISTS))
+    {
+      g_warning ("The autostart file (%s) is missing in the system installation", sysfile);
+      goto out;
+    }
+
+  /* Check if the user autostart file exists */
+  if (g_file_test (userfile, G_FILE_TEST_EXISTS))
+    {
+      goto out;
+    }
+
+  /* Ask the user */
+  res = xfce_message_dialog (NULL, _("Autostart Clipman"), GTK_STOCK_DIALOG_QUESTION,
+                             _("Autostart Clipman"), _("Do you want to autostart the clipboard manager?"),
+                             GTK_STOCK_YES, GTK_RESPONSE_YES, GTK_STOCK_NO, GTK_RESPONSE_NO, NULL);
+
+  /* Copy the file */
+  keyfile = g_key_file_new ();
+  g_key_file_load_from_file (keyfile, sysfile, G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+  if (res == GTK_RESPONSE_YES)
+    {
+      g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
+    }
+  data = g_key_file_to_data (keyfile, NULL, NULL);
+  g_file_set_contents (userfile, data, -1, NULL);
+  g_free (data);
+  g_key_file_free (keyfile);
+
+out:
+  g_free (sysfile);
+  g_free (userfile);
 }
 
 /*

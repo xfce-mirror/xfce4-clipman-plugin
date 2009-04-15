@@ -1,4 +1,17 @@
 2009-04-15	Mike Massonnet
+Install autostart file automagically
+
+	- panel-plugin/xfce4-clipman-plugin-autostart.desktop.in,
+	panel-plugin/Makefile.am:
+		Install a system wide autostart file with Hidden set to true
+		by default.
+	- panel-plugin/main.c:
+		New function install_autostart_file() called after creating
+		the status icon to install the autostart file to the user
+		config directory (thus at the first run) with the key Hidden
+		set automatically to either false or left to true.
+
+2009-04-15	Mike Massonnet
 Replace g_idle against g_timeout
 
 	- panel-plugin/main.c(status_icon_register):
