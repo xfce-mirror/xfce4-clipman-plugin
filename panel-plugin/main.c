@@ -266,7 +266,7 @@ status_icon_register ()
   /* Status Icon */
   plugin->status_icon = gtk_status_icon_new ();
   gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
-  g_idle_add ((GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
+  g_timeout_add_seconds (60, (GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
 
   /* Signals */
   g_signal_connect_swapped (plugin->status_icon, "activate",

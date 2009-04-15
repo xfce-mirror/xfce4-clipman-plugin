@@ -1,3 +1,13 @@
+2009-04-15	Mike Massonnet
+Replace g_idle against g_timeout
+
+	- panel-plugin/main.c(status_icon_register):
+		Use g_timeout of 60 seconds instead of g_idle (asap as the main
+		loop is idle) since I noticed that logging in with the plugin
+		being autostarted and the panel was not yet all run up, the
+		plugin quit as it has been reported to be not embedded within
+		the notification area.
+
 2009-04-14	Mike Massonnet
 Drop startup notification from the desktop entry file
 
