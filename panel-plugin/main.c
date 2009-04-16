@@ -180,6 +180,9 @@ plugin_preinit (gint argc,
 {
   MyPlugin *plugin;
 
+  /* Text Domain and Locale */
+  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
   if (argc == 1)
     {
       /* Consider the plugin to be run by command line */
@@ -216,9 +219,6 @@ plugin_register ()
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
   plugin->panel_plugin = NULL;
   plugin->status_icon = NULL;
-
-  /* Text Domain and Locale */
-  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   /* Xfconf */
   xfconf_init (NULL);

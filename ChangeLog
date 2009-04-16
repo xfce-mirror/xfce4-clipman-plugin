@@ -1,4 +1,12 @@
 2009-04-16	Mike Massonnet
+Init the locale one stage earlier
+
+	- panel-plugin/main.c:
+		Call xfce_textdomain() in the preinit callback otherwise the
+		error message wouldn't be localisated.
+
+
+2009-04-16	Mike Massonnet
 Prepare for release
 
 2009-04-15	Mike Massonnet
