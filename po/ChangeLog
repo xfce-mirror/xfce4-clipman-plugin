@@ -1,5 +1,11 @@
 2009-04-16  Mike Massonnet <mmassonnet@xfce.org>
 
+	* gl.po: Galician translation update (Leandro Regueiro)
+	* de.po: German translation update (Fabian Nowak)
+	* ca.po: Catalan translation update (Harald Servat)
+
+2009-04-16  Mike Massonnet <mmassonnet@xfce.org>
+
 	* es.po: Spanish translation update (Abel Martín)
 	* fr.po: French translation update
 	* *.po, *.pot: make update-po

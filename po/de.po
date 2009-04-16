@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-16 08:54+0200\n"
-"PO-Revision-Date: 2009-04-05 22:37+0200\n"
+"PO-Revision-Date: 2009-04-14 21:45+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "Aktionen"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Activate only on default clipboard"
-msgstr ""
+msgstr "Nur bei Standardzwischenablage aktivieren"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Add _selections"
@@ -93,6 +93,8 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
+"Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese "
+"Option anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -188,7 +190,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
-msgstr ""
+msgstr "Es läuft bereits eine Zwischenablage"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
@@ -201,7 +203,7 @@ msgstr "Zwischenablage ist leer"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
-msgstr ""
+msgstr "_Aktivieren"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kann die folgende Adresse nicht öffnen: %s"
