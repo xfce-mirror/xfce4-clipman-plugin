@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 11:32+0200\n"
-"PO-Revision-Date: 2009-04-03 22:31+0900\n"
+"POT-Creation-Date: 2009-04-16 23:38+0900\n"
+"PO-Revision-Date: 2009-04-16 23:31+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "アクション"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Activate only on default clipboard"
-msgstr ""
+msgstr "デフォルトクリップボードに入ったときアクティブにする"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Add _selections"
@@ -92,6 +92,9 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
+"デフォルトでは、アクションは領域を選択したときに開始されますが、このオプショ"
+"ンにチェックマークをつけると、手動でコピー操作を行ったときに開始されるように"
+"なります"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -174,15 +177,15 @@ msgstr ""
 #. Ask the user
 #: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
 msgid "Autostart Clipman"
-msgstr ""
+msgstr "Clipman の自動起動"
 
 #: ../panel-plugin/main.c:386
 msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
+msgstr "クリップボードマネージャを自動起動にしますか?"
 
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
-msgstr ""
+msgstr "クリップボードマネージャはすでに動作しています"
 
 #: ../panel-plugin/actions.c:340
 #, c-format
@@ -191,6 +194,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"コマンド \"%s\" を実行できません\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
@@ -203,7 +209,4 @@ msgstr "クリップボードは空です"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
-msgstr ""
-
-#~ msgid "Regex:"
-#~ msgstr "正規表現:"
+msgstr "有効(_E)"
