@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 08:54+0200\n"
+"POT-Creation-Date: 2009-04-16 11:32+0200\n"
 "PO-Revision-Date: 2007-10-26 20:09+0500\n"
 "Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -178,6 +178,14 @@ msgstr ""
 
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/actions.c:340
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
 msgstr ""
 
 #: ../panel-plugin/menu.c:123

@@ -1,5 +1,10 @@
 2009-04-16  Mike Massonnet <mmassonnet@xfce.org>
 
+	* *.po, *.pot: make update-po
+	* POTFILES.in: Forgot to add actions.c
+
+2009-04-16  Mike Massonnet <mmassonnet@xfce.org>
+
 	* gl.po: Galician translation update (Leandro Regueiro)
 	* de.po: German translation update (Fabian Nowak)
 	* ca.po: Catalan translation update (Harald Servat)

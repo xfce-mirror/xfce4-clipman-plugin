@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 08:54+0200\n"
+"POT-Creation-Date: 2009-04-16 11:32+0200\n"
 "PO-Revision-Date: 2009-04-07 21:53+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
@@ -185,6 +185,14 @@ msgstr ""
 
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/actions.c:340
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
 msgstr ""
 
 #: ../panel-plugin/menu.c:123

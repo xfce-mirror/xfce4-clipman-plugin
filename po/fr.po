@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 08:54+0200\n"
+"POT-Creation-Date: 2009-04-16 11:32+0200\n"
 "PO-Revision-Date: 2009-04-16 08:56+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -189,6 +189,14 @@ msgstr ""
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
 msgstr "Un gestionnaire de presse papier est déjà en cours d'exécution"
+
+#: ../panel-plugin/actions.c:340
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"

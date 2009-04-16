@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CLIPMAN PLUGIN TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 08:54+0200\n"
+"POT-Creation-Date: 2009-04-16 11:32+0200\n"
 "PO-Revision-Date: 2009-04-01 22:31+0200\n"
 "Last-Translator: Gianluca Foddis <gianluca.foddis@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -191,6 +191,14 @@ msgstr ""
 
 #: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
+msgstr ""
+
+#: ../panel-plugin/actions.c:340
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
 msgstr ""
 
 #: ../panel-plugin/menu.c:123
