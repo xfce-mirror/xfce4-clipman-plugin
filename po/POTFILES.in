@@ -4,6 +4,7 @@ panel-plugin/xfce4-clipman-plugin.desktop.in.in
 panel-plugin/xfce4-clipman-plugin-autostart.desktop.in
 panel-plugin/settings-dialog.glade
 panel-plugin/main.c
+panel-plugin/actions.c
 panel-plugin/collector.c
 panel-plugin/history.c
 panel-plugin/menu.c

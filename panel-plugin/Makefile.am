@@ -9,13 +9,15 @@ INCLUDES =								\
 	-DLOCALEDIR=\"$(localedir)\"					\
 	$(NULL)
 
-EXTRA_DIST =								\
-	settings-dialog.glade						\
-	$(NULL)
+#
+# Maintainer Mode
+#
 
-CLEANFILES =								\
-	$(desktop_DATA)							\
-	$(NULL)
+if MAINTAINER_MODE
+BUILT_SOURCES = settings-dialog_glade.h
+settings-dialog_glade.h: settings-dialog.glade
+	exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
+endif
 
 #
 # Popup Command
@@ -51,6 +53,7 @@ xfce4_clipman_plugin_SOURCES =						\
 	collector.c			collector.h			\
 	history.c			history.h			\
 	menu.c				menu.h				\
+	settings-dialog_glade.h						\
 	$(NULL)
 
 xfce4_clipman_plugin_CFLAGS =						\
@@ -77,14 +80,8 @@ xfce4_clipman_plugin_LDADD =						\
 	@GLADE_LIBS@							\
 	$(NULL)
 
-if MAINTAINER_MODE
-BUILT_SOURCES = settings-dialog_glade.h
-settings-dialog_glade.h: settings-dialog.glade
-	exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
-endif
-
 #
-# Actions
+# XML Actions File
 #
 
 actionsdir = $(sysconfdir)/xdg/xfce4/panel
@@ -114,4 +111,21 @@ autostartdir = $(sysconfdir)/xdg/autostart
 autostart_in_files = xfce4-clipman-plugin-autostart.desktop.in
 autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
+
+#
+# Extra
+#
+
+EXTRA_DIST =								\
+	settings-dialog.glade						\
+	$(actions_in_files)						\
+	$(autostart_in_files)						\
+	$(desktop_in_in_files)						\
+	$(NULL)
+
+CLEANFILES =								\
+	$(actions_DATA)							\
+	$(autostart_DATA)						\
+	$(desktop_DATA)							\
+	$(NULL)
 

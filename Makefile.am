@@ -4,6 +4,7 @@ SUBDIRS =								\
 	icons								\
 	panel-plugin							\
 	po								\
+	tests								\
 	$(NULL)
 
 distclean-local:
@@ -24,6 +25,11 @@ EXTRA_DIST =								\
 	intltool-extract.in						\
 	intltool-merge.in						\
 	intltool-update.in						\
+	$(desktop_in_files)						\
+	$(NULL)
+
+CLEANFILES =								\
+	$(desktop_DATA)							\
 	$(NULL)
 
 DISTCLEANFILES =							\
