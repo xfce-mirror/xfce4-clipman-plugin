@@ -1,14 +1,15 @@
 # Spanish translations of xfce4-clipman-plugin
 # Copyright (C) 2008 Roberto, Abel Martín
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Roberto <roberdmd@gmail.com>, Abel Martín <abel.martin.ruiz@gmail.com>, 2008.
+# Roberto <roberdmd@gmail.com>, 2008.
+# Abel Martín <abel.martin.ruiz@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-13 19:35+0200\n"
-"PO-Revision-Date: 2009-01-19 00:18+0100\n"
+"POT-Creation-Date: 2009-04-16 08:54+0200\n"
+"PO-Revision-Date: 2009-04-07 08:20+0100\n"
 "Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,74 +21,73 @@ msgstr ""
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
-#, fuzzy
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboards manager"
-msgstr "Gestor del portapapeles"
+msgstr "Gestor de portapapeles"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
-#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: ../panel-plugin/main.c:191 ../panel-plugin/main.c:271
+#: ../panel-plugin/main.c:317 ../panel-plugin/main.c:418
 msgid "Clipman"
 msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Fallos"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Editar con GIMP"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Fallo de GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "URL larga"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Acortar la URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Ver con Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Fallo de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Acción</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Números</b>"
+msgstr "<b>Comandos</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historial</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Activate only on default clipboard"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-#, fuzzy
 msgid "Add _selections"
-msgstr "_Ignorar selecciones"
+msgstr "Añadir _selecciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
@@ -97,19 +97,19 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Comando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Configurar el complemento"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Editar acción"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Activar _acciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -120,6 +120,8 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
+"Si está activada, los textos del portapapeles se compararán con expresiones "
+"regulares y un menú mostrará las acciones posibles"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
@@ -127,35 +129,41 @@ msgid ""
 "the history to be unreadable, however it can be interesting in case you "
 "always want to paste what you select."
 msgstr ""
+"Si está activada, las selecciones irán al historial. Este comportamiento "
+"puede hacer que el historial sea ilegible, aunque puede ser interesante en "
+"caso de que siempre quiera pegar lo que seleccione"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
+"Si está activada, esta opción le permite almacenar una imagen en el historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
+"Si está activada, esta opción restablecerá el historial en cada nueva sesión "
+"de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "Name:"
-msgstr ""
+msgstr "Nombre:"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Pattern:"
-msgstr ""
+msgstr "Patrón:"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Save on _quit"
-msgstr ""
+msgstr "Guardar al _salir"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Tamaño del _historial:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Store an _image"
-msgstr ""
+msgstr "Almacenar una _imagen"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid ""
@@ -164,8 +172,21 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
+"Puede usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes en "
+"los comandos. El parámetro \"\\0\" representa el texto completo. Si no "
+"conoce las expresiones regulares, mire la documentación de Clipman, donde "
+"hay una introducción sobre las mismas."
 
-#: ../panel-plugin/main.c:717
+#. Ask the user
+#: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
+msgid "Autostart Clipman"
+msgstr ""
+
+#: ../panel-plugin/main.c:386
+msgid "Do you want to autostart the clipboard manager?"
+msgstr ""
+
+#: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
 msgstr ""
 
@@ -175,9 +196,8 @@ msgstr "¿Está seguro de querer borrar el historial?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:196
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Portapapeles vacío >"
+msgstr "El portapapeles está vacío"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"

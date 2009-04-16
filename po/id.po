@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-13 19:35+0200\n"
+"POT-Creation-Date: 2009-04-16 08:54+0200\n"
 "PO-Revision-Date: 2009-04-11 15:52-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -17,13 +17,15 @@ msgstr ""
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboards manager"
 msgstr "Manajer papan klip"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
-#: ../panel-plugin/main.c:189 ../panel-plugin/main.c:266
-#: ../panel-plugin/main.c:305 ../panel-plugin/main.c:350
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: ../panel-plugin/main.c:191 ../panel-plugin/main.c:271
+#: ../panel-plugin/main.c:317 ../panel-plugin/main.c:418
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -171,7 +173,16 @@ msgstr ""
 "mengerti ekspresi reguler, silakan lihat dokumentasi Clipman yang memiliki "
 "pengenalan terhadap itu"
 
-#: ../panel-plugin/main.c:717
+#. Ask the user
+#: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
+msgid "Autostart Clipman"
+msgstr ""
+
+#: ../panel-plugin/main.c:386
+msgid "Do you want to autostart the clipboard manager?"
+msgstr ""
+
+#: ../panel-plugin/main.c:787
 msgid "There is already a clipboard manager running"
 msgstr ""
 
