@@ -2,14 +2,15 @@
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Maximilian Schleiss <maximilian@xfce.org>, 2006.
+# Mike Massonnet <mmassonnet@xfce.org>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 11:32+0200\n"
-"PO-Revision-Date: 2009-04-16 08:56+0200\n"
-"Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
+"POT-Creation-Date: 2009-04-18 12:03+0200\n"
+"PO-Revision-Date: 2009-04-18 12:05+0200\n"
+"Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -25,8 +26,9 @@ msgstr "Gestionnaire de presse-papiers"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:191 ../panel-plugin/main.c:271
-#: ../panel-plugin/main.c:317 ../panel-plugin/main.c:418
+#: ../panel-plugin/main.c:198 ../panel-plugin/main.c:275
+#: ../panel-plugin/main.c:321 ../panel-plugin/main.c:425
+#: ../panel-plugin/main.c:634
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -177,16 +179,25 @@ msgstr ""
 "documentation de Clipman qui possède une introduction pour elles."
 
 #. Ask the user
-#: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:392 ../panel-plugin/main.c:393
 msgid "Autostart Clipman"
 msgstr "Démarrage Automatique"
 
-#: ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:393
 msgid "Do you want to autostart the clipboard manager?"
 msgstr ""
 "Voulez vous démarrer le gestionnaire de presse-papier automatiquement ?"
 
-#: ../panel-plugin/main.c:787
+#: ../panel-plugin/main.c:636
+msgid "Clipboard Manager for Xfce"
+msgstr "Gestionnaire de presse-papier pour Xfce"
+
+#: ../panel-plugin/main.c:645
+msgid "translator-credits"
+msgstr ""
+"Mike Massonnet"
+
+#: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"
 msgstr "Un gestionnaire de presse papier est déjà en cours d'exécution"
 
@@ -197,6 +208,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Impossible d'exécuter la commande \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
@@ -237,6 +251,3 @@ msgstr "_Activer"
 
 #~ msgid "Clipman History"
 #~ msgstr "Historique du presse-papiers"
-
-#~ msgid "Clipboard manager for the Xfce desktop"
-#~ msgstr "Gestionnaire de presse-papiers pour l'environnement de bureau Xfce"

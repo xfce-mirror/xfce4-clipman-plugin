@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 11:32+0200\n"
+"POT-Creation-Date: 2009-04-18 12:03+0200\n"
 "PO-Revision-Date: 2009-01-16 12:22-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -29,8 +29,9 @@ msgstr "Gerenciador de área de transferência"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:191 ../panel-plugin/main.c:271
-#: ../panel-plugin/main.c:317 ../panel-plugin/main.c:418
+#: ../panel-plugin/main.c:198 ../panel-plugin/main.c:275
+#: ../panel-plugin/main.c:321 ../panel-plugin/main.c:425
+#: ../panel-plugin/main.c:634
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -172,15 +173,24 @@ msgid ""
 msgstr ""
 
 #. Ask the user
-#: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:392 ../panel-plugin/main.c:393
 msgid "Autostart Clipman"
 msgstr ""
 
-#: ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:393
 msgid "Do you want to autostart the clipboard manager?"
 msgstr ""
 
-#: ../panel-plugin/main.c:787
+#: ../panel-plugin/main.c:636
+#, fuzzy
+msgid "Clipboard Manager for Xfce"
+msgstr "Gerenciador da área de transferência para a área de trabalho do Xfce"
+
+#: ../panel-plugin/main.c:645
+msgid "translator-credits"
+msgstr ""
+
+#: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"
 msgstr ""
 
@@ -232,10 +242,6 @@ msgstr ""
 
 #~ msgid "Clipman History"
 #~ msgstr "Histórico do Clipman"
-
-#~ msgid "Clipboard manager for the Xfce desktop"
-#~ msgstr ""
-#~ "Gerenciador da área de transferência para a área de trabalho do Xfce"
 
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar área de transferência vazia"

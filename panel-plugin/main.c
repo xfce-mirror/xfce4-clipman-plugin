@@ -101,6 +101,10 @@ static MyPlugin*        plugin_register                 ();
 static void             plugin_load                     (MyPlugin *plugin);
 static void             plugin_save                     (MyPlugin *plugin);
 static void             plugin_free                     (MyPlugin *plugin);
+static void             plugin_about                    (MyPlugin *plugin);
+static void             cb_about_dialog_url_hook        (GtkAboutDialog *dialog,
+                                                         const gchar *uri,
+                                                         gpointer user_data);
 static void             plugin_configure                (MyPlugin *plugin);
 static void             cb_button_toggled               (GtkToggleButton *button,
                                                          MyPlugin *plugin);
@@ -322,6 +326,9 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_PROPERTIES, NULL);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_configure), plugin);
+      mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_ABOUT, NULL);
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_about), plugin);
       mi = gtk_separator_menu_item_new ();
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_REMOVE, NULL);
@@ -431,6 +438,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Signals */
   g_signal_connect_swapped (panel_plugin, "size-changed",
                             G_CALLBACK (panel_plugin_set_size), plugin);
+  xfce_panel_plugin_menu_show_about (panel_plugin);
+  g_signal_connect_swapped (panel_plugin, "about",
+                            G_CALLBACK (plugin_about), plugin);
   xfce_panel_plugin_menu_show_configure (panel_plugin);
   g_signal_connect_swapped (panel_plugin, "configure-plugin",
                             G_CALLBACK (plugin_configure), plugin);
@@ -610,6 +620,47 @@ plugin_free (MyPlugin *plugin)
 
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
+}
+
+static void
+plugin_about (MyPlugin *plugin)
+{
+  static const gchar *artists[] = { "Mike Massonnet", NULL, };
+  static const gchar *authors[] = { "Mike Massonnet", NULL, };
+  static const gchar *documenters[] = { NULL, };
+
+  gtk_about_dialog_set_url_hook (cb_about_dialog_url_hook, NULL, NULL);
+  gtk_show_about_dialog (NULL,
+                         "program-name", _("Clipman"),
+                         "logo-icon-name", "xfce4-clipman-plugin",
+                         "comments", _("Clipboard Manager for Xfce"),
+                         "version", PACKAGE_VERSION,
+                         "copyright", "Copyright © 2008-2009 Mike Massonnet",
+                         "license", XFCE_LICENSE_GPL,
+                         "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin",
+                         "website-label", "goodies.xfce.org",
+                         "artists", artists,
+                         "authors", authors,
+                         "documenters", documenters,
+                         "translator-credits", _("translator-credits"),
+                         NULL);
+}
+
+static void
+cb_about_dialog_url_hook (GtkAboutDialog *dialog,
+                          const gchar *uri,
+                          gpointer user_data)
+{
+  gchar *command;
+
+  command = g_strdup_printf ("exo-open %s", uri);
+  if (!g_spawn_command_line_async (command, NULL))
+    {
+      g_free (command);
+      command = g_strdup_printf ("firefox %s", uri);
+      g_spawn_command_line_async (command, NULL);
+    }
+  g_free (command);
 }
 
 static void

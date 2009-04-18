@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-16 11:32+0200\n"
+"POT-Creation-Date: 2009-04-18 12:03+0200\n"
 "PO-Revision-Date: 2009-04-07 21:53+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
@@ -24,8 +24,9 @@ msgstr "Pano Yöneticisi"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:191 ../panel-plugin/main.c:271
-#: ../panel-plugin/main.c:317 ../panel-plugin/main.c:418
+#: ../panel-plugin/main.c:198 ../panel-plugin/main.c:275
+#: ../panel-plugin/main.c:321 ../panel-plugin/main.c:425
+#: ../panel-plugin/main.c:634
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -175,15 +176,24 @@ msgstr ""
 "inceleyebilirsiniz. "
 
 #. Ask the user
-#: ../panel-plugin/main.c:385 ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:392 ../panel-plugin/main.c:393
 msgid "Autostart Clipman"
 msgstr ""
 
-#: ../panel-plugin/main.c:386
+#: ../panel-plugin/main.c:393
 msgid "Do you want to autostart the clipboard manager?"
 msgstr ""
 
-#: ../panel-plugin/main.c:787
+#: ../panel-plugin/main.c:636
+#, fuzzy
+msgid "Clipboard Manager for Xfce"
+msgstr "Xfce için pano yöneticisi"
+
+#: ../panel-plugin/main.c:645
+msgid "translator-credits"
+msgstr ""
+
+#: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"
 msgstr ""
 
@@ -237,9 +247,6 @@ msgstr ""
 
 #~ msgid "Clipman History"
 #~ msgstr "Clipman Geçmişi"
-
-#~ msgid "Clipboard manager for the Xfce desktop"
-#~ msgstr "Xfce için pano yöneticisi"
 
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "Panonun boşalmasını engelle"
