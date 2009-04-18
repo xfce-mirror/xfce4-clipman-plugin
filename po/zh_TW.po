@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2006-09-06 21:25+0800\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -183,6 +183,7 @@ msgstr "Xfce 桌面環境的剪貼簿管理程式"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Hydonsingore Cia"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

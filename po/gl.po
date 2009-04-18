@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-15 11:04+0100\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -197,6 +197,7 @@ msgstr "Xestor de portarretallos para o escritorio Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Leandro Regueiro"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

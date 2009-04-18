@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-18 12:05+0200\n"
+"PO-Revision-Date: 2009-04-18 12:30+0200\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -195,6 +195,7 @@ msgstr "Gestionnaire de presse-papier pour Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Maximilian Schleiss\n"
 "Mike Massonnet"
 
 #: ../panel-plugin/main.c:838

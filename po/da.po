@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-16 17:05+0100\n"
+"PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -197,6 +197,8 @@ msgstr "Klippebords-håndtering til Xfce-skrivebordsmiljø"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Jens Hyllegaard\n"
+"Per Kongstad"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

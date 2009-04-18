@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-01-16 12:22-0500\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -189,6 +189,9 @@ msgstr "Gerenciador da área de transferência para a área de trabalho do Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Gunther Furtado\n"
+"Vladimir Melo\n"
+"Og Maciel"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

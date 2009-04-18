@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-01-28 01:14+0100\n"
+"PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -186,6 +186,7 @@ msgstr "Xfce idazmahaierako arbel kudeatzailea"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Piarres Beobide"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

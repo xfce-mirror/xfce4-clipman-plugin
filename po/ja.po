@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-16 23:31+0900\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -192,6 +192,8 @@ msgstr "クリップボードマネージャ"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Daichi Kawahata\n"
+"Nobuhiro Iwamatsu"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

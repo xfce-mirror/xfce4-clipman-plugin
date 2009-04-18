@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-02-20 12:48+0700\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Pavel Labushev <p.labushev@gmail.com>\n"
 "Language-Team: Russian <xfce-i18n-ru@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,7 @@ msgstr "Менеджер буфера обмена для Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Pavel Labushev"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

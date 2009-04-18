@@ -626,7 +626,11 @@ static void
 plugin_about (MyPlugin *plugin)
 {
   static const gchar *artists[] = { "Mike Massonnet", NULL, };
-  static const gchar *authors[] = { "Mike Massonnet", NULL, };
+  static const gchar *authors[] = { "Mike Massonnet",
+                                    "", "Authors of previous versions:",
+                                    "Eduard Roccatello",
+                                    "Nick Schermer",
+                                    NULL, };
   static const gchar *documenters[] = { NULL, };
 
   gtk_about_dialog_set_url_hook (cb_about_dialog_url_hook, NULL, NULL);

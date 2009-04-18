@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-15 11:53+0100\n"
+"PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -196,6 +196,9 @@ msgstr "Gestor de porta-retalls per l’escriptori Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Pau Ruŀlan Ferragut\n"
+"Carles Muñoz Gorriz\n"
+"Harald Servat Gelabert"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

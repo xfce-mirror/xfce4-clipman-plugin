@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2008-03-24 23:52+0200\n"
+"PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -183,6 +183,7 @@ msgstr "Διαχειριστής προχείρου για την οθόνη τ�
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Evaggelos Balaskas"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

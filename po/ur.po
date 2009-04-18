@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2007-10-26 20:09+0500\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -185,6 +185,7 @@ msgstr "ایکسفس ڈیسک ٹاپ کا کلپ بورڈ منیجر"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Muhammad Ali Makki"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

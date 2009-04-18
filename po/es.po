@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-07 08:20+0100\n"
+"PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -195,6 +195,8 @@ msgstr "Gestor de portapapeles para el escritorio Xfce"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Roberto\n"
+"Abel Martín"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"

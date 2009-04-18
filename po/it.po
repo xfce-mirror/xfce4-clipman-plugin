@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: CLIPMAN PLUGIN TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-01 22:31+0200\n"
+"PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Gianluca Foddis <gianluca.foddis@gmail.com>\n"
 "Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
@@ -198,6 +198,7 @@ msgstr "Gestore degli appunti"
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
 msgstr ""
+"Gianluca Foddis"
 
 #: ../panel-plugin/main.c:838
 msgid "There is already a clipboard manager running"
