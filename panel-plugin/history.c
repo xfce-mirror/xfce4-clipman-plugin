@@ -55,6 +55,13 @@ enum
   SAVE_ON_QUIT,
 };
 
+enum
+{
+  ITEM_ADDED,
+  LAST_SIGNAL,
+};
+static guint signals[LAST_SIGNAL];
+
 static void             clipman_history_class_init         (ClipmanHistoryClass *klass);
 static void             clipman_history_init               (ClipmanHistory *history);
 static void             clipman_history_finalize           (GObject *object);
@@ -142,6 +149,9 @@ _clipman_history_add_item (ClipmanHistory *history,
     default:
       g_assert_not_reached ();
     }
+
+  /* Emit signal */
+  g_signal_emit (history, signals[ITEM_ADDED], 0);
 }
 
 /*
@@ -386,6 +396,13 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
   object_class->finalize = clipman_history_finalize;
   object_class->set_property = clipman_history_set_property;
   object_class->get_property = clipman_history_get_property;
+
+  signals[ITEM_ADDED] =
+    g_signal_new ("item-added", G_TYPE_FROM_CLASS (klass),
+                  G_SIGNAL_RUN_LAST|G_SIGNAL_ACTION,
+                  G_STRUCT_OFFSET (ClipmanHistoryClass, item_added),
+                  0, NULL, g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
 
   g_object_class_install_property (object_class,
                                    MAX_TEXTS_IN_HISTORY,

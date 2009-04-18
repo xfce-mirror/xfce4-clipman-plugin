@@ -1,4 +1,18 @@
 2009-04-18	Mike Massonnet
+Add a simple signal for items being added in ClipmanHistory
+
+	- panel-plugin/history.c, panel-plugin/history.h:
+		Install a signal item-added in the class. Emit it when a new
+		item is added into the history.
+	- panel-plugin/main.c(plugin_register):
+		Connect to the signal item-added after loading the data.
+	- panel-plugin/main.c(cb_status_icon_quit),
+	panel-plugin/main.c(cb_status_icon_popup_menu):
+		New callback for the Quit item in the status icon popup menu.
+		Hide the status icon before leaving the main loop as it can
+		take a little moment sometimes.
+
+2009-04-18	Mike Massonnet
 Update credits for the translator and previous authors
 
 2009-04-18	Mike Massonnet

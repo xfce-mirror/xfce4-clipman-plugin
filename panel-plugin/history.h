@@ -69,6 +69,9 @@ typedef struct _ClipmanHistoryPrivate         ClipmanHistoryPrivate;
 struct _ClipmanHistoryClass
 {
   GObjectClass              parent_class;
+
+  void
+  (*item_added)             (ClipmanHistory *history);
 };
 
 struct _ClipmanHistory

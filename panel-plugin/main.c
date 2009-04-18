@@ -70,6 +70,7 @@ static void             cb_status_icon_activate         (MyPlugin *plugin);
 static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint button,
                                                          guint activate_time);
+static void             cb_status_icon_quit             (MyPlugin *plugin);
 static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
                                                          gint size);
 static void             cb_status_icon_finalize         (MyPlugin *plugin);
@@ -255,6 +256,10 @@ plugin_register ()
   /* Load the data */
   plugin_load (plugin);
 
+  /* Connect signal to save content */
+  g_signal_connect_swapped (plugin->history, "item-added",
+                            G_CALLBACK (plugin_save), plugin);
+
   /* Set the selection for the popup command */
   my_plugin_set_selection (plugin);
 
@@ -332,7 +337,7 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
       mi = gtk_separator_menu_item_new ();
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_REMOVE, NULL);
-      g_signal_connect (mi, "activate", G_CALLBACK (gtk_main_quit), NULL);
+      g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_status_icon_quit), plugin);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       gtk_widget_show_all (plugin->popup_menu);
     }
@@ -341,6 +346,13 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
   gtk_menu_popup (GTK_MENU (plugin->popup_menu), NULL, NULL,
                   (GtkMenuPositionFunc)NULL, NULL,
                   0, gtk_get_current_event_time ());
+}
+
+static void
+cb_status_icon_quit (MyPlugin *plugin)
+{
+  gtk_status_icon_set_visible (plugin->status_icon, FALSE);
+  gtk_main_quit ();
 }
 
 static gboolean
