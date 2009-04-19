@@ -3,8 +3,10 @@ NULL =
 SUBDIRS =								\
 	icons								\
 	panel-plugin							\
-	po								\
 	tests								\
+	po								\
+	po-doc								\
+	docs								\
 	$(NULL)
 
 distclean-local:
@@ -14,6 +16,11 @@ desktopdir = $(datadir)/applications
 desktop_in_files = xfce4-clipman-plugin.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
+
+DISTCHECK_CONFIGURE_FLAGS =						\
+	--enable-xml2po							\
+	--enable-xsltproc						\
+	$(NULL)
 
 EXTRA_DIST =								\
 	AUTHORS								\

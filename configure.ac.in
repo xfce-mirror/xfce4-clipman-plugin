@@ -22,7 +22,7 @@ dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2005-2009
         The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-clipman-plugin], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
+AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([project_version_build])
@@ -77,6 +77,30 @@ dnl *** Check for debugging support ***
 dnl ***********************************
 XDT_FEATURE_DEBUG()
 
+dnl **************************
+dnl *** Check for xsltproc ***
+dnl **************************
+AC_ARG_ENABLE([xsltproc], [AC_HELP_STRING([--enable-xsltproc], [Use xsltproc to build documentation @<:@default=no@:>@])],, [enable_xsltproc=no])
+if test x"$enable_xsltproc" = x"yes"; then
+  AC_PATH_PROG([XSLTPROC], [xsltproc], [no])
+  if test x"$XSLTPROC" = x"no"; then
+    enable_xsltproc=no
+  fi
+fi
+AM_CONDITIONAL([ENABLE_XSLTPROC], [test x"$enable_xsltproc" = x"yes"])
+
+dnl ************************
+dnl *** Check for xml2po ***
+dnl ************************
+AC_ARG_ENABLE([xml2po], [AC_HELP_STRING([--enable-xml2po], [Use xml2po to translate documentation @<:@default=no@:>@])],, [enable_xml2po=no])
+if test x"$enable_xml2po" = x"yes"; then
+  AC_PATH_PROG([XML2PO], [xml2po], [no])
+  if test x"$XML2PO" = x"no"; then
+    enable_xml2po=no
+  fi
+fi
+AM_CONDITIONAL([ENABLE_XML2PO], [test x"$enable_xml2po" = x"yes"])
+
 dnl ************************
 dnl *** Makefile outputs ***
 dnl ************************
@@ -91,11 +115,24 @@ icons/scalable/Makefile
 panel-plugin/Makefile
 tests/Makefile
 po/Makefile.in
+po-doc/Makefile
+docs/Makefile
+docs/manual/Makefile
+docs/manual/C/Makefile
+docs/manual/C/xfce4-clipman-plugin.xml
+docs/manual/C/images/Makefile
 ])
 
 dnl ***************************
 dnl *** Print configuration ***
 dnl ***************************
+if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
+echo
+echo "Maintainer Mode:"
+echo
+echo "    * xml2po:       $enable_xml2po"
+echo "    * xsltproc:     $enable_xsltproc"
+fi
 echo
 echo "Build Configuration:"
 echo
