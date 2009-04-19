@@ -11,9 +11,6 @@
   <!ENTITY version "@PACKAGE_VERSION@">
   <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
 ]>
-<!--
-translators: suit lang to your locale, don't change id
--->
 <article id="xfce4-clipman-plugin" lang="en">
 
   <!-- Header -->
@@ -26,16 +23,6 @@ translators: suit lang to your locale, don't change id
       <year>2009</year>
       <holder>&doc-author;</holder>
     </copyright>
-
-    <!--
-    translators: uncomment this:
-
-    <copyright>
-      <year>1970</year>
-      <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
-    </copyright>
-
-    -->
 
     <legalnotice id="legalnotice">
       <para>
@@ -363,8 +350,8 @@ translators: suit lang to your locale, don't change id
 
       <para>
         For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
-        to use ”<emphasis rold="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis
-        rold="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
+        to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis
+        role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
         http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
       </para>
     </sect2>
@@ -387,8 +374,9 @@ translators: suit lang to your locale, don't change id
     <title>About &application;</title>
 
     <para>
-      &application; was written by &app-author; (<email>&app-email;</email>). Visit the <ulink type="http"
-      url="&app-website;">&application; Web site</ulink>.
+      &application; was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by
+      &app-author; (<email>&app-email;</email>). Visit the <ulink type="http" url="&app-website;">&application; Web
+      site</ulink>.
     </para>
 
     <para>
@@ -397,16 +385,6 @@ translators: suit lang to your locale, don't change id
       <!-- The latest version of this document is always available from the <ulink type="http"
       url="http://www.xfce.org/">Xfce website</ulink>. -->
     </para>
-
-    <!--
-    translators: uncomment this:
-
-    <para>
-      Latin translation was done by ME (<email>MYNAME@MYADDRESS</email>). Please send all  comments  and suggestions
-      regarding this translation to SOMEWHERE.
-    </para>
-
-    -->
 
     <para>
       This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published
