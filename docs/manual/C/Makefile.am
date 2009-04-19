@@ -14,12 +14,6 @@ TARGET_DIR = $(datadir)/xfce4/doc/C
 STYLESHEET = ../xfce-nochunk.xsl
 DOCUMENT = xfce4-clipman-plugin.xml
 
-# We set GPATH here; this gives us semantics for GNU make
-# which are more like other make's VPATH, when it comes to
-# whether a source that is a target of one rule is then
-# searched for in VPATH/GPATH.
-GPATH = $(srcdir)
-
 DOC_STAMPS = html-build.stamp
 
 EXTRA_DIST = $(DOCUMENT)
@@ -31,21 +25,15 @@ all-local: html-build.stamp
 html-build.stamp: $(srcdir)/$(DOCUMENT) $(srcdir)/$(STYLESHEET)
 	@echo "*** Building HTML ***"
 	@-chmod -R u+w $(srcdir)
-	rm -rf $(srcdir)/html
-	mkdir $(srcdir)/html
-	$(XSLTPROC) --nonet -o $(srcdir)/html/ $(srcdir)/$(STYLESHEET) \
-		$(srcdir)/$(DOCUMENT)
+	$(XSLTPROC) --nonet -o $(srcdir) $(srcdir)/$(STYLESHEET) $(srcdir)/$(DOCUMENT)
 	touch html-build.stamp
 else
 all-local:
 endif
 
-maintainer-clean-local: clean
-	(cd $(srcdir) && rm -rf html)
-
 install-data-local:
-	installfiles=`echo $(srcdir)/html/*`;				\
-	if test "$$installfiles" = '$(srcdir)/html/*'; then		\
+	installfiles=`echo $(srcdir)/*.html`;				\
+	if test "$$installfiles" = '$(srcdir)/*.html'; then		\
 		echo "--- Nothing to install";				\
 	else								\
 		$(mkinstalldirs) $(DESTDIR)$(TARGET_DIR);		\
@@ -67,8 +55,7 @@ dist-check-xsltproc:
 endif
 
 dist-hook: dist-check-xsltproc dist-hook-local
-	mkdir $(distdir)/html
-	-cp $(srcdir)/html/* $(distdir)/html
+	-cp $(srcdir)/*.html $(distdir)
 
 .PHONY: dist-hook-local
 
