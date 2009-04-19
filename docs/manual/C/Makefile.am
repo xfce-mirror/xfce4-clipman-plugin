@@ -10,7 +10,7 @@ SUBDIRS =								\
 	images								\
 	$(NULL)
 
-TARGET_DIR = $(datadir)/doc/xfce4-clipman-plugin/html/C
+TARGET_DIR = $(datadir)/xfce4/doc/C
 STYLESHEET = ../xfce-nochunk.xsl
 DOCUMENT = xfce4-clipman-plugin.xml
 
