@@ -1,0 +1,220 @@
+# Finnish translations for xfce4-clipman-plugin package.
+# Copyright (C) 2009 Mike Massonnet
+# This file is distributed under the same license as the xfce4-clipman-plugin package.
+# Copyright (C) 2009 Lassi Kojo.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-19 16:14+0300\n"
+"PO-Revision-Date: 2009-04-19 18:01+0300\n"
+"Last-Translator: Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
+"Language-Team: Finnish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+msgid "Clipboards manager"
+msgstr "Leikepöytien hallintatyökalu"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: ../panel-plugin/main.c:199 ../panel-plugin/main.c:280
+#: ../panel-plugin/main.c:326 ../panel-plugin/main.c:437
+#: ../panel-plugin/main.c:650
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr "Vikailmoitukset"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "Muokkaa GIMP:ssä"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr "GNOME-vikailmoitus"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr "Kuva"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Long URL"
+msgstr "Pitkä URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr "Luo lyhyt URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "View with Ristretto"
+msgstr "Näytä Ristrettolla"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Xfce Bug"
+msgstr "Xfce:n vikailmoitus"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr "<b>Toiminto</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+msgid "<b>Commands</b>"
+msgstr "<b>Komennot</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>History</b>"
+msgstr "<b>Historia</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "Actions"
+msgstr "Toiminnot"
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Activate only on default clipboard"
+msgstr "Ainoastaan oletusleikepöydällä"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Add _selections"
+msgstr "_Lisää valinnat"
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"Jos valitset tämän, toiminto suoritetaan vain kopioidessa, ei heti "
+"tehtyäsi valinnan."
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Command:"
+msgstr "Komento:"
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Configure the plugin"
+msgstr "Liitännäisen asetukset"
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Edit Action"
+msgstr "Muokkaa toimintoa"
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid "Enable _actions"
+msgstr "Käytä t_oimintoja"
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Yleistä"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Jos valitset tämän, leikepöydän teksteille tarjotaan soveltuvia toimintoja "
+"vertaamalla niitä säännöllisiin lausekkeisiin"
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid ""
+"If checked, the selections will go into the history. This behavior can bring "
+"the history to be unreadable, however it can be interesting in case you "
+"always want to paste what you select."
+msgstr ""
+"Jos valitset tämän, valinnat tallennetaan historiaan. Tämä voi haitata "
+"historian luettavuutta, mutta on hyödyllinen jos haluat valintojen olevan "
+"välittömästi liitettävissä."
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Jos valitset tämän, historiaan voi tallentaa yhden kuvan"
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Jos valitset tämän, historia säilytetään Xfce-istuntojen välillä"
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "Name:"
+msgstr "Nimi:"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Pattern:"
+msgstr "Lauseke:"
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Save on _quit"
+msgstr "_Tallenna lopetettaessa"
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Size of the _history:"
+msgstr "Historian k_oko:"
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid "Store an _image"
+msgstr "Tallenna _kuva"
+
+#: ../panel-plugin/settings-dialog.glade.h:22
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Korvausmerkinnät kuten \"\\1\" ja \"\\2\" korvataan löydetyillä "
+"vastaavuuksilla. Merkintä \"\\0\" korvataan koko tekstillä. Ohjeita "
+"sännöllisten lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen "
+"käyttöoppaasta."
+
+#. Ask the user
+#: ../panel-plugin/main.c:404 ../panel-plugin/main.c:405
+msgid "Autostart Clipman"
+msgstr "Käynnistä Clipman"
+
+#: ../panel-plugin/main.c:405
+msgid "Do you want to autostart the clipboard manager?"
+msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
+
+#: ../panel-plugin/main.c:652
+msgid "Clipboard Manager for Xfce"
+msgstr "Leikepöytien hallinta Xfce:lle"
+
+#: ../panel-plugin/main.c:661
+msgid "translator-credits"
+msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
+
+#: ../panel-plugin/main.c:854
+msgid "There is already a clipboard manager running"
+msgstr "Jokin sovellus hallitsee jo leikepöytiä"
+
+#: ../panel-plugin/actions.c:340
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
+"Komennon \"%s\" suoritus ei onnistu\n"
+"\n"
+"%s"
+
+#: ../panel-plugin/menu.c:123
+msgid "Are you sure you want to clear the history?"
+msgstr "Haluatko varmasti tyhjentää historian?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:196
+msgid "Clipboard is empty"
+msgstr "Leikepöytä on tyhjä"
+
+#: ../panel-plugin/menu.c:262
+msgid "_Enable"
+msgstr "_Käytä"
