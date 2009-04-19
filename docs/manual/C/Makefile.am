@@ -12,7 +12,7 @@ SUBDIRS =								\
 
 TARGET_DIR = $(datadir)/xfce4/doc/C
 STYLESHEET = ../xfce-nochunk.xsl
-DOCUMENT = xfce4-clipman-plugin.xml
+DOCUMENT = $(PACKAGE).xml
 
 DOC_STAMPS = html-build.stamp
 
