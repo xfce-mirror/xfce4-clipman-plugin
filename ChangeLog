@@ -1,4 +1,13 @@
 2009-04-19	Mike Massonnet
+Set Help button sensitive in dialog and add code to show the help
+
+	- panel-plugin/Makefile.am:
+		Define DATAROOTDIR to be able to point into xfce4/doc.
+	- panel-plugin/main.c:
+		New callback cb_show_help to run a command that opens the html
+		manual file.
+
+2009-04-19	Mike Massonnet
 Add documentation
 
 2009-04-18	Mike Massonnet

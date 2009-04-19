@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <glade-interface>
-  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-requires gtk+ 2.14 -->
   <requires lib="xfce4"/>
   <!-- interface-requires xfce4 2335.53032 -->
   <!-- interface-naming-policy toplevel-contextual -->
@@ -304,11 +304,12 @@
             <child>
               <widget class="GtkButton" id="button2">
                 <property name="label">gtk-help</property>
+                <property name="response_id">2</property>
                 <property name="visible">True</property>
-                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="cb_show_help"/>
               </widget>
               <packing>
                 <property name="expand">False</property>

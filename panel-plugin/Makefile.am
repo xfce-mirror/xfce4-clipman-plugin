@@ -3,6 +3,7 @@ NULL =
 INCLUDES =								\
 	-I${top_srcdir}							\
 	-DSYSCONFDIR=\"$(sysconfdir)\"					\
+	-DDATAROOTDIR=\"$(datarootdir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
 	-DSRCDIR=\"$(top_srcdir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\

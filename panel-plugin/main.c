@@ -135,6 +135,8 @@ static gboolean         cb_message_received             (MyPlugin *plugin,
  * Settings Dialog
  */
 
+static void             cb_show_help                    (GtkButton *button,
+                                                         MyPlugin *plugin);
 static void             setup_actions_treeview          (GtkTreeView *treeview,
                                                          MyPlugin *plugin);
 static void             refresh_actions_treeview        (GtkTreeView *treeview,
@@ -731,6 +733,7 @@ plugin_configure (MyPlugin *plugin)
   glade_xml_signal_connect_data (plugin->gxml, "cb_add_command", G_CALLBACK (cb_add_command), plugin);
   glade_xml_signal_connect_data (plugin->gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), plugin);
   glade_xml_signal_connect_data (plugin->gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), plugin);
+  glade_xml_signal_connect_data (plugin->gxml, "cb_show_help", G_CALLBACK (cb_show_help), plugin);
 
   setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "actions")), plugin);
   setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")), plugin);
@@ -748,7 +751,7 @@ plugin_configure (MyPlugin *plugin)
   /* Run the dialog */
   if (plugin->panel_plugin != NULL)
     xfce_panel_plugin_block_menu (plugin->panel_plugin);
-  gtk_dialog_run (GTK_DIALOG (dialog));
+  while (gtk_dialog_run (GTK_DIALOG (dialog)) != 0);
   if (plugin->panel_plugin != NULL)
     xfce_panel_plugin_unblock_menu (plugin->panel_plugin);
 
@@ -929,6 +932,31 @@ cb_message_received (MyPlugin *plugin,
 /*
  * Settings Dialog
  */
+
+static void
+cb_show_help (GtkButton *button,
+              MyPlugin *plugin)
+{
+  GdkScreen *screen;
+  gchar *filename = NULL;
+  gchar *command = NULL;
+  
+  screen = gtk_widget_get_screen (GTK_WIDGET (button));
+  filename = "file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html";
+  command = g_strdup_printf ("exo-open %s", filename);
+  if (gdk_spawn_command_line_on_screen (screen, command, NULL))
+    goto out;
+
+  g_free (command);
+  command = g_strdup_printf ("firefox %s", filename);
+  if (gdk_spawn_command_line_on_screen (screen, command, NULL))
+    goto out;
+
+  xfce_err ("Unable to open documentation \"%s\"", filename);
+
+out:
+  g_free (command);
+}
 
 /* Actions */
 static void
