@@ -1,4 +1,4 @@
-Version 1.0.0 - 2009-04-xx
+Version 1.0.0 - 2009-04-20
 
 - Major rewrite of the plugin using GObjects and Xfconf.
 - The external plugin is provided as a bundle, it can be added to the Xfce
@@ -7,6 +7,7 @@ Version 1.0.0 - 2009-04-xx
 - New feature "Actions" which brings the possibility to execute commands on
   specific text selections by matching them against regexes.
 - Takes ownership over CLIPBOARD_MANAGER.
+- Documentation
 
 Version 0.9.1 - 2009-03-30
 
