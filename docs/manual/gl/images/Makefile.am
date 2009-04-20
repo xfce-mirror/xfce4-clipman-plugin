@@ -1,6 +1,6 @@
 NULL = 
 
-imagesdir = $(datadir)/xfce4/doc/C/images
+imagesdir = $(datadir)/xfce4/doc/gl/images
 images_DATA =								\
 	clipman-action-dialog.png					\
 	clipman-menu.png						\

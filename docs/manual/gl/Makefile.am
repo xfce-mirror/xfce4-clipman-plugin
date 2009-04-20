@@ -10,7 +10,7 @@ SUBDIRS =								\
 	images								\
 	$(NULL)
 
-TARGET_DIR = $(datadir)/xfce4/doc/C
+TARGET_DIR = $(datadir)/xfce4/doc/gl
 STYLESHEET = ../xfce-nochunk.xsl
 DOCUMENT = $(PACKAGE).xml
 
