@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-18 12:03+0200\n"
-"PO-Revision-Date: 2009-04-18 12:27+0200\n"
+"PO-Revision-Date: 2009-04-18 13:08+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -182,16 +182,15 @@ msgstr ""
 #. Ask the user
 #: ../panel-plugin/main.c:392 ../panel-plugin/main.c:393
 msgid "Autostart Clipman"
-msgstr ""
+msgstr "Iniciar Clipman automàticament"
 
 #: ../panel-plugin/main.c:393
 msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
+msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
 
 #: ../panel-plugin/main.c:636
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Gestor de porta-retalls per l’escriptori Xfce"
+msgstr "Gestor de porta-retalls per l'escriptori Xfce"
 
 #: ../panel-plugin/main.c:645
 msgid "translator-credits"
@@ -211,6 +210,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No s'ha pogut executar l'ordre \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
