@@ -1,4 +1,7 @@
 2009-04-19	Mike Massonnet
+Add me to the documenters
+
+2009-04-19	Mike Massonnet
 Set Help button sensitive in dialog and add code to show the help
 
 	- panel-plugin/Makefile.am:

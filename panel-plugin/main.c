@@ -645,7 +645,7 @@ plugin_about (MyPlugin *plugin)
                                     "Eduard Roccatello",
                                     "Nick Schermer",
                                     NULL, };
-  static const gchar *documenters[] = { NULL, };
+  static const gchar *documenters[] = { "Mike Massonnet", NULL, };
 
   gtk_about_dialog_set_url_hook (cb_about_dialog_url_hook, NULL, NULL);
   gtk_show_about_dialog (NULL,
