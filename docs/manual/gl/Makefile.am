@@ -25,7 +25,7 @@ all-local: html-build.stamp
 html-build.stamp: $(srcdir)/$(DOCUMENT) $(srcdir)/$(STYLESHEET)
 	@echo "*** Building HTML ***"
 	@-chmod -R u+w $(srcdir)
-	$(XSLTPROC) --nonet -o $(srcdir) $(srcdir)/$(STYLESHEET) $(srcdir)/$(DOCUMENT)
+	$(XSLTPROC) --nonet -o $(srcdir)/ $(srcdir)/$(STYLESHEET) $(srcdir)/$(DOCUMENT)
 	touch html-build.stamp
 else
 all-local:
