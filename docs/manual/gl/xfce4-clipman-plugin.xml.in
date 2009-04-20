@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY app-author "Mike Massonnet">
+<!ENTITY app-email "mmassonnet@xfce.org">
+<!ENTITY app-website "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">
+<!ENTITY doc-author "Mike Massonnet">
+<!ENTITY doc-email "mmassonnet@xfce.org">
+<!ENTITY date "April 2009">
+<!ENTITY application "@PACKAGE_NAME@">
+<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
+]>
+<article id="xfce4-clipman-plugin" lang="gl">
+
+  <!-- Header -->
+  <articleinfo>
+    <title>Manual de @PACKAGE_NAME@</title>
+
+    <pubdate>&date;</pubdate>
+
+    <copyright>
+      <year>2009</year>
+      <holder>&doc-author;</holder>
+    </copyright><copyright><year>2009.</year><holder>Leandro Regueiro (leandro.regueiro@gmail.com)</holder></copyright><copyright><year>podes atopar máis información en http://trasno.net</year><holder>Se desexas colaborar connosco</holder></copyright>
+
+    <legalnotice id="legalnotice">
+      <para>
+        Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free
+        Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no
+        Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is
+        available from the <ulink type="http" url="http://www.fsf.org/">Free Software Foundation</ulink>.
+      </para>
+    </legalnotice>
+
+    <authorgroup>
+      <author>
+        <firstname>Mike</firstname>
+        <surname>Massonnet</surname>
+        <affiliation>
+          <address><email>mmassonnet@xfce.org</email></address>
+        </affiliation>
+      </author>
+    </authorgroup>
+
+    <releaseinfo>
+      This manual describes version @PACKAGE_VERSION@ of @PACKAGE_NAME@.
+    </releaseinfo>
+  </articleinfo>
+
+
+  <sect1 id="intro">
+    <title>Introdución</title>
+
+    <para>
+      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
+      when you close an application. It is able to handle text and images, and has a feature to execute actions on
+      specific text selections by matching them against regular expressions.
+    </para>
+
+    <para>
+      There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
+      Utility or type <command>xfce4-clipman-plugin</command> on the command line, or you can add it into your panel. To
+      add a new item in the panel right click the panel and select “Add new item…”.
+    </para>
+
+    <sect2 id="anatomy-clipboard">
+      <title>Anatomy of a Clipboard</title>
+
+      <para>
+        In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A
+        default clipboard which is modified by manual copies (for instance when you select a file and press the copy
+        button), and there is a primary clipboard which is modified by selections (for instance when you select text in
+        a field).
+      </para>
+
+      <para>
+        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections.  When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data.
+      </para>
+    </sect2>
+  </sect1>
+
+
+  <sect1 id="usage">
+    <title>Usage</title>
+
+    <para>
+      @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
+      displayed in a menu by clicking on the main icon. Within the menu it is possible to select an item to restore it,
+      to clear the history and to activate or deactivate the clipboard manager.
+    </para>
+
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/clipman-menu.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Menu displaying the history</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+
+  </sect1>
+
+
+  <sect1 id="settings">
+    <title>Settings</title>
+
+    <para>
+      The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It
+      allows to tweak the history and to edit actions.
+    </para>
+
+    <sect2 id="history">
+      <title>History</title>
+
+      <para>
+        The following table describes the available options for the history:
+      </para>
+
+      <table frame="all"><title>History options in the Settings dialog</title>
+      <tgroup cols="2" align="left">
+      <thead>
+      <row>
+        <entry>Opcións</entry>
+        <entry>Descrición</entry>
+      </row>
+      </thead>
+      <tbody>
+      <row>
+        <entry>Gardar ao saír</entry>
+        <entry>Keeps the history at every new session</entry>
+      </row>
+      <row>
+        <entry>Add selections</entry>
+        <entry>Adds the selections to the history</entry>
+      </row>
+      <row>
+        <entry>Store an image</entry>
+        <entry>Allows to store one image in the history</entry>
+      </row>
+      <row>
+        <entry>Size of the history</entry>
+        <entry>Sets the number of items to keep in history</entry>
+      </row>
+      </tbody>
+      </tgroup>
+      </table>
+
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Settings dialog with the General tab</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+
+    </sect2>
+
+    <sect2 id="actions">
+      <title>Actions</title>
+
+      <para>
+        An action is a pair of an action name and a regular expression. Each action can have one or more commands. The
+        support of actions is optional and can be enabled or disabled through the “Enable actions” option.
+      </para>
+
+      <para>
+        To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click
+        the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a
+        new dialog is opened.
+      </para>
+
+      <para>
+        To learn more about actions go to <xref linkend="action"/>.
+      </para>
+
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Settings dialog with the Actions tab</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+
+    </sect2>
+
+    <sect2 id="xfconf">
+      <title>Xfconf</title>
+
+      <para>
+        @PACKAGE_NAME@ uses Xfconf to store its settings in the <constant>xfce4-panel</constant> channel. That allows you
+        to change the settings with the tool <command>xfconf-query</command>. The following table lists all the
+        properties with their possible values:
+      </para>
+
+      <table frame="all"><title>Xfconf Properties</title>
+      <tgroup cols="4" align="left">
+      <thead>
+      <row>
+        <entry>Propiedade</entry>
+        <entry>Tipo</entry>
+        <entry>Default</entry>
+        <entry>Values</entry>
+      </row>
+      </thead>
+      <tbody>
+      <row>
+        <entry>/plugins/clipman/settings/add-primary-clipboard</entry>
+        <entry>bool</entry>
+        <entry>false</entry>
+        <entry>true to add selections</entry>
+      </row>
+      <row>
+        <entry>/plugins/clipman/settings/enable-actions</entry>
+        <entry>bool</entry>
+        <entry>false</entry>
+        <entry>true to enable actions</entry>
+      </row>
+      <row>
+        <entry>/plugins/clipman/settings/max-images-in-history</entry>
+        <entry>uint</entry>
+        <entry>0</entry>
+        <entry>0-5 number of images in history</entry>
+      </row>
+      <row>
+        <entry>/plugins/clipman/settings/max-texts-in-history</entry>
+        <entry>uint</entry>
+        <entry>10</entry>
+        <entry>5-100 number of texts in history</entry>
+      </row>
+      <row>
+        <entry>/plugins/clipman/settings/save-on-quit</entry>
+        <entry>bool</entry>
+        <entry>true</entry>
+        <entry>true to restore the history at every new session</entry>
+      </row>
+      </tbody>
+      </tgroup>
+      </table>
+
+      <para>
+        To change a setting type the command-line:
+      </para>
+
+      <literal><![CDATA[xfconf-query -c xfce4-panel -p <property> -s <value>]]></literal>
+    </sect2>
+  </sect1>
+
+  <sect1 id="action">
+    <title>Action</title>
+
+    <para>
+      An action has a human readable name that describes the pattern it is going to match. The matches are made against
+      text from the selections and the pattern is a regular expression. An action must have at least one command which
+      also has a human readable name. The matched text can be reused in the command.
+    </para>
+
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase>Action edit dialog</phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+
+    <sect2 id="regexes">
+      <title>Regular Expression</title>
+
+      <para>
+        Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
+      </para>
+
+      <itemizedlist>
+        <listitem>
+          ”<emphasis role="bold"><code>.</code></emphasis>”: represents a single character.
+        </listitem>
+        <listitem>
+          ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
+          characters, and zero or more characters.
+        </listitem>
+        <listitem>
+          ”<emphasis role="bold"><code>(|)</code></emphasis>”: used for grouping and substitution, the vertical bar is
+          used as an OR operation.
+        </listitem>
+        <listitem>
+          ”<emphasis role="bold"><code>[^]</code></emphasis>”: used to match a character from a set of characters and
+          special characters, the circumflex is used at the start as a negation.
+        </listitem>
+        <listitem>
+          ”<emphasis role="bold"><code>\</code></emphasis>”: escapes a special character.
+        </listitem>
+      </itemizedlist>
+
+      <para>
+        Basic alphanumeric character class: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Character classes
+        are used within square brackets to represent a set of characters.
+      </para>
+
+
+      <sect3 id="regexes-examples">
+        <title>Exemplos</title>
+
+        <itemizedlist>
+          <listitem>
+            "<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": text "<emphasis>bug </emphasis>", zero or one
+            space, zero or one sharp character, and one or more numbers.
+          </listitem>
+          <listitem>
+            "<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": text
+            "<emphasis>http</emphasis>" or "<emphasis>ftp</emphasis>", one or more character, a point, and the text
+            "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
+          </listitem>
+          <listitem>
+            "<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": text "<emphasis>http://</emphasis>", 120
+            characters, and one or more characters except a space.
+          </listitem>
+        </itemizedlist>
+      </sect3>
+
+      <sect3 id="regexes-external-ressource">
+        <title>External Ressource</title>
+
+        <para>
+          Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
+          article</ulink> about regular expressions.
+        </para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="command">
+      <title>Command</title>
+
+      <para>
+        A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
+        ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the
+        sub-pattern within parentheses or 0 for the complete text.
+      </para>
+
+      <para>
+        For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
+        to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
+        http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
+      </para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="support">
+    <title>Support</title>
+
+    <para>
+      To report a bug or a feature request use the bug tracking system at <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software,
+      please ask on the <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">Xfce mailing list</ulink>
+      or point your IRC client to <emphasis role="bold">irc.freenode.net</emphasis>, join the channel <emphasis role="bold">#xfce</emphasis> and ask for help.
+    </para>
+  </sect1>
+
+
+  <sect1 id="about">
+    <title>About @PACKAGE_NAME@</title>
+
+    <para>
+      @PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by
+      Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visit the <ulink type="http" url="http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">@PACKAGE_NAME@ Web
+      site</ulink>.
+    </para>
+
+    <para>
+      This documentation was written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Please send all your comments and
+      suggestions regarding this manual to <email>mmassonnet@xfce.org</email>.
+      
+    </para>
+
+    <para>
+      This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published
+      by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+    </para>
+
+    <para>
+      You should have received a copy of the <citetitle>GNU General Public License</citetitle> along with this program;
+      if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA.
+    </para>
+  </sect1>
+
+</article>

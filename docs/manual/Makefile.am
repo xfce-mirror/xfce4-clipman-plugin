@@ -2,6 +2,7 @@ NULL =
 
 SUBDIRS =								\
 	C								\
+	gl								\
 	$(NULL)
 
 EXTRA_DIST =								\
