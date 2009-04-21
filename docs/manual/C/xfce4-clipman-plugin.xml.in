@@ -58,12 +58,6 @@
       specific text selections by matching them against regular expressions.
     </para>
 
-    <para>
-      There are two ways to run &application;. You can select &application; in the applications menu under the category
-      Utility or type <command>xfce4-clipman-plugin</command> on the command line, or you can add it into your panel. To
-      add a new item in the panel right click the panel and select “Add new item…”.
-    </para>
-
     <sect2 id="anatomy-clipboard">
       <title>Anatomy of a Clipboard</title>
 
@@ -79,28 +73,49 @@
         handling the selections, the default clipboard will always be synced with it and contain the same data.
       </para>
     </sect2>
-  </sect1>
 
+    <sect2 id="getting-started">
+      <title>Getting Started</title>
 
-  <sect1 id="usage">
-    <title>Usage</title>
+      <para>
+        &application; is used to keep in history a list of clipboard contents and to restore them. The history is
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to select an item to restore it,
+        to clear the history and to activate or deactivate the clipboard manager.
+      </para>
 
-    <para>
-      &application; is used to keep in history a list of clipboard contents and to restore them. The history is
-      displayed in a menu by clicking on the main icon. Within the menu it is possible to select an item to restore it,
-      to clear the history and to activate or deactivate the clipboard manager.
-    </para>
+      <figure>
+        <title>Clipman Menu</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-menu.png" format="PNG" />
+          </imageobject>
+          <textobject>
+            <phrase>Menu displaying the history</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
 
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/clipman-menu.png" format="PNG" />
-        </imageobject>
-        <textobject>
-          <phrase>Menu displaying the history</phrase>
-        </textobject>
-      </mediaobject>
-    </screenshot>
+      <para>
+        There are two ways to run &application;. You can select &application; in the applications menu under the category
+        Utility or type <application>xfce4-clipman-plugin</application> on the command-line, or you can add it into your
+        panel. To add a new item in the panel right click the panel and select “Add new item…”.
+      </para>
+    </sect2>
+
+    <sect2 id="popup-command">
+      <title>Popup Command</title>
+
+      <para>
+        &application; provides the command-line tool <application>xfce4-popup-clipman</application>. When called it
+        popups the main menu. The command is practical for the <emphasis role="bold">Application Shortcuts</emphasis>
+        available at 
+        <menuchoice>
+          <guimenu>Xfce Menu</guimenu>
+          <guimenu>Settings</guimenu>
+          <guimenu>Keyboard</guimenu>
+        </menuchoice>.
+      </para>
+    </sect2>
 
   </sect1>
 
@@ -149,7 +164,8 @@
       </tgroup>
       </table>
 
-      <screenshot>
+      <figure>
+        <title>Clipman Settings</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-general.png" format="PNG" />
@@ -158,7 +174,7 @@
             <phrase>Settings dialog with the General tab</phrase>
           </textobject>
         </mediaobject>
-      </screenshot>
+      </figure>
 
     </sect2>
 
@@ -180,7 +196,8 @@
         To learn more about actions go to <xref linkend="action" />.
       </para>
 
-      <screenshot>
+      <figure>
+        <title>Clipman Settings</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-actions.png" format="PNG" />
@@ -189,7 +206,7 @@
             <phrase>Settings dialog with the Actions tab</phrase>
           </textobject>
         </mediaobject>
-      </screenshot>
+      </figure>
 
     </sect2>
 
@@ -198,7 +215,7 @@
 
       <para>
         &application; uses Xfconf to store its settings in the <constant>xfce4-panel</constant> channel. That allows you
-        to change the settings with the tool <command>xfconf-query</command>. The following table lists all the
+        to change the settings with the tool <application>xfconf-query</application>. The following table lists all the
         properties with their possible values:
       </para>
 
@@ -264,7 +281,8 @@
       also has a human readable name. The matched text can be reused in the command.
     </para>
 
-    <screenshot>
+    <figure>
+      <title>Action Dialog</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/clipman-action-dialog.png" format="PNG" />
@@ -273,7 +291,7 @@
           <phrase>Action edit dialog</phrase>
         </textobject>
       </mediaobject>
-    </screenshot>
+    </figure>
 
     <sect2 id="regexes">
       <title>Regular Expression</title>
