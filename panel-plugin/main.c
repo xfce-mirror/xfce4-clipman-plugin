@@ -20,6 +20,10 @@
 #include <config.h>
 #endif
 
+#ifdef HAVE_LOCALE_H
+#include <locale.h>
+#endif
+
 #include <glib/gstdio.h>
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
@@ -938,23 +942,67 @@ cb_show_help (GtkButton *button,
               MyPlugin *plugin)
 {
   GdkScreen *screen;
+  gchar *locale = NULL;
+  gchar *offset;
   gchar *filename = NULL;
   gchar *command = NULL;
   
+#ifdef ENABLE_NLS
+#ifdef HAVE_LOCALE_H
+  locale = g_strdup (setlocale (LC_ALL, ""));
+  if (locale != NULL)
+    {
+      offset = g_strrstr (locale, ".");
+      if (offset != NULL)
+        *offset = '\0';
+    }
+  else
+    locale = g_strdup ("C");
+#else
+  locale = g_strdup ("C");
+#endif
+
+  filename = g_strdup_printf (DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
+  if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+    {
+      offset = g_strrstr (locale, "_");
+      if (offset == NULL)
+        {
+          g_free (filename);
+          filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+        }
+      else
+        {
+          *offset = '\0';
+          g_free (filename);
+          filename = g_strdup_printf (DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
+          if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+            {
+              g_free (filename);
+              filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+            }
+        }
+    }
+
+  g_free (locale);
+#else
+  filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+#endif
+
   screen = gtk_widget_get_screen (GTK_WIDGET (button));
-  filename = "file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html";
-  command = g_strdup_printf ("exo-open %s", filename);
+  command = g_strdup_printf ("exo-open file://%s", filename);
   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
     goto out;
 
   g_free (command);
-  command = g_strdup_printf ("firefox %s", filename);
+  command = g_strdup_printf ("firefox file://%s", filename);
   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
     goto out;
 
   xfce_err ("Unable to open documentation \"%s\"", filename);
 
 out:
+  g_free (filename);
   g_free (command);
 }
 

@@ -1,4 +1,10 @@
 2009-04-21	Mike Massonnet
+Open the documentation in the user locale
+
+	- panel-plugin/main.c(cb_show_help):
+		Trigger through possible filenames based on the user locale.
+
+2009-04-21	Mike Massonnet
 Update documentation
 
 2009-04-20	Mike Massonnet
