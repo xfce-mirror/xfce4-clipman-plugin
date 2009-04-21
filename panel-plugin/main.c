@@ -1039,7 +1039,8 @@ refresh_actions_treeview (GtkTreeView *treeview,
   const GSList *entries;
   GtkTreeModel *model;
   GtkTreeIter iter;
-  gchar *action_name_escaped, *title;
+  gchar *title;
+  gchar *action_name_escaped, *regex_escaped;
 
   model = gtk_tree_view_get_model (treeview);
   gtk_list_store_clear (GTK_LIST_STORE (model));
@@ -1048,12 +1049,15 @@ refresh_actions_treeview (GtkTreeView *treeview,
   for (; entries != NULL; entries = entries->next)
     {
       entry = entries->data;
-      action_name_escaped = g_markup_escape_text (entry->action_name, -1);
 
-      title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", action_name_escaped, g_regex_get_pattern (entry->regex));
+      action_name_escaped = g_markup_escape_text (entry->action_name, -1);
+      regex_escaped = g_markup_escape_text (g_regex_get_pattern (entry->regex), -1);
+      title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
+                               action_name_escaped, regex_escaped);
       gtk_list_store_append (GTK_LIST_STORE (model), &iter);
       gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, entry, 1, title, -1);
       g_free (action_name_escaped);
+      g_free (regex_escaped);
       g_free (title);
     }
 }
@@ -1316,7 +1320,8 @@ cb_add_command (GtkButton *button,
   GtkWidget *command;
   GtkTreeModel *model;
   GtkTreeIter iter;
-  gchar *command_name_escaped, *title;
+  gchar *title;
+  gchar *command_name_escaped, *command_escaped;
 
   command_name = glade_xml_get_widget (plugin->gxml, "command-name");
   command = glade_xml_get_widget (plugin->gxml, "command");
@@ -1326,15 +1331,16 @@ cb_add_command (GtkButton *button,
     return;
 
   command_name_escaped = g_markup_escape_text (gtk_entry_get_text (GTK_ENTRY (command_name)), -1);
+  command_escaped = g_markup_escape_text (gtk_entry_get_text (GTK_ENTRY (command)), -1);
   title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
-                           command_name_escaped,
-                           gtk_entry_get_text (GTK_ENTRY (command)));
+                           command_name_escaped, command_escaped);
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (plugin->gxml, "commands")));
   gtk_list_store_append (GTK_LIST_STORE (model), &iter);
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
                       1, gtk_entry_get_text (GTK_ENTRY (command_name)),
                       2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
   g_free (command_name_escaped);
+  g_free (command_escaped);
   g_free (title);
 
   gtk_entry_set_text (GTK_ENTRY (command_name), "");
@@ -1351,7 +1357,8 @@ cb_refresh_command (GtkButton *button,
   GtkTreeIter iter;
   GtkWidget *command_name;
   GtkWidget *command;
-  gchar *command_name_escaped, *title;
+  gchar *title;
+  gchar *command_name_escaped, *command_escaped;
 
   command_name = glade_xml_get_widget (plugin->gxml, "command-name");
   command = glade_xml_get_widget (plugin->gxml, "command");
@@ -1369,13 +1376,14 @@ cb_refresh_command (GtkButton *button,
     }
 
   command_name_escaped = g_markup_escape_text (gtk_entry_get_text (GTK_ENTRY (command_name)), -1);
+  command_escaped = g_markup_escape_text (gtk_entry_get_text (GTK_ENTRY (command)), -1);
   title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
-                           command_name_escaped,
-                           gtk_entry_get_text (GTK_ENTRY (command)));
+                           command_name_escaped, command_escaped);
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
                       1, gtk_entry_get_text (GTK_ENTRY (command_name)),
                       2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
   g_free (command_name_escaped);
+  g_free (command_escaped);
   g_free (title);
 
   gtk_tree_selection_unselect_all (selection);
