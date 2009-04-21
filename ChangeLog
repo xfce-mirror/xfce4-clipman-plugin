@@ -1,4 +1,11 @@
 2009-04-21	Mike Massonnet
+Refixing the last two commits with the right function calls
+
+	- panel-plugin/main.c:
+		Use g_markup_printf_escaped() instead of in-between variables
+		being set with g_markup_escape_text().
+
+2009-04-21	Mike Massonnet
 Same commit for the regex and the command that are also displayed
 
 2009-04-21	Mike Massonnet
