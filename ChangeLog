@@ -1,4 +1,7 @@
 2009-04-21	Mike Massonnet
+Markup escape for action name and command name in the treeview
+
+2009-04-21	Mike Massonnet
 Add OnlyShowIn to the desktop entry file for the menu
 
 	- xfce4-clipman-plugin.desktop.in:
