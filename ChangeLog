@@ -1,4 +1,11 @@
 2009-04-21	Mike Massonnet
+Add OnlyShowIn to the desktop entry file for the menu
+
+	- xfce4-clipman-plugin.desktop.in:
+		The file is using a reserved category and therefore must have
+		a OnlyShowIn key.
+
+2009-04-21	Mike Massonnet
 Open the documentation in the user locale
 
 	- panel-plugin/main.c(cb_show_help):
