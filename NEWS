@@ -1,5 +1,6 @@
 Version 1.0.1 - 2009-xx-xx
 
+- Escape markups in action/commands in edit dialog
 - Set OnlyShowIn in the desktop entry file for the menu.
 - Open the documentation in the user locale.
 
