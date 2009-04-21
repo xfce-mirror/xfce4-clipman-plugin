@@ -1,3 +1,8 @@
+Version 1.0.1 - 2009-xx-xx
+
+- Set OnlyShowIn in the desktop entry file for the menu.
+- Open the documentation in the user locale.
+
 Version 1.0.0 - 2009-04-20
 
 - Major rewrite of the plugin using GObjects and Xfconf.
@@ -7,7 +12,7 @@ Version 1.0.0 - 2009-04-20
 - New feature "Actions" which brings the possibility to execute commands on
   specific text selections by matching them against regexes.
 - Takes ownership over CLIPBOARD_MANAGER.
-- Documentation
+- Documentation.
 
 Version 0.9.1 - 2009-03-30
 
