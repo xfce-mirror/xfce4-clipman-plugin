@@ -1,4 +1,7 @@
 2009-04-22	Mike Massonnet
+Update documentation
+
+2009-04-22	Mike Massonnet
 New option to exclude selections from the history
 
 	- panel-plugin/settings-dialog.glade:

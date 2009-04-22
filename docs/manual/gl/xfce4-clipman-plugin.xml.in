@@ -127,14 +127,14 @@
       allows to tweak the history and to edit actions.
     </para>
 
-    <sect2 id="history">
-      <title>History</title>
+    <sect2 id="general">
+      <title>General</title>
 
       <para>
-        The following table describes the available options for the history:
+        The following table describes the available options:
       </para>
 
-      <table frame="all"><title>History options in the Settings dialog</title>
+      <table frame="all"><title>General options in the Settings dialog</title>
       <tgroup cols="2" align="left">
       <thead>
       <row>
@@ -144,12 +144,17 @@
       </thead>
       <tbody>
       <row>
-        <entry>Gardar ao saír</entry>
-        <entry>Keeps the history at every new session</entry>
+        <entry>Add selections</entry>
+	<entry>Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
+	selected</entry>
       </row>
       <row>
-        <entry>Add selections</entry>
-        <entry>Adds the selections to the history</entry>
+        <entry>Exclude from history</entry>
+        <entry>Prevents the primary clipboard from being inserted in the history</entry>
+      </row>
+      <row>
+        <entry>Gardar ao saír</entry>
+        <entry>Keeps the history at every new session</entry>
       </row>
       <row>
         <entry>Store an image</entry>
