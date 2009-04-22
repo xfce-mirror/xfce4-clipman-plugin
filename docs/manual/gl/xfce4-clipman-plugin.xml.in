@@ -238,7 +238,7 @@
         <entry>/plugins/clipman/settings/add-primary-clipboard</entry>
         <entry>bool</entry>
         <entry>false</entry>
-        <entry>true to add selections</entry>
+        <entry>true to sync the primary clipboard with the default clipboard</entry>
       </row>
       <row>
         <entry>/plugins/clipman/settings/enable-actions</entry>
@@ -246,6 +246,14 @@
         <entry>false</entry>
         <entry>true to enable actions</entry>
       </row>
+      <row>
+        <entry>/plugins/clipman/settings/history-ignore-primary-clipboard</entry>
+        <entry>bool</entry>
+        <entry>false</entry>
+        <entry>true to exclude the primary clipboard from the history</entry>
+      </row>
+        false
+
       <row>
         <entry>/plugins/clipman/settings/max-images-in-history</entry>
         <entry>uint</entry>
