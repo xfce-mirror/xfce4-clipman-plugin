@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-18 12:03+0200\n"
+"POT-Creation-Date: 2009-04-22 22:14+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
@@ -26,9 +26,9 @@ msgstr "クリップボードマネージャ"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:198 ../panel-plugin/main.c:275
-#: ../panel-plugin/main.c:321 ../panel-plugin/main.c:425
-#: ../panel-plugin/main.c:634
+#: ../panel-plugin/main.c:205 ../panel-plugin/main.c:288
+#: ../panel-plugin/main.c:334 ../panel-plugin/main.c:445
+#: ../panel-plugin/main.c:658
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -69,26 +69,31 @@ msgid "<b>Action</b>"
 msgstr "<b>アクション</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Behavior</b>"
+msgstr "<b>履歴</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
 msgstr "<b>コマンド</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:3
+#: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
 msgstr "<b>履歴</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:4
+#: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
 msgstr "アクション"
 
-#: ../panel-plugin/settings-dialog.glade.h:5
+#: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on default clipboard"
 msgstr "デフォルトクリップボードに入ったときアクティブにする"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.glade.h:7
 msgid "Add _selections"
 msgstr "選択した領域を履歴に追加する(_S)"
 
-#: ../panel-plugin/settings-dialog.glade.h:7
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
@@ -97,27 +102,31 @@ msgstr ""
 "ンにチェックマークをつけると、手動でコピー操作を行ったときに開始されるように"
 "なります"
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Command:"
 msgstr "コマンド:"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Configure the plugin"
 msgstr "プラグインの設定"
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid "E_xclude from history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Edit Action"
 msgstr "アクションの編集"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "Enable _actions"
 msgstr "アクションを有効にする(_A)"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid "General"
 msgstr "全般"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -125,46 +134,50 @@ msgstr ""
 "チェックマークをつけると、クリップボードの文字列は正規表現とマッチされ、利用"
 "可能なメニューが表示されます"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
-"If checked, the selections will go into the history. This behavior can bring "
-"the history to be unreadable, however it can be interesting in case you "
-"always want to paste what you select."
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
 msgstr ""
-"チェックマークをつけると、選択領域が履歴に追加されます。このため履歴に見づら"
-"くなりますが、いつも選択した領域を貼り付けたい場合に便利です。"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:17
+#, fuzzy
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "チェックマークをつけると、一つの画像を履歴に格納することができます"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Name:"
 msgstr "名前:"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Pattern:"
 msgstr "パターン:"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
 msgstr "終了時に保存する(_Q)"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
 msgstr "履歴のサイズ(_H):"
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
 msgstr "画像を格納する(_I)"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -176,26 +189,26 @@ msgstr ""
 "紹介している Clipman のドキュメントを参照してください。"
 
 #. Ask the user
-#: ../panel-plugin/main.c:392 ../panel-plugin/main.c:393
+#: ../panel-plugin/main.c:412 ../panel-plugin/main.c:413
 msgid "Autostart Clipman"
 msgstr "Clipman の自動起動"
 
-#: ../panel-plugin/main.c:393
+#: ../panel-plugin/main.c:413
 msgid "Do you want to autostart the clipboard manager?"
 msgstr "クリップボードマネージャを自動起動にしますか?"
 
-#: ../panel-plugin/main.c:636
+#: ../panel-plugin/main.c:660
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "クリップボードマネージャ"
 
-#: ../panel-plugin/main.c:645
+#: ../panel-plugin/main.c:669
 msgid "translator-credits"
 msgstr ""
 "Daichi Kawahata\n"
 "Nobuhiro Iwamatsu"
 
-#: ../panel-plugin/main.c:838
+#: ../panel-plugin/main.c:869
 msgid "There is already a clipboard manager running"
 msgstr "クリップボードマネージャはすでに動作しています"
 
@@ -222,3 +235,11 @@ msgstr "クリップボードは空です"
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
 msgstr "有効(_E)"
+
+#~ msgid ""
+#~ "If checked, the selections will go into the history. This behavior can "
+#~ "bring the history to be unreadable, however it can be interesting in case "
+#~ "you always want to paste what you select."
+#~ msgstr ""
+#~ "チェックマークをつけると、選択領域が履歴に追加されます。このため履歴に見づ"
+#~ "らくなりますが、いつも選択した領域を貼り付けたい場合に便利です。"
