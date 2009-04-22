@@ -23,13 +23,14 @@
  */
 
 /* History */
-#define DEFAULT_MAX_TEXTS_IN_HISTORY            10
-#define DEFAULT_MAX_IMAGES_IN_HISTORY           1
-#define DEFAULT_SAVE_ON_QUIT                    TRUE
+#define DEFAULT_MAX_TEXTS_IN_HISTORY                    10
+#define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
+#define DEFAULT_SAVE_ON_QUIT                            TRUE
 
 /* Collector */
-#define DEFAULT_ADD_PRIMARY_CLIPBOARD           FALSE
-#define DEFAULT_ENABLE_ACTIONS                  FALSE
+#define DEFAULT_ADD_PRIMARY_CLIPBOARD                   FALSE
+#define DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD        FALSE
+#define DEFAULT_ENABLE_ACTIONS                          FALSE
 
 /*
  * Selection for the popup command

@@ -1,4 +1,20 @@
 2009-04-21	Mike Massonnet
+New option to exclude selections from the history
+
+	- panel-plugin/settings-dialog.glade:
+		Move option "Add selections" to new frame "Behavior" and add a
+		new option that allows to exclude the selections from the
+		history.
+	- panel-plugin/collector.c:
+		Install a new property history-ignore-primary-clipboard use it
+		inside cb_check_primary_clipboard() to prevent a selection
+		from going into the history.
+	- panel-plugin/main.c:
+		Bind new property to xfconf and the settings dialog.
+	- panel-plugin/common.h:
+		New default setting for history-ignore-primary-clipboard.
+
+2009-04-21	Mike Massonnet
 Refixing the last two commits with the right function calls
 
 	- panel-plugin/main.c:

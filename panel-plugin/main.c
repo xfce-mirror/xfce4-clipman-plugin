@@ -251,6 +251,8 @@ plugin_register ()
   plugin->collector = clipman_collector_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
+  xfconf_g_property_bind (plugin->channel, "/settings/history-ignore-primary-clipboard",
+                          G_TYPE_BOOLEAN, plugin->collector, "history-ignore-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
                           G_TYPE_BOOLEAN, plugin->collector, "enable-actions");
   xfconf_g_property_bind (plugin->channel, "/inhibit",
@@ -707,18 +709,24 @@ plugin_configure (MyPlugin *plugin)
   gtk_window_group_add_window (group, GTK_WINDOW (action_dialog));
 
   /* General settings */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
-                                DEFAULT_SAVE_ON_QUIT);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "history-ignore-selections")),
+                                DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "save-on-quit")),
+                                DEFAULT_SAVE_ON_QUIT);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (plugin->gxml, "store-an-image")),
                                 (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (plugin->gxml, "max-texts-in-history")),
                              (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
-  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "save-on-quit")), "active");
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
                           G_OBJECT (glade_xml_get_widget (plugin->gxml, "add-selections")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "history-ignore-selections")), "sensitive");
+  xfconf_g_property_bind (plugin->channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "history-ignore-selections")), "active");
+  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          G_OBJECT (glade_xml_get_widget (plugin->gxml, "save-on-quit")), "active");
   xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history", G_TYPE_UINT,
                           G_OBJECT (glade_xml_get_widget (plugin->gxml, "store-an-image")), "active");
   xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history", G_TYPE_UINT,
