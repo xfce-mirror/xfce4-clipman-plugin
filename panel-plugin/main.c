@@ -866,8 +866,7 @@ my_plugin_take_ownership ()
   if (XGetSelectionOwner (display, atom))
     {
       dialog = gtk_message_dialog_new (NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-                                       _("There is already a clipboard manager running"),
-                                       NULL);
+                                       _("There is already a clipboard manager running"));
       gtk_window_set_keep_above (GTK_WINDOW (dialog), TRUE);
       gtk_dialog_run (GTK_DIALOG (dialog));
       gtk_widget_destroy (dialog);
@@ -1187,7 +1186,7 @@ cb_actions_row_activated (GtkTreeView *treeview,
   g_hash_table_iter_init (&hiter, entry->commands);
   while (g_hash_table_iter_next (&hiter, &key, &value))
     {
-      title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
+      title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
       gtk_list_store_append (GTK_LIST_STORE (commands_model), &iter);
       gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
       g_free (title);
@@ -1278,7 +1277,7 @@ __foreach_command_fill_commands (gpointer key,
   GtkTreeIter iter;
   gchar *title;
 
-  title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
+  title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
   gtk_list_store_append (GTK_LIST_STORE (_model), &iter);
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title, 1, key, 2, value, -1);
   g_free (title);
@@ -1373,9 +1372,9 @@ cb_refresh_command (GtkButton *button,
       return;
     }
 
-  title = g_strdup_printf ("<b>%s</b>\n<small>%s</small>",
-                           gtk_entry_get_text (GTK_ENTRY (command_name)),
-                           gtk_entry_get_text (GTK_ENTRY (command)));
+  title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>",
+                                   gtk_entry_get_text (GTK_ENTRY (command_name)),
+                                   gtk_entry_get_text (GTK_ENTRY (command)));
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
                       1, gtk_entry_get_text (GTK_ENTRY (command_name)),
                       2, gtk_entry_get_text (GTK_ENTRY (command)), -1);
