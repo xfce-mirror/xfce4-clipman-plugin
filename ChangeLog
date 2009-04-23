@@ -1,4 +1,11 @@
 2009-04-23	Mike Massonnet
+Use stock item for the main icon
+
+	- panel-plugin/main.c(cb_status_icon_set_size),
+	panel-plugin/main.c(panel_plugin_set_size):
+		Use stock icon paste to fit the user icon theme.
+
+2009-04-23	Mike Massonnet
 Yet another GMarkup fix
 
 2009-04-22	Mike Massonnet

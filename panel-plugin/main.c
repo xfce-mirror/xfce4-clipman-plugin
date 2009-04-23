@@ -368,9 +368,7 @@ cb_status_icon_set_size (MyPlugin *plugin, gint size)
 {
   GdkPixbuf *pixbuf;
  
-  pixbuf = xfce_themed_icon_load ("xfce4-clipman-plugin", size);
-  if (pixbuf == NULL)
-    pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
+  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
   gtk_status_icon_set_from_pixbuf (plugin->status_icon, pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
 
@@ -484,9 +482,7 @@ panel_plugin_set_size (MyPlugin *plugin,
 
   size -= 2 + 2 * MAX (plugin->button->style->xthickness,
                        plugin->button->style->ythickness);
-  pixbuf = xfce_themed_icon_load ("xfce4-clipman-plugin", size);
-  if (pixbuf == NULL)
-    pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
+  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
   gtk_image_set_from_pixbuf (GTK_IMAGE (plugin->image), pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
 
