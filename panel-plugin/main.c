@@ -1419,7 +1419,8 @@ cb_set_action_dialog_button_ok (GtkWidget *widget,
 
   if (action_name[0] != '\0' && regex_pattern[0] != '\0' && has_commands)
     {
-      if (regex = g_regex_new (regex_pattern, 0, 0, NULL))
+      regex = g_regex_new (regex_pattern, 0, 0, NULL);
+      if (regex != NULL)
         {
           sensitive = TRUE;
           g_regex_unref (regex);
