@@ -1,4 +1,14 @@
-2009-04-23	Mike Massonnet
+2009-04-24	Mike Massonnet
+Proper block/unblock menu functions and fix locale bug
+
+	- panel-plugin/main.c:
+		Add new functions plugin_block_menu/unblock_menu to block the
+		popup menu of the status icon in a proper way.
+	- panel-plugin/main.c(plugin_about):
+		Drop the macro XFCE_LICENSE_GPL in favor of a static text.
+		Fixes bug #5285.
+
+2009-04-24	Mike Massonnet
 Fix dummy warning
 
 2009-04-23	Mike Massonnet

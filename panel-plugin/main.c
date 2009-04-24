@@ -62,6 +62,7 @@ struct _MyPlugin
   GtkWidget            *image;
   GtkWidget            *menu;
   GtkWidget            *popup_menu;
+  gulong                popup_menu_id;
 };
 
 /*
@@ -111,6 +112,8 @@ static void             cb_about_dialog_url_hook        (GtkAboutDialog *dialog,
                                                          const gchar *uri,
                                                          gpointer user_data);
 static void             plugin_configure                (MyPlugin *plugin);
+static void             plugin_block_menu               (MyPlugin *plugin);
+static void             plugin_unblock_menu             (MyPlugin *plugin);
 static void             cb_button_toggled               (GtkToggleButton *button,
                                                          MyPlugin *plugin);
 static void             cb_menu_deactivate              (GtkMenuShell *menu,
@@ -291,8 +294,9 @@ status_icon_register ()
   /* Signals */
   g_signal_connect_swapped (plugin->status_icon, "activate",
                             G_CALLBACK (cb_status_icon_activate), plugin);
-  g_signal_connect_swapped (plugin->status_icon, "popup-menu",
-                            G_CALLBACK (cb_status_icon_popup_menu), plugin);
+  plugin->popup_menu_id =
+    g_signal_connect_swapped (plugin->status_icon, "popup-menu",
+                              G_CALLBACK (cb_status_icon_popup_menu), plugin);
   g_signal_connect_swapped (plugin->status_icon, "size-changed",
                             G_CALLBACK (cb_status_icon_set_size), plugin);
   g_object_weak_ref (G_OBJECT (plugin->status_icon), (GWeakNotify)cb_status_icon_finalize, plugin);
@@ -324,9 +328,6 @@ static void
 cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
 {
   GtkWidget *mi;
-
-  if (plugin->gxml != NULL)
-    return;
 
   if (G_UNLIKELY (plugin->popup_menu == NULL))
     {
@@ -648,6 +649,11 @@ plugin_about (MyPlugin *plugin)
                                     "Nick Schermer",
                                     NULL, };
   static const gchar *documenters[] = { "Mike Massonnet", NULL, };
+  static const gchar *license =
+    "This program is free software; you can redistribute it and/or modify\n"
+    "it under the terms of the GNU General Public License as published by\n"
+    "the Free Software Foundation; either version 2 of the License, or\n"
+    "(at your option) any later version.\n";
 
   gtk_about_dialog_set_url_hook (cb_about_dialog_url_hook, NULL, NULL);
   gtk_show_about_dialog (NULL,
@@ -656,7 +662,7 @@ plugin_about (MyPlugin *plugin)
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
                          "copyright", "Copyright © 2008-2009 Mike Massonnet",
-                         "license", XFCE_LICENSE_GPL,
+                         "license", license,
                          "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin",
                          "website-label", "goodies.xfce.org",
                          "artists", artists,
@@ -757,11 +763,9 @@ plugin_configure (MyPlugin *plugin)
                           G_CALLBACK (cb_set_action_dialog_button_ok), plugin);
 
   /* Run the dialog */
-  if (plugin->panel_plugin != NULL)
-    xfce_panel_plugin_block_menu (plugin->panel_plugin);
+  plugin_block_menu (plugin);
   while (gtk_dialog_run (GTK_DIALOG (dialog)) != 0);
-  if (plugin->panel_plugin != NULL)
-    xfce_panel_plugin_unblock_menu (plugin->panel_plugin);
+  plugin_unblock_menu (plugin);
 
   gtk_widget_destroy (action_dialog);
   gtk_widget_destroy (dialog);
@@ -771,6 +775,32 @@ plugin_configure (MyPlugin *plugin)
 
   /* Save the actions */
   clipman_actions_save (plugin->actions);
+}
+
+static void
+plugin_block_menu (MyPlugin *plugin)
+{
+  if (plugin->panel_plugin != NULL)
+    {
+      xfce_panel_plugin_block_menu (plugin->panel_plugin);
+    }
+  else
+    {
+      g_signal_handler_block (plugin->status_icon, plugin->popup_menu_id);
+    }
+}
+
+static void
+plugin_unblock_menu (MyPlugin *plugin)
+{
+  if (plugin->panel_plugin != NULL)
+    {
+      xfce_panel_plugin_unblock_menu (plugin->panel_plugin);
+    }
+  else
+    {
+      g_signal_handler_unblock (plugin->status_icon, plugin->popup_menu_id);
+    }
 }
 
 static void
