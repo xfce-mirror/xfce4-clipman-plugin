@@ -642,14 +642,14 @@ plugin_free (MyPlugin *plugin)
 static void
 plugin_about (MyPlugin *plugin)
 {
-  static const gchar *artists[] = { "Mike Massonnet", NULL, };
-  static const gchar *authors[] = { "Mike Massonnet",
-                                    "", "Authors of previous versions:",
+  const gchar *artists[] = { "Mike Massonnet", NULL, };
+  const gchar *authors[] = { "Mike Massonnet",
+                                    "", _("Authors of previous versions:"),
                                     "Eduard Roccatello",
                                     "Nick Schermer",
                                     NULL, };
-  static const gchar *documenters[] = { "Mike Massonnet", NULL, };
-  static const gchar *license =
+  const gchar *documenters[] = { "Mike Massonnet", NULL, };
+  const gchar *license =
     "This program is free software; you can redistribute it and/or modify\n"
     "it under the terms of the GNU General Public License as published by\n"
     "the Free Software Foundation; either version 2 of the License, or\n"

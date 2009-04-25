@@ -1,3 +1,10 @@
+2009-04-25	Mike Massonnet
+Make strings in authors about dialog translatable
+
+	- panel-plugin/main.c(plugin_about):
+		Don't declare static strings cause gettext isn't usable this
+		way.
+
 2009-04-24	Mike Massonnet
 Proper block/unblock menu functions and fix locale bug
 
