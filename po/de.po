@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-22 22:14+0200\n"
+"POT-Creation-Date: 2009-04-25 17:31+0200\n"
 "PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
@@ -27,9 +27,9 @@ msgstr "Verwaltung der Zwischenablagen"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:205 ../panel-plugin/main.c:288
-#: ../panel-plugin/main.c:334 ../panel-plugin/main.c:445
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:208 ../panel-plugin/main.c:291
+#: ../panel-plugin/main.c:335 ../panel-plugin/main.c:444
+#: ../panel-plugin/main.c:660
 msgid "Clipman"
 msgstr "Zwischenablage"
 
@@ -193,27 +193,31 @@ msgstr ""
 "Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
 #. Ask the user
-#: ../panel-plugin/main.c:412 ../panel-plugin/main.c:413
+#: ../panel-plugin/main.c:411 ../panel-plugin/main.c:412
 msgid "Autostart Clipman"
 msgstr ""
 
-#: ../panel-plugin/main.c:413
+#: ../panel-plugin/main.c:412
 msgid "Do you want to autostart the clipboard manager?"
 msgstr ""
 
-#: ../panel-plugin/main.c:660
+#: ../panel-plugin/main.c:647
+msgid "Authors of previous versions:"
+msgstr ""
+
+#: ../panel-plugin/main.c:662
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
 
-#: ../panel-plugin/main.c:669
+#: ../panel-plugin/main.c:671
 msgid "translator-credits"
 msgstr ""
 "Enrico Tröger\n"
 "Fabian Nowak\n"
 "Simon Schneider"
 
-#: ../panel-plugin/main.c:869
+#: ../panel-plugin/main.c:895
 msgid "There is already a clipboard manager running"
 msgstr "Es läuft bereits eine Zwischenablage"
 
