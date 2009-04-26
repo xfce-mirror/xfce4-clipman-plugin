@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-25 17:31+0200\n"
+"POT-Creation-Date: 2009-04-26 19:51+0200\n"
 "PO-Revision-Date: 2009-04-19 12:17+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -91,10 +91,6 @@ msgid "Activate only on default clipboard"
 msgstr "Aktivér kun på standardklippebord"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "Add _selections"
-msgstr "Tilføj _markeringer"
-
-#: ../panel-plugin/settings-dialog.glade.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
@@ -102,31 +98,31 @@ msgstr ""
 "Som standard er denne handling udløst af en markering. Kryds denne "
 "indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
 msgstr "Kommando:"
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
 msgstr "Indstil udvidelsesmodulet"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Redigér handling"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Enable _actions"
 msgstr "Slå h_andlinger til"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "General"
 msgstr "Generel"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -134,13 +130,13 @@ msgstr ""
 "Hvis afkrydset, vil klippebordets tekst blive kontrolleret op imod regulære "
 "udtryk og en menu vil blive vist for mulige handlinger"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 #, fuzzy
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
@@ -148,38 +144,43 @@ msgstr ""
 "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
 "Xfce-session"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni "
 "historikken"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
 "Xfce-session"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
 msgstr "Navn:"
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
 msgstr "Mønster:"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
 msgstr "Gem ved _afslut"
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
 msgstr "Størrelse af _historikken:"
 
-#: ../panel-plugin/settings-dialog.glade.h:24
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
 msgstr "Gem et _billede"
+
+#: ../panel-plugin/settings-dialog.glade.h:24
+#, fuzzy
+msgid "Sync _selections"
+msgstr "Tilføj _markeringer"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""

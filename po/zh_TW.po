@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-25 17:31+0200\n"
+"POT-Creation-Date: 2009-04-26 19:51+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
@@ -90,86 +90,86 @@ msgid "Activate only on default clipboard"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-#, fuzzy
-msgid "Add _selections"
-msgstr "忽視選取的區域(_I)"
-
-#: ../panel-plugin/settings-dialog.glade.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Enable _actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "General"
 msgstr "一般"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 #, fuzzy
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "選取此項可顯示歷史字句清單中的項目編號。"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:24
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
 msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:24
+#, fuzzy
+msgid "Sync _selections"
+msgstr "忽視選取的區域(_I)"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""

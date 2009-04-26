@@ -46,7 +46,7 @@
                             <property name="spacing">6</property>
                             <child>
                               <widget class="GtkCheckButton" id="add-selections">
-                                <property name="label" translatable="yes">Add _selections</property>
+                                <property name="label" translatable="yes">Sync _selections</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
