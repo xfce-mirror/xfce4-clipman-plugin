@@ -21,7 +21,7 @@
     <copyright>
       <year>2009</year>
       <holder>&doc-author;</holder>
-    </copyright><copyright><year>2009.</year><holder>Leandro Regueiro (leandro.regueiro@gmail.com)</holder></copyright><copyright><year>podes atopar máis información en http://trasno.net</year><holder>Se desexas colaborar connosco</holder></copyright>
+    </copyright><copyright><year>2009.</year><holder>Leandro Regueiro (leandro.regueiro@gmail.com)</holder></copyright>
 
     <legalnotice id="legalnotice">
       <para>
@@ -83,7 +83,7 @@
       </para>
 
       <figure>
-        <title>Clipman Menu</title>
+        <title>Menú de Clipman</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-menu.png" format="PNG"/>
@@ -120,7 +120,7 @@
 
 
   <sect1 id="settings">
-    <title>Settings</title>
+    <title>Configuración</title>
 
     <para>
       The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It
@@ -128,7 +128,7 @@
     </para>
 
     <sect2 id="general">
-      <title>General</title>
+      <title>Xeral</title>
 
       <para>
         The following table describes the available options:
@@ -161,7 +161,7 @@
         <entry>Allows to store one image in the history</entry>
       </row>
       <row>
-        <entry>Size of the history</entry>
+        <entry>Tamaño do historial</entry>
         <entry>Sets the number of items to keep in history</entry>
       </row>
       </tbody>
@@ -169,7 +169,7 @@
       </table>
 
       <figure>
-        <title>Clipman Settings</title>
+        <title>Configuración de Clipman</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
@@ -183,7 +183,7 @@
     </sect2>
 
     <sect2 id="actions">
-      <title>Actions</title>
+      <title>Accións</title>
 
       <para>
         An action is a pair of an action name and a regular expression. Each action can have one or more commands. The
@@ -201,7 +201,7 @@
       </para>
 
       <figure>
-        <title>Clipman Settings</title>
+        <title>Configuración de Clipman</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
@@ -223,7 +223,7 @@
         properties with their possible values:
       </para>
 
-      <table frame="all"><title>Xfconf Properties</title>
+      <table frame="all"><title>Propiedades de Xfconf</title>
       <tgroup cols="4" align="left">
       <thead>
       <row>
@@ -285,7 +285,7 @@
   </sect1>
 
   <sect1 id="action">
-    <title>Action</title>
+    <title>Acción</title>
 
     <para>
       An action has a human readable name that describes the pattern it is going to match. The matches are made against
@@ -306,7 +306,7 @@
     </figure>
 
     <sect2 id="regexes">
-      <title>Regular Expression</title>
+      <title>Expresión regular</title>
 
       <para>
         Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
@@ -370,7 +370,7 @@
     </sect2>
 
     <sect2 id="command">
-      <title>Command</title>
+      <title>Comando</title>
 
       <para>
         A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
@@ -398,7 +398,7 @@
 
 
   <sect1 id="about">
-    <title>About @PACKAGE_NAME@</title>
+    <title>Acerca de @PACKAGE_NAME@</title>
 
     <para>
       @PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by
@@ -417,10 +417,7 @@
       by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
     </para>
 
-    <para>
-      You should have received a copy of the <citetitle>GNU General Public License</citetitle> along with this program;
-      if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA.
-    </para>
+    <para>Debeu recibir unha copia da Licenza Pública Xeral de GNU xunta con este programa; en caso contrario, escriba á Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA </para>
   </sect1>
 
 </article>
