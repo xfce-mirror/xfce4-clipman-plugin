@@ -1,8 +1,16 @@
+2009-05-14	Mike Massonnet
+Ask the user if the clipboard manager should be restarted
+
+	- panel-plugin/main.c(update_autostart_file):
+		New function to set the Hidden key to true or false.
+	- panel-plugin/main.c(cb_status_icon_quit):
+		Ask the user if the manager should be restarted.
+
 2009-04-26	Mike Massonnet
 Rename "Add selections" to "Sync selections"
 
 	- panel-plugin/settings-dialog.glade:
-		Rename the option Add selections
+		Rename the option Add selections.
 
 2009-04-25	Mike Massonnet
 Make strings in authors about dialog translatable

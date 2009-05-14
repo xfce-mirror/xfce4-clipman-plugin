@@ -80,6 +80,7 @@ static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
                                                          gint size);
 static void             cb_status_icon_finalize         (MyPlugin *plugin);
 static void             install_autostart_file          ();
+static void             update_autostart_file           ();
 
 /*
  * Panel Plugin
@@ -360,6 +361,11 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
 static void
 cb_status_icon_quit (MyPlugin *plugin)
 {
+  res = xfce_message_dialog (NULL, _("Autostart Clipman"), GTK_STOCK_DIALOG_QUESTION,
+                             _("Autostart Clipman"), _("Do you want to restart the clipboard manager the next time you login?"),
+                             GTK_STOCK_YES, GTK_RESPONSE_YES, GTK_STOCK_NO, GTK_RESPONSE_NO, NULL);
+  update_autostart_file (res == GTK_RESPONSE_YES);
+
   gtk_status_icon_set_visible (plugin->status_icon, FALSE);
   gtk_main_quit ();
 }
@@ -426,6 +432,35 @@ install_autostart_file ()
 
 out:
   g_free (sysfile);
+  g_free (userfile);
+}
+
+static void
+update_autostart_file (gboolean autostart)
+{
+  gchar *userfile;
+  gint res;
+  GKeyFile *keyfile;
+  gchar *data;
+
+  userfile = g_strdup_printf ("%s/autostart/"PACKAGE"-autostart.desktop", g_get_user_config_dir ());
+
+  /* Check if the user autostart file exists */
+  if (!g_file_test (userfile, G_FILE_TEST_EXISTS))
+    {
+      g_warning ("The autostart file (%s) is not installed, what did you do?", userfile);
+      g_free (userfile);
+      return;
+    }
+
+  /* Update the file */
+  keyfile = g_key_file_new ();
+  g_key_file_load_from_file (keyfile, userfile, G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+  g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, !autostart);
+  data = g_key_file_to_data (keyfile, NULL, NULL);
+  g_file_set_contents (userfile, data, -1, NULL);
+  g_free (data);
+  g_key_file_free (keyfile);
   g_free (userfile);
 }
 
