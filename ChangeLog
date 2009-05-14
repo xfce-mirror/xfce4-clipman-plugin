@@ -1,4 +1,7 @@
 2009-05-14	Mike Massonnet
+=== Release 1.0.1 ===
+
+2009-05-14	Mike Massonnet
 Ask the user if the clipboard manager should be restarted
 
 	- panel-plugin/main.c(update_autostart_file):

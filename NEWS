@@ -1,6 +1,9 @@
-Version 1.0.1 - 2009-xx-xx
+Version 1.0.1 - 2009-05-14
 
+- Renamed option "Add selections" to "Sync selections".
 - New option to ignore selections in the history.
+- If the plugin is running inside the notification area, ask the user if the
+  clipboard manager should be restarted on the next login when it gets removed.
 - Escape markups in action/commands in edit dialog.
 - Set OnlyShowIn in the desktop entry file for the menu.
 - Open the documentation in the user locale.
