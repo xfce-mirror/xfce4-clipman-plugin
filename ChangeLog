@@ -1,3 +1,9 @@
+2009-05-15	Mike Massonnet
+Do not consider text/html as text
+
+	- panel-plugin/collector.c(cb_clipboard_owner_change):
+		Drop check on text/html atom.
+
 2009-05-14	Mike Massonnet
 === Release 1.0.1 ===
 

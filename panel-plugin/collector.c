@@ -123,11 +123,9 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           text = gtk_clipboard_wait_for_text (collector->priv->default_clipboard);
           if (text != NULL && text[0] != '\0')
             {
-              /* Make Clipman the owner only if it has the target text/plain or text/html */
+              /* Make Clipman the owner only if it has the target text/plain */
               text_plain = gdk_atom_intern_static_string ("text/plain");
-              text_html = gdk_atom_intern_static_string ("text/html");
-              if (gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_plain)
-                  || gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_html))
+              if (gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_plain))
                 {
                   collector->priv->internal_change = TRUE;
                   gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
