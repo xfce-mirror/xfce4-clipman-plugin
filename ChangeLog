@@ -1,4 +1,11 @@
 2009-05-15	Mike Massonnet
+Only consider XFCE for OnlyShowIn
+
+	- xfce4-clipman-plugin.desktop.in:
+		Do not include GNOME, KDE and LXDE, it is best to show the
+		Xfce Clipman Plugin only inside an XFCE menu.
+
+2009-05-15	Mike Massonnet
 Do not consider text/html as text
 
 	- panel-plugin/collector.c(cb_clipboard_owner_change):
