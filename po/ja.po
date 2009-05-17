@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-27 13:28+0900\n"
+"POT-Creation-Date: 2009-05-18 00:44+0900\n"
+"PO-Revision-Date: 2009-05-16 00:42+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -196,9 +196,8 @@ msgid "Autostart Clipman"
 msgstr "Clipman の自動起動"
 
 #: ../panel-plugin/main.c:366
-#, fuzzy
 msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr "クリップボードマネージャを自動起動にしますか?"
+msgstr "次回ログイン時にクリップボードマネージャを自動起動しますか?"
 
 #: ../panel-plugin/main.c:419
 msgid "Do you want to autostart the clipboard manager?"
