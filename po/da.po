@@ -5,10 +5,10 @@
 # Per Kongstad <p_kongstad@op.pl>, 2008, 09.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 1.0.1\n"
+"Project-Id-Version: xfce4-clipman-plugin 1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-26 18:07+0100\n"
+"PO-Revision-Date: 2009-05-26 16:57+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -22,13 +22,15 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboards manager"
-msgstr "Klippebordshåndtering"
+msgstr "Udklipsholderhåndtering"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
+#: ../panel-plugin/main.c:209
+#: ../panel-plugin/main.c:292
+#: ../panel-plugin/main.c:336
+#: ../panel-plugin/main.c:480
 #: ../panel-plugin/main.c:696
 msgid "Clipman"
 msgstr "Clipman"
@@ -87,15 +89,11 @@ msgstr "Handlinger"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on default clipboard"
-msgstr "Aktivér kun på standardklippebord"
+msgstr "Aktivér kun på standardudklipholder"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Som standard er denne handling udløst af en markering. Kryds denne "
-"indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Som standard er denne handling udløst af en markering. Kryds denne indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -122,40 +120,24 @@ msgid "General"
 msgstr "Generel"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Hvis afkrydset, vil klippebordets tekst blive kontrolleret op imod regulære "
-"udtryk og en menu vil blive vist for mulige handlinger"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Hvis afkrydset, vil udklipsholders tekst blive kontrolleret op imod regulære udtryk og en menu vil blive vist for mulige handlinger"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Hvis afkrydset, vil markeringerne blive synkroniseret med "
-"standardklippebordet på en måde som tillader dig, at indsætte hvad du vælger"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Hvis afkrydset, vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Hvis afkrydset, vil markeringerne ikke have indflydelse på historikken "
-"undtaget de manuelle kopieringer"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Hvis afkrydset, vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni "
-"historikken"
+msgstr "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni historikken"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
-"Xfce-session"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -178,36 +160,28 @@ msgid "Store an _image"
 msgstr "Gem et _billede"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Tilføj _markeringer"
+msgstr "Synkronisér _markeringer"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i "
-"kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke "
-"har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman "
-"for at få kendskab til dem."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman for at få kendskab til dem."
 
 #. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
+#: ../panel-plugin/main.c:365
+#: ../panel-plugin/main.c:366
+#: ../panel-plugin/main.c:418
+#: ../panel-plugin/main.c:419
 msgid "Autostart Clipman"
 msgstr "Autostart Clipman"
 
 #: ../panel-plugin/main.c:366
-#, fuzzy
 msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr "Ønsker du at autostarte klippebordshåndteringen?"
+msgstr "Ønsker du at at genstarte udklipsholderhåndteringen ved næste logind?"
 
 #: ../panel-plugin/main.c:419
 msgid "Do you want to autostart the clipboard manager?"
-msgstr "Ønsker du at autostarte klippebordshåndteringen?"
+msgstr "Ønsker du at starte udklipsholderhåndteringen automatisk?"
 
 #: ../panel-plugin/main.c:683
 msgid "Authors of previous versions:"
@@ -215,7 +189,7 @@ msgstr "Forfattere af tidligere versioner:"
 
 #: ../panel-plugin/main.c:698
 msgid "Clipboard Manager for Xfce"
-msgstr "Klippebordshåndtering til Xfce"
+msgstr "Udklipsholderhåndtering til Xfce"
 
 #: ../panel-plugin/main.c:707
 msgid "translator-credits"
@@ -225,7 +199,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:931
 msgid "There is already a clipboard manager running"
-msgstr "Der kører allerede en klippebordshåndtering"
+msgstr "Der kører allerede en udklipsholderhåndtering"
 
 #: ../panel-plugin/actions.c:340
 #, c-format
@@ -245,7 +219,7 @@ msgstr "Er du sikker på, at du ønsker at slette historikken?"
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:196
 msgid "Clipboard is empty"
-msgstr "Klippebord er tomt"
+msgstr "Udklipsholder er tomt"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
@@ -259,40 +233,30 @@ msgstr "_Slå til"
 #~ "Hvis afkrydset, vil markeringerne blive gemt i historikken. Denne "
 #~ "opførsel kan gøre hele historikken ubrugelig. Det kan dog være "
 #~ "interessant for dig, hvis du altid vil indsætte hele din markering."
-
 #~ msgid "Regex:"
 #~ msgstr "Reg. udtryk:"
-
 #~ msgid ""
 #~ "Enable the actions to match the clipboard texts against regular "
 #~ "expressions"
 #~ msgstr ""
-#~ "Slå handlingerne til for at overensstemme klippebordets tekster imod "
+#~ "Slå handlingerne til for at overensstemme udklipsholders tekster imod "
 #~ "regulære udtryk"
-
 #~ msgid "Edit Command"
 #~ msgstr "Redigér kommando"
-
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kan ikke åbne denne url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Gem klippebordsindhold ved _afslutning"
-
+#~ msgstr "Gem udklipsholderindhold ved _afslutning"
 #~ msgid "_Show item numbers"
 #~ msgstr "_Vis elementnumre"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Generel</b>"
-
 #~ msgid "Clipboard history items:"
-#~ msgstr "Klippebordshistorik:"
-
+#~ msgstr "Udklipholderhistorik:"
 #~ msgid "Menu item characters:"
 #~ msgstr "Menupunkts-tegn:"
-
 #~ msgid "Clear History"
 #~ msgstr "Slet historik"
-
 #~ msgid "Clipman History"
 #~ msgstr "Clipman-historik"
+
