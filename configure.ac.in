@@ -123,6 +123,9 @@ docs/manual/C/images/Makefile
 docs/manual/gl/Makefile
 docs/manual/gl/xfce4-clipman-plugin.xml
 docs/manual/gl/images/Makefile
+docs/manual/ja/Makefile
+docs/manual/ja/xfce4-clipman-plugin.xml
+docs/manual/ja/images/Makefile
 ])
 
 dnl ***************************
