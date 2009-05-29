@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-18 13:08+0100\n"
+"PO-Revision-Date: 2009-05-22 10:53+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -70,9 +70,8 @@ msgid "<b>Action</b>"
 msgstr "<b>Acció</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Comportament del porta-retalls</b>"
+msgstr "<b>Comportament</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
@@ -108,7 +107,7 @@ msgstr "Configurar el connector"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr ""
+msgstr "E_xcloure de l'historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
@@ -135,14 +134,15 @@ msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
+"Si està marcat, les seleccions seran sincronitzades amb el porta-retalls per "
+"defecte per tal que pugueu enganxar el que seleccioneu"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-#, fuzzy
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
-"Si està activat aquesta opció permet recuperar l'historial en cadascuna de "
-"les noves sessions de Xfce"
+"Si la casella està marcada, les seleccions, llevat de les còpies manuals, no "
+"afectaran l'historial."
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
@@ -177,9 +177,8 @@ msgid "Store an _image"
 msgstr "Emmagatzemar una _imatge"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Afegir _seleccions"
+msgstr "Sincronitzar _seleccions"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""
@@ -200,9 +199,10 @@ msgid "Autostart Clipman"
 msgstr "Iniciar Clipman automàticament"
 
 #: ../panel-plugin/main.c:366
-#, fuzzy
 msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
+msgstr ""
+"Voleu iniciar automàticament el gestor del porta-retalls el proper cop que "
+"inicieu la sessió?"
 
 #: ../panel-plugin/main.c:419
 msgid "Do you want to autostart the clipboard manager?"
@@ -210,7 +210,7 @@ msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
 
 #: ../panel-plugin/main.c:683
 msgid "Authors of previous versions:"
-msgstr ""
+msgstr "Autors de les versions anteriors:"
 
 #: ../panel-plugin/main.c:698
 msgid "Clipboard Manager for Xfce"
