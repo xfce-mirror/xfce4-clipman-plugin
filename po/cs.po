@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-18 12:27+0200\n"
+"PO-Revision-Date: 2009-06-07 16:20+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,187 +22,173 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboards manager"
-msgstr "Správce schránky"
+msgstr "Správce schránek"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
+#: ../panel-plugin/main.c:209
+#: ../panel-plugin/main.c:292
+#: ../panel-plugin/main.c:336
+#: ../panel-plugin/main.c:480
 #: ../panel-plugin/main.c:696
 msgid "Clipman"
 msgstr "Správce schránky"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Chyby"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Upravit pomocí aplikace Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Chyba prostředí GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "Dlouhá adresa URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Zkrátit adresu URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Zobrazit v aplikaci Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Chyba prostředí Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Akce</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Chování schránky</b>"
+msgstr "<b>Chování</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Čísla</b>"
+msgstr "<b>Příkazy</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historie</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on default clipboard"
-msgstr ""
+msgstr "Aktivovat pouze na výchozí schránce"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Ve výchozím nastavení je akce spuštěna výběrem, zaškrtněnte tuto volbu pro spuštění akce pouze při ručním kopírování"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Příkaz:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Nastavit zásuvný modul"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr ""
+msgstr "_Vyjmout z historie"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
-#, fuzzy
 msgid "Edit Action"
-msgstr "Upravit obsah"
+msgstr "Upravit akci"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Enable _actions"
-msgstr ""
+msgstr "Povolit _akce"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "General"
 msgstr "Obecné"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Pokud je volba zaškrtnuta, text schránky bude otestován na shodu s regulárním výrazem a nabídka zobrazí možné akce"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Pokud je volba zaškrtnuta, výběry budou synchronizovány s výchozí schránkou tak, že budete moci vložit to, co označíte"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Pokud je volba zaškrtnuta, výběry neovlivní historii, kromě ručního kopírování"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Pokud je volba zaškrtnuta, bude možné uložit jeden obrázek v historii"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Pokud je volba zaškrtnuta, bude historie obnovena při každém přihlášení do nové relace Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Název:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Vzorek:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
-msgstr ""
+msgstr "_Uložit při ukončení"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Velikost _historie:"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
-msgstr ""
+msgstr "Uložit _obrázek"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "_Ignorovat výběry"
+msgstr "_Synchronizovat výběry"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "V příkazech můžete použít nahrazovací parametry \"\\1\", \"\\2\", atd. Parametr \"\\0\" představuje úplný text. Naznáte-li regulární výrazy, nahlédněte do dokumentace aplikace Clipman, která obsahuje úvod do této problematiky."
 
 #. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
+#: ../panel-plugin/main.c:365
+#: ../panel-plugin/main.c:366
+#: ../panel-plugin/main.c:418
+#: ../panel-plugin/main.c:419
 msgid "Autostart Clipman"
-msgstr ""
+msgstr "Automaticky spustit aplikaci Clipman"
 
 #: ../panel-plugin/main.c:366
 msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
+msgstr "Chcete restartovat správce schránky po příštím přihlášení?"
 
 #: ../panel-plugin/main.c:419
 msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
+msgstr "Chcete automaticky spouštět správce schránky?"
 
 #: ../panel-plugin/main.c:683
 msgid "Authors of previous versions:"
-msgstr ""
+msgstr "Autoři předchozích verzí:"
 
 #: ../panel-plugin/main.c:698
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Správce schránky pro prostředí Xfce"
 
@@ -212,7 +198,7 @@ msgstr "Michal Várady"
 
 #: ../panel-plugin/main.c:931
 msgid "There is already a clipboard manager running"
-msgstr ""
+msgstr "Již je spuštěn správce schránky"
 
 #: ../panel-plugin/actions.c:340
 #, c-format
@@ -221,6 +207,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Nelze spustit příkaz \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
@@ -228,84 +217,61 @@ msgstr "Opravdu chcete vyprázdnit historii?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:196
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Schránka je prázdná >"
+msgstr "Schránka je prázdná"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
-msgstr ""
+msgstr "_Povolit"
 
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Nelze otevřít následující adresu url: %s"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Uložit obsah schránky při _ukončení"
-
 #~ msgid "A_dd selections to the history"
 #~ msgstr "Přidat výběry do historie"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Zobrazovat čísla položek"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Obecné</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Položky historie nabídky:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Znaky položek nabídky:"
-
 #~ msgid "Clear History"
 #~ msgstr "Vyprázdnit historii"
-
 #~ msgid "Clipman History"
 #~ msgstr "Historie správce schránky"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "_Zamezit vyprázdnění schránky"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "_Správa běžné schránky"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Striktně oddělit _obě schránky"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "O_ddělit schránky"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Vzhled nabídky</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Vzhled"
-
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "Opravdu chcete odebrat tuto položku z historie?"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Výchozí historie je prázdná >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Historie výběrů je prázdná >"
-
 #~ msgid "Visit the goodies website for more information about this plugin."
 #~ msgstr ""
 #~ "Pro více informací o tomto zásuvném modulu navštivte webovou stránku Xfce "
 #~ "Goodies."
-
 #~ msgid "Properties"
 #~ msgstr "Vlastnosti"
-
 #~ msgid "Use _colored menu items"
 #~ msgstr "Použít _barevné položky nabídky"
-
 #~ msgid "Developer"
 #~ msgstr "Vývojář"
-
 #~ msgid "Question"
 #~ msgstr "Otázka"
-
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Co chcete dělat s touto položkou schránky?"
+
