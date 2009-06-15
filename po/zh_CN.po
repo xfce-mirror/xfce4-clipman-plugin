@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-05-08 02:20+0800\n"
+"PO-Revision-Date: 2009-06-10 01:18+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,9 +69,8 @@ msgid "<b>Action</b>"
 msgstr "<b>动作</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>剪贴板行为</b>"
+msgstr "<b>行为</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
@@ -94,6 +93,8 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
+"默认情况下选中即激活此动作，如果只需要在您手动进行复制时执行此动作，"
+"请选中此选项"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -105,7 +106,7 @@ msgstr "配置此插件"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr ""
+msgstr "从历史记录中排除(_X)"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
@@ -124,20 +125,20 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"如果选中该项，剪切板中的文字将会使用正则表达式进行匹配，并弹出供选择动作的菜"
-"单"
+"如果选中此项，剪贴板中的文字将会使用正则表达式进行匹配，"
+"并弹出供选择动作的菜单"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
+"如果选中此项，选择的内容将会被同步到剪贴板中以便您粘贴选择的内容"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-#, fuzzy
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "选中该项将在每次Xfce会话启动时恢复历史记录"
+msgstr "如果选中此项，除非手动进行复制，否则选择的内容将不会影响历史记录"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
@@ -154,7 +155,7 @@ msgstr "名字:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "匹配模式:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
@@ -169,9 +170,8 @@ msgid "Store an _image"
 msgstr "保存一幅图像(_i)"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "添加选取的区域(_s)"
+msgstr "同步选取的区域(_s)"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""
@@ -187,24 +187,23 @@ msgstr ""
 #: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
 #: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
 msgid "Autostart Clipman"
-msgstr ""
+msgstr "自动启动剪贴板管理器"
 
 #: ../panel-plugin/main.c:366
 msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
+msgstr "您希望在下次登录时重新启动剪贴板管理器吗？"
 
 #: ../panel-plugin/main.c:419
 msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
+msgstr "是否让剪贴板管理器自动启动？"
 
 #: ../panel-plugin/main.c:683
 msgid "Authors of previous versions:"
-msgstr ""
+msgstr "之前版本的作者:"
 
 #: ../panel-plugin/main.c:698
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 桌面环境的剪贴板管理程式"
+msgstr "Xfce 桌面环境的剪贴板管理器"
 
 #: ../panel-plugin/main.c:707
 msgid "translator-credits"
@@ -214,7 +213,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:931
 msgid "There is already a clipboard manager running"
-msgstr ""
+msgstr "已有一个剪贴板管理器正在运行中"
 
 #: ../panel-plugin/actions.c:340
 #, c-format
@@ -223,6 +222,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"无法执行命令 \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:123
 msgid "Are you sure you want to clear the history?"
@@ -231,11 +233,11 @@ msgstr "您确定您想要清除历史记录吗？"
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:196
 msgid "Clipboard is empty"
-msgstr "< 历史记录空白 >"
+msgstr "历史记录为空"
 
 #: ../panel-plugin/menu.c:262
 msgid "_Enable"
-msgstr ""
+msgstr "允许(_E)"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
