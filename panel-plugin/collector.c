@@ -49,7 +49,6 @@ struct _ClipmanCollectorPrivate
   gboolean              add_primary_clipboard;
   gboolean              history_ignore_primary_clipboard;
   gboolean              enable_actions;
-  gboolean              inhibit;
 };
 
 enum
@@ -57,7 +56,6 @@ enum
   ADD_PRIMARY_CLIPBOARD = 1,
   HISTORY_IGNORE_PRIMARY_CLIPBOARD,
   ENABLE_ACTIONS,
-  INHIBIT,
 };
 
 static void             clipman_collector_class_init        (ClipmanCollectorClass *klass);
@@ -97,14 +95,6 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   GdkPixbuf *image;
   GdkAtom text_plain, text_html;
 
-  /* Skip if the collector is inhibit */
-  if (collector->priv->inhibit == TRUE)
-    return;
-
-  /* Take only care of new clipboard content */
-  if (event->reason != GDK_OWNER_CHANGE_NEW_OWNER)
-    return;
-
   /* Jump over if the content is set from within clipman */
   if (collector->priv->internal_change)
     {
@@ -117,37 +107,18 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
     {
       has_text = gtk_clipboard_wait_is_text_available (collector->priv->default_clipboard);
       has_image = gtk_clipboard_wait_is_image_available (collector->priv->default_clipboard);
-
       if (has_text)
         {
           text = gtk_clipboard_wait_for_text (collector->priv->default_clipboard);
           if (text != NULL && text[0] != '\0')
-            {
-              /* Make Clipman the owner only if it has the target text/plain */
-              text_plain = gdk_atom_intern_static_string ("text/plain");
-              if (gtk_clipboard_wait_is_target_available (collector->priv->default_clipboard, text_plain))
-                {
-                  collector->priv->internal_change = TRUE;
-                  gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
-                }
-
-              /* Add to history */
-              clipman_history_add_text (collector->priv->history, text);
-            }
+            clipman_history_add_text (collector->priv->history, text);
           g_free (text);
         }
       else if (has_image)
         {
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
-            {
-              /* Make Clipman the owner */
-              collector->priv->internal_change = TRUE;
-              gtk_clipboard_set_image (collector->priv->default_clipboard, image);
-
-              /* Add to history */
-              clipman_history_add_image (collector->priv->history, image);
-            }
+            clipman_history_add_image (collector->priv->history, image);
           g_object_unref (image);
         }
     }
@@ -177,7 +148,6 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
   if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
     return TRUE;
 
-  /* Copy the text to the history */
   if (gtk_clipboard_wait_is_text_available (collector->priv->primary_clipboard))
     {
       text = gtk_clipboard_wait_for_text (collector->priv->primary_clipboard);
@@ -222,21 +192,6 @@ void
 clipman_collector_set_is_restoring (ClipmanCollector *collector)
 {
   collector->priv->internal_change = TRUE;
-}
-
-/**
- * clipman_collector_inhibit:
- * @collector: a #ClipmanCollector
- * @inhibit: TRUE if the collector should be deactivated
- *
- * Set to TRUE to disable the collector, FALSE to let it read the clipboard
- * contents.
- */
-void
-clipman_collector_inhibit (ClipmanCollector *collector,
-                           gboolean inhibit)
-{
-  g_object_set (collector, "inhibit", inhibit, NULL);
 }
 
 ClipmanCollector *
@@ -293,13 +248,6 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "EnableActions",
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
-
-  g_object_class_install_property (object_class, INHIBIT,
-                                   g_param_spec_boolean ("inhibit",
-                                                         "Inhibit",
-                                                         "Set to TRUE to disable the collector",
-                                                         FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
@@ -363,10 +311,6 @@ clipman_collector_set_property (GObject *object,
       priv->enable_actions = g_value_get_boolean (value);
       break;
 
-    case INHIBIT:
-      priv->inhibit = g_value_get_boolean (value);
-      break;
-
     default:
       break;
     }
@@ -394,12 +338,7 @@ clipman_collector_get_property (GObject *object,
       g_value_set_boolean (value, priv->enable_actions);
       break;
 
-    case INHIBIT:
-      g_value_set_boolean (value, priv->inhibit);
-      break;
-
     default:
       break;
     }
 }
-

@@ -1,3 +1,11 @@
+2009-06-28	Mike Massonnet
+Drop inhibit option
+
+	- panel-plugin/collector.[ch]:
+		Remove inhibit property.
+	- panel-plugin/main.c, panel-plugin/menu.c:
+		Same here, wipe out code related to the inhibit option.
+
 2009-05-15	Mike Massonnet
 Only consider XFCE for OnlyShowIn
 
