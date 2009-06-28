@@ -13,7 +13,7 @@ m4_define([project_version_major], [1])
 m4_define([project_version_minor], [0])
 m4_define([project_version_micro], [2])
 m4_define([project_version_build], [r@REVISION@])
-m4_define([project_version_tag], [svn]) # leave empty for release
+m4_define([project_version_tag], []) # leave empty for release
 m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [svn], [project_version_tag()-project_version_build()], [project_version_tag()])])
 
 dnl ***************************
