@@ -24,7 +24,7 @@ endif
 # Popup Command
 #
 
-bin_PROGRAMS = xfce4-clipman-plugin xfce4-popup-clipman
+bin_PROGRAMS = xfce4-clipman-plugin xfce4-popup-clipman xfce4-clipman-settings
 
 xfce4_popup_clipman_SOURCES =						\
 	xfce4-popup-clipman.c						\
@@ -44,6 +44,34 @@ xfce4_popup_clipman_LDADD =						\
 	$(NULL)
 
 #
+# Settings dialog
+#
+
+xfce4_clipman_settings_SOURCES =					\
+	xfce4-clipman-settings.c					\
+	common.h							\
+	settings-dialog_glade.h						\
+	actions.c			actions.h			\
+	$(NULL)
+
+xfce4_clipman_settings_CFLAGS =						\
+	@GTK_CFLAGS@							\
+	@EXO_CFLAGS@							\
+	@LIBXFCEGUI4_CFLAGS@						\
+	@XFCONF_CFLAGS@							\
+	@GLADE_CFLAGS@							\
+	$(NULL)
+
+xfce4_clipman_settings_LDADD =						\
+	@GTK_LIBS@							\
+	@EXO_LIBS@							\
+	@LIBXFCEGUI4_LIBS@						\
+	@XFCONF_LIBS@							\
+	@GLADE_LIBS@							\
+	$(NULL)
+
+
+#
 # Plugin
 #
 
@@ -54,7 +82,6 @@ xfce4_clipman_plugin_SOURCES =						\
 	collector.c			collector.h			\
 	history.c			history.h			\
 	menu.c				menu.h				\
-	settings-dialog_glade.h						\
 	$(NULL)
 
 xfce4_clipman_plugin_CFLAGS =						\
@@ -66,7 +93,6 @@ xfce4_clipman_plugin_CFLAGS =						\
 	@LIBXFCEGUI4_CFLAGS@						\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
-	@GLADE_CFLAGS@							\
 	$(NULL)
 
 xfce4_clipman_plugin_LDADD =						\
@@ -78,7 +104,6 @@ xfce4_clipman_plugin_LDADD =						\
 	@LIBXFCEGUI4_LIBS@						\
 	@LIBXFCE4PANEL_LIBS@						\
 	@XFCONF_LIBS@							\
-	@GLADE_LIBS@							\
 	$(NULL)
 
 #

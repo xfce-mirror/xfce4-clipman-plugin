@@ -61,6 +61,7 @@ static void             clipman_actions_finalize            (GObject *object);
  * Misc functions declarations
  */
 
+static void            _clipman_actions_free_list           (ClipmanActions *actions);
 static gint           __clipman_actions_entry_compare       (gpointer a,
                                                              gpointer b);
 static gint           __clipman_actions_entry_compare_name  (gpointer a,
@@ -346,6 +347,15 @@ cb_entry_activated (GtkMenuItem *mi,
 /*
  * Misc functions
  */
+
+static void
+_clipman_actions_free_list (ClipmanActions *actions)
+{
+  GSList *l;
+  for (l = actions->priv->entries; l != NULL; l = l->next)
+    __clipman_actions_entry_free (l->data);
+  g_slist_free (actions->priv->entries);
+}
 
 static gint
 __clipman_actions_entry_compare (gpointer a,
@@ -853,10 +863,6 @@ static void
 clipman_actions_finalize (GObject *object)
 {
   ClipmanActions *actions = CLIPMAN_ACTIONS (object);
-  GSList *l;
-
-  for (l = actions->priv->entries; l != NULL; l = l->next)
-    __clipman_actions_entry_free (l->data);
-  g_slist_free (actions->priv->entries);
+  _clipman_actions_free_list (actions);
 }
 
