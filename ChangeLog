@@ -1,3 +1,6 @@
+2009-07-02	Mike Massonnet
+Forgot to use plugin.h in main-panel-plugin.c
+
 2009-07-01	Mike Massonnet
 Split Clipman in two binaries, one for the panel and one for notification area
 

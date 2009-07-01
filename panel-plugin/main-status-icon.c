@@ -27,7 +27,6 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <libxfcegui4/libxfcegui4.h>
-#include <xfconf/xfconf.h>
 
 #include "common.h"
 #include "plugin.h"

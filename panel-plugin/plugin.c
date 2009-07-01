@@ -103,7 +103,6 @@ plugin_register ()
 void
 plugin_load (MyPlugin *plugin)
 {
-  GtkClipboard *clipboard;
   GKeyFile *keyfile;
   gchar **texts = NULL;
   gchar *filename;
@@ -115,8 +114,6 @@ plugin_load (MyPlugin *plugin)
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
   if (save_on_quit == FALSE)
     return;
-
-  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
 
   /* Load images */
   while (TRUE)
