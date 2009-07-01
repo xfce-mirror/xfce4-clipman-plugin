@@ -1,3 +1,11 @@
+2009-05-30	Mike Massonnet
+Use GIO to track changes over the actions xml file
+
+	- panel-plugin/actions.c:
+		Use a GFile and replace old functions g_file_set/get_contents
+		against g_file_replace/load_contents. Note: the function
+		g_file_replace_contents does not work with size = -1.
+
 2009-05-29	Mike Massonnet
 Move the settings dialog outside
 

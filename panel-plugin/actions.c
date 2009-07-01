@@ -30,6 +30,11 @@
 #include <locale.h>
 #endif
 
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
+#include <gio/gio.h>
 #include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
@@ -49,6 +54,8 @@ G_DEFINE_TYPE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)
 
 struct _ClipmanActionsPrivate
 {
+  GFile                *file;
+  GFileMonitor         *file_monitor;
   GSList               *entries;
   GtkWidget            *menu;
 };
@@ -82,6 +89,11 @@ static void           __foreach_command_write_xml           (gpointer key,
 
 static void             cb_entry_activated                  (GtkMenuItem *mi,
                                                              gpointer user_data);
+static void             cb_file_changed                     (ClipmanActions *actions,
+                                                             GFile *file,
+                                                             GFile *other_file,
+                                                             GFileMonitorEvent event_type);
+static gboolean         timeout_file_changed                (ClipmanActions *actions);
 
 /*
  * XML Parser declarations
@@ -344,6 +356,29 @@ cb_entry_activated (GtkMenuItem *mi,
   g_free (real_command);
 }
 
+static void
+cb_file_changed (ClipmanActions *actions,
+                 GFile *file,
+                 GFile *other_file,
+                 GFileMonitorEvent event_type)
+{
+  static guint timeout = 0;
+  if (event_type == G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT)
+    {
+      if (timeout > 0)
+        g_source_remove (timeout);
+      timeout = g_timeout_add_seconds (1, (GSourceFunc)timeout_file_changed, actions);
+    }
+}
+
+static gboolean
+timeout_file_changed (ClipmanActions *actions)
+{
+  _clipman_actions_free_list (actions);
+  clipman_actions_load (actions);
+  return FALSE;
+}
+
 /*
  * Misc functions
  */
@@ -355,6 +390,7 @@ _clipman_actions_free_list (ClipmanActions *actions)
   for (l = actions->priv->entries; l != NULL; l = l->next)
     __clipman_actions_entry_free (l->data);
   g_slist_free (actions->priv->entries);
+  actions->priv->entries = NULL;
 }
 
 static gint
@@ -702,40 +738,38 @@ clipman_actions_load (ClipmanActions *actions)
 {
   gchar *filename;
   gchar *data;
-  gsize size;
+  gssize size;
   gboolean load;
   GMarkupParseContext *context;
   EntryParser *parser;
 
-  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
-  load = g_file_get_contents (filename, &data, &size, NULL);
+  load = g_file_load_contents (actions->priv->file, NULL, &data, &size, NULL, NULL);
 
   if (!load)
     {
-      g_free (filename);
       filename = g_strdup (SYSCONFDIR"/xdg/xfce4/panel/xfce4-clipman-actions.xml");
       load = g_file_get_contents (filename, &data, &size, NULL);
+      g_free (filename);
     }
 
   if (!load)
-    g_warning ("Unable to load actions from an XML file");
-
-  DBG ("Load actions from file %s", filename);
-
-  if (load)
     {
-      parser = g_slice_new0 (EntryParser);
-      parser->actions = actions;
-      parser->locale = setlocale (LC_MESSAGES, NULL);
-      context = g_markup_parse_context_new (&markup_parser, 0, parser, NULL);
-      g_markup_parse_context_parse (context, data, (gssize)size, NULL);
-      if (!g_markup_parse_context_end_parse (context, NULL))
-        g_warning ("Error parsing the XML file");
-      g_markup_parse_context_free (context);
-      g_slice_free (EntryParser, parser);
+      g_warning ("Unable to load actions from an XML file");
+      return;
     }
 
-  g_free (filename);
+  DBG ("Load actions from file");
+
+  parser = g_slice_new0 (EntryParser);
+  parser->actions = actions;
+  parser->locale = setlocale (LC_MESSAGES, NULL);
+  context = g_markup_parse_context_new (&markup_parser, 0, parser, NULL);
+  g_markup_parse_context_parse (context, data, size, NULL);
+  if (!g_markup_parse_context_end_parse (context, NULL))
+    g_warning ("Error parsing the XML file");
+  g_markup_parse_context_free (context);
+  g_slice_free (EntryParser, parser);
+
   g_free (data);
 }
 
@@ -748,7 +782,6 @@ void
 clipman_actions_save (ClipmanActions *actions)
 {
   ClipmanActionsEntry *entry;
-  gchar *filename;
   gchar *data;
   GString *output;
   gchar *tmp;
@@ -804,13 +837,12 @@ clipman_actions_save (ClipmanActions *actions)
   g_string_append (output, "</actions>");
 
   /* And now write output to the xml file */
-  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
-  DBG ("Save actions to file %s", filename);
+  DBG ("Save actions to file");
   data = g_string_free (output, FALSE);
-  if (!g_file_set_contents (filename, data, -1, NULL))
-    g_warning ("Unable to write the actions to the XML file %s", filename);
+  if (!g_file_replace_contents (actions->priv->file, data, strlen (data), NULL, FALSE,
+                                G_FILE_CREATE_NONE, NULL, NULL, NULL))
+    g_warning ("Unable to write the actions to the XML file");
 
-  g_free (filename);
   g_free (data);
 }
 
@@ -854,9 +886,21 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
 static void
 clipman_actions_init (ClipmanActions *actions)
 {
+  gchar *filename;
+
   actions->priv = GET_PRIVATE (actions);
 
+  /* Actions file */
+  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
+  actions->priv->file = g_file_new_for_path (filename);
+  g_free (filename);
+
+  /* Load initial actions */
   clipman_actions_load (actions);
+
+  /* Listen on xml file changes */
+  actions->priv->file_monitor = g_file_monitor_file (actions->priv->file, G_FILE_MONITOR_NONE, NULL, NULL);
+  g_signal_connect_swapped (actions->priv->file_monitor, "changed", G_CALLBACK (cb_file_changed), actions);
 }
 
 static void
@@ -864,5 +908,7 @@ clipman_actions_finalize (GObject *object)
 {
   ClipmanActions *actions = CLIPMAN_ACTIONS (object);
   _clipman_actions_free_list (actions);
+  g_object_unref (actions->priv->file_monitor);
+  g_object_unref (actions->priv->file);
 }
 

@@ -647,7 +647,7 @@ plugin_about (MyPlugin *plugin)
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
-                         "copyright", "Copyright © 2008-2009 Mike Massonnet",
+                         "copyright", "Copyright © 2003-2009 The Xfce development team",
                          "license", license,
                          "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin",
                          "website-label", "goodies.xfce.org",

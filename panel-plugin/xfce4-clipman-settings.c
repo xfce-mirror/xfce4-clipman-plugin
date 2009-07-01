@@ -73,11 +73,8 @@ prop_dialog_run ()
   /* GladeXML */
   gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
 
-  /* Settings dialog */
+  /* Dialogs */
   dialog = glade_xml_get_widget (gxml, "settings-dialog");
-
-  /* Action dialog */
-  actions = clipman_actions_get ();
   action_dialog = glade_xml_get_widget (gxml, "action-dialog");
 
   /* General settings */
@@ -423,7 +420,7 @@ cb_delete_action (GtkButton *button)
 
 
 
-/* Entry Dialog */
+/* Actions Entry */
 static void
 setup_commands_treeview (GtkTreeView *treeview)
 {
@@ -633,7 +630,10 @@ main (gint argc,
   xfconf_init (NULL);
   gtk_init (&argc, &argv);
   xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
+  actions = clipman_actions_get ();
   prop_dialog_run ();
+  g_object_unref (xfconf_channel);
+  g_object_unref (actions);
   xfconf_shutdown ();
   return 0;
 }

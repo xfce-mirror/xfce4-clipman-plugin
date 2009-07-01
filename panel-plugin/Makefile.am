@@ -55,16 +55,18 @@ xfce4_clipman_settings_SOURCES =					\
 	$(NULL)
 
 xfce4_clipman_settings_CFLAGS =						\
-	@GTK_CFLAGS@							\
+	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
+	@GTK_CFLAGS@							\
 	@LIBXFCEGUI4_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	@GLADE_CFLAGS@							\
 	$(NULL)
 
 xfce4_clipman_settings_LDADD =						\
-	@GTK_LIBS@							\
+	@GIO_LIBS@							\
 	@EXO_LIBS@							\
+	@GTK_LIBS@							\
 	@LIBXFCEGUI4_LIBS@						\
 	@XFCONF_LIBS@							\
 	@GLADE_LIBS@							\
@@ -85,10 +87,11 @@ xfce4_clipman_plugin_SOURCES =						\
 	$(NULL)
 
 xfce4_clipman_plugin_CFLAGS =						\
+	@GIO_CFLAGS@							\
+	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
-	@EXO_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
 	@LIBXFCEGUI4_CFLAGS@						\
 	@LIBXFCE4PANEL_CFLAGS@						\
@@ -96,10 +99,11 @@ xfce4_clipman_plugin_CFLAGS =						\
 	$(NULL)
 
 xfce4_clipman_plugin_LDADD =						\
+	@GIO_LIBS@							\
+	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
-	@EXO_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCEGUI4_LIBS@						\
 	@LIBXFCE4PANEL_LIBS@						\
