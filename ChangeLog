@@ -1,3 +1,19 @@
+2009-07-01	Mike Massonnet
+Split Clipman in two binaries, one for the panel and one for notification area
+
+	- panel-plugin/plugin.[ch]:
+		Contains common code for poping up the main menu, displaying
+		the settings and about dialog.
+	- panel-plugin/main-panel-plugin.c:
+		Code related to the panel plugin only. The heavy preint/check
+		functions are gone.
+	- panel-plugin/main-status-icon.c:
+		Code to build the status icon for the notification are within
+		a main function.
+	- panel-plugin/Makefile.am:
+		The panel plugin gets installed under libexec again, and the
+		standalone binary is installed under bin as xfce4-clipman.
+
 2009-05-30	Mike Massonnet
 Use GIO to track changes over the actions xml file
 

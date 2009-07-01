@@ -2,7 +2,7 @@
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
 _Name=Clipman
-_Comment=Clipboards manager
+_Comment=Clipboard manager
 Icon=xfce4-clipman-plugin
 X-XFCE-Exec=@EXTERNAL_PLUGIN_PATH@/xfce4-clipman-plugin
 X-XFCE-Unique=true

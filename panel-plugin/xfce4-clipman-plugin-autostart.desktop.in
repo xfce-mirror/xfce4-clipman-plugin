@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 _Name=Clipman
-_Comment=Clipboards manager
-TryExec=xfce4-clipman-plugin
-Exec=xfce4-clipman-plugin
+_Comment=Clipboard manager
+TryExec=xfce4-clipman
+Exec=xfce4-clipman
 Icon=xfce4-clipman-plugin
 OnlyShowIn=XFCE;
 Terminal=false

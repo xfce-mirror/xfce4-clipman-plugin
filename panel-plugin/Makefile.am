@@ -10,6 +10,8 @@ INCLUDES =								\
 	-DLOCALEDIR=\"$(localedir)\"					\
 	$(NULL)
 
+bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
+
 #
 # Maintainer Mode
 #
@@ -23,8 +25,6 @@ endif
 #
 # Popup Command
 #
-
-bin_PROGRAMS = xfce4-clipman-plugin xfce4-popup-clipman xfce4-clipman-settings
 
 xfce4_popup_clipman_SOURCES =						\
 	xfce4-popup-clipman.c						\
@@ -72,14 +72,54 @@ xfce4_clipman_settings_LDADD =						\
 	@GLADE_LIBS@							\
 	$(NULL)
 
+#
+# Status Icon
+#
+
+xfce4_clipman_SOURCES =							\
+	main-status-icon.c						\
+	common.h							\
+	plugin.c			plugin.h			\
+	actions.c			actions.h			\
+	collector.c			collector.h			\
+	history.c			history.h			\
+	menu.c				menu.h				\
+	$(NULL)
+
+xfce4_clipman_CFLAGS =							\
+	-DSTATUS_ICON							\
+	@GIO_CFLAGS@							\
+	@EXO_CFLAGS@							\
+	@LIBX11_CFLAGS@							\
+	@GDKX_CFLAGS@							\
+	@GTK_CFLAGS@							\
+	@LIBXFCE4UTIL_CFLAGS@						\
+	@LIBXFCEGUI4_CFLAGS@						\
+	@XFCONF_CFLAGS@							\
+	$(NULL)
+
+xfce4_clipman_LDADD =							\
+	@GIO_LIBS@							\
+	@EXO_LIBS@							\
+	@LIBX11_LIBS@							\
+	@GDKX_LIBS@							\
+	@GTK_LIBS@							\
+	@LIBXFCE4UTIL_LIBS@						\
+	@LIBXFCEGUI4_LIBS@						\
+	@XFCONF_LIBS@							\
+	$(NULL)
 
 #
-# Plugin
+# Panel Plugin
 #
+
+plugindir = $(libexecdir)/xfce4/panel-plugins
+plugin_PROGRAMS = xfce4-clipman-plugin
 
 xfce4_clipman_plugin_SOURCES =						\
-	main.c								\
+	main-panel-plugin.c						\
 	common.h							\
+	plugin.c			plugin.h			\
 	actions.c			actions.h			\
 	collector.c			collector.h			\
 	history.c			history.h			\
@@ -87,6 +127,7 @@ xfce4_clipman_plugin_SOURCES =						\
 	$(NULL)
 
 xfce4_clipman_plugin_CFLAGS =						\
+	-DPANEL_PLUGIN							\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
@@ -130,7 +171,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(bindir)^" \
+	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(plugindir)^" \
 		$< > $@
 
 #
@@ -159,3 +200,6 @@ CLEANFILES =								\
 	$(desktop_DATA)							\
 	$(NULL)
 
+DISTCLEANFILES =							\
+	$(BUILT_SOURCES)						\
+	$(NULL)
