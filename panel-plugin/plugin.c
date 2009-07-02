@@ -47,6 +47,17 @@ static gboolean         cb_popup_message_received       (MyPlugin *plugin,
 
 
 
+static gboolean
+clipboard_manager_ownership_exists ()
+{
+  Display *display;
+  Atom atom;
+
+  display = GDK_DISPLAY ();
+  atom = XInternAtom (display, "CLIPBOARD_MANAGER", FALSE);
+  return XGetSelectionOwner (display, atom);
+}
+
 /*
  * Plugin functions
  */
@@ -56,8 +67,15 @@ plugin_register ()
 {
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
 
-  /* Initial locale */
+  /* Locale */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
+
+  /* Daemon */
+  if (!clipboard_manager_ownership_exists ())
+    {
+      plugin->daemon = gsd_clipboard_manager_new ();
+      gsd_clipboard_manager_start (plugin->daemon, NULL);
+    }
 
   /* Xfconf */
   xfconf_init (NULL);
@@ -223,6 +241,11 @@ plugin_save (MyPlugin *plugin)
 void
 plugin_free (MyPlugin *plugin)
 {
+  if (plugin->daemon != NULL)
+    {
+      gsd_clipboard_manager_stop (plugin->daemon);
+      g_object_unref (plugin->daemon);
+    }
   gtk_widget_destroy (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);

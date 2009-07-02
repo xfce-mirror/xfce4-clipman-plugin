@@ -7,7 +7,6 @@ INCLUDES =								\
 	-DDATADIR=\"$(datadir)\"					\
 	-DSRCDIR=\"$(top_srcdir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	-DLOCALEDIR=\"$(localedir)\"					\
 	$(NULL)
 
 bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
@@ -99,6 +98,7 @@ xfce4_clipman_CFLAGS =							\
 	$(NULL)
 
 xfce4_clipman_LDADD =							\
+	$(top_builddir)/daemon/libdaemon.la				\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
@@ -140,6 +140,7 @@ xfce4_clipman_plugin_CFLAGS =						\
 	$(NULL)
 
 xfce4_clipman_plugin_LDADD =						\
+	$(top_builddir)/daemon/libdaemon.la				\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\

@@ -93,7 +93,6 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gboolean has_image;
   gchar *text;
   GdkPixbuf *image;
-  GdkAtom text_plain, text_html;
 
   /* Jump over if the content is set from within clipman */
   if (collector->priv->internal_change)

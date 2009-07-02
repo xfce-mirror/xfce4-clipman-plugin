@@ -1,4 +1,16 @@
 2009-07-02	Mike Massonnet
+Add a real good daemon
+
+	- configure.ac.in, daemon/*:
+		Add the clipboard manager daemon from gnome-settings-daemon.
+		It makes a copy of all TARGETs and uses them to restore a
+		clipboard before it is going empty.
+		This directory builds a static library daemon/libdaemon.la.
+	- panel-plugin/plugin.c:
+		Check for an existing ownership on CLIPBOARD_MANAGER, and if
+		none is found instantiate a daemon and start it.
+
+2009-07-02	Mike Massonnet
 Update autostart behavior
 
 	- panel-plugin/main-status-icon.c:

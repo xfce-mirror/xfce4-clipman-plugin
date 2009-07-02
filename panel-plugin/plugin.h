@@ -30,6 +30,7 @@
 #include <libxfce4panel/libxfce4panel.h>
 #endif
 
+#include <daemon/daemon.h>
 #include "actions.h"
 #include "collector.h"
 #include "history.h"
@@ -46,6 +47,7 @@ struct _MyPlugin
 #elif STATUS_ICON
   GtkStatusIcon        *status_icon;
 #endif
+  GsdClipboardManager  *daemon;
   XfconfChannel        *channel;
   ClipmanActions       *actions;
   ClipmanCollector     *collector;
