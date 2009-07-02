@@ -154,12 +154,7 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
 static void
 cb_status_icon_quit (MyPlugin *plugin)
 {
-  gint res;
-  res = xfce_message_dialog (NULL, _("Autostart Clipman"), GTK_STOCK_DIALOG_QUESTION,
-                             _("Autostart Clipman"), _("Do you want to restart the clipboard manager the next time you login?"),
-                             GTK_STOCK_YES, GTK_RESPONSE_YES, GTK_STOCK_NO, GTK_RESPONSE_NO, NULL);
-  update_autostart_file (res == GTK_RESPONSE_YES);
-
+  update_autostart_file (FALSE);
   gtk_status_icon_set_visible (plugin->status_icon, FALSE);
   gtk_main_quit ();
 }
