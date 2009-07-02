@@ -199,21 +199,14 @@ install_autostart_file ()
   /* Check if the user autostart file exists */
   if (g_file_test (userfile, G_FILE_TEST_EXISTS))
     {
+
       goto out;
     }
-
-  /* Ask the user */
-  res = xfce_message_dialog (NULL, _("Autostart Clipman"), GTK_STOCK_DIALOG_QUESTION,
-                             _("Autostart Clipman"), _("Do you want to autostart the clipboard manager?"),
-                             GTK_STOCK_YES, GTK_RESPONSE_YES, GTK_STOCK_NO, GTK_RESPONSE_NO, NULL);
 
   /* Copy the file */
   keyfile = g_key_file_new ();
   g_key_file_load_from_file (keyfile, sysfile, G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
-  if (res == GTK_RESPONSE_YES)
-    {
-      g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
-    }
+  g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
   data = g_key_file_to_data (keyfile, NULL, NULL);
   g_file_set_contents (userfile, data, -1, NULL);
   g_free (data);

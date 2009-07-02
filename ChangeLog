@@ -1,5 +1,11 @@
 2009-07-02	Mike Massonnet
-Set autostart file to false when user drops clipman from the notification area
+Update autostart behavior
+
+	- panel-plugin/main-status-icon.c:
+		When installing the autostart file, don't ask the user and
+		copy the file with the Hidden key set to false.
+		When dropping clipman from the notification area set the
+		autostart Hidden key to true.
 
 2009-07-02	Mike Massonnet
 Forgot to use plugin.h in main-panel-plugin.c
