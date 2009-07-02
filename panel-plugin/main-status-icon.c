@@ -199,7 +199,7 @@ install_autostart_file ()
   /* Check if the user autostart file exists */
   if (g_file_test (userfile, G_FILE_TEST_EXISTS))
     {
-
+      update_autostart_file (TRUE);
       goto out;
     }
 
