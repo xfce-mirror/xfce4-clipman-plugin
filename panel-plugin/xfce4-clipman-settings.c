@@ -155,7 +155,7 @@ cb_show_help (GtkButton *button)
   
 #ifdef ENABLE_NLS
 #ifdef HAVE_LOCALE_H
-  locale = g_strdup (setlocale (LC_ALL, ""));
+  locale = g_strdup (setlocale (LC_MESSAGES, ""));
   if (locale != NULL)
     {
       offset = g_strrstr (locale, ".");

@@ -1,4 +1,10 @@
 2009-07-04	Mike Massonnet
+Use LC_MESSAGES to show the help in the user locale
+
+	- panel-plugin/xfce4-clipman-settings.c:
+		Use LC_MESSAGES as LC_ALL isn't always set (fix bug #5524).
+
+2009-07-04	Mike Massonnet
 Update documentation
 
 2009-07-04	Mike Massonnet
