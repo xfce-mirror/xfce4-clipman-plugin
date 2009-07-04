@@ -1,4 +1,12 @@
 2009-07-04	Mike Massonnet
+Drop size callback from status icon
+
+	- panel-plugin/main-status-icon.c:
+		Remove the callback size_changed from the status icon. It has
+		a bug with the KDE notification area where the size is getting
+		smaller and smaller until something like 2 pixels...
+
+2009-07-04	Mike Massonnet
 Update test program test_action.c
 
 2009-07-04	Mike Massonnet

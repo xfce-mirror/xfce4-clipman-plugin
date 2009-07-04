@@ -81,7 +81,7 @@ status_icon_register ()
   MyPlugin *plugin = plugin_register ();
 
   /* Status Icon */
-  plugin->status_icon = gtk_status_icon_new ();
+  plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
   gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
   g_timeout_add_seconds (60, (GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
 
@@ -91,8 +91,6 @@ status_icon_register ()
   plugin->popup_menu_id =
     g_signal_connect_swapped (plugin->status_icon, "popup-menu",
                               G_CALLBACK (cb_status_icon_popup_menu), plugin);
-  g_signal_connect_swapped (plugin->status_icon, "size-changed",
-                            G_CALLBACK (cb_status_icon_set_size), plugin);
   g_object_weak_ref (G_OBJECT (plugin->status_icon), (GWeakNotify)cb_status_icon_finalize, plugin);
 
   return plugin;
@@ -157,18 +155,6 @@ cb_status_icon_quit (MyPlugin *plugin)
   update_autostart_file (FALSE);
   gtk_status_icon_set_visible (plugin->status_icon, FALSE);
   gtk_main_quit ();
-}
-
-static gboolean
-cb_status_icon_set_size (MyPlugin *plugin, gint size)
-{
-  GdkPixbuf *pixbuf;
- 
-  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
-  gtk_status_icon_set_from_pixbuf (plugin->status_icon, pixbuf);
-  g_object_unref (G_OBJECT (pixbuf));
-
-  return TRUE;
 }
 
 static void
