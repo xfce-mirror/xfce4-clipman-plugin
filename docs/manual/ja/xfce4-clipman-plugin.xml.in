@@ -5,7 +5,7 @@
 <!ENTITY app-website "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">
 <!ENTITY doc-author "Mike Massonnet">
 <!ENTITY doc-email "mmassonnet@xfce.org">
-<!ENTITY date "April 2009">
+<!ENTITY date "April, July 2009">
 <!ENTITY application "@PACKAGE_NAME@">
 <!ENTITY version "@PACKAGE_VERSION@">
 <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
@@ -44,20 +44,32 @@
   <sect1 id="intro">
     <title>紹介</title>
 
-    <para>@PACKAGE_NAME@ は Xfce 用のクリップボードマネージャです。これは、通常アプリケーションが終了した時に失われてしまうクリップボードの内容を保持します。文字列および画像を扱うことができ、選択された文字列が、指定された正規表現とマッチしたときに任意の処理を実行する機能も持っています。</para>
+    <para>
+      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
+      when you close an application. It is able to handle text and images, and has a feature to execute actions on
+      specific text by matching them against regular expressions.
+    </para>
 
     <sect2 id="anatomy-clipboard">
       <title>クリップボードの構造</title>
 
       <para>(すべての Unix プラットフォームにおける) X11 には、デフォルトで、あらゆるウィンドウ間でデータを交換するために 2 つのクリップボードが用意されています。デフォルトクリップボードは、手動のコピー操作 (例えば、ファイルを選択してコピーボタンを押したときなど) によって変更され、プライマリクリップボードは、対象を選択した時点 (例えば、フィールドの文字列を選択したときなど) で変更されます。</para>
 
-      <para>@PACKAGE_NAME@ は、デフォルトクリップボードのみ処理しますが、オプションで選択領域を扱うこともできます。選択領域を扱う場合は、デフォルトクリップボードは常にそれとの同期がとられ、同じ内容になります。</para>
+      <para>
+        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
+        meaning you can paste with the keyboard what you select on screen.
+      </para>
     </sect2>
 
     <sect2 id="getting-started">
       <title>始めてみましょう</title>
 
-      <para>@PACKAGE_NAME@ は、クリップボードの履歴を保持し、それらを復元するために使われます。履歴はメインアイコンをクリックして表示されるメニューに表示されます。メニューから、復元するアイテムの選択、履歴のクリア、およびクリップボードマネージャの有効/無効の切り換えが行えます。</para>
+      <para>
+        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
+        the history.
+      </para>
 
       <figure>
         <title>Clipman メニュー</title>
@@ -71,7 +83,11 @@
         </mediaobject>
       </figure>
 
-      <para>@PACKAGE_NAME@ を実行するには 2 つの方法があります。一つは、アプリケーションメニューのアクセサリにある @PACKAGE_NAME@ を選択するか、コマンドラインから <application>xfce4-clipman-plugin</application> と入力して起動する方法、もう一つはパネルに追加する方法です。パネルに新しいアイテムを追加するには、パネルを右クリックして「新しいアイテムの追加...」を選択してください。</para>
+      <para>
+        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
+        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
+        To add a new item in the panel right click the panel and select “Add new item…”.
+      </para>
     </sect2>
 
     <sect2 id="popup-command">
@@ -103,7 +119,7 @@
       </thead>
       <tbody>
       <row>
-        <entry>選択領域と同期をとる</entry>
+        <entry>Sync selections</entry>
 	<entry>領域を選択しただけで貼り付けできるよう、プライマリクリップボードとデフォルトクリップボードの同期がとられます</entry>
       </row>
       <row>
@@ -147,7 +163,9 @@
 
       <para>アクションを追加するには追加アイコンをクリックし、編集するにはアクションを選択して編集アイコンをクリックするかアクションをダブルクリックし、削除するにはアクションを選択して削除アイコンをクリックします。アクションの追加または編集により新しいダイアログが表示されます。</para>
 
-      <para>アクションについてのより詳しい情報は、<xref linkend="action"/> を参照してください。</para>
+      <para>
+        To learn more about actions go to <xref linkend="action-dialog"/>.
+      </para>
 
       <figure>
         <title>Clipman 設定</title>
@@ -163,10 +181,82 @@
 
     </sect2>
 
+    <sect2 id="action-dialog">
+      <title>アクションダイアログ</title>
+
+      <para>
+        An action has a human readable name that describes the pattern it is going to match. An action must have at
+        least one command which also has a human readable name. The matched text can be reused in the command.
+      </para>
+
+      <para>
+        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
+        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
+      </para>
+
+      <figure>
+        <title>アクションダイアログ</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>「アクションの編集」ダイアログ</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <sect3 id="regexes">
+        <title>正規表現</title>
+
+        <para>基本特殊文字: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".</para>
+
+        <itemizedlist>
+          <listitem>“<emphasis role="bold"><code>.</code></emphasis>”: 任意の一文字にマッチします。</listitem>
+          <listitem>“<emphasis role="bold"><code>?+*</code></emphasis>”: それぞれ、直前の文字が 0 個か 1 個、1 個以上、および 0 個以上あるときにマッチします。</listitem>
+          <listitem>“<emphasis role="bold"><code>(|)</code></emphasis>”: グループ化と置換に使用されます。バーチカルバー“|”は論理和演算子として使用されます。</listitem>
+          <listitem>“<emphasis role="bold"><code>[^]</code></emphasis>”: 括弧内に含まれる 1 個の文字または特殊文字にマッチします。サーカムフレックス“^”が先頭にあると論理否定となり、括弧内に含まれない 1 個の文字または特殊文字にマッチします。</listitem>
+          <listitem>“<emphasis role="bold"><code>\</code></emphasis>”: 特殊文字をエスケープします。</listitem>
+        </itemizedlist>
+
+        <para>基本英数字クラス: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>"。文字クラスは文字のセットにマッチさせるために角括弧“[]”内で使用されます。</para>
+
+
+        <sect4 id="regexes-examples">
+          <title>例</title>
+
+          <itemizedlist>
+            <listitem>"<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": 文字列 "<emphasis>bug</emphasis>"、0 個か 1 個のスペース、0 個か 1 個の番号記号“#”、および 1 個以上の番号にマッチする。</listitem>
+            <listitem>"<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": 文字列 "<emphasis>http</emphasis>" または "<emphasis>ftp</emphasis>"、1 個以上の文字、ピリオド“.”、および文字列 "<emphasis>jpg</emphasis>"、"<emphasis>png</emphasis>"、あるいは "<emphasis>gif</emphasis>" にマッチする。</listitem>
+            <listitem>"<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": 文字列 "<emphasis>http://</emphasis>"、120 個の文字、および 1 個以上のスペース以外の文字にマッチする。</listitem>
+          </itemizedlist>
+        </sect4>
+
+        <sect4 id="regexes-external-ressource">
+          <title>その他の情報</title>
+
+          <para>正規表現については、<ulink type="http" url="http://ja.wikipedia.org/wiki/正規表現">Wikipedia の記事</ulink>などを参照してください。</para>
+        </sect4>
+      </sect3>
+
+      <sect3 id="command">
+        <title>コマンド</title>
+
+        <para>コマンドは正規表現から 1 個以上の置換文字列を再利用することができます。置換文字列は“<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>”で表され、&lt;number&gt; はパターン内の丸括弧“()”で括られたサブパターンの順番 (一番左が 1) に、0 は完全な文字列に対応します。</para>
+
+        <para>例えば、シンプルなパターン“<emphasis role="bold"><code>bug #(123)</code></emphasis>”では、“<emphasis role="bold"><code>\0</code></emphasis>”が文字列“bug #123”に、“<emphasis role="bold"><code>\1</code></emphasis>”が文字列“123”に置き換えられます。コマンド“<code>exo-open http://host/\1</code>”の場合、実際に実行されるコマンドは“<code>exo-open http://host/123</code>”になります。</para>
+      </sect3>
+    </sect2>
+
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>@PACKAGE_NAME@ は、<constant>xfce4-panel</constant> チャンネルへの設定の保存に Xfconf を使用します。これにより <application>xfconf-query</application> ツールで設定の変更が行えます。以下の表はすべてのプロパティと設定可能な値のリストです:</para>
+      <para>
+        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
+        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
+        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
+        table lists all the properties with their possible values:
+      </para>
 
       <table frame="all"><title>Xfconf プロパティ</title>
       <tgroup cols="4" align="left">
@@ -178,72 +268,15 @@
         <entry>値</entry>
       </row>
       </thead>
-      <tbody><row><entry>/plugins/clipman/settings/add-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>ture でプライマリクリップボードとデフォルトクリップボードの同期をとります</entry></row><row><entry>/plugins/clipman/settings/enable-actions</entry><entry>bool</entry><entry>false</entry><entry>true でアクションを有効にします</entry></row><row><entry>/plugins/clipman/settings/history-ignore-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true でプライマリクリップボードの内容を履歴に残しません</entry></row> false <row><entry>/plugins/clipman/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 画像履歴の数です</entry></row><row><entry>/plugins/clipman/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 文字列履歴の数です</entry></row><row><entry>/plugins/clipman/settings/save-on-quit</entry><entry>bool</entry><entry>true</entry><entry>true で新しいセッション開始時に履歴を復元します</entry></row></tbody>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>ture でプライマリクリップボードとデフォルトクリップボードの同期をとります</entry></row><row><entry>/settings/enable-actions</entry><entry>bool</entry><entry>false</entry><entry>true でアクションを有効にします</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true でプライマリクリップボードの内容を履歴に残しません</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 画像履歴の数です</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 文字列履歴の数です</entry></row><row><entry>/settings/save-on-quit</entry><entry>bool</entry><entry>true</entry><entry>true で新しいセッション開始時に履歴を復元します</entry></row></tbody>
       </tgroup>
       </table>
 
-      <para>コマンドラインで設定を変更するには:</para>
+      <para>
+        To change a setting from a terminal type the command-line:
+      </para>
 
-      <literal><![CDATA[xfconf-query -c xfce4-panel -p <property> -s <value>]]></literal>
-    </sect2>
-  </sect1>
-
-  <sect1 id="action">
-    <title>アクション</title>
-
-    <para>アクションはマッチするパターンを説明する名前を持つことができます。マッチは選択した文字列に対して行われ、パターンは正規表現で指定します。アクションは少なくとも一つのコマンドと、その名前を持たなければなりません。マッチした文字列はコマンド内で再利用できます。</para>
-
-    <figure>
-      <title>アクションダイアログ</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
-        </imageobject>
-        <textobject>
-          <phrase>「アクションの編集」ダイアログ</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
-
-    <sect2 id="regexes">
-      <title>正規表現</title>
-
-      <para>基本特殊文字: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".</para>
-
-      <itemizedlist>
-        <listitem>“<emphasis role="bold"><code>.</code></emphasis>”: 任意の一文字にマッチします。</listitem>
-        <listitem>“<emphasis role="bold"><code>?+*</code></emphasis>”: それぞれ、直前の文字が 0 個か 1 個、1 個以上、および 0 個以上あるときにマッチします。</listitem>
-        <listitem>“<emphasis role="bold"><code>(|)</code></emphasis>”: グループ化と置換に使用されます。バーチカルバー“|”は論理和演算子として使用されます。</listitem>
-        <listitem>“<emphasis role="bold"><code>[^]</code></emphasis>”: 括弧内に含まれる 1 個の文字または特殊文字にマッチします。サーカムフレックス“^”が先頭にあると論理否定となり、括弧内に含まれない 1 個の文字または特殊文字にマッチします。</listitem>
-        <listitem>“<emphasis role="bold"><code>\</code></emphasis>”: 特殊文字をエスケープします。</listitem>
-      </itemizedlist>
-
-      <para>基本英数字クラス: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>"。文字クラスは文字のセットにマッチさせるために角括弧“[]”内で使用されます。</para>
-
-
-      <sect3 id="regexes-examples">
-        <title>例</title>
-
-        <itemizedlist>
-          <listitem>"<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": 文字列 "<emphasis>bug</emphasis>"、0 個か 1 個のスペース、0 個か 1 個の番号記号“#”、および 1 個以上の番号にマッチする。</listitem>
-          <listitem>"<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": 文字列 "<emphasis>http</emphasis>" または "<emphasis>ftp</emphasis>"、1 個以上の文字、ピリオド“.”、および文字列 "<emphasis>jpg</emphasis>"、"<emphasis>png</emphasis>"、あるいは "<emphasis>gif</emphasis>" にマッチする。</listitem>
-          <listitem>"<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": 文字列 "<emphasis>http://</emphasis>"、120 個の文字、および 1 個以上のスペース以外の文字にマッチする。</listitem>
-        </itemizedlist>
-      </sect3>
-
-      <sect3 id="regexes-external-ressource">
-        <title>その他の情報</title>
-
-        <para>正規表現については、<ulink type="http" url="http://ja.wikipedia.org/wiki/正規表現">Wikipedia の記事</ulink>などを参照してください。</para>
-      </sect3>
-    </sect2>
-
-    <sect2 id="command">
-      <title>コマンド</title>
-
-      <para>コマンドは正規表現から 1 個以上の置換文字列を再利用することができます。置換文字列は“<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>”で表され、&lt;number&gt; はパターン内の丸括弧“()”で括られたサブパターンの順番 (一番左が 1) に、0 は完全な文字列に対応します。</para>
-
-      <para>例えば、シンプルなパターン“<emphasis role="bold"><code>bug #(123)</code></emphasis>”では、“<emphasis role="bold"><code>\0</code></emphasis>”が文字列“bug #123”に、“<emphasis role="bold"><code>\1</code></emphasis>”が文字列“123”に置き換えられます。コマンド“<code>exo-open http://host/\1</code>”の場合、実際に実行されるコマンドは“<code>exo-open http://host/123</code>”になります。</para>
+      <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
   </sect1>
 

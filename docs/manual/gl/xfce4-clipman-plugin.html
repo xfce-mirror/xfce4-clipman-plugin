@@ -1,30 +1,31 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Manual de Clipman</title><link rel="stylesheet" href="../xfce.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"><link rel="home" href="#xfce4-clipman-plugin" title="Manual de Clipman"><link rel="next" href="#intro" title="Introdución"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="gl"><div class="titlepage"><div><div><h2 class="title"><a name="xfce4-clipman-plugin"></a>Manual de Clipman</h2></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Mike</span> <span class="surname">Massonnet</span></h3><div class="affiliation"><div class="address"><p><code class="email">&lt;<a class="email" href="mailto:mmassonnet@xfce.org">mmassonnet@xfce.org</a>&gt;</code></p></div></div></div></div></div><div><span xmlns="http://www.w3.org/TR/xhtml1/transitional" class="releaseinfo">
-      This manual describes version 1.0.2 of Clipman.
+      This manual describes version 1.1.0svn-r07672 of Clipman.
     <br></br></span></div><div><p class="copyright">Copyright © 2009 Mike Massonnet</p></div><div><p class="copyright">Copyright © 2009. Leandro Regueiro (leandro.regueiro@gmail.com)</p></div><div><div class="legalnotice"><a name="legalnotice"></a><p>
         Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free
         Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no
         Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is
         available from the <a class="ulink" href="http://www.fsf.org/" target="_top">Free Software Foundation</a>.
-      </p></div></div><div><p class="pubdate">April 2009</p></div></div><hr></div><div class="toc"><p><b>Índice</b></p><dl><dt><span class="sect1"><a href="#intro">Introdución</a></span></dt><dd><dl><dt><span class="sect2"><a href="#anatomy-clipboard">Anatomy of a Clipboard</a></span></dt><dt><span class="sect2"><a href="#getting-started">Getting Started</a></span></dt><dt><span class="sect2"><a href="#popup-command">Popup Command</a></span></dt></dl></dd><dt><span class="sect1"><a href="#settings">Configuración</a></span></dt><dd><dl><dt><span class="sect2"><a href="#general">Xeral</a></span></dt><dt><span class="sect2"><a href="#actions">Accións</a></span></dt><dt><span class="sect2"><a href="#xfconf">Xfconf</a></span></dt></dl></dd><dt><span class="sect1"><a href="#action">Acción</a></span></dt><dd><dl><dt><span class="sect2"><a href="#regexes">Expresión regular</a></span></dt><dt><span class="sect2"><a href="#command">Comando</a></span></dt></dl></dd><dt><span class="sect1"><a href="#support">Support</a></span></dt><dt><span class="sect1"><a href="#about">Acerca de Clipman</a></span></dt></dl></div><div class="sect1" lang="gl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro"></a>Introdución</h2></div></div></div><p>
+      </p></div></div><div><p class="pubdate">April, July 2009</p></div></div><hr></div><div class="toc"><p><b>Índice</b></p><dl><dt><span class="sect1"><a href="#intro">Introdución</a></span></dt><dd><dl><dt><span class="sect2"><a href="#anatomy-clipboard">Anatomy of a Clipboard</a></span></dt><dt><span class="sect2"><a href="#getting-started">Getting Started</a></span></dt><dt><span class="sect2"><a href="#popup-command">Popup Command</a></span></dt></dl></dd><dt><span class="sect1"><a href="#settings">Configuración</a></span></dt><dd><dl><dt><span class="sect2"><a href="#general">Xeral</a></span></dt><dt><span class="sect2"><a href="#actions">Accións</a></span></dt><dt><span class="sect2"><a href="#action-dialog">Action Dialog</a></span></dt><dt><span class="sect2"><a href="#xfconf">Xfconf</a></span></dt></dl></dd><dt><span class="sect1"><a href="#support">Support</a></span></dt><dt><span class="sect1"><a href="#about">Acerca de Clipman</a></span></dt></dl></div><div class="sect1" lang="gl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro"></a>Introdución</h2></div></div></div><p>
       Clipman is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
       when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text selections by matching them against regular expressions.
+      specific text by matching them against regular expressions.
     </p><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="anatomy-clipboard"></a>Anatomy of a Clipboard</h3></div></div></div><p>
         In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A
         default clipboard which is modified by manual copies (for instance when you select a file and press the copy
         button), and there is a primary clipboard which is modified by selections (for instance when you select text in
         a field).
       </p><p>
-        Clipman handles only the default clipboard, but optionnaly it can also notice the selections.  When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data.
+        Clipman handles only the default clipboard, but optionnaly it can also notice the selections. When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
+        meaning you can paste with the keyboard what you select on screen.
       </p></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="getting-started"></a>Getting Started</h3></div></div></div><p>
         Clipman is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to select an item to restore it,
-        to clear the history and to activate or deactivate the clipboard manager.
-      </p><div class="figure"><a name="id2883785"></a><p class="title"><b>Figura 1. Menú de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-menu.png" alt="Menu displaying the history"></div></div></div><br class="figure-break"><p>
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
+        the history.
+      </p><div class="figure"><a name="id2796957"></a><p class="title"><b>Figura 1. Menú de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-menu.png" alt="Menu displaying the history"></div></div></div><br class="figure-break"><p>
         There are two ways to run Clipman. You can select Clipman in the applications menu under the category
-        Utility or type <strong class="application"><code>xfce4-clipman-plugin</code></strong> on the command-line, or you can add it into your
-        panel. To add a new item in the panel right click the panel and select &#8220;Add new item&#8230;&#8221;.
+        Utility or type <strong class="application"><code>xfce4-clipman</code></strong> on the command-line, or you can add it into your panel.
+        To add a new item in the panel right click the panel and select &#8220;Add new item&#8230;&#8221;.
       </p></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="popup-command"></a>Popup Command</h3></div></div></div><p>
         Clipman provides the command-line tool <strong class="application"><code>xfce4-popup-clipman</code></strong>. When called it
         popups the main menu. The command is practical for the <span class="bold"><strong>Application Shortcuts</strong></span>
@@ -35,8 +36,8 @@
       allows to tweak the history and to edit actions.
     </p><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="general"></a>Xeral</h3></div></div></div><p>
         The following table describes the available options:
-      </p><div class="table"><a name="id2844985"></a><p class="title"><b>TáboaTáboa 1. General options in the Settings dialog</b></p><div class="table-contents"><table xmlns="http://www.w3.org/TR/xhtml1/transitional" bgcolor="#F8F9FD" cellspacing="0" cellpadding="4" summary="General options in the Settings dialog" border="1"><colgroup><col xmlns=""><col xmlns=""></colgroup><thead xmlns=""><tr><th align="left">Opcións</th><th align="left">Descrición</th></tr></thead><tbody xmlns=""><tr><td align="left">Add selections</td><td align="left">Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
-	selected</td></tr><tr><td align="left">Exclude from history</td><td align="left">Prevents the primary clipboard from being inserted in the history</td></tr><tr><td align="left">Gardar ao saír</td><td align="left">Keeps the history at every new session</td></tr><tr><td align="left">Store an image</td><td align="left">Allows to store one image in the history</td></tr><tr><td align="left">Tamaño do historial</td><td align="left">Sets the number of items to keep in history</td></tr></tbody></table></div></div><br class="table-break"><div class="figure"><a name="id2845070"></a><p class="title"><b>Figura 2. Configuración de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-settings-general.png" alt="Settings dialog with the General tab"></div></div></div><br class="figure-break"></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="actions"></a>Accións</h3></div></div></div><p>
+      </p><div class="table"><a name="id2797085"></a><p class="title"><b>TáboaTáboa 1. General options in the Settings dialog</b></p><div class="table-contents"><table xmlns="http://www.w3.org/TR/xhtml1/transitional" bgcolor="#F8F9FD" cellspacing="0" cellpadding="4" summary="General options in the Settings dialog" border="1"><colgroup><col xmlns=""><col xmlns=""></colgroup><thead xmlns=""><tr><th align="left">Opcións</th><th align="left">Descrición</th></tr></thead><tbody xmlns=""><tr><td align="left">Sync selections</td><td align="left">Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
+	selected</td></tr><tr><td align="left">Exclude from history</td><td align="left">Prevents the primary clipboard from being inserted in the history</td></tr><tr><td align="left">Gardar ao saír</td><td align="left">Keeps the history at every new session</td></tr><tr><td align="left">Store an image</td><td align="left">Allows to store one image in the history</td></tr><tr><td align="left">Tamaño do historial</td><td align="left">Sets the number of items to keep in history</td></tr></tbody></table></div></div><br class="table-break"><div class="figure"><a name="id2796461"></a><p class="title"><b>Figura 2. Configuración de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-settings-general.png" alt="Settings dialog with the General tab"></div></div></div><br class="figure-break"></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="actions"></a>Accións</h3></div></div></div><p>
         An action is a pair of an action name and a regular expression. Each action can have one or more commands. The
         support of actions is optional and can be enabled or disabled through the &#8220;Enable actions&#8221; option.
       </p><p>
@@ -44,57 +45,60 @@
         the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a
         new dialog is opened.
       </p><p>
-        To learn more about actions go to <a class="xref" href="#action" title="Acción">« Acción »</a>.
-      </p><div class="figure"><a name="id2845138"></a><p class="title"><b>Figura 3. Configuración de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-settings-actions.png" alt="Settings dialog with the Actions tab"></div></div></div><br class="figure-break"></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="xfconf"></a>Xfconf</h3></div></div></div><p>
-        Clipman uses Xfconf to store its settings in the <code class="constant">xfce4-panel</code> channel. That allows you
-        to change the settings with the tool <strong class="application"><code>xfconf-query</code></strong>. The following table lists all the
-        properties with their possible values:
-      </p><div class="table"><a name="id2846236"></a><p class="title"><b>TáboaTáboa 2. Propiedades de Xfconf</b></p><div class="table-contents"><table xmlns="http://www.w3.org/TR/xhtml1/transitional" bgcolor="#F8F9FD" cellspacing="0" cellpadding="4" summary="Propiedades de Xfconf" border="1"><colgroup><col xmlns=""><col xmlns=""><col xmlns=""><col xmlns=""></colgroup><thead xmlns=""><tr><th align="left">Propiedade</th><th align="left">Tipo</th><th align="left">Default</th><th align="left">Values</th></tr></thead><tbody xmlns=""><tr><td align="left">/plugins/clipman/settings/add-primary-clipboard</td><td align="left">bool</td><td align="left">false</td><td align="left">true to sync the primary clipboard with the default clipboard</td></tr><tr><td align="left">/plugins/clipman/settings/enable-actions</td><td align="left">bool</td><td align="left">false</td><td align="left">true to enable actions</td></tr><tr><td align="left">/plugins/clipman/settings/history-ignore-primary-clipboard</td><td align="left">bool</td><td align="left">false</td><td align="left">true to exclude the primary clipboard from the history</td></tr><tr><td align="left">/plugins/clipman/settings/max-images-in-history</td><td align="left">uint</td><td align="left">0</td><td align="left">0-5 number of images in history</td></tr><tr><td align="left">/plugins/clipman/settings/max-texts-in-history</td><td align="left">uint</td><td align="left">10</td><td align="left">5-100 number of texts in history</td></tr><tr><td align="left">/plugins/clipman/settings/save-on-quit</td><td align="left">bool</td><td align="left">true</td><td align="left">true to restore the history at every new session</td></tr></tbody></table></div></div><br class="table-break"><p>
-        To change a setting type the command-line:
-      </p><code class="literal">xfconf-query -c xfce4-panel -p &lt;property&gt; -s &lt;value&gt;</code></div></div><div class="sect1" lang="gl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="action"></a>Acción</h2></div></div></div><p>
-      An action has a human readable name that describes the pattern it is going to match. The matches are made against
-      text from the selections and the pattern is a regular expression. An action must have at least one command which
-      also has a human readable name. The matched text can be reused in the command.
-    </p><div class="figure"><a name="id2844487"></a><p class="title"><b>Figura 4. Action Dialog</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-action-dialog.png" alt="Action edit dialog"></div></div></div><br class="figure-break"><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="regexes"></a>Expresión regular</h3></div></div></div><p>
-        Basic special characters: "<span class="bold"><strong><code class="code">.?+*(|)[]\</code></strong></span>".
-      </p><div class="itemizedlist"><ul type="disc"><li>
-          &#8221;<span class="bold"><strong><code class="code">.</code></strong></span>&#8221;: represents a single character.
-        </li><li>
-          &#8221;<span class="bold"><strong><code class="code">?+*</code></strong></span>&#8221;: respectively means zero or one character, one or more
-          characters, and zero or more characters.
-        </li><li>
-          &#8221;<span class="bold"><strong><code class="code">(|)</code></strong></span>&#8221;: used for grouping and substitution, the vertical bar is
-          used as an OR operation.
-        </li><li>
-          &#8221;<span class="bold"><strong><code class="code">[^]</code></strong></span>&#8221;: used to match a character from a set of characters and
-          special characters, the circumflex is used at the start as a negation.
-        </li><li>
-          &#8221;<span class="bold"><strong><code class="code">\</code></strong></span>&#8221;: escapes a special character.
-        </li></ul></div><p>
-        Basic alphanumeric character class: "<span class="bold"><strong><code class="code">A-Za-z0-9</code></strong></span>". Character classes
-        are used within square brackets to represent a set of characters.
-      </p><div class="sect3" lang="gl"><div class="titlepage"><div><div><h4 class="title"><a name="regexes-examples"></a>Exemplos</h4></div></div></div><div class="itemizedlist"><ul type="disc"><li>
-            "<span class="bold"><strong><code class="code">bug ?#?[0-9]+</code></strong></span>": text "<span class="emphasis"><em>bug </em></span>", zero or one
-            space, zero or one sharp character, and one or more numbers.
-          </li><li>
-            "<span class="bold"><strong><code class="code">(http|ftp).+\.(jpg|png|gif)</code></strong></span>": text
-            "<span class="emphasis"><em>http</em></span>" or "<span class="emphasis"><em>ftp</em></span>", one or more character, a point, and the text
-            "<span class="emphasis"><em>jpg</em></span>", "<span class="emphasis"><em>png</em></span>" or "<span class="emphasis"><em>gif</em></span>".
-          </li><li>
-            "<span class="bold"><strong><code class="code">http://.{120}[^ ]+</code></strong></span>": text "<span class="emphasis"><em>http://</em></span>", 120
-            characters, and one or more characters except a space.
-          </li></ul></div></div><div class="sect3" lang="gl"><div class="titlepage"><div><div><h4 class="title"><a name="regexes-external-ressource"></a>External Ressource</h4></div></div></div><p>
-          Have a look at the <a class="ulink" href="http://en.wikipedia.org/wiki/Regular_expression" target="_top">Wikipedia
-          article</a> about regular expressions.
-        </p></div></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="command"></a>Comando</h3></div></div></div><p>
-        A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
-        &#8221;<span class="bold"><strong><code class="code">\&lt;number&gt;</code></strong></span>&#8221; where &lt;number&gt; corresponds to the
-        sub-pattern within parentheses or 0 for the complete text.
+        To learn more about actions go to <a class="xref" href="#action-dialog" title="Action Dialog">« Action Dialog »</a>.
+      </p><div class="figure"><a name="id2796631"></a><p class="title"><b>Figura 3. Configuración de Clipman</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-settings-actions.png" alt="Settings dialog with the Actions tab"></div></div></div><br class="figure-break"></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="action-dialog"></a>Action Dialog</h3></div></div></div><p>
+        An action has a human readable name that describes the pattern it is going to match. An action must have at
+        least one command which also has a human readable name. The matched text can be reused in the command.
       </p><p>
-        For example, from the simple pattern &#8221;<span class="bold"><strong><code class="code">bug #(123)</code></strong></span>&#8221; it is possible
-        to use &#8221;<span class="bold"><strong><code class="code">\0</code></strong></span>&#8221; for the text &#8220;bug #123&#8221; and &#8221;<span class="bold"><strong><code class="code">\1</code></strong></span>&#8221; for the text &#8220;123&#8221;.  For the command &#8221;<code class="code">exo-open
-        http://host/\1</code>&#8221;, the real executed command would be &#8221;<code class="code">exo-open http://host/123</code>&#8221;.
-      </p></div></div><div class="sect1" lang="gl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="support"></a>Support</h2></div></div></div><p>
+        The actions are always matched against text selections unless specified otherwise. When the box &#8220;Activate only
+        on manual copy&#8221; is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
+      </p><div class="figure"><a name="id2797296"></a><p class="title"><b>Figura 4. Action Dialog</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/clipman-action-dialog.png" alt="Action edit dialog"></div></div></div><br class="figure-break"><div class="sect3" lang="gl"><div class="titlepage"><div><div><h4 class="title"><a name="regexes"></a>Expresión regular</h4></div></div></div><p>
+          Basic special characters: "<span class="bold"><strong><code class="code">.?+*(|)[]\</code></strong></span>".
+        </p><div class="itemizedlist"><ul type="disc"><li>
+            &#8221;<span class="bold"><strong><code class="code">.</code></strong></span>&#8221;: represents a single character.
+          </li><li>
+            &#8221;<span class="bold"><strong><code class="code">?+*</code></strong></span>&#8221;: respectively means zero or one character, one or more
+            characters, and zero or more characters.
+          </li><li>
+            &#8221;<span class="bold"><strong><code class="code">(|)</code></strong></span>&#8221;: used for grouping and substitution, the vertical bar is
+            used as an OR operation.
+          </li><li>
+            &#8221;<span class="bold"><strong><code class="code">[^]</code></strong></span>&#8221;: used to match a character from a set of characters and
+            special characters, the circumflex is used at the start as a negation.
+          </li><li>
+            &#8221;<span class="bold"><strong><code class="code">\</code></strong></span>&#8221;: escapes a special character.
+          </li></ul></div><p>
+          Basic alphanumeric character class: "<span class="bold"><strong><code class="code">A-Za-z0-9</code></strong></span>". Character classes
+          are used within square brackets to represent a set of characters.
+        </p><div class="sect4" lang="gl"><div class="titlepage"><div><div><h5 class="title"><a name="regexes-examples"></a>Exemplos</h5></div></div></div><div class="itemizedlist"><ul type="disc"><li>
+              "<span class="bold"><strong><code class="code">bug ?#?[0-9]+</code></strong></span>": text "<span class="emphasis"><em>bug </em></span>", zero or one
+              space, zero or one sharp character, and one or more numbers.
+            </li><li>
+              "<span class="bold"><strong><code class="code">(http|ftp).+\.(jpg|png|gif)</code></strong></span>": text
+              "<span class="emphasis"><em>http</em></span>" or "<span class="emphasis"><em>ftp</em></span>", one or more character, a point, and the text
+              "<span class="emphasis"><em>jpg</em></span>", "<span class="emphasis"><em>png</em></span>" or "<span class="emphasis"><em>gif</em></span>".
+            </li><li>
+              "<span class="bold"><strong><code class="code">http://.{120}[^ ]+</code></strong></span>": text "<span class="emphasis"><em>http://</em></span>", 120
+              characters, and one or more characters except a space.
+            </li></ul></div></div><div class="sect4" lang="gl"><div class="titlepage"><div><div><h5 class="title"><a name="regexes-external-ressource"></a>External Ressource</h5></div></div></div><p>
+            Have a look at the <a class="ulink" href="http://en.wikipedia.org/wiki/Regular_expression" target="_top">Wikipedia
+            article</a> about regular expressions.
+          </p></div></div><div class="sect3" lang="gl"><div class="titlepage"><div><div><h4 class="title"><a name="command"></a>Comando</h4></div></div></div><p>
+          A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
+          &#8221;<span class="bold"><strong><code class="code">\&lt;number&gt;</code></strong></span>&#8221; where &lt;number&gt; corresponds to the
+          sub-pattern within parentheses or 0 for the complete text.
+        </p><p>
+          For example, from the simple pattern &#8221;<span class="bold"><strong><code class="code">bug #(123)</code></strong></span>&#8221; it is possible
+          to use &#8221;<span class="bold"><strong><code class="code">\0</code></strong></span>&#8221; for the text &#8220;bug #123&#8221; and &#8221;<span class="bold"><strong><code class="code">\1</code></strong></span>&#8221; for the text &#8220;123&#8221;.  For the command &#8221;<code class="code">exo-open
+          http://host/\1</code>&#8221;, the real executed command would be &#8221;<code class="code">exo-open http://host/123</code>&#8221;.
+        </p></div></div><div class="sect2" lang="gl"><div class="titlepage"><div><div><h3 class="title"><a name="xfconf"></a>Xfconf</h3></div></div></div><p>
+        Clipman uses Xfconf to store its settings. That allows you to change the settings with the tool
+        <strong class="application"><code>xfconf-query</code></strong> or <strong class="application"><code>xfce4-settings-editor</code></strong>. The channel is
+        <code class="constant">xfce4-panel</code> and the base property is <code class="constant">/plugins/clipman</code>. The following
+        table lists all the properties with their possible values:
+      </p><div class="table"><a name="id2797619"></a><p class="title"><b>TáboaTáboa 2. Propiedades de Xfconf</b></p><div class="table-contents"><table xmlns="http://www.w3.org/TR/xhtml1/transitional" bgcolor="#F8F9FD" cellspacing="0" cellpadding="4" summary="Propiedades de Xfconf" border="1"><colgroup><col xmlns=""><col xmlns=""><col xmlns=""><col xmlns=""></colgroup><thead xmlns=""><tr><th align="left">Propiedade</th><th align="left">Tipo</th><th align="left">Default</th><th align="left">Values</th></tr></thead><tbody xmlns=""><tr><td align="left">/settings/add-primary-clipboard</td><td align="left">bool</td><td align="left">false</td><td align="left">true to sync the primary clipboard with the default clipboard</td></tr><tr><td align="left">/settings/enable-actions</td><td align="left">bool</td><td align="left">false</td><td align="left">true to enable actions</td></tr><tr><td align="left">/settings/history-ignore-primary-clipboard</td><td align="left">bool</td><td align="left">false</td><td align="left">true to exclude the primary clipboard from the history</td></tr><tr><td align="left">/settings/max-images-in-history</td><td align="left">uint</td><td align="left">0</td><td align="left">0-5 number of images in history</td></tr><tr><td align="left">/settings/max-texts-in-history</td><td align="left">uint</td><td align="left">10</td><td align="left">5-100 number of texts in history</td></tr><tr><td align="left">/settings/save-on-quit</td><td align="left">bool</td><td align="left">true</td><td align="left">true to restore the history at every new session</td></tr></tbody></table></div></div><br class="table-break"><p>
+        To change a setting from a terminal type the command-line:
+      </p><code class="literal">xfconf-query -c xfce4-panel -p /plugins/clipman/&lt;property&gt; -s &lt;value&gt;</code></div></div><div class="sect1" lang="gl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="support"></a>Support</h2></div></div></div><p>
       To report a bug or a feature request use the bug tracking system at <a class="ulink" href="http://bugzilla.xfce.org/" target="_top">http://bugzilla.xfce.org/</a>. If you have questions about the use of this software,
       please ask on the <a class="ulink" href="http://foo-projects.org/mailman/listinfo/xfce" target="_top">Xfce mailing list</a>
       or point your IRC client to <span class="bold"><strong>irc.freenode.net</strong></span>, join the channel <span class="bold"><strong>#xfce</strong></span> and ask for help.

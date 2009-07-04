@@ -6,7 +6,7 @@
   <!ENTITY app-website "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">
   <!ENTITY doc-author "Mike Massonnet">
   <!ENTITY doc-email "mmassonnet@xfce.org">
-  <!ENTITY date "April 2009"> 
+  <!ENTITY date "April, July 2009"> 
   <!ENTITY application "@PACKAGE_NAME@"> 
   <!ENTITY version "@PACKAGE_VERSION@">
   <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
@@ -55,7 +55,7 @@
     <para>
       &application; is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
       when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text selections by matching them against regular expressions.
+      specific text by matching them against regular expressions.
     </para>
 
     <sect2 id="anatomy-clipboard">
@@ -69,8 +69,9 @@
       </para>
 
       <para>
-        &application; handles only the default clipboard, but optionnaly it can also notice the selections.  When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data.
+        &application; handles only the default clipboard, but optionnaly it can also notice the selections. When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
+        meaning you can paste with the keyboard what you select on screen.
       </para>
     </sect2>
 
@@ -79,8 +80,8 @@
 
       <para>
         &application; is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to select an item to restore it,
-        to clear the history and to activate or deactivate the clipboard manager.
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
+        the history.
       </para>
 
       <figure>
@@ -97,8 +98,8 @@
 
       <para>
         There are two ways to run &application;. You can select &application; in the applications menu under the category
-        Utility or type <application>xfce4-clipman-plugin</application> on the command-line, or you can add it into your
-        panel. To add a new item in the panel right click the panel and select “Add new item…”.
+        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
+        To add a new item in the panel right click the panel and select “Add new item…”.
       </para>
     </sect2>
 
@@ -145,7 +146,7 @@
       </thead>
       <tbody>
       <row>
-        <entry>Add selections</entry>
+        <entry>Sync selections</entry>
 	<entry>Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
 	selected</entry>
       </row>
@@ -198,7 +199,7 @@
       </para>
 
       <para>
-        To learn more about actions go to <xref linkend="action" />.
+        To learn more about actions go to <xref linkend="action-dialog" />.
       </para>
 
       <figure>
@@ -215,13 +216,121 @@
 
     </sect2>
 
+    <sect2 id="action-dialog">
+      <title>Action Dialog</title>
+
+      <para>
+        An action has a human readable name that describes the pattern it is going to match. An action must have at
+        least one command which also has a human readable name. The matched text can be reused in the command.
+      </para>
+
+      <para>
+        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
+        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
+      </para>
+
+      <figure>
+        <title>Action Dialog</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-action-dialog.png" format="PNG" />
+          </imageobject>
+          <textobject>
+            <phrase>Action edit dialog</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <sect3 id="regexes">
+        <title>Regular Expression</title>
+
+        <para>
+          Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
+        </para>
+
+        <itemizedlist>
+          <listitem>
+            ”<emphasis role="bold"><code>.</code></emphasis>”: represents a single character.
+          </listitem>
+          <listitem>
+            ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
+            characters, and zero or more characters.
+          </listitem>
+          <listitem>
+            ”<emphasis role="bold"><code>(|)</code></emphasis>”: used for grouping and substitution, the vertical bar is
+            used as an OR operation.
+          </listitem>
+          <listitem>
+            ”<emphasis role="bold"><code>[^]</code></emphasis>”: used to match a character from a set of characters and
+            special characters, the circumflex is used at the start as a negation.
+          </listitem>
+          <listitem>
+            ”<emphasis role="bold"><code>\</code></emphasis>”: escapes a special character.
+          </listitem>
+        </itemizedlist>
+
+        <para>
+          Basic alphanumeric character class: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Character classes
+          are used within square brackets to represent a set of characters.
+        </para>
+
+
+        <sect4 id="regexes-examples">
+          <title>Examples</title>
+
+          <itemizedlist>
+            <listitem>
+              "<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": text "<emphasis>bug </emphasis>", zero or one
+              space, zero or one sharp character, and one or more numbers.
+            </listitem>
+            <listitem>
+              "<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": text
+              "<emphasis>http</emphasis>" or "<emphasis>ftp</emphasis>", one or more character, a point, and the text
+              "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
+            </listitem>
+            <listitem>
+              "<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": text "<emphasis>http://</emphasis>", 120
+              characters, and one or more characters except a space.
+            </listitem>
+          </itemizedlist>
+        </sect4>
+
+        <sect4 id="regexes-external-ressource">
+          <title>External Ressource</title>
+
+          <para>
+            Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
+            article</ulink> about regular expressions.
+          </para>
+        </sect4>
+      </sect3>
+
+      <sect3 id="command">
+        <title>Command</title>
+
+        <para>
+          A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
+          ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the
+          sub-pattern within parentheses or 0 for the complete text.
+        </para>
+
+        <para>
+          For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
+          to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis
+          role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
+          http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
+        </para>
+      </sect3>
+    </sect2>
+
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
       <para>
-        &application; uses Xfconf to store its settings in the <constant>xfce4-panel</constant> channel. That allows you
-        to change the settings with the tool <application>xfconf-query</application>. The following table lists all the
-        properties with their possible values:
+        &application; uses Xfconf to store its settings. That allows you to change the settings with the tool
+        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
+        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
+        table lists all the properties with their possible values:
       </para>
 
       <table frame="all"><title>Xfconf Properties</title>
@@ -236,19 +345,19 @@
       </thead>
       <tbody>
       <row>
-        <entry>/plugins/clipman/settings/add-primary-clipboard</entry>
+        <entry>/settings/add-primary-clipboard</entry>
         <entry>bool</entry>
         <entry>false</entry>
         <entry>true to sync the primary clipboard with the default clipboard</entry>
       </row>
       <row>
-        <entry>/plugins/clipman/settings/enable-actions</entry>
+        <entry>/settings/enable-actions</entry>
         <entry>bool</entry>
         <entry>false</entry>
         <entry>true to enable actions</entry>
       </row>
       <row>
-        <entry>/plugins/clipman/settings/history-ignore-primary-clipboard</entry>
+        <entry>/settings/history-ignore-primary-clipboard</entry>
         <entry>bool</entry>
         <entry>false</entry>
         <entry>true to exclude the primary clipboard from the history</entry>
@@ -256,19 +365,19 @@
         false
 
       <row>
-        <entry>/plugins/clipman/settings/max-images-in-history</entry>
+        <entry>/settings/max-images-in-history</entry>
         <entry>uint</entry>
         <entry>0</entry>
         <entry>0-5 number of images in history</entry>
       </row>
       <row>
-        <entry>/plugins/clipman/settings/max-texts-in-history</entry>
+        <entry>/settings/max-texts-in-history</entry>
         <entry>uint</entry>
         <entry>10</entry>
         <entry>5-100 number of texts in history</entry>
       </row>
       <row>
-        <entry>/plugins/clipman/settings/save-on-quit</entry>
+        <entry>/settings/save-on-quit</entry>
         <entry>bool</entry>
         <entry>true</entry>
         <entry>true to restore the history at every new session</entry>
@@ -278,113 +387,10 @@
       </table>
 
       <para>
-        To change a setting type the command-line:
+        To change a setting from a terminal type the command-line:
       </para>
 
-      <literal><![CDATA[xfconf-query -c xfce4-panel -p <property> -s <value>]]></literal>
-    </sect2>
-  </sect1>
-
-  <sect1 id="action">
-    <title>Action</title>
-
-    <para>
-      An action has a human readable name that describes the pattern it is going to match. The matches are made against
-      text from the selections and the pattern is a regular expression. An action must have at least one command which
-      also has a human readable name. The matched text can be reused in the command.
-    </para>
-
-    <figure>
-      <title>Action Dialog</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/clipman-action-dialog.png" format="PNG" />
-        </imageobject>
-        <textobject>
-          <phrase>Action edit dialog</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
-
-    <sect2 id="regexes">
-      <title>Regular Expression</title>
-
-      <para>
-        Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
-      </para>
-
-      <itemizedlist>
-        <listitem>
-          ”<emphasis role="bold"><code>.</code></emphasis>”: represents a single character.
-        </listitem>
-        <listitem>
-          ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
-          characters, and zero or more characters.
-        </listitem>
-        <listitem>
-          ”<emphasis role="bold"><code>(|)</code></emphasis>”: used for grouping and substitution, the vertical bar is
-          used as an OR operation.
-        </listitem>
-        <listitem>
-          ”<emphasis role="bold"><code>[^]</code></emphasis>”: used to match a character from a set of characters and
-          special characters, the circumflex is used at the start as a negation.
-        </listitem>
-        <listitem>
-          ”<emphasis role="bold"><code>\</code></emphasis>”: escapes a special character.
-        </listitem>
-      </itemizedlist>
-
-      <para>
-        Basic alphanumeric character class: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Character classes
-        are used within square brackets to represent a set of characters.
-      </para>
-
-
-      <sect3 id="regexes-examples">
-        <title>Examples</title>
-
-        <itemizedlist>
-          <listitem>
-            "<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": text "<emphasis>bug </emphasis>", zero or one
-            space, zero or one sharp character, and one or more numbers.
-          </listitem>
-          <listitem>
-            "<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": text
-            "<emphasis>http</emphasis>" or "<emphasis>ftp</emphasis>", one or more character, a point, and the text
-            "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
-          </listitem>
-          <listitem>
-            "<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": text "<emphasis>http://</emphasis>", 120
-            characters, and one or more characters except a space.
-          </listitem>
-        </itemizedlist>
-      </sect3>
-
-      <sect3 id="regexes-external-ressource">
-        <title>External Ressource</title>
-
-        <para>
-          Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
-          article</ulink> about regular expressions.
-        </para>
-      </sect3>
-    </sect2>
-
-    <sect2 id="command">
-      <title>Command</title>
-
-      <para>
-        A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
-        ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the
-        sub-pattern within parentheses or 0 for the complete text.
-      </para>
-
-      <para>
-        For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
-        to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis
-        role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
-        http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
-      </para>
+      <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
   </sect1>
 
