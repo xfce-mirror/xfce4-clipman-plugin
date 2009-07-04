@@ -1,3 +1,18 @@
+2009-07-04	Mike Massonnet
+Add groups to ClipmanActions
+
+	- panel-plugin/actions.c:
+		New function clipman_actions_set_group to change a group of a
+		given action identified by its human readable name.
+		On action match check for the group (-1 means all the groups).
+		Save/load the group to/from the xml file.
+	- panel-plugin/collector.c:
+		On default clipboard change, get a match from actions with
+		group "manual".
+	- panel-plugin/xfce4-clipman-settings.c,
+	panel-plugin/settings-dialog.glade:
+		Show the toggle button "only on manual copy".
+
 2009-07-02	Mike Massonnet
 Add a real good daemon
 

@@ -131,6 +131,7 @@ typedef enum
   ACTION,
   ACTION_NAME,
   REGEX,
+  GROUP,
   COMMANDS,
   COMMAND,
   COMMAND_NAME,
@@ -149,6 +150,7 @@ struct _EntryParser
 
   gchar *action_name;
   gchar *regex;
+  gint group;
   gchar *command_name;
   gchar *command;
 };
@@ -224,6 +226,8 @@ start_element_handler (GMarkupParseContext *context,
         }
       else if (!g_ascii_strcasecmp (element_name, "regex"))
         parser->state = REGEX;
+      else if (!g_ascii_strcasecmp (element_name, "group"))
+        parser->state = GROUP;
       else if (!g_ascii_strcasecmp (element_name, "commands"))
         parser->state = COMMANDS;
       else if (!g_ascii_strcasecmp (element_name, "exec"))
@@ -250,22 +254,29 @@ end_element_handler (GMarkupParseContext *context,
       g_free (parser->regex);
       parser->action_name = NULL;
       parser->regex = NULL;
+      parser->group = 0;
 
       parser->state = ACTIONS;
       break;
 
     case ACTION_NAME:
     case REGEX:
+    case GROUP:
     case COMMANDS:
       parser->state = ACTION;
       break;
 
     case COMMAND:
       if (parser->action_name == NULL || parser->regex == NULL)
-        g_warning ("Closing a command but no action name nor regex set");
+        {
+          g_warning ("Closing a command but no action name nor regex set");
+        }
       else
-        clipman_actions_add (parser->actions, parser->action_name, parser->regex,
-                             parser->command_name, parser->command);
+        {
+          clipman_actions_add (parser->actions, parser->action_name, parser->regex,
+                               parser->command_name, parser->command);
+          clipman_actions_set_group (parser->actions, parser->action_name, parser->group);
+        }
 
       g_free (parser->command_name);
       g_free (parser->command);
@@ -307,6 +318,9 @@ text_handler (GMarkupParseContext *context,
     case REGEX:
       parser->regex = g_strdup (text);
       break;
+
+    case GROUP:
+      parser->group = (gint)g_strtod (text, NULL);
 
     case COMMAND_NAME:
       if (parser->name_use)
@@ -483,6 +497,9 @@ __foreach_command_write_xml (gpointer key,
  * The command can contain the parameter '%s' that will be replaced by the
  * matching regex text.
  *
+ * The action is created with the default group 0. To change it use the
+ * function clipman_actions_set_group().
+ *
  * Returns: FALSE if the regex was invalid
  */
 gboolean
@@ -515,6 +532,7 @@ clipman_actions_add (ClipmanActions *actions,
       entry = g_slice_new0 (ClipmanActionsEntry);
       entry->action_name = g_strdup (action_name);
       entry->regex = _regex;
+      entry->group = 0;
       entry->commands = g_hash_table_new_full ((GHashFunc)g_str_hash, (GEqualFunc)g_str_equal,
                                                (GDestroyNotify)g_free, (GDestroyNotify)g_free);
       g_hash_table_insert (entry->commands, g_strdup (command_name), g_strdup (command));
@@ -611,6 +629,33 @@ clipman_actions_remove_command (ClipmanActions *actions,
 }
 
 /**
+ * clipman_actions_set_group:
+ * @actions:            a #ClipmanActions
+ * @action_name:        the human readable name for the regex
+ * @group:              the group identifier
+ *
+ * Changes the group of @action_name to @group.
+ */
+void
+clipman_actions_set_group (ClipmanActions *actions,
+                           const gchar *action_name,
+                           gint group)
+{
+  ClipmanActionsEntry *entry;
+  GSList *l;
+
+  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  if (l == NULL)
+    {
+      g_warning ("No corresponding entry `%s'", action_name);
+      return;
+    }
+
+  entry = l->data;
+  entry->group = group;
+}
+
+/**
  * clipman_actions_get_entries:
  * @actions:    a #ClipmanActions
  *
@@ -625,6 +670,7 @@ clipman_actions_get_entries (ClipmanActions *actions)
 /**
  * clipman_actions_match:
  * @actions:    a #ClipmanActions
+ * @group:      the group identifier
  * @text:       the text to match against the existing regex's
  *
  * Searches a regex match for @text and returns a newly allocated #GSList which
@@ -632,11 +678,13 @@ clipman_actions_get_entries (ClipmanActions *actions)
  * #ClipmanActionsEntry for each matched action.
  * Note that the data inside the list is owned by #ClipmanActions and must not
  * be modified.
+ * The @group identifier can be -1 to get a match from all groups.
  *
  * Returns: a newly allocated #GSList
  */
 GSList *
 clipman_actions_match (ClipmanActions *actions,
+                       gint group,
                        const gchar *text)
 {
   ClipmanActionsEntry *entry;
@@ -646,8 +694,11 @@ clipman_actions_match (ClipmanActions *actions,
   for (l = actions->priv->entries; l != NULL; l = l->next)
     {
       entry = l->data;
-      if (g_regex_match (entry->regex, text, 0, NULL))
-        entries = g_slist_prepend (entries, entry);
+      if (group == -1 || group == entry->group)
+        {
+          if (g_regex_match (entry->regex, text, 0, NULL))
+            entries = g_slist_prepend (entries, entry);
+        }
     }
 
   return entries;
@@ -656,6 +707,7 @@ clipman_actions_match (ClipmanActions *actions,
 /**
  * clipman_actions_match_with_menu:
  * @actions:    a #ClipmanActions
+ * @group:      the group identifier
  * @text:       the text to match against the existing regex's
  *
  * Builds and displays a menu with matching actions for @text.
@@ -664,13 +716,14 @@ clipman_actions_match (ClipmanActions *actions,
  */
 void
 clipman_actions_match_with_menu (ClipmanActions *actions,
+                                 gint group,
                                  const gchar *text)
 {
   ClipmanActionsEntry *entry;
   GtkWidget *mi;
   GSList *l, *entries;
 
-  entries = clipman_actions_match (actions, text);
+  entries = clipman_actions_match (actions, group, text);
 
   if (entries == NULL)
     return;
@@ -804,6 +857,8 @@ clipman_actions_save (ClipmanActions *actions)
       tmp = g_markup_escape_text (g_regex_get_pattern (entry->regex), -1);
       g_string_append_printf (output, "\t\t<regex>%s</regex>\n", tmp);
       g_free (tmp);
+
+      g_string_append_printf (output, "\t\t<group>%d</group>\n", entry->group);
 
       g_string_append (output, "\t\t<commands>\n");
 

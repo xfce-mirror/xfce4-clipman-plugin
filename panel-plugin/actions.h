@@ -30,6 +30,7 @@ struct _ClipmanActionsEntry
 {
   gchar                *action_name;
   GRegex               *regex;
+  gint                  group;
   GHashTable           *commands;
 };
 
@@ -77,10 +78,15 @@ gboolean                clipman_actions_remove                 (ClipmanActions *
 gboolean                clipman_actions_remove_command         (ClipmanActions *actions,
                                                                 const gchar *action_name,
                                                                 const gchar *command_name);
+void                    clipman_actions_set_group              (ClipmanActions *actions,
+                                                                const gchar *action_name,
+                                                                gint group);
 const GSList *          clipman_actions_get_entries            (ClipmanActions *actions);
 GSList *                clipman_actions_match                  (ClipmanActions *actions,
+                                                                gint group,
                                                                 const gchar *match);
 void                    clipman_actions_match_with_menu        (ClipmanActions *actions,
+                                                                gint group,
                                                                 const gchar *match);
 void                    clipman_actions_load                   (ClipmanActions *actions);
 void                    clipman_actions_save                   (ClipmanActions *actions);

@@ -267,11 +267,13 @@ apply_action (const gchar *original_action_name)
   GtkTreeIter iter;
   const gchar *action_name;
   const gchar *regex;
+  gint group;
   gchar *command_name;
   gchar *command;
 
   action_name = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")));
   regex = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")));
+  group = (gint)gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")));
 
   treeview = glade_xml_get_widget (gxml, "commands");
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (treeview));
@@ -287,6 +289,7 @@ apply_action (const gchar *original_action_name)
     {
       gtk_tree_model_get (model, &iter, 1, &command_name, 2, &command, -1);
       clipman_actions_add (actions, action_name, regex, command_name, command);
+      clipman_actions_set_group (actions, action_name, group);
       g_free (command_name);
       g_free (command);
     }
@@ -387,6 +390,7 @@ cb_actions_row_activated (GtkTreeView *treeview,
 
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")), entry->action_name);
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), g_regex_get_pattern (entry->regex));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), entry->group);
 
   res = gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_hide (dialog);
@@ -451,6 +455,7 @@ entry_dialog_cleanup (GtkDialog *dialog)
 
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")), "");
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), "");
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), FALSE);
 
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
   gtk_list_store_clear (GTK_LIST_STORE (model));

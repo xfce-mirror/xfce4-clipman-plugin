@@ -39,3 +39,9 @@
 #define XFCE_CLIPMAN_SELECTION    "XFCE_CLIPMAN_SELECTION"
 #define XFCE_CLIPMAN_MESSAGE      "MENU"
 
+/*
+ * Action Groups
+ */
+
+#define ACTION_GROUP_SELECTION  0
+#define ACTION_GROUP_MANUAL     1
