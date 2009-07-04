@@ -14,7 +14,7 @@ int main (int argc, char *argv[])
   clipman_actions_add (actions, "Image", NULL, "Gimp (remote)", "gimp-remote \\0");
   clipman_actions_add (actions, "Image", NULL, "GPicView", "gpicview2 \\0");
   clipman_actions_add (actions, "Print", ".*\\.png", "Print with GTK+", "gtk-print \\0");
-  clipman_actions_match_with_menu (actions, "/imagE.png");
+  clipman_actions_match_with_menu (actions, -1, "/imagE.png");
   clipman_actions_add (actions, "Text", "(txt)", "Mousepad", "mousepad \\0");
 
   clipman_actions_save (actions);
