@@ -2,6 +2,7 @@ NULL =
 
 SUBDIRS =								\
 	icons								\
+	daemon								\
 	panel-plugin							\
 	tests								\
 	po								\
