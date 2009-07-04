@@ -640,8 +640,7 @@ cb_unique_app (UniqueApp *app,
 {
   if (command != UNIQUE_ACTIVATE)
     {
-      g_warning ("Dude?");
-      return;
+      return UNIQUE_RESPONSE_PASSTHROUGH;
     }
 
   gtk_window_present (GTK_WINDOW (dialog));
