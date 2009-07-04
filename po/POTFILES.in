@@ -3,8 +3,10 @@ panel-plugin/xfce4-clipman-actions.xml.in
 panel-plugin/xfce4-clipman-plugin.desktop.in.in
 panel-plugin/xfce4-clipman-plugin-autostart.desktop.in
 panel-plugin/settings-dialog.glade
-panel-plugin/main.c
+panel-plugin/main-panel-plugin.c
+panel-plugin/main-status-icon.c
 panel-plugin/actions.c
 panel-plugin/collector.c
 panel-plugin/history.c
 panel-plugin/menu.c
+panel-plugin/plugin.c

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"PO-Revision-Date: 2009-07-04 07:44+0200\n"
 "Last-Translator: Vincent Tunru <projects@vinnl.nl>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,15 +13,15 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+msgid "Clipboard manager"
 msgstr "Klembordbeheer"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -79,7 +79,7 @@ msgid "Actions"
 msgstr "Acties"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+msgid "Activate only on manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -184,38 +184,7 @@ msgstr ""
 "reguliere expressies niet kent kunt u de documentatie van Clipman "
 "raadplegen, welke een introductie tot reguliere expressies bevat."
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr ""
-
-#: ../panel-plugin/main.c:366
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr ""
-
-#: ../panel-plugin/main.c:698
-#, fuzzy
-msgid "Clipboard Manager for Xfce"
-msgstr "Klembordbeheer voor Xfce"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr "Vincent Tunru"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr ""
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -223,18 +192,27 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "Geschiedenis wissen?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "Het klembord is leeg"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr ""
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "Klembordbeheer voor Xfce"
+
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr "Vincent Tunru"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "Kon de volgende URL niet openen: %s"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -244,9 +222,6 @@ msgstr ""
 #~ "Wanneer u deze optie aanvinkt zullen selecties opgeslagen worden in de "
 #~ "geschiedenis. Dit gedrag kan de geschiedenis onleesbaar maken, het kan "
 #~ "echter interessant zijn indien u altijd wil plakken wat u selecteert."
-
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "Kon de volgende URL niet openen: %s"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Inhoud klembord opslaan bij _afsluiten"

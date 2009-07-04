@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
-"PO-Revision-Date: 2009-04-18 12:27+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"PO-Revision-Date: 2009-07-04 07:43+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +21,15 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+msgid "Clipboard manager"
 msgstr "Verwaltung der Zwischenablagen"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Zwischenablage"
 
@@ -87,7 +87,8 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+#, fuzzy
+msgid "Activate only on manual copy"
 msgstr "Nur bei Standardzwischenablage aktivieren"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -193,41 +194,7 @@ msgstr ""
 "keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu "
 "Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr ""
-
-#: ../panel-plugin/main.c:366
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr ""
-
-#: ../panel-plugin/main.c:698
-#, fuzzy
-msgid "Clipboard Manager for Xfce"
-msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr ""
-"Enrico Tröger\n"
-"Fabian Nowak\n"
-"Simon Schneider"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr "Es läuft bereits eine Zwischenablage"
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -235,18 +202,36 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr "_Aktivieren"
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
+
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr ""
+"Enrico Tröger\n"
+"Fabian Nowak\n"
+"Simon Schneider"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "Kann die folgende Adresse nicht öffnen: %s"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "Es läuft bereits eine Zwischenablage"
+
+#~ msgid "_Enable"
+#~ msgstr "_Aktivieren"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -257,9 +242,6 @@ msgstr "_Aktivieren"
 #~ "Verlaufsspeicher einzutragen. Dieses Verhalten kann zu einem unlesbaren "
 #~ "Verlaufsspeicher führen, kann jedoch nützlich sein, wenn Sie jede Auswahl "
 #~ "auch immer einfügen wollen."
-
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "Kann die folgende Adresse nicht öffnen: %s"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Inhalt der Zwischenablage beim Verlassen speichern"

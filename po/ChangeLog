@@ -1,3 +1,7 @@
+2009-07-04  Mike Massonnet <mmassonnet@xfce.org>
+
+	* *.po, *.pot: make update-po
+
 2009-06-18  Mike Massonnet <mmassonnet@xfce.org>
 
 	* el.po: Greek translation update (Evaggelos Balaskas)

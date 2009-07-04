@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
 "PO-Revision-Date: 2009-04-19 18:01+0300\n"
 "Last-Translator: Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
 "Language-Team: Finnish\n"
@@ -19,15 +19,16 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+#, fuzzy
+msgid "Clipboard manager"
 msgstr "Leikepöytien hallintatyökalu"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -85,7 +86,8 @@ msgid "Actions"
 msgstr "Toiminnot"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+#, fuzzy
+msgid "Activate only on manual copy"
 msgstr "Ainoastaan oletusleikepöydällä"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -186,38 +188,7 @@ msgstr ""
 "sännöllisten lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen "
 "käyttöoppaasta."
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr "Käynnistä Clipman"
-
-#: ../panel-plugin/main.c:366
-#, fuzzy
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr ""
-
-#: ../panel-plugin/main.c:698
-msgid "Clipboard Manager for Xfce"
-msgstr "Leikepöytien hallinta Xfce:lle"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr "Jokin sovellus hallitsee jo leikepöytiä"
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -228,18 +199,43 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "Haluatko varmasti tyhjentää historian?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "Leikepöytä on tyhjä"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr "_Käytä"
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "Leikepöytien hallinta Xfce:lle"
+
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
+
+#: ../panel-plugin/plugin.c:324
+msgid "Unable to open the settings dialog"
+msgstr ""
+
+#~ msgid "Autostart Clipman"
+#~ msgstr "Käynnistä Clipman"
+
+#, fuzzy
+#~ msgid ""
+#~ "Do you want to restart the clipboard manager the next time you login?"
+#~ msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
+
+#~ msgid "Do you want to autostart the clipboard manager?"
+#~ msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "Jokin sovellus hallitsee jo leikepöytiä"
+
+#~ msgid "_Enable"
+#~ msgstr "_Käytä"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "

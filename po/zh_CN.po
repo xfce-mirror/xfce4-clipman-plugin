@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
 "PO-Revision-Date: 2009-06-10 01:18+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese <xfce-i18n@xfce.org>\n"
@@ -20,15 +20,16 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+#, fuzzy
+msgid "Clipboard manager"
 msgstr "剪贴板管理器"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -85,7 +86,8 @@ msgid "Actions"
 msgstr "动作"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+#, fuzzy
+msgid "Activate only on manual copy"
 msgstr "仅在默认剪贴板激活"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -93,8 +95,8 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"默认情况下选中即激活此动作，如果只需要在您手动进行复制时执行此动作，"
-"请选中此选项"
+"默认情况下选中即激活此动作，如果只需要在您手动进行复制时执行此动作，请选中此"
+"选项"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -125,15 +127,14 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"如果选中此项，剪贴板中的文字将会使用正则表达式进行匹配，"
-"并弹出供选择动作的菜单"
+"如果选中此项，剪贴板中的文字将会使用正则表达式进行匹配，并弹出供选择动作的菜"
+"单"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr ""
-"如果选中此项，选择的内容将会被同步到剪贴板中以便您粘贴选择的内容"
+msgstr "如果选中此项，选择的内容将会被同步到剪贴板中以便您粘贴选择的内容"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
@@ -183,39 +184,7 @@ msgstr ""
 "您可以在命令中使用替换参数\"\\1\"、\"\\2\"等。参数\"\\0\"代表整个文本。如果您"
 "不熟悉正则表达式，请参看Clipman的文档中相关的介绍。"
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr "自动启动剪贴板管理器"
-
-#: ../panel-plugin/main.c:366
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr "您希望在下次登录时重新启动剪贴板管理器吗？"
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr "是否让剪贴板管理器自动启动？"
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr "之前版本的作者:"
-
-#: ../panel-plugin/main.c:698
-msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 桌面环境的剪贴板管理器"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr ""
-"Hydonsingore Cia\n"
-"Hunt Xu"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr "已有一个剪贴板管理器正在运行中"
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -226,18 +195,48 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "您确定您想要清除历史记录吗？"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "历史记录为空"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr "允许(_E)"
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "Xfce 桌面环境的剪贴板管理器"
+
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr ""
+"Hydonsingore Cia\n"
+"Hunt Xu"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "无法打开以下链接: %s"
+
+#~ msgid "Autostart Clipman"
+#~ msgstr "自动启动剪贴板管理器"
+
+#~ msgid ""
+#~ "Do you want to restart the clipboard manager the next time you login?"
+#~ msgstr "您希望在下次登录时重新启动剪贴板管理器吗？"
+
+#~ msgid "Do you want to autostart the clipboard manager?"
+#~ msgstr "是否让剪贴板管理器自动启动？"
+
+#~ msgid "Authors of previous versions:"
+#~ msgstr "之前版本的作者:"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "已有一个剪贴板管理器正在运行中"
+
+#~ msgid "_Enable"
+#~ msgstr "允许(_E)"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -249,9 +248,6 @@ msgstr "允许(_E)"
 
 #~ msgid "Regex:"
 #~ msgstr "正则表达式:"
-
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "无法打开以下链接: %s"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "离开时储存剪贴板内容(_e)"

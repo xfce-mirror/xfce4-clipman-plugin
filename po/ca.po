@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
 "PO-Revision-Date: 2009-05-22 10:53+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
@@ -21,15 +21,16 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+#, fuzzy
+msgid "Clipboard manager"
 msgstr "Gestor de porta-retalls"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Porta-retalls «Clipman»"
 
@@ -86,7 +87,8 @@ msgid "Actions"
 msgstr "Accions"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+#, fuzzy
+msgid "Activate only on manual copy"
 msgstr "Només activar en el porta-retalls per defecte"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -192,42 +194,7 @@ msgstr ""
 "les expressions regulars, faci un cop d'ull a la introducció que hi ha en la "
 "documentació de Clipman."
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr "Iniciar Clipman automàticament"
-
-#: ../panel-plugin/main.c:366
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
-"Voleu iniciar automàticament el gestor del porta-retalls el proper cop que "
-"inicieu la sessió?"
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr "Autors de les versions anteriors:"
-
-#: ../panel-plugin/main.c:698
-msgid "Clipboard Manager for Xfce"
-msgstr "Gestor de porta-retalls per l'escriptori Xfce"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr ""
-"Pau Ruŀlan Ferragut\n"
-"Carles Muñoz Gorriz\n"
-"Harald Servat Gelabert"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr "Ja hi ha un altre gestor del porta-retalls executant-se"
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -238,18 +205,51 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "Voleu buidar l’històric?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "El porta-retalls és buit"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr "_Activar"
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "Gestor de porta-retalls per l'escriptori Xfce"
+
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr ""
+"Pau Ruŀlan Ferragut\n"
+"Carles Muñoz Gorriz\n"
+"Harald Servat Gelabert"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "No s'ha pogut obrir la url: %s"
+
+#~ msgid "Autostart Clipman"
+#~ msgstr "Iniciar Clipman automàticament"
+
+#~ msgid ""
+#~ "Do you want to restart the clipboard manager the next time you login?"
+#~ msgstr ""
+#~ "Voleu iniciar automàticament el gestor del porta-retalls el proper cop "
+#~ "que inicieu la sessió?"
+
+#~ msgid "Do you want to autostart the clipboard manager?"
+#~ msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
+
+#~ msgid "Authors of previous versions:"
+#~ msgstr "Autors de les versions anteriors:"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "Ja hi ha un altre gestor del porta-retalls executant-se"
+
+#~ msgid "_Enable"
+#~ msgstr "_Activar"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -262,9 +262,6 @@ msgstr "_Activar"
 
 #~ msgid "Regex:"
 #~ msgstr "Expressió regular:"
-
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "No s'ha pogut obrir la url: %s"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Desa el contingut del porta-retalls al _sortir"

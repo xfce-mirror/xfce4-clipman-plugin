@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-18 12:03+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
 "PO-Revision-Date: 2009-05-14 02:43+0500\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -22,17 +22,16 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboards manager"
+#, fuzzy
+msgid "Clipboard manager"
 msgstr "کلپ بورڈ منیجر"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:198
-#: ../panel-plugin/main.c:275
-#: ../panel-plugin/main.c:321
-#: ../panel-plugin/main.c:425
-#: ../panel-plugin/main.c:634
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "کلپ مین"
 
@@ -73,28 +72,34 @@ msgid "<b>Action</b>"
 msgstr "<b>حرکت</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Behavior</b>"
+msgstr "<b>کلپ بورڈ سلوک</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
 msgstr "<b>کمانڈز</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:3
+#: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
 msgstr "<b>محفوظات</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:4
+#: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
 msgstr "حرکات"
 
-#: ../panel-plugin/settings-dialog.glade.h:5
-msgid "Activate only on default clipboard"
+#: ../panel-plugin/settings-dialog.glade.h:6
+#, fuzzy
+msgid "Activate only on manual copy"
 msgstr "صرف طے شدہ کلپ بورڈ پر فعال کریں"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Add _selections"
-msgstr "_انتخاب شامل کریں"
-
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "طے شدہ طور پر حرکت انتخاب کے ذریعے ٹریگر ہوتی ہے، یہ اختیار منتخب کریں تاکہ حرکت کو ٹریگر کیا جاسکے صرف جب آپ مینول کاپی بنانا چاہتے ہوں"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"طے شدہ طور پر حرکت انتخاب کے ذریعے ٹریگر ہوتی ہے، یہ اختیار منتخب کریں تاکہ "
+"حرکت کو ٹریگر کیا جاسکے صرف جب آپ مینول کاپی بنانا چاہتے ہوں"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -105,86 +110,92 @@ msgid "Configure the plugin"
 msgstr "پلگ ان وضع کریں"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
+msgid "E_xclude from history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "حرکت مدون کریں"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Enable _actions"
 msgstr "_حرکات فعال کریں"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid "General"
 msgstr "عام"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "اگر منتخب کیا گیا تو کلپ بورڈ کا متن عام تاثر کے خلاف ملایا جائے گا اور مینیو ممکنہ حرکات دکھائے گا"
-
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
-msgstr "اگر منتخب کیا گیا، انتخاب محفوظات میں جائے گا. یہ سلوک محفوظات کو پڑھے جانے کے غیر قابل بنا سکتا ہے، تاہم یہ اس صورت میں مفید ہے جب آپ ہمیشہ اپنا انتخاب پیسٹ کرنا چاہتے ہوں."
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"اگر منتخب کیا گیا تو کلپ بورڈ کا متن عام تاثر کے خلاف ملایا جائے گا اور "
+"مینیو ممکنہ حرکات دکھائے گا"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "اگر منتخب کیا گیا تو یہ اختیار اس بات کی اجازت دیتا ہے کہ محفوظات میں ایک تصویر محفوظ کی جاسکے"
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "اگر منتخب کیا گیا تو یہ اختیار ایکسفس کی ہر نشست پر محفوظات بحال کردے گا"
+#, fuzzy
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"اگر منتخب کیا گیا تو یہ اختیار ایکسفس کی ہر نشست پر محفوظات بحال کردے گا"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+"اگر منتخب کیا گیا تو یہ اختیار اس بات کی اجازت دیتا ہے کہ محفوظات میں ایک "
+"تصویر محفوظ کی جاسکے"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"اگر منتخب کیا گیا تو یہ اختیار ایکسفس کی ہر نشست پر محفوظات بحال کردے گا"
+
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
 msgstr "نام:"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
 msgstr "نقش:"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
 msgstr "_برخاست پر محفوظ کریں"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
 msgstr "_محفوظات کا حجم:"
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
 msgstr "_تصویر محفوظ کریں"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "آپ کمانڈ میں متبادل پیرامیٹر \"\\1\", \"\\2\" استعمال کر سکتے ہیں. پیرامیٹر \"\\0\" مکمل متن کی نمائندگی کرتا ہے. اگر آپ عمومی تاثرات کے بارے میں نہیں جانتے، تو کلپ مین کی دستاویزات کا مطالعہ کریں جہاں ان کا تعارف پیش کیا گیا ہے."
+#: ../panel-plugin/settings-dialog.glade.h:24
+#, fuzzy
+msgid "Sync _selections"
+msgstr "_انتخاب شامل کریں"
 
-#. Ask the user
-#: ../panel-plugin/main.c:392
-#: ../panel-plugin/main.c:393
-msgid "Autostart Clipman"
-msgstr "کلپ میں کو خودکار چلائیں"
-
-#: ../panel-plugin/main.c:393
-msgid "Do you want to autostart the clipboard manager?"
-msgstr "کیا آپ کلپ مین منیجر کو خودکار طور پر چلانا چاہتے ہیں؟"
-
-#: ../panel-plugin/main.c:636
-msgid "Clipboard Manager for Xfce"
-msgstr "کلپ بورڈ منیجر برائے ایکسفس"
-
-#: ../panel-plugin/main.c:645
-msgid "translator-credits"
+#: ../panel-plugin/settings-dialog.glade.h:25
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
 msgstr ""
-"محمد علی مکی\n"
-"makki.ma@gmail.com\n"
-"اردو کوڈر لینکس فورم\n"
-"http://www.urducoder.com\n"
-"مکی کا بلاگ\n"
-"http://makki.urducoder.com"
+"آپ کمانڈ میں متبادل پیرامیٹر \"\\1\", \"\\2\" استعمال کر سکتے ہیں. پیرامیٹر "
+"\"\\0\" مکمل متن کی نمائندگی کرتا ہے. اگر آپ عمومی تاثرات کے بارے میں نہیں "
+"جانتے، تو کلپ مین کی دستاویزات کا مطالعہ کریں جہاں ان کا تعارف پیش کیا گیا "
+"ہے."
 
-#: ../panel-plugin/main.c:838
-msgid "There is already a clipboard manager running"
-msgstr "کلپ بورڈ منیجر پہلے ہی چل رہا ہے"
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -195,55 +206,102 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "کیا آپ واقعی محفوظات صاف کرنا چاہتے ہیں؟"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
 msgstr "کلپ بورڈ خالی ہے"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr "_فعال کریں"
+#: ../panel-plugin/plugin.c:301
+msgid "Clipboard Manager for Xfce"
+msgstr "کلپ بورڈ منیجر برائے ایکسفس"
 
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "یہ url کھولنے میں ناکامی: %s"
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr ""
+"محمد علی مکی\n"
+"makki.ma@gmail.com\n"
+"اردو کوڈر لینکس فورم\n"
+"http://www.urducoder.com\n"
+"مکی کا بلاگ\n"
+"http://makki.urducoder.com"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "یہ url کھولنے میں ناکامی: %s"
+
+#~ msgid ""
+#~ "If checked, the selections will go into the history. This behavior can "
+#~ "bring the history to be unreadable, however it can be interesting in case "
+#~ "you always want to paste what you select."
+#~ msgstr ""
+#~ "اگر منتخب کیا گیا، انتخاب محفوظات میں جائے گا. یہ سلوک محفوظات کو پڑھے "
+#~ "جانے کے غیر قابل بنا سکتا ہے، تاہم یہ اس صورت میں مفید ہے جب آپ ہمیشہ "
+#~ "اپنا انتخاب پیسٹ کرنا چاہتے ہوں."
+
+#~ msgid "Autostart Clipman"
+#~ msgstr "کلپ میں کو خودکار چلائیں"
+
+#~ msgid "Do you want to autostart the clipboard manager?"
+#~ msgstr "کیا آپ کلپ مین منیجر کو خودکار طور پر چلانا چاہتے ہیں؟"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "کلپ بورڈ منیجر پہلے ہی چل رہا ہے"
+
+#~ msgid "_Enable"
+#~ msgstr "_فعال کریں"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_برخاست پر کلپ بورڈ مواد محفوظ کریں"
+
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "خالی کپ بورڈ _منع کریں"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>عام</b>"
+
 #~ msgid "Normal clipboard _management"
 #~ msgstr "عام کلپ بورڈ ا_دارت"
+
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "سختی سے د_ونوں کلپ بورڈ الگ کریں"
-#~ msgid "<b>Clipboard Behaviour</b>"
-#~ msgstr "<b>کلپ بورڈ سلوک</b>"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "عناصر کے نمبر _ظاہر کریں"
+
 #~ msgid "Se_parate clipboards"
 #~ msgstr "کلپ بورڈز ال_گ کریں"
+
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>مینیو مظہر</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "کلپ بورڈ محفوظات عناصر:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "مینیو عنصر کیریکٹرز:"
+
 #~ msgid "Appearance"
 #~ msgstr "مظہر"
+
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "کیا آپ واقعی یہ کلپ محفوظات سے ختم کرنا چاہتے ہیں؟"
+
 #~ msgid "< Default History Empty >"
 #~ msgstr "< طے شدہ محفوظات خالی >"
+
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< انتخاب محفوظات خالی >"
+
 #~ msgid "Clear History"
 #~ msgstr "محفوظات صاف کریں"
+
 #~ msgid "Clipman History"
 #~ msgstr "Clipman محفوظات"
+
 #~ msgid "Clipboard manager for the Xfce desktop"
 #~ msgstr "ایکسفس ڈیسک ٹاپ کا کلپ بورڈ منیجر"
-

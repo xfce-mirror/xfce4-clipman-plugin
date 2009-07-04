@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-14 06:44+0200\n"
+"POT-Creation-Date: 2009-07-04 07:41+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <xfce-i18n@xfce.org>\n"
@@ -19,15 +19,15 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #, fuzzy
-msgid "Clipboards manager"
+msgid "Clipboard manager"
 msgstr "Përgjegjës i Së Papastrës"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main.c:209 ../panel-plugin/main.c:292
-#: ../panel-plugin/main.c:336 ../panel-plugin/main.c:480
-#: ../panel-plugin/main.c:696
+#: ../panel-plugin/main-panel-plugin.c:69
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
 #, fuzzy
 msgid "Clipman"
 msgstr "Clipman"
@@ -87,7 +87,7 @@ msgid "Actions"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-msgid "Activate only on default clipboard"
+msgid "Activate only on manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:7
@@ -179,38 +179,7 @@ msgid ""
 "has an introdution for them."
 msgstr ""
 
-#. Ask the user
-#: ../panel-plugin/main.c:365 ../panel-plugin/main.c:366
-#: ../panel-plugin/main.c:418 ../panel-plugin/main.c:419
-msgid "Autostart Clipman"
-msgstr ""
-
-#: ../panel-plugin/main.c:366
-msgid "Do you want to restart the clipboard manager the next time you login?"
-msgstr ""
-
-#: ../panel-plugin/main.c:419
-msgid "Do you want to autostart the clipboard manager?"
-msgstr ""
-
-#: ../panel-plugin/main.c:683
-msgid "Authors of previous versions:"
-msgstr ""
-
-#: ../panel-plugin/main.c:698
-#, fuzzy
-msgid "Clipboard Manager for Xfce"
-msgstr "Përgjegjësin i Së Papastrës për Desktopin Xfce 4"
-
-#: ../panel-plugin/main.c:707
-msgid "translator-credits"
-msgstr "Besnik Bleta"
-
-#: ../panel-plugin/main.c:931
-msgid "There is already a clipboard manager running"
-msgstr ""
-
-#: ../panel-plugin/actions.c:340
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -218,22 +187,29 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../panel-plugin/menu.c:123
+#: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
 msgstr "Jeni të sigurtë se doni të fshihet historiku?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:196
+#: ../panel-plugin/menu.c:186
 #, fuzzy
 msgid "Clipboard is empty"
 msgstr "< E papastra Bosh >"
 
-#: ../panel-plugin/menu.c:262
-msgid "_Enable"
-msgstr ""
+#: ../panel-plugin/plugin.c:301
+#, fuzzy
+msgid "Clipboard Manager for Xfce"
+msgstr "Përgjegjësin i Së Papastrës për Desktopin Xfce 4"
 
-#~ msgid "Unable to open the following url: %s"
-#~ msgstr "I pazoti të hapë url-në vijuese: %s"
+#: ../panel-plugin/plugin.c:310
+msgid "translator-credits"
+msgstr "Besnik Bleta"
+
+#: ../panel-plugin/plugin.c:324
+#, fuzzy
+msgid "Unable to open the settings dialog"
+msgstr "I pazoti të hapë url-në vijuese: %s"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Ruaj përmbajtjen e së papastrës gjatë _daljes"
