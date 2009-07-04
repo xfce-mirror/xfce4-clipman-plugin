@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
-"PO-Revision-Date: 2009-05-16 00:42+0900\n"
+"POT-Creation-Date: 2009-07-04 22:43+0900\n"
+"PO-Revision-Date: 2009-07-04 22:32+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,6 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
 msgstr "クリップボードマネージャ"
 
@@ -29,7 +28,7 @@ msgstr "クリップボードマネージャ"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -86,9 +85,8 @@ msgid "Actions"
 msgstr "アクション"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-#, fuzzy
 msgid "Activate only on manual copy"
-msgstr "デフォルトクリップボードに入ったときアクティブにする"
+msgstr "手動コピー時のみアクティブにする"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
@@ -188,8 +186,8 @@ msgid ""
 "has an introdution for them."
 msgstr ""
 "コマンドに \"\\1\"、\"\\2\" などの置換パラメータが使用できます。パラメータ "
-"\"\\0\" は完全な文字列になります。正規表現が分からない場合は、それらについて"
-"紹介している Clipman のドキュメントを参照してください。"
+"\"\\0\" は完全な文字列になります。正規表現が分からない場合は、Clipman のド"
+"キュメントなどを参照してください。"
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -224,7 +222,7 @@ msgstr ""
 
 #: ../panel-plugin/plugin.c:324
 msgid "Unable to open the settings dialog"
-msgstr ""
+msgstr "設定ダイアログを開けません"
 
 #~ msgid "Autostart Clipman"
 #~ msgstr "Clipman の自動起動"
