@@ -1,3 +1,21 @@
+Version 1.1.0 - 2009-07-xx
+
+- Settings dialog is an external application xfce4-clipman-settings.  Optional
+  support for libunique to make the settings dialog unique.
+- Switched to GIO for file monitoring support over the actions XML file.
+  Minimum version requirement for glib bumped to 2.16.
+- The bundle "standalone app/panel plugin" is splitted in two binaries.
+- The autostart behavior has changed. Now when the standalone application is
+  launched the autostart file is automatically set to true, and when it is
+  dropped by the user it is set to false.
+- Added the daemon from gnome-settings-daemon, it keeps a copy of all targets
+  and replicates them to the clipboard before it is going empty.
+- Added groups into ClipmanActions identified by integers where -1 represents
+  all the groups. This makes it possible to retrieve only a set of actions. The
+  Clipman settings dialog has a new checkbox to retrieve actions only on manual
+  copies (e.g. Ctrl+C).
+- Fixed a bug with KDE where the status icon is getting smaller and smaller.
+
 Version 1.0.1 - 2009-05-14
 
 - Renamed option "Add selections" to "Sync selections".

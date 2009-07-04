@@ -1,6 +1,2 @@
 Actions:
 - A regex validator dialog
-Collector:
-- Instead of getting ownership of the clipboard content only for text (plain
-and html) and images, replicate the clipboard content with the same
-SAVE_TARGETS so it works for everything
