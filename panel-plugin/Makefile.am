@@ -60,6 +60,7 @@ xfce4_clipman_settings_CFLAGS =						\
 	@LIBXFCEGUI4_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	@GLADE_CFLAGS@							\
+	@UNIQUE_CFLAGS@							\
 	$(NULL)
 
 xfce4_clipman_settings_LDADD =						\
@@ -69,6 +70,7 @@ xfce4_clipman_settings_LDADD =						\
 	@LIBXFCEGUI4_LIBS@						\
 	@XFCONF_LIBS@							\
 	@GLADE_LIBS@							\
+	@UNIQUE_LIBS@							\
 	$(NULL)
 
 #

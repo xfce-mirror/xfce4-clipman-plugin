@@ -1,4 +1,13 @@
 2009-07-04	Mike Massonnet
+Unique settings dialog
+
+	- configure.ac.in:
+		Add optional dependency on libunique.
+	- panel-plugin/xfce4-clipman-settings.c:
+		Make the application unique and send the activate command if a
+		running instance is found to present the existing window.
+
+2009-07-04	Mike Massonnet
 Drop size callback from status icon
 
 	- panel-plugin/main-status-icon.c:

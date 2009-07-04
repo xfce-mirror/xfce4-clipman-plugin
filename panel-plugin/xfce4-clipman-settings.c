@@ -24,6 +24,10 @@
 #include <locale.h>
 #endif
 
+#ifdef HAVE_UNIQUE
+#include <unique/unique.h>
+#endif
+
 #include <gtk/gtk.h>
 #include <glade/glade.h>
 #include <libxfcegui4/libxfcegui4.h>
@@ -36,6 +40,7 @@
 static XfconfChannel *xfconf_channel = NULL;
 static GladeXML *gxml = NULL;
 static ClipmanActions *actions = NULL;
+static GtkWidget *dialog = NULL;
 
 static void             prop_dialog_run                 ();
 static void             cb_show_help                    (GtkButton *button);
@@ -50,7 +55,7 @@ static void             cb_actions_row_activated        (GtkTreeView *treeview,
                                                          GtkTreeViewColumn *column);
 static void             cb_delete_action                (GtkButton *button);
 static void             setup_commands_treeview         (GtkTreeView *treeview);
-static void             entry_dialog_cleanup            (GtkDialog *dialog);
+static void             entry_dialog_cleanup            ();
 #if !GLIB_CHECK_VERSION(2,16,0)
 static void           __foreach_command_fill_commands   (gpointer key,
                                                          gpointer value,
@@ -67,7 +72,6 @@ static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 static void
 prop_dialog_run ()
 {
-  GtkWidget *dialog;
   GtkWidget *action_dialog;
 
   /* GladeXML */
@@ -315,14 +319,14 @@ cb_actions_selection_changed (GtkTreeSelection *selection)
 static void
 cb_add_action (GtkButton *button)
 {
-  GtkWidget *dialog;
+  GtkWidget *action_dialog;
   gint res;
 
-  dialog = glade_xml_get_widget (gxml, "action-dialog");
-  entry_dialog_cleanup (GTK_DIALOG (dialog));
+  action_dialog = glade_xml_get_widget (gxml, "action-dialog");
+  entry_dialog_cleanup ();
 
-  res = gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_hide (dialog);
+  res = gtk_dialog_run (GTK_DIALOG (action_dialog));
+  gtk_widget_hide (action_dialog);
 
   if (res == 1)
     apply_action (NULL);
@@ -361,12 +365,12 @@ cb_actions_row_activated (GtkTreeView *treeview,
   ClipmanActionsEntry *entry;
   GtkTreeModel *actions_model, *commands_model;
   GtkTreeIter iter;
-  GtkWidget *dialog;
+  GtkWidget *action_dialog;
   gchar *title;
   gint res;
 
-  dialog = glade_xml_get_widget (gxml, "action-dialog");
-  entry_dialog_cleanup (GTK_DIALOG (dialog));
+  action_dialog = glade_xml_get_widget (gxml, "action-dialog");
+  entry_dialog_cleanup ();
 
   actions_model = gtk_tree_view_get_model (treeview);
   gtk_tree_model_get_iter (actions_model, &iter, path);
@@ -392,8 +396,8 @@ cb_actions_row_activated (GtkTreeView *treeview,
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), g_regex_get_pattern (entry->regex));
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), entry->group);
 
-  res = gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_hide (dialog);
+  res = gtk_dialog_run (GTK_DIALOG (action_dialog));
+  gtk_widget_hide (action_dialog);
 
   if (res == 1)
     apply_action (entry->action_name);
@@ -447,7 +451,7 @@ setup_commands_treeview (GtkTreeView *treeview)
 }
 
 static void
-entry_dialog_cleanup (GtkDialog *dialog)
+entry_dialog_cleanup ()
 {
   GtkTreeModel *model;
 
@@ -626,14 +630,46 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
 
 
 
+#ifdef HAVE_UNIQUE
+static UniqueResponse
+cb_unique_app (UniqueApp *app,
+               gint command,
+               UniqueMessageData *message_data,
+               guint time_,
+               gpointer user_data)
+{
+  if (command != UNIQUE_ACTIVATE)
+    {
+      g_warning ("Dude?");
+      return;
+    }
+
+  gtk_window_present (GTK_WINDOW (dialog));
+  return UNIQUE_RESPONSE_OK;
+}
+#endif
+
 gint
 main (gint argc,
       gchar *argv[])
 {
-  GtkWidget *dialog;
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
   xfconf_init (NULL);
   gtk_init (&argc, &argv);
+
+#ifdef HAVE_UNIQUE
+  UniqueApp *app = unique_app_new ("org.xfce.Clipman", NULL);
+  if (unique_app_is_running (app))
+    {
+      if (unique_app_send_message (app, UNIQUE_ACTIVATE, NULL) == UNIQUE_RESPONSE_OK)
+        {
+          g_object_unref (app);
+          return;
+        }
+    }
+  g_signal_connect (app, "message-received", G_CALLBACK (cb_unique_app), NULL);
+#endif
+
   xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   actions = clipman_actions_get ();
   prop_dialog_run ();
