@@ -132,6 +132,9 @@ docs/manual/Makefile
 docs/manual/C/Makefile
 docs/manual/C/xfce4-clipman-plugin.xml
 docs/manual/C/images/Makefile
+docs/manual/fr/Makefile
+docs/manual/fr/xfce4-clipman-plugin.xml
+docs/manual/fr/images/Makefile
 docs/manual/gl/Makefile
 docs/manual/gl/xfce4-clipman-plugin.xml
 docs/manual/gl/images/Makefile

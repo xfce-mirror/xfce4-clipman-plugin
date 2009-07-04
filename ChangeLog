@@ -1,3 +1,6 @@
+2009-07-05	Mike Massonnet
+Add French documentation
+
 2009-07-04	Mike Massonnet
 Use LC_MESSAGES to show the help in the user locale
 

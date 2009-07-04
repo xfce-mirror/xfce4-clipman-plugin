@@ -2,6 +2,7 @@ NULL =
 
 SUBDIRS =								\
 	C								\
+	fr								\
 	gl								\
 	ja								\
 	$(NULL)
