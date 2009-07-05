@@ -43,11 +43,25 @@ struct _ClipmanMenuPrivate
   GtkWidget            *mi_clear_history;
   ClipmanHistory       *history;
   GSList               *list;
+  gboolean              reverse_order;
+};
+
+enum
+{
+  REVERSE_ORDER = 1,
 };
 
 static void             clipman_menu_class_init         (ClipmanMenuClass *klass);
 static void             clipman_menu_init               (ClipmanMenu *menu);
 static void             clipman_menu_finalize           (GObject *object);
+static void             clipman_menu_set_property       (GObject *object,
+                                                         guint property_id,
+                                                         const GValue *value,
+                                                         GParamSpec *pspec);
+static void             clipman_collector_get_property  (GObject *object,
+                                                         guint property_id,
+                                                         GValue *value,
+                                                         GParamSpec *pspec);
 
 /*
  * Private methods declarations
@@ -146,6 +160,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
   /* Insert an updated list of menu items */
   list = clipman_history_get_list (menu->priv->history);
+  if (menu->priv->reverse_order)
+    list = g_list_reverse (list);
   for (l = list; l != NULL; l = l->next)
     {
       item = l->data;
@@ -229,6 +245,13 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_menu_finalize;
+
+  g_object_class_install_property (object_class, ENABLE_ACTIONS,
+                                   g_param_spec_boolean ("reverse-order",
+                                                         "ReverseOrder",
+                                                         "Set to TRUE to display the menu in the reverse order",
+                                                         FALSE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -264,3 +287,40 @@ clipman_menu_finalize (GObject *object)
   G_OBJECT_CLASS (clipman_menu_parent_class)->finalize (object);
 }
 
+static void
+clipman_menu_set_property (GObject *object,
+                           guint property_id,
+                           const GValue *value,
+                           GParamSpec *pspec)
+{
+  ClipmanCollectorPrivate *priv = CLIPMAN_COLLECTOR (object)->priv;
+
+  switch (property_id)
+    {
+    case REVERSE_ORDER:
+      priv->reverse_order = g_value_get_boolean (value);
+      break;
+
+    default:
+      break;
+    }
+}
+
+static void
+clipman_collector_get_property (GObject *object,
+                                guint property_id,
+                                GValue *value,
+                                GParamSpec *pspec)
+{
+  ClipmanCollectorPrivate *priv = CLIPMAN_COLLECTOR (object)->priv;
+
+  switch (property_id)
+    {
+    case REVERSE_ORDER:
+      g_value_set_boolean (value, priv->reverse_order);
+      break;
+
+    default:
+      break;
+    }
+}

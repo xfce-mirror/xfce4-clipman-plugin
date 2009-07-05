@@ -1,4 +1,15 @@
 2009-07-05	Mike Massonnet
+Add reverse-order property to the menu
+
+	- panel-plugin/menu.c:
+		Install a new property reverse-order and when set to TRUE it
+		reverses the order the clipboard history inside the menu (bug
+		#5502).
+	- panel-plugin/plugin.c:
+		Bind the new menu property reverse-order to the Xfconf
+		property /tweaks/reverse-menu-order.
+
+2009-07-05	Mike Massonnet
 Add French documentation
 
 2009-07-04	Mike Massonnet

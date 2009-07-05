@@ -104,6 +104,8 @@ plugin_register ()
 
   /* ClipmanMenu */
   plugin->menu = clipman_menu_new ();
+  xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
+                          G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
 
   /* Load the data */
   plugin_load (plugin);
