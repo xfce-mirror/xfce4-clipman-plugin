@@ -96,11 +96,9 @@
     <sect2 id="general">
       <title>Général</title>
 
-      <para>
-        The following table describes the available options:
-      </para>
+      <para>La table suivante décrit les options disponibles :</para>
 
-      <table frame="all"><title>General options in the Settings dialog</title>
+      <table frame="all"><title>Options générales dans le dialogue de paramètres</title>
       <tgroup cols="2" align="left">
       <thead>
       <row>
@@ -110,38 +108,37 @@
       </thead>
       <tbody>
       <row>
-        <entry>Sync selections</entry>
-	<entry>Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
-	selected</entry>
+        <entry>Synchroniser les sélections</entry>
+	<entry>Le presse-papier primaire est synchronisé avec le presse-papier par défaut et de cette manière il est possible de coller ce qui est sélectionné</entry>
       </row>
       <row>
-        <entry>Exclude from history</entry>
-        <entry>Prevents the primary clipboard from being inserted in the history</entry>
+        <entry>Exclure de l'historique</entry>
+        <entry>Empêche les éléments du presse-papier primaire d'apparaître dans l'historique</entry>
       </row>
       <row>
-        <entry>Save on quit</entry>
-        <entry>Keeps the history at every new session</entry>
+        <entry>Sauvegarder avant de quitter</entry>
+        <entry>Conserve l'historique à chaque nouvelle session</entry>
       </row>
       <row>
-        <entry>Store an image</entry>
-        <entry>Allows to store one image in the history</entry>
+        <entry>Stocker une image</entry>
+        <entry>Autorise le stockage d'une image dans l'historique</entry>
       </row>
       <row>
-        <entry>Size of the history</entry>
-        <entry>Sets the number of items to keep in history</entry>
+        <entry>Taille de l'historique</entry>
+        <entry>Définit le nombre d'éléments à conserver dans l'historique</entry>
       </row>
       </tbody>
       </tgroup>
       </table>
 
       <figure>
-        <title>Clipman Settings</title>
+        <title>Paramètres de Clipman</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Settings dialog with the General tab</phrase>
+            <phrase>Dialogue de paramètres de l'onglet Général</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -151,29 +148,20 @@
     <sect2 id="actions">
       <title>Actions</title>
 
-      <para>
-        An action is a pair of an action name and a regular expression. Each action can have one or more commands. The
-        support of actions is optional and can be enabled or disabled through the “Enable actions” option.
-      </para>
+      <para>Une action est composé de la paire d'un nom et d'une expression régulière. Chaque action peut contenir une à plusieurs commandes. Le support des actions est facultatif et peut être activer ou désactiver en cochant la case « Activer les actions ».</para>
 
-      <para>
-        To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click
-        the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a
-        new dialog is opened.
-      </para>
+      <para>Pour ajouter une action cliquez sur l'icône Ajouter, pour éditer une action sélectionnez l'action et cliquez sur l'icône Editer ou double cliquez l'action, et pour supprimer une action sélectionnez l'action et cliquez sur l'icône Supprimer. En ajoutant ou en éditant une action un nouveau dialogue est ouvert.</para>
 
-      <para>
-        To learn more about actions go to <xref linkend="action-dialog"/>.
-      </para>
+      <para>Pour en savoir plus sur les actions aller à <xref linkend="action-dialog"/>.</para>
 
       <figure>
-        <title>Clipman Settings</title>
+        <title>Paramètres de Clipman</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Settings dialog with the Actions tab</phrase>
+            <phrase>Dialogue de paramètres avec l'onglet Actions</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -181,96 +169,59 @@
     </sect2>
 
     <sect2 id="action-dialog">
-      <title>Action Dialog</title>
+      <title>Dialogue d'action</title>
 
-      <para>
-        An action has a human readable name that describes the pattern it is going to match. An action must have at
-        least one command which also has a human readable name. The matched text can be reused in the command.
-      </para>
+      <para>Une action possède un nom lisible qui décrit le motif qu'elle possède. Une action doit avoir au minimum une commande qui est possède aussi un nom lisible. Le texte qui est comparé peut être réutilisé dans une commande.</para>
 
-      <para>
-        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
-        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
-      </para>
+      <para>Les actions sont comparés aux sélections à moins d'être spécifié autrement. Si la case « Activer uniquement lors des copies manuelles » est active, l'action sera comparé avec le presse-papier par défault (e.g. avec Ctrl+C).</para>
 
       <figure>
-        <title>Action Dialog</title>
+        <title>Dialogue d'action</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Action edit dialog</phrase>
+            <phrase>Dialogue d'édition d'une action</phrase>
           </textobject>
         </mediaobject>
       </figure>
 
       <sect3 id="regexes">
-        <title>Regular Expression</title>
+        <title>Expression régulière</title>
 
-        <para>
-          Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
-        </para>
+        <para>Caractères spéciaux de base : « <emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>».</para>
 
         <itemizedlist>
-          <listitem>
-            ”<emphasis role="bold"><code>.</code></emphasis>”: represents a single character.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
-            characters, and zero or more characters.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>(|)</code></emphasis>”: used for grouping and substitution, the vertical bar is
-            used as an OR operation.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>[^]</code></emphasis>”: used to match a character from a set of characters and
-            special characters, the circumflex is used at the start as a negation.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>\</code></emphasis>”: escapes a special character.
-          </listitem>
+          <listitem>« <emphasis role="bold"><code>.</code></emphasis> » : représente un caractère unique.</listitem>
+          <listitem>« <emphasis role="bold"><code>?+*</code></emphasis> » : signifit respectivement zero ou un caractère, un ou plusieurs caractères, zero ou plusieurs caractères.</listitem>
+          <listitem>« <emphasis role="bold"><code>(|)</code></emphasis> » : utilisé pour grouper et les substitutions, la barre verticale est utilisé comme opération logique OU.</listitem>
+          <listitem>« <emphasis role="bold"><code>[^]</code></emphasis> » : utilisé pour comparer un caractère à un champ de caractères normaux et spéciaux, le circonflexe est utilisé au début comme une négation.</listitem>
+          <listitem>« <emphasis role="bold"><code>\</code></emphasis> » : échappe un caractère spécial.</listitem>
         </itemizedlist>
 
-        <para>
-          Basic alphanumeric character class: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Character classes
-          are used within square brackets to represent a set of characters.
-        </para>
+        <para>Classe de caractères de bases alphanumérique : « <emphasis role="bold"><code>A-Za-z0-9</code></emphasis> ». Les classes de caractères sont utilisées à l'intérieur des crochets et représentent plusieurs caractères.</para>
 
 
         <sect4 id="regexes-examples">
-          <title>Examples</title>
+          <title>Exemples</title>
 
           <itemizedlist>
-            <listitem>
-              "<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": text "<emphasis>bug </emphasis>", zero or one
-              space, zero or one sharp character, and one or more numbers.
-            </listitem>
-            <listitem>
-              "<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": text
-              "<emphasis>http</emphasis>" or "<emphasis>ftp</emphasis>", one or more character, a point, and the text
-              "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
-            </listitem>
-            <listitem>
-              "<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": text "<emphasis>http://</emphasis>", 120
-              characters, and one or more characters except a space.
-            </listitem>
+            <listitem>« <emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis> » : texte « <emphasis>bug</emphasis> », zero ou un espace, zero ou un caractère dieze, et un ou plusieurs chiffres.</listitem>
+            <listitem>« <emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis> » : texte « <emphasis>http</emphasis> » ou « <emphasis>ftp</emphasis> », un ou plusieurs caractères, un point, et le texte « <emphasis>jpg</emphasis> », « <emphasis>png</emphasis> » ou « <emphasis>gif</emphasis> ».</listitem>
+            <listitem>« <emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis> » : texte « <emphasis>http://</emphasis> », 120 caractères, et un ou plusieurs caractères à l'exception d'un espace.</listitem>
           </itemizedlist>
         </sect4>
 
         <sect4 id="regexes-external-ressource">
-          <title>External Ressource</title>
+          <title>Ressource externe</title>
 
-          <para>
-            Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
-            article</ulink> about regular expressions.
-          </para>
+          <para>Consultez cette <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">article Wikipedia</ulink> pour avoir des informations sur les expressions régulières.</para>
         </sect4>
       </sect3>
 
       <sect3 id="command">
-        <title>Command</title>
+        <title>Commande</title>
 
         <para>
           A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
