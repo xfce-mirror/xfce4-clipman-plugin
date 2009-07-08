@@ -21,7 +21,7 @@
     <copyright>
       <year>2009</year>
       <holder>&doc-author;</holder>
-    </copyright>
+    </copyright><copyright><year>2009</year><holder>Mike Massonnet (mmassonnet@xfce.org)</holder></copyright>
 
     <legalnotice id="legalnotice">
       <para>
@@ -223,86 +223,32 @@
       <sect3 id="command">
         <title>Commande</title>
 
-        <para>
-          A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
-          ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the
-          sub-pattern within parentheses or 0 for the complete text.
-        </para>
+        <para>Une commande peut réutiliser une ou plusieurs substitutions depuis l'expression régulière. Les substitutions sont représentées par « <emphasis role="bold"><code>\&lt;numéro&gt;</code></emphasis> » où &lt;number&gt; correspond au sous-motif entre parenthèses ou 0 pour le texte complet.</para>
 
-        <para>
-          For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
-          to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
-          http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
-        </para>
+        <para>Par exemple, dans le simple motif « <emphasis role="bold"><code>bug #(123)</code></emphasis> » il est possible d'utiliser « <emphasis role="bold"><code>\0</code></emphasis> » pour le texte « bug #123 » et « <emphasis role="bold"><code>\1</code></emphasis> » pour le texte « 123 ». Pour la commande « <code>exo-open http://host/\1</code> », la vraie commande exécutée serait « <code>exo-open http://host/123</code> ».</para>
       </sect3>
     </sect2>
 
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>
-        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
-        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
-        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
-        table lists all the properties with their possible values:
-      </para>
+      <para>@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne la possibilité de changer un paramètre avec l'outil <application>xfconf-query</application>ou <application>xfce4-settings-editor</application>. Le canal est <constant>xfce4-panel</constant> et la propriété de base est <constant>/plugins/clipman</constant>. Le tableau ci-dessous liste toutes les propriétés avec leurs valeurs possible :</para>
 
-      <table frame="all"><title>Xfconf Properties</title>
+      <table frame="all"><title>Propriétés Xfconf</title>
       <tgroup cols="4" align="left">
       <thead>
       <row>
-        <entry>Property</entry>
+        <entry>Propriété</entry>
         <entry>Type</entry>
-        <entry>Default</entry>
-        <entry>Values</entry>
+        <entry>Défault</entry>
+        <entry>Valeurs</entry>
       </row>
       </thead>
-      <tbody>
-      <row>
-        <entry>/settings/add-primary-clipboard</entry>
-        <entry>bool</entry>
-        <entry>false</entry>
-        <entry>true to sync the primary clipboard with the default clipboard</entry>
-      </row>
-      <row>
-        <entry>/settings/enable-actions</entry>
-        <entry>bool</entry>
-        <entry>false</entry>
-        <entry>true to enable actions</entry>
-      </row>
-      <row>
-        <entry>/settings/history-ignore-primary-clipboard</entry>
-        <entry>bool</entry>
-        <entry>false</entry>
-        <entry>true to exclude the primary clipboard from the history</entry>
-      </row>
-        false
-
-      <row>
-        <entry>/settings/max-images-in-history</entry>
-        <entry>uint</entry>
-        <entry>0</entry>
-        <entry>0-5 number of images in history</entry>
-      </row>
-      <row>
-        <entry>/settings/max-texts-in-history</entry>
-        <entry>uint</entry>
-        <entry>10</entry>
-        <entry>5-100 number of texts in history</entry>
-      </row>
-      <row>
-        <entry>/settings/save-on-quit</entry>
-        <entry>bool</entry>
-        <entry>true</entry>
-        <entry>true to restore the history at every new session</entry>
-      </row>
-      </tbody>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true pour synchroniser le presse-papier primaire avec le presse-paper par défaut</entry></row><row><entry>/settings/enable-actions</entry><entry>bool</entry><entry>false</entry><entry>true pour activer les actions</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true pour exclure le presse-papier primaire de l'historique</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 quantité d'images dans l'historique</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 quantité de textes dans l'historique</entry></row><row><entry>/settings/save-on-quit</entry><entry>bool</entry><entry>true</entry><entry>true pour restaurer l'historique à chaque nouvelle session</entry></row></tbody>
       </tgroup>
       </table>
 
-      <para>
-        To change a setting from a terminal type the command-line:
-      </para>
+      <para>Pour modifier un paramètre depuis un terminal lancez la commande :</para>
 
       <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
@@ -311,16 +257,12 @@
   <sect1 id="support">
     <title>Support</title>
 
-    <para>
-      To report a bug or a feature request use the bug tracking system at <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software,
-      please ask on the <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">Xfce mailing list</ulink>
-      or point your IRC client to <emphasis role="bold">irc.freenode.net</emphasis>, join the channel <emphasis role="bold">#xfce</emphasis> and ask for help.
-    </para>
+    <para>Pour rapporter une anomalie ou une requête utilisez le système de suivi de bogues à l'adresse <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. Si vous avez des questions sur l'usage de ce logiciel, veuillez contacter la <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">liste de diffusion Xfce</ulink> ou pointez votre client IRC sur <emphasis role="bold">irc.freenode.net</emphasis>, joignez le salon de discussion <emphasis role="bold">#xfce</emphasis> et demandez pour de l'aide.</para>
   </sect1>
 
 
   <sect1 id="about">
-    <title>About @PACKAGE_NAME@</title>
+    <title>À propos de @PACKAGE_NAME@</title>
 
     <para>
       @PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by

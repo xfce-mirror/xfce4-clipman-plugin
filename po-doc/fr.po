@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clipman 1.1.0svn-r07672\n"
 "POT-Creation-Date: 2009-07-04 17:40+0200\n"
-"PO-Revision-Date: 2009-07-05 06:35+0200\n"
+"PO-Revision-Date: 2009-07-08 14:59+0200\n"
 "Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -512,6 +512,10 @@ msgid ""
 "number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-"
 "pattern within parentheses or 0 for the complete text."
 msgstr ""
+"Une commande peut réutiliser une ou plusieurs substitutions depuis l'expression "
+"régulière. Les substitutions sont représentées par « <emphasis role=\"bold\"><code>\\&lt;"
+"numéro&gt;</code></emphasis> » où &lt;number&gt; correspond au sous-motif entre "
+"parenthèses ou 0 pour le texte complet."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:317(para)
 msgid ""
@@ -522,10 +526,15 @@ msgid ""
 "”<code>exo-open http://host/\\1</code>”, the real executed command would be "
 "”<code>exo-open http://host/123</code>”."
 msgstr ""
+"Par exemple, dans le simple motif « <emphasis role=\"bold\"><code>bug #(123)</code>"
+"</emphasis> » il est possible d'utiliser « <emphasis role=\"bold\"><code>\\0</code>"
+"</emphasis> » pour le texte « bug #123 » et « <emphasis role=\"bold\"><code>\\1</code>"
+"</emphasis> » pour le texte « 123 ». Pour la commande « <code>exo-open http://host/\\1"
+"</code> », la vraie commande exécutée serait « <code>exo-open http://host/123</code> »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:327(title)
 msgid "Xfconf"
-msgstr ""
+msgstr "Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:329(para)
 msgid ""
@@ -536,104 +545,111 @@ msgid ""
 "clipman</constant>. The following table lists all the properties with their "
 "possible values:"
 msgstr ""
+"@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne la "
+"possibilité de changer un paramètre avec l'outil <application>xfconf-query</application>"
+"ou <application>xfce4-settings-editor</application>. Le canal est <constant>xfce4-panel"
+"</constant> et la propriété de base est <constant>/plugins/clipman</constant>. Le "
+"tableau ci-dessous liste toutes les propriétés avec leurs valeurs possible :"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:336(title)
 msgid "Xfconf Properties"
-msgstr ""
+msgstr "Propriétés Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:340(entry)
 msgid "Property"
-msgstr ""
+msgstr "Propriété"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:341(entry)
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:342(entry)
 msgid "Default"
-msgstr ""
+msgstr "Défault"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:343(entry)
 msgid "Values"
-msgstr ""
+msgstr "Valeurs"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:348(entry)
 msgid "/settings/add-primary-clipboard"
-msgstr ""
+msgstr "/settings/add-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:349(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:355(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:361(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:381(entry)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:350(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:356(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:362(entry)
 msgid "false"
-msgstr ""
+msgstr "false"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:351(entry)
 msgid "true to sync the primary clipboard with the default clipboard"
 msgstr ""
+"true pour synchroniser le presse-papier primaire avec le presse-paper "
+"par défaut"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(entry)
 msgid "/settings/enable-actions"
-msgstr ""
+msgstr "/settings/enable-actions"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:357(entry)
 msgid "true to enable actions"
-msgstr ""
+msgstr "true pour activer les actions"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:360(entry)
 msgid "/settings/history-ignore-primary-clipboard"
-msgstr ""
+msgstr "/settings/history-ignore-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:363(entry)
 msgid "true to exclude the primary clipboard from the history"
-msgstr ""
+msgstr "true pour exclure le presse-papier primaire de l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:368(entry)
 msgid "/settings/max-images-in-history"
-msgstr ""
+msgstr "/settings/max-images-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:369(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:375(entry)
 msgid "uint"
-msgstr ""
+msgstr "uint"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:370(entry)
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:371(entry)
 msgid "0-5 number of images in history"
-msgstr ""
+msgstr "0-5 quantité d'images dans l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:374(entry)
 msgid "/settings/max-texts-in-history"
-msgstr ""
+msgstr "/settings/max-texts-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:376(entry)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:377(entry)
 msgid "5-100 number of texts in history"
-msgstr ""
+msgstr "5-100 quantité de textes dans l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:380(entry)
 msgid "/settings/save-on-quit"
-msgstr ""
+msgstr "/settings/save-on-quit"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:382(entry)
 msgid "true"
-msgstr ""
+msgstr "true"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:383(entry)
 msgid "true to restore the history at every new session"
-msgstr ""
+msgstr "true pour restaurer l'historique à chaque nouvelle session"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:346(tbody)
 msgid ""
@@ -645,14 +661,21 @@ msgid ""
 "19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
 "><placeholder-23/><placeholder-24/></row>"
 msgstr ""
+"<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></"
+"row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></"
+"row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/"
+"></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/"
+"><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-"
+"19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
+"><placeholder-23/><placeholder-24/></row>"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:389(para)
 msgid "To change a setting from a terminal type the command-line:"
-msgstr ""
+msgstr "Pour modifier un paramètre depuis un terminal lancez la commande :"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:398(title)
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:400(para)
 msgid ""
@@ -664,10 +687,17 @@ msgid ""
 "freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</"
 "emphasis> and ask for help."
 msgstr ""
+"Pour rapporter une anomalie ou une requête utilisez le système de suivi de bogues "
+"à l'adresse <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. "
+"Si vous avez des questions sur l'usage de ce logiciel, veuillez contacter la "
+"<ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">liste de "
+"diffusion Xfce</ulink> ou pointez votre client IRC sur <emphasis role=\"bold\">irc."
+"freenode.net</emphasis>, joignez le salon de discussion <emphasis role=\"bold\">#xfce</"
+"emphasis> et demandez pour de l'aide."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:411(title)
 msgid "About @PACKAGE_NAME@"
-msgstr ""
+msgstr "À propos de @PACKAGE_NAME@"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:413(para)
 msgid ""
@@ -704,3 +734,4 @@ msgstr ""
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:0(None)
 msgid "translator-credits"
 msgstr ""
+"Mike Massonnet <mmassonnet@xfce.org>, 2009"
