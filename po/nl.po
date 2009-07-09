@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-04 07:41+0200\n"
-"PO-Revision-Date: 2009-07-04 07:44+0200\n"
+"PO-Revision-Date: 2009-07-04 15:27-0000\n"
 "Last-Translator: Vincent Tunru <projects@vinnl.nl>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,10 @@ msgstr "Klembordbeheer"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129
+#: ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -62,9 +64,8 @@ msgid "<b>Action</b>"
 msgstr "<b>Actie</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Geschiedenis</b>"
+msgstr "<b>Gedrag</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
@@ -80,13 +81,11 @@ msgstr "Acties"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Alleen activeren bij handmatig kopiëren"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Standaard wordt de actie geactiveerd door een selectie, kies deze optie om de actie alleen te activeren wanneer iets handmatig wordt gekopieerd"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -98,7 +97,7 @@ msgstr "Instellingen wijzigen"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr ""
+msgstr "_Uitsluiten van de  geschiedenis"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
@@ -113,39 +112,24 @@ msgid "General"
 msgstr "Algemeen"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Wanneer u deze optie aanvinkt zullen teksten in het klembord vergeleken "
-"worden met reguliere expressies en een menu zal mogelijke acties weergeven"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Wanneer u deze optie aanvinkt zullen teksten in het klembord vergeleken worden met reguliere expressies en een menu zal mogelijke acties weergeven"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Met deze optie zullen selecties op zo'n manier gesynchroniseerd worden met het standaard-klembord zodat u kunt plakken wat u selecteert"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-#, fuzzy
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe "
-"sessie"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Met deze optie zal de geschiedenis alleen veranderd worden bij handmatig kopiëren"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Deze optie biedt de mogelijkheid één afbeelding in de geschiedenis op te "
-"slaan"
+msgstr "Deze optie biedt de mogelijkheid één afbeelding in de geschiedenis op te slaan"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe "
-"sessie"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe sessie"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -168,21 +152,12 @@ msgid "Store an _image"
 msgstr "_Afbeelding opslaan"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "_Selecties toevoegen"
+msgstr "_Selecties synchroniseren"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"U kunt de inwisselbare parameters \"\\1\", \"\\2\", enz. in de commando's "
-"gebruiken. De parameter \"\\0\" representeert de volledige tekst. Als u "
-"reguliere expressies niet kent kunt u de documentatie van Clipman "
-"raadplegen, welke een introductie tot reguliere expressies bevat."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "U kunt de inwisselbare parameters \"\\1\", \"\\2\", enz. in de commando's gebruiken. De parameter \"\\0\" representeert de volledige tekst. Als u reguliere expressies niet kent kunt u de documentatie van Clipman raadplegen, welke een introductie tot reguliere expressies bevat."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -191,6 +166,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Kan het commando  \"%s\" niet uitvoeren\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
@@ -210,9 +188,8 @@ msgid "translator-credits"
 msgstr "Vincent Tunru"
 
 #: ../panel-plugin/plugin.c:324
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Kon de volgende URL niet openen: %s"
+msgstr "Kan het instellingenvenster niet openen"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -222,24 +199,18 @@ msgstr "Kon de volgende URL niet openen: %s"
 #~ "Wanneer u deze optie aanvinkt zullen selecties opgeslagen worden in de "
 #~ "geschiedenis. Dit gedrag kan de geschiedenis onleesbaar maken, het kan "
 #~ "echter interessant zijn indien u altijd wil plakken wat u selecteert."
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Inhoud klembord opslaan bij _afsluiten"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "Getallen _weergeven"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Algemeen</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Items onthouden:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Tekens in het menu:"
-
 #~ msgid "Clear History"
 #~ msgstr "Geschiedenis wissen"
-
 #~ msgid "Clipman History"
 #~ msgstr "Geschiedenis klembord"
+
