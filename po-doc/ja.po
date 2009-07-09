@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Clipman 1.0.1svn-r07268\n"
-"POT-Creation-Date: 2009-07-04 17:40+0200\n"
-"PO-Revision-Date: 2009-04-30 14:55+0900\n"
+"POT-Creation-Date: 2009-07-05 15:42+0900\n"
+"PO-Revision-Date: 2009-07-05 14:50+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
@@ -13,44 +13,40 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:91(None)
-#, fuzzy
 msgid ""
 "@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
 msgstr ""
-"@@image: 'images/clipman-menu.png'; md5=89f6d4a8a424bc811cd4e5fc6e615e9d"
+"@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:177(None)
-#, fuzzy
 msgid ""
 "@@image: 'images/clipman-settings-general.png'; "
 "md5=0d8f5d2634b310264b96ec82e8b68690"
 msgstr ""
 "@@image: 'images/clipman-settings-general.png'; "
-"md5=94edc7c7757a951f310126c027dd872c"
+"md5=0d8f5d2634b310264b96ec82e8b68690"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:209(None)
-#, fuzzy
 msgid ""
 "@@image: 'images/clipman-settings-actions.png'; "
 "md5=08373a01a49eb9f36fe9395bb96527fa"
 msgstr ""
 "@@image: 'images/clipman-settings-actions.png'; "
-"md5=6fb9c256043ac683a341d6d68c40adae"
+"md5=08373a01a49eb9f36fe9395bb96527fa"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:236(None)
-#, fuzzy
 msgid ""
 "@@image: 'images/clipman-action-dialog.png'; "
 "md5=8cb733ef13f26327cbc22e5283ac048f"
 msgstr ""
 "@@image: 'images/clipman-action-dialog.png'; "
-"md5=a9d968f3ad842bc3aa9b45795c2a837a"
+"md5=8cb733ef13f26327cbc22e5283ac048f"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:18(title)
 msgid "@PACKAGE_NAME@ Manual"
@@ -98,7 +94,6 @@ msgid "Introduction"
 msgstr "紹介"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:55(para)
-#, fuzzy
 msgid ""
 "@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard "
 "contents around while it is usually lost when you close an application. It "
@@ -129,7 +124,6 @@ msgstr ""
 "選択した時点 (例えば、フィールドの文字列を選択したときなど) で変更されます。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:71(para)
-#, fuzzy
 msgid ""
 "@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can "
 "also notice the selections. When it is handling the selections, the default "
@@ -138,14 +132,14 @@ msgid ""
 msgstr ""
 "@PACKAGE_NAME@ は、デフォルトクリップボードのみ処理しますが、オプションで選択"
 "領域を扱うこともできます。選択領域を扱う場合は、デフォルトクリップボードは常"
-"にそれとの同期がとられ、同じ内容になります。"
+"にそれとの同期がとられ、同じ内容になります。これにより、画面上を選択し、それ"
+"をキーボードで貼り付けることができます。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:79(title)
 msgid "Getting Started"
 msgstr "始めてみましょう"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:81(para)
-#, fuzzy
 msgid ""
 "@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and "
 "to restore them. The history is displayed in a menu by clicking on the main "
@@ -154,8 +148,7 @@ msgid ""
 msgstr ""
 "@PACKAGE_NAME@ は、クリップボードの履歴を保持し、それらを復元するために使われ"
 "ます。履歴はメインアイコンをクリックして表示されるメニューに表示されます。メ"
-"ニューから、復元するアイテムの選択、履歴のクリア、およびクリップボードマネー"
-"ジャの有効/無効の切り換えが行えます。"
+"ニューから、復元するアイテムの選択および履歴のクリアが行えます。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:88(title)
 msgid "Clipman Menu"
@@ -166,7 +159,6 @@ msgid "Menu displaying the history"
 msgstr "履歴表示メニュー"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:99(para)
-#, fuzzy
 msgid ""
 "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in "
 "the applications menu under the category Utility or type <application>xfce4-"
@@ -175,10 +167,10 @@ msgid ""
 "new item…”."
 msgstr ""
 "@PACKAGE_NAME@ を実行するには 2 つの方法があります。一つは、アプリケーション"
-"メニューのアクセサリにある @PACKAGE_NAME@ を選択するか、コマンドラインから "
-"<application>xfce4-clipman-plugin</application> と入力して起動する方法、もう"
-"一つはパネルに追加する方法です。パネルに新しいアイテムを追加するには、パネル"
-"を右クリックして「新しいアイテムの追加...」を選択してください。"
+"メニューのアクセサリ配下にある @PACKAGE_NAME@ を選択するか、コマンドラインか"
+"ら <application>xfce4-clipman</application> と入力して起動する方法、もう一つ"
+"はパネルに追加する方法です。パネルに新しいアイテムを追加するには、パネルを右"
+"クリックして「新しいアイテムの追加」を選択してください。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:107(title)
 msgid "Popup Command"
@@ -234,7 +226,6 @@ msgid "Description"
 msgstr "説明"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:149(entry)
-#, fuzzy
 msgid "Sync selections"
 msgstr "選択領域と同期をとる"
 
@@ -315,11 +306,10 @@ msgstr ""
 "により新しいダイアログが表示されます。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:201(para)
-#, fuzzy
 msgid "To learn more about actions go to <xref linkend=\"action-dialog\"/>."
 msgstr ""
-"アクションについてのより詳しい情報は、<xref linkend=\"action\"/> を参照してく"
-"ださい。"
+"アクションについてのより詳しい情報は、<xref linkend=\"action-dialog\"/> を参"
+"照してください。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:212(phrase)
 msgid "Settings dialog with the Actions tab"
@@ -331,16 +321,14 @@ msgid "Action Dialog"
 msgstr "アクションダイアログ"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:222(para)
-#, fuzzy
 msgid ""
 "An action has a human readable name that describes the pattern it is going "
 "to match. An action must have at least one command which also has a human "
 "readable name. The matched text can be reused in the command."
 msgstr ""
-"アクションはマッチするパターンを説明する名前を持つことができます。マッチは選"
-"択した文字列に対して行われ、パターンは正規表現で指定します。アクションは少な"
-"くとも一つのコマンドと、その名前を持たなければなりません。マッチした文字列は"
-"コマンド内で再利用できます。"
+"アクションはマッチするパターンを説明する名前を持つことができます。アクション"
+"は少なくとも一つのコマンドと、その名前を持たなければなりません。マッチした文"
+"字列はコマンド内で再利用できます。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:227(para)
 msgid ""
@@ -348,6 +336,10 @@ msgid ""
 "otherwise. When the box “Activate only on manual copy” is checked, the "
 "action will be matched from the default clipboard (e.g. with Ctrl+C)."
 msgstr ""
+"アクションは、他で指定されない限り、常に選択された文字列に対してマッチされま"
+"す。「手動コピー時のみアクティブにする」にチェックマークをつけると、アクショ"
+"ンはデフォルトクリップボードに対してのみマッチされます (例えば Ctrl+C が押下"
+"されたときなど)。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:239(phrase)
 msgid "Action edit dialog"
@@ -559,7 +551,6 @@ msgid "Xfconf"
 msgstr "Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:329(para)
-#, fuzzy
 msgid ""
 "@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change "
 "the settings with the tool <application>xfconf-query</application> or "
@@ -568,10 +559,11 @@ msgid ""
 "clipman</constant>. The following table lists all the properties with their "
 "possible values:"
 msgstr ""
-"@PACKAGE_NAME@ は、<constant>xfce4-panel</constant> チャンネルへの設定の保存"
-"に Xfconf を使用します。これにより <application>xfconf-query</application> "
-"ツールで設定の変更が行えます。以下の表はすべてのプロパティと設定可能な値のリ"
-"ストです:"
+"@PACKAGE_NAME@ は、その設定の保存に Xfconf を使用します。これにより "
+"<application>xfconf-query</application> や <application>xfce4-settings-"
+"editor</application> ツールでも設定の変更が行えます。チャンネルは "
+"<constant>xfce4-panel</constant>、ベースプロパティは <constant>/plugins/"
+"clipman</constant> です。以下の表は設定可能な値のリストです。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:336(title)
 msgid "Xfconf Properties"
@@ -594,9 +586,8 @@ msgid "Values"
 msgstr "値"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:348(entry)
-#, fuzzy
 msgid "/settings/add-primary-clipboard"
-msgstr "/plugins/clipman/settings/add-primary-clipboard"
+msgstr "/settings/add-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:349(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:355(entry)
@@ -617,27 +608,24 @@ msgstr ""
 "ture でプライマリクリップボードとデフォルトクリップボードの同期をとります"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(entry)
-#, fuzzy
 msgid "/settings/enable-actions"
-msgstr "/plugins/clipman/settings/enable-actions"
+msgstr "/settings/enable-actions"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:357(entry)
 msgid "true to enable actions"
 msgstr "true でアクションを有効にします"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:360(entry)
-#, fuzzy
 msgid "/settings/history-ignore-primary-clipboard"
-msgstr "/plugins/clipman/settings/history-ignore-primary-clipboard"
+msgstr "/settings/history-ignore-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:363(entry)
 msgid "true to exclude the primary clipboard from the history"
 msgstr "true でプライマリクリップボードの内容を履歴に残しません"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:368(entry)
-#, fuzzy
 msgid "/settings/max-images-in-history"
-msgstr "/plugins/clipman/settings/max-images-in-history"
+msgstr "/settings/max-images-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:369(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:375(entry)
@@ -653,9 +641,8 @@ msgid "0-5 number of images in history"
 msgstr "0-5 画像履歴の数です"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:374(entry)
-#, fuzzy
 msgid "/settings/max-texts-in-history"
-msgstr "/plugins/clipman/settings/max-texts-in-history"
+msgstr "/settings/max-texts-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:376(entry)
 msgid "10"
@@ -666,9 +653,8 @@ msgid "5-100 number of texts in history"
 msgstr "5-100 文字列履歴の数です"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:380(entry)
-#, fuzzy
 msgid "/settings/save-on-quit"
-msgstr "/plugins/clipman/settings/save-on-quit"
+msgstr "/settings/save-on-quit"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:382(entry)
 msgid "true"
@@ -697,9 +683,8 @@ msgstr ""
 "><placeholder-23/><placeholder-24/></row>"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:389(para)
-#, fuzzy
 msgid "To change a setting from a terminal type the command-line:"
-msgstr "コマンドラインで設定を変更するには:"
+msgstr "ターミナルからコマンドラインで設定を変更するには:"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:398(title)
 msgid "Support"

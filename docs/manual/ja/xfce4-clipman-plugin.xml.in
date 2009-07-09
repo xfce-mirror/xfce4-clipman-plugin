@@ -44,32 +44,20 @@
   <sect1 id="intro">
     <title>紹介</title>
 
-    <para>
-      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
-      when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text by matching them against regular expressions.
-    </para>
+    <para>@PACKAGE_NAME@ は Xfce 用のクリップボードマネージャです。これは、通常アプリケーションが終了した時に失われてしまうクリップボードの内容を保持します。文字列および画像を扱うことができ、選択された文字列が、指定された正規表現とマッチしたときに任意の処理を実行する機能も持っています。</para>
 
     <sect2 id="anatomy-clipboard">
       <title>クリップボードの構造</title>
 
       <para>(すべての Unix プラットフォームにおける) X11 には、デフォルトで、あらゆるウィンドウ間でデータを交換するために 2 つのクリップボードが用意されています。デフォルトクリップボードは、手動のコピー操作 (例えば、ファイルを選択してコピーボタンを押したときなど) によって変更され、プライマリクリップボードは、対象を選択した時点 (例えば、フィールドの文字列を選択したときなど) で変更されます。</para>
 
-      <para>
-        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
-        meaning you can paste with the keyboard what you select on screen.
-      </para>
+      <para>@PACKAGE_NAME@ は、デフォルトクリップボードのみ処理しますが、オプションで選択領域を扱うこともできます。選択領域を扱う場合は、デフォルトクリップボードは常にそれとの同期がとられ、同じ内容になります。これにより、画面上を選択し、それをキーボードで貼り付けることができます。</para>
     </sect2>
 
     <sect2 id="getting-started">
       <title>始めてみましょう</title>
 
-      <para>
-        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
-        the history.
-      </para>
+      <para>@PACKAGE_NAME@ は、クリップボードの履歴を保持し、それらを復元するために使われます。履歴はメインアイコンをクリックして表示されるメニューに表示されます。メニューから、復元するアイテムの選択および履歴のクリアが行えます。</para>
 
       <figure>
         <title>Clipman メニュー</title>
@@ -83,11 +71,7 @@
         </mediaobject>
       </figure>
 
-      <para>
-        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
-        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
-        To add a new item in the panel right click the panel and select “Add new item…”.
-      </para>
+      <para>@PACKAGE_NAME@ を実行するには 2 つの方法があります。一つは、アプリケーションメニューのアクセサリ配下にある @PACKAGE_NAME@ を選択するか、コマンドラインから <application>xfce4-clipman</application> と入力して起動する方法、もう一つはパネルに追加する方法です。パネルに新しいアイテムを追加するには、パネルを右クリックして「新しいアイテムの追加」を選択してください。</para>
     </sect2>
 
     <sect2 id="popup-command">
@@ -119,7 +103,7 @@
       </thead>
       <tbody>
       <row>
-        <entry>Sync selections</entry>
+        <entry>選択領域と同期をとる</entry>
 	<entry>領域を選択しただけで貼り付けできるよう、プライマリクリップボードとデフォルトクリップボードの同期がとられます</entry>
       </row>
       <row>
@@ -163,9 +147,7 @@
 
       <para>アクションを追加するには追加アイコンをクリックし、編集するにはアクションを選択して編集アイコンをクリックするかアクションをダブルクリックし、削除するにはアクションを選択して削除アイコンをクリックします。アクションの追加または編集により新しいダイアログが表示されます。</para>
 
-      <para>
-        To learn more about actions go to <xref linkend="action-dialog"/>.
-      </para>
+      <para>アクションについてのより詳しい情報は、<xref linkend="action-dialog"/> を参照してください。</para>
 
       <figure>
         <title>Clipman 設定</title>
@@ -184,15 +166,9 @@
     <sect2 id="action-dialog">
       <title>アクションダイアログ</title>
 
-      <para>
-        An action has a human readable name that describes the pattern it is going to match. An action must have at
-        least one command which also has a human readable name. The matched text can be reused in the command.
-      </para>
+      <para>アクションはマッチするパターンを説明する名前を持つことができます。アクションは少なくとも一つのコマンドと、その名前を持たなければなりません。マッチした文字列はコマンド内で再利用できます。</para>
 
-      <para>
-        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
-        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
-      </para>
+      <para>アクションは、他で指定されない限り、常に選択された文字列に対してマッチされます。「手動コピー時のみアクティブにする」にチェックマークをつけると、アクションはデフォルトクリップボードに対してのみマッチされます (例えば Ctrl+C が押下されたときなど)。</para>
 
       <figure>
         <title>アクションダイアログ</title>
@@ -251,12 +227,7 @@
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>
-        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
-        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
-        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
-        table lists all the properties with their possible values:
-      </para>
+      <para>@PACKAGE_NAME@ は、その設定の保存に Xfconf を使用します。これにより <application>xfconf-query</application> や <application>xfce4-settings-editor</application> ツールでも設定の変更が行えます。チャンネルは <constant>xfce4-panel</constant>、ベースプロパティは <constant>/plugins/clipman</constant> です。以下の表は設定可能な値のリストです。</para>
 
       <table frame="all"><title>Xfconf プロパティ</title>
       <tgroup cols="4" align="left">
@@ -272,9 +243,7 @@
       </tgroup>
       </table>
 
-      <para>
-        To change a setting from a terminal type the command-line:
-      </para>
+      <para>ターミナルからコマンドラインで設定を変更するには:</para>
 
       <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
