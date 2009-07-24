@@ -1,0 +1,728 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce 4-clipman-plugin\n"
+"POT-Creation-Date: 2009-04-22 22:49+0200\n"
+"PO-Revision-Date: 2009-07-08 22:33+0800\n"
+"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
+"Language-Team: Chinese (simplified) <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:90(None)
+msgid ""
+"@@image: 'images/clipman-menu.png'; md5=89f6d4a8a424bc811cd4e5fc6e615e9d"
+msgstr ""
+"@@image: 'images/clipman-menu.png'; md5=89f6d4a8a424bc811cd4e5fc6e615e9d"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:176(None)
+msgid ""
+"@@image: 'images/clipman-settings-general.png'; "
+"md5=94edc7c7757a951f310126c027dd872c"
+msgstr ""
+"@@image: 'images/clipman-settings-general.png'; "
+"md5=94edc7c7757a951f310126c027dd872c"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:208(None)
+msgid ""
+"@@image: 'images/clipman-settings-actions.png'; "
+"md5=6fb9c256043ac683a341d6d68c40adae"
+msgstr ""
+"@@image: 'images/clipman-settings-actions.png'; "
+"md5=6fb9c256043ac683a341d6d68c40adae"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:301(None)
+msgid ""
+"@@image: 'images/clipman-action-dialog.png'; "
+"md5=a9d968f3ad842bc3aa9b45795c2a837a"
+msgstr ""
+"@@image: 'images/clipman-action-dialog.png'; "
+"md5=a9d968f3ad842bc3aa9b45795c2a837a"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:18(title)
+msgid "@PACKAGE_NAME@ Manual"
+msgstr "@PACKAGE_NAME@ 手册"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:23(year)
+msgid "2009"
+msgstr "2009"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:28(para)
+msgid ""
+"Permission is granted to copy, distribute and/or modify this document under "
+"the terms of the GNU Free Documentation License, Version 1.3 or any later "
+"version published by the Free Software Foundation; with no Invariant "
+"Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The "
+"complete license text is available from the <ulink type=\"http\" url="
+"\"http://www.fsf.org/\">Free Software Foundation</ulink>."
+msgstr ""
+"在自由软件基金会发布的 GNU 自由文档许可协议版本 1.3 或以后版本的条款约束下"
+"允许复制，分发和/或修改本文档，不要求保留特定内容、封面文本或者封底文本。"
+"许可协议全文可以通过以下链接找到: <ulink type=\"http\" url="
+"\"http://www.fsf.org/\">Free Software Foundation</ulink>。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:38(firstname)
+msgid "Mike"
+msgstr "Mike"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:39(surname)
+msgid "Massonnet"
+msgstr "Massonnet"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:41(email)
+msgid "mmassonnet@xfce.org"
+msgstr "mmassonnet@xfce.org"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:46(releaseinfo)
+msgid "This manual describes version @PACKAGE_VERSION@ of @PACKAGE_NAME@."
+msgstr "此手册介绍 @PACKAGE_NAME@ ，版本 @PACKAGE_VERSION@。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:53(title)
+msgid "Introduction"
+msgstr "简介"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:55(para)
+msgid ""
+"@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard "
+"contents around while it is usually lost when you close an application. It "
+"is able to handle text and images, and has a feature to execute actions on "
+"specific text selections by matching them against regular expressions."
+msgstr ""
+"@PACKAGE_NAME@ 是 Xfce 桌面环境的剪贴板管理器。它被用以保存通常在您关闭"
+"程序之后会丢失的剪贴板内容。它可以保存文本和图像，并且有使用正则表达式"
+"匹配特定的文本选择并执行相关动作的功能。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:62(title)
+msgid "Anatomy of a Clipboard"
+msgstr "剪贴板的分析"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:64(para)
+msgid ""
+"In X11 (all Unix platforms) there are by default two clipboards to exchange "
+"any data between the windows. A default clipboard which is modified by "
+"manual copies (for instance when you select a file and press the copy "
+"button), and there is a primary clipboard which is modified by selections "
+"(for instance when you select text in a field)."
+msgstr ""
+"在 X11 (所有的 Unix 平台) 中，默认有两个剪贴板用以交换各窗口间的数据。"
+"其中的一个剪贴板(我们称之为预设剪贴板)用以手动复制(例如您选择一个文件之后"
+"点击复制按钮)，而另一个(我们称之为主剪贴板)用以选中复制(例如您选中在文本"
+"框中的文本)。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:71(para)
+msgid ""
+"@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can "
+"also notice the selections. When it is handling the selections, the default "
+"clipboard will always be synced with it and contain the same data."
+msgstr ""
+"@PACKAGE_NAME@ 仅处理预设(用以手动复制的)剪贴板，但您也可以选择让它"
+"同时处理主剪贴板(用以选中复制)。当处理主剪贴板时，预设剪贴板也会更新"
+"并保存相同内容。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:78(title)
+msgid "Getting Started"
+msgstr "开始使用"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:80(para)
+msgid ""
+"@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and "
+"to restore them. The history is displayed in a menu by clicking on the main "
+"icon. Within the menu it is possible to select an item to restore it, to "
+"clear the history and to activate or deactivate the clipboard manager."
+msgstr ""
+"@PACKAGE_NAME@ 使用一个列表保存使用过的剪贴板内容并能够恢复它们。"
+"当您点击主图标时，历史记录将会显示在一个菜单中。通过该菜单，您能够选择一个"
+"项目并恢复它，也能够清除历史列表或者激活和禁用剪贴板管理器。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:87(title)
+msgid "Clipman Menu"
+msgstr "剪贴板菜单"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:93(phrase)
+msgid "Menu displaying the history"
+msgstr "用以显示历史的菜单"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:98(para)
+msgid ""
+"There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in "
+"the applications menu under the category Utility or type <application>xfce4-"
+"clipman-plugin</application> on the command-line, or you can add it into "
+"your panel. To add a new item in the panel right click the panel and select "
+"“Add new item…”."
+msgstr ""
+"@PACKAGE_NAME@ 能够通过以下两种方式来启动：您可以在应用程序菜单中的工具"
+"子菜单选择 @PACKAGE_NAME@ 或者在命令行中输入 <application>xfce4-clipman-"
+"plugin<application>；或者，您还可以把它添加到您的面板上。要在面板上添加"
+"新项目，请在面板上点击右键并选择“添加新项目...”"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:106(title)
+msgid "Popup Command"
+msgstr "弹出命令"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:108(para)
+msgid ""
+"@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-"
+"clipman</application>. When called it popups the main menu. The command is "
+"practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> "
+"available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</"
+"guimenu><guimenu>Keyboard</guimenu></menuchoice>."
+msgstr ""
+"@PACKAGE_NAME@ 提供一个命令行工具 <application>xfce4-popup-clipman"
+"</application>。当它被执行时将弹出主菜单。使用在 <menuchoice><guimenu>"
+"Xfce 菜单</guimenu><guimenu>设置</guimenu><guimenu>键盘</guimenu>"
+"</menuchoice> 中的 <emphasis role=\"bold\">应用程序快捷方式</emphasis> "
+"启动该程序将会十分方便。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:124(title)
+msgid "Settings"
+msgstr "设置"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:126(para)
+msgid ""
+"The settings dialog is available under the “Properties” item in the right "
+"click context menu on the main icon. It allows to tweak the history and to "
+"edit actions."
+msgstr ""
+"通过右键点击主图标，并选择菜单中的“属性”项可以打开设置对话框。"
+"它允许您调节剪贴板历史的相关属性或者编辑动作。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:132(title)
+msgid "General"
+msgstr "常规"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:134(para)
+msgid "The following table describes the available options:"
+msgstr "以下是可用选项的列表:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:138(title)
+msgid "General options in the Settings dialog"
+msgstr "设置对话框中的常规选项"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:142(entry)
+msgid "Options"
+msgstr "选项"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:143(entry)
+msgid "Description"
+msgstr "描述"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:148(entry)
+msgid "Add selections"
+msgstr "添加选择"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:149(entry)
+msgid ""
+"Sync the primary clipboard with the default clipboard in a way that it is "
+"possible to paste what gets selected"
+msgstr ""
+"同步主剪贴板的内容到预设剪贴板中以粘贴选中的内容"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:153(entry)
+msgid "Exclude from history"
+msgstr "从历史中排除"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:154(entry)
+msgid "Prevents the primary clipboard from being inserted in the history"
+msgstr "不将主剪贴板中的内容加入到历史中"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:157(entry)
+msgid "Save on quit"
+msgstr "保存并退出"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:158(entry)
+msgid "Keeps the history at every new session"
+msgstr "在每次新会话中恢复历史"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:161(entry)
+msgid "Store an image"
+msgstr "保存一幅图像"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:162(entry)
+msgid "Allows to store one image in the history"
+msgstr "允许在历史中保存一幅图像"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:165(entry)
+msgid "Size of the history"
+msgstr "历史大小"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:166(entry)
+msgid "Sets the number of items to keep in history"
+msgstr "设置保留在历史中的条目数量"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:173(title)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:205(title)
+msgid "Clipman Settings"
+msgstr "剪贴板设置"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:179(phrase)
+msgid "Settings dialog with the General tab"
+msgstr "带有一般标签的设置对话框"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:187(title)
+msgid "Actions"
+msgstr "动作"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:189(para)
+msgid ""
+"An action is a pair of an action name and a regular expression. Each action "
+"can have one or more commands. The support of actions is optional and can be "
+"enabled or disabled through the “Enable actions” option."
+msgstr ""
+"一个动作由一个“动作名称 - 正则表达式”对构成。每一个动作可以执行一个或一个"
+"以上的命令。对动作的支持是程序的可选项，您能够通过“允许动作”选项启用或"
+"禁用该支持。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:194(para)
+msgid ""
+"To add an action click the Add icon, to edit an action select the action and "
+"click the Edit icon or double click the action, and to remove an action "
+"select an action and click the Delete icon. By adding or editing an action a "
+"new dialog is opened."
+msgstr ""
+"要添加一个动作，请点击添加图标；要编辑一个动作，请选择该动作并点击编辑图标"
+"或者直接双击该动作；要删除一个动作，请选择该动作并点击删除图标。选择添加"
+"或者编译一个动作，一个新对话框将会被打开。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:200(para)
+msgid "To learn more about actions go to <xref linkend=\"action\"/>."
+msgstr "想要学习更多关于动作的内容，请转到 <xref linkend=\"action\"/>。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:211(phrase)
+msgid "Settings dialog with the Actions tab"
+msgstr "带有动作标签的设置对话框"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:219(title)
+msgid "Xfconf"
+msgstr "Xfconf"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:221(para)
+msgid ""
+"@PACKAGE_NAME@ uses Xfconf to store its settings in the <constant>xfce4-"
+"panel</constant> channel. That allows you to change the settings with the "
+"tool <application>xfconf-query</application>. The following table lists all "
+"the properties with their possible values:"
+msgstr ""
+"@PACKAGE_NAME@ 使用 Xfconf 以将它的设置保存在 <constant>xfce4-panel"
+"</constant> 频道。这样做允许您使用 <application>Xfconf-query</application>"
+" 工具修改设置。下面的表格列出可用的属性以及它们能够接受的值:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:227(title)
+msgid "Xfconf Properties"
+msgstr "Xfconf 属性"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:231(entry)
+msgid "Property"
+msgstr "属性"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:232(entry)
+msgid "Type"
+msgstr "类型"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:233(entry)
+msgid "Default"
+msgstr "默认"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:234(entry)
+msgid "Values"
+msgstr "值"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:239(entry)
+msgid "/plugins/clipman/settings/add-primary-clipboard"
+msgstr "/plugins/clipman/settings/add-primary-clipboard"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:240(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:246(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:252(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:272(entry)
+msgid "bool"
+msgstr "布尔值"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:241(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:247(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:253(entry)
+msgid "false"
+msgstr "假"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:242(entry)
+msgid "true to sync the primary clipboard with the default clipboard"
+msgstr "设置为真将同步主剪贴板中的内容到预设剪贴板中"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:245(entry)
+msgid "/plugins/clipman/settings/enable-actions"
+msgstr "/plugins/clipman/settings/enable-actions"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:248(entry)
+msgid "true to enable actions"
+msgstr "设置为真将允许动作"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:251(entry)
+msgid "/plugins/clipman/settings/history-ignore-primary-clipboard"
+msgstr "/plugins/clipman/settings/history-ignore-primary-clipboard"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:254(entry)
+msgid "true to exclude the primary clipboard from the history"
+msgstr "设置为真将从历史中排除主剪贴板的内容"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:259(entry)
+msgid "/plugins/clipman/settings/max-images-in-history"
+msgstr "/plugins/clipman/settings/max-images-in-history"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:260(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:266(entry)
+msgid "uint"
+msgstr "uint"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:261(entry)
+msgid "0"
+msgstr "0"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:262(entry)
+msgid "0-5 number of images in history"
+msgstr "0-5 个图像内容在历史中"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:265(entry)
+msgid "/plugins/clipman/settings/max-texts-in-history"
+msgstr "/plugins/clipman/settings/max-texts-in-history"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:267(entry)
+msgid "10"
+msgstr "10"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:268(entry)
+msgid "5-100 number of texts in history"
+msgstr "5-100 个文本内容在历史中"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:271(entry)
+msgid "/plugins/clipman/settings/save-on-quit"
+msgstr "/plugins/clipman/settings/save-on-quit"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:273(entry)
+msgid "true"
+msgstr "真"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:274(entry)
+msgid "true to restore the history at every new session"
+msgstr "设置为真将在每次新会话中恢复历史"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:237(tbody)
+msgid ""
+"<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></"
+"row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></"
+"row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/"
+"></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/"
+"><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-"
+"19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
+"><placeholder-23/><placeholder-24/></row>"
+msgstr ""
+"<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></"
+"row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></"
+"row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/"
+"></row> 假 <row><placeholder-13/><placeholder-14/><placeholder-15/"
+"><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-"
+"19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
+"><placeholder-23/><placeholder-24/></row>"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:280(para)
+msgid "To change a setting type the command-line:"
+msgstr "要修改一项设置，请输入命令:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:289(title)
+msgid "Action"
+msgstr "动作"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:291(para)
+msgid ""
+"An action has a human readable name that describes the pattern it is going "
+"to match. The matches are made against text from the selections and the "
+"pattern is a regular expression. An action must have at least one command "
+"which also has a human readable name. The matched text can be reused in the "
+"command."
+msgstr ""
+"每个动作都有一个易于理解的名称用以描述匹配模式。匹配模式为一正则表达式"
+"并将匹配选中的文本。每个动作都应该至少有一个同样拥有一个易于理解的名称"
+"的命令。匹配的文本将在命令中被再次使用。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:298(title)
+msgid "Action Dialog"
+msgstr "动作对话框"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:304(phrase)
+msgid "Action edit dialog"
+msgstr "动作编辑对话框"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:310(title)
+msgid "Regular Expression"
+msgstr "正则表达式"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:312(para)
+msgid ""
+"Basic special characters: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</"
+"code></emphasis>\"."
+msgstr ""
+"基本特殊字符: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</"
+"code></emphasis>\"。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:318(code)
+msgid "."
+msgstr "."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:317(listitem)
+msgid ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: represents a single "
+"character."
+msgstr ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 代表任意单个字符。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:321(code)
+msgid "?+*"
+msgstr "?+*"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:320(listitem)
+msgid ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means "
+"zero or one character, one or more characters, and zero or more characters."
+msgstr ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 分别代表零或一个"
+"字符，一个或一个以上字符，以及任意多个(包括0个)字符。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:325(code)
+msgid "(|)"
+msgstr "(|)"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:324(listitem)
+msgid ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and "
+"substitution, the vertical bar is used as an OR operation."
+msgstr ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 在分组和替换中，竖"
+"线(|)用以表示 “或” 。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:329(code)
+msgid "[^]"
+msgstr "[^]"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:328(listitem)
+msgid ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a "
+"character from a set of characters and special characters, the circumflex is "
+"used at the start as a negation."
+msgstr ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 在一系列字符或特殊字符中匹配一个字符时，“^” 符号在开头使用表示否定。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:333(code)
+msgid "\\"
+msgstr "\\"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:332(listitem)
+msgid ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special "
+"character."
+msgstr ""
+"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 将特殊字符作为普通"
+"字符进行匹配。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:337(para)
+msgid ""
+"Basic alphanumeric character class: \"<emphasis role=\"bold\"><code>A-Za-z0-"
+"9</code></emphasis>\". Character classes are used within square brackets to "
+"represent a set of characters."
+msgstr ""
+"基本的字母和数字字符类: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code>"
+"</emphasis>\"。 字符类用于方括号中表示一系列的字符。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:344(title)
+msgid "Examples"
+msgstr "例子"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:348(code)
+msgid "bug ?#?[0-9]+"
+msgstr "bug ?#?[0-9]+"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:348(emphasis)
+msgid "bug"
+msgstr "bug"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:347(listitem)
+msgid ""
+"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
+"2/>\", zero or one space, zero or one sharp character, and one or more "
+"numbers."
+msgstr ""
+"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": 文本 \"<placeholder-"
+"2/>\"，零或一个空格，零或一个 “#” 字符，后面是一个或多个数字。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:352(code)
+msgid "(http|ftp).+\\.(jpg|png|gif)"
+msgstr "(http|ftp).+\\.(jpg|png|gif)"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:353(emphasis)
+msgid "http"
+msgstr "http"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:353(emphasis)
+msgid "ftp"
+msgstr "ftp"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(emphasis)
+msgid "jpg"
+msgstr "jpg"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(emphasis)
+msgid "png"
+msgstr "png"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(emphasis)
+msgid "gif"
+msgstr "gif"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:351(listitem)
+msgid ""
+"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
+"2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text "
+"\"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
+msgstr ""
+"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": 文本 \"<placeholder-"
+"2/>\" 或 \"<placeholder-3/>\"，一或多个字符，一个点，后面是文本 "
+"\"<placeholder-4/>\"，\"<placeholder-5/>\" 或 \"<placeholder-6/>\"。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:357(code)
+msgid "http://.{120}[^ ]+"
+msgstr "http://.{120}[^ ]+"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:357(emphasis)
+msgid "http://"
+msgstr "http://"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:356(listitem)
+msgid ""
+"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
+"2/>\", 120 characters, and one or more characters except a space."
+msgstr ""
+"“<emphasis role=\"bold\"><placeholder-1/></emphasis>”: 文本“<placeholder-"
+"2/>”，120 个字符，后面加一个或一个以上非空格的字符。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:364(title)
+msgid "External Ressource"
+msgstr "外部资源"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:366(para)
+msgid ""
+"Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/"
+"Regular_expression\">Wikipedia article</ulink> about regular expressions."
+msgstr ""
+"请参看 <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/"
+"Regular_expression\">Wikipedia 上关于正则表达式的一篇文章</ulink>。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:374(title)
+msgid "Command"
+msgstr "命令"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:376(para)
+msgid ""
+"A command can reuse one or more substitutions from the regular expression. "
+"The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;"
+"number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-"
+"pattern within parentheses or 0 for the complete text."
+msgstr ""
+"一个命令可以再次使用一个或多个正则表达式匹配到的内容。所匹配的内容可以使用"
+" ”<emphasis role=\"bold\"><code>\\&lt;数字&gt;</code></emphasis>” 表示。"
+"&lt;数字&gt; 表示匹配到的第几个内容或者用 0 表示全部匹配到的文本。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:382(para)
+msgid ""
+"For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #"
+"(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold"
+"\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role="
+"\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command "
+"”<code>exo-open http://host/\\1</code>”, the real executed command would be "
+"”<code>exo-open http://host/123</code>”."
+msgstr ""
+"例如，下面一个简单的匹配模式 ”<emphasis role=\"bold\"><code>bug #"
+"(123)</code></emphasis>”，可以使用 ”<emphasis role=\"bold"
+"\"><code>\\0</code></emphasis>” 表示文本 “bug #123” 或者 ”<emphasis role="
+"\"bold\"><code>\\1</code></emphasis>” 表示文本 “123”。对于命令 "
+"”<code>exo-open http://host/\\1</code>”，实际执行的命令将会是 "
+"”<code>exo-open http://host/123</code>”。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:392(title)
+msgid "Support"
+msgstr "支持"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:394(para)
+msgid ""
+"To report a bug or a feature request use the bug tracking system at <ulink "
+"type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. If "
+"you have questions about the use of this software, please ask on the <ulink "
+"type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce "
+"mailing list</ulink> or point your IRC client to <emphasis role=\"bold\">irc."
+"freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</"
+"emphasis> and ask for help."
+msgstr ""
+"报告错误或者希望添加新的功能，请使用在 <ulink type=\"http\" "
+"url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink> 上的 bug 追踪系统。"
+"如果您在此软件的使用上有任何疑问，请在邮件列表 <ulink "
+"type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce "
+"mailing list</ulink> 上发问，或者使用 IRC 客户端连接至 <emphasis "
+"role=\"bold\">irc.freenode.net</emphasis>，加入频道 <emphasis "
+"role=\"bold\">#xfce</emphasis> 寻求帮助。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:405(title)
+msgid "About @PACKAGE_NAME@"
+msgstr "关于 @PACKAGE_NAME@"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:407(para)
+msgid ""
+"@PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick "
+"Schermer. Nowadays it is written by Mike Massonnet (<email>mmassonnet@xfce."
+"org</email>). Visit the <ulink type=\"http\" url=\"http://goodies.xfce.org/"
+"projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Web site</"
+"ulink>."
+msgstr ""
+"@PACKAGE_NAME@ 最初由 Eduard Roccatello 所编写，而后由 Nick Schermer 维护。"
+"现在的编写者是 Mike Massonnet (<email>mmassonnet@xfce.org</email>)。"
+"更多信息，请查看 <ulink type=\"http\" url=\"http://goodies.xfce.org/"
+"projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ 网站</"
+"ulink>。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:413(para)
+msgid ""
+"This documentation was written by Mike Massonnet (<email>mmassonnet@xfce."
+"org</email>). Please send all your comments and suggestions regarding this "
+"manual to <email>mmassonnet@xfce.org</email>."
+msgstr ""
+"这份文档由 Mike Massonnet (<email>mmassonnet@xfce.org</email>) 撰写。"
+"请将您对这份文档的意见或建议发送到 <email>mmassonnet@xfce.org</email>。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:420(para)
+msgid ""
+"This software is distributed under the terms of the <citetitle>GNU General "
+"Public License</citetitle> as published by the Free Software Foundation; "
+"either version 2 of the License, or (at your option) any later version."
+msgstr ""
+"此软件在自由软件基金会发布的 <citetitle>GNU 通用公共许可协议</citetitle> "
+"条款约束下发布；协议的第二版或者(您可以选择)更新的版本。"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:425(para)
+msgid ""
+"You should have received a copy of the <citetitle>GNU General Public "
+"License</citetitle> along with this program; if not, write to the Free "
+"Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA "
+"02110, USA."
+msgstr ""
+"您应该能够随此软件获得一份 <citetitle>GNU 通用公共许可协议</citetitle>的"
+"副本；如果没有，请致信自由软件基金会: Software Foundation, Inc., 51 "
+"Franklin Street, Fifth Floor, Boston, MA 02110, USA."
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in:0(None)
+msgid "translator-credits"
+msgstr ""
+"Hunt Xu <huntxu@live.cn>, 2009."
