@@ -5,6 +5,7 @@ SUBDIRS =								\
 	fr								\
 	gl								\
 	ja								\
+	zh_CN								\
 	$(NULL)
 
 EXTRA_DIST =								\

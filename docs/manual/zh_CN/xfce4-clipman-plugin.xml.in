@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY app-author "Mike Massonnet">
+<!ENTITY app-email "mmassonnet@xfce.org">
+<!ENTITY app-website "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">
+<!ENTITY doc-author "Mike Massonnet">
+<!ENTITY doc-email "mmassonnet@xfce.org">
+<!ENTITY date "April, July 2009">
+<!ENTITY application "@PACKAGE_NAME@">
+<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
+]>
+<article id="xfce4-clipman-plugin" lang="zh_CN">
+
+  <!-- Header -->
+  <articleinfo>
+    <title>@PACKAGE_NAME@ 手册</title>
+
+    <pubdate>&date;</pubdate>
+
+    <copyright>
+      <year>2009</year>
+      <holder>&doc-author;</holder>
+    </copyright><copyright><year>2009.</year><holder>Hunt Xu (huntxu@live.cn)</holder></copyright>
+
+    <legalnotice id="legalnotice">
+      <para>在自由软件基金会发布的 GNU 自由文档许可协议版本 1.3 或以后版本的条款约束下允许复制，分发和/或修改本文档，不要求保留特定内容、封面文本或者封底文本。许可协议全文可以通过以下链接找到: <ulink type="http" url="http://www.fsf.org/">Free Software Foundation</ulink>。</para>
+    </legalnotice>
+
+    <authorgroup>
+      <author>
+        <firstname>Mike</firstname>
+        <surname>Massonnet</surname>
+        <affiliation>
+          <address><email>mmassonnet@xfce.org</email></address>
+        </affiliation>
+      </author>
+    </authorgroup>
+
+    <releaseinfo>此手册介绍 @PACKAGE_NAME@ ，版本 @PACKAGE_VERSION@。</releaseinfo>
+  </articleinfo>
+
+
+  <sect1 id="intro">
+    <title>简介</title>
+
+    <para>
+      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
+      when you close an application. It is able to handle text and images, and has a feature to execute actions on
+      specific text by matching them against regular expressions.
+    </para>
+
+    <sect2 id="anatomy-clipboard">
+      <title>剪贴板的分析</title>
+
+      <para>在 X11 (所有的 Unix 平台) 中，默认有两个剪贴板用以交换各窗口间的数据。其中的一个剪贴板(我们称之为预设剪贴板)用以手动复制(例如您选择一个文件之后点击复制按钮)，而另一个(我们称之为主剪贴板)用以选中复制(例如您选中在文本框中的文本)。</para>
+
+      <para>
+        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
+        meaning you can paste with the keyboard what you select on screen.
+      </para>
+    </sect2>
+
+    <sect2 id="getting-started">
+      <title>开始使用</title>
+
+      <para>
+        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
+        the history.
+      </para>
+
+      <figure>
+        <title>剪贴板菜单</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-menu.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>用以显示历史的菜单</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <para>
+        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
+        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
+        To add a new item in the panel right click the panel and select “Add new item…”.
+      </para>
+    </sect2>
+
+    <sect2 id="popup-command">
+      <title>弹出命令</title>
+
+      <para>@PACKAGE_NAME@ 提供一个命令行工具 <application>xfce4-popup-clipman</application>。当它被执行时将弹出主菜单。使用在 <menuchoice><guimenu>Xfce 菜单</guimenu><guimenu>设置</guimenu><guimenu>键盘</guimenu></menuchoice> 中的 <emphasis role="bold">应用程序快捷方式</emphasis> 启动该程序将会十分方便。</para>
+    </sect2>
+
+  </sect1>
+
+
+  <sect1 id="settings">
+    <title>设置</title>
+
+    <para>通过右键点击主图标，并选择菜单中的“属性”项可以打开设置对话框。它允许您调节剪贴板历史的相关属性或者编辑动作。</para>
+
+    <sect2 id="general">
+      <title>常规</title>
+
+      <para>以下是可用选项的列表:</para>
+
+      <table frame="all"><title>设置对话框中的常规选项</title>
+      <tgroup cols="2" align="left">
+      <thead>
+      <row>
+        <entry>选项</entry>
+        <entry>描述</entry>
+      </row>
+      </thead>
+      <tbody>
+      <row>
+        <entry>Sync selections</entry>
+	<entry>同步主剪贴板的内容到预设剪贴板中以粘贴选中的内容</entry>
+      </row>
+      <row>
+        <entry>从历史中排除</entry>
+        <entry>不将主剪贴板中的内容加入到历史中</entry>
+      </row>
+      <row>
+        <entry>保存并退出</entry>
+        <entry>在每次新会话中恢复历史</entry>
+      </row>
+      <row>
+        <entry>保存一幅图像</entry>
+        <entry>允许在历史中保存一幅图像</entry>
+      </row>
+      <row>
+        <entry>历史大小</entry>
+        <entry>设置保留在历史中的条目数量</entry>
+      </row>
+      </tbody>
+      </tgroup>
+      </table>
+
+      <figure>
+        <title>剪贴板设置</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>带有一般标签的设置对话框</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+    </sect2>
+
+    <sect2 id="actions">
+      <title>动作</title>
+
+      <para>一个动作由一个“动作名称 - 正则表达式”对构成。每一个动作可以执行一个或一个以上的命令。对动作的支持是程序的可选项，您能够通过“允许动作”选项启用或禁用该支持。</para>
+
+      <para>要添加一个动作，请点击添加图标；要编辑一个动作，请选择该动作并点击编辑图标或者直接双击该动作；要删除一个动作，请选择该动作并点击删除图标。选择添加或者编译一个动作，一个新对话框将会被打开。</para>
+
+      <para>
+        To learn more about actions go to <xref linkend="action-dialog"/>.
+      </para>
+
+      <figure>
+        <title>剪贴板设置</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>带有动作标签的设置对话框</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+    </sect2>
+
+    <sect2 id="action-dialog">
+      <title>动作对话框</title>
+
+      <para>
+        An action has a human readable name that describes the pattern it is going to match. An action must have at
+        least one command which also has a human readable name. The matched text can be reused in the command.
+      </para>
+
+      <para>
+        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
+        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
+      </para>
+
+      <figure>
+        <title>动作对话框</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>动作编辑对话框</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <sect3 id="regexes">
+        <title>正则表达式</title>
+
+        <para>基本特殊字符: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>"。</para>
+
+        <itemizedlist>
+          <listitem>”<emphasis role="bold"><code>.</code></emphasis>”: 代表任意单个字符。</listitem>
+          <listitem>”<emphasis role="bold"><code>?+*</code></emphasis>”: 分别代表零或一个字符，一个或一个以上字符，以及任意多个(包括0个)字符。</listitem>
+          <listitem>”<emphasis role="bold"><code>(|)</code></emphasis>”: 在分组和替换中，竖线(|)用以表示 “或” 。</listitem>
+          <listitem>”<emphasis role="bold"><code>[^]</code></emphasis>”: 在一系列字符或特殊字符中匹配一个字符时，“^” 符号在开头使用表示否定。</listitem>
+          <listitem>”<emphasis role="bold"><code>\</code></emphasis>”: 将特殊字符作为普通字符进行匹配。</listitem>
+        </itemizedlist>
+
+        <para>基本的字母和数字字符类: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>"。 字符类用于方括号中表示一系列的字符。</para>
+
+
+        <sect4 id="regexes-examples">
+          <title>例子</title>
+
+          <itemizedlist>
+            <listitem>"<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": 文本 "<emphasis>bug</emphasis>"，零或一个空格，零或一个 “#” 字符，后面是一个或多个数字。</listitem>
+            <listitem>"<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": 文本 "<emphasis>http</emphasis>" 或 "<emphasis>ftp</emphasis>"，一或多个字符，一个点，后面是文本 "<emphasis>jpg</emphasis>"，"<emphasis>png</emphasis>" 或 "<emphasis>gif</emphasis>"。</listitem>
+            <listitem>“<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>”: 文本“<emphasis>http://</emphasis>”，120 个字符，后面加一个或一个以上非空格的字符。</listitem>
+          </itemizedlist>
+        </sect4>
+
+        <sect4 id="regexes-external-ressource">
+          <title>外部资源</title>
+
+          <para>请参看 <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia 上关于正则表达式的一篇文章</ulink>。</para>
+        </sect4>
+      </sect3>
+
+      <sect3 id="command">
+        <title>命令</title>
+
+        <para>一个命令可以再次使用一个或多个正则表达式匹配到的内容。所匹配的内容可以使用 ”<emphasis role="bold"><code>\&lt;数字&gt;</code></emphasis>” 表示。&lt;数字&gt; 表示匹配到的第几个内容或者用 0 表示全部匹配到的文本。</para>
+
+        <para>例如，下面一个简单的匹配模式 ”<emphasis role="bold"><code>bug #(123)</code></emphasis>”，可以使用 ”<emphasis role="bold"><code>\0</code></emphasis>” 表示文本 “bug #123” 或者 ”<emphasis role="bold"><code>\1</code></emphasis>” 表示文本 “123”。对于命令 ”<code>exo-open http://host/\1</code>”，实际执行的命令将会是 ”<code>exo-open http://host/123</code>”。</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="xfconf">
+      <title>Xfconf</title>
+
+      <para>
+        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
+        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
+        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
+        table lists all the properties with their possible values:
+      </para>
+
+      <table frame="all"><title>Xfconf 属性</title>
+      <tgroup cols="4" align="left">
+      <thead>
+      <row>
+        <entry>属性</entry>
+        <entry>类型</entry>
+        <entry>默认</entry>
+        <entry>值</entry>
+      </row>
+      </thead>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>布尔值</entry><entry>假</entry><entry>设置为真将同步主剪贴板中的内容到预设剪贴板中</entry></row><row><entry>/settings/enable-actions</entry><entry>布尔值</entry><entry>假</entry><entry>设置为真将允许动作</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>布尔值</entry><entry>假</entry><entry>设置为真将从历史中排除主剪贴板的内容</entry></row> 假 <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 个图像内容在历史中</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 个文本内容在历史中</entry></row><row><entry>/settings/save-on-quit</entry><entry>布尔值</entry><entry>真</entry><entry>设置为真将在每次新会话中恢复历史</entry></row></tbody>
+      </tgroup>
+      </table>
+
+      <para>
+        To change a setting from a terminal type the command-line:
+      </para>
+
+      <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
+    </sect2>
+  </sect1>
+
+  <sect1 id="support">
+    <title>支持</title>
+
+    <para>报告错误或者希望添加新的功能，请使用在 <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink> 上的 bug 追踪系统。如果您在此软件的使用上有任何疑问，请在邮件列表 <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">Xfce mailing list</ulink> 上发问，或者使用 IRC 客户端连接至 <emphasis role="bold">irc.freenode.net</emphasis>，加入频道 <emphasis role="bold">#xfce</emphasis> 寻求帮助。</para>
+  </sect1>
+
+
+  <sect1 id="about">
+    <title>关于 @PACKAGE_NAME@</title>
+
+    <para>@PACKAGE_NAME@ 最初由 Eduard Roccatello 所编写，而后由 Nick Schermer 维护。现在的编写者是 Mike Massonnet (<email>mmassonnet@xfce.org</email>)。更多信息，请查看 <ulink type="http" url="http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">@PACKAGE_NAME@ 网站</ulink>。</para>
+
+    <para>这份文档由 Mike Massonnet (<email>mmassonnet@xfce.org</email>) 撰写。请将您对这份文档的意见或建议发送到 <email>mmassonnet@xfce.org</email>。</para>
+
+    <para>此软件在自由软件基金会发布的 <citetitle>GNU 通用公共许可协议</citetitle> 条款约束下发布；协议的第二版或者(您可以选择)更新的版本。</para>
+
+    <para>您应该能够随此软件获得一份 <citetitle>GNU 通用公共许可协议</citetitle>的副本；如果没有，请致信自由软件基金会: Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA.</para>
+  </sect1>
+
+</article>
