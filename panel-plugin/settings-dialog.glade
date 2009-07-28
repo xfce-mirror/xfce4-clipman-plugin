@@ -165,7 +165,7 @@
                                   <widget class="GtkSpinButton" id="max-texts-in-history">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="adjustment">6 5 100 1 10 0</property>
+                                    <property name="adjustment">6 5 1000 1 10 0</property>
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
