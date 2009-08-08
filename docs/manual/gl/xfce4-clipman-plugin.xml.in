@@ -42,9 +42,7 @@
       </author>
     </authorgroup>
 
-    <releaseinfo>
-      This manual describes version @PACKAGE_VERSION@ of @PACKAGE_NAME@.
-    </releaseinfo>
+    <releaseinfo>Este manual describe a versión @PACKAGE_VERSION@ de @PACKAGE_NAME@.</releaseinfo>
   </articleinfo>
 
 
@@ -58,7 +56,7 @@
     </para>
 
     <sect2 id="anatomy-clipboard">
-      <title>Anatomy of a Clipboard</title>
+      <title>Anatomía dun Portarretallos</title>
 
       <para>
         In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A
@@ -90,7 +88,7 @@
             <imagedata fileref="images/clipman-menu.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Menu displaying the history</phrase>
+            <phrase>Menú que mostra o historial</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -103,7 +101,7 @@
     </sect2>
 
     <sect2 id="popup-command">
-      <title>Popup Command</title>
+      <title>Comando emerxente</title>
 
       <para>
         @PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it
@@ -131,11 +129,9 @@
     <sect2 id="general">
       <title>Xeral</title>
 
-      <para>
-        The following table describes the available options:
-      </para>
+      <para>A seguinte táboa describe as opcións dispoñibles:</para>
 
-      <table frame="all"><title>General options in the Settings dialog</title>
+      <table frame="all"><title>Opcións xerais do diálogo de Configuración</title>
       <tgroup cols="2" align="left">
       <thead>
       <row>
@@ -150,20 +146,20 @@
 	selected</entry>
       </row>
       <row>
-        <entry>Exclude from history</entry>
+        <entry>Excluír do historial</entry>
         <entry>Prevents the primary clipboard from being inserted in the history</entry>
       </row>
       <row>
         <entry>Gardar ao saír</entry>
-        <entry>Keeps the history at every new session</entry>
+        <entry>Mantén o historial en cada nova sesión</entry>
       </row>
       <row>
-        <entry>Store an image</entry>
-        <entry>Allows to store one image in the history</entry>
+        <entry>Almacenar unha imaxe</entry>
+        <entry>Permite almacenar unha imaxe no historial</entry>
       </row>
       <row>
         <entry>Tamaño do historial</entry>
-        <entry>Sets the number of items to keep in history</entry>
+        <entry>Define o número de elementos que se gardarán no historial</entry>
       </row>
       </tbody>
       </tgroup>
@@ -216,7 +212,7 @@
     </sect2>
 
     <sect2 id="action-dialog">
-      <title>Action Dialog</title>
+      <title>Diálogo de acción</title>
 
       <para>
         An action has a human readable name that describes the pattern it is going to match. An action must have at
@@ -229,7 +225,7 @@
       </para>
 
       <figure>
-        <title>Action Dialog</title>
+        <title>Diálogo de acción</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
@@ -248,9 +244,7 @@
         </para>
 
         <itemizedlist>
-          <listitem>
-            ”<emphasis role="bold"><code>.</code></emphasis>”: represents a single character.
-          </listitem>
+          <listitem>”<emphasis role="bold"><code>.</code></emphasis>”: representa un só carácter.</listitem>
           <listitem>
             ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
             characters, and zero or more characters.
@@ -279,7 +273,7 @@
 
           <itemizedlist>
             <listitem>
-              "<emphasis role="bold"><code>bug ?#?[0-9]+</code></emphasis>": text "<emphasis>bug </emphasis>", zero or one
+              "<emphasis role="bold"><code>Bug Buddy</code></emphasis>": text "<emphasis>Bug Buddy</emphasis>", zero or one
               space, zero or one sharp character, and one or more numbers.
             </listitem>
             <listitem>
@@ -288,14 +282,14 @@
               "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
             </listitem>
             <listitem>
-              "<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": text "<emphasis>http://</emphasis>", 120
+              "<emphasis role="bold"><code>Calendarios HTTP</code></emphasis>": text "<emphasis>http://</emphasis>", 120
               characters, and one or more characters except a space.
             </listitem>
           </itemizedlist>
         </sect4>
 
         <sect4 id="regexes-external-ressource">
-          <title>External Ressource</title>
+          <title>Recurso externo</title>
 
           <para>
             Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
@@ -338,25 +332,25 @@
         <entry>Propiedade</entry>
         <entry>Tipo</entry>
         <entry>Default</entry>
-        <entry>Values</entry>
+        <entry>Valores</entry>
       </row>
       </thead>
       <tbody>
       <row>
         <entry>/settings/add-primary-clipboard</entry>
-        <entry>bool</entry>
+        <entry>Esperábase un bool, obtívose %s</entry>
         <entry>false</entry>
         <entry>true to sync the primary clipboard with the default clipboard</entry>
       </row>
       <row>
         <entry>/settings/enable-actions</entry>
-        <entry>bool</entry>
+        <entry>Esperábase un bool, obtívose %s</entry>
         <entry>false</entry>
         <entry>true to enable actions</entry>
       </row>
       <row>
         <entry>/settings/history-ignore-primary-clipboard</entry>
-        <entry>bool</entry>
+        <entry>Esperábase un bool, obtívose %s</entry>
         <entry>false</entry>
         <entry>true to exclude the primary clipboard from the history</entry>
       </row>
@@ -376,7 +370,7 @@
       </row>
       <row>
         <entry>/settings/save-on-quit</entry>
-        <entry>bool</entry>
+        <entry>Esperábase un bool, obtívose %s</entry>
         <entry>true</entry>
         <entry>true to restore the history at every new session</entry>
       </row>
@@ -406,17 +400,9 @@
   <sect1 id="about">
     <title>Acerca de @PACKAGE_NAME@</title>
 
-    <para>
-      @PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by
-      Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visit the <ulink type="http" url="http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">@PACKAGE_NAME@ Web
-      site</ulink>.
-    </para>
+    <para>@PACKAGE_NAME@ foi escrito por Eduard Roccatello e despois mantido por Nick Schermer. Na actualidade é escrito por Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visite o <ulink type="http" url="http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">sitio web de @PACKAGE_NAME@</ulink>.</para>
 
-    <para>
-      This documentation was written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Please send all your comments and
-      suggestions regarding this manual to <email>mmassonnet@xfce.org</email>.
-      
-    </para>
+    <para>Esta documentación foi escrita por Mike Massonnet (<email>mmassonnet@xfce.org</email>). Envíe tódolos seus comentarios e suxestións relativos a este manual a <email>mmassonnet@xfce.org</email>.</para>
 
     <para>
       This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published

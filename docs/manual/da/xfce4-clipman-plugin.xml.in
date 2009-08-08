@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY app-author "Mike Massonnet">
+<!ENTITY app-email "mmassonnet@xfce.org">
+<!ENTITY app-website "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">
+<!ENTITY doc-author "Mike Massonnet">
+<!ENTITY doc-email "mmassonnet@xfce.org">
+<!ENTITY date "April, July 2009">
+<!ENTITY application "@PACKAGE_NAME@">
+<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
+]>
+<article id="xfce4-clipman-plugin" lang="da">
+
+  <!-- Header -->
+  <articleinfo>
+    <title>Manual til @PACKAGE_NAME@</title>
+
+    <pubdate>&date;</pubdate>
+
+    <copyright>
+      <year>2009</year>
+      <holder>&doc-author;</holder>
+    </copyright>
+
+    <legalnotice id="legalnotice">
+      <para>Der gives hermed tilladelse til kopiere, distribuere og/eller ændre dette dokument under betingelserne af GNU Free Documentation License, Version 1.3 eller enhver senere version udgivet af Free Software Foundation, med ingen ufravigelige dele; ingen forsidetekst, og ingen bagsidetekst. Hele licensteksten er til rådighed på <ulink type="http" url="http://www.gnu.org/">Free Software Foundation</ulink>.</para>
+    </legalnotice>
+
+    <authorgroup>
+      <author>
+        <firstname>Mike</firstname>
+        <surname>Massonnet</surname>
+        <affiliation>
+          <address><email>mmassonnet@xfce.org</email></address>
+        </affiliation>
+      </author>
+    </authorgroup>
+
+    <releaseinfo>Denne manual beskriver @PACKAGE_NAME@ version @PACKAGE_VERSION@.</releaseinfo>
+  </articleinfo>
+
+
+  <sect1 id="intro">
+    <title>Introduktion</title>
+
+    <para>
+      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
+      when you close an application. It is able to handle text and images, and has a feature to execute actions on
+      specific text by matching them against regular expressions.
+    </para>
+
+    <sect2 id="anatomy-clipboard">
+      <title>Udklipsholderens opbygning</title>
+
+      <para>I X11 (alle Unix platform) er der som standard to udklipsholdere til at udveksle data mellem vinduerne. En standard udklipsholder som ændres ved manuelle kopier (f.eks. når du markerer en fil og trykker på knappen kopiér), og en primær udklipsholder der ændres af markeringer (f.eks. når du markerer tekst i et felt).</para>
+
+      <para>
+        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
+        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
+        meaning you can paste with the keyboard what you select on screen.
+      </para>
+    </sect2>
+
+    <sect2 id="getting-started">
+      <title>Komme i gang</title>
+
+      <para>
+        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
+        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
+        the history.
+      </para>
+
+      <figure>
+        <title>Menu i Clipman</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-menu.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Menu der viser historikken</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <para>
+        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
+        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
+        To add a new item in the panel right click the panel and select “Add new item…”.
+      </para>
+    </sect2>
+
+    <sect2 id="popup-command">
+      <title>Popup-kommando</title>
+
+      <para>@PACKAGE_NAME@ tilbyder kommandolinjeværktøjet <application>xfce4-popup-clipman</application>. Når den bliver startet, fremkaldes hovedmenuen. Kommandoen er praktisk til <emphasis role="bold">Programgenveje</emphasis> der er tilgængelige i <menuchoice><guimenu>Xfce-menuen</guimenu><guimenu>Indstillinger</guimenu><guimenu>Tastatur</guimenu></menuchoice>.</para>
+    </sect2>
+
+  </sect1>
+
+
+  <sect1 id="settings">
+    <title>Indstillinger</title>
+
+    <para>Indstillingsvinduet er tilgængelig under elementet "Egenskaber" i kontekstmenuen ved højreklik, på hovedikonet. Den lader dig tilpasse historikken og redigere handlinger.</para>
+
+    <sect2 id="general">
+      <title>Generelt</title>
+
+      <para>Følgende tabel beskriver mulige tilvalg:</para>
+
+      <table frame="all"><title>Generelle tilvalg i indstillingsvinduet</title>
+      <tgroup cols="2" align="left">
+      <thead>
+      <row>
+        <entry>Tilvalg</entry>
+        <entry>Beskrivelse</entry>
+      </row>
+      </thead>
+      <tbody>
+      <row>
+        <entry>Sync selections</entry>
+	<entry>Synkronisér den primære udklipsholder med standardudklipsholderen, så det er muligt at indsætte det der bliver markeret</entry>
+      </row>
+      <row>
+        <entry>Udelad fra historik</entry>
+        <entry>Forhindrer at den primære udklipsholder bliver indsat i historikken.</entry>
+      </row>
+      <row>
+        <entry>Gem ved afslutning</entry>
+        <entry>Beholder historikken ved hver ny session</entry>
+      </row>
+      <row>
+        <entry>Opbevar et billede</entry>
+        <entry>Lader dig opbevare et billeder i historikken</entry>
+      </row>
+      <row>
+        <entry>Størrelsen på historikken</entry>
+        <entry>Angiver antallet af elementer der kan opbevares i historikken</entry>
+      </row>
+      </tbody>
+      </tgroup>
+      </table>
+
+      <figure>
+        <title>Indstillinger til Clipman</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Indstillingsvinduet i fanebladet Generelt</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+    </sect2>
+
+    <sect2 id="actions">
+      <title>Handlinger</title>
+
+      <para>En handling er en kombination af et handlingsnavn og et regulært udtryk. Hver handling kan have en eller flere kommandoer. Understøttelsen af handlinger er valgfri og kan slås til eller fra med tilvalget "Aktivér handlinger".</para>
+
+      <para>Klik på Tilføj-ikonet for at tilføje en ny handling og klik på ikonet Redigér eller dobbeltklik på handlingen, og vælg en handling og klik på ikonet Slet for at fjerne en handling. Et nyt vindue bliver åbnet ved at tilføjelse eller redigering af en handling.</para>
+
+      <para>
+        To learn more about actions go to <xref linkend="action-dialog"/>.
+      </para>
+
+      <figure>
+        <title>Indstillinger til Clipman</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Indstillingsvinduet i fanebladet Handlinger</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+    </sect2>
+
+    <sect2 id="action-dialog">
+      <title>Handlingsvindue</title>
+
+      <para>
+        An action has a human readable name that describes the pattern it is going to match. An action must have at
+        least one command which also has a human readable name. The matched text can be reused in the command.
+      </para>
+
+      <para>
+        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
+        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
+      </para>
+
+      <figure>
+        <title>Handlingsvindue</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>Handlingsredigeringsvinduet</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <sect3 id="regexes">
+        <title>Regulært udtryk</title>
+
+        <para>Basale specielle tegn: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".</para>
+
+        <itemizedlist>
+          <listitem>”<emphasis role="bold"><code>.</code></emphasis>”: repræsenterer et enkelt tegn.</listitem>
+          <listitem>”<emphasis role="bold"><code>?+*</code></emphasis>”: betyder henholdsvis nul eller et tegn, et tegn eller mere, og nul tegn eller mere.</listitem>
+          <listitem>”<emphasis role="bold"><code>(|)</code></emphasis>”: bruges til gruppering og erstatning, den lodrette linje bruges som en ELLER operation.</listitem>
+          <listitem>”<emphasis role="bold"><code>[^]</code></emphasis>”: bruges til at matche et tegn fra et sæt at tegne og specielle tegn, cirkumflex er brugt ved begyndelsen som argument.</listitem>
+          <listitem>”<emphasis role="bold"><code>\</code></emphasis>”: undlader et specielt tegn.</listitem>
+        </itemizedlist>
+
+        <para>Basis alfanumeriske tegnklasse: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Tegnklasser angives med klammer til at repræsentere et sæt af tegn.</para>
+
+
+        <sect4 id="regexes-examples">
+          <title>Eksempler</title>
+
+          <itemizedlist>
+            <listitem>"<emphasis role="bold"><code>fejl ?#?[0-9]+</code></emphasis>": text "<emphasis>fejl</emphasis>", nul eller et mellemrum, nul eller et skarpt tegn, og et eller flere tal.</listitem>
+            <listitem>"<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": tekst "<emphasis>http</emphasis>" eller "<emphasis>ftp</emphasis>" et eller flere tegn, et punkt, og tekst  "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" eller "<emphasis>gif</emphasis>".</listitem>
+            <listitem>"<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": tekst "<emphasis>http://</emphasis>", 120 tegn og et tegn eller flere undtagen et mellemrum.</listitem>
+          </itemizedlist>
+        </sect4>
+
+        <sect4 id="regexes-external-ressource">
+          <title>Ekstern ressource</title>
+
+          <para>Tag et kig på </para>
+        </sect4>
+      </sect3>
+
+      <sect3 id="command">
+        <title>Kommando</title>
+
+        <para>En kommando kan genbruge en eller flere erstatninger fra de regulære udtryk. Erstatningerne er repræsenteret af ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” hvor &lt;number&gt; svarer til det undermønster inden i parentesen eller 0 for hele teksten.</para>
+
+        <para>For eksempel, fra det simple mønster ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” er det muligt at bruge ”<emphasis role="bold"><code>\0</code></emphasis>” til teksten "bug #123" og  ”<emphasis role="bold"><code>\1</code></emphasis>”og til tekst "123". For kommandoen ”<code>exo-open http://host/\1</code>”, ville den rent faktiske udførte kommando være ”<code>exo-open http://host/123</code>”.</para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="xfconf">
+      <title>Xfconf</title>
+
+      <para>
+        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
+        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
+        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
+        table lists all the properties with their possible values:
+      </para>
+
+      <table frame="all"><title>Xfconf-egenskaber</title>
+      <tgroup cols="4" align="left">
+      <thead>
+      <row>
+        <entry>Egenskab</entry>
+        <entry>Type</entry>
+        <entry>Standard</entry>
+        <entry>Værdiet</entry>
+      </row>
+      </thead>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sandt for at synkronisere den primære udklipsholder med standardudklipsholderen</entry></row><row><entry>/settings/enable-actions</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at slå handlinger til</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at udelade den primære udklipsholder fra historikken</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 antal billeder i historikken</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 antal tekster i historikken</entry></row><row><entry>/settings/save-on-quit</entry><entry>boolsk</entry><entry>sand</entry><entry>sand for at gendanne historikken ved hver ny session</entry></row></tbody>
+      </tgroup>
+      </table>
+
+      <para>
+        To change a setting from a terminal type the command-line:
+      </para>
+
+      <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
+    </sect2>
+  </sect1>
+
+  <sect1 id="support">
+    <title>Support</title>
+
+    <para>For at rapportere en fejl eller anmode om en ny funktion, brug venligst fejlsøgningsystemet på <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. Spørg venligst på <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">Xfce e-postliste</ulink>Eller indstil din IRC-klient til <emphasis role="bold">irc.freenode.net</emphasis>, bliv medlem af kanalen <emphasis role="bold">#xfce</emphasis> og spørg efter hjælp, hvis du har spørgsmål til brugen af dette software.</para>
+  </sect1>
+
+
+  <sect1 id="about">
+    <title>Om @PACKAGE_NAME@</title>
+
+    <para>@PACKAGE_NAME@ er skrevet af Eduard Roccatello og derefter vedligeholdt af Nick Schermer. Nu til dags bliver det skrevet af Mike Massonnet  (<email>mmassonnet@xfce.org</email>). Besøg <ulink type="http" url="http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin">Netsted for @PACKAGE_NAME@</ulink>.</para>
+
+    <para>Denne dokumentation er skrevet af Mike Massonnet (<email>mmassonnet@xfce.org</email>) Send venligst alle dine kommentarer og forslag til denne manuel til <email>mmassonnet@xfce.org</email>.</para>
+
+    <para>Dette software er distribueret under vilkårene i <citetitle>GNU General Public License</citetitle>, som udgivet at Free Software Foundation, enten version 2 af licensen eller (dit valg) enhver senere version.</para>
+
+    <para>Du burde have fået en kopi af <citetitle>GNU General Public License</citetitle> sammen med dette program; hvis ikke, kan du skrive til Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA.</para>
+  </sect1>
+
+</article>
