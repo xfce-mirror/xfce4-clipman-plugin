@@ -1,26 +1,23 @@
-# Indonesian translations for xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Andhika Padmawan  <andhika.padmawan@gmail.com>, 2009.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-04 07:41+0200\n"
-"PO-Revision-Date: 2009-08-08 15:30+0200\n"
-"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
-"Language-Team: Indonesian <id@li.org>\n"
+"PO-Revision-Date: 2009-07-13 19:54+0100\n"
+"Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "Manajer papan klip"
+msgstr "Xestor de cartafueyu"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -33,149 +30,150 @@ msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr "Bugz"
+msgstr "Fallos"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Sunting dengan Gimp"
+msgstr "Editar con GIMP"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "Kutu GNOME"
+msgstr "Fallu de GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr "Citra"
+msgstr "Imaxe"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "URL Panjang"
+msgstr "URL llarga"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "Kecilkan URL"
+msgstr "Acurtiar la URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr "Tampilkan dengan Ristretto"
+msgstr "Ver con Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "Kutu Xfce"
+msgstr "Fallu de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr "<b>Aksi</b>"
+msgstr "<b>Aición</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
 msgid "<b>Behavior</b>"
-msgstr "<b>Perilaku</b>"
+msgstr "<b>Comportamientu</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
-msgstr "<b>Perintah</b>"
+msgstr "<b>Comandos</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr "<b>Riwayat</b>"
+msgstr "<b>Hestorial</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr "Aksi"
+msgstr "Aiciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr "Hanya aktivasi pada papan klip standar"
+msgstr "Activar namái copia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"Secara standar aksi dipanggil dengan pemilihan, centang opsi ini untuk "
-"memanggil aksi hanya jika anda membuat salinan manual"
+"Por defeutu l'aición ye activada por una Escoyeta, marca esta opción "
+"p'activar l'aición namái cuando se fai una copia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr "Perintah:"
+msgstr "Comandu:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
+#, fuzzy
 msgid "Configure the plugin"
-msgstr "Atur plugin"
+msgstr "Configurar el complementu"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr "K_eluarkan dari riwayat"
+msgstr "E_scluyir del hestorial"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
-msgstr "Sunting Aksi"
+msgstr "Editar aición"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "Enable _actions"
-msgstr "Aktifkan _aksi"
+msgstr "Activar _aiciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "General"
-msgstr "Umum"
+msgstr "Xeneral"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler dan "
-"sebuah menu akan menampilkan aksi yang memungkinkan"
+"Si ta activáu, los testos del cartafueyu compararánse con espresiones "
+"regulares y un menú amosará les aiciones posibles"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
-"Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar "
-"dimana anda dapat merekatkan apa yang anda pilih"
+"Si ta activáu, sincronizaránse les seleiciones col cartafueyu por defeutu de "
+"mou que puedas apegar lo qu'escoyiste"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
-"Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
+"Si ta activáu, la Escoyeta nun afeutará l'hestorial, esceutu les copies "
+"manuales"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam "
-"riwayat"
+msgstr "Si ta activáu, esta opción permítete atroxar una imaxe nel hestorial"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
-"Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+"Si ta activáu, esta opción restablecerá l'hestorial en cada nueva sesión de "
+"Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr "Nama:"
+msgstr "Nome:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr "Pola:"
+msgstr "Patrón:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
-msgstr "Simpan saat _keluar"
+msgstr "Guardar al _colar"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr "Ukuran _riwayat:"
+msgstr "Tamañu del _hestorial:"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
-msgstr "Simpan _citra"
+msgstr "Atroxar una _imaxe"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Sync _selections"
-msgstr "Sinkronisasi _seleksi"
+msgstr "Sincronizar les _seleiciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""
@@ -184,10 +182,10 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"Anda dapat menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterusnya "
-"di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Jika anda tidak "
-"mengerti ekspresi reguler, silakan lihat dokumentasi Clipman yang memiliki "
-"pengenalan terhadap itu"
+"Puedes usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes nos "
+"comandos. El parámetru \"\\0\" representa'l testu completu. Si nun conoces "
+"les espresiones regulares, mira la documentación de Clipman, au hai una "
+"introducción sobro les mesmes."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -196,89 +194,108 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Tak dapat mengeksekusi perintah \"%s\"\n"
+"Nun puede executase'l comandu \"%s\"\n"
 "\n"
 "%s"
 
 #: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
-msgstr "Anda yakin ingin membersihkan riwayat?"
+msgstr "¿De xuru que quies desaniciar l'hestorial?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
-msgstr "Papan klip kosong"
+msgstr "Clipboard ta ermu"
 
 #: ../panel-plugin/plugin.c:301
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Manajer papan klip untuk destop Xfce"
+msgstr "Xestor de cartafueyu pal escritoriu Xfce"
 
 #: ../panel-plugin/plugin.c:310
 msgid "translator-credits"
-msgstr "Andhika Padmawan"
+msgstr "Softastur www.softastur.org"
 
 #: ../panel-plugin/plugin.c:324
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Tak dapat membuka url berikut: %s"
+msgstr "Imposible abrir el diálogu de preferencies: %s"
+
+#~ msgid "Autostart Clipman"
+#~ msgstr "Autoarranque de Clipman"
+
+#~ msgid ""
+#~ "Do you want to restart the clipboard manager the next time you login?"
+#~ msgstr ""
+#~ "¿Quies reaniciar el xestor de portapapeles la próxima vegada que inicie "
+#~ "sesión?"
+
+#~ msgid "Do you want to autostart the clipboard manager?"
+#~ msgstr "¿Quies entamar automáticamente el xestor de portapapeles?"
+
+#~ msgid "Authors of previous versions:"
+#~ msgstr "Autores de versiones anteriores:"
+
+#~ msgid "There is already a clipboard manager running"
+#~ msgstr "Ya esiste un xestor de portapapeles en execución"
+
+#~ msgid "_Enable"
+#~ msgstr "_Activar"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
 #~ "bring the history to be unreadable, however it can be interesting in case "
 #~ "you always want to paste what you select."
 #~ msgstr ""
-#~ "Jika dicentang, seleksi akan masuk ke dalam riwayat. Perilaku ini dapat "
-#~ "menjadikan riwayat tak dapat dibaca, akan tetapi perilaku ini dapat "
-#~ "menjadi menarik jika anda selalu ingin merekatkan apa yang anda pilih."
+#~ "Si ta activada, les selecciones irán al historial. Esti comportamiento "
+#~ "puede facer que el historial seya ilegible, aunque puede ser interesante "
+#~ "en caso de que siempres quiera apegar lo que escueyi"
 
 #~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Simpan isi papan klip saat _keluar"
+#~ msgstr "Guardar conteníu del portapapeles al _colar"
 
 #~ msgid "A_dd selections to the history"
-#~ msgstr "T_ambah pilihan ke riwayat"
+#~ msgstr "Aña_dir selecciones al historial"
 
 #~ msgid "_Show item numbers"
-#~ msgstr "_Tampilkan nomor item"
+#~ msgstr "_Amosar númberu de elementu"
 
 #~ msgid "<b>General</b>"
-#~ msgstr "<b>Umum</b>"
+#~ msgstr "<b>General</b>"
 
 #~ msgid "Clipboard history items:"
-#~ msgstr "Item riwayat papan klip:"
+#~ msgstr "Elementos del historial del portapapeles:"
 
 #~ msgid "Menu item characters:"
-#~ msgstr "Karakter item menu:"
+#~ msgstr "Caracteres de los elementos del menú:"
 
 #~ msgid "Clear History"
-#~ msgstr "Bersihkan Riwayat"
+#~ msgstr "Llimpiar historial"
 
 #~ msgid "Clipman History"
-#~ msgstr "Riwayat Clipman"
+#~ msgstr "Historial de Clipman"
 
 #~ msgid "Pre_vent empty clipboard"
-#~ msgstr "Ce_gah papan klip kosong"
+#~ msgstr "E_vitar el borráu del portapapeles"
 
 #~ msgid "Normal clipboard _management"
-#~ msgstr "Manajemen _papan klip normal"
+#~ msgstr "Xestión nor_mal del portapapeles"
 
 #~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Ketat memisahkan _kedua papan klip"
+#~ msgstr "Separar estrictamente am_bos portapapeles"
 
 #~ msgid "Se_parate clipboards"
-#~ msgstr "Pi_sahkan papan klip"
+#~ msgstr "Se_parar portapapeles"
 
 #~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Tampilan Menu</b>"
+#~ msgstr "<b>Apariencia del menú</b>"
 
 #~ msgid "Appearance"
-#~ msgstr "Tampilan"
+#~ msgstr "Apariencia"
 
 #~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "Anda yakin ingin menghapus klip ini dari riwayat?"
+#~ msgstr "¿Ta seguru de querer desaniciar esti clip del historial?"
 
 #~ msgid "< Default History Empty >"
-#~ msgstr "< Riwayat Standar Kosong >"
+#~ msgstr "< Historial predetermináu baleru >"
 
 #~ msgid "< Selection History Empty >"
-#~ msgstr "< Riwayat Seleksi Kosong >"
+#~ msgstr "< Historial de Escoyeta baleru >"

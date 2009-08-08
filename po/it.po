@@ -1,20 +1,21 @@
 # Italian translation of CLIPMAN PLUGIN.
 # Copyright (C) 2009 THE CLIPMAN PLUGIN'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the CLIPMAN PLUGIN package.
-# Gianluca Foddis <gianluca.foddis@gmail.com>, 2009.
+# Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009.
 # , fuzzy
 # GLOSSARIO
-# clipboard=appunti
-# history=cronologia
-# regex=espressione regolare
+# clipboard = appunti
+# history = cronologia
+# regex = espressione regolare
+# pattern = schema
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: CLIPMAN PLUGIN TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-04 07:41+0200\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
-"Last-Translator: Gianluca Foddis <gianluca.foddis@gmail.com>\n"
+"PO-Revision-Date: 2009-07-25 14:03+0100\n"
+"Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,6 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
 msgstr "Gestore degli appunti"
 
@@ -31,8 +31,10 @@ msgstr "Gestore degli appunti"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:129
+#: ../panel-plugin/plugin.c:299
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -73,9 +75,8 @@ msgid "<b>Action</b>"
 msgstr "<b>Azione</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Cronologia</b>"
+msgstr "<b>Comportamento</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
@@ -91,13 +92,11 @@ msgstr "Azioni"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Attivare solamente per la copia manuale"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Di norma, l'azione è avviata da una selezione; spuntare questa opzione per avviare l'azione solo quando si effettua una copia manuale"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -109,7 +108,7 @@ msgstr "Configura il plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "E_xclude from history"
-msgstr ""
+msgstr "Es_cludi dalla cronologia"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
@@ -124,39 +123,24 @@ msgid "General"
 msgstr "Generale"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Se abilitato, i testi degli appunti saranno confrontati con le espressioni "
-"regolari e un menù visualizzerà le azioni possibili"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Se abilitato, i testi degli appunti saranno confrontati con le espressioni regolari e un menu visualizzerà le azioni possibili"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Se abilitata, la selezione verrà sincronizzata con la clipboard di default in modo che si possa incollare ciò che si seleziona"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-#, fuzzy
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Se abilitata, questa opzione ripristinerà la cronologia in ogni nuova "
-"sessione di Xfce"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Se abilitata, le selezioni non influenzeranno  la cronologia a meno che non vengano copiate manualmente"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Se abilitata, questa opzione consente di memorizzare un'immagine nella "
-"cronologia"
+msgstr "Se abilitata, questa opzione consente di memorizzare un'immagine nella cronologia"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Se abilitata, questa opzione ripristinerà la cronologia in ogni nuova "
-"sessione di Xfce"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Se abilitata, questa opzione ripristinerà la cronologia a ogni nuova sessione di Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -173,28 +157,19 @@ msgstr "Salva all'_uscita"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr "DImensione della _cronologia:"
+msgstr "Dimensione della _cronologia:"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
 msgstr "Memorizza un'_immagine"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Aggiungi _selezioni"
+msgstr "Sincronizza _selezioni"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Si possono usare nei comandi i parametri di sostituzione \"\\1\", \"\\2\" e "
-"così via. Il parametro \"\\0\" rappresenta il testo completo. Se non si "
-"conoscono le espressioni regolari, si consulti la documentazione di Clipman "
-"che ne contiene un'introduzione."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Si possono usare nei comandi i parametri di sostituzione \"\\1\", \"\\2\" e così via. Il parametro \"\\0\" rappresenta il testo completo. Se non si conoscono le espressioni regolari, si consulti la documentazione di Clipman che ne contiene un'introduzione."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -203,6 +178,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Impossibile eseguire il comando \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:113
 msgid "Are you sure you want to clear the history?"
@@ -211,20 +189,21 @@ msgstr "Svuotare davvero la cronologia?"
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:186
 msgid "Clipboard is empty"
-msgstr "Gli appunti sono vuoti."
+msgstr "Gli appunti sono vuoti"
 
 #: ../panel-plugin/plugin.c:301
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Gestore degli appunti"
+msgstr "Gestore degli appunti per Xfce"
 
 #: ../panel-plugin/plugin.c:310
 msgid "translator-credits"
-msgstr "Gianluca Foddis"
+msgstr ""
+"Gianluca Foddis\n"
+"Cristian Marchi"
 
 #: ../panel-plugin/plugin.c:324
 msgid "Unable to open the settings dialog"
-msgstr ""
+msgstr "Impossibile aprire la finestra delle impostazioni"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -234,3 +213,4 @@ msgstr ""
 #~ "Se abilitato, le selezioni verranno inserite nella cronologia. Questa "
 #~ "scelta può comportare che la cronologia sia di difficile lettura, mentre "
 #~ "può essere interessante qualora si incolli sempre quanto selezionato."
+
