@@ -12,16 +12,17 @@ dnl ***************************
 m4_define([project_version_major], [1])
 m4_define([project_version_minor], [1])
 m4_define([project_version_micro], [0])
-m4_define([project_version_build], [r@REVISION@])
-m4_define([project_version_tag], [svn]) # leave empty for release
-m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [svn], [project_version_tag()-project_version_build()], [project_version_tag()])])
+m4_define([project_version_build], [@REVISION@])
+m4_define([project_version_tag], [git]) # leave empty for release
+m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [git], [project_version_tag()-project_version_build()], [project_version_tag()])])
 
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2005-2009
         The Xfce development team. All rights reserved.])
-AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin])
+AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin],
+       	[http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([project_version_build])
