@@ -52,11 +52,11 @@
     <para>@PACKAGE_NAME@ est un gestionnaire de presse-papier pour Xfce. Il conserve le contenu du presse-papier tandis qu'il est habituellement perdu lors de la fermeture d'une application. Il est capable de gérer du texte et des images, et possède une fonctionnalité pour exécuter des actions sur du texte spécifique en le comparant à des expressions régulières.</para>
 
     <sect2 id="anatomy-clipboard">
-      <title>Anatomie d'une presse-papier</title>
+      <title>Anatomie d'un presse-papier</title>
 
       <para>Dans X11 (toutes les plateformes Unix) il y a par défaut deux presses-papiers pour échanger des données à travers les fenêtres. Un presse-papier par défaut qui est modifié lors d'une copie manuelle (par exemple en sélectionnant un fichier et en cliquant sur le bouton Copier), et un presse-papier primaire qui est modifié lors des sélections de textes.</para>
 
-      <para>@PACKAGE_NAME@ gère uniquement le presse-papier par défault, mais peut également prendre en compte les sélections. Lorsqu'il gère les sélections, le presse-papier par défaut est toujours synchronisé avec celui-ci et contient les mêmes données. De ce fait il est possible de coller avec le clavier ce qui est sélectionné sur l'écran.</para>
+      <para>@PACKAGE_NAME@ gère uniquement le presse-papier par défaut, mais peut également prendre en compte les sélections. Lorsqu'il gère les sélections, le presse-papier par défaut est toujours synchronisé avec celui-ci et contient les mêmes données. De ce fait il est possible de coller avec le clavier ce qui est sélectionné sur l'écran.</para>
     </sect2>
 
     <sect2 id="getting-started">
@@ -148,7 +148,7 @@
     <sect2 id="actions">
       <title>Actions</title>
 
-      <para>Une action est composé de la paire d'un nom et d'une expression régulière. Chaque action peut contenir une à plusieurs commandes. Le support des actions est facultatif et peut être activer ou désactiver en cochant la case « Activer les actions ».</para>
+      <para>Une action est composée de la paire d'un nom et d'une expression régulière. Chaque action peut contenir une à plusieurs commandes. Le support des actions est facultatif et peut être activer ou désactiver en cochant la case « Activer les actions ».</para>
 
       <para>Pour ajouter une action cliquez sur l'icône Ajouter, pour éditer une action sélectionnez l'action et cliquez sur l'icône Editer ou double cliquez l'action, et pour supprimer une action sélectionnez l'action et cliquez sur l'icône Supprimer. En ajoutant ou en éditant une action un nouveau dialogue est ouvert.</para>
 
@@ -171,9 +171,9 @@
     <sect2 id="action-dialog">
       <title>Dialogue d'action</title>
 
-      <para>Une action possède un nom lisible qui décrit le motif qu'elle possède. Une action doit avoir au minimum une commande qui est possède aussi un nom lisible. Le texte qui est comparé peut être réutilisé dans une commande.</para>
+      <para>Une action possède un nom lisible qui décrit le motif qu'elle possède. Une action doit avoir au minimum une commande qui elle aussi possède un nom lisible. Le texte qui est comparé peut être réutilisé dans une commande.</para>
 
-      <para>Les actions sont comparés aux sélections à moins d'être spécifié autrement. Si la case « Activer uniquement lors des copies manuelles » est active, l'action sera comparé avec le presse-papier par défault (e.g. avec Ctrl+C).</para>
+      <para>Les actions sont comparées aux sélections à moins d'être spécifiées autrement. Si la case « Activer uniquement lors des copies manuelles » est active, l'action sera comparée avec le presse-papier par défaut (e.g. avec Ctrl+C).</para>
 
       <figure>
         <title>Dialogue d'action</title>
@@ -190,7 +190,7 @@
       <sect3 id="regexes">
         <title>Expression régulière</title>
 
-        <para>Caractères spéciaux de base : « <emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>».</para>
+        <para>Caractères spéciaux de base : « <emphasis role="bold"><code>.?+*(|)[]\</code></emphasis> ».</para>
 
         <itemizedlist>
           <listitem>« <emphasis role="bold"><code>.</code></emphasis> » : représente un caractère unique.</listitem>
@@ -223,7 +223,7 @@
       <sect3 id="command">
         <title>Commande</title>
 
-        <para>Une commande peut réutiliser une ou plusieurs substitutions depuis l'expression régulière. Les substitutions sont représentées par « <emphasis role="bold"><code>\&lt;numéro&gt;</code></emphasis> » où &lt;number&gt; correspond au sous-motif entre parenthèses ou 0 pour le texte complet.</para>
+        <para>Une commande peut réutiliser une ou plusieurs substitutions depuis l'expression régulière. Les substitutions sont représentées par « <emphasis role="bold"><code>\&lt;numéro&gt;</code></emphasis> » où &lt;numéro&gt; correspond au sous-motif entre parenthèses ou 0 pour le texte complet.</para>
 
         <para>Par exemple, dans le simple motif « <emphasis role="bold"><code>bug #(123)</code></emphasis> » il est possible d'utiliser « <emphasis role="bold"><code>\0</code></emphasis> » pour le texte « bug #123 » et « <emphasis role="bold"><code>\1</code></emphasis> » pour le texte « 123 ». Pour la commande « <code>exo-open http://host/\1</code> », la vraie commande exécutée serait « <code>exo-open http://host/123</code> ».</para>
       </sect3>
@@ -232,7 +232,7 @@
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne la possibilité de changer un paramètre avec l'outil <application>xfconf-query</application>ou <application>xfce4-settings-editor</application>. Le canal est <constant>xfce4-panel</constant> et la propriété de base est <constant>/plugins/clipman</constant>. Le tableau ci-dessous liste toutes les propriétés avec leurs valeurs possible :</para>
+      <para>@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne la possibilité de changer un paramètre avec l'outil <application>xfconf-query</application> ou <application>xfce4-settings-editor</application>. Le canal est <constant>xfce4-panel</constant> et la propriété de base est <constant>/plugins/clipman</constant>. Le tableau ci-dessous liste toutes les propriétés avec leurs valeurs possible :</para>
 
       <table frame="all"><title>Propriétés Xfconf</title>
       <tgroup cols="4" align="left">

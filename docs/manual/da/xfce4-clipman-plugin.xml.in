@@ -44,32 +44,20 @@
   <sect1 id="intro">
     <title>Introduktion</title>
 
-    <para>
-      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
-      when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text by matching them against regular expressions.
-    </para>
+    <para>@PACKAGE_NAME@ er en udklipsholderhåndtering til Xfce. Den beholder indholdet af udklip, hvorimod det som regel er tabt, når du lukker et program. Den er i stand til at håndtere tekst og billeder, og kan udføre handlinger på specifikke tekstmarkeringer ved at sammenligne dem med regulære udtryk.</para>
 
     <sect2 id="anatomy-clipboard">
       <title>Udklipsholderens opbygning</title>
 
       <para>I X11 (alle Unix platform) er der som standard to udklipsholdere til at udveksle data mellem vinduerne. En standard udklipsholder som ændres ved manuelle kopier (f.eks. når du markerer en fil og trykker på knappen kopiér), og en primær udklipsholder der ændres af markeringer (f.eks. når du markerer tekst i et felt).</para>
 
-      <para>
-        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
-        meaning you can paste with the keyboard what you select on screen.
-      </para>
+      <para>@PACKAGE_NAME@ håndterer kun standardudklipsholderen, men kan også håndtere markeringer. Når den håndterer markeringer, vil standardklippebordet altid blive synkroniseret med den, og indeholde det samme data. På denne måde kan du indsætte med tastaturet, hvad du vælger på skærmen.</para>
     </sect2>
 
     <sect2 id="getting-started">
       <title>Komme i gang</title>
 
-      <para>
-        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
-        the history.
-      </para>
+      <para>@PACKAGE_NAME@ bruges til at lave en historik af indholdet i udklipsholderen, og til at gendanne dem igen. Historikken er vises i en menu, ved at klikke på hovedikonet. I menuen er det muligt gendanne en tekst og at rydde historikken.</para>
 
       <figure>
         <title>Menu i Clipman</title>
@@ -83,11 +71,7 @@
         </mediaobject>
       </figure>
 
-      <para>
-        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
-        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
-        To add a new item in the panel right click the panel and select “Add new item…”.
-      </para>
+      <para>Der er to måder du kan køre @PACKAGE_NAME@ på. Du kan vælge @PACKAGE_NAME@ i programmenuen, under kategorien Tilbehør eller skrive <application>xfce4-clipman</application> på kommandolinjen, eller du kan tilføje det til dit panel. Højreklik på panelet og vælg "Tilføj nyt element...", for at føje et nyt element til panelet.</para>
     </sect2>
 
     <sect2 id="popup-command">
@@ -119,7 +103,7 @@
       </thead>
       <tbody>
       <row>
-        <entry>Sync selections</entry>
+        <entry>Synkronisér markeringer</entry>
 	<entry>Synkronisér den primære udklipsholder med standardudklipsholderen, så det er muligt at indsætte det der bliver markeret</entry>
       </row>
       <row>
@@ -163,9 +147,7 @@
 
       <para>Klik på Tilføj-ikonet for at tilføje en ny handling og klik på ikonet Redigér eller dobbeltklik på handlingen, og vælg en handling og klik på ikonet Slet for at fjerne en handling. Et nyt vindue bliver åbnet ved at tilføjelse eller redigering af en handling.</para>
 
-      <para>
-        To learn more about actions go to <xref linkend="action-dialog"/>.
-      </para>
+      <para>Se <xref linkend="action-dialog"/> for at lære mere om handlinger.</para>
 
       <figure>
         <title>Indstillinger til Clipman</title>
@@ -184,15 +166,9 @@
     <sect2 id="action-dialog">
       <title>Handlingsvindue</title>
 
-      <para>
-        An action has a human readable name that describes the pattern it is going to match. An action must have at
-        least one command which also has a human readable name. The matched text can be reused in the command.
-      </para>
+      <para>En handling har et navn, der er læseligt for mennesker, der beskriver det mønster det skal sammenlignes med. En handling skal have mindst én kommando som også har et navn, der er læseligt for mennesker. Den sammenlignede tekst kan blive genbrugt i kommandoen.</para>
 
-      <para>
-        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
-        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
-      </para>
+      <para>Disse handlinger er altid sammenlignet med tekstmarkeringerne hvis ikke andet er angivet. Når boksen "Slå kun til ved manuel kopiering" er markeret, vil handlingen blive sammenlignet fra standard udklipsholderen (eks. Ctrl+C).</para>
 
       <figure>
         <title>Handlingsvindue</title>
@@ -251,12 +227,7 @@
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>
-        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
-        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
-        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
-        table lists all the properties with their possible values:
-      </para>
+      <para>@PACKAGE_NAME@ bruger Xfconf til at gemme dens indstillinger. Dette lader dig ændre indstillingerne med værktøjet <application>xfconf-query</application> eller <application>xfce4-settings-editor</application>. Kanalen er <constant>xfce4-panel</constant> og basis egenskab er <constant>/plugins/clipman</constant>. Følgende tabel viser alle egenskaberne med deres mulige værdier:</para>
 
       <table frame="all"><title>Xfconf-egenskaber</title>
       <tgroup cols="4" align="left">
@@ -268,13 +239,11 @@
         <entry>Værdiet</entry>
       </row>
       </thead>
-      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sandt for at synkronisere den primære udklipsholder med standardudklipsholderen</entry></row><row><entry>/settings/enable-actions</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at slå handlinger til</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at udelade den primære udklipsholder fra historikken</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 antal billeder i historikken</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 antal tekster i historikken</entry></row><row><entry>/settings/save-on-quit</entry><entry>boolsk</entry><entry>sand</entry><entry>sand for at gendanne historikken ved hver ny session</entry></row></tbody>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sandt for at synkronisere den primære udklipsholder med standardudklipsholderen</entry></row><row><entry>/settings/add-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at slå handlinger til</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>boolsk</entry><entry>falsk</entry><entry>sand for at udelade den primære udklipsholder fra historikken</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>0-5 antal billeder i historikken</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>5-100 antal tekster i historikken</entry></row><row><entry>/settings/save-on-quit</entry><entry>boolsk</entry><entry>sand</entry><entry>sand for at gendanne historikken ved hver ny session</entry></row></tbody>
       </tgroup>
       </table>
 
-      <para>
-        To change a setting from a terminal type the command-line:
-      </para>
+      <para>Indtast følgende kommandolinje for at ændre en indstilling fra en terminal:</para>
 
       <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
