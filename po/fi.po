@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-04-19 18:01+0300\n"
 "Last-Translator: Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
 "Language-Team: Finnish\n"
@@ -28,7 +28,7 @@ msgstr "Leikepöytien hallintatyökalu"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -107,22 +107,18 @@ msgid "Configure the plugin"
 msgstr "Liitännäisen asetukset"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Muokkaa toimintoa"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Käytä t_oimintoja"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Yleistä"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -130,26 +126,31 @@ msgstr ""
 "Jos valitset tämän, leikepöydän teksteille tarjotaan soveltuvia toimintoja "
 "vertaamalla niitä säännöllisiin lausekkeisiin"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 #, fuzzy
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Jos valitset tämän, historia säilytetään Xfce-istuntojen välillä"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Jos valitset tämän, historiaan voi tallentaa yhden kuvan"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr "Jos valitset tämän, historia säilytetään Xfce-istuntojen välillä"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "_Lisää valinnat"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -199,24 +200,24 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "Haluatko varmasti tyhjentää historian?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Leikepöytä on tyhjä"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 msgid "Clipboard Manager for Xfce"
 msgstr "Leikepöytien hallinta Xfce:lle"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr ""
 

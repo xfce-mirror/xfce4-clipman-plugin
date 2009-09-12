@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-07-27 20:11+0200\n"
 "Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -27,7 +27,7 @@ msgstr "Διαχειριστής προχείρου"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -105,22 +105,18 @@ msgid "Configure the plugin"
 msgstr "Ρύθμιση αρθρώματος"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "Εξ_αίρεση από το ιστορικό"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Επεξεργασία ενέργειας"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Ενεργοποίηση _ενεργειών"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Γενικά"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -128,7 +124,7 @@ msgstr ""
 "Εάν επιλεχθεί, τα κείμενα του προχείρου θα ταιριάζουν με κανονικές εκφράσεις "
 "και ένα μενού θα εμφανίζει τις πιθανές ενέργειες"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
@@ -137,25 +133,30 @@ msgstr ""
 "διαχειριστή προχείρου με τέτοιο τρόπο ώστε να μπορείτε να επικολλήσετε ότι "
 "θέλετε"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 "Εάν επιλεχθεί, οι επιλογές δεν θα επηρεάσουν το ιστορικό εκτός από τις "
 "προσωπικές αντιγραφές"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Εάν επιλεχθεί, αυτή η επιλογή επιτρέπει την αποθήκευση μίας εικόνας μέσα στο "
 "ιστορικό"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Εάν επιλεχθεί, αυτή η επιλογή θα επαναφέρει το ιστορικό σε κάθε νέα συνεδρία "
 "xfce"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "Επ_ιλογές συγχρονισμού"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -204,26 +205,29 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε τον καθαρισμό του ιστορικού;"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Το πρόχειρο είναι κενό"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 msgid "Clipboard Manager for Xfce"
 msgstr "Διαχειριστής προχείρου για το xfce"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr "Evaggelos Balaskas"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr "Αδυναμία ανοίγματος του διαλόγου ρυθμίσεων"
+
+#~ msgid "E_xclude from history"
+#~ msgstr "Εξ_αίρεση από το ιστορικό"
 
 #~ msgid "Autostart Clipman"
 #~ msgstr "Αυτόματη εκκίνηση του clipman"

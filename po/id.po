@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-08-08 15:30+0200\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "Manajer papan klip"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -104,22 +104,18 @@ msgid "Configure the plugin"
 msgstr "Atur plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "K_eluarkan dari riwayat"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Sunting Aksi"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Aktifkan _aksi"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Umum"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -127,7 +123,7 @@ msgstr ""
 "Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler dan "
 "sebuah menu akan menampilkan aksi yang memungkinkan"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
@@ -135,23 +131,28 @@ msgstr ""
 "Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar "
 "dimana anda dapat merekatkan apa yang anda pilih"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 "Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam "
 "riwayat"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "Sinkronisasi _seleksi"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -200,28 +201,31 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda yakin ingin membersihkan riwayat?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Papan klip kosong"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Manajer papan klip untuk destop Xfce"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr "Andhika Padmawan"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 #, fuzzy
 msgid "Unable to open the settings dialog"
 msgstr "Tak dapat membuka url berikut: %s"
+
+#~ msgid "E_xclude from history"
+#~ msgstr "K_eluarkan dari riwayat"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "

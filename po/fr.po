@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
-"PO-Revision-Date: 2009-07-04 07:42+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
+"PO-Revision-Date: 2009-09-12 10:21+0200\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Gestionnaire de presse-papier"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -105,22 +105,18 @@ msgid "Configure the plugin"
 msgstr "Configurer le greffon"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "E_xclure de l'historique"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Éditer l'action"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Activer les _actions"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Général"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -128,7 +124,7 @@ msgstr ""
 "Si coché, le contenu du presse-papier sera comparé aux expressions "
 "régulières et un menu affichera les actions possibles"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
@@ -136,24 +132,28 @@ msgstr ""
 "Si coché, les sélections seront synchronisées avec le presse papier par "
 "défaut de sorte que ce qui est sélectionné peut être collé"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 "Si coché, les sélections sont ignorées de l'historique à l'exception des "
 "copies manuelles"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 "Si coché, cette option vous permet de stocker une image à l'intérieur de "
 "l'historique"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Si coché, cette option restaure l'historique à chaque nouvelle session Xfce"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Ignore s_elections"
+msgstr "I_gnorer les sélections"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -202,28 +202,31 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Le presse-papier est vide"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionnaire de presse-papier pour Xfce"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr ""
 "Maximilian Schleiss\n"
 "Mike Massonnet"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr "Échec à l'ouverture du dialogue de paramètres"
+
+#~ msgid "E_xclude from history"
+#~ msgstr "E_xclure de l'historique"
 
 #~ msgid "Autostart Clipman"
 #~ msgstr "Démarrage Automatique"

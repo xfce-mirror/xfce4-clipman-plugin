@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-08-21 01:36-0300\n"
 "Last-Translator: elega <elega@elega.com.ar>\n"
 "Language-Team: \n"
@@ -29,10 +29,8 @@ msgstr "Gestor de portapapeles"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129
-#: ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -93,8 +91,12 @@ msgid "Activate only on manual copy"
 msgstr "Activar sólo en copia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "Por defecto la acción es activada por una selección, marque esta opción para activar la acción sólo cuando se hace una copia manual"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"Por defecto la acción es activada por una selección, marque esta opción para "
+"activar la acción sólo cuando se hace una copia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -105,40 +107,56 @@ msgid "Configure the plugin"
 msgstr "Configurar el complemento"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "E_xcluir del historial"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Editar acción"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Activar _acciones"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "General"
 
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Si está activado, los textos del portapapeles se compararán con expresiones "
+"regulares y un menú mostrará las acciones posibles"
+
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Si está activado, los textos del portapapeles se compararán con expresiones regulares y un menú mostrará las acciones posibles"
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"Si está activado, se sincronizan las selecciones con el portapapeles por "
+"defecto de forma que se puede pegar lo que usted seleccione"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "Si está activado, se sincronizan las selecciones con el portapapeles por defecto de forma que se puede pegar lo que usted seleccione"
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"Si está activado, la selección no afectará el historial, excepto las copias "
+"manuales"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si está activado, la selección no afectará el historial, excepto las copias manuales"
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+"Si está activado, esta opción le permite almacenar una imagen en el historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si está activado, esta opción le permite almacenar una imagen en el historial"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Si está activado, esta opción restablecerá el historial en cada nueva sesión "
+"de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "Si está activado, esta opción restablecerá el historial en cada nueva sesión de Xfce"
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "Sincronizar las _selecciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -165,8 +183,16 @@ msgid "Sync _selections"
 msgstr "Sincronizar las _selecciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Puede usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes en los comandos. El parámetro \"\\0\" representa el texto completo. Si no conoce las expresiones regulares, mire la documentación de Clipman, donde hay una introducción sobre las mismas."
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Puede usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes en "
+"los comandos. El parámetro \"\\0\" representa el texto completo. Si no "
+"conoce las expresiones regulares, mire la documentación de Clipman, donde "
+"hay una introducción sobre las mismas."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -179,45 +205,54 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "¿Esta seguro de que desea borrar el historial?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Clipboar está vacio"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor de portapapeles para el escritorio Xfce"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr ""
 "Roberto\n"
 "Abel Martín\n"
 "Elega <elega@elega.com.ar>"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr "Imposible abrir el diálogo de configuración"
 
+#~ msgid "E_xclude from history"
+#~ msgstr "E_xcluir del historial"
+
 #~ msgid "Autostart Clipman"
 #~ msgstr "Autoarranque de Clipman"
+
 #~ msgid ""
 #~ "Do you want to restart the clipboard manager the next time you login?"
 #~ msgstr ""
 #~ "¿Desea reiniciar el gestor de portapapeles la próxima vez que inicie "
 #~ "sesión?"
+
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "¿Desea iniciar automáticamente el gestor de portapapeles?"
+
 #~ msgid "Authors of previous versions:"
 #~ msgstr "Autores de versiones anteriores:"
+
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Ya existe un gestor de portapapeles en ejecución"
+
 #~ msgid "_Enable"
 #~ msgstr "_Activar"
+
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
 #~ "bring the history to be unreadable, however it can be interesting in case "
@@ -226,38 +261,54 @@ msgstr "Imposible abrir el diálogo de configuración"
 #~ "Si está activada, las selecciones irán al historial. Este comportamiento "
 #~ "puede hacer que el historial sea ilegible, aunque puede ser interesante "
 #~ "en caso de que siempre quiera pegar lo que seleccione"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Guardar contenido del portapapeles al _salir"
+
 #~ msgid "A_dd selections to the history"
 #~ msgstr "Aña_dir selecciones al historial"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar número de elemento"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>General</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Elementos del historial del portapapeles:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres de los elementos del menú:"
+
 #~ msgid "Clear History"
 #~ msgstr "Limpiar historial"
+
 #~ msgid "Clipman History"
 #~ msgstr "Historial de Clipman"
+
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vitar el borrado del portapapeles"
+
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Gestión nor_mal del portapapeles"
+
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separar estrictamente am_bos portapapeles"
+
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_parar portapapeles"
+
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Apariencia del menú</b>"
+
 #~ msgid "Appearance"
 #~ msgstr "Apariencia"
+
 #~ msgid "Are you sure you want to remove this clip from the history?"
 #~ msgstr "¿Está seguro de querer borrar este clip del historial?"
+
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Historial predeterminado vacío >"
+
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Historial de selección vacío >"
-

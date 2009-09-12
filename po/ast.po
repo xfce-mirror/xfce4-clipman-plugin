@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 07:41+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-07-13 19:54+0100\n"
 "Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -24,7 +24,7 @@ msgstr "Xestor de cartafueyu"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:129 ../panel-plugin/plugin.c:299
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -102,22 +102,18 @@ msgid "Configure the plugin"
 msgstr "Configurar el complementu"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "E_scluyir del hestorial"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Editar aición"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "Activar _aiciones"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Xeneral"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
@@ -125,7 +121,7 @@ msgstr ""
 "Si ta activáu, los testos del cartafueyu compararánse con espresiones "
 "regulares y un menú amosará les aiciones posibles"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
@@ -133,23 +129,28 @@ msgstr ""
 "Si ta activáu, sincronizaránse les seleiciones col cartafueyu por defeutu de "
 "mou que puedas apegar lo qu'escoyiste"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 "Si ta activáu, la Escoyeta nun afeutará l'hestorial, esceutu les copies "
 "manuales"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Si ta activáu, esta opción permítete atroxar una imaxe nel hestorial"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 "Si ta activáu, esta opción restablecerá l'hestorial en cada nueva sesión de "
 "Xfce"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "Sincronizar les _seleiciones"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -198,26 +199,29 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:113
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
 msgstr "¿De xuru que quies desaniciar l'hestorial?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:186
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
 msgstr "Clipboard ta ermu"
 
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/plugin.c:303
 msgid "Clipboard Manager for Xfce"
 msgstr "Xestor de cartafueyu pal escritoriu Xfce"
 
-#: ../panel-plugin/plugin.c:310
+#: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr "Softastur www.softastur.org"
 
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr "Imposible abrir el diálogu de preferencies: %s"
+
+#~ msgid "E_xclude from history"
+#~ msgstr "E_scluyir del hestorial"
 
 #~ msgid "Autostart Clipman"
 #~ msgstr "Autoarranque de Clipman"

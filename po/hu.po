@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-23 18:56+0200\n"
+"POT-Creation-Date: 2009-09-12 10:19+0200\n"
 "PO-Revision-Date: 2009-07-23 19:30+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
@@ -93,7 +93,9 @@ msgstr "Aktiválás csak kézi másoláskor"
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "A műveletet alapértelmezésben a kiválasztás aktiválja, ezt engedélyezve csak kézi másolás fogja aktiválni a műveletet."
+msgstr ""
+"A műveletet alapértelmezésben a kiválasztás aktiválja, ezt engedélyezve csak "
+"kézi másolás fogja aktiválni a műveletet."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -104,44 +106,52 @@ msgid "Configure the plugin"
 msgstr "Bővítmény beállítása"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
-msgid "E_xclude from history"
-msgstr "Kihagyás az _előzményekből"
-
-#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Edit Action"
 msgstr "Művelet szerkesztése"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
 msgstr "_Műveletek engedélyezése"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Általános"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
-msgstr "A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a lehetséges műveletek menüje"
+msgstr ""
+"A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a "
+"lehetséges műveletek menüje"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "A kiválasztások szinkronizálva lesznek az alapértelmezett vágólappal, így beillesztheti a kiválasztást"
+msgstr ""
+"A kiválasztások szinkronizálva lesznek az alapértelmezett vágólappal, így "
+"beillesztheti a kiválasztást"
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"A kiválasztások nem jelennek meg az előzmények között, csak a kézi másolások"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "A kiválasztások nem jelennek meg az előzmények között, csak a kézi másolások"
-
-#: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Egy kép tárolása az előzmények között"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
-msgid "If checked, this option will restore the history on every new Xfce session"
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
 msgstr "Az előzmények helyreállítása minden új Xfce munkamenetben"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+#, fuzzy
+msgid "Ignore s_elections"
+msgstr "Kiválasztások szi_nkronizálása"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -173,7 +183,11 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "A parancsokban használhatja a „\\1”, „\\2” stb. helyettesítési paramétereket. A „\\0” paraméter a teljes szöveget képviseli. Ha nem ismeri a reguláris kifejezéseket, nézze meg a Clipman dokumentációját, amely tartalmaz egy bevezetőt ezekhez."
+msgstr ""
+"A parancsokban használhatja a „\\1”, „\\2” stb. helyettesítési "
+"paramétereket. A „\\0” paraméter a teljes szöveget képviseli. Ha nem ismeri "
+"a reguláris kifejezéseket, nézze meg a Clipman dokumentációját, amely "
+"tartalmaz egy bevezetőt ezekhez."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -207,3 +221,5 @@ msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 msgid "Unable to open the settings dialog"
 msgstr "A beállítások ablak nem nyitható meg"
 
+#~ msgid "E_xclude from history"
+#~ msgstr "Kihagyás az _előzményekből"
