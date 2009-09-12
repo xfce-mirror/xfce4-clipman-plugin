@@ -29,7 +29,7 @@
 
 /* Collector */
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD                   FALSE
-#define DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD        FALSE
+#define DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD        TRUE
 #define DEFAULT_ENABLE_ACTIONS                          FALSE
 
 /*

@@ -1,4 +1,7 @@
-2009-09-11	Mike Massonnet
+2009-09-12	Mike Massonnet
+Change default option 'ignore selections' to true
+
+2009-09-12	Mike Massonnet
 New option 'ignore selections'
 
 	- panel-plugin/settings-dialog.glade:
