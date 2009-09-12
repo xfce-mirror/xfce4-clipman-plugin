@@ -94,8 +94,6 @@ prop_dialog_run ()
                              (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
   xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
                           G_OBJECT (glade_xml_get_widget (gxml, "add-selections")), "active");
-  xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (gxml, "history-ignore-selections")), "sensitive");
   xfconf_g_property_bind (xfconf_channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
                           G_OBJECT (glade_xml_get_widget (gxml, "history-ignore-selections")), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,

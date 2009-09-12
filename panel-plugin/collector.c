@@ -129,7 +129,9 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
        * actually check inside a delayed timeout if the mouse is still pressed
        * or if the shift key is hold down, and once both are released the
        * content will go to the history. */
-      if (collector->priv->add_primary_clipboard || collector->priv->enable_actions)
+      if (collector->priv->add_primary_clipboard
+          || !collector->priv->history_ignore_primary_clipboard
+          || collector->priv->enable_actions)
         {
           if (collector->priv->primary_clipboard_timeout == 0)
             collector->priv->primary_clipboard_timeout =
@@ -158,6 +160,8 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
           if (collector->priv->add_primary_clipboard
               && collector->priv->history_ignore_primary_clipboard)
             collector->priv->internal_change = TRUE;
+          else if (!collector->priv->history_ignore_primary_clipboard)
+            clipman_history_add_text (collector->priv->history, text);
 
           /* Make a copy inside the default clipboard */
           if (collector->priv->add_primary_clipboard)

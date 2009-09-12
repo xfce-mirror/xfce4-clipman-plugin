@@ -260,7 +260,6 @@ static void
 clipman_menu_init (ClipmanMenu *menu)
 {
   GtkWidget *mi;
-  ClipmanCollector *collector;
 
   menu->priv = GET_PRIVATE (menu);
 

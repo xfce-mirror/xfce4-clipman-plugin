@@ -1,3 +1,18 @@
+2009-09-11	Mike Massonnet
+New option 'ignore selections'
+
+	- panel-plugin/settings-dialog.glade:
+		Detached the Exclude selections from history option from the
+		Sync selections and move it down to the History frame as
+		Ignore selections.
+	- panel-plugin/xfce4-clipman-settings.c:
+		Drop the binding between sync selections and the ignore
+		selections checkbox sensitivity.
+	- panel-plugin/collector.c:
+		Catch the selections in addition if the ignore selections is
+		false as it is now independant from the sync selections
+		option.
+
 2009-09-03	Mike Massonnet
 === Release 1.1.0 ===
 
