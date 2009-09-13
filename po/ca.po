@@ -10,19 +10,20 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-12 10:19+0200\n"
-"PO-Revision-Date: 2009-07-05 14:08+0100\n"
+"PO-Revision-Date: 2009-09-13 19:39+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
-msgstr "Gestor del porta-retalls"
+msgstr "Gestor de porta-retalls"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -39,7 +40,7 @@ msgstr "Errors"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Editar amb Gimp"
+msgstr "Edita amb Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
@@ -55,11 +56,11 @@ msgstr "URL completa"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "Encongir la URL"
+msgstr "Encongeix la URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr "Veure amb Ristretto"
+msgstr "Mostra amb Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
@@ -75,7 +76,7 @@ msgstr "<b>Comportament</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
-msgstr "<b>Comandes</b>"
+msgstr "<b>Ordres</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
@@ -99,7 +100,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr "Comanda:"
+msgstr "Ordre:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
@@ -111,11 +112,11 @@ msgstr "Edita acció"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr "Activar _accions"
+msgstr "Activa _accions"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
-msgstr "<b>General</b>"
+msgstr "General"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
@@ -153,9 +154,8 @@ msgstr ""
 "les noves sessions de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Sincronitzar _seleccions"
+msgstr "Ignora s_eleccions"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -167,19 +167,19 @@ msgstr "Patró:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
-msgstr "Desar en _sortir"
+msgstr "Desa en _sortir"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr "Tamany de l'_historial"
+msgstr "Mida de l'_historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
-msgstr "Emmagatzemar una _imatge"
+msgstr "Emmagatzema una _imatge"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Sync _selections"
-msgstr "Sincronitzar _seleccions"
+msgstr "Sincronitza _seleccions"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid ""
@@ -220,9 +220,9 @@ msgstr "Gestor de porta-retalls per l'escriptori Xfce"
 #: ../panel-plugin/plugin.c:312
 msgid "translator-credits"
 msgstr ""
-"Pau Ruŀlan Ferragut\n"
-"Carles Muñoz Gorriz\n"
-"Harald Servat Gelabert"
+"Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.\n"
+"Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009.\n"
+"Harald Servat Gelabert <redcrash@gmail.com>, 2009."
 
 #: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
