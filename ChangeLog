@@ -1,3 +1,10 @@
+2009-09-17	Mike Massonnet
+Add info regarding the pattern entry
+
+	- panel-plugin/settings-dialog.glade:
+		Add a label under the pattern entry to inform about the
+		G_REGEX_ANCHORED flag.
+
 2009-09-12	Mike Massonnet
 Change default option 'ignore selections' to true
 
