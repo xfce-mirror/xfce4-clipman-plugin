@@ -1,3 +1,10 @@
+Version 1.1.1 - 2009-09-30
+
+- New option "Ignore selections" and dropped the option "Exclude from option"
+  that was bound to the "Sync selections". Now it is always possible to keep
+  the selections in the history (as it was the case in older version).
+- Note about the regex nature in the actions dialog being always anchored.
+
 Version 1.1.0 - 2009-09-03
 
 - Settings dialog is an external application xfce4-clipman-settings.  Optional
