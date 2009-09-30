@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-12 10:19+0200\n"
+"POT-Creation-Date: 2009-09-30 17:49+0200\n"
 "PO-Revision-Date: 2009-09-13 19:39+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
@@ -182,6 +182,10 @@ msgid "Sync _selections"
 msgstr "Sincronitza _seleccions"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:26
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-12 10:19+0200\n"
+"POT-Creation-Date: 2009-09-30 17:49+0200\n"
 "PO-Revision-Date: 2009-09-12 13:09+0200\n"
 "Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -30,10 +30,8 @@ msgstr "Διαχειριστής προχείρου"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127
-#: ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -94,8 +92,13 @@ msgid "Activate only on manual copy"
 msgstr "Ενεργοποίηση μόνο στο χειροποίητο πρόχειρο"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "Εξ ορισμού η ενέργεια ενεργοποιείται κατά την επιλογή, επιλέξτε αυτή την επιλογή για να ενεργοποιήσετε την ενέργεια μόνο όταν δημιουργείται ένα αντίγραφο με το χέρι"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"Εξ ορισμού η ενέργεια ενεργοποιείται κατά την επιλογή, επιλέξτε αυτή την "
+"επιλογή για να ενεργοποιήσετε την ενέργεια μόνο όταν δημιουργείται ένα "
+"αντίγραφο με το χέρι"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -118,24 +121,41 @@ msgid "General"
 msgstr "Γενικά"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Εάν επιλεχθεί, τα κείμενα του προχείρου θα ταιριάζουν με κανονικές εκφράσεις και ένα μενού θα εμφανίζει τις πιθανές ενέργειες"
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Εάν επιλεχθεί, τα κείμενα του προχείρου θα ταιριάζουν με κανονικές εκφράσεις "
+"και ένα μενού θα εμφανίζει τις πιθανές ενέργειες"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "Εάν επιλεχθεί, οι επιλογές θα συγχρονίζονται με τον προκαθορισμένο διαχειριστή προχείρου με τέτοιο τρόπο ώστε να μπορείτε να επικολλήσετε ότι θέλετε"
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"Εάν επιλεχθεί, οι επιλογές θα συγχρονίζονται με τον προκαθορισμένο "
+"διαχειριστή προχείρου με τέτοιο τρόπο ώστε να μπορείτε να επικολλήσετε ότι "
+"θέλετε"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Εάν επιλεχθεί, οι επιλογές δεν θα επηρεάσουν το ιστορικό εκτός από τις προσωπικές αντιγραφές"
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"Εάν επιλεχθεί, οι επιλογές δεν θα επηρεάσουν το ιστορικό εκτός από τις "
+"προσωπικές αντιγραφές"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Εάν επιλεχθεί, αυτή η επιλογή επιτρέπει την αποθήκευση μίας εικόνας μέσα στο ιστορικό"
+msgstr ""
+"Εάν επιλεχθεί, αυτή η επιλογή επιτρέπει την αποθήκευση μίας εικόνας μέσα στο "
+"ιστορικό"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "Εάν επιλεχθεί, αυτή η επιλογή θα επαναφέρει το ιστορικό σε κάθε νέα συνεδρία xfce"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Εάν επιλεχθεί, αυτή η επιλογή θα επαναφέρει το ιστορικό σε κάθε νέα συνεδρία "
+"xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -166,8 +186,20 @@ msgid "Sync _selections"
 msgstr "Επ_ιλογές συγχρονισμού"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Μπορείτε να χρησιμοποιήσετε τις παραμέτρους αντικατάστασης \"\\1\", \"\\2\" και στις εντολές. Η παράμετρος \"\\0\" παρουσιάζει το πλήρες κείμενο. Εάν δεν γνωρίζεται από κανονικές εκφράσεις, μπορείτε να ρίξετε μια ματιά στην τεκμηρίωση του Clipman που τις παρουσιάζει."
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:26
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Μπορείτε να χρησιμοποιήσετε τις παραμέτρους αντικατάστασης \"\\1\", \"\\2\" "
+"και στις εντολές. Η παράμετρος \"\\0\" παρουσιάζει το πλήρες κείμενο. Εάν "
+"δεν γνωρίζεται από κανονικές εκφράσεις, μπορείτε να ρίξετε μια ματιά στην "
+"τεκμηρίωση του Clipman που τις παρουσιάζει."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -200,4 +232,3 @@ msgstr "Evaggelos Balaskas"
 #: ../panel-plugin/plugin.c:326
 msgid "Unable to open the settings dialog"
 msgstr "Αδυναμία ανοίγματος του διαλόγου ρυθμίσεων"
-
