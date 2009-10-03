@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
-"PO-Revision-Date: 2009-07-04 22:32+0900\n"
+"POT-Creation-Date: 2009-10-03 15:04+0900\n"
+"PO-Revision-Date: 2009-10-03 15:02+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -151,9 +151,8 @@ msgstr ""
 "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "選択領域と同期をとる(_S)"
+msgstr "選択領域を無視する(_E)"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -181,7 +180,7 @@ msgstr "選択領域と同期をとる(_S)"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "パターンには常に特殊文字 ^$ が適用されます"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid ""
