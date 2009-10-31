@@ -44,6 +44,8 @@ struct _MyPlugin
 {
 #ifdef PANEL_PLUGIN
   XfcePanelPlugin      *panel_plugin;
+  GtkWidget            *button;
+  GtkWidget            *image;
 #elif STATUS_ICON
   GtkStatusIcon        *status_icon;
 #endif
@@ -52,9 +54,8 @@ struct _MyPlugin
   ClipmanActions       *actions;
   ClipmanCollector     *collector;
   ClipmanHistory       *history;
-  GtkWidget            *button;
-  GtkWidget            *image;
   GtkWidget            *menu;
+  GtkMenuPositionFunc   menu_position_func;
   GtkWidget            *popup_menu;
   gulong                popup_menu_id;
 };
@@ -69,6 +70,7 @@ void                    plugin_save                     (MyPlugin *plugin);
 void                    plugin_free                     (MyPlugin *plugin);
 void                    plugin_about                    (MyPlugin *plugin);
 void                    plugin_configure                (MyPlugin *plugin);
+void                    plugin_menu_popup               (MyPlugin *plugin);
 
 #endif /* !__CLIPMAN_PLUGIN_H__ */
 

@@ -38,12 +38,14 @@
 #include "menu.h"
 
 /*
- * X11 Selection for the popup command
+ * Popup command
  */
 
 static gboolean         my_plugin_set_popup_selection   (MyPlugin *plugin);
 static gboolean         cb_popup_message_received       (MyPlugin *plugin,
                                                          GdkEventClient *ev);
+static gboolean         xfce_popup_grab_available       (GdkWindow *win,
+                                                         guint32 timestamp);
 
 
 
@@ -331,6 +333,27 @@ plugin_configure (MyPlugin *plugin)
   }
 }
 
+void
+plugin_popup_menu (MyPlugin *plugin)
+{
+#ifdef PANEL_PLUGIN
+  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
+  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                  plugin->menu_position_func, plugin,
+                  0, gtk_get_current_event_time ());
+  if (gtk_grab_get_current () == plugin->menu)
+    {
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+    }
+#elif STATUS_ICON
+  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
+  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                  plugin->menu_position_func, plugin->status_icon,
+                  0, gtk_get_current_event_time ());
+#endif
+}
+
 /*
  * X11 Selection for the popup command
  */
@@ -372,26 +395,80 @@ static gboolean
 cb_popup_message_received (MyPlugin *plugin,
                            GdkEventClient *ev)
 {
+  {
+    /* Copy workaround from xfdesktop to handle the awkward case where binding
+     * a keyboard shortcut to the popup command doesn't always work out... */
+#ifdef PANEL_PLUGIN
+    GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (plugin->button));
+#elif STATUS_ICON
+    GdkScreen *screen = gtk_status_icon_get_screen (plugin->status_icon);
+#endif
+    GdkWindow *root = gdk_screen_get_root_window (screen);
+    if (!xfce_popup_grab_available (root, GDK_CURRENT_TIME))
+      {
+        g_critical ("Unable to get keyboard/mouse grab.");
+        return FALSE;
+      }
+  }
+
   if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
     {
       if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
         {
           DBG ("Message received: %s", ev->data.b);
-
-#ifdef PANEL_PLUGIN
-          xfce_panel_plugin_set_panel_hidden (plugin->panel_plugin, FALSE);
-#endif
-          while (gtk_events_pending ())
-            gtk_main_iteration ();
-
-#ifdef PANEL_PLUGIN
-          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-#elif STATUS_ICON
-          g_signal_emit_by_name (plugin->status_icon, "activate", NULL);
-#endif
+          plugin_popup_menu (plugin);
           return TRUE;
         }
     }
+
   return FALSE;
+}
+
+/* Code taken from xfwm4/src/menu.c:grab_available().  This should fix the case
+ * where binding 'xfdesktop -menu' to a keyboard shortcut sometimes works and
+ * sometimes doesn't.  Credit for this one goes to Olivier.
+ */
+static gboolean
+xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
+{
+    GdkEventMask mask =
+        GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
+        GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |
+        GDK_POINTER_MOTION_MASK;
+    GdkGrabStatus g1;
+    GdkGrabStatus g2;
+    gboolean grab_failed = FALSE;
+    gint i = 0;
+
+    TRACE ("entering grab_available");
+
+    g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
+    g2 = gdk_keyboard_grab (win, TRUE, timestamp);
+
+    while ((i++ < 2500) && (grab_failed = ((g1 != GDK_GRAB_SUCCESS)
+                || (g2 != GDK_GRAB_SUCCESS))))
+    {
+        TRACE ("grab not available yet, waiting... (%i)", i);
+        g_usleep (100);
+        if (g1 != GDK_GRAB_SUCCESS)
+        {
+            g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
+        }
+        if (g2 != GDK_GRAB_SUCCESS)
+        {
+            g2 = gdk_keyboard_grab (win, TRUE, timestamp);
+        }
+    }
+
+    if (g1 == GDK_GRAB_SUCCESS)
+    {
+        gdk_pointer_ungrab (timestamp);
+    }
+    if (g2 == GDK_GRAB_SUCCESS)
+    {
+        gdk_keyboard_ungrab (timestamp);
+    }
+
+    return (!grab_failed);
 }
 

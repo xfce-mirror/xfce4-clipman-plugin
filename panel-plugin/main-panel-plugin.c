@@ -42,7 +42,8 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
 
 static gboolean         panel_plugin_set_size           (MyPlugin *plugin,
                                                          gint size);
-static void             cb_button_toggled               (GtkToggleButton *button,
+static gboolean         cb_button_pressed               (GtkButton *button,
+                                                         GdkEventButton *event,
                                                          MyPlugin *plugin);
 static void             cb_menu_deactivate              (GtkMenuShell *menu,
                                                          MyPlugin *plugin);
@@ -63,6 +64,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 {
   MyPlugin *plugin = plugin_register ();
 
+  /* Menu Position Func */
+  plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
+
   /* Panel Plugin */
   plugin->panel_plugin = panel_plugin;
 #if GTK_CHECK_VERSION (2,12,0)
@@ -76,8 +80,8 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
   xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
-  g_signal_connect (plugin->button, "toggled",
-                    G_CALLBACK (cb_button_toggled), plugin);
+  g_signal_connect (plugin->button, "button-press-event",
+                    G_CALLBACK (cb_button_pressed), plugin);
 
   /* Signals */
   g_signal_connect_swapped (panel_plugin, "size-changed",
@@ -115,18 +119,18 @@ panel_plugin_set_size (MyPlugin *plugin,
   return TRUE;
 }
 
-static void
-cb_button_toggled (GtkToggleButton *button,
+static gboolean
+cb_button_pressed (GtkButton *button,
+                   GdkEventButton *event,
                    MyPlugin *plugin)
 {
-  if (gtk_toggle_button_get_active (button))
-    {
-      gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
-      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
-      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                      (GtkMenuPositionFunc)my_plugin_position_menu, plugin,
-                      0, gtk_get_current_event_time ());
-    }
+  if (event->button != 1 && !(event->state & GDK_CONTROL_MASK))
+    return FALSE;
+
+  if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
+    plugin_popup_menu (plugin);
+
+  return TRUE;
 }
 
 static void
@@ -150,7 +154,7 @@ my_plugin_position_menu (GtkMenu *menu,
   button = plugin->button;
   orientation = xfce_panel_plugin_get_orientation (plugin->panel_plugin);
   gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
-  gdk_window_get_origin (button->window, x, y);
+  gdk_window_get_origin (GTK_WIDGET (plugin->panel_plugin)->window, x, y);
 
   switch (orientation)
     {

@@ -80,6 +80,9 @@ status_icon_register ()
 {
   MyPlugin *plugin = plugin_register ();
 
+  /* Menu Position Func */
+  plugin->menu_position_func = (GtkMenuPositionFunc)gtk_status_icon_position_menu;
+
   /* Status Icon */
   plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
   gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
@@ -110,10 +113,7 @@ cb_status_icon_is_embedded (GtkStatusIcon *status_icon)
 static void
 cb_status_icon_activate (MyPlugin *plugin)
 {
-  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
-  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                  (GtkMenuPositionFunc)gtk_status_icon_position_menu, plugin->status_icon,
-                  0, gtk_get_current_event_time ());
+  plugin_popup_menu (plugin);
 }
 
 static void
