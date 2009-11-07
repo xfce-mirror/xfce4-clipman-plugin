@@ -30,7 +30,10 @@ int main (int argc, char *argv[])
 
   gtk_init (&argc, &argv);
 
-  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  if (argc > 1 && !g_strcmp0 (argv[1], "-s"))
+    clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+  else
+    clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   g_signal_connect (clipboard, "owner-change", G_CALLBACK (cb), NULL);
 
   gtk_main ();
