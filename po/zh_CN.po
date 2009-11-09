@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-30 17:49+0200\n"
-"PO-Revision-Date: 2009-07-05 01:53+0800\n"
+"PO-Revision-Date: 2009-11-09 19:13+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
-"Language-Team: Chinese <xfce-i18n@xfce.org>\n"
+"Language-Team: Chinese(Simplified) <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,7 +110,7 @@ msgstr "修改动作"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr "允许动作(_a)"
+msgstr "允许动作(_A)"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -145,9 +145,8 @@ msgid ""
 msgstr "选中该项将在每次Xfce会话启动时恢复历史记录"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "同步选取的区域(_s)"
+msgstr "忽略选取的区域(_E)"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -159,23 +158,23 @@ msgstr "匹配模式:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
-msgstr "退出时保存(_q)"
+msgstr "退出时保存(_Q)"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr "历史文件大小(_h):"
+msgstr "历史文件大小(_H):"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
-msgstr "保存一幅图像(_i)"
+msgstr "保存一幅图像(_I)"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Sync _selections"
-msgstr "同步选取的区域(_s)"
+msgstr "同步选取的区域(_S)"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "匹配模式总被包含在一对特殊符号 ^ 和 $ 之间"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid ""
