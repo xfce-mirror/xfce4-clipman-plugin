@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
+"POT-Creation-Date: 2009-11-15 22:20+0100\n"
 "PO-Revision-Date: 2009-04-19 18:01+0300\n"
 "Last-Translator: Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
 "Language-Team: Finnish\n"
@@ -26,9 +26,9 @@ msgstr "Leikepöytien hallintatyökalu"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -213,15 +213,19 @@ msgstr "Haluatko varmasti tyhjentää historian?"
 msgid "Clipboard is empty"
 msgstr "Leikepöytä on tyhjä"
 
-#: ../panel-plugin/plugin.c:303
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
 msgstr "Leikepöytien hallinta Xfce:lle"
 
-#: ../panel-plugin/plugin.c:312
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr ""
 

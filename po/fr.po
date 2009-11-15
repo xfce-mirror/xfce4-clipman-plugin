@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
+"POT-Creation-Date: 2009-11-15 22:20+0100\n"
 "PO-Revision-Date: 2009-09-12 10:21+0200\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -26,9 +26,9 @@ msgstr "Gestionnaire de presse-papier"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -181,7 +181,8 @@ msgstr "S_ynchroniser les sélections"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "L'expression régulière est toujours entourée des caractères spéciaux ^$"
+msgstr ""
+"L'expression régulière est toujours entourée des caractères spéciaux ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid ""
@@ -215,17 +216,21 @@ msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
 msgid "Clipboard is empty"
 msgstr "Le presse-papier est vide"
 
-#: ../panel-plugin/plugin.c:303
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr "Contributeurs :"
+
+#: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionnaire de presse-papier pour Xfce"
 
-#: ../panel-plugin/plugin.c:312
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr ""
 "Maximilian Schleiss\n"
 "Mike Massonnet"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr "Échec à l'ouverture du dialogue de paramètres"
 

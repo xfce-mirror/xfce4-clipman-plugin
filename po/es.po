@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
+"POT-Creation-Date: 2009-11-15 22:20+0100\n"
 "PO-Revision-Date: 2009-09-15 01:08-0300\n"
 "Last-Translator: elega <elega@elega.com.ar>\n"
 "Language-Team: \n"
@@ -28,9 +28,9 @@ msgstr "Gestor de portapapeles"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -217,18 +217,22 @@ msgstr "¿Esta seguro de que desea borrar el historial?"
 msgid "Clipboard is empty"
 msgstr "Clipboar está vacio"
 
-#: ../panel-plugin/plugin.c:303
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor de portapapeles para el escritorio Xfce"
 
-#: ../panel-plugin/plugin.c:312
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr ""
 "Roberto\n"
 "Abel Martín\n"
 "Elega <elega@elega.com.ar>"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr "Imposible abrir el diálogo de configuración"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
+"POT-Creation-Date: 2009-11-15 22:20+0100\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
@@ -26,9 +26,9 @@ msgstr "剪貼簿管理程式"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -202,16 +202,20 @@ msgstr "您確定您想要清除歷史字句嗎？"
 msgid "Clipboard is empty"
 msgstr "< 歷史字句空白 >"
 
-#: ../panel-plugin/plugin.c:303
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:308
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 桌面環境的剪貼簿管理程式"
 
-#: ../panel-plugin/plugin.c:312
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Hydonsingore Cia"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr ""
 

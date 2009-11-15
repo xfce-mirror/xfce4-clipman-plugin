@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-30 17:49+0200\n"
+"POT-Creation-Date: 2009-11-15 22:20+0100\n"
 "PO-Revision-Date: 2009-07-06 11:23+0200\n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
@@ -24,9 +24,9 @@ msgstr "Pano yöneticisi"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:69
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:85
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:301
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -215,15 +215,19 @@ msgstr "Geçmişi temizlemek istediğinizden emin misiniz?"
 msgid "Clipboard is empty"
 msgstr "Pano boş"
 
-#: ../panel-plugin/plugin.c:303
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce için Pano Yöneticisi"
 
-#: ../panel-plugin/plugin.c:312
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Samed Beyribey"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr "Ayarlar menüsü açılamadı"
 
