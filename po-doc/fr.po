@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Clipman 1.1.0svn-r07672\n"
-"POT-Creation-Date: 2009-11-15 18:30+0100\n"
-"PO-Revision-Date: 2009-09-03 10:14+0200\n"
-"Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
+"POT-Creation-Date: 2009-07-04 17:40+0200\n"
+"PO-Revision-Date: 2009-11-15 18:24+0100\n"
+"Last-Translator: Douart Patrick <patrick.2@laposte.net>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,33 +13,26 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:91(None)
-msgid ""
-"@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
-msgstr ""
+msgid "@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
+msgstr "@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:177(None)
-msgid ""
-"@@image: 'images/clipman-settings-general.png'; "
-"md5=80b12264cccaabdd1335a1d8497b20ce"
-msgstr ""
+msgid "@@image: 'images/clipman-settings-general.png'; md5=0d8f5d2634b310264b96ec82e8b68690"
+msgstr "@@image: 'images/clipman-settings-general.png'; md5=0d8f5d2634b310264b96ec82e8b68690"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:209(None)
-msgid ""
-"@@image: 'images/clipman-settings-actions.png'; "
-"md5=e7c1a33b5d32929ac0d39818d7383386"
-msgstr ""
+msgid "@@image: 'images/clipman-settings-actions.png'; md5=08373a01a49eb9f36fe9395bb96527fa"
+msgstr "@@image: 'images/clipman-settings-actions.png'; md5=08373a01a49eb9f36fe9395bb96527fa"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:236(None)
-msgid ""
-"@@image: 'images/clipman-action-dialog.png'; "
-"md5=cd23d9a078896ff9c584f351fdc50948"
-msgstr ""
+msgid "@@image: 'images/clipman-action-dialog.png'; md5=8cb733ef13f26327cbc22e5283ac048f"
+msgstr "@@image: 'images/clipman-action-dialog.png'; md5=8cb733ef13f26327cbc22e5283ac048f"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:18(title)
 msgid "@PACKAGE_NAME@ Manual"
@@ -50,14 +43,8 @@ msgid "2009"
 msgstr "2009"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:28(para)
-msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License, Version 1.3 or any later "
-"version published by the Free Software Foundation; with no Invariant "
-"Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The "
-"complete license text is available from the <ulink type=\"http\" url="
-"\"http://www.fsf.org/\">Free Software Foundation</ulink>."
-msgstr ""
+msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is available from the <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
+msgstr "La permission vous est donnée de copier, distribuer et / ou modifier ce document selon les termes de la licence GNU Free Documentation License, Version 1.3 ou toute version ultérieure publiée par la Free Software Foundation sans section invariante, sans texte de première de couverture, et sans texte de couverture. Le texte de la licence complète est disponible sur le <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:38(firstname)
 msgid "Mike"
@@ -72,8 +59,7 @@ msgid "mmassonnet@xfce.org"
 msgstr "mmassonnet@xfce.org"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:46(releaseinfo)
-#, fuzzy
-msgid "This manual describes version 1.0.1 of @PACKAGE_NAME@."
+msgid "This manual describes version @PACKAGE_VERSION@ of @PACKAGE_NAME@."
 msgstr "Ce manuel décrit la version @PACKAGE_VERSION@ de @PACKAGE_NAME@."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:53(title)
@@ -81,64 +67,28 @@ msgid "Introduction"
 msgstr "Introduction"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:55(para)
-msgid ""
-"@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard "
-"contents around while it is usually lost when you close an application. It "
-"is able to handle text and images, and has a feature to execute actions on "
-"specific text by matching them against regular expressions."
-msgstr ""
-"@PACKAGE_NAME@ est un gestionnaire de presse-papier pour Xfce. Il conserve "
-"le contenu du presse-papier tandis qu'il est habituellement perdu lors de la "
-"fermeture d'une application. Il est capable de gérer du texte et des images, "
-"et possède une fonctionnalité pour exécuter des actions sur du texte "
-"spécifique en le comparant à des expressions régulières."
+msgid "@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost when you close an application. It is able to handle text and images, and has a feature to execute actions on specific text by matching them against regular expressions."
+msgstr "@PACKAGE_NAME@ est un gestionnaire de presse-papier pour Xfce. Il conserve le contenu du presse-papier tandis qu'il est habituellement perdu lors de la fermeture d'une application. Il est capable de gérer du texte et des images, et possède une fonctionnalité pour exécuter des actions sur du texte spécifique en le comparant à des expressions régulières."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:62(title)
 msgid "Anatomy of a Clipboard"
 msgstr "Anatomie d'un presse-papier"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:64(para)
-msgid ""
-"In X11 (all Unix platforms) there are by default two clipboards to exchange "
-"any data between the windows. A default clipboard which is modified by "
-"manual copies (for instance when you select a file and press the copy "
-"button), and there is a primary clipboard which is modified by selections "
-"(for instance when you select text in a field)."
-msgstr ""
-"Dans X11 (toutes les plateformes Unix) il y a par défaut deux presses-"
-"papiers pour échanger des données à travers les fenêtres. Un presse-papier "
-"par défaut qui est modifié lors d'une copie manuelle (par exemple en "
-"sélectionnant un fichier et en cliquant sur le bouton Copier), et un presse-"
-"papier primaire qui est modifié lors des sélections de textes."
+msgid "In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A default clipboard which is modified by manual copies (for instance when you select a file and press the copy button), and there is a primary clipboard which is modified by selections (for instance when you select text in a field)."
+msgstr "Dans X11 (toutes les plateformes Unix) il y a par défaut deux presses-papiers pour échanger des données à travers les fenêtres. Un presse-papier par défaut qui est modifié lors d'une copie manuelle (par exemple en sélectionnant un fichier et en cliquant sur le bouton Copier), et un presse-papier primaire qui est modifié lors des sélections de textes."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:71(para)
-msgid ""
-"@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can "
-"also notice the selections. When it is handling the selections, the default "
-"clipboard will always be synced with it and contain the same data. By this "
-"meaning you can paste with the keyboard what you select on screen."
-msgstr ""
-"@PACKAGE_NAME@ gère uniquement le presse-papier par défaut, mais peut "
-"également prendre en compte les sélections. Lorsqu'il gère les sélections, "
-"le presse-papier par défaut est toujours synchronisé avec celui-ci et "
-"contient les mêmes données. De ce fait il est possible de coller avec le "
-"clavier ce qui est sélectionné sur l'écran."
+msgid "@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is handling the selections, the default clipboard will always be synced with it and contain the same data. By this meaning you can paste with the keyboard what you select on screen."
+msgstr "@PACKAGE_NAME@ gère uniquement le presse-papier par défaut, mais peut également prendre en compte les sélections. Lorsqu'il gère les sélections, le presse-papier par défaut est toujours synchronisé avec celui-ci et contient les mêmes données. De ce fait il est possible de coller avec le clavier ce qui est sélectionné sur l'écran."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:79(title)
 msgid "Getting Started"
 msgstr "Démarrer"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:81(para)
-msgid ""
-"@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and "
-"to restore them. The history is displayed in a menu by clicking on the main "
-"icon. Within the menu it is possible to restore a text and to clear the "
-"history."
-msgstr ""
-"@PACKAGE_NAME@ est utilisé pour garder une liste d'historique des éléments "
-"du presse-papier et permet de les restaurer. L'historique est afficher dans "
-"un menu accessible depuis l'icône principale. Dans le menu il est possible "
-"de restaurer un texte ou de vider l'historique."
+msgid "@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear the history."
+msgstr "@PACKAGE_NAME@ est utilisé pour garder une liste d'historique des éléments du presse-papier et permet de les restaurer. L'historique est afficher dans un menu accessible depuis l'icône principale. Dans le menu il est possible de restaurer un texte ou de vider l'historique."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:88(title)
 msgid "Clipman Menu"
@@ -149,51 +99,24 @@ msgid "Menu displaying the history"
 msgstr "Menu affichant l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:99(para)
-msgid ""
-"There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in "
-"the applications menu under the category Utility or type <application>xfce4-"
-"clipman</application> on the command-line, or you can add it into your "
-"panel. To add a new item in the panel right click the panel and select “Add "
-"new item…”."
-msgstr ""
-"Il y a deux manières pour exécuter @PACKAGE_NAME@. Vous pouvez sélectionner "
-"@PACKAGE_NAME@ dans le menu des applications sous la catégorie Utilitaire ou "
-"lancer la commande <application>xfce4-clipman</application> depuis une ligne "
-"de commande, ou vous pouvez l'ajouter dans le panneau. Pour ajouter un "
-"nouvel élément dans le panneau cliquez du bouton droit sur le panneau et "
-"choississez « Ajouter un item… »."
+msgid "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel. To add a new item in the panel right click the panel and select “Add new item…”."
+msgstr "Il y a deux manières pour exécuter @PACKAGE_NAME@. Vous pouvez sélectionner @PACKAGE_NAME@ dans le menu des applications sous la catégorie Utilitaire ou lancer la commande <application>xfce4-clipman</application> depuis une ligne de commande, ou vous pouvez l'ajouter dans le panneau. Pour ajouter un nouvel élément dans le panneau cliquez du bouton droit sur le panneau et choississez « Ajouter un item… »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:107(title)
 msgid "Popup Command"
 msgstr "Commande de popup"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:109(para)
-msgid ""
-"@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-"
-"clipman</application>. When called it popups the main menu. The command is "
-"practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> "
-"available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</"
-"guimenu><guimenu>Keyboard</guimenu></menuchoice>."
-msgstr ""
-"@PACKAGE_NAME@ fournit l'outil <application>xfce4-popup-clipman</"
-"application>. Lorsqu'il est invoqué le menu principal est affiché. La "
-"commande est pratique pour les <emphasis role=\"bold\">Raccourcis "
-"d'applications</emphasis> accessible dans <menuchoice><guimenu>Menu Xfce</"
-"guimenu><guimenu>Paramètres</guimenu><guimenu>Clavier</guimenu></menuchoice>."
+msgid "@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it popups the main menu. The command is practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</guimenu><guimenu>Keyboard</guimenu></menuchoice>."
+msgstr "@PACKAGE_NAME@ fournit l'outil <application>xfce4-popup-clipman</application>. Lorsqu'il est invoqué le menu principal est affiché. La commande est pratique pour les <emphasis role=\"bold\">Raccourcis d'applications</emphasis> accessible dans <menuchoice><guimenu>Menu Xfce</guimenu><guimenu>Paramètres</guimenu><guimenu>Clavier</guimenu></menuchoice>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:125(title)
 msgid "Settings"
 msgstr "Paramètres"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:127(para)
-msgid ""
-"The settings dialog is available under the “Properties” item in the right "
-"click context menu on the main icon. It allows to tweak the history and to "
-"edit actions."
-msgstr ""
-"Le dialogue de paramètres est disponible via l'item « Propriétés » depuis le "
-"menu contextuel clic-droit sur l'icône principale. Il permet d'affiner "
-"l'historique et d'éditer les actions."
+msgid "The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It allows to tweak the history and to edit actions."
+msgstr "Le dialogue de paramètres est disponible via l'item « Propriétés » depuis le menu contextuel clic-droit sur l'icône principale. Il permet d'affiner l'historique et d'éditer les actions."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:133(title)
 msgid "General"
@@ -220,12 +143,8 @@ msgid "Sync selections"
 msgstr "Synchroniser les sélections"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:150(entry)
-msgid ""
-"Sync the primary clipboard with the default clipboard in a way that it is "
-"possible to paste what gets selected"
-msgstr ""
-"Le presse-papier primaire est synchronisé avec le presse-papier par défaut "
-"et de cette manière il est possible de coller ce qui est sélectionné"
+msgid "Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets selected"
+msgstr "Le presse-papier primaire est synchronisé avec le presse-papier par défaut et de cette manière il est possible de coller ce qui est sélectionné"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:154(entry)
 msgid "Exclude from history"
@@ -233,8 +152,7 @@ msgstr "Exclure de l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:155(entry)
 msgid "Prevents the primary clipboard from being inserted in the history"
-msgstr ""
-"Empêche les éléments du presse-papier primaire d'apparaître dans l'historique"
+msgstr "Empêche les éléments du presse-papier primaire d'apparaître dans l'historique"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:158(entry)
 msgid "Save on quit"
@@ -274,34 +192,16 @@ msgid "Actions"
 msgstr "Actions"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:190(para)
-msgid ""
-"An action is a pair of an action name and a regular expression. Each action "
-"can have one or more commands. The support of actions is optional and can be "
-"enabled or disabled through the “Enable actions” option."
-msgstr ""
-"Une action est composée de la paire d'un nom et d'une expression régulière. "
-"Chaque action peut contenir une à plusieurs commandes. Le support des "
-"actions est facultatif et peut être activer ou désactiver en cochant la case "
-"« Activer les actions »."
+msgid "An action is a pair of an action name and a regular expression. Each action can have one or more commands. The support of actions is optional and can be enabled or disabled through the “Enable actions” option."
+msgstr "Une action est composée de la paire d'un nom et d'une expression régulière. Chaque action peut contenir une à plusieurs commandes. Le support des actions est facultatif et peut être activer ou désactiver en cochant la case « Activer les actions »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:195(para)
-msgid ""
-"To add an action click the Add icon, to edit an action select the action and "
-"click the Edit icon or double click the action, and to remove an action "
-"select an action and click the Delete icon. By adding or editing an action a "
-"new dialog is opened."
-msgstr ""
-"Pour ajouter une action cliquez sur l'icône Ajouter, pour éditer une action "
-"sélectionnez l'action et cliquez sur l'icône Editer ou double cliquez "
-"l'action, et pour supprimer une action sélectionnez l'action et cliquez sur "
-"l'icône Supprimer. En ajoutant ou en éditant une action un nouveau dialogue "
-"est ouvert."
+msgid "To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a new dialog is opened."
+msgstr "Pour ajouter une action cliquez sur l'icône Ajouter, pour éditer une action sélectionnez l'action et cliquez sur l'icône Editer ou double cliquez l'action, et pour supprimer une action sélectionnez l'action et cliquez sur l'icône Supprimer. En ajoutant ou en éditant une action un nouveau dialogue est ouvert."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:201(para)
 msgid "To learn more about actions go to <xref linkend=\"action-dialog\"/>."
-msgstr ""
-"Pour en savoir plus sur les actions aller à <xref linkend=\"action-dialog\"/"
-">."
+msgstr "Pour en savoir plus sur les actions aller à <xref linkend=\"action-dialog\"/>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:212(phrase)
 msgid "Settings dialog with the Actions tab"
@@ -313,25 +213,12 @@ msgid "Action Dialog"
 msgstr "Dialogue d'action"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:222(para)
-msgid ""
-"An action has a human readable name that describes the pattern it is going "
-"to match. An action must have at least one command which also has a human "
-"readable name. The matched text can be reused in the command."
-msgstr ""
-"Une action possède un nom lisible qui décrit le motif qu'elle possède. Une "
-"action doit avoir au minimum une commande qui elle aussi possède un nom "
-"lisible. Le texte qui est comparé peut être réutilisé dans une commande."
+msgid "An action has a human readable name that describes the pattern it is going to match. An action must have at least one command which also has a human readable name. The matched text can be reused in the command."
+msgstr "Une action possède un nom lisible qui décrit le motif qu'elle possède. Une action doit avoir au minimum une commande qui elle aussi possède un nom lisible. Le texte qui est comparé peut être réutilisé dans une commande."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:227(para)
-msgid ""
-"The actions are always matched against text selections unless specified "
-"otherwise. When the box “Activate only on manual copy” is checked, the "
-"action will be matched from the default clipboard (e.g. with Ctrl+C)."
-msgstr ""
-"Les actions sont comparées aux sélections à moins d'être spécifiées "
-"autrement. Si la case « Activer uniquement lors des copies manuelles » est "
-"active, l'action sera comparée avec le presse-papier par défaut (e.g. avec "
-"Ctrl+C)."
+msgid "The actions are always matched against text selections unless specified otherwise. When the box “Activate only on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C)."
+msgstr "Les actions sont comparées aux sélections à moins d'être spécifiées autrement. Si la case « Activer uniquement lors des copies manuelles » est active, l'action sera comparée avec le presse-papier par défaut (e.g. avec Ctrl+C)."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:239(phrase)
 msgid "Action edit dialog"
@@ -342,86 +229,52 @@ msgid "Regular Expression"
 msgstr "Expression régulière"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:247(para)
-msgid ""
-"Basic special characters: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</"
-"code></emphasis>\"."
-msgstr ""
-"Caractères spéciaux de base : « <emphasis role=\"bold\"><code>.?+*(|)[]\\</"
-"code></emphasis> »."
+msgid "Basic special characters: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</code></emphasis>\"."
+msgstr "Caractères spéciaux de base : « <emphasis role=\"bold\"><code>.?+*(|)[]\\</code></emphasis> »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:253(code)
 msgid "."
 msgstr "."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:252(listitem)
-msgid ""
-"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: represents a single "
-"character."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : représente un "
-"caractère unique."
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: represents a single character."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : représente un caractère unique."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:256(code)
 msgid "?+*"
 msgstr "?+*"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:255(listitem)
-msgid ""
-"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means "
-"zero or one character, one or more characters, and zero or more characters."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : signifit "
-"respectivement zero ou un caractère, un ou plusieurs caractères, zero ou "
-"plusieurs caractères."
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means zero or one character, one or more characters, and zero or more characters."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : signifit respectivement zero ou un caractère, un ou plusieurs caractères, zero ou plusieurs caractères."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:260(code)
 msgid "(|)"
 msgstr "(|)"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:259(listitem)
-msgid ""
-"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and "
-"substitution, the vertical bar is used as an OR operation."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : utilisé pour "
-"grouper et les substitutions, la barre verticale est utilisé comme opération "
-"logique OU."
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and substitution, the vertical bar is used as an OR operation."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : utilisé pour grouper et les substitutions, la barre verticale est utilisé comme opération logique OU."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:264(code)
 msgid "[^]"
 msgstr "[^]"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:263(listitem)
-msgid ""
-"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a "
-"character from a set of characters and special characters, the circumflex is "
-"used at the start as a negation."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : utilisé pour "
-"comparer un caractère à un champ de caractères normaux et spéciaux, le "
-"circonflexe est utilisé au début comme une négation."
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a character from a set of characters and special characters, the circumflex is used at the start as a negation."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : utilisé pour comparer un caractère à un champ de caractères normaux et spéciaux, le circonflexe est utilisé au début comme une négation."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:268(code)
 msgid "\\"
 msgstr "\\"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:267(listitem)
-msgid ""
-"”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special "
-"character."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : échappe un "
-"caractère spécial."
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special character."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : échappe un caractère spécial."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:272(para)
-msgid ""
-"Basic alphanumeric character class: \"<emphasis role=\"bold\"><code>A-Za-z0-"
-"9</code></emphasis>\". Character classes are used within square brackets to "
-"represent a set of characters."
-msgstr ""
-"Classe de caractères de bases alphanumérique : « <emphasis role=\"bold"
-"\"><code>A-Za-z0-9</code></emphasis> ». Les classes de caractères sont "
-"utilisées à l'intérieur des crochets et représentent plusieurs caractères."
+msgid "Basic alphanumeric character class: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis>\". Character classes are used within square brackets to represent a set of characters."
+msgstr "Classe de caractères de bases alphanumérique : « <emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis> ». Les classes de caractères sont utilisées à l'intérieur des crochets et représentent plusieurs caractères."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:279(title)
 msgid "Examples"
@@ -436,14 +289,8 @@ msgid "bug"
 msgstr "bug"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:282(listitem)
-msgid ""
-"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
-"2/>\", zero or one space, zero or one sharp character, and one or more "
-"numbers."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-"
-"2/> », zero ou un espace, zero ou un caractère dieze, et un ou plusieurs "
-"chiffres."
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", zero or one space, zero or one sharp character, and one or more numbers."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-2/> », zero ou un espace, zero ou un caractère dieze, et un ou plusieurs chiffres."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:287(code)
 msgid "(http|ftp).+\\.(jpg|png|gif)"
@@ -470,14 +317,8 @@ msgid "gif"
 msgstr "gif"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:286(listitem)
-msgid ""
-"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
-"2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text "
-"\"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-"
-"2/> » ou « <placeholder-3/> », un ou plusieurs caractères, un point, et le "
-"texte « <placeholder-4/> », « <placeholder-5/> » ou « <placeholder-6/> »."
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text \"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-2/> » ou « <placeholder-3/> », un ou plusieurs caractères, un point, et le texte « <placeholder-4/> », « <placeholder-5/> » ou « <placeholder-6/> »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:292(code)
 msgid "http://.{120}[^ ]+"
@@ -488,78 +329,36 @@ msgid "http://"
 msgstr "http://"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:291(listitem)
-msgid ""
-"\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-"
-"2/>\", 120 characters, and one or more characters except a space."
-msgstr ""
-"« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-"
-"2/> », 120 caractères, et un ou plusieurs caractères à l'exception d'un "
-"espace."
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", 120 characters, and one or more characters except a space."
+msgstr "« <emphasis role=\"bold\"><placeholder-1/></emphasis> » : texte « <placeholder-2/> », 120 caractères, et un ou plusieurs caractères à l'exception d'un espace."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:299(title)
 msgid "External Ressource"
 msgstr "Ressource externe"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:301(para)
-msgid ""
-"Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/"
-"Regular_expression\">Wikipedia article</ulink> about regular expressions."
-msgstr ""
-"Consultez cette <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/"
-"Regular_expression\">article Wikipedia</ulink> pour avoir des informations "
-"sur les expressions régulières."
+msgid "Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">Wikipedia article</ulink> about regular expressions."
+msgstr "Consultez cette <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">article Wikipedia</ulink> pour avoir des informations sur les expressions régulières."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:309(title)
 msgid "Command"
 msgstr "Commande"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:311(para)
-msgid ""
-"A command can reuse one or more substitutions from the regular expression. "
-"The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;"
-"number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-"
-"pattern within parentheses or 0 for the complete text."
-msgstr ""
-"Une commande peut réutiliser une ou plusieurs substitutions depuis "
-"l'expression régulière. Les substitutions sont représentées par « <emphasis "
-"role=\"bold\"><code>\\&lt;numéro&gt;</code></emphasis> » où &lt;numéro&gt; "
-"correspond au sous-motif entre parenthèses ou 0 pour le texte complet."
+msgid "A command can reuse one or more substitutions from the regular expression. The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-pattern within parentheses or 0 for the complete text."
+msgstr "Une commande peut réutiliser une ou plusieurs substitutions depuis l'expression régulière. Les substitutions sont représentées par « <emphasis role=\"bold\"><code>\\&lt;numéro&gt;</code></emphasis> » où &lt;numéro&gt; correspond au sous-motif entre parenthèses ou 0 pour le texte complet."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:317(para)
-msgid ""
-"For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #"
-"(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold"
-"\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role="
-"\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command "
-"”<code>exo-open http://host/\\1</code>”, the real executed command would be "
-"”<code>exo-open http://host/123</code>”."
-msgstr ""
-"Par exemple, dans le simple motif « <emphasis role=\"bold\"><code>bug #(123)</"
-"code></emphasis> » il est possible d'utiliser « <emphasis role=\"bold\"><code>"
-"\\0</code></emphasis> » pour le texte « bug #123 » et « <emphasis role=\"bold"
-"\"><code>\\1</code></emphasis> » pour le texte « 123 ». Pour la commande « "
-"<code>exo-open http://host/\\1</code> », la vraie commande exécutée serait « "
-"<code>exo-open http://host/123</code> »."
+msgid "For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command ”<code>exo-open http://host/\\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”."
+msgstr "Par exemple, dans le simple motif « <emphasis role=\"bold\"><code>bug #(123)</code></emphasis> » il est possible d'utiliser « <emphasis role=\"bold\"><code>\\0</code></emphasis> » pour le texte « bug #123 » et « <emphasis role=\"bold\"><code>\\1</code></emphasis> » pour le texte « 123 ». Pour la commande « <code>exo-open http://host/\\1</code> », la vraie commande exécutée serait « <code>exo-open http://host/123</code> »."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:327(title)
 msgid "Xfconf"
 msgstr "Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:329(para)
-msgid ""
-"@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change "
-"the settings with the tool <application>xfconf-query</application> or "
-"<application>xfce4-settings-editor</application>. The channel is "
-"<constant>xfce4-panel</constant> and the base property is <constant>/plugins/"
-"clipman</constant>. The following table lists all the properties with their "
-"possible values:"
-msgstr ""
-"@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne "
-"la possibilité de changer un paramètre avec l'outil <application>xfconf-"
-"query</application> ou <application>xfce4-settings-editor</application>. Le "
-"canal est <constant>xfce4-panel</constant> et la propriété de base est "
-"<constant>/plugins/clipman</constant>. Le tableau ci-dessous liste toutes "
-"les propriétés avec leurs valeurs possible :"
+msgid "@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following table lists all the properties with their possible values:"
+msgstr "@PACKAGE_NAME@ utilise Xfconf pour stocker ses paramètres. Ceci vous donne la possibilité de changer un paramètre avec l'outil <application>xfconf-query</application> ou <application>xfce4-settings-editor</application>. Le canal est <constant>xfce4-panel</constant> et la propriété de base est <constant>/plugins/clipman</constant>. Le tableau ci-dessous liste toutes les propriétés avec leurs valeurs possible :"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:336(title)
 msgid "Xfconf Properties"
@@ -600,9 +399,7 @@ msgstr "false"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:351(entry)
 msgid "true to sync the primary clipboard with the default clipboard"
-msgstr ""
-"true pour synchroniser le presse-papier primaire avec le presse-paper par "
-"défaut"
+msgstr "true pour synchroniser le presse-papier primaire avec le presse-paper par défaut"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:354(entry)
 msgid "/settings/enable-actions"
@@ -662,22 +459,8 @@ msgid "true to restore the history at every new session"
 msgstr "true pour restaurer l'historique à chaque nouvelle session"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:346(tbody)
-msgid ""
-"<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></"
-"row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></"
-"row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/"
-"></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/"
-"><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-"
-"19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
-"><placeholder-23/><placeholder-24/></row>"
-msgstr ""
-"<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></"
-"row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></"
-"row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/"
-"></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/"
-"><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-"
-"19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/"
-"><placeholder-23/><placeholder-24/></row>"
+msgid "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
+msgstr "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:389(para)
 msgid "To change a setting from a terminal type the command-line:"
@@ -688,60 +471,31 @@ msgid "Support"
 msgstr "Support"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:400(para)
-msgid ""
-"To report a bug or a feature request use the bug tracking system at <ulink "
-"type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. If "
-"you have questions about the use of this software, please ask on the <ulink "
-"type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce "
-"mailing list</ulink> or point your IRC client to <emphasis role=\"bold\">irc."
-"freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</"
-"emphasis> and ask for help."
-msgstr ""
-"Pour rapporter une anomalie ou une requête utilisez le système de suivi de "
-"bogues à l'adresse <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@"
-"\">@PACKAGE_BUGREPORT@</ulink>. Si vous avez des questions sur l'usage de ce "
-"logiciel, veuillez contacter la <ulink type=\"http\" url=\"http://foo-"
-"projects.org/mailman/listinfo/xfce\">liste de diffusion Xfce</ulink> ou "
-"pointez votre client IRC sur <emphasis role=\"bold\">irc.freenode.net</"
-"emphasis>, joignez le salon de discussion <emphasis role=\"bold\">#xfce</"
-"emphasis> et demandez pour de l'aide."
+msgid "To report a bug or a feature request use the bug tracking system at <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software, please ask on the <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce mailing list</ulink> or point your IRC client to <emphasis role=\"bold\">irc.freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</emphasis> and ask for help."
+msgstr "Pour rapporter une anomalie ou une requête utilisez le système de suivi de bogues à l'adresse <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. Si vous avez des questions sur l'usage de ce logiciel, veuillez contacter la <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">liste de diffusion Xfce</ulink> ou pointez votre client IRC sur <emphasis role=\"bold\">irc.freenode.net</emphasis>, joignez le salon de discussion <emphasis role=\"bold\">#xfce</emphasis> et demandez pour de l'aide."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:411(title)
 msgid "About @PACKAGE_NAME@"
 msgstr "À propos de @PACKAGE_NAME@"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:413(para)
-msgid ""
-"@PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick "
-"Schermer. Nowadays it is written by Mike Massonnet (<email>mmassonnet@xfce."
-"org</email>). Visit the <ulink type=\"http\" url=\"http://goodies.xfce.org/"
-"projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Web site</"
-"ulink>."
-msgstr ""
+msgid "@PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visit the <ulink type=\"http\" url=\"http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Web site</ulink>."
+msgstr "@PACKAGE_NAME@ a été écrit par Eduard Roccatello puis maintenu par Nick Schermer. Aujourd'hui, il est écrit par Mike Massonnet (<email>mmassonnet@xfce.org</ email>). Visitez le <ulink type=\"http\" url=\"http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Site Web</ulink>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:419(para)
-msgid ""
-"This documentation was written by Mike Massonnet (<email>mmassonnet@xfce."
-"org</email>). Please send all your comments and suggestions regarding this "
-"manual to <email>mmassonnet@xfce.org</email>."
-msgstr ""
+msgid "This documentation was written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Please send all your comments and suggestions regarding this manual to <email>mmassonnet@xfce.org</email>."
+msgstr "Cette documentation a été écrite par Mike Massonnet (<email>mmassonnet@xfce.org</email>). S'il vous plaît envoyer tous vos commentaires et suggestions à propos de ce manuel pour <email>mmassonnet@xfce.org</email>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:426(para)
-msgid ""
-"This software is distributed under the terms of the <citetitle>GNU General "
-"Public License</citetitle> as published by the Free Software Foundation; "
-"either version 2 of the License, or (at your option) any later version."
-msgstr ""
+msgid "This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
+msgstr "Ce logiciel est distribué sous les termes de la <citetitle> GNU General Public License </citetitle> telle que publiée par la Free Software Foundation; soit la version 2 de la Licence, ou (à votre choix) toute version ultérieure."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:431(para)
-msgid ""
-"You should have received a copy of the <citetitle>GNU General Public "
-"License</citetitle> along with this program; if not, write to the Free "
-"Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA "
-"02110, USA."
-msgstr ""
+msgid "You should have received a copy of the <citetitle>GNU General Public License</citetitle> along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA."
+msgstr "Vous devriez avoir reçu une copie de la <citetitle> GNU General Public License </citetitle> avec ce programme; sinon, écrivez à la Free Software Foundation, Inc, 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA ."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:0(None)
 msgid "translator-credits"
 msgstr "Mike Massonnet <mmassonnet@xfce.org>, 2009"
+
