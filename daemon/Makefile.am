@@ -10,8 +10,6 @@ noinst_LTLIBRARIES = libdaemon.la
 libdaemon_la_SOURCES =							\
 	daemon.h							\
 	gsd-clipboard-manager.c		gsd-clipboard-manager.h		\
-	list.c				list.h				\
-	xutils.c			xutils.h			\
 	$(NULL)
 
 libdaemon_la_CFLAGS =							\

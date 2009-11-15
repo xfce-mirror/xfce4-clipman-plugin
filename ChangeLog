@@ -1,3 +1,19 @@
+2009-11-15	Mike Massonnet
+[daemon] Rewrite the daemon using GTK+ functions
+
+	The gsd-clipboard-manager has been rewritten using GTK+ functions. The
+	X11 manager showed bugs with text selections and images not converted
+	correctly. Also this new manager takes care about the primary clipboard.
+
+2009-11-15	Mike Massonnet
+[tests/test-targets] Print format/length of targets
+
+2009-11-07	Mike Massonnet
+[tests] Add daemon test program
+
+	New test program for the daemon. The targets test program has a command
+	line flag to switch between the selections and the default clipboard.
+
 2009-10-31	Mike Massonnet
 Fix popup from keyboard shortcut not always working #bug 5909
 
