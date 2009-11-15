@@ -7,7 +7,7 @@
 <!ENTITY doc-email "mmassonnet@xfce.org">
 <!ENTITY date "April, July 2009">
 <!ENTITY application "@PACKAGE_NAME@">
-<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY version "1.0.1">
 <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
 ]>
 <article id="xfce4-clipman-plugin" lang="zh_CN">
@@ -37,39 +37,29 @@
       </author>
     </authorgroup>
 
-    <releaseinfo>此手册介绍 @PACKAGE_NAME@ ，版本 @PACKAGE_VERSION@。</releaseinfo>
+    <releaseinfo>
+      This manual describes version 1.0.1 of @PACKAGE_NAME@.
+    </releaseinfo>
   </articleinfo>
 
 
   <sect1 id="intro">
     <title>简介</title>
 
-    <para>
-      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
-      when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text by matching them against regular expressions.
-    </para>
+    <para>@PACKAGE_NAME@ 是 Xfce 桌面环境的剪贴板管理器。它被用以保存通常在您关闭程序之后会丢失的剪贴板内容。它可以保存文本和图像，并且有使用正则表达式匹配特定的文本选择并执行相关动作的功能。</para>
 
     <sect2 id="anatomy-clipboard">
       <title>剪贴板的分析</title>
 
       <para>在 X11 (所有的 Unix 平台) 中，默认有两个剪贴板用以交换各窗口间的数据。其中的一个剪贴板(我们称之为预设剪贴板)用以手动复制(例如您选择一个文件之后点击复制按钮)，而另一个(我们称之为主剪贴板)用以选中复制(例如您选中在文本框中的文本)。</para>
 
-      <para>
-        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
-        meaning you can paste with the keyboard what you select on screen.
-      </para>
+      <para>@PACKAGE_NAME@ 仅处理预设(用以手动复制的)剪贴板，但您也可以选择让它同时处理主剪贴板(用以选中复制)。当处理主剪贴板时，预设剪贴板也会更新并保存相同内容。也就是说，通过这项设置，您可以使用键盘粘贴您在屏幕上选中的内容。</para>
     </sect2>
 
     <sect2 id="getting-started">
       <title>开始使用</title>
 
-      <para>
-        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
-        the history.
-      </para>
+      <para>@PACKAGE_NAME@ 使用一个列表保存使用过的剪贴板内容并能够恢复它们。当您点击主图标时，历史记录将会显示在一个菜单中。通过该菜单，您能够选择一个项目并恢复它，也可以清空历史列表。</para>
 
       <figure>
         <title>剪贴板菜单</title>
@@ -83,11 +73,7 @@
         </mediaobject>
       </figure>
 
-      <para>
-        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
-        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
-        To add a new item in the panel right click the panel and select “Add new item…”.
-      </para>
+      <para>@PACKAGE_NAME@ 能够通过以下两种方式来启动：您可以在应用程序菜单中的工具子菜单选择 @PACKAGE_NAME@ 或者在命令行中输入 <application>xfce4-clipman</application>，或者，您还可以把它添加到您的面板上。要在面板上添加新项目，请在面板上点击右键并选择 “添加新项目...”</para>
     </sect2>
 
     <sect2 id="popup-command">
@@ -119,7 +105,7 @@
       </thead>
       <tbody>
       <row>
-        <entry>Sync selections</entry>
+        <entry>同步所选内容</entry>
 	<entry>同步主剪贴板的内容到预设剪贴板中以粘贴选中的内容</entry>
       </row>
       <row>
@@ -163,9 +149,7 @@
 
       <para>要添加一个动作，请点击添加图标；要编辑一个动作，请选择该动作并点击编辑图标或者直接双击该动作；要删除一个动作，请选择该动作并点击删除图标。选择添加或者编译一个动作，一个新对话框将会被打开。</para>
 
-      <para>
-        To learn more about actions go to <xref linkend="action-dialog"/>.
-      </para>
+      <para>想要学习更多关于动作的内容，请转到 <xref linkend="action-dialog"/>。</para>
 
       <figure>
         <title>剪贴板设置</title>
@@ -184,15 +168,9 @@
     <sect2 id="action-dialog">
       <title>动作对话框</title>
 
-      <para>
-        An action has a human readable name that describes the pattern it is going to match. An action must have at
-        least one command which also has a human readable name. The matched text can be reused in the command.
-      </para>
+      <para>每个动作都有一个易于理解的名称用以描述匹配模式将匹配的内容。同样，每个动作都应该至少有一个同样拥有一个易于理解的名称的命令。匹配的文本可以在命令中被再次使用。</para>
 
-      <para>
-        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
-        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
-      </para>
+      <para>除非您指定其他设置，否则动作将会对每次文本选择进行匹配。当选中 “仅在手动复制时激活” 选项框时，仅会对预设剪贴板进行匹配 (例如当您使用 Crtl+C 进行复制)</para>
 
       <figure>
         <title>动作对话框</title>
@@ -251,12 +229,7 @@
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>
-        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
-        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
-        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
-        table lists all the properties with their possible values:
-      </para>
+      <para>@PACKAGE_NAME@ 使用 Xfconf 保存它的设置以方便您使用 <application>xfconf-query</application> 或者 <application>xfce4-settings-editor</application> 等工具来更改设置。设置保存在 <constant>xfce4-panel</constant> 频道，基本属性是 <constant>/plugins/clipman</constant>。下面的表格列出可用的属性以及它们能够接受的值:</para>
 
       <table frame="all"><title>Xfconf 属性</title>
       <tgroup cols="4" align="left">
@@ -272,9 +245,7 @@
       </tgroup>
       </table>
 
-      <para>
-        To change a setting from a terminal type the command-line:
-      </para>
+      <para>要修改一项设置，请输入命令:</para>
 
       <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>

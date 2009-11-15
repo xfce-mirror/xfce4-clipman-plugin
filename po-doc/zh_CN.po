@@ -1,9 +1,8 @@
-#Hunt Xu <huntxu@live.cn>, 2009.
-
+# Hunt Xu <huntxu@live.cn>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-clipman-plugin\n"
-"POT-Creation-Date: 2009-07-04 17:40+0200\n"
+"POT-Creation-Date: 2009-11-15 18:30+0100\n"
 "PO-Revision-Date: 2009-11-09 19:35+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -14,17 +13,19 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:91(None)
+#, fuzzy
 msgid ""
-"@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
+"@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
 msgstr ""
 "@@image: 'images/clipman-menu.png'; md5=5dbaabeb80055cc0df1d9133d66162f5"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:177(None)
+#, fuzzy
 msgid ""
 "@@image: 'images/clipman-settings-general.png'; "
-"md5=0d8f5d2634b310264b96ec82e8b68690"
+"md5=80b12264cccaabdd1335a1d8497b20ce"
 msgstr ""
 "@@image: 'images/clipman-settings-general.png'; "
 "md5=0d8f5d2634b310264b96ec82e8b68690"
@@ -32,9 +33,10 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:209(None)
+#, fuzzy
 msgid ""
 "@@image: 'images/clipman-settings-actions.png'; "
-"md5=08373a01a49eb9f36fe9395bb96527fa"
+"md5=e7c1a33b5d32929ac0d39818d7383386"
 msgstr ""
 "@@image: 'images/clipman-settings-actions.png'; "
 "md5=08373a01a49eb9f36fe9395bb96527fa"
@@ -42,9 +44,10 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:236(None)
+#, fuzzy
 msgid ""
 "@@image: 'images/clipman-action-dialog.png'; "
-"md5=8cb733ef13f26327cbc22e5283ac048f"
+"md5=cd23d9a078896ff9c584f351fdc50948"
 msgstr ""
 "@@image: 'images/clipman-action-dialog.png'; "
 "md5=8cb733ef13f26327cbc22e5283ac048f"
@@ -84,7 +87,8 @@ msgid "mmassonnet@xfce.org"
 msgstr "mmassonnet@xfce.org"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:46(releaseinfo)
-msgid "This manual describes version @PACKAGE_VERSION@ of @PACKAGE_NAME@."
+#, fuzzy
+msgid "This manual describes version 1.0.1 of @PACKAGE_NAME@."
 msgstr "此手册介绍 @PACKAGE_NAME@ ，版本 @PACKAGE_VERSION@。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:53(title)
@@ -126,8 +130,8 @@ msgid ""
 "meaning you can paste with the keyboard what you select on screen."
 msgstr ""
 "@PACKAGE_NAME@ 仅处理预设(用以手动复制的)剪贴板，但您也可以选择让它同时处理主"
-"剪贴板(用以选中复制)。当处理主剪贴板时，预设剪贴板也会更新并保存相同内容。"
-"也就是说，通过这项设置，您可以使用键盘粘贴您在屏幕上选中的内容。"
+"剪贴板(用以选中复制)。当处理主剪贴板时，预设剪贴板也会更新并保存相同内容。也"
+"就是说，通过这项设置，您可以使用键盘粘贴您在屏幕上选中的内容。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:79(title)
 msgid "Getting Started"
@@ -161,9 +165,9 @@ msgid ""
 "new item…”."
 msgstr ""
 "@PACKAGE_NAME@ 能够通过以下两种方式来启动：您可以在应用程序菜单中的工具子菜单"
-"选择 @PACKAGE_NAME@ 或者在命令行中输入 <application>xfce4-clipman</application>，"
-"或者，您还可以把它添加到您的面板上。要在面板上添加新项目，请在面板上点击右键"
-"并选择 “添加新项目...”"
+"选择 @PACKAGE_NAME@ 或者在命令行中输入 <application>xfce4-clipman</"
+"application>，或者，您还可以把它添加到您的面板上。要在面板上添加新项目，请在"
+"面板上点击右键并选择 “添加新项目...”"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:107(title)
 msgid "Popup Command"
@@ -310,9 +314,9 @@ msgid ""
 "to match. An action must have at least one command which also has a human "
 "readable name. The matched text can be reused in the command."
 msgstr ""
-"每个动作都有一个易于理解的名称用以描述匹配模式将匹配的内容。同样，"
-"每个动作都应该至少有一个同样拥有一个易于理解的名称的命令。匹配"
-"的文本可以在命令中被再次使用。"
+"每个动作都有一个易于理解的名称用以描述匹配模式将匹配的内容。同样，每个动作都"
+"应该至少有一个同样拥有一个易于理解的名称的命令。匹配的文本可以在命令中被再次"
+"使用。"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:227(para)
 msgid ""
@@ -320,9 +324,8 @@ msgid ""
 "otherwise. When the box “Activate only on manual copy” is checked, the "
 "action will be matched from the default clipboard (e.g. with Ctrl+C)."
 msgstr ""
-"除非您指定其他设置，否则动作将会对每次文本选择进行匹配。"
-"当选中 “仅在手动复制时激活” 选项框时，仅会对预设剪贴板进行匹配 (例如"
-"当您使用 Crtl+C 进行复制)"
+"除非您指定其他设置，否则动作将会对每次文本选择进行匹配。当选中 “仅在手动复制"
+"时激活” 选项框时，仅会对预设剪贴板进行匹配 (例如当您使用 Crtl+C 进行复制)"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:239(phrase)
 msgid "Action edit dialog"
@@ -535,11 +538,11 @@ msgid ""
 "clipman</constant>. The following table lists all the properties with their "
 "possible values:"
 msgstr ""
-"@PACKAGE_NAME@ 使用 Xfconf 保存它的设置以方便您使用 <application>xfconf-query"
-"</application> 或者 <application>xfce4-settings-editor</application> 等工具来"
-"更改设置。设置保存在 <constant>xfce4-panel</constant> 频道，基本属性是 "
-"<constant>/plugins/clipman</constant>。下面的表格列出可用的属性以及它们"
-"能够接受的值:"
+"@PACKAGE_NAME@ 使用 Xfconf 保存它的设置以方便您使用 <application>xfconf-"
+"query</application> 或者 <application>xfce4-settings-editor</application> 等"
+"工具来更改设置。设置保存在 <constant>xfce4-panel</constant> 频道，基本属性是 "
+"<constant>/plugins/clipman</constant>。下面的表格列出可用的属性以及它们能够接"
+"受的值:"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:336(title)
 msgid "Xfconf Properties"
@@ -728,7 +731,7 @@ msgstr ""
 "本；如果没有，请致信自由软件基金会: Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110, USA."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:0(None)
 msgid "translator-credits"
 msgstr "Hunt Xu <huntxu@live.cn>, 2009."

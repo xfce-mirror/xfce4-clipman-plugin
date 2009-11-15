@@ -7,7 +7,7 @@
 <!ENTITY doc-email "mmassonnet@xfce.org">
 <!ENTITY date "April, July 2009">
 <!ENTITY application "@PACKAGE_NAME@">
-<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY version "1.0.1">
 <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
 ]>
 <article id="xfce4-clipman-plugin" lang="gl">
@@ -42,44 +42,29 @@
       </author>
     </authorgroup>
 
-    <releaseinfo>Este manual describe a versión @PACKAGE_VERSION@ de @PACKAGE_NAME@.</releaseinfo>
+    <releaseinfo>
+      This manual describes version 1.0.1 of @PACKAGE_NAME@.
+    </releaseinfo>
   </articleinfo>
 
 
   <sect1 id="intro">
     <title>Introdución</title>
 
-    <para>
-      @PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost
-      when you close an application. It is able to handle text and images, and has a feature to execute actions on
-      specific text by matching them against regular expressions.
-    </para>
+    <para>@PACKAGE_NAME@ é un xestor de portarretallos para Xfce. Mantén o contido do portarretallos dispoñible xa que normalmente se perde cando se pechan as aplicacións. É capaz de manexar texto e imaxes, e ten unha funcionalidade para executar accións sobre textos específicos comparándoos con expresións regulares.</para>
 
     <sect2 id="anatomy-clipboard">
       <title>Anatomía dun Portarretallos</title>
 
-      <para>
-        In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A
-        default clipboard which is modified by manual copies (for instance when you select a file and press the copy
-        button), and there is a primary clipboard which is modified by selections (for instance when you select text in
-        a field).
-      </para>
+      <para>En X11 (tódalas plataformas Unix) hai por defecto dous portarretallos para intercambiar calquera dato entre as xanelas. Hai un portarretallos predeterminado que se modifica mediante copias manuais (por exemplo cando selecciona un ficheiro e preme no botón copiar), e hai un portarretallos primario que se modifica cas seleccións (por exemplo cando selecciona texto dun campo).</para>
 
-      <para>
-        @PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is
-        handling the selections, the default clipboard will always be synced with it and contain the same data. By this
-        meaning you can paste with the keyboard what you select on screen.
-      </para>
+      <para>@PACKAGE_NAME@ só xestiona o portarretallos predeterminado, pero ademais tamén pode ter en conta as seleccións. Cando xestiona as seleccións, o portarretallos predeterminado sempre se sincronizará con elas e conterá os mesmos datos. Deste xeito poderá pegar co teclado o que selecciona na pantalla.</para>
     </sect2>
 
     <sect2 id="getting-started">
-      <title>Getting Started</title>
+      <title>Comezo</title>
 
-      <para>
-        @PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is
-        displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear
-        the history.
-      </para>
+      <para>@PACKAGE_NAME@ úsase para manter no historial unha lista dos contidos do portarretallos e restauralos. O historial móstrase nun menú premendo na icona principal. Dentro do menú é posible restaurar un texto e quitalo do historial.</para>
 
       <figure>
         <title>Menú de Clipman</title>
@@ -93,26 +78,13 @@
         </mediaobject>
       </figure>
 
-      <para>
-        There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category
-        Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel.
-        To add a new item in the panel right click the panel and select “Add new item…”.
-      </para>
+      <para>Hai dous xeitos de executar @PACKAGE_NAME@. Pode seleccionar @PACKAGE_NAME@ no menú de aplicacións na categoría Utilidades ou introducir <application>xfce4-clipman</application> na liña de comandos, ou pode engadila ao panel. Para engadir un novo elemento ao panel prema co botón dereito no panel e seleccione "Engadir novo elemento…".</para>
     </sect2>
 
     <sect2 id="popup-command">
       <title>Comando emerxente</title>
 
-      <para>
-        @PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it
-        popups the main menu. The command is practical for the <emphasis role="bold">Application Shortcuts</emphasis>
-        available at 
-        <menuchoice>
-          <guimenu>Xfce Menu</guimenu>
-          <guimenu>Settings</guimenu>
-          <guimenu>Keyboard</guimenu>
-        </menuchoice>.
-      </para>
+      <para>@PACKAGE_NAME@ proporciona a ferramenta de liña de comandos <application>xfce4-popup-clipman</application>. Cando se invoca emerxe o menú principal. O comando é práctico para os <emphasis role="bold">Atallos de aplicacións</emphasis> que está dispoñible en <menuchoice><guimenu>Menú de Xfce</guimenu><guimenu>Configuración</guimenu><guimenu>Teclado</guimenu></menuchoice>.</para>
     </sect2>
 
   </sect1>
@@ -121,10 +93,7 @@
   <sect1 id="settings">
     <title>Configuración</title>
 
-    <para>
-      The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It
-      allows to tweak the history and to edit actions.
-    </para>
+    <para>O diálogo de configuración está no elemento “Propiedades” no menú contextual que aparece ao premer co botón dereito na icona principal. Permite axustar o historial e modificar as accións.</para>
 
     <sect2 id="general">
       <title>Xeral</title>
@@ -141,13 +110,12 @@
       </thead>
       <tbody>
       <row>
-        <entry>Sync selections</entry>
-	<entry>Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets
-	selected</entry>
+        <entry>Sincronizar as seleccións</entry>
+	<entry>Sincronizar o portarretallos primario co portarretallos predeterminado de xeito que sexa posible pegar o que se selecciona</entry>
       </row>
       <row>
         <entry>Excluír do historial</entry>
-        <entry>Prevents the primary clipboard from being inserted in the history</entry>
+        <entry>Evita que o portarretallos principal se insira no historial</entry>
       </row>
       <row>
         <entry>Gardar ao saír</entry>
@@ -172,7 +140,7 @@
             <imagedata fileref="images/clipman-settings-general.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Settings dialog with the General tab</phrase>
+            <phrase>Lapela xeral do diálogo de configuración</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -182,20 +150,11 @@
     <sect2 id="actions">
       <title>Accións</title>
 
-      <para>
-        An action is a pair of an action name and a regular expression. Each action can have one or more commands. The
-        support of actions is optional and can be enabled or disabled through the “Enable actions” option.
-      </para>
+      <para>Unha acción é unha parella composta por un nome de acción e unha expresión regular. Cada acción pode ter un ou máis comandos. O soporte das accións é opcional e pode activarse ou desactivarse a través da opción “Activar as accións”.</para>
 
-      <para>
-        To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click
-        the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a
-        new dialog is opened.
-      </para>
+      <para>Para engadir unha acción prema na icona Engadir, para modificar unha acción seleccione a acción e prema na icona Modificar ou faga dobre clic na acción, e para eliminar unha acción seleccione unha acción e prema na icona Eliminar. Ao engadir ou modificar unha acción ábrese un novo diálogo.</para>
 
-      <para>
-        To learn more about actions go to <xref linkend="action-dialog"/>.
-      </para>
+      <para>Para aprender máis sobre as accións vaia a <xref linkend="action-dialog"/>.</para>
 
       <figure>
         <title>Configuración de Clipman</title>
@@ -204,7 +163,7 @@
             <imagedata fileref="images/clipman-settings-actions.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Settings dialog with the Actions tab</phrase>
+            <phrase>Lapela accións do diálogo de configuración</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -219,10 +178,7 @@
         least one command which also has a human readable name. The matched text can be reused in the command.
       </para>
 
-      <para>
-        The actions are always matched against text selections unless specified otherwise. When the box “Activate only
-        on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C).
-      </para>
+      <para>As accións sempre se comparan con seleccións de texto a menos que se especifique doutro xeito. Cando a caixa “Activar só ao copiar manualmente” está marcada, a acción hase comparar dende o portarretallos predeterminado (p.ex. con Ctrl+C).</para>
 
       <figure>
         <title>Diálogo de acción</title>
@@ -231,7 +187,7 @@
             <imagedata fileref="images/clipman-action-dialog.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Action edit dialog</phrase>
+            <phrase>Diálogo de modificación de acción</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -239,33 +195,17 @@
       <sect3 id="regexes">
         <title>Expresión regular</title>
 
-        <para>
-          Basic special characters: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".
-        </para>
+        <para>Caracteres especiais básicos: "<emphasis role="bold"><code>.?+*(|)[]\</code></emphasis>".</para>
 
         <itemizedlist>
           <listitem>”<emphasis role="bold"><code>.</code></emphasis>”: representa un só carácter.</listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>?+*</code></emphasis>”: respectively means zero or one character, one or more
-            characters, and zero or more characters.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>(|)</code></emphasis>”: used for grouping and substitution, the vertical bar is
-            used as an OR operation.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>[^]</code></emphasis>”: used to match a character from a set of characters and
-            special characters, the circumflex is used at the start as a negation.
-          </listitem>
-          <listitem>
-            ”<emphasis role="bold"><code>\</code></emphasis>”: escapes a special character.
-          </listitem>
+          <listitem>”<emphasis role="bold"><code>?+*</code></emphasis>”: significan respectivamente cero ou máis caracteres, un ou máis caracteres, e cero ou máis caracteres.</listitem>
+          <listitem>”<emphasis role="bold"><code>(|)</code></emphasis>”: úsase para o agrupamento e a substitución, a barra vertical úsase como unha operación OR.</listitem>
+          <listitem>”<emphasis role="bold"><code>[^]</code></emphasis>”: úsase para comparar un carácter dun conxunto de caracteres e caracteres especiais, o circunflexo úsase como comezo dunha negación.</listitem>
+          <listitem>”<emphasis role="bold"><code>\</code></emphasis>”: escapa un carácter especial.</listitem>
         </itemizedlist>
 
-        <para>
-          Basic alphanumeric character class: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". Character classes
-          are used within square brackets to represent a set of characters.
-        </para>
+        <para>Clase básica de caracteres alfanuméricos: "<emphasis role="bold"><code>A-Za-z0-9</code></emphasis>". As clases de caracteres úsanse dentro de corchetes para representar un conxunto de caracteres.</para>
 
 
         <sect4 id="regexes-examples">
@@ -273,57 +213,34 @@
 
           <itemizedlist>
             <listitem>
-              "<emphasis role="bold"><code>Bug Buddy</code></emphasis>": text "<emphasis>Bug Buddy</emphasis>", zero or one
+              "<emphasis role="bold"><code>erro ?#?[0-9]+</code></emphasis>": text "<emphasis>erro</emphasis>", zero or one
               space, zero or one sharp character, and one or more numbers.
             </listitem>
-            <listitem>
-              "<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": text
-              "<emphasis>http</emphasis>" or "<emphasis>ftp</emphasis>", one or more character, a point, and the text
-              "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" or "<emphasis>gif</emphasis>".
-            </listitem>
-            <listitem>
-              "<emphasis role="bold"><code>Calendarios HTTP</code></emphasis>": text "<emphasis>http://</emphasis>", 120
-              characters, and one or more characters except a space.
-            </listitem>
+            <listitem>"<emphasis role="bold"><code>(http|ftp).+\.(jpg|png|gif)</code></emphasis>": texto "<emphasis>http</emphasis>" ou "<emphasis>ftp</emphasis>", un ou máis caracteres, un punto, e o texto "<emphasis>jpg</emphasis>", "<emphasis>png</emphasis>" ou "<emphasis>gif</emphasis>".</listitem>
+            <listitem>"<emphasis role="bold"><code>http://.{120}[^ ]+</code></emphasis>": texto "<emphasis>http://</emphasis>", 120 caracteres, e un ou máis caracteres exceptuando o espazo.</listitem>
           </itemizedlist>
         </sect4>
 
         <sect4 id="regexes-external-ressource">
           <title>Recurso externo</title>
 
-          <para>
-            Have a look at the <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia
-            article</ulink> about regular expressions.
-          </para>
+          <para>Bótelle unha ollada ao <ulink type="http" url="http://en.wikipedia.org/wiki/Regular_expression">artigo da Wikipedia</ulink> sobre as expresións regulares.</para>
         </sect4>
       </sect3>
 
       <sect3 id="command">
         <title>Comando</title>
 
-        <para>
-          A command can reuse one or more substitutions from the regular expression. The substitutions are represented by
-          ”<emphasis role="bold"><code>\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the
-          sub-pattern within parentheses or 0 for the complete text.
-        </para>
+        <para>Un comando pode reutilizar unha ou máis substitucións da expresión regular. As substitucións represéntanse cun ”<emphasis role="bold"><code>\&lt;número&gt;</code></emphasis>” onde &lt;número&gt; corresponde co subpatrón dentro dos parénteses ou con 0 para o texto completo.</para>
 
-        <para>
-          For example, from the simple pattern ”<emphasis role="bold"><code>bug #(123)</code></emphasis>” it is possible
-          to use ”<emphasis role="bold"><code>\0</code></emphasis>” for the text “bug #123” and ”<emphasis role="bold"><code>\1</code></emphasis>” for the text “123”.  For the command ”<code>exo-open
-          http://host/\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”.
-        </para>
+        <para>Por exemplo, partindo do simple patrón ”<emphasis role="bold"><code>erro #(123)</code></emphasis>” é posible usar ”<emphasis role="bold"><code>\0</code></emphasis>” para o texto “erro #123” e ”<emphasis role="bold"><code>\1</code></emphasis>” para o texto “123”. Para o comando ”<code>exo-open http://host/\1</code>”, o comando que se executará en realidade será ”<code>exo-open http://host/123</code>”.</para>
       </sect3>
     </sect2>
 
     <sect2 id="xfconf">
       <title>Xfconf</title>
 
-      <para>
-        @PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool
-        <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is
-        <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following
-        table lists all the properties with their possible values:
-      </para>
+      <para>@PACKAGE_NAME@ usa Xfconf para almacenar a súa configuración. Iso permítelle cambiar as opcións cas ferramentas <application>xfconf-query</application> ou <application>xfce4-settings-editor</application>. A canle é <constant>xfce4-panel</constant> e a propiedade base é <constant>/plugins/clipman</constant>. A seguinte táboa lista tódalas propiedades cos seus posibles valores:</para>
 
       <table frame="all"><title>Propiedades de Xfconf</title>
       <tgroup cols="4" align="left">
@@ -331,69 +248,24 @@
       <row>
         <entry>Propiedade</entry>
         <entry>Tipo</entry>
-        <entry>Default</entry>
+        <entry>Predeterminado</entry>
         <entry>Valores</entry>
       </row>
       </thead>
-      <tbody>
-      <row>
-        <entry>/settings/add-primary-clipboard</entry>
-        <entry>Esperábase un bool, obtívose %s</entry>
-        <entry>false</entry>
-        <entry>true to sync the primary clipboard with the default clipboard</entry>
-      </row>
-      <row>
-        <entry>/settings/enable-actions</entry>
-        <entry>Esperábase un bool, obtívose %s</entry>
-        <entry>false</entry>
-        <entry>true to enable actions</entry>
-      </row>
-      <row>
-        <entry>/settings/history-ignore-primary-clipboard</entry>
-        <entry>Esperábase un bool, obtívose %s</entry>
-        <entry>false</entry>
-        <entry>true to exclude the primary clipboard from the history</entry>
-      </row>
-        false
-
-      <row>
-        <entry>/settings/max-images-in-history</entry>
-        <entry>uint</entry>
-        <entry>0</entry>
-        <entry>0-5 number of images in history</entry>
-      </row>
-      <row>
-        <entry>/settings/max-texts-in-history</entry>
-        <entry>uint</entry>
-        <entry>10</entry>
-        <entry>5-100 number of texts in history</entry>
-      </row>
-      <row>
-        <entry>/settings/save-on-quit</entry>
-        <entry>Esperábase un bool, obtívose %s</entry>
-        <entry>true</entry>
-        <entry>true to restore the history at every new session</entry>
-      </row>
-      </tbody>
+      <tbody><row><entry>/settings/add-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true para sincronizar o portarretallos primario co portarretallos predeterminado</entry></row><row><entry>/settings/enable-actions</entry><entry>bool</entry><entry>false</entry><entry>true para activar as accións</entry></row><row><entry>/settings/history-ignore-primary-clipboard</entry><entry>bool</entry><entry>false</entry><entry>true para excluír o portarretallos primario do historial</entry></row> false <row><entry>/settings/max-images-in-history</entry><entry>uint</entry><entry>0</entry><entry>de 0 a 5 imaxes no historial</entry></row><row><entry>/settings/max-texts-in-history</entry><entry>uint</entry><entry>10</entry><entry>de 5 a 100 textos no historial</entry></row><row><entry>/settings/save-on-quit</entry><entry>bool</entry><entry>true</entry><entry>true para restaurar o historial en cada nova sesión</entry></row></tbody>
       </tgroup>
       </table>
 
-      <para>
-        To change a setting from a terminal type the command-line:
-      </para>
+      <para>Para cambiar unha opción dende un terminal escriba a liña de comandos:</para>
 
       <literal><![CDATA[xfconf-query -c xfce4-panel -p /plugins/clipman/<property> -s <value>]]></literal>
     </sect2>
   </sect1>
 
   <sect1 id="support">
-    <title>Support</title>
+    <title>Asistencia</title>
 
-    <para>
-      To report a bug or a feature request use the bug tracking system at <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software,
-      please ask on the <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">Xfce mailing list</ulink>
-      or point your IRC client to <emphasis role="bold">irc.freenode.net</emphasis>, join the channel <emphasis role="bold">#xfce</emphasis> and ask for help.
-    </para>
+    <para>Para comunicar un erro ou solicitar unha funcionalidade use o sistema de seguimento de erros que se atopa en <ulink type="http" url="@PACKAGE_BUGREPORT@">@PACKAGE_BUGREPORT@</ulink>. Se ten preguntas sobre o uso deste software, pregunte na <ulink type="http" url="http://foo-projects.org/mailman/listinfo/xfce">rolda de correo de Xfce</ulink> ou conéctese co seu cliente IRC a <emphasis role="bold">irc.freenode.net</emphasis>, únase á canle <emphasis role="bold">#xfce</emphasis> e pida axuda.</para>
   </sect1>
 
 
@@ -404,12 +276,9 @@
 
     <para>Esta documentación foi escrita por Mike Massonnet (<email>mmassonnet@xfce.org</email>). Envíe tódolos seus comentarios e suxestións relativos a este manual a <email>mmassonnet@xfce.org</email>.</para>
 
-    <para>
-      This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published
-      by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-    </para>
+    <para>Este software distribúese baixo os termos da <citetitle>Licenza Pública Xeral de GNU</citetitle> tal como a publicou a Free Software Foundation; xa sexa a versión 2 de dita Licenza, ou (se o desexa) calquera versión posterior.</para>
 
-    <para>Debeu recibir unha copia da Licenza Pública Xeral de GNU xunta con este programa; en caso contrario, escriba á Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA </para>
+    <para>Debeu recibir unha copia da <citetitle>Licenza Pública Xeral de GNU</citetitle> xunta con este programa; en caso contrario, escriba á Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA </para>
   </sect1>
 
 </article>

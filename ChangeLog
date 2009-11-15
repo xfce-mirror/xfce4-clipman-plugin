@@ -1,4 +1,10 @@
 2009-11-15	Mike Massonnet
+=== Release 1.1.2 ===
+
+	Update credits in the about dialog.
+	Fix version of documentation (1.0.1) it will need an update.
+
+2009-11-15	Mike Massonnet
 [daemon] Rewrite the daemon using GTK+ functions
 
 	The gsd-clipboard-manager has been rewritten using GTK+ functions. The

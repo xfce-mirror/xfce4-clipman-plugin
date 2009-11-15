@@ -290,6 +290,9 @@ plugin_about (MyPlugin *plugin)
   const gchar *authors[] = { "(c) 2008-2009 Mike Massonnet",
                              "(c) 2005-2006 Nick Schermer",
                              "(c) 2003 Eduard Roccatello",
+                             "",
+                             _("Contributors:"),
+                             "(c) 2008-2009 David Collins",
                              NULL, };
   const gchar *documenters[] = { "Mike Massonnet", NULL, };
   const gchar *license =

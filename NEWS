@@ -1,3 +1,10 @@
+Version 1.1.2 - 2009-09-30
+
+- Clipboard manager rewrote on top of GTK+ functions. It takes also the primary
+  clipboard (mouse selections) into account.
+- Fix popup command not always working from keyboard shortcut (#bug 5909).
+- Update documentation.
+
 Version 1.1.1 - 2009-09-30
 
 - New option "Ignore selections" and dropped the option "Exclude from option"
@@ -22,6 +29,12 @@ Version 1.1.0 - 2009-09-03
   Clipman settings dialog has a new checkbox to retrieve actions only on manual
   copies (e.g. Ctrl+C).
 - Fixed a bug with KDE where the status icon is getting smaller and smaller.
+
+Version 1.0.2 - 2009-06-28
+
+- Removed the inhibit option.
+- Set the desktop entry file to Only XFCE.
+- Do not consider text/html target as simple text.
 
 Version 1.0.1 - 2009-05-14
 

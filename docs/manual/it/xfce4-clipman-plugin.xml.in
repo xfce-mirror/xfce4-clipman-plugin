@@ -7,7 +7,7 @@
 <!ENTITY doc-email "mmassonnet@xfce.org">
 <!ENTITY date "April, July 2009">
 <!ENTITY application "@PACKAGE_NAME@">
-<!ENTITY version "@PACKAGE_VERSION@">
+<!ENTITY version "1.0.1">
 <!ENTITY bugtracker "@PACKAGE_BUGREPORT@">
 ]>
 <article id="xfce4-clipman-plugin" lang="it">
@@ -37,7 +37,9 @@
       </author>
     </authorgroup>
 
-    <releaseinfo>Questo manuale descrive la versione @PACKAGE_VERSION@ di @PACKAGE_NAME@.</releaseinfo>
+    <releaseinfo>
+      This manual describes version 1.0.1 of @PACKAGE_NAME@.
+    </releaseinfo>
   </articleinfo>
 
 
