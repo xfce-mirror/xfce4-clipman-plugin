@@ -1,4 +1,7 @@
 2009-11-15	Mike Massonnet
+[daemon] Fix empty clipboard when leaving Firefox (bug #5738)
+
+2009-11-15	Mike Massonnet
 === Release 1.1.2 ===
 
 	Update credits in the about dialog.
@@ -21,7 +24,7 @@
 	line flag to switch between the selections and the default clipboard.
 
 2009-10-31	Mike Massonnet
-Fix popup from keyboard shortcut not always working #bug 5909
+Fix popup from keyboard shortcut not always working (bug #5909)
 
 	Factorize the popup action inside plugin.c(plugin_popup_menu) and add
 	a menu position function callback pointer within the MyPlugin

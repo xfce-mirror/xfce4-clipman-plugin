@@ -185,6 +185,19 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
                 default_clipboard_store (manager);
         }
         else {
+                /* This 'bug' happens with Mozilla applications, it means that
+                 * we restored the clipboard (we own it now) but somehow we are
+                 * being noticed twice about that fact where first the owner is
+                 * 0 (which is when we must restore) but then again where the
+                 * owner is ourself (which is what normally only happens and
+                 * also that means that we have to store the clipboard content
+                 * e.g. owner is not 0). By the second time we would store
+                 * ourself back with an empty clipboard... solution is to jump
+                 * over the first time and don't try to restore empty data. */
+                if (manager->priv->internal_change) {
+                        return;
+                }
+
                 manager->priv->internal_change = TRUE;
                 default_clipboard_restore (manager);
         }
