@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
-"PO-Revision-Date: 2009-10-03 15:02+0900\n"
+"POT-Creation-Date: 2009-11-17 22:42+0900\n"
+"PO-Revision-Date: 2009-11-17 22:33+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,7 @@ msgstr "クリップボードは空です"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "貢献者:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
