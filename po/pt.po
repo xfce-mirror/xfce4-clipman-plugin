@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-15 22:20+0100\n"
-"PO-Revision-Date: 2009-11-16 17:07+0100\n"
+"PO-Revision-Date: 2009-11-20 14:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgstr "O padrão é sempre ancorado dentro de caracteres especiais ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Pode usar os parâmetros \"\\1\", \"\\2\" e outros nos comandos. O parâmetro \"\\0\" representa o texto completo. Se não conhece expressões regulares, veja a documentação do Clipman que tem uma introdução para elas."
+msgstr "Pode usar os parâmetros \"\\1\", \"\\2\" e outros nos comandos. O parâmetro \"\\0\" representa o texto completo. Se não conhece expressões regulares, veja a documentação do Clipman que tem uma introdução para as mesmas."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
