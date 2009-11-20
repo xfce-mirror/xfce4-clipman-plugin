@@ -8,5 +8,5 @@ Exec=xfce4-clipman
 Icon=xfce4-clipman-plugin
 Terminal=false
 Categories=GTK;Utility;TrayIcon;
-OnlyShowIn=XFCE;
+OnlyShowIn=XFCE;GNOME;
 StartupNotify=false
