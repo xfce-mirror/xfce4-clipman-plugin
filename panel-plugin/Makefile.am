@@ -56,6 +56,7 @@ xfce4_clipman_settings_SOURCES =					\
 xfce4_clipman_settings_CFLAGS =						\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
+	@LIBX11_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCEGUI4_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
@@ -66,6 +67,7 @@ xfce4_clipman_settings_CFLAGS =						\
 xfce4_clipman_settings_LDADD =						\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
+	@LIBX11_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCEGUI4_LIBS@						\
 	@XFCONF_LIBS@							\
