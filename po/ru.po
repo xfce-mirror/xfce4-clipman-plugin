@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-15 22:20+0100\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
-"Last-Translator: Pavel Labushev <p.labushev@gmail.com>\n"
+"PO-Revision-Date: 2009-11-28 01:37+0600\n"
+"Last-Translator: Urmas <dwqwt3i02@sneakemail.com>\n"
 "Language-Team: Russian <xfce-i18n-ru@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,7 +20,6 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
 msgstr "Менеджер буфера обмена"
 
@@ -28,162 +27,148 @@ msgstr "Менеджер буфера обмена"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127
+#: ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Менеджер буфера обмена (Clipman)"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Ошибки"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Редактировать в Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Ошибки в GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "Длинный URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Сократить URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Просмотр в Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Ошибка в Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Действие</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "Основные настройки"
+msgstr "<b>Поведение</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Параметры</b>"
+msgstr "<b>Команды</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Журнал</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Только при копировании"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Выполнять действия только при явном копировании текста, а не просто при выделении"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Команда:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Настройка модуля"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Настройка действия"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Разрешить _действия"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Основные настройки"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Отображать меню возможных действий в зависимости от текста в Буфере обмена"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Автоматически копировать выделенный текст"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Не заносить в журнал выделенный (а не скопированный) текст"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Хранить последнее скопированное изображение"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Хранить журнал между сесссиями Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Добавлять _выделенный текст в историю"
+msgstr "Пропускать _выделение"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Название:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Шаблон:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Save on _quit"
-msgstr ""
+msgstr "Сохранять при в_ыходе"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Размер _журнала:"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Store an _image"
-msgstr ""
+msgstr "Хранить _изображение"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Добавлять _выделенный текст в историю"
+msgstr "_Автокопирование"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Шаблон всегда ограничен символами ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "В командах можно использовать символы подстановки «\\1», «\\2», и т.д. Параметр «\\0» представляет весь текст. За дополнительной информацией о регулярных выражениях обратитесь к справке Clipman."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -192,6 +177,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Не удалось выполнить команду «%s»\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -199,42 +187,37 @@ msgstr "Вы действительно хотите очистить истор
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
-#, fuzzy
 msgid "Clipboard is empty"
 msgstr "< Буфер обмена пуст >"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Участники:"
 
 #: ../panel-plugin/plugin.c:308
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Менеджер буфера обмена для Xfce"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
-msgstr "Pavel Labushev"
+msgstr ""
+"Pavel Labushev\n"
+"Aleksandr Ponomarenko"
 
 #: ../panel-plugin/plugin.c:331
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Невозможно открыть URL: %s"
+msgstr "Невозможно открыть диалог настроек"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Сохранять _содержимое буфера перед выходом"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "Показывать _номера фрагментов"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Содержимое истории:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Длина фрагментов текста в меню:"
-
 #~ msgid "Clear History"
 #~ msgstr "Очистить историю"
-
 #~ msgid "Clipman History"
 #~ msgstr "История буфера обмена"
+
