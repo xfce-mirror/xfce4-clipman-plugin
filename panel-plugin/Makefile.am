@@ -1,6 +1,7 @@
 NULL = 
 
 INCLUDES =								\
+	-DGSEAL_ENABLE							\
 	-I${top_srcdir}							\
 	-DSYSCONFDIR=\"$(sysconfdir)\"					\
 	-DDATAROOTDIR=\"$(datarootdir)\"				\

@@ -123,7 +123,8 @@ default_clipboard_get_func (GtkClipboard *clipboard,
         list = manager->priv->default_cache;
         for (; list->next != NULL; list = list->next) {
                 selection_data_cache = list->data;
-                if (selection_data->target == selection_data_cache->target) {
+                if (gtk_selection_data_get_target (selection_data) ==
+                    gtk_selection_data_get_target (selection_data_cache)) {
                         break;
                 }
                 selection_data_cache = NULL;
@@ -131,10 +132,8 @@ default_clipboard_get_func (GtkClipboard *clipboard,
         if (selection_data_cache == NULL) {
                 return;
         }
-        gtk_selection_data_set (selection_data, selection_data->target,
-                                selection_data_cache->format,
-                                selection_data_cache->data,
-                                selection_data_cache->length);
+        gtk_selection_data_free (selection_data);
+        selection_data = gtk_selection_data_copy (selection_data_cache);
 }
 
 static void
@@ -158,7 +157,9 @@ default_clipboard_restore (GsdClipboardManager *manager)
         list = manager->priv->default_cache;
         for (; list->next != NULL; list = list->next) {
                 sdata = list->data;
-                gtk_target_list_add (target_list, sdata->target, 0, 0);
+                gtk_target_list_add (target_list,
+                                     gtk_selection_data_get_target (sdata),
+                                     0, 0);
         }
         targets = gtk_target_table_new_from_list (target_list, &n_targets);
 
@@ -249,7 +250,7 @@ start_clipboard_idle_cb (GsdClipboardManager *manager)
         manager->priv->window = gtk_invisible_new ();
         gtk_widget_realize (manager->priv->window);
 
-        window = GDK_WINDOW_XID (manager->priv->window->window);
+        window = GDK_WINDOW_XID (gtk_widget_get_window (manager->priv->window));
         timestamp = GDK_CURRENT_TIME;
 
         XSelectInput (display, window, PropertyChangeMask);

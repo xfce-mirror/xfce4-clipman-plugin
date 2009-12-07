@@ -61,7 +61,7 @@ main (gint argc, gchar *argv[])
   gtk_widget_realize (win);
 
   gev.type              = GDK_CLIENT_EVENT;
-  gev.window            = win->window;
+  gev.window            = gtk_widget_get_window (win);
   gev.send_event        = TRUE;
   gev.message_type      = gdk_atom_intern ("STRING", FALSE);
   gev.data_format       = 8;

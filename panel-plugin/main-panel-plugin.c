@@ -110,8 +110,8 @@ panel_plugin_set_size (MyPlugin *plugin,
 
   gtk_widget_set_size_request (plugin->button, size, size);
 
-  size -= 2 + 2 * MAX (plugin->button->style->xthickness,
-                       plugin->button->style->ythickness);
+  size -= 2 + 2 * MAX (gtk_widget_get_style (plugin->button)->xthickness,
+                       gtk_widget_get_style (plugin->button)->ythickness);
   pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
   gtk_image_set_from_pixbuf (GTK_IMAGE (plugin->image), pixbuf);
   g_object_unref (G_OBJECT (pixbuf));
@@ -148,23 +148,25 @@ my_plugin_position_menu (GtkMenu *menu,
                          MyPlugin *plugin)
 {
   GtkWidget *button;
+  gint button_width, button_height;
   GtkRequisition requisition;
   GtkOrientation orientation;
 
   button = plugin->button;
   orientation = xfce_panel_plugin_get_orientation (plugin->panel_plugin);
+  gtk_widget_get_size_request (button, &button_width, &button_height);
   gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
-  gdk_window_get_origin (GTK_WIDGET (plugin->panel_plugin)->window, x, y);
+  gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (plugin->panel_plugin)), x, y);
 
   switch (orientation)
     {
     case GTK_ORIENTATION_HORIZONTAL:
-      if (*y + button->allocation.height + requisition.height > gdk_screen_height ())
+      if (*y + button_height + requisition.height > gdk_screen_height ())
         /* Show menu above */
         *y -= requisition.height;
       else
         /* Show menu below */
-        *y += button->allocation.height;
+        *y += button_height;
 
       if (*x + requisition.width > gdk_screen_width ())
         /* Adjust horizontal position */
@@ -172,12 +174,12 @@ my_plugin_position_menu (GtkMenu *menu,
       break;
 
     case GTK_ORIENTATION_VERTICAL:
-      if (*x + button->allocation.width + requisition.width > gdk_screen_width ())
+      if (*x + button_width + requisition.width > gdk_screen_width ())
         /* Show menu on the right */
         *x -= requisition.width;
       else
         /* Show menu on the left */
-        *x += button->allocation.width;
+        *x += button_width;
 
       if (*y + requisition.height > gdk_screen_height ())
         /* Adjust vertical position */

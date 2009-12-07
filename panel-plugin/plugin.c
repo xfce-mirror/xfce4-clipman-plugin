@@ -372,7 +372,7 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
 
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
-  id = GDK_WINDOW_XID (win->window);
+  id = GDK_WINDOW_XID (gtk_widget_get_window (win));
 
   gscreen = gtk_widget_get_screen (win);
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
