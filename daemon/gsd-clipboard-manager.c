@@ -39,9 +39,11 @@ struct GsdClipboardManagerPrivate
         GtkClipboard *primary_clipboard;
 
         GSList       *default_cache;
-        gchar        *primary_cache;
+        gboolean      default_internal_change;
 
-        gboolean      internal_change;
+        gchar        *primary_cache;
+        gboolean      primary_timeout;
+        gboolean      primary_internal_change;
 
         GtkWidget    *window;
 };
@@ -179,8 +181,8 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
         }
 
         if (event->owner != 0) {
-                if (manager->priv->internal_change) {
-                        manager->priv->internal_change = FALSE;
+                if (manager->priv->default_internal_change) {
+                        manager->priv->default_internal_change = FALSE;
                         return;
                 }
                 default_clipboard_store (manager);
@@ -195,30 +197,53 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
                  * e.g. owner is not 0). By the second time we would store
                  * ourself back with an empty clipboard... solution is to jump
                  * over the first time and don't try to restore empty data. */
-                if (manager->priv->internal_change) {
+                if (manager->priv->default_internal_change) {
                         return;
                 }
 
-                manager->priv->internal_change = TRUE;
+                manager->priv->default_internal_change = TRUE;
                 default_clipboard_restore (manager);
         }
+}
+
+static gboolean
+primary_clipboard_store (GsdClipboardManager *manager)
+{
+        GdkModifierType state;
+        gchar *text;
+
+        gdk_window_get_pointer (NULL, NULL, NULL, &state);
+        if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK)) {
+                return TRUE;
+        }
+
+        text = gtk_clipboard_wait_for_text (manager->priv->primary_clipboard);
+        if (text != NULL) {
+                g_free (manager->priv->primary_cache);
+                manager->priv->primary_cache = text;
+        }
+
+        manager->priv->primary_timeout = 0;
+
+        return FALSE;
 }
 
 static void
 primary_clipboard_owner_change (GsdClipboardManager *manager,
                                 GdkEventOwnerChange *event)
 {
-        gchar *text;
-
         if (event->send_event == TRUE) {
                 return;
         }
 
         if (event->owner != 0) {
-                text = gtk_clipboard_wait_for_text (manager->priv->primary_clipboard);
-                if (text != NULL) {
-                        g_free (manager->priv->primary_cache);
-                        manager->priv->primary_cache = text;
+                if (manager->priv->primary_internal_change == TRUE) {
+                        manager->priv->primary_internal_change = FALSE;
+                        return;
+                }
+                if (manager->priv->primary_timeout == 0) {
+                        manager->priv->primary_timeout =
+                          g_timeout_add (250, (GSourceFunc)primary_clipboard_store, manager);
                 }
         }
         else {
@@ -226,6 +251,7 @@ primary_clipboard_owner_change (GsdClipboardManager *manager,
                         gtk_clipboard_set_text (manager->priv->primary_clipboard,
                                                 manager->priv->primary_cache,
                                                 -1);
+                        manager->priv->primary_internal_change = TRUE;
                 }
         }
 }
