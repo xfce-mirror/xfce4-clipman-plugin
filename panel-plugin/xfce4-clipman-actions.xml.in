@@ -22,12 +22,12 @@
 		<regex>(http|ftp).+\.(jpg|png|gif)</regex>
 		<commands>
 			<command>
-				<_name>View with Ristretto</_name>
-				<exec>ristretto &quot;\0&quot;</exec>
+				<_name>Edit with Gimp</_name>
+				<exec>gimp-remote &quot;\0&quot;</exec>
 			</command>
 			<command>
-				<_name>Edit with Gimp</_name>
-				<exec>gimp &quot;\0&quot;</exec>
+				<_name>View with Ristretto</_name>
+				<exec>ristretto &quot;\0&quot;</exec>
 			</command>
 		</commands>
 	</action>
@@ -47,7 +47,7 @@
 	</action>
 	<action>
 		<_name>Long URL</_name>
-		<regex>http://.{120}[^ ]+</regex>
+		<regex>http://[^ ]{120,}</regex>
 		<commands>
 			<command>
 				<_name>Shrink the URL</_name>
