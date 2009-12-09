@@ -167,6 +167,7 @@ default_clipboard_restore (GsdClipboardManager *manager)
                                      0, 0);
         }
         targets = gtk_target_table_new_from_list (target_list, &n_targets);
+        gtk_target_list_unref (target_list);
 
         gtk_clipboard_set_with_data (manager->priv->default_clipboard,
                                      targets, n_targets,
