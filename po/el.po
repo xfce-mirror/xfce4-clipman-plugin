@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-09-12 13:09+0200\n"
 "Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -66,6 +66,17 @@ msgstr "Εμφάνιση με το ristretto"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Σφάλμα xfce"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Ενέργεια</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Είστε σίγουροι ότι επιθυμείτε τον καθαρισμό του ιστορικού;"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"

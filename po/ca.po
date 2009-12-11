@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-11-25 10:06+0100\n"
 "Last-Translator: Harald Servat <redcrash@gmail.com>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
@@ -29,10 +29,8 @@ msgstr "Gestor de porta-retalls"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Porta-retalls «Clipman»"
 
@@ -68,6 +66,17 @@ msgstr "Mostra amb Ristretto"
 msgid "Xfce Bug"
 msgstr "Error de Xfce"
 
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Acció</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Esteu segur de voler esborrar aquest retall de l’historial?"
+
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Acció</b>"
@@ -93,8 +102,12 @@ msgid "Activate only on manual copy"
 msgstr "Activa'l només amb la còpia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per a executar l'acció només quan es faci una còpia manual."
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per "
+"a executar l'acció només quan es faci una còpia manual."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -117,24 +130,39 @@ msgid "General"
 msgstr "General"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Si està activat el text del porta-retalls es farà coincidir amb expressions regulars i apareixerà un menú amb les accions disponibles"
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Si està activat el text del porta-retalls es farà coincidir amb expressions "
+"regulars i apareixerà un menú amb les accions disponibles"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "Si està marcat, les seleccions seran sincronitzades amb el porta-retalls per defecte per tal que pugueu enganxar el que seleccioneu"
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"Si està marcat, les seleccions seran sincronitzades amb el porta-retalls per "
+"defecte per tal que pugueu enganxar el que seleccioneu"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si la casella està marcada, les seleccions, llevat de les còpies manuals, no afectaran l'historial."
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"Si la casella està marcada, les seleccions, llevat de les còpies manuals, no "
+"afectaran l'historial."
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si està activat aquesta opció permet emmagatzemar una imatge en l'historial"
+msgstr ""
+"Si està activat aquesta opció permet emmagatzemar una imatge en l'historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "Si està activat aquesta opció permet recuperar l'historial en cadascuna de les noves sessions de Xfce"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Si està activat aquesta opció permet recuperar l'historial en cadascuna de "
+"les noves sessions de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -169,8 +197,16 @@ msgid "The pattern is always anchored within the special characters ^$"
 msgstr "El patró s'ha ancorat sempre sempre entre els caràcters especials ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden emprar en la comanda. El paràmetre \"\\0\" representa el text complet. Si desconeix les expressions regulars, faci un cop d'ull a la introducció que hi ha en la documentació de Clipman."
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden emprar "
+"en la comanda. El paràmetre \"\\0\" representa el text complet. Si desconeix "
+"les expressions regulars, faci un cop d'ull a la introducció que hi ha en la "
+"documentació de Clipman."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -213,21 +249,28 @@ msgstr "No s'ha pogut obrir la finestra de preferències"
 
 #~ msgid "E_xclude from history"
 #~ msgstr "E_xcloure de l'historial"
+
 #~ msgid "Autostart Clipman"
 #~ msgstr "Iniciar Clipman automàticament"
+
 #~ msgid ""
 #~ "Do you want to restart the clipboard manager the next time you login?"
 #~ msgstr ""
 #~ "Voleu iniciar automàticament el gestor del porta-retalls el proper cop "
 #~ "que inicieu la sessió?"
+
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "Voleu iniciar automàticament el gestor del porta-retalls?"
+
 #~ msgid "Authors of previous versions:"
 #~ msgstr "Autors de les versions anteriors:"
+
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Ja hi ha un altre gestor del porta-retalls executant-se"
+
 #~ msgid "_Enable"
 #~ msgstr "_Activar"
+
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
 #~ "bring the history to be unreadable, however it can be interesting in case "
@@ -236,50 +279,69 @@ msgstr "No s'ha pogut obrir la finestra de preferències"
 #~ "Si està activat les seleccions s'afegiran a l'historial. Aquest "
 #~ "comportament pot fer l'historial illegible, en canvi pot ser interessant "
 #~ "en el cas de voler enganxar les seleccions."
+
 #~ msgid "Regex:"
 #~ msgstr "Expressió regular:"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Desa el contingut del porta-retalls al _sortir"
+
 #~ msgid "A_dd selections to the history"
 #~ msgstr "_Afegeix les seleccions a l'històric"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostra el nombre de l’element"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>General</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Històric del porta-retalls:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Caràcters dels elements al menú:"
+
 #~ msgid "Clear History"
 #~ msgstr "Buida l'històric"
+
 #~ msgid "Clipman History"
 #~ msgstr "Històric de retalls"
+
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "E_vita tenir el porta-retalls buit"
+
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Gestió del porta-retalls nor_mal"
+
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Separa estríctament am_bdós porta-retalls"
+
 #~ msgid "Se_parate clipboards"
 #~ msgstr "Se_para els porta-retalls"
+
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Aparença del menú</b>"
+
 #~ msgid "Appearance"
 #~ msgstr "Aparença"
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "Esteu segur de voler esborrar aquest retall de l’historial?"
+
 #~ msgid "< Default History Empty >"
 #~ msgstr "< L’historial per omisió és buit >"
+
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Esculliu l’historial a buidar >"
+
 #~ msgid "Properties"
 #~ msgstr "Propietats"
+
 #~ msgid "Use _colored menu items"
 #~ msgstr "Usa elements del menú _colorejats"
+
 #~ msgid "Developer"
 #~ msgstr "Desenvolupador"
+
 #~ msgid "Question"
 #~ msgstr "Pregunta"
+
 #~ msgid "What to do with this clipboard item?"
 #~ msgstr "Que voleu fer amb aquest element del porta-retalls?"
-

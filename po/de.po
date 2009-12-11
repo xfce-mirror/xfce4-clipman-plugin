@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-07-04 07:43+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
@@ -64,6 +64,17 @@ msgstr "Mit Ristretto betrachten"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Fehler bei Xfce"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Aktion</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -293,9 +304,6 @@ msgstr "Kann die folgende Adresse nicht öffnen: %s"
 
 #~ msgid "Appearance"
 #~ msgstr "Aussehen"
-
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
 
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Inhalt der Standard-Zwischenablage leer >"

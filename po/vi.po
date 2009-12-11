@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i 18n.xfce.org\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-07-04 07:41+0200\n"
 "Last-Translator: Nguyễn Quốc Vinh <kureikain@gmail.com>\n"
 "Language-Team: none\n"
@@ -63,6 +63,17 @@ msgstr "Xem bằng Ristretto"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Lỗi của Xfce"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Hành động</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Bạn có thực sự muốn xoá lịch sử sử dụng?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
-"PO-Revision-Date: 2009-09-12 10:21+0200\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
+"PO-Revision-Date: 2009-12-11 23:42+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,6 +63,17 @@ msgstr "Ouvrir avec Ristretto"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Bogue Xfce"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+msgid "<b>Reset actions</b>"
+msgstr "<b>Réinitialiser les actions</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr ""
+"Êtes-vous certain de vouloir réinitialiser les actions aux valeurs par "
+"défaut du système ?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"

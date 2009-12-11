@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-09-19 12:04+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -66,6 +66,17 @@ msgstr "Ver con Ristretto"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "Erro de Xfce"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Acción</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Está seguro de que desexa limpar o historial?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"

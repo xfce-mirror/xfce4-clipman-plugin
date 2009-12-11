@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-11-18 19:25+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese(Simplified) <xfce-i18n@xfce.org>\n"
@@ -63,6 +63,17 @@ msgstr "使用 Ristretto 查看"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr "查看 Xfce 错误报告"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>动作</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "您确定您想要从历史记录中删除该剪辑吗？"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -295,9 +306,6 @@ msgstr "无法打开设置对话框"
 
 #~ msgid "Appearance"
 #~ msgstr "外观"
-
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "您确定您想要从历史记录中删除该剪辑吗？"
 
 #~ msgid "< Default History Empty >"
 #~ msgstr "< 预设历史记录空白 >"

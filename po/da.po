@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-11-15 23:38+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -28,10 +28,8 @@ msgstr "Udklipsholderhåndtering"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -67,6 +65,17 @@ msgstr "Vis med Ristretto"
 msgid "Xfce Bug"
 msgstr "Xfce-fejl"
 
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Handling</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Er du sikker på, at du ønsker at slette historikken?"
+
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Handling</b>"
@@ -92,8 +101,12 @@ msgid "Activate only on manual copy"
 msgstr "Aktivér kun ved manuel kopiering"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "Som standard er denne handling udløst af en markering. Kryds denne indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"Som standard er denne handling udløst af en markering. Kryds denne "
+"indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -116,24 +129,41 @@ msgid "General"
 msgstr "Generel"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Hvis afkrydset, vil udklipsholders tekst blive kontrolleret op imod regulære udtryk og en menu vil blive vist for mulige handlinger"
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Hvis afkrydset, vil udklipsholders tekst blive kontrolleret op imod regulære "
+"udtryk og en menu vil blive vist for mulige handlinger"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "Hvis afkrydset, vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"Hvis afkrydset, vil markeringerne blive synkroniseret med "
+"standardudklipsholderen på en måde som tillader dig, at indsætte hvad du "
+"vælger"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Hvis afkrydset, vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"Hvis afkrydset, vil markeringerne ikke have indflydelse på historikken "
+"undtaget de manuelle kopieringer"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni historikken"
+msgstr ""
+"Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni "
+"historikken"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
+"Xfce-session"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -168,8 +198,16 @@ msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Mønstret er altid forankret inden i det specielle tegn ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman for at få kendskab til dem."
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i "
+"kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke "
+"har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman "
+"for at få kendskab til dem."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -214,20 +252,27 @@ msgstr "Kan ikke åbne indstillingsdialogen"
 
 #~ msgid "E_xclude from history"
 #~ msgstr "_Udelad fra historik"
+
 #~ msgid "Autostart Clipman"
 #~ msgstr "Autostart Clipman"
+
 #~ msgid ""
 #~ "Do you want to restart the clipboard manager the next time you login?"
 #~ msgstr ""
 #~ "Ønsker du at at genstarte udklipsholderhåndteringen ved næste logind?"
+
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "Ønsker du at starte udklipsholderhåndteringen automatisk?"
+
 #~ msgid "Authors of previous versions:"
 #~ msgstr "Forfattere af tidligere versioner:"
+
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Der kører allerede en udklipsholderhåndtering"
+
 #~ msgid "_Enable"
 #~ msgstr "_Slå til"
+
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
 #~ "bring the history to be unreadable, however it can be interesting in case "
@@ -236,28 +281,37 @@ msgstr "Kan ikke åbne indstillingsdialogen"
 #~ "Hvis afkrydset, vil markeringerne blive gemt i historikken. Denne "
 #~ "opførsel kan gøre hele historikken ubrugelig. Det kan dog være "
 #~ "interessant for dig, hvis du altid vil indsætte hele din markering."
+
 #~ msgid "Regex:"
 #~ msgstr "Reg. udtryk:"
+
 #~ msgid ""
 #~ "Enable the actions to match the clipboard texts against regular "
 #~ "expressions"
 #~ msgstr ""
 #~ "Slå handlingerne til for at overensstemme udklipsholders tekster imod "
 #~ "regulære udtryk"
+
 #~ msgid "Edit Command"
 #~ msgstr "Redigér kommando"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Gem udklipsholderindhold ved _afslutning"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Vis elementnumre"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Generel</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Udklipholderhistorik:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Menupunkts-tegn:"
+
 #~ msgid "Clear History"
 #~ msgstr "Slet historik"
+
 #~ msgid "Clipman History"
 #~ msgstr "Clipman-historik"
-

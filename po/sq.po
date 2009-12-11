@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 22:20+0100\n"
+"POT-Creation-Date: 2009-12-11 23:41+0100\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <xfce-i18n@xfce.org>\n"
@@ -63,6 +63,17 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:440
+#, fuzzy
+msgid "<b>Reset actions</b>"
+msgstr "<b>Sjellje e së Papastrës</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:442
+#, fuzzy
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Jeni i sigurtë se doni të fshihet ky shënim nga historiku?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -252,9 +263,6 @@ msgstr "I pazoti të hapë url-në vijuese: %s"
 
 #~ msgid "Appearance"
 #~ msgstr "Dukje"
-
-#~ msgid "Are you sure you want to remove this clip from the history?"
-#~ msgstr "Jeni i sigurtë se doni të fshihet ky shënim nga historiku?"
 
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Historiku Parazgjedhje është Bosh >"
