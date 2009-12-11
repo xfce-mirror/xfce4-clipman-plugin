@@ -19,7 +19,7 @@ bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
 if MAINTAINER_MODE
 BUILT_SOURCES = settings-dialog_glade.h
 settings-dialog_glade.h: settings-dialog.glade
-	exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
+	$(AM_V_GEN) exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
 endif
 
 #
@@ -177,7 +177,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(plugindir)^" \
+	$(AM_V_GEN) sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(plugindir)^" \
 		$< > $@
 
 #

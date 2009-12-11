@@ -37,11 +37,6 @@
 #include "settings-dialog_glade.h"
 #include "actions.h"
 
-static XfconfChannel *xfconf_channel = NULL;
-static GladeXML *gxml = NULL;
-static ClipmanActions *actions = NULL;
-static GtkWidget *dialog = NULL;
-
 static void             prop_dialog_run                 ();
 static void             cb_show_help                    (GtkButton *button);
 static void             setup_actions_treeview          (GtkTreeView *treeview);
@@ -54,6 +49,7 @@ static void             cb_actions_row_activated        (GtkTreeView *treeview,
                                                          GtkTreePath *path,
                                                          GtkTreeViewColumn *column);
 static void             cb_delete_action                (GtkButton *button);
+static void             cb_reset_actions                (GtkButton *button);
 static void             setup_commands_treeview         (GtkTreeView *treeview);
 static void             entry_dialog_cleanup            ();
 #if !GLIB_CHECK_VERSION(2,16,0)
@@ -67,6 +63,11 @@ static void             cb_refresh_command              (GtkButton *button);
 static void             cb_delete_command               (GtkButton *button);
 static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 
+static XfconfChannel *xfconf_channel = NULL;
+static GladeXML *gxml = NULL;
+static ClipmanActions *actions = NULL;
+static GtkWidget *settings_dialog = NULL;
+
 
 
 static void
@@ -78,7 +79,7 @@ prop_dialog_run ()
   gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
 
   /* Dialogs */
-  dialog = glade_xml_get_widget (gxml, "settings-dialog");
+  settings_dialog = glade_xml_get_widget (gxml, "settings-dialog");
   action_dialog = glade_xml_get_widget (gxml, "action-dialog");
 
   /* General settings */
@@ -112,6 +113,7 @@ prop_dialog_run ()
   glade_xml_signal_connect_data (gxml, "cb_add_action", G_CALLBACK (cb_add_action), NULL);
   glade_xml_signal_connect_data (gxml, "cb_edit_action", G_CALLBACK (cb_edit_action), NULL);
   glade_xml_signal_connect_data (gxml, "cb_delete_action", G_CALLBACK (cb_delete_action), NULL);
+  glade_xml_signal_connect_data (gxml, "cb_reset_actions", G_CALLBACK (cb_reset_actions), NULL);
   glade_xml_signal_connect_data (gxml, "cb_actions_row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
   glade_xml_signal_connect_data (gxml, "cb_add_command", G_CALLBACK (cb_add_command), NULL);
   glade_xml_signal_connect_data (gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), NULL);
@@ -132,10 +134,10 @@ prop_dialog_run ()
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
 
   /* Run the dialog */
-  while ((gtk_dialog_run (GTK_DIALOG (dialog))) == 2);
+  while ((gtk_dialog_run (GTK_DIALOG (settings_dialog))) == 2);
 
   gtk_widget_destroy (action_dialog);
-  gtk_widget_destroy (dialog);
+  gtk_widget_destroy (settings_dialog);
   g_object_unref (gxml);
 
   /* Save the actions */
@@ -424,6 +426,34 @@ cb_delete_action (GtkButton *button)
   gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
 }
 
+static void
+cb_reset_actions (GtkButton *button)
+{
+  GtkWidget *dialog;
+  gchar *filename;
+  gint res;
+
+  dialog = gtk_message_dialog_new_with_markup (GTK_WINDOW (settings_dialog),
+                                               GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_QUESTION,
+                                               GTK_BUTTONS_YES_NO,
+                                               _("<b>Reset actions</b>"), NULL);
+  gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+                                            _("Are you sure you want to reset the actions to the system default values?"));
+  res = gtk_dialog_run (GTK_DIALOG (dialog));
+  gtk_widget_destroy (dialog);
+  if (res != GTK_RESPONSE_YES)
+    return;
+
+  filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
+  g_unlink (filename);
+  g_free (filename);
+
+  g_object_unref (actions);
+  actions = clipman_actions_get ();
+  refresh_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "actions")));
+}
+
 
 
 /* Actions Entry */
@@ -641,7 +671,7 @@ cb_unique_app (UniqueApp *app,
       return UNIQUE_RESPONSE_PASSTHROUGH;
     }
 
-  gtk_window_present (GTK_WINDOW (dialog));
+  gtk_window_present (GTK_WINDOW (settings_dialog));
   return UNIQUE_RESPONSE_OK;
 }
 #endif
@@ -675,3 +705,4 @@ main (gint argc,
   xfconf_shutdown ();
   return 0;
 }
+
