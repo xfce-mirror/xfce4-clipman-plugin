@@ -33,7 +33,7 @@
 	</action>
 	<action>
 		<_name>Bugz</_name>
-		<regex>bug ?#?([0-9]+)</regex>
+		<regex>bug\s*#?\s*([0-9]+)</regex>
 		<commands>
 			<command>
 				<_name>Xfce Bug</_name>
