@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-11 23:41+0100\n"
-"PO-Revision-Date: 2009-11-17 22:33+0900\n"
+"POT-Creation-Date: 2009-12-12 17:47+0900\n"
+"PO-Revision-Date: 2009-12-12 17:51+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -65,15 +65,13 @@ msgid "Xfce Bug"
 msgstr "Xfce バグ"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:440
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>アクション</b>"
+msgstr "<b>アクションのリセット</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:442
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "履歴をクリアしてもよろしいですか?"
+msgstr "アクションをシステムデフォルトにリセットしてもよろしいですか?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
