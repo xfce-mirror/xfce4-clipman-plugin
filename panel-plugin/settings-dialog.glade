@@ -15,34 +15,34 @@
     <property name="has_separator">False</property>
     <property name="subtitle" translatable="yes">Configure the plugin</property>
     <child internal-child="vbox">
-      <widget class="GtkVBox" id="dialog-vbox1">
+      <widget class="GtkVBox" id="settings-dialog-vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <widget class="GtkNotebook" id="notebook1">
+          <widget class="GtkNotebook" id="settings-dialog-notebook">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="border_width">6</property>
             <child>
-              <widget class="GtkVBox" id="vbox1">
+              <widget class="GtkVBox" id="vbox-general">
                 <property name="visible">True</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">2</property>
                 <child>
-                  <widget class="GtkFrame" id="frame2">
+                  <widget class="GtkFrame" id="frame-behavior">
                     <property name="visible">True</property>
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
-                      <widget class="GtkAlignment" id="alignment3">
+                      <widget class="GtkAlignment" id="alignment-behavior">
                         <property name="visible">True</property>
                         <property name="top_padding">6</property>
                         <property name="bottom_padding">6</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <widget class="GtkVBox" id="vbox5">
+                          <widget class="GtkVBox" id="vbox-behavior">
                             <property name="visible">True</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
@@ -66,7 +66,7 @@
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="label4">
+                      <widget class="GtkLabel" id="label-behavior">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">&lt;b&gt;Behavior&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
@@ -83,18 +83,18 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkFrame" id="frame1">
+                  <widget class="GtkFrame" id="frame-history">
                     <property name="visible">True</property>
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
-                      <widget class="GtkAlignment" id="alignment1">
+                      <widget class="GtkAlignment" id="alignment-history">
                         <property name="visible">True</property>
                         <property name="top_padding">6</property>
                         <property name="bottom_padding">6</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <widget class="GtkVBox" id="vbox2">
+                          <widget class="GtkVBox" id="vbox-history">
                             <property name="visible">True</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
@@ -142,11 +142,11 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkHBox" id="hbox1">
+                              <widget class="GtkHBox" id="hbox-history-size">
                                 <property name="visible">True</property>
                                 <property name="spacing">4</property>
                                 <child>
-                                  <widget class="GtkLabel" id="label5">
+                                  <widget class="GtkLabel" id="label-history-size">
                                     <property name="visible">True</property>
                                     <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Size of the _history:</property>
@@ -182,7 +182,7 @@
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="label3">
+                      <widget class="GtkLabel" id="label-history">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">&lt;b&gt;History&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
@@ -201,7 +201,7 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkLabel" id="label1">
+              <widget class="GtkLabel" id="label-general">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">General</property>
               </widget>
@@ -211,7 +211,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkVBox" id="vbox3">
+              <widget class="GtkVBox" id="vbox-actions">
                 <property name="visible">True</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
@@ -363,7 +363,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkLabel" id="label2">
+              <widget class="GtkLabel" id="label-actions">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Actions</property>
               </widget>
@@ -379,11 +379,11 @@
           </packing>
         </child>
         <child internal-child="action_area">
-          <widget class="GtkHButtonBox" id="dialog-action_area1">
+          <widget class="GtkHButtonBox" id="settings-dialog-actionarea">
             <property name="visible">True</property>
             <property name="layout_style">edge</property>
             <child>
-              <widget class="GtkButton" id="button2">
+              <widget class="GtkButton" id="settings-dialog-button-help">
                 <property name="label">gtk-help</property>
                 <property name="response_id">2</property>
                 <property name="visible">True</property>
@@ -399,7 +399,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button1">
+              <widget class="GtkButton" id="settings-dialog-button-close">
                 <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -435,16 +435,16 @@
     <property name="transient_for">settings-dialog</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
-      <widget class="GtkVBox" id="dialog-vbox2">
+      <widget class="GtkVBox" id="action-dialog-vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">6</property>
         <child>
-          <widget class="GtkHBox" id="hbox3">
+          <widget class="GtkHBox" id="hbox-regex-info">
             <property name="visible">True</property>
             <property name="spacing">6</property>
             <child>
-              <widget class="GtkImage" id="image2">
+              <widget class="GtkImage" id="image-regex-info">
                 <property name="visible">True</property>
                 <property name="stock">gtk-dialog-info</property>
                 <property name="icon-size">6</property>
@@ -456,7 +456,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkLabel" id="label8">
+              <widget class="GtkLabel" id="label-regex-info">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">You can use the substitution parameters "\1", "\2" and so on in the commands. The parameter "\0" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them.</property>
@@ -479,22 +479,22 @@
             <property name="label_xalign">0</property>
             <property name="shadow_type">none</property>
             <child>
-              <widget class="GtkAlignment" id="alignment1">
+              <widget class="GtkAlignment" id="alignment-action">
                 <property name="visible">True</property>
                 <property name="top_padding">6</property>
                 <property name="bottom_padding">6</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <widget class="GtkVBox" id="vbox2">
+                  <widget class="GtkVBox" id="vbox-action">
                     <property name="visible">True</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">6</property>
                     <child>
-                      <widget class="GtkHBox" id="hbox5">
+                      <widget class="GtkHBox" id="hbox-action-name">
                         <property name="visible">True</property>
                         <property name="spacing">4</property>
                         <child>
-                          <widget class="GtkLabel" id="label4">
+                          <widget class="GtkLabel" id="label-action-name">
                             <property name="visible">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Name:</property>
@@ -521,11 +521,11 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkHBox" id="hbox6">
+                      <widget class="GtkHBox" id="hbox1-action-pattern">
                         <property name="visible">True</property>
                         <property name="spacing">4</property>
                         <child>
-                          <widget class="GtkLabel" id="label5">
+                          <widget class="GtkLabel" id="label-action-pattern">
                             <property name="visible">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Pattern:</property>
@@ -537,7 +537,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkHBox" id="hbox2">
+                          <widget class="GtkHBox" id="hbox2-action-pattern">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
@@ -551,11 +551,13 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button1">
+                              <widget class="GtkButton" id="button-action-pattern">
+                                <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <signal name="clicked" handler="cb_test_regex"/>
                                 <child>
-                                  <widget class="GtkImage" id="image5">
+                                  <widget class="GtkImage" id="image-action-pattern">
                                     <property name="visible">True</property>
                                     <property name="stock">gtk-edit</property>
                                     <property name="icon-size">1</property>
@@ -579,11 +581,11 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkHBox" id="hbox4">
+                      <widget class="GtkHBox" id="hbox-pattern-info">
                         <property name="visible">True</property>
                         <property name="spacing">2</property>
                         <child>
-                          <widget class="GtkImage" id="image6">
+                          <widget class="GtkImage" id="image-pattern-info">
                             <property name="visible">True</property>
                             <property name="stock">gtk-dialog-info</property>
                             <property name="icon-size">1</property>
@@ -595,7 +597,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkLabel" id="label3">
+                          <widget class="GtkLabel" id="label-pattern-info">
                             <property name="visible">True</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">The pattern is always anchored within the special characters ^$</property>
@@ -628,7 +630,7 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkLabel" id="label1">
+              <widget class="GtkLabel" id="label-action">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">&lt;b&gt;Action&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
@@ -650,26 +652,26 @@
             <property name="label_xalign">0</property>
             <property name="shadow_type">none</property>
             <child>
-              <widget class="GtkAlignment" id="alignment2">
+              <widget class="GtkAlignment" id="alignment-commands">
                 <property name="visible">True</property>
                 <property name="top_padding">6</property>
                 <property name="bottom_padding">6</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <widget class="GtkHBox" id="hbox1">
+                  <widget class="GtkHBox" id="hbox-commands">
                     <property name="visible">True</property>
                     <property name="spacing">6</property>
                     <child>
-                      <widget class="GtkVBox" id="vbox1">
+                      <widget class="GtkVBox" id="vbox-commands">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
-                          <widget class="GtkHBox" id="hbox7">
+                          <widget class="GtkHBox" id="hbox-command-name">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
-                              <widget class="GtkLabel" id="label6">
+                              <widget class="GtkLabel" id="label-command-name">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Name:</property>
@@ -696,11 +698,11 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkHBox" id="hbox8">
+                          <widget class="GtkHBox" id="hbox-command">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
-                              <widget class="GtkLabel" id="label7">
+                              <widget class="GtkLabel" id="label-command">
                                 <property name="visible">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Command:</property>
@@ -727,7 +729,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkScrolledWindow" id="scrolledwindow3">
+                          <widget class="GtkScrolledWindow" id="scrolledwindow-commands">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="hscrollbar_policy">automatic</property>
@@ -752,7 +754,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkVBox" id="vbox4">
+                      <widget class="GtkVBox" id="vbox-command-buttons">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
@@ -763,7 +765,7 @@
                             <property name="receives_default">True</property>
                             <signal name="clicked" handler="cb_add_command"/>
                             <child>
-                              <widget class="GtkImage" id="image1">
+                              <widget class="GtkImage" id="image-add-command">
                                 <property name="visible">True</property>
                                 <property name="stock">gtk-add</property>
                                 <property name="icon-size">1</property>
@@ -784,7 +786,7 @@
                             <property name="receives_default">True</property>
                             <signal name="clicked" handler="cb_refresh_command"/>
                             <child>
-                              <widget class="GtkImage" id="image4">
+                              <widget class="GtkImage" id="image-refresh-command">
                                 <property name="visible">True</property>
                                 <property name="stock">gtk-refresh</property>
                                 <property name="icon-size">1</property>
@@ -805,7 +807,7 @@
                             <property name="receives_default">True</property>
                             <signal name="clicked" handler="cb_delete_command"/>
                             <child>
-                              <widget class="GtkImage" id="image3">
+                              <widget class="GtkImage" id="image-delete-command">
                                 <property name="visible">True</property>
                                 <property name="stock">gtk-delete</property>
                                 <property name="icon-size">1</property>
@@ -830,7 +832,7 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkLabel" id="label2">
+              <widget class="GtkLabel" id="label-commands">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">&lt;b&gt;Commands&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
@@ -845,11 +847,11 @@
           </packing>
         </child>
         <child internal-child="action_area">
-          <widget class="GtkHButtonBox" id="dialog-action_area2">
+          <widget class="GtkHButtonBox" id="action-dialog-actionarea">
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <widget class="GtkButton" id="button2">
+              <widget class="GtkButton" id="action-dialog-button-cancel">
                 <property name="label">gtk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -866,6 +868,111 @@
               <widget class="GtkButton" id="action-dialog-button-ok">
                 <property name="label">gtk-ok</property>
                 <property name="response_id">1</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkDialog" id="regex-dialog">
+    <property name="title" translatable="yes">Regular expression</property>
+    <property name="modal">True</property>
+    <property name="default_width">260</property>
+    <property name="default_height">260</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon_name">gtk-edit</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="transient_for">action-dialog</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="regex-dialog-vbox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <widget class="GtkEntry" id="regex-entry">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">&#x2022;</property>
+            <property name="secondary_icon_stock">gtk-apply</property>
+            <property name="secondary_icon_sensitive">True</property>
+            <signal name="changed" handler="cb_test_regex_changed"/>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkFrame" id="regex-textview-frame">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <widget class="GtkAlignment" id="regex-textview-alignment">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkTextView" id="regex-textview">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="pixels_inside_wrap">3</property>
+                    <property name="wrap_mode">word</property>
+                    <property name="text" translatable="yes">Type here your custom text, for example an URL, a filename, etc.</property>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <placeholder/>
+              <packing>
+                <property name="type">label_item</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="regex-dialog-actionarea">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <widget class="GtkButton" id="regex-dialog-button-cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="response_id">-6</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="regex-dialog-button-ok">
+                <property name="label">gtk-ok</property>
+                <property name="response_id">-10</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

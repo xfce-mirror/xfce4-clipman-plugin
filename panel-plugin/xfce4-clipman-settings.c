@@ -61,12 +61,18 @@ static void             cb_commands_selection_changed   (GtkTreeSelection *selec
 static void             cb_add_command                  (GtkButton *button);
 static void             cb_refresh_command              (GtkButton *button);
 static void             cb_delete_command               (GtkButton *button);
+static void             setup_test_regex_dialog         ();
+static void             cb_test_regex                   (GtkButton *button);
+static void             cb_test_regex_changed           (GtkWidget *widget);
+static gboolean         cb_test_regex_changed_timeout   ();
+static void             update_test_regex_textview_tags ();
 static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 
 static XfconfChannel *xfconf_channel = NULL;
 static GladeXML *gxml = NULL;
 static ClipmanActions *actions = NULL;
 static GtkWidget *settings_dialog = NULL;
+static guint test_regex_changed_timeout = 0;
 
 
 
@@ -119,9 +125,12 @@ prop_dialog_run ()
   glade_xml_signal_connect_data (gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), NULL);
   glade_xml_signal_connect_data (gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), NULL);
   glade_xml_signal_connect_data (gxml, "cb_show_help", G_CALLBACK (cb_show_help), NULL);
+  glade_xml_signal_connect_data (gxml, "cb_test_regex", G_CALLBACK (cb_test_regex), NULL);
+  glade_xml_signal_connect_data (gxml, "cb_test_regex_changed", G_CALLBACK (cb_test_regex_changed), NULL);
 
   setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "actions")));
   setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  setup_test_regex_dialog ();
 
   /* Callbacks for the OK button sensitivity in the edit action dialog */
   g_signal_connect_after (glade_xml_get_widget (gxml, "action-name"), "changed",
@@ -626,6 +635,148 @@ cb_delete_command (GtkButton *button)
   gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
 }
 
+
+
+/* Regex dialog */
+static void
+setup_test_regex_dialog ()
+{
+  GtkWidget *textview;
+  GtkTextBuffer *buffer;
+
+  textview = glade_xml_get_widget (gxml, "regex-textview");
+  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
+
+  gtk_text_buffer_create_tag (buffer, "match",
+                              "background", "#555152",
+                              "foreground", "#EFFFCD",
+                              NULL);
+  gtk_text_buffer_create_tag (buffer, "match-secondary",
+                              "background", "#2E2633",
+                              "foreground", "#DCE9BE",
+                              NULL);
+
+  g_signal_connect (buffer, "changed", G_CALLBACK (cb_test_regex_changed), NULL);
+}
+
+static void
+cb_test_regex (GtkButton *button)
+{
+  GtkWidget *regex;
+  GtkWidget *dialog;
+  GtkWidget *entry;
+  GtkWidget *textview;
+  const gchar *pattern;
+
+  regex = glade_xml_get_widget (gxml, "regex");
+  dialog = glade_xml_get_widget (gxml, "regex-dialog");
+  entry = glade_xml_get_widget (gxml, "regex-entry");
+
+  pattern = gtk_entry_get_text (GTK_ENTRY (regex));
+  gtk_entry_set_text (GTK_ENTRY (entry), pattern);
+
+  if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_APPLY)
+    {
+      pattern = gtk_entry_get_text (GTK_ENTRY (entry));
+      gtk_entry_set_text (GTK_ENTRY (regex), pattern);
+    }
+
+  gtk_widget_hide (dialog);
+}
+
+static void 
+cb_test_regex_changed (GtkWidget *widget)
+{
+  if (test_regex_changed_timeout > 0)
+    g_source_remove (test_regex_changed_timeout);
+
+  test_regex_changed_timeout = g_timeout_add_seconds (1, (GSourceFunc)cb_test_regex_changed_timeout, NULL);
+}
+
+static gboolean
+cb_test_regex_changed_timeout ()
+{
+  update_test_regex_textview_tags ();
+  test_regex_changed_timeout = 0;
+  return FALSE;
+}
+
+static void
+update_test_regex_textview_tags ()
+{
+  GtkWidget *entry;
+  GtkWidget *textview;
+  GtkTextBuffer *buffer;
+  GtkTextIter start, end;
+  GRegex *regex;
+  GMatchInfo *match_info = NULL;
+  const gchar *pattern;
+  gchar *text;
+
+  entry = glade_xml_get_widget (gxml, "regex-entry");
+  textview = glade_xml_get_widget (gxml, "regex-textview");
+  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
+  gtk_text_buffer_get_iter_at_offset (buffer, &start, 0);
+  gtk_text_buffer_get_iter_at_offset (buffer, &end, -1);
+
+  /* Remove all tags */
+  gtk_text_buffer_remove_all_tags (buffer, &start, &end);
+
+  /* Build Regex */
+  pattern = gtk_entry_get_text (GTK_ENTRY (entry));
+  regex = g_regex_new (pattern, G_REGEX_DOTALL|G_REGEX_CASELESS, 0, NULL);
+  if (regex == NULL)
+    {
+#if GTK_CHECK_VERSION (2, 16, 0)
+      gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_DIALOG_ERROR);
+#endif
+      return;
+    }
+#if GTK_CHECK_VERSION (2, 16, 0)
+  gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_APPLY);
+#endif
+
+  text = gtk_text_buffer_get_text (buffer, &start, &end, FALSE);
+  if (!g_regex_match (regex, text, 0, &match_info))
+    {
+      g_regex_unref (regex);
+      g_match_info_free (match_info);
+      g_free (text);
+      return;
+    }
+
+  /* Update tags in textview */
+  do
+    {
+      gint i;
+      gint match_count;
+
+      match_count = g_match_info_get_match_count (match_info);
+      for (i = 0; i < match_count; i++)
+        {
+          gint start_pos, end_pos;
+          GtkTextIter tag_start, tag_end;
+
+          /* Insert tag at pos start_pos,end_pos */
+          g_match_info_fetch_pos (match_info, i, &start_pos, &end_pos);
+          gtk_text_buffer_get_iter_at_offset (buffer, &tag_start, start_pos);
+          gtk_text_buffer_get_iter_at_offset (buffer, &tag_end, end_pos);
+          if (i == 0)
+            gtk_text_buffer_apply_tag_by_name (buffer, "match", &tag_start, &tag_end);
+          else
+            gtk_text_buffer_apply_tag_by_name (buffer, "match-secondary", &tag_start, &tag_end);
+        }
+    }
+  while  (g_match_info_next (match_info, NULL));
+
+  g_regex_unref (regex);
+  g_match_info_free (match_info);
+  g_free (text);
+}
+
+
+
+/* Sensitivity of buttons */
 static void
 cb_set_action_dialog_button_ok (GtkWidget *widget)
 {
@@ -658,6 +809,7 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
 
 
 
+/* Main */
 #ifdef HAVE_UNIQUE
 static UniqueResponse
 cb_unique_app (UniqueApp *app,
