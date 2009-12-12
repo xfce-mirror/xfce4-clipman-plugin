@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-11 23:41+0100\n"
+"POT-Creation-Date: 2009-12-12 19:12+0100\n"
 "PO-Revision-Date: 2009-11-20 14:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -62,12 +62,12 @@ msgstr "Ver com Ristretto"
 msgid "Xfce Bug"
 msgstr "Bug do Xfce"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:440
+#: ../panel-plugin/xfce4-clipman-settings.c:449
 #, fuzzy
 msgid "<b>Reset actions</b>"
 msgstr "<b>Acção</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:442
+#: ../panel-plugin/xfce4-clipman-settings.c:451
 #, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
@@ -170,26 +170,34 @@ msgid "Pattern:"
 msgstr "Padrão:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
+msgid "Regular expression"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
 msgstr "Gravar ao sai_r"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
 msgstr "Tamanho do _histórico:"
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
 msgstr "Guardar uma _imagem"
 
-#: ../panel-plugin/settings-dialog.glade.h:24
+#: ../panel-plugin/settings-dialog.glade.h:25
 msgid "Sync _selections"
 msgstr "Sincronizar _selecções"
 
-#: ../panel-plugin/settings-dialog.glade.h:25
+#: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "O padrão é sempre ancorado dentro de caracteres especiais ^$"
 
-#: ../panel-plugin/settings-dialog.glade.h:26
+#: ../panel-plugin/settings-dialog.glade.h:27
+msgid "Type here your custom text, for example an URL, a filename, etc."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "

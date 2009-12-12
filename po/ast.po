@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-11 23:41+0100\n"
+"POT-Creation-Date: 2009-12-12 19:12+0100\n"
 "PO-Revision-Date: 2009-07-13 19:54+0100\n"
 "Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -60,12 +60,12 @@ msgstr "Ver con Ristretto"
 msgid "Xfce Bug"
 msgstr "Fallu de Xfce"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:440
+#: ../panel-plugin/xfce4-clipman-settings.c:449
 #, fuzzy
 msgid "<b>Reset actions</b>"
 msgstr "<b>Aición</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:442
+#: ../panel-plugin/xfce4-clipman-settings.c:451
 #, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
@@ -172,26 +172,34 @@ msgid "Pattern:"
 msgstr "Patrón:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
+msgid "Regular expression"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
 msgstr "Guardar al _colar"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
 msgstr "Tamañu del _hestorial:"
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
 msgstr "Atroxar una _imaxe"
 
-#: ../panel-plugin/settings-dialog.glade.h:24
+#: ../panel-plugin/settings-dialog.glade.h:25
 msgid "Sync _selections"
 msgstr "Sincronizar les _seleiciones"
 
-#: ../panel-plugin/settings-dialog.glade.h:25
+#: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:26
+#: ../panel-plugin/settings-dialog.glade.h:27
+msgid "Type here your custom text, for example an URL, a filename, etc."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "

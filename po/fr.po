@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-11 23:41+0100\n"
-"PO-Revision-Date: 2009-12-11 23:42+0100\n"
+"POT-Creation-Date: 2009-12-12 19:12+0100\n"
+"PO-Revision-Date: 2009-12-12 19:14+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -64,11 +64,11 @@ msgstr "Ouvrir avec Ristretto"
 msgid "Xfce Bug"
 msgstr "Bogue Xfce"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:440
+#: ../panel-plugin/xfce4-clipman-settings.c:449
 msgid "<b>Reset actions</b>"
 msgstr "<b>Réinitialiser les actions</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:442
+#: ../panel-plugin/xfce4-clipman-settings.c:451
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr ""
@@ -175,27 +175,37 @@ msgid "Pattern:"
 msgstr "Motif :"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
+msgid "Regular expression"
+msgstr "Expression régulière"
+
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
 msgstr "Sauvegarder avant de _quitter"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
 msgstr "Taille de l'_historique :"
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
 msgstr "Stocker une _image"
 
-#: ../panel-plugin/settings-dialog.glade.h:24
+#: ../panel-plugin/settings-dialog.glade.h:25
 msgid "Sync _selections"
 msgstr "S_ynchroniser les sélections"
 
-#: ../panel-plugin/settings-dialog.glade.h:25
+#: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 "L'expression régulière est toujours entourée des caractères spéciaux ^$"
 
-#: ../panel-plugin/settings-dialog.glade.h:26
+#: ../panel-plugin/settings-dialog.glade.h:27
+msgid "Type here your custom text, for example an URL, a filename, etc."
+msgstr ""
+"Saisissez ici votre texte personnalisé, par exemple une URL, un nom de "
+"fichier, etc."
+
+#: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
