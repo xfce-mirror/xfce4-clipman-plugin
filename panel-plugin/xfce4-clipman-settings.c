@@ -265,7 +265,7 @@ refresh_actions_treeview (GtkTreeView *treeview)
       entry = entries->data;
 
       title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>",
-                                       entry->action_name, g_regex_get_pattern (entry->regex));
+                                       entry->action_name, entry->pattern);
       gtk_list_store_append (GTK_LIST_STORE (model), &iter);
       gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, entry, 1, title, -1);
       g_free (title);
@@ -402,7 +402,7 @@ cb_actions_row_activated (GtkTreeView *treeview,
 #endif
 
   gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")), entry->action_name);
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), g_regex_get_pattern (entry->regex));
+  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), entry->pattern);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), entry->group);
 
   res = gtk_dialog_run (GTK_DIALOG (action_dialog));

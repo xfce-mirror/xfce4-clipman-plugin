@@ -29,6 +29,7 @@ typedef struct _ClipmanActionsEntry ClipmanActionsEntry;
 struct _ClipmanActionsEntry
 {
   gchar                *action_name;
+  gchar                *pattern;
   GRegex               *regex;
   gint                  group;
   GHashTable           *commands;

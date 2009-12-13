@@ -534,6 +534,7 @@ clipman_actions_add (ClipmanActions *actions,
 
       entry = g_slice_new0 (ClipmanActionsEntry);
       entry->action_name = g_strdup (action_name);
+      entry->pattern = g_strdup (regex);
       entry->regex = _regex;
       entry->group = 0;
       entry->commands = g_hash_table_new_full ((GHashFunc)g_str_hash, (GEqualFunc)g_str_equal,
@@ -857,7 +858,7 @@ clipman_actions_save (ClipmanActions *actions)
       g_string_append_printf (output, "\t\t<name>%s</name>\n", tmp);
       g_free (tmp);
 
-      tmp = g_markup_escape_text (g_regex_get_pattern (entry->regex), -1);
+      tmp = g_markup_escape_text (entry->pattern, -1);
       g_string_append_printf (output, "\t\t<regex>%s</regex>\n", tmp);
       g_free (tmp);
 
