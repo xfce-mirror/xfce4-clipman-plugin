@@ -724,7 +724,7 @@ update_test_regex_textview_tags ()
 
   /* Build Regex */
   pattern = gtk_entry_get_text (GTK_ENTRY (entry));
-  regex = g_regex_new (pattern, G_REGEX_DOTALL|G_REGEX_CASELESS, 0, NULL);
+  regex = g_regex_new (pattern, G_REGEX_CASELESS|G_REGEX_MULTILINE, 0, NULL);
   if (regex == NULL)
     {
 #if GTK_CHECK_VERSION (2, 16, 0)
@@ -759,6 +759,8 @@ update_test_regex_textview_tags ()
 
           /* Insert tag at pos start_pos,end_pos */
           g_match_info_fetch_pos (match_info, i, &start_pos, &end_pos);
+          start_pos = g_utf8_pointer_to_offset (text, text + start_pos);
+          end_pos = g_utf8_pointer_to_offset (text, text + end_pos);
           gtk_text_buffer_get_iter_at_offset (buffer, &tag_start, start_pos);
           gtk_text_buffer_get_iter_at_offset (buffer, &tag_end, end_pos);
           if (i == 0)
