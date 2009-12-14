@@ -687,6 +687,12 @@ cb_test_regex (GtkButton *button)
 static void 
 cb_test_regex_changed (GtkWidget *widget)
 {
+#if GTK_CHECK_VERSION (2, 16, 0)
+  if (test_regex_changed_timeout == 0)
+    gtk_entry_set_icon_from_stock (GTK_ENTRY (glade_xml_get_widget (gxml, "regex-entry")),
+                                   GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_REFRESH);
+#endif
+
   if (test_regex_changed_timeout > 0)
     g_source_remove (test_regex_changed_timeout);
 
