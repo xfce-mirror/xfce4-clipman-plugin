@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: CLIPMAN PLUGIN TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-07-25 14:03+0100\n"
+"PO-Revision-Date: 2009-12-13 10:44+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
-"Language-Team: Italian\n"
+"Language-Team: Italian Translation Team <xfce-it-translators@googlegroups>.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,15 +69,13 @@ msgid "Xfce Bug"
 msgstr "Problema di Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Azione</b>"
+msgstr "<b>Ripristina azioni</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Svuotare davvero la cronologia?"
+msgstr "Ripristinare davvero le azioni ai valori predefiniti di sistema?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -117,7 +115,7 @@ msgstr "Comando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr "Configura il plugin"
+msgstr "Configurazione del plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
@@ -136,7 +134,7 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"Se abilitato, i testi degli appunti saranno confrontati con le espressioni "
+"Se abilitata, i testi degli appunti saranno confrontati con le espressioni "
 "regolari e un menu visualizzerà le azioni possibili"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
@@ -151,7 +149,7 @@ msgstr ""
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
-"Se abilitata, le selezioni non influenzeranno  la cronologia a meno che non "
+"Se abilitata, le selezioni non influenzeranno la cronologia a meno che non "
 "vengano copiate manualmente"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
@@ -168,9 +166,8 @@ msgstr ""
 "sessione di Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Sincronizza _selezioni"
+msgstr "Ignora _selezioni"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -183,7 +180,7 @@ msgstr "Schema:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Espressione regolare"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -203,11 +200,12 @@ msgstr "Sincronizza _selezioni"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Lo schema è sempre ancorato all'interno del carattere speciale ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
 msgstr ""
+"Inserire qui il testo personalizzato quale una URL, un nome di file ecc..."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
@@ -243,7 +241,7 @@ msgstr "Gli appunti sono vuoti"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Collaboratori:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
