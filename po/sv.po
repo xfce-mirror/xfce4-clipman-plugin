@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
+"PO-Revision-Date: 2009-12-16 17:46+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,6 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
 msgstr "Urklippshanterare"
 
@@ -26,8 +25,10 @@ msgstr "Urklippshanterare"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127
+#: ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -37,7 +38,7 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Redigera med Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
@@ -45,7 +46,7 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
@@ -57,90 +58,78 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Visa med Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
 msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Allmänt</b>"
+msgstr "<b>Återställ åtgärder</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Är du säker på att du vill tömma historiken?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Är du säker på att du vill återställa åtgärderna till systemets standardvärden?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Åtgärd</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Allmänt</b>"
+msgstr "<b>Beteende</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Nummer</b>"
+msgstr "<b>Kommandon</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historik</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr ""
+msgstr "Åtgärder"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Aktivera endast vid manuell kopiering"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Kommando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Konfigurera insticksmodulen"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Redigera åtgärd"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Aktivera _åtgärder"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "Allmänt"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
+msgid "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
@@ -148,43 +137,40 @@ msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Lägg till _markeringar till historiken"
+msgstr "Ignorera ma_rkeringar"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Namn:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Mönster:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Reguljärt uttryck"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
-msgstr ""
+msgstr "Spara vid a_vslut"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Storlek för _historik:"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
-msgstr ""
+msgstr "Lagra en _bild"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Lägg till _markeringar till historiken"
+msgstr "Synkronisera _markeringar"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
@@ -192,14 +178,10 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Mata in din anpassade text här, till exempel en URL, ett filnamn, etc."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
 msgstr ""
 
 #: ../panel-plugin/actions.c:367
@@ -209,6 +191,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Kunde inte köra kommandot \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -216,45 +201,37 @@ msgstr "Är du säker på att du vill tömma historiken?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Urklippet är tomt >"
+msgstr "Urklippet är tomt"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Bidragsgivare:"
 
 #: ../panel-plugin/plugin.c:308
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Urklippshanterare för Xfce-skrivbordet"
+msgstr "Urklippshanterare för Xfce"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Daniel Nylander"
 
 #: ../panel-plugin/plugin.c:331
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Kunde inte öppna följande url: %s"
+msgstr "Kunde inte öppna inställningsdialogen"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Spara urklippsinnehåll vid a_vslut"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Visa objektnummer"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Historik för urklippsobjekt:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Menyobjektstecken:"
-
 #~ msgid "Clear History"
 #~ msgstr "Töm historik"
-
 #~ msgid "Clipman History"
 #~ msgstr "Historik för Clipman"
-
 #~ msgid "Appearance"
 #~ msgstr "Utseende"
+
