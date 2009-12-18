@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-09-19 12:04+0100\n"
+"PO-Revision-Date: 2009-12-18 17:56+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -30,8 +30,10 @@ msgstr "Xestor de portarretallos"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127
+#: ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -68,15 +70,12 @@ msgid "Xfce Bug"
 msgstr "Erro de Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Acción</b>"
+msgstr "<b>Restablecer as accións</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Está seguro de que desexa limpar o historial?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Está seguro de que desexa restablecer os valores predeterminados das accións?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -103,12 +102,8 @@ msgid "Activate only on manual copy"
 msgstr "Activar só ao copiar manualmente"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Por defecto a acción é provocada por unha selección, marque esta opción para "
-"activar a acción só cando faga unha copia manual"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Por defecto a acción é provocada por unha selección, marque esta opción para activar a acción só cando faga unha copia manual"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -131,43 +126,28 @@ msgid "General"
 msgstr "Xeral"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Se está marcado, os textos do portarretallos hanse comparar con expresións "
-"regulares e mostrarase un menú cas posibles accións"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Se está marcado, os textos do portarretallos hanse comparar con expresións regulares e mostrarase un menú cas posibles accións"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Se está marcado, as seleccións hanse sincronizar co portarretallos "
-"predeterminado dun xeito que poida pegar o que selecciona"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Se está marcado, as seleccións hanse sincronizar co portarretallos predeterminado dun xeito que poida pegar o que selecciona"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Se está marcado, as seleccións non lle afectarán ao historial excepto se son "
-"copias manuais"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Se está marcado, as seleccións non lle afectarán ao historial excepto se son copias manuais"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Se está marcado, esta opción permite almacenar unha imaxe no historial"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Se está marcado, esta opción restablecerá o historial en cada vez que se "
-"inicie unha nova sesión de Xfce"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Se está marcado, esta opción restablecerá o historial en cada vez que se inicie unha nova sesión de Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Sincronizar as _seleccións"
+msgstr "Ignorar as s_eleccións"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -179,7 +159,7 @@ msgstr "Patrón:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Expresión regular"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -199,23 +179,15 @@ msgstr "Sincronizar as _seleccións"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "O patrón sempre levará os caracteres especiais ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Introduza aquí o seu texto, por exemplo un URL, un nome de ficheiro, etc."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nos comandos. "
-"O parámetro \"\\0\" representa o texto completo. Se non sabe usar as "
-"expresións regulares, bótelle unha ollada á documentación de Clipman porque "
-"ten unha breve introdución a elas."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nos comandos. O parámetro \"\\0\" representa o texto completo. Se non sabe usar as expresións regulares, bótelle unha ollada á documentación de Clipman porque ten unha breve introdución a elas."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -239,7 +211,7 @@ msgstr "O portarretallos está baleiro"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "contribuíntes:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
@@ -251,8 +223,7 @@ msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.\n"
 "\n"
 "Proxecto Trasno - Adaptación do software libre á lingua galega:\n"
-"Se desexas colaborar connosco, podes atopar máis información en http://"
-"trasno.net"
+"Se desexas colaborar connosco, podes atopar máis información en http://trasno.net"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
@@ -260,22 +231,16 @@ msgstr "Non foi posible abrir o diálogo de configuración"
 
 #~ msgid "E_xclude from history"
 #~ msgstr "E_xcluír do historial"
-
 #~ msgid "Autostart Clipman"
 #~ msgstr "Iniciar automaticamente Clipman"
-
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "Desexa iniciar automaticamente o xestor de portarretallos?"
-
 #~ msgid "Authors of previous versions:"
 #~ msgstr "Autores das versións anteriores:"
-
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Xa se está executando un xestor de portarretallos"
-
 #~ msgid "_Enable"
 #~ msgstr "_Activar"
-
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
 #~ "bring the history to be unreadable, however it can be interesting in case "
@@ -284,30 +249,22 @@ msgstr "Non foi posible abrir o diálogo de configuración"
 #~ "Se está marcado, as seleccións irán ó historial. Este comportamento pode "
 #~ "facer que o historial sexa ilexible, aínda que pode ser interesante no "
 #~ "caso de que sempre queira pegar o que selecciona."
-
 #~ msgid "Regex:"
 #~ msgstr "Expresión regular:"
-
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Gardar o contido do portarretallos ó saír"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar os números de elemento"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Xeral</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Elementos do historial do portarretallos:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres de elemento do menú:"
-
 #~ msgid "Clear History"
 #~ msgstr "Limpar o historial"
-
 #~ msgid "Clipman History"
 #~ msgstr "Historial de Clipman"
-
 #~ msgid "Appearance"
 #~ msgstr "Aparencia"
+
