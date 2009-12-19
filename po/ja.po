@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-12-12 17:51+0900\n"
+"POT-Creation-Date: 2009-12-19 22:36+0900\n"
+"PO-Revision-Date: 2009-12-19 22:36+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -173,7 +173,7 @@ msgstr "パターン:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "正規表現"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -197,7 +197,7 @@ msgstr "パターンには常に特殊文字 ^$ が適用されます"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "ここにカスタム文字列を入力してください。例えば URL やファイル名など。"
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
