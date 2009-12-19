@@ -62,8 +62,6 @@ enum
 };
 static guint signals[LAST_SIGNAL];
 
-static void             clipman_history_class_init         (ClipmanHistoryClass *klass);
-static void             clipman_history_init               (ClipmanHistory *history);
 static void             clipman_history_finalize           (GObject *object);
 static void             clipman_history_set_property       (GObject *object,
                                                             guint property_id,
@@ -364,7 +362,7 @@ clipman_history_clear (ClipmanHistory *history)
 }
 
 ClipmanHistory *
-clipman_history_get ()
+clipman_history_get (void)
 {
   static ClipmanHistory *singleton = NULL;
 

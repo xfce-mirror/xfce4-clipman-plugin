@@ -33,6 +33,8 @@
 
 #define GSD_CLIPBOARD_MANAGER_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GSD_TYPE_CLIPBOARD_MANAGER, GsdClipboardManagerPrivate))
 
+G_DEFINE_TYPE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
+
 struct GsdClipboardManagerPrivate
 {
         GtkClipboard *default_clipboard;
@@ -48,13 +50,7 @@ struct GsdClipboardManagerPrivate
         GtkWidget    *window;
 };
 
-static void     gsd_clipboard_manager_class_init  (GsdClipboardManagerClass *klass);
-static void     gsd_clipboard_manager_init        (GsdClipboardManager      *clipboard_manager);
 static void     gsd_clipboard_manager_finalize    (GObject                  *object);
-
-G_DEFINE_TYPE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
-
-static gpointer manager_object = NULL;
 
 
 Atom XA_CLIPBOARD_MANAGER;
@@ -448,13 +444,14 @@ gsd_clipboard_manager_finalize (GObject *object)
 GsdClipboardManager *
 gsd_clipboard_manager_new (void)
 {
-        if (manager_object != NULL) {
-                g_object_ref (manager_object);
+        static gpointer singleton = NULL;
+
+        if (singleton != NULL) {
+                g_object_ref (singleton);
         } else {
-                manager_object = g_object_new (GSD_TYPE_CLIPBOARD_MANAGER, NULL);
-                g_object_add_weak_pointer (manager_object,
-                                           (gpointer *) &manager_object);
+                singleton = g_object_new (GSD_TYPE_CLIPBOARD_MANAGER, NULL);
+                g_object_add_weak_pointer (singleton, (gpointer *) &singleton);
         }
 
-        return GSD_CLIPBOARD_MANAGER (manager_object);
+        return GSD_CLIPBOARD_MANAGER (singleton);
 }

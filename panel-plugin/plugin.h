@@ -46,7 +46,7 @@ struct _MyPlugin
   XfcePanelPlugin      *panel_plugin;
   GtkWidget            *button;
   GtkWidget            *image;
-#elif STATUS_ICON
+#elif defined (STATUS_ICON)
   GtkStatusIcon        *status_icon;
 #endif
   GsdClipboardManager  *daemon;
@@ -70,7 +70,7 @@ void                    plugin_save                     (MyPlugin *plugin);
 void                    plugin_free                     (MyPlugin *plugin);
 void                    plugin_about                    (MyPlugin *plugin);
 void                    plugin_configure                (MyPlugin *plugin);
-void                    plugin_menu_popup               (MyPlugin *plugin);
+void                    plugin_popup_menu               (MyPlugin *plugin);
 
 #endif /* !__CLIPMAN_PLUGIN_H__ */
 

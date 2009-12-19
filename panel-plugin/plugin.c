@@ -20,6 +20,7 @@
 #include <config.h>
 #endif
 
+#include <glib/gstdio.h>
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
@@ -50,7 +51,7 @@ static gboolean         xfce_popup_grab_available       (GdkWindow *win,
 
 
 static gboolean
-clipboard_manager_ownership_exists ()
+clipboard_manager_ownership_exists (void)
 {
   Display *display;
   Atom atom;
@@ -65,7 +66,7 @@ clipboard_manager_ownership_exists ()
  */
 
 MyPlugin *
-plugin_register ()
+plugin_register (void)
 {
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
 
@@ -258,7 +259,7 @@ plugin_free (MyPlugin *plugin)
 
 #ifdef PANEL_PLUGIN
   gtk_widget_destroy (plugin->button);
-#elif STATUS_ICON
+#elif defined (STATUS_ICON)
   gtk_widget_destroy (plugin->popup_menu);
 #endif
 
@@ -349,7 +350,7 @@ plugin_popup_menu (MyPlugin *plugin)
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
       xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
     }
-#elif STATUS_ICON
+#elif defined (STATUS_ICON)
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin->status_icon,
@@ -403,7 +404,7 @@ cb_popup_message_received (MyPlugin *plugin,
      * a keyboard shortcut to the popup command doesn't always work out... */
 #ifdef PANEL_PLUGIN
     GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (plugin->button));
-#elif STATUS_ICON
+#elif defined (STATUS_ICON)
     GdkScreen *screen = gtk_status_icon_get_screen (plugin->status_icon);
 #endif
     GdkWindow *root = gdk_screen_get_root_window (screen);

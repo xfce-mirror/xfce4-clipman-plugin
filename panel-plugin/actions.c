@@ -60,8 +60,6 @@ struct _ClipmanActionsPrivate
   GtkWidget            *menu;
 };
 
-static void             clipman_actions_class_init          (ClipmanActionsClass *klass);
-static void             clipman_actions_init                (ClipmanActions *actions);
 static void             clipman_actions_finalize            (GObject *object);
 
 /*
@@ -755,17 +753,19 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
       gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
 
 #if GLIB_CHECK_VERSION (2,16,0)
-      GHashTableIter iter;
-      gpointer key, value;
-      g_hash_table_iter_init (&iter, entry->commands);
-      while (g_hash_table_iter_next (&iter, &key, &value))
         {
-          mi = gtk_menu_item_new_with_label ((const gchar *)key);
-          g_object_set_data (G_OBJECT (mi), "text", g_object_get_data (G_OBJECT (actions->priv->menu), "text"));
-          g_object_set_data (G_OBJECT (mi), "command", value);
-          g_object_set_data (G_OBJECT (mi), "regex", entry->regex);
-          gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
-          g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
+          GHashTableIter iter;
+          gpointer key, value;
+          g_hash_table_iter_init (&iter, entry->commands);
+          while (g_hash_table_iter_next (&iter, &key, &value))
+            {
+              mi = gtk_menu_item_new_with_label ((const gchar *)key);
+              g_object_set_data (G_OBJECT (mi), "text", g_object_get_data (G_OBJECT (actions->priv->menu), "text"));
+              g_object_set_data (G_OBJECT (mi), "command", value);
+              g_object_set_data (G_OBJECT (mi), "regex", entry->regex);
+              gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
+              g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
+            }
         }
 #else
       g_object_set_data (G_OBJECT (actions->priv->menu), "regex", entry->regex);
@@ -800,12 +800,12 @@ clipman_actions_load (ClipmanActions *actions)
   GMarkupParseContext *context;
   EntryParser *parser;
 
-  load = g_file_load_contents (actions->priv->file, NULL, &data, &size, NULL, NULL);
+  load = g_file_load_contents (actions->priv->file, NULL, &data, (gsize*)&size, NULL, NULL);
 
   if (!load)
     {
       filename = g_strdup (SYSCONFDIR"/xdg/xfce4/panel/xfce4-clipman-actions.xml");
-      load = g_file_get_contents (filename, &data, &size, NULL);
+      load = g_file_get_contents (filename, &data, (gsize*)&size, NULL);
       g_free (filename);
     }
 
@@ -867,22 +867,24 @@ clipman_actions_save (ClipmanActions *actions)
       g_string_append (output, "\t\t<commands>\n");
 
 #if GLIB_CHECK_VERSION (2,16,0)
-      GHashTableIter iter;
-      gpointer key, value;
-      g_hash_table_iter_init (&iter, entry->commands);
-      while (g_hash_table_iter_next (&iter, &key, &value))
         {
-          g_string_append (output, "\t\t\t<command>\n");
+          GHashTableIter iter;
+          gpointer key, value;
+          g_hash_table_iter_init (&iter, entry->commands);
+          while (g_hash_table_iter_next (&iter, &key, &value))
+            {
+              g_string_append (output, "\t\t\t<command>\n");
 
-          tmp = g_markup_escape_text (key, -1);
-          g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
-          g_free (tmp);
+              tmp = g_markup_escape_text (key, -1);
+              g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
+              g_free (tmp);
 
-          tmp = g_markup_escape_text (value, -1);
-          g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
-          g_free (tmp);
+              tmp = g_markup_escape_text (value, -1);
+              g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
+              g_free (tmp);
 
-          g_string_append (output, "\t\t\t</command>\n");
+              g_string_append (output, "\t\t\t</command>\n");
+            }
         }
 #else
       g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_write_xml, output);
@@ -910,7 +912,7 @@ clipman_actions_save (ClipmanActions *actions)
  *
  */
 ClipmanActions *
-clipman_actions_get ()
+clipman_actions_get (void)
 {
   static ClipmanActions *singleton = NULL;
 

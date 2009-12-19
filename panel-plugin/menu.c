@@ -51,8 +51,6 @@ enum
   REVERSE_ORDER = 1,
 };
 
-static void             clipman_menu_class_init         (ClipmanMenuClass *klass);
-static void             clipman_menu_init               (ClipmanMenu *menu);
 static void             clipman_menu_finalize           (GObject *object);
 static void             clipman_menu_set_property       (GObject *object,
                                                          guint property_id,
@@ -225,7 +223,7 @@ _clipman_menu_free_list (ClipmanMenu *menu)
  */
 
 GtkWidget *
-clipman_menu_new ()
+clipman_menu_new (void)
 {
   return g_object_new (CLIPMAN_TYPE_MENU, NULL);
 }

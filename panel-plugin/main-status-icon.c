@@ -42,8 +42,6 @@ static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint button,
                                                          guint activate_time);
 static void             cb_status_icon_quit             (MyPlugin *plugin);
-static gboolean         cb_status_icon_set_size         (MyPlugin *plugin,
-                                                         gint size);
 static void             cb_status_icon_finalize         (MyPlugin *plugin);
 static void             install_autostart_file          ();
 static void             update_autostart_file           ();
@@ -76,7 +74,7 @@ main (gint argc,
  */
 
 static MyPlugin *
-status_icon_register ()
+status_icon_register (void)
 {
   MyPlugin *plugin = plugin_register ();
 
@@ -165,11 +163,10 @@ cb_status_icon_finalize (MyPlugin *plugin)
 }
 
 static void
-install_autostart_file ()
+install_autostart_file (void)
 {
   gchar *sysfile;
   gchar *userfile;
-  gint res;
   GKeyFile *keyfile;
   gchar *data;
 
@@ -207,7 +204,6 @@ static void
 update_autostart_file (gboolean autostart)
 {
   gchar *userfile;
-  gint res;
   GKeyFile *keyfile;
   gchar *data;
 

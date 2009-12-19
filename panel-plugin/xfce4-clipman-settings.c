@@ -28,6 +28,7 @@
 #include <unique/unique.h>
 #endif
 
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <glade/glade.h>
 #include <libxfcegui4/libxfcegui4.h>
@@ -77,7 +78,7 @@ static guint test_regex_changed_timeout = 0;
 
 
 static void
-prop_dialog_run ()
+prop_dialog_run (void)
 {
   GtkWidget *action_dialog;
 
@@ -387,15 +388,17 @@ cb_actions_row_activated (GtkTreeView *treeview,
 
   commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
 #if GLIB_CHECK_VERSION (2,16,0)
-  GHashTableIter hiter;
-  gpointer key, value;
-  g_hash_table_iter_init (&hiter, entry->commands);
-  while (g_hash_table_iter_next (&hiter, &key, &value))
     {
-      title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
-      gtk_list_store_append (GTK_LIST_STORE (commands_model), &iter);
-      gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
-      g_free (title);
+      GHashTableIter hiter;
+      gpointer key, value;
+      g_hash_table_iter_init (&hiter, entry->commands);
+      while (g_hash_table_iter_next (&hiter, &key, &value))
+        {
+          title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
+          gtk_list_store_append (GTK_LIST_STORE (commands_model), &iter);
+          gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
+          g_free (title);
+        }
     }
 #else
   g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_fill_commands, commands_model);
@@ -488,7 +491,7 @@ setup_commands_treeview (GtkTreeView *treeview)
 }
 
 static void
-entry_dialog_cleanup ()
+entry_dialog_cleanup (void)
 {
   GtkTreeModel *model;
 
@@ -639,7 +642,7 @@ cb_delete_command (GtkButton *button)
 
 /* Regex dialog */
 static void
-setup_test_regex_dialog ()
+setup_test_regex_dialog (void)
 {
   GtkWidget *textview;
   GtkTextBuffer *buffer;
@@ -665,7 +668,6 @@ cb_test_regex (GtkButton *button)
   GtkWidget *regex;
   GtkWidget *dialog;
   GtkWidget *entry;
-  GtkWidget *textview;
   const gchar *pattern;
 
   regex = glade_xml_get_widget (gxml, "regex");
@@ -700,7 +702,7 @@ cb_test_regex_changed (GtkWidget *widget)
 }
 
 static gboolean
-cb_test_regex_changed_timeout ()
+cb_test_regex_changed_timeout (void)
 {
   update_test_regex_textview_tags ();
   test_regex_changed_timeout = 0;
@@ -708,7 +710,7 @@ cb_test_regex_changed_timeout ()
 }
 
 static void
-update_test_regex_textview_tags ()
+update_test_regex_textview_tags (void)
 {
   GtkWidget *entry;
   GtkWidget *textview;
@@ -845,16 +847,18 @@ main (gint argc,
   gtk_init (&argc, &argv);
 
 #ifdef HAVE_UNIQUE
-  UniqueApp *app = unique_app_new ("org.xfce.Clipman", NULL);
-  if (unique_app_is_running (app))
     {
-      if (unique_app_send_message (app, UNIQUE_ACTIVATE, NULL) == UNIQUE_RESPONSE_OK)
+      UniqueApp *app = unique_app_new ("org.xfce.Clipman", NULL);
+      if (unique_app_is_running (app))
         {
-          g_object_unref (app);
-          return;
+          if (unique_app_send_message (app, UNIQUE_ACTIVATE, NULL) == UNIQUE_RESPONSE_OK)
+            {
+              g_object_unref (app);
+              return 0;
+            }
         }
+      g_signal_connect (app, "message-received", G_CALLBACK (cb_unique_app), NULL);
     }
-  g_signal_connect (app, "message-received", G_CALLBACK (cb_unique_app), NULL);
 #endif
 
   xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");

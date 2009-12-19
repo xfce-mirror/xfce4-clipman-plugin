@@ -58,8 +58,6 @@ enum
   ENABLE_ACTIONS,
 };
 
-static void             clipman_collector_class_init        (ClipmanCollectorClass *klass);
-static void             clipman_collector_init              (ClipmanCollector *collector);
 static void             clipman_collector_constructed       (GObject *object);
 static void             clipman_collector_finalize          (GObject *object);
 static void             clipman_collector_set_property      (GObject *object,
@@ -200,7 +198,7 @@ clipman_collector_set_is_restoring (ClipmanCollector *collector)
 }
 
 ClipmanCollector *
-clipman_collector_get ()
+clipman_collector_get (void)
 {
   static ClipmanCollector *singleton = NULL;
 
