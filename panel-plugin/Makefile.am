@@ -1,7 +1,6 @@
 NULL = 
 
 INCLUDES =								\
-	-DGSEAL_ENABLE							\
 	-I${top_srcdir}							\
 	-DSYSCONFDIR=\"$(sysconfdir)\"					\
 	-DDATAROOTDIR=\"$(datarootdir)\"				\
@@ -32,6 +31,7 @@ xfce4_popup_clipman_SOURCES =						\
 	$(NULL)
 
 xfce4_popup_clipman_CFLAGS =                                            \
+	-DGSEAL_ENABLE							\
 	@LIBX11_CFLAGS@							\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
@@ -55,6 +55,7 @@ xfce4_clipman_settings_SOURCES =					\
 	$(NULL)
 
 xfce4_clipman_settings_CFLAGS =						\
+	-DGSEAL_ENABLE							\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
@@ -91,6 +92,7 @@ xfce4_clipman_SOURCES =							\
 	$(NULL)
 
 xfce4_clipman_CFLAGS =							\
+	-DGSEAL_ENABLE							\
 	-DSTATUS_ICON							\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
