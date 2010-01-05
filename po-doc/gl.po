@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman master\n"
 "POT-Creation-Date: 2009-11-15 18:30+0100\n"
-"PO-Revision-Date: 2009-12-18 17:48+0100\n"
+"PO-Revision-Date: 2009-12-25 15:15+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "2009"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:28(para)
 msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is available from the <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
-msgstr ""
+msgstr "Concédese permiso para copiar, distribuír e/ou modificar este documento baixo os termos da GNU Free Documentation License, Versión 1.3 ou calquera versión posterior publicada pola Free Software Foundation; sen as seccións invariantes, sen os textos da portada, e sen os textos da portada posterior. O texto completo da licenza está dispoñible na <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:38(firstname)
 msgid "Mike"
@@ -226,9 +226,8 @@ msgid "Action Dialog"
 msgstr "Diálogo de acción"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:222(para)
-#, fuzzy
 msgid "An action has a human readable name that describes the pattern it is going to match. An action must have at least one command which also has a human readable name. The matched text can be reused in the command."
-msgstr "Unha acción ten un nome lexible por humanos que describe o patrón que se vai                          . Unha acción debe ter polo menos un comando que tamén ten un nome lexible por humanos. O texto                            pódese reutilizar no comando."
+msgstr "Unha acción ten un nome lexible por humanos que describe o patrón que se vai comparar. Unha acción debe ter polo menos un comando que tamén ten un nome lexible por humanos. O texto comparado pódese reutilizar no comando."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:227(para)
 msgid "The actions are always matched against text selections unless specified otherwise. When the box “Activate only on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C)."
@@ -302,10 +301,10 @@ msgstr "erro ?#?[0-9]+"
 msgid "bug"
 msgstr "erro"
 
+# sharp igual é #...
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:282(listitem)
-#, fuzzy
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", zero or one space, zero or one sharp character, and one or more numbers."
-msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": texto \"<placeholder-2/>\", ningún ou un espazo, ningún ou un caracter                             sharp character, and one or more numbers."
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": texto \"<placeholder-2/>\", ningún ou un espazo, ningún ou un caracter #, e un ou máis números."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:287(code)
 msgid "(http|ftp).+\\.(jpg|png|gif)"
