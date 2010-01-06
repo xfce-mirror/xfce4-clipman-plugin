@@ -119,7 +119,7 @@ default_clipboard_get_func (GtkClipboard *clipboard,
         GtkSelectionData *selection_data_cache = NULL;
 
         list = manager->priv->default_cache;
-        for (; list->next != NULL; list = list->next) {
+        for (; list != NULL && list->next != NULL; list = list->next) {
                 selection_data_cache = list->data;
                 if (gtk_selection_data_get_target (selection_data) ==
                     gtk_selection_data_get_target (selection_data_cache)) {
@@ -154,8 +154,11 @@ default_clipboard_restore (GsdClipboardManager *manager)
         GtkSelectionData *sdata;
         GSList           *list;
 
-        target_list = gtk_target_list_new (NULL, 0);
         list = manager->priv->default_cache;
+        if (list == NULL) {
+                return;
+        }
+        target_list = gtk_target_list_new (NULL, 0);
         for (; list->next != NULL; list = list->next) {
                 sdata = list->data;
                 gtk_target_list_add (target_list,
