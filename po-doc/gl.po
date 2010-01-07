@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman master\n"
 "POT-Creation-Date: 2009-11-15 18:30+0100\n"
-"PO-Revision-Date: 2009-12-25 15:15+0100\n"
+"PO-Revision-Date: 2010-01-07 11:03+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "Anatomía dun Portarretallos"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:64(para)
 msgid "In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A default clipboard which is modified by manual copies (for instance when you select a file and press the copy button), and there is a primary clipboard which is modified by selections (for instance when you select text in a field)."
-msgstr "En X11 (tódalas plataformas Unix) hai por defecto dous portarretallos para intercambiar calquera dato entre as xanelas. Hai un portarretallos predeterminado que se modifica mediante copias manuais (por exemplo cando selecciona un ficheiro e preme no botón copiar), e hai un portarretallos primario que se modifica cas seleccións (por exemplo cando selecciona texto dun campo)."
+msgstr "En X11 (tódalas plataformas Unix) hai por defecto dous portarretallos para intercambiar calquera dato entre as fiestras. Hai un portarretallos predeterminado que se modifica mediante copias manuais (por exemplo cando selecciona un ficheiro e preme no botón copiar), e hai un portarretallos primario que se modifica cas seleccións (por exemplo cando selecciona texto dun campo)."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in:71(para)
 msgid "@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is handling the selections, the default clipboard will always be synced with it and contain the same data. By this meaning you can paste with the keyboard what you select on screen."
