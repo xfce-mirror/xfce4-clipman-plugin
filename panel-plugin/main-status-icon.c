@@ -221,6 +221,8 @@ update_autostart_file (gboolean autostart)
   keyfile = g_key_file_new ();
   g_key_file_load_from_file (keyfile, userfile, G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
   g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, !autostart);
+  g_key_file_set_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_TRY_EXEC, "xfce4-clipman");
+  g_key_file_set_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, "xfce4-clipman");
   data = g_key_file_to_data (keyfile, NULL, NULL);
   g_file_set_contents (userfile, data, -1, NULL);
   g_free (data);
