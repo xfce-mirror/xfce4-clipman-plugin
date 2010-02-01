@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
@@ -65,15 +65,12 @@ msgid "Xfce Bug"
 msgstr "Ошибка в Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Действие</b>"
+msgstr "<b>Сброс действий</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Вы действительно хотите очистить историю?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Вы хотите заменить все ваши действия на предлагаемые по умолчанию?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -100,12 +97,8 @@ msgid "Activate only on manual copy"
 msgstr "Только при копировании"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Выполнять действия только при явном копировании текста, а не просто при "
-"выделении"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Выполнять действия только при явном копировании текста, а не просто при выделении"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -128,21 +121,15 @@ msgid "General"
 msgstr "Основные настройки"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Отображать меню возможных действий в зависимости от текста в Буфере обмена"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Отображать меню возможных действий в зависимости от текста в Буфере обмена"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 msgstr "Автоматически копировать выделенный текст"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
+msgid "If checked, the selections won't affect the history except the manual copies"
 msgstr "Не заносить в журнал выделенный (а не скопированный) текст"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
@@ -150,9 +137,8 @@ msgid "If checked, this option allows to store one image inside the history"
 msgstr "Хранить последнее скопированное изображение"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Хранить журнал между сесссиями Xfce"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Хранить журнал между сессиями Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -168,7 +154,7 @@ msgstr "Шаблон:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Регулярное выражение"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -192,18 +178,11 @@ msgstr "Шаблон всегда ограничен символами ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Введите ваш текст, например адрес или имя файла."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"В командах можно использовать символы подстановки «\\1», «\\2», и т.д. "
-"Параметр «\\0» представляет весь текст. За дополнительной информацией о "
-"регулярных выражениях обратитесь к справке Clipman."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "В командах можно использовать символы подстановки «\\1», «\\2», и т.д. Параметр «\\0» представляет весь текст. За дополнительной информацией о регулярных выражениях обратитесь к справке Clipman."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -218,7 +197,7 @@ msgstr ""
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
-msgstr "Вы действительно хотите очистить историю?"
+msgstr "Вы действительно хотите очистить журнал?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
