@@ -142,9 +142,8 @@ msgid "If checked, this option will restore the history on every new Xfce sessio
 msgstr "Az előzmények helyreállítása minden új Xfce munkamenetben"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Kiválasztások szi_nkronizálása"
+msgstr "Kiválasztások _mellőzése"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -156,7 +155,7 @@ msgstr "Minta:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Reguláris kifejezés"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -176,11 +175,11 @@ msgstr "Kiválasztások szi_nkronizálása"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "A minta mindig a ^$ speciális karakterek között található"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Írja ide az egyéni szöveget, például egy URL-címet, fájlnevet stb."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
