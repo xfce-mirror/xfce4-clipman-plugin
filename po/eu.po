@@ -36,10 +36,7 @@ msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
-" \t\r\n"
-"\r\n"
-"Bugz"
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
@@ -111,15 +108,15 @@ msgstr "Komandoa"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Konfiguratu plugina"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Editatu ekintza"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Gaitu ekintz_ak"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -127,7 +124,7 @@ msgstr "Orokorra"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr ""
+msgstr "Hautatuaz arbelako testu espresio erregular baten modura bilatu eta menu bat bistaraziko da aukerak ekintzekin."
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
@@ -146,29 +143,28 @@ msgid "If checked, this option will restore the history on every new Xfce sessio
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Ge_hitu hautapenak historiara"
+msgstr "Baztertu hautap_enak"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Izena:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Patroia:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Espresio erregularra"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
-msgstr ""
+msgstr "Gorte i_rtetean"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr ""
+msgstr "_Historiaren tamaina:"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
@@ -198,6 +194,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Ezin da \"%s\"\n"
+"\n"
+"%s komandoa exekutatu"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -205,27 +204,24 @@ msgstr "Ziur historia garbitu nahi duzula?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Arbela Hutsa >"
+msgstr "Arbela hutsa dago"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Laguntzaileak:"
 
 #: ../panel-plugin/plugin.c:308
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce idazmahaierako arbel kudeatzailea"
+msgstr "Xfce mahaigainerako arbel kudeatzailea"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Piarres Beobide"
 
 #: ../panel-plugin/plugin.c:331
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Ezin da hurrengo url-a ireki: %s"
+msgstr "Ezin da ezarpen leihoa ireki"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Irteterakoan arbel edukiak gorde"
