@@ -2,7 +2,7 @@
 # Basque translation of the xfce4-clipman-plugin package.
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-#
+# 
 # Piarres Beobide <pi@beobide.net>, 2006, 2009.
 msgid ""
 msgstr ""
@@ -22,9 +22,8 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "Arbel Kudeatzailea"
+msgstr "Arbel kudeatzailea"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -38,81 +37,77 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
 msgstr ""
+" \t\r\n"
+"\r\n"
+"Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Editatu Gimp-rekin"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "Gnome programa-errorea"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Irudia"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "URL luzea"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "LAburtu URLa"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "Ikusi Ristretto-rekin"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Xfce programa-errorea"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Orokorra</b>"
+msgstr "<b>Berrezarri ekintzak</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Ziur historia garbitu nahi duzula?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Ziur ekintzak berrezarri eta sistema lehenespenetara itzuli nahi duzula?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Ekintza</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Orokorra</b>"
+msgstr "<b>Portaera</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Zenbakiak</b>"
+msgstr "<b>Komandoak</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>Historia</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr ""
+msgstr "Ekintzak"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Eskuzko kopian bakarrik gaitu"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Lehenespenez ekintza hautapenean abiarazten da, hautatu aukera hau eskuzko kopia bat egiten duzunean bakarrik abiarazteko."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Komandoa"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
@@ -131,20 +126,15 @@ msgid "General"
 msgstr "Orokorra"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
+msgid "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
@@ -152,8 +142,7 @@ msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:18
@@ -199,11 +188,7 @@ msgid "Type here your custom text, for example an URL, a filename, etc."
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
 msgstr ""
 
 #: ../panel-plugin/actions.c:367
