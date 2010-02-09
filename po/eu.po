@@ -128,19 +128,19 @@ msgstr "Hautatuaz arbelako testu espresio erregular baten modura bilatu eta menu
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr ""
+msgstr "Hautatuaz hautapena lehenetsitako arbelarekin sinkronizatuko da hautatutakoa itsatsi ahal izateko"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgstr "Hautatuaz hautapenek ez dute historian eragingo, bakarrik eskuzko kopiek"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Hautatuaz historian irudi bat gordetzeko aukera ematen du."
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "Hautatuaz historia garbitu egingo da xfce saioa abiarazten den bakoitzean"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -168,7 +168,7 @@ msgstr "_Historiaren tamaina:"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
-msgstr ""
+msgstr "Gorde _irudia"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 #, fuzzy
@@ -181,7 +181,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Idatzi hemen pertsonalizatutako testua, URLa, fitxategi izena, etab."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
