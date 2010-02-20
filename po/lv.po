@@ -9,15 +9,14 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-10-25 12:57+0000\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
+"PO-Revision-Date: 2010-02-20 12:59+0100\n"
+"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
@@ -29,8 +28,10 @@ msgstr "Starpliktuves pārvaldnieks"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127
+#: ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Starpliktuve"
 
@@ -67,15 +68,12 @@ msgid "Xfce Bug"
 msgstr "Xfce Bug"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Darbība</b>"
+msgstr "<b>Atiestatīšanas darbības</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Esat drošs, ka vēlaties dzēst no starpliktuves vēstures?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Esat drošs, ka vēlaties atiestatīt darbības uz sistēmas noklusētajām vērtībam?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -102,12 +100,8 @@ msgid "Activate only on manual copy"
 msgstr "Aktivizēt tikai uz rokas kopiju"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Pēc noklusēta darbības tiek izraisītas pēc atlases, atzīmējiet šo opciju, "
-"lai darbības tiktu aktivizētas pēc kopēšanas ar roku"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Pēc noklusēta darbības tiek izraisītas pēc atlases, atzīmējiet šo opciju, lai darbības tiktu aktivizētas pēc kopēšanas ar roku"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -130,34 +124,23 @@ msgid "General"
 msgstr "Vispārēji"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Ja atzīmēts, tad starpliktuves teksts tiks salīdzināts pret regulāro "
-"izteiksmi un izvēlne parādīs pieejamās darbības"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Ja atzīmēts, tad starpliktuves teksts tiks salīdzināts pret regulāro izteiksmi un izvēlne parādīs pieejamās darbības"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Ja atzīmēts, atlase tiks sinhronizēta ar noklusēto starpliktuvi veidā, ka "
-"jūs varat ielīmēt to ko atlasāt"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Ja atzīmēts, atlase tiks sinhronizēta ar noklusēto starpliktuvi veidā, ka jūs varat ielīmēt to ko atlasāt"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Ja atlasīts, tad atlase neietekmēs vēsturi, izņemot tikai ar rokas kopēšanu"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Ja atlasīts, tad atlase neietekmēs vēsturi, izņemot tikai ar rokas kopēšanu"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Ja atzīmēts, opcija ļaus glabāt vienu attēlu iekš vēstures"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "If checked, this option will restore the history on every new Xfce session"
 msgstr "Ja atlasīts, opcija atjaunos vēsturi katrā jaunajā Xfce sesijā"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
@@ -174,7 +157,7 @@ msgstr "Paterns:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Regulārā izteiksme"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -198,18 +181,11 @@ msgstr "Šis modelis ir vienmēr enkurots ar īpašajām rakstzīmēm ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Ievadiet šeit savu pielāgoto tekstu, piemēram, URL, faila nosaukumu, utt."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Jūs varat izmantot aizvietošanas parametrus komandās \"\\1\", \"\\2\" un tā "
-"tālāk. Parametrs \"\\0\" nozīmē pilnu tekstu. Ja jūs nezināt regulārās "
-"izteiksmes, apskatiet dokumentāciju, kas nāca līdzi Clipman."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Jūs varat izmantot aizvietošanas parametrus komandās \"\\1\", \"\\2\" un tā tālāk. Parametrs \"\\0\" nozīmē pilnu tekstu. Ja jūs nezināt regulārās izteiksmes, apskatiet dokumentāciju, kas nāca līdzi Clipman."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -233,7 +209,7 @@ msgstr "Starpliktuve ir tukša"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Atbalstītāji:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
@@ -249,45 +225,32 @@ msgstr "Neizdevās atvērt uzstādījumu dialogu"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Saglabāt starpliktuves saturu uz aizv_eršanu"
-
 #~ msgid "_Show item numbers"
 #~ msgstr "_Rādīt vienumu skaitu"
-
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Vispārēji</b>"
-
 #~ msgid "Clipboard history items:"
 #~ msgstr "Starpliktuves vēstures vienumi:"
-
 #~ msgid "Menu item characters:"
 #~ msgstr "Izvēlnes vienuma rakstzīmes:"
-
 #~ msgid "Clear History"
 #~ msgstr "Notīrīt Vēsturi"
-
 #~ msgid "Clipman History"
 #~ msgstr "Starpliktuves Vēsture"
-
 #~ msgid "Pre_vent empty clipboard"
 #~ msgstr "Novēr_st tukšu starpliktuvi"
-
 #~ msgid "Normal clipboard _management"
 #~ msgstr "Parastā starpliktuves _pārvaldība"
-
 #~ msgid "Strictly separate _both clipboards"
 #~ msgstr "Strikti atdalī_t starpliktuves"
-
 #~ msgid "Se_parate clipboards"
 #~ msgstr "At_dalīt starpliktuvi"
-
 #~ msgid "<b>Menu Appearance</b>"
 #~ msgstr "<b>Izvēlņu Izskats</b>"
-
 #~ msgid "Appearance"
 #~ msgstr "Izskats"
-
 #~ msgid "< Default History Empty >"
 #~ msgstr "< Noklusētā Vēsture ir Tukša >"
-
 #~ msgid "< Selection History Empty >"
 #~ msgstr "< Atlases Vēsture ir Tukša >"
+
