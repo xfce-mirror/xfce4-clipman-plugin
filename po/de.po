@@ -4,7 +4,7 @@
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006.
 # Fabian Nowak <timystery@arcor.de>, 2007, 2009.
 # Simon Schneider <simon@schneiderimtal.de>, 2009
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
@@ -72,8 +72,7 @@ msgstr "<b>Aktion</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
 #, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
+msgid "Are you sure you want to reset the actions to the system default values?"
 msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
@@ -103,12 +102,8 @@ msgid "Activate only on manual copy"
 msgstr "Nur bei Standardzwischenablage aktivieren"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese Option "
-"anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese Option anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -131,38 +126,25 @@ msgid "General"
 msgstr "Allgemein"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Aktivieren Sie diese Option, um die Clipboard-Texte mit regulären Ausdrücken "
-"zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Aktivieren Sie diese Option, um die Clipboard-Texte mit regulären Ausdrücken zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 #, fuzzy
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
-"wiederherzustellen."
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Aktivieren Sie diese Option, um ein Bild im Verlaufsspeicher aufzunehmen"
+msgstr "Aktivieren Sie diese Option, um ein Bild im Verlaufsspeicher aufzunehmen"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
-"wiederherzustellen."
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 #, fuzzy
@@ -207,16 +189,8 @@ msgid "Type here your custom text, for example an URL, a filename, etc."
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Sie können die Ersetzungsplatzhalter »\\1«, »\\2« usw. in den Befehlen "
-"verwenden. Der Parameter »\\0« stellt den vollständigen Text dar. Wenn Sie "
-"keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu "
-"Clipman nach, dort ist eine Einführung zu diesen vorhanden."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Sie können die Ersetzungsplatzhalter »\\1«, »\\2« usw. in den Befehlen verwenden. Der Parameter »\\0« stellt den vollständigen Text dar. Wenn Sie keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -225,6 +199,10 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Konnte Befehl \"%s\"\n"
+"\n"
+"%s\n"
+"nicht ausführen"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -251,9 +229,8 @@ msgstr ""
 "Simon Schneider"
 
 #: ../panel-plugin/plugin.c:331
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Kann die folgende Adresse nicht öffnen: %s"
+msgstr "Konnte Einstellungsdialog nicht öffnen"
 
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Es läuft bereits eine Zwischenablage"
@@ -261,15 +238,8 @@ msgstr "Kann die folgende Adresse nicht öffnen: %s"
 #~ msgid "_Enable"
 #~ msgstr "_Aktivieren"
 
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Aktivieren Sie diese Option, um auch normale Auswahl in den "
-#~ "Verlaufsspeicher einzutragen. Dieses Verhalten kann zu einem unlesbaren "
-#~ "Verlaufsspeicher führen, kann jedoch nützlich sein, wenn Sie jede Auswahl "
-#~ "auch immer einfügen wollen."
+#~ msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+#~ msgstr "Aktivieren Sie diese Option, um auch normale Auswahl in den Verlaufsspeicher einzutragen. Dieses Verhalten kann zu einem unlesbaren Verlaufsspeicher führen, kann jedoch nützlich sein, wenn Sie jede Auswahl auch immer einfügen wollen."
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Inhalt der Zwischenablage beim Verlassen speichern"
@@ -320,79 +290,44 @@ msgstr "Kann die folgende Adresse nicht öffnen: %s"
 #~ msgstr "< Inhalt der Auswahl-Zwischenablage leer >"
 
 #~ msgid "Visit the goodies website for more information about this plugin."
-#~ msgstr ""
-#~ "Besuchen Sie die Goodies-Webseite, um weitere Informationen über dieses "
-#~ "Plugin zu erhalten."
+#~ msgstr "Besuchen Sie die Goodies-Webseite, um weitere Informationen über dieses Plugin zu erhalten."
+
+#~ msgid "Select this option to save the clipboard history when you exit Xfce and restore it when you login again."
+#~ msgstr "Aktivieren Sie diese Option, um den Verlaufsspeicher der Zwischenablage beim Verlassen von Xfce zu speichern und beim nächsten Starten wieder herzustellen."
+
+#~ msgid "Select this option will prevent Clipman from including the contents of the selection in the history."
+#~ msgstr "Diese Option verhindert, dass die aktuelle Auswahl in den Verlaufsspeicher gesichert wird."
+
+#~ msgid "Select this option to prevent an empty clipboard. The most recent history item will be added to the clipboard."
+#~ msgstr "Diese Option verhindert eine leere Zwischenablage. Der letzte Eintrag des Verlaufsspeichers wird als aktueller Inhalt der Zwischenablage genutzt."
 
 #~ msgid ""
-#~ "Select this option to save the clipboard history when you exit Xfce and "
-#~ "restore it when you login again."
+#~ "When you've copied or cut some text and it is already in the Clipman history from the selection clipboard,  only the content location will be changed.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will be copied to both clipboards."
 #~ msgstr ""
-#~ "Aktivieren Sie diese Option, um den Verlaufsspeicher der Zwischenablage "
-#~ "beim Verlassen von Xfce zu speichern und beim nächsten Starten wieder "
-#~ "herzustellen."
+#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, der bereits im Verlaufsspeicher ist, dann wird kein neuer Eintrag erstellt.\n"
+#~ "\n"
+#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der Text in beide Zwischenablagen kopiert."
 
 #~ msgid ""
-#~ "Select this option will prevent Clipman from including the contents of "
-#~ "the selection in the history."
+#~ "When you've copied or cut some text it will be added to the Clipman history, there will also be a duplicate in the history from the selection clipboard.\n"
+#~ "\n"
+#~ "When a history item is clicked, the content will only be copied to the clipboard it origionally came from.\n"
+#~ "\n"
+#~ "This options will work best when you select the \"Separate Clipboards\" option from the Appearance tab."
 #~ msgstr ""
-#~ "Diese Option verhindert, dass die aktuelle Auswahl in den "
-#~ "Verlaufsspeicher gesichert wird."
+#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, wird ein neuer Eintrag im Verlaufsspeicher beider Zwischenablagen angelegt.\n"
+#~ "\n"
+#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der Text nur in die Zwischenablage kopiert, aus der der Text gelesen wurde.\n"
+#~ "\n"
+#~ "Diese Option ist nützlich, wenn »Zwischenablagen getrennt verwalten« in dem Aussehen-Reiter gewählt wurde."
 
-#~ msgid ""
-#~ "Select this option to prevent an empty clipboard. The most recent history "
-#~ "item will be added to the clipboard."
-#~ msgstr ""
-#~ "Diese Option verhindert eine leere Zwischenablage. Der letzte Eintrag des "
-#~ "Verlaufsspeichers wird als aktueller Inhalt der Zwischenablage genutzt."
-
-#~ msgid ""
-#~ "When you've copied or cut some text and it is already in the Clipman "
-#~ "history from the selection clipboard,  only the content location will be "
-#~ "changed.\n"
-#~ "\n"
-#~ "When a history item is clicked, the content will be copied to both "
-#~ "clipboards."
-#~ msgstr ""
-#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, der bereits im "
-#~ "Verlaufsspeicher ist, dann wird kein neuer Eintrag erstellt.\n"
-#~ "\n"
-#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der "
-#~ "Text in beide Zwischenablagen kopiert."
-
-#, fuzzy
-#~ msgid ""
-#~ "When you've copied or cut some text it will be added to the Clipman "
-#~ "history, there will also be a duplicate in the history from the selection "
-#~ "clipboard.\n"
-#~ "\n"
-#~ "When a history item is clicked, the content will only be copied to the "
-#~ "clipboard it origionally came from.\n"
-#~ "\n"
-#~ "This options will work best when you select the \"Separate Clipboards\" "
-#~ "option from the Appearance tab."
-#~ msgstr ""
-#~ "Wenn Sie Text kopiert oder ausgeschnitten haben, wird ein neuer Eintrag "
-#~ "im Verlaufsspeicher beider Zwischenablagen angelegt.\n"
-#~ "\n"
-#~ "Wenn ein Eintrag aus dem Verlaufsspeicher angeklickt wird, so wird der "
-#~ "Text nur in die Zwischenablage kopiert, aus der der Text gelesen wurde.\n"
-#~ "\n"
-#~ "Diese Option ist nützlich, wenn »Zwischenablagen getrennt verwalten« in "
-#~ "dem Aussehen-Reiter gewählt wurde."
-
-#, fuzzy
 #~ msgid "Select this option to split up the clipboard and selection history."
-#~ msgstr ""
-#~ "Aktivieren Sie diese Option, um den bisherigen Inhalt der Zwischenablage "
-#~ "nach den beiden Zwischenablagen(PRIMARY und CLIPBOARD) zu sortieren."
+#~ msgstr "Aktivieren Sie diese Option, um den bisherigen Inhalt der Zwischenablage nach den beiden Zwischenablagen(PRIMARY und CLIPBOARD) zu sortieren."
 
 #~ msgid "The number of items stored in the history list."
 #~ msgstr "Legt die Anzahl der Einträge im Verlaufsspeicher fest."
 
-#~ msgid ""
-#~ "The number of characters showed in the history list. After this amount of "
-#~ "characters, the history label will be ellipsized."
-#~ msgstr ""
-#~ "Die Anzahl der Zeichen für die Menüeinträge. Wenn ein Eintrag länger ist, "
-#~ "wird er nach diesem Wert abgekürzt."
+#~ msgid "The number of characters showed in the history list. After this amount of characters, the history label will be ellipsized."
+#~ msgstr "Die Anzahl der Zeichen für die Menüeinträge. Wenn ein Eintrag länger ist, wird er nach diesem Wert abgekürzt."
