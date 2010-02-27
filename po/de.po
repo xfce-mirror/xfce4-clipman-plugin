@@ -147,9 +147,8 @@ msgid "If checked, this option will restore the history on every new Xfce sessio
 msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "_Auswahl hinzufügen"
+msgstr "_Auswahl ignorieren"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
