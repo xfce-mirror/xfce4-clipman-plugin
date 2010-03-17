@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
@@ -110,11 +110,11 @@ msgstr "Налаштувати плагін"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Редагувати дію"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Дозволити _дії"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -122,69 +122,67 @@ msgstr "Основне"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr ""
+msgstr "Якщо відмічено, текст в буфері обміну буде зіставлятися з регулярними виразами і меню буде відображати можливі дії"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr ""
+msgstr "Якщо відмічено, виділене буде синхронізовано з типовим буфером обміну таким чином, що ви зможете вставити те, що виділено"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgstr "If checked, the selections won't affect the history except the manual copies"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "Якщо відмічено, ця опція дозволяє зберегти один малюнок в історії"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "IЯкщо відмічено, ця опція буде відновлювати історію на кожний новий сеанс Xfce"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "Додати _вибране до історії"
+msgstr "Ігнор_увати виділені"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Назва:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Фрагмент:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Регулярний вираз"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
-msgstr ""
+msgstr "Зберегти при _виході"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Розмір істо_рії:"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
-msgstr ""
+msgstr "Зберегти _малюнок"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Додати _вибране до історії"
+msgstr "Синхронізувати вид_ілені"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Фрагмент завжди обрамленийспеціальними символами ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Наберіть тут Ваш довільний текст для прикладу якийсь URL, назву файла, інше."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr ""
+msgstr "Ви можете використовувати підстановку параметрів \"\\1\", \"\\2\" і так далі в командах. Параметр \"\\0\" представляє повний текст. Якщо Ви не володієте регулярними виразами, то дивіться документацію плагіна Clipman, що представлена для нього."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -193,6 +191,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Неможливо виконати команду \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -200,9 +201,8 @@ msgstr "Ви впевнені, що хочете очистити історію
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Буфер обміну порожній >"
+msgstr "Буфер обміну порожній"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
