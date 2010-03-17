@@ -1,0 +1,511 @@
+# Ukrainian translation of xfce4-clipman-plugin.doc
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-clipman-plugin.doc\n"
+"POT-Creation-Date: 2009-11-15 18:30+0100\n"
+"PO-Revision-Date: 2010-03-17 17:57+0200\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: Ukraine\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for
+#. you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in91(None)
+msgid "@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
+msgstr "@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
+
+#. When image changes, this message will be marked fuzzy or untranslated for
+#. you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in177(None)
+msgid "@@image: 'images/clipman-settings-general.png'; md5=80b12264cccaabdd1335a1d8497b20ce"
+msgstr "@@image: 'images/clipman-settings-general.png'; md5=80b12264cccaabdd1335a1d8497b20ce"
+
+#. When image changes, this message will be marked fuzzy or untranslated for
+#. you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in209(None)
+msgid "@@image: 'images/clipman-settings-actions.png'; md5=e7c1a33b5d32929ac0d39818d7383386"
+msgstr "@@image: 'images/clipman-settings-actions.png'; md5=e7c1a33b5d32929ac0d39818d7383386"
+
+#. When image changes, this message will be marked fuzzy or untranslated for
+#. you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in236(None)
+msgid "@@image: 'images/clipman-action-dialog.png'; md5=cd23d9a078896ff9c584f351fdc50948"
+msgstr "@@image: 'images/clipman-action-dialog.png'; md5=cd23d9a078896ff9c584f351fdc50948"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in18(title)
+msgid "@PACKAGE_NAME@ Manual"
+msgstr "Посібник @PACKAGE_NAME@"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in23(year)
+msgid "2009"
+msgstr "2009"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in28(para)
+msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is available from the <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
+msgstr "Вам дозволяється копіювати і розповсюджувати чи змінювати цей документ відповідно до ліцензії GNU Free Documentation License, версії 1.3 чи більш пізьньої, що опублікована Free Software Foundation; Повний текст ліцензії доступний тут: <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in38(firstname)
+msgid "Mike"
+msgstr "Майк"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in39(surname)
+msgid "Massonnet"
+msgstr "Масоннет"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in41(email)
+msgid "mmassonnet@xfce.org"
+msgstr "mmassonnet@xfce.org"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in46(releaseinfo)
+msgid "This manual describes version 1.0.1 of @PACKAGE_NAME@."
+msgstr "Посібник описує версію 1.0.1 пакету @PACKAGE_NAME@."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in53(title)
+msgid "Introduction"
+msgstr "Вступ"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in55(para)
+msgid "@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost when you close an application. It is able to handle text and images, and has a feature to execute actions on specific text by matching them against regular expressions."
+msgstr "@PACKAGE_NAME@ — це менеджер буферу обміну для Xfce. Він зберігає вміст буферу обміну циклічно, тоді як зазвичай він втрачається по закритті програми. Це дозволяє зберігати текст і малюнки, та має опцію для виконання дій над текстом, використовуючи регулярні вирази."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in62(title)
+msgid "Anatomy of a Clipboard"
+msgstr "Нутрощі буферу обміну"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in64(para)
+msgid "In X11 (all Unix platforms) there are by default two clipboards to exchange any data between the windows. A default clipboard which is modified by manual copies (for instance when you select a file and press the copy button), and there is a primary clipboard which is modified by selections (for instance when you select text in a field)."
+msgstr "В X11 (на всіх Unix-платформах) типово існують два буфери обміну для обміну даним між вікнами. Типовий буфер обміну з вручну зміненими копіями (наприклад, при виборі файлу і його копіюванні в буфер обміну), крім того, існує первинний буфер обміну, який змінюється при виділені тексту (наприклад, при виділені тексту в полі)."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in71(para)
+msgid "@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. When it is handling the selections, the default clipboard will always be synced with it and contain the same data. By this meaning you can paste with the keyboard what you select on screen."
+msgstr "@PACKAGE_NAME@ handles only the default clipboard, but optionnaly it can also notice the selections. Коли він обробляє виділення, за замовчуванням, буфер буде завжди синхронізувати з ними і містити ті ж дані. У цьому сенсі можна вставити за допомогою клавіатури те, що вибрано на екрані."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in79(title)
+msgid "Getting Started"
+msgstr "Початок роботи"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in81(para)
+msgid "@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear the history."
+msgstr "@PACKAGE_NAME@ використовується для збереження в історії списку вмісту буферу обміну і його відновлення. Історія відображається в меню по клацанню на значку програми. Меню дозволяє якщо це можливо відновити текст і очистити історію."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in88(title)
+msgid "Clipman Menu"
+msgstr "Меню Clipman"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in94(phrase)
+msgid "Menu displaying the history"
+msgstr "Меню відображає історію"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in99(para)
+msgid "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel. To add a new item in the panel right click the panel and select “Add new item…”."
+msgstr "Існує два способи запустити @PACKAGE_NAME@. Ви можете вибрати @PACKAGE_NAME@ в меню програм в категорії Інструменти, або ввести <application>xfce4-clipman</application> в командному рядку; або Ви можете додати його і вашу панель. Щоб додати на панель новий елемент, клацніть на ній правою кнопкою и виберіть “Додати новий елемент…”."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in107(title)
+msgid "Popup Command"
+msgstr "Команда спливаючого меню"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in109(para)
+msgid "@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it popups the main menu. The command is practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</guimenu><guimenu>Keyboard</guimenu></menuchoice>."
+msgstr "@PACKAGE_NAME@ надає інструменти командного рядка <application>xfce4-popup-clipman</application>. При виклику спливаючих головного меню. Команда є зручною для <emphasis role=\"bold\">Швидких клавіш програм</emphasis>, доступних в <menuchoice><guimenu>Меню Xfce</guimenu><guimenu>Параметри</guimenu><guimenu>Клавіатура</guimenu></menuchoice>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in125(title)
+msgid "Settings"
+msgstr "Налаштування"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in127(para)
+msgid "The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It allows to tweak the history and to edit actions."
+msgstr "Діалог налаштувань доступний під пунктом“Властивості” в контекстному меню при клацанні правою кнопкою на значку програми. Це дозволяє змінювати історію і редагувати дії."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in133(title)
+msgid "General"
+msgstr "Загальні"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in135(para)
+msgid "The following table describes the available options:"
+msgstr "В наступній таблиці наведено доступні налаштування:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in139(title)
+msgid "General options in the Settings dialog"
+msgstr "Загальні опції в діалозі Властивості"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in143(entry)
+msgid "Options"
+msgstr "Опції"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in144(entry)
+msgid "Description"
+msgstr "Опис"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in149(entry)
+msgid "Sync selections"
+msgstr "Синхронізація вибраних"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in150(entry)
+msgid "Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets selected"
+msgstr "Синхронізує первинний буфер обміну з типовим буфером обміну в спосіб, що дозволяє вставляти виділене"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in154(entry)
+msgid "Exclude from history"
+msgstr "Виключити з історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in155(entry)
+msgid "Prevents the primary clipboard from being inserted in the history"
+msgstr "Попереджує первинний буфер обміну від внесення вмісту з історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in158(entry)
+msgid "Save on quit"
+msgstr "Зберігати при виході"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in159(entry)
+msgid "Keeps the history at every new session"
+msgstr "Утримує історію для кожного нового сеансу"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in162(entry)
+msgid "Store an image"
+msgstr "Зберігати малюнок"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in163(entry)
+msgid "Allows to store one image in the history"
+msgstr "Дозволяє зберігати в історії один малюнок"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in166(entry)
+msgid "Size of the history"
+msgstr "Розмір історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in167(entry)
+msgid "Sets the number of items to keep in history"
+msgstr "Призначає кількість елементів для зберігання в історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in174(title)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in206(title)
+msgid "Clipman Settings"
+msgstr "Налаштування Clipman"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in180(phrase)
+msgid "Settings dialog with the General tab"
+msgstr "Діалог налаштувань з Основною вкладкою"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in188(title)
+msgid "Actions"
+msgstr "Дії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in190(para)
+msgid "An action is a pair of an action name and a regular expression. Each action can have one or more commands. The support of actions is optional and can be enabled or disabled through the “Enable actions” option."
+msgstr "Дія — це частина дії назви регулярного виразу. Кожна дія має одну чи більше команд. Підтримка дій є опціональною і може бути увімкнута або вимкнута через опцію “Дозволити дії”."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in195(para)
+msgid "To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a new dialog is opened."
+msgstr "Чтобы добавить или удалить действие, щелкните по соответствующему значку. Для изменения действия дважды щелкините по нему, либо щелкните по соответствующему значку. При добавлении или изменении действия вы увидите соответствующий диалог."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in201(para)
+msgid "To learn more about actions go to <xref linkend=\"action-dialog\"/>."
+msgstr "Щоб дізнатись більше про дії перейдіть на <xref linkend=\"action-dialog\"/>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in212(phrase)
+msgid "Settings dialog with the Actions tab"
+msgstr "Діалог налаштувань з вкладкою Дії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in220(title)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in233(title)
+msgid "Action Dialog"
+msgstr "Діалог Дії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in222(para)
+msgid "An action has a human readable name that describes the pattern it is going to match. An action must have at least one command which also has a human readable name. The matched text can be reused in the command."
+msgstr "У действия есть название, описывающее его шаблон. Также у действия есть хотя бы одна команда, которая также имеет описательное название. В команде можно использовать совпавшие фрагменты текста."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in227(para)
+msgid "The actions are always matched against text selections unless specified otherwise. When the box “Activate only on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C)."
+msgstr "По умолчанию, действия срабатывают при выделении текста. Если установлен флажок«Только при копировании», дейсвия будут выполняться для содержимого буфера обмена по умолчанию (напр. по нажатию Ctrl+C)."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in239(phrase)
+msgid "Action edit dialog"
+msgstr "Діалог редагування дій"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in245(title)
+msgid "Regular Expression"
+msgstr "Регулярні вирази"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in247(para)
+msgid "Basic special characters: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</code></emphasis>\"."
+msgstr "Основні спеціальні символи: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</code></emphasis>\"."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in253(code)
+msgid "."
+msgstr "."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in252(listitem)
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: represents a single character."
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: представляє одиночний символ."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in256(code)
+msgid "?+*"
+msgstr "?+*"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in255(listitem)
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means zero or one character, one or more characters, and zero or more characters."
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: представляє ніби нуль або один символ, один або більше символів, і нуль або більше символів."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in260(code)
+msgid "(|)"
+msgstr "(|)"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in259(listitem)
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and substitution, the vertical bar is used as an OR operation."
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: використовується для групування і вичленення, вертикальна коса використовується як операція OR."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in264(code)
+msgid "[^]"
+msgstr "[^]"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in263(listitem)
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a character from a set of characters and special characters, the circumflex is used at the start as a negation."
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: використовується для більшості символів з призначених і спеціальних символів, зазвичай використовується для початку з від'ємним значенням."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in268(code)
+msgid "\\"
+msgstr "\\"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in267(listitem)
+msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special character."
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: екранує спеціальний символ."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in272(para)
+msgid "Basic alphanumeric character class: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis>\". Character classes are used within square brackets to represent a set of characters."
+msgstr "Класс алфавитных символов: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis>\". Классы символов используются в квадратных скобках для указания набора символов."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in279(title)
+msgid "Examples"
+msgstr "Приклади"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in283(code)
+msgid "bug ?#?[0-9]+"
+msgstr "bug ?#?[0-9]+"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in283(emphasis)
+msgid "bug"
+msgstr "bug"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in282(listitem)
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", zero or one space, zero or one sharp character, and one or more numbers."
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", нуль або один пробіл, нуль або один символ sharp, і один чи більше номерів."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in287(code)
+msgid "(http|ftp).+\\.(jpg|png|gif)"
+msgstr "(http|ftp).+\\.(jpg|png|gif)"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in288(emphasis)
+msgid "http"
+msgstr "http"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in288(emphasis)
+msgid "ftp"
+msgstr "ftp"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
+msgid "jpg"
+msgstr "jpg"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
+msgid "png"
+msgstr "png"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
+msgid "gif"
+msgstr "gif"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in286(listitem)
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text \"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": текст \"<placeholder-2/>\" чи \"<placeholder-3/>\", один чи більше символів, крапка, і текст \"<placeholder-4/>\", \"<placeholder-5/>\" чи \"<placeholder-6/>\"."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in292(code)
+msgid "http://.{120}[^ ]+"
+msgstr "http://.{120}[^ ]+"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in292(emphasis)
+msgid "http://"
+msgstr "http://"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in291(listitem)
+msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", 120 characters, and one or more characters except a space."
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": текст \"<placeholder-2/>\", 120 символів, і один чи більше символів виключаючи пробіл."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in299(title)
+msgid "External Ressource"
+msgstr "Зовнішній ресурс"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in301(para)
+msgid "Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">Wikipedia article</ulink> about regular expressions."
+msgstr "Можете глянути на <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">Стаття Вікіпедії</ulink> про регулярні вирази."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in309(title)
+msgid "Command"
+msgstr "Команда"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in311(para)
+msgid "A command can reuse one or more substitutions from the regular expression. The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-pattern within parentheses or 0 for the complete text."
+msgstr "В команде можно использовать одну или несколько подстановок из регулярного выражения. Подстановки задаются в виде «<emphasis role=\"bold\"><code>\\&lt;цифра&gt;</code></emphasis>», где &lt;цифра&gt; соответствует заключенному в скобки подшаблону, или 0, для текста целиком."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in317(para)
+msgid "For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command ”<code>exo-open http://host/\\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”."
+msgstr "Например, для простого шаблона «<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>» можно использовать подстановки «<emphasis role=\"bold\"><code>\\0</code></emphasis>» для текста «bug #123», и  «<emphasis role=\"bold\"><code>\\1</code></emphasis>» для текста «123». Команда «<code>exo-open http://host/\\1</code>» будет преобразована в «<code>exo-open http://host/123</code>»."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in327(title)
+msgid "Xfconf"
+msgstr "Xfconf"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in329(para)
+msgid "@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following table lists all the properties with their possible values:"
+msgstr "@PACKAGE_NAME@ использует Xfconf для хранения своих настроек. Для их изменения можно использовать утилиты <application>xfconf-query</application> или <application>xfce4-settings-editor</application>. Используемое имя канала  <constant>xfce4-panel</constant>, а основное свойство — <constant>/plugins/clipman</constant>. В следующей таблице приведены все свойства с их возможными значениями:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in336(title)
+msgid "Xfconf Properties"
+msgstr "Властивості Xfconf"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in340(entry)
+msgid "Property"
+msgstr "Властивість"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in341(entry)
+msgid "Type"
+msgstr "Тип"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in342(entry)
+msgid "Default"
+msgstr "Типово"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in343(entry)
+msgid "Values"
+msgstr "Значення"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in348(entry)
+msgid "/settings/add-primary-clipboard"
+msgstr "/settings/add-primary-clipboard"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in349(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in355(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in361(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in381(entry)
+msgid "bool"
+msgstr "bool"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in350(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in356(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in362(entry)
+msgid "false"
+msgstr "false"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in351(entry)
+msgid "true to sync the primary clipboard with the default clipboard"
+msgstr "true для синхронізації первинного буферу обміну з типовим буфером обміну"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in354(entry)
+msgid "/settings/enable-actions"
+msgstr "/settings/enable-actions"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in357(entry)
+msgid "true to enable actions"
+msgstr "true щоб дозволити дії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in360(entry)
+msgid "/settings/history-ignore-primary-clipboard"
+msgstr "/settings/history-ignore-primary-clipboard"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in363(entry)
+msgid "true to exclude the primary clipboard from the history"
+msgstr "true, щоб не вносити до історії вміст первинного буферу обміну"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in368(entry)
+msgid "/settings/max-images-in-history"
+msgstr "/settings/max-images-in-history"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in369(entry)
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in375(entry)
+msgid "uint"
+msgstr "uint"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in370(entry)
+msgid "0"
+msgstr "0"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in371(entry)
+msgid "0-5 number of images in history"
+msgstr "0-5, кількість малюнків в історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in374(entry)
+msgid "/settings/max-texts-in-history"
+msgstr "/settings/max-texts-in-history"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in376(entry)
+msgid "10"
+msgstr "10"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in377(entry)
+msgid "5-100 number of texts in history"
+msgstr "5-100 (кількість елементів тексту в історії"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in380(entry)
+msgid "/settings/save-on-quit"
+msgstr "/settings/save-on-quit"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in382(entry)
+msgid "true"
+msgstr "true"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in383(entry)
+msgid "true to restore the history at every new session"
+msgstr "true, щоб відновити історію при кожному новому сеансі"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in346(tbody)
+msgid "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
+msgstr "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in389(para)
+msgid "To change a setting from a terminal type the command-line:"
+msgstr "Щоб змінити налаштування з терміналу наберіть в командному рядку:"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in398(title)
+msgid "Support"
+msgstr "Підтримка"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in400(para)
+msgid "To report a bug or a feature request use the bug tracking system at <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software, please ask on the <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce mailing list</ulink> or point your IRC client to <emphasis role=\"bold\">irc.freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</emphasis> and ask for help."
+msgstr "Чтобы сообщить об ошибке, или предложить новую функцию, используйте систему отслеживания ошибок по адресу <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. Если у вас возникли вопросы по поводу использования данной программы, задайте их в <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">списке рассылки Xfce</ulink>, либо попросите помощи на канале <emphasis role=\"bold\">#xfce</emphasis> IRC-сервера <emphasis role=\"bold\">irc.freenode.net</emphasis>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in411(title)
+msgid "About @PACKAGE_NAME@"
+msgstr "Про @PACKAGE_NAME@"
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in413(para)
+msgid "@PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visit the <ulink type=\"http\" url=\"http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Web site</ulink>."
+msgstr "@PACKAGE_NAME@ був написаний Едуардом Роккателло, та потім його підтримував Нік Шермер. Зараз ним займається Майк Масонне (<email>mmassonnet@xfce.org</email>). Відвідайте <ulink type=\"http\" url=\"http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin\">веб-сайт @PACKAGE_NAME@</ulink>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in419(para)
+msgid "This documentation was written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Please send all your comments and suggestions regarding this manual to <email>mmassonnet@xfce.org</email>."
+msgstr "Ця документація була складена Майком Масонне (<email>mmassonnet@xfce.org</email>). Будь ласка відправляйте коментарі і пропозиція, що стосуються цього посібника, на адресу <email>mmassonnet@xfce.org</email>."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in426(para)
+msgid "This software is distributed under the terms of the <citetitle>GNU General Public License</citetitle> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
+msgstr "Це програмне забезпечення розповсюджується на умовах ліцензії <citetitle>GNU General Public License</citetitle> яка опублікована Free Software Foundation; версії 2, або (як опція), більш пізньої версії."
+
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in431(para)
+msgid "You should have received a copy of the <citetitle>GNU General Public License</citetitle> along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA."
+msgstr "Ви можете отримати копію <citetitle>GNU General Public License</citetitle>, разом з цією програмою, якщо її немає, напишіть у Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110, USA."
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: ../docs/manual/C/xfce4-clipman-plugin.xml.in0(None)
+msgid "translator-credits"
+msgstr "Дмитро Нікітін, 2010"
+
