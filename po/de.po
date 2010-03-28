@@ -131,7 +131,7 @@ msgstr "Aktivieren Sie diese Option, um die Clipboard-Texte mit regulären Ausdr
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr ""
+msgstr "Falls Sie dies auswählen, wird die jeweilige Auswahl mit der Standardzwischenablage derart abgeglichen, dass Sie jeweils auch das einfügen können, was Sie gerade ausgewählt haben"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 #, fuzzy
@@ -160,7 +160,7 @@ msgstr "Muster:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Regulärer Ausdruck"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -175,17 +175,16 @@ msgid "Store an _image"
 msgstr "_Bild speichern"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "_Auswahl hinzufügen"
+msgstr "_Auswahl abgleichen"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« verankert."
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Geben Sie hier Ihren Text ein, z.B. eine Webadresse, einen Dateinamen usw."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
@@ -214,7 +213,7 @@ msgstr "Zwischenablage ist leer"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Mitwirkende:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
