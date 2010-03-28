@@ -51,11 +51,11 @@ msgstr "Bild"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "Langer URL"
+msgstr "Lange Webadresse"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "URL verkürzen"
+msgstr "Webadresse kürzen"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
@@ -123,7 +123,7 @@ msgstr "Allgemein"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "Aktivieren Sie diese Option, um die Clipboard-Texte mit regulären Ausdrücken zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
+msgstr "Aktivieren Sie diese Option, um die Texte aus der Zwischenablage mit regulären Ausdrücken zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
@@ -179,7 +179,7 @@ msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« veranker
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr "Geben Sie hier Ihren Text ein, z.B. eine Webadresse, einen Dateinamen usw."
+msgstr "Geben Sie hier Ihren Text ein, z.B. eine Webadresse, einen Dateinamen o.ä."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
@@ -192,10 +192,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Konnte Befehl \"%s\"\n"
+"Konnte Befehl »%s« nicht ausführen.\n"
 "\n"
-"%s\n"
-"nicht ausführen"
+"%s"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
