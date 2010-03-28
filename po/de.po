@@ -66,21 +66,18 @@ msgid "Xfce Bug"
 msgstr "Fehler bei Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Aktion</b>"
+msgstr "<b>Aktionen zurücksetzen</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
 msgid "Are you sure you want to reset the actions to the system default values?"
-msgstr "Möchten Sie den gewählten Eintrag wirklich aus der Liste löschen?"
+msgstr "Möchten Sie die Aktionen wirklich auf die Standardeinstellungen zurücksetzen?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Aktion</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
 msgstr "<b>Verhalten</b>"
 
@@ -97,9 +94,8 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-#, fuzzy
 msgid "Activate only on manual copy"
-msgstr "Nur bei Standardzwischenablage aktivieren"
+msgstr "Nur bei manuellem Kopieren aktivieren"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
@@ -134,9 +130,8 @@ msgid "If checked, the selections will be synced with the default clipboard in a
 msgstr "Falls Sie dies auswählen, wird die jeweilige Auswahl mit der Standardzwischenablage derart abgeglichen, dass Sie jeweils auch das einfügen können, was Sie gerade ausgewählt haben"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-#, fuzzy
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
+msgstr "Aktivieren Sie diese Option, damit die Auswahlen den Verlauf nicht betreffen mit Ausnahme der manuellen Kopien."
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
