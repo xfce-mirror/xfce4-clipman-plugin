@@ -171,13 +171,12 @@ msgid "Store an _image"
 msgstr "Gorde _irudia"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "Ge_hitu hautapenak historiara"
+msgstr "_Sinkronizatu hautapena"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Patroia ^$ karaktere bereiziekin loturik egongo da beti"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
@@ -185,7 +184,7 @@ msgstr "Idatzi hemen pertsonalizatutako testua, URLa, fitxategi izena, etab."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr ""
+msgstr "Komandoetan \"\\1\", \"\\2\" eta hurrengo ordezte parametroak erabili ditzakezu. \"\\0\" parametroak testu osoa ordezkatzen du. Ez bazaude espresio erregularretara ohiturik begiratu Clipman dokumentazioan hauei buruzko sarrera bat."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
