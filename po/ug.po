@@ -20,7 +20,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
-msgstr "クリップボードマネージャ"
+msgstr ""
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -29,19 +29,19 @@ msgstr "クリップボードマネージャ"
 #: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
 #: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
-msgstr "Clipman"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr "Bugz"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "GIMP で編集"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "GNOME バグ"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
@@ -49,44 +49,44 @@ msgstr "سۈرەت"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "長い URL"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "URL を短縮"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr "Ristretto で表示"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "Xfce バグ"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
 msgid "<b>Reset actions</b>"
-msgstr "<b>アクションのリセット</b>"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "アクションをシステムデフォルトにリセットしてもよろしいですか?"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr "<b>アクション</b>"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:2
 msgid "<b>Behavior</b>"
-msgstr "<b>振る舞い</b>"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
-msgstr "<b>コマンド</b>"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr "<b>履歴</b>"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
@@ -94,13 +94,13 @@ msgstr "مەشغۇلاتلار"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr "手動コピー時のみアクティブにする"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "デフォルトでは、アクションは領域を選択したときに開始されますが、このオプションにチェックマークをつけると、手動でコピー操作を行ったときに開始されるようになります"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -108,7 +108,7 @@ msgstr "بۇيرۇق:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr "プラグインの設定"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
@@ -116,7 +116,7 @@ msgstr "action تەھرىرلەش"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr "アクションを有効にする(_A)"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -126,31 +126,31 @@ msgstr "ئادەتتىكى"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
-msgstr "チェックマークをつけると、クリップボードの文字列は正規表現とマッチされ、利用可能なメニューが表示されます"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "チェックマークをつけると、選択領域とデフォルトクリップボードとの同期がとられ、選択しただけで貼り付けできるようになります"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "チェックマークをつけると、履歴には手動でコピーしたもののみが格納され、選択領域は影響を与えません"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "チェックマークをつけると、画像を履歴に格納することができます"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
-msgstr "選択領域を無視する(_E)"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -158,7 +158,7 @@ msgstr "ئاتى:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr "パターン:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
@@ -166,27 +166,27 @@ msgstr "مۇنتىزىم ئىپادە"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
-msgstr "終了時に保存する(_Q)"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr "履歴のサイズ(_H):"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
-msgstr "画像を格納する(_I)"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:25
 msgid "Sync _selections"
-msgstr "選択領域と同期をとる(_S)"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "パターンには常に特殊文字 ^$ が適用されます"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr "ここにカスタム文字列を入力してください。例えば URL やファイル名など。"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
@@ -194,7 +194,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "コマンドに \"\\1\"、\"\\2\" などの置換パラメータが使用できます。パラメータ \"\\0\" は完全な文字列になります。正規表現が分からない場合は、Clipman のドキュメントなどを参照してください。"
+msgstr ""
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -202,18 +202,16 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "コマンド \"%s\" を実行できません\n"
-"\n"
-"%s"
+msgstr ""
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
-msgstr "履歴をクリアしてもよろしいですか?"
+msgstr ""
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
-msgstr "クリップボードは空です"
+msgstr ""
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
@@ -221,7 +219,7 @@ msgstr "تۆھپىكارلار:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 用クリップボードマネージャ"
+msgstr ""
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
@@ -229,26 +227,4 @@ msgstr "Gheyret T.Kenji <gheyret@gmail.com> 2010"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
-msgstr "設定ダイアログを表示できません"
-
-#~ msgid "E_xclude from history"
-#~ msgstr "履歴に残さない(_X)"
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "Clipman の自動起動"
-
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr "次回ログイン時にクリップボードマネージャを自動起動しますか?"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "クリップボードマネージャを自動起動にしますか?"
-
-#~ msgid "Authors of previous versions:"
-#~ msgstr "以前のバージョンの開発者:"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "クリップボードマネージャはすでに動作しています"
-
-#~ msgid "_Enable"
-#~ msgstr "有効(_E)"
+msgstr ""
