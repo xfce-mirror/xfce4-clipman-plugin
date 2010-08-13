@@ -1,0 +1,226 @@
+# Kazakh translation for xfce4-clipman-plugin.
+# Copyright (C) 2010 Xfce team
+# This file is distributed under the same license as the Xfce package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-12 19:12+0100\n"
+"PO-Revision-Date: 2010-08-13 15:07+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= (n != 1);\n"
+"X-Poedit-Language: Kazakh\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+msgid "Clipboard manager"
+msgstr "Алмасу буферін басқарушысы"
+
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63
+#: ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127
+#: ../panel-plugin/plugin.c:306
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr "Bugz"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "Gimp көмегімен түзету"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr "GNOME Bug"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr "Сурет"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Long URL"
+msgstr "Ұзын URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr "URL-ды қысқарту"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "View with Ristretto"
+msgstr "Ristretto көмегімен қарау"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Xfce Bug"
+msgstr "Xfce Bug"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:449
+msgid "<b>Reset actions</b>"
+msgstr "<b>Әрекеттерді тастау</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:451
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Әрекеттерді бастапқы мәндерге тастауды шынымен қалайсыз ба?"
+
+#: ../panel-plugin/settings-dialog.glade.h:1
+msgid "<b>Action</b>"
+msgstr "<b>Әрекет</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:2
+msgid "<b>Behavior</b>"
+msgstr "<b>Мінез-құлығы</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:3
+msgid "<b>Commands</b>"
+msgstr "<b>Командалар</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:4
+msgid "<b>History</b>"
+msgstr "<b>Тарихы</b>"
+
+#: ../panel-plugin/settings-dialog.glade.h:5
+msgid "Actions"
+msgstr "Әрекеттер"
+
+#: ../panel-plugin/settings-dialog.glade.h:6
+msgid "Activate only on manual copy"
+msgstr "Тек қолмен көшіргенде белсендіру"
+
+#: ../panel-plugin/settings-dialog.glade.h:7
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Бастапқыда, әрекет таңдаумен белсендіріледі, оны тек қолмен көшіргенде іске қосу үшін бұл опцияны таңдаңыз"
+
+#: ../panel-plugin/settings-dialog.glade.h:8
+msgid "Command:"
+msgstr "Команда:"
+
+#: ../panel-plugin/settings-dialog.glade.h:9
+msgid "Configure the plugin"
+msgstr "Плагинді баптау"
+
+#: ../panel-plugin/settings-dialog.glade.h:10
+msgid "Edit Action"
+msgstr "Әрекетті баптау"
+
+#: ../panel-plugin/settings-dialog.glade.h:11
+msgid "Enable _actions"
+msgstr "Әр_екеттерді іске қосу"
+
+#: ../panel-plugin/settings-dialog.glade.h:12
+msgid "General"
+msgstr "Жалпы"
+
+#: ../panel-plugin/settings-dialog.glade.h:13
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Таңдалған болса, алмасу буферінің мәтіндері әрқашан тұрақты өрнектермен салыстырылады және қолжетерлік әрекеттер мәзірде көрсетіледі"
+
+#: ../panel-plugin/settings-dialog.glade.h:14
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Таңдалған болса, таңдаулар негізгі алмасу буферімен сіз өз таңдауыңызды әрқашан да кірістіре алатындай синхрондалады"
+
+#: ../panel-plugin/settings-dialog.glade.h:15
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Таңдалған болса, қолмен ерекшелеуден басқа таңдаулар тарихқа әсер етпейді"
+
+#: ../panel-plugin/settings-dialog.glade.h:16
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Таңдалған болса, бұл опция суретті тарихтан тыс сақтауға рұқсат етеді"
+
+#: ../panel-plugin/settings-dialog.glade.h:17
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Таңдалған болса, әр Xfce сессиясында тарих қалпына келтіріледі"
+
+#: ../panel-plugin/settings-dialog.glade.h:18
+msgid "Ignore s_elections"
+msgstr "Таң_дауды елемеу"
+
+#: ../panel-plugin/settings-dialog.glade.h:19
+msgid "Name:"
+msgstr "Аты:"
+
+#: ../panel-plugin/settings-dialog.glade.h:20
+msgid "Pattern:"
+msgstr "Үлгі:"
+
+#: ../panel-plugin/settings-dialog.glade.h:21
+msgid "Regular expression"
+msgstr "Тұрақты өрнек"
+
+#: ../panel-plugin/settings-dialog.glade.h:22
+msgid "Save on _quit"
+msgstr "Шыққ_анда сақтау"
+
+#: ../panel-plugin/settings-dialog.glade.h:23
+msgid "Size of the _history:"
+msgstr "Тар_их өлшемі:"
+
+#: ../panel-plugin/settings-dialog.glade.h:24
+msgid "Store an _image"
+msgstr "Суре_тті сақтау"
+
+#: ../panel-plugin/settings-dialog.glade.h:25
+msgid "Sync _selections"
+msgstr "Т_аңдауларды синхрондау"
+
+#: ../panel-plugin/settings-dialog.glade.h:26
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "Үлгі әрқашан да арнайы ^$ таңбаларымен жиектелуі тиіс"
+
+#: ../panel-plugin/settings-dialog.glade.h:27
+msgid "Type here your custom text, for example an URL, a filename, etc."
+msgstr "Өзіңіздің мәтіңізді, мыс., сілтеме, файл аты, т.с.с. теріңіз."
+
+#: ../panel-plugin/settings-dialog.glade.h:28
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Сіз алмастыру \"\\1\", \"\\2\" және т.с.с. командаларда қолдана аласыз. \"\\0\" параметрі мәтінді түгелімен анықтайды. Тұрақты өрнектер туралы білмесеңіз, сізге олар туралы Clipman құжаттамасын оқу керек."
+
+#: ../panel-plugin/actions.c:367
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
+"\"%s\" командасын жөнелту мүмкін емес\n"
+"\n"
+"%s"
+
+#: ../panel-plugin/menu.c:127
+msgid "Are you sure you want to clear the history?"
+msgstr "Тарихты өшіруді шынымен қалайсыз ба?"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:202
+msgid "Clipboard is empty"
+msgstr "Алмасу буфері бос"
+
+#: ../panel-plugin/plugin.c:294
+msgid "Contributors:"
+msgstr "Үлесін қосқандар:"
+
+#: ../panel-plugin/plugin.c:308
+msgid "Clipboard Manager for Xfce"
+msgstr "Xfce үшін алмасу буфері басқарушысы"
+
+#: ../panel-plugin/plugin.c:317
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010"
+
+#: ../panel-plugin/plugin.c:331
+msgid "Unable to open the settings dialog"
+msgstr "Баптаулар сұхбат терезесін ашу сәтсіз"
+
