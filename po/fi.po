@@ -2,14 +2,15 @@
 # Copyright (C) 2009 Mike Massonnet
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Copyright (C) 2009 Lassi Kojo.
+# Copyright (C) 2010 Jari Rahkonen.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2009-04-19 18:01+0300\n"
-"Last-Translator: Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
+"PO-Revision-Date: 2010-10-17 00:22+0300\n"
+"Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -19,7 +20,6 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
 msgstr "Leikepöytien hallintatyökalu"
 
@@ -65,24 +65,21 @@ msgid "Xfce Bug"
 msgstr "Xfce:n vikailmoitus"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Toiminto</b>"
+msgstr "<b>Nollaa toiminnot</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Haluatko varmasti tyhjentää historian?"
+msgstr "Haluatko varmasti palauttaa toiminnot järjestelmän oletusarvoihin?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Toiminto</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Historia</b>"
+msgstr "<b>Käytös</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
@@ -97,17 +94,15 @@ msgid "Actions"
 msgstr "Toiminnot"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
-#, fuzzy
 msgid "Activate only on manual copy"
-msgstr "Ainoastaan oletusleikepöydällä"
+msgstr "Ainoastaan käsin kopioitaessa"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"Jos valitset tämän, toiminto suoritetaan vain kopioidessa, ei heti tehtyäsi "
-"valinnan."
+"Toiminto suoritetaan vain kopioidessa, ei heti tehtyäsi valinnan."
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -127,41 +122,41 @@ msgstr "Käytä t_oimintoja"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
-msgstr "Yleistä"
+msgstr "Yleiset"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"Jos valitset tämän, leikepöydän teksteille tarjotaan soveltuvia toimintoja "
-"vertaamalla niitä säännöllisiin lausekkeisiin"
+"Tarjoa tekstileikkeille soveltuvia toimintoja vertaamalla niitä "
+"säännöllisiin lausekkeisiin."
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
+"Valinnat päivitetään oletusleikepöydälle siten, että voit liittää, mitä "
+"valitset."
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-#, fuzzy
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Jos valitset tämän, historia säilytetään Xfce-istuntojen välillä"
+msgstr "Valinnat vaikuttavat historiaan ainoastaan käsin kopioitaessa"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Jos valitset tämän, historiaan voi tallentaa yhden kuvan"
+msgstr "Tallenna yksi kuva leikehistoriaan"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Jos valitset tämän, historia säilytetään Xfce-istuntojen välillä"
+msgstr "Säilytä historia Xfce-istuntojen välillä"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "_Lisää valinnat"
+msgstr "Älä _huomioi valintoja"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -173,7 +168,7 @@ msgstr "Lauseke:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Säännöllinen lauseke"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -188,17 +183,16 @@ msgid "Store an _image"
 msgstr "Tallenna _kuva"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "_Lisää valinnat"
+msgstr "_Päivitä valinnat"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Lauseke ympäröidään aina erikoismerkeillä ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Kirjoita tähän mukautettua tekstiä, kuten URL, tiedostonimi tms."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
@@ -234,7 +228,7 @@ msgstr "Leikepöytä on tyhjä"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Avustavat kehittäjät:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
@@ -242,34 +236,10 @@ msgstr "Leikepöytien hallinta Xfce:lle"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
-msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>"
+msgstr ""
+"Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
+"Jari Rahkonen <jari.rahkonen@pp1.inet.fi"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
-msgstr ""
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "Käynnistä Clipman"
-
-#, fuzzy
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "Käynnistetäänkö leikepöytien hallinta automaattisesti?"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "Jokin sovellus hallitsee jo leikepöytiä"
-
-#~ msgid "_Enable"
-#~ msgstr "_Käytä"
-
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Jos valitset tämän, valinnat tallennetaan historiaan. Tämä voi haitata "
-#~ "historian luettavuutta, mutta on hyödyllinen jos haluat valintojen olevan "
-#~ "välittömästi liitettävissä."
+msgstr "Asetusikkunaa ei voi avata"
