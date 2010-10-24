@@ -1,6 +1,8 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 
+gboolean print_text = FALSE;
+
 static void
 cb (GtkClipboard *clipboard,
     GdkEvent *event,
@@ -41,6 +43,13 @@ cb (GtkClipboard *clipboard,
   g_print ("\n");
 
   g_free (atoms);
+
+  if (print_text)
+    {
+      gchar *text = gtk_clipboard_wait_for_text (clipboard);
+      g_print ("text: %.30s[...]\n\n", text);
+      g_free (text);
+    }
 }
 
 int main (int argc, char *argv[])
@@ -48,6 +57,11 @@ int main (int argc, char *argv[])
   GtkClipboard *clipboard;
 
   gtk_init (&argc, &argv);
+
+  if (argc > 1 && !g_strcmp0 (argv[1], "-p"))
+    print_text = TRUE;
+  else if (argc > 2 && !g_strcmp0 (argv[2], "-p"))
+    print_text = TRUE;
 
   if (argc > 1 && !g_strcmp0 (argv[1], "-s"))
     clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
