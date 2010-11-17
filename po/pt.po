@@ -2,7 +2,7 @@
 # Copyright (C) 2005-2009 THE Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007, 2008, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
@@ -25,10 +25,8 @@ msgstr "Gestor de área de transferência"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -50,11 +48,11 @@ msgstr "Imagem"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "URL longo"
+msgstr "URL longa"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "Encurtar o URL"
+msgstr "Encurtar URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
@@ -70,7 +68,7 @@ msgstr "<b>Repor acções</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
 msgid "Are you sure you want to reset the actions to the system default values?"
-msgstr "Tem certeza que pretende repor as acções para os valores por omissão do sistema?"
+msgstr "Tem certeza que pretende repor as acções para as omissão do sistema?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -106,15 +104,15 @@ msgstr "Comando:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr "Configurar plugin"
+msgstr "Configurar \"plug-in\""
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr "Editar Acção"
+msgstr "Editar acção"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr "Activar a_cções"
+msgstr "Activar _acções"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
@@ -134,7 +132,7 @@ msgstr "Se activa, as selecções não afectarão o histórico à excepção das
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Se activa, esta opção permite-lhe armazenar uma imagem dentro do histórico"
+msgstr "Se activa, esta opção permite-lhe guardar uma imagem dentro do histórico"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
 msgid "If checked, this option will restore the history on every new Xfce session"
@@ -218,4 +216,4 @@ msgstr "Nuno Miguel"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
-msgstr "Incapaz de abrir o diálogo de definições"
+msgstr "Incapaz de abrir a janela de definições"
