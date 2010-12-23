@@ -2,7 +2,7 @@
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Jeff Bailes <thepizzaking@gmail.com>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
@@ -18,9 +18,8 @@ msgstr ""
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "Clipboard Manager"
+msgstr "Clipboard manager"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -33,174 +32,155 @@ msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Edit with Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "GNOME Bug"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "Long URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "Shrink the URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "View with Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Xfce Bug"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Clipboard Behaviour</b>"
+msgstr "<b>Reset actions</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Are you sure you want to remove this clip from the history?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Are you sure you want to reset the actions to the system default values?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Action</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>Clipboard Behaviour</b>"
+msgstr "<b>Behaviour</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
-#, fuzzy
 msgid "<b>Commands</b>"
-msgstr "<b>Numbers</b>"
+msgstr "<b>Commands</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>History</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Activate only on manual copy"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "By default the action is triggerred by a selection, tick this option to trigger the action only when you make a manual copy"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr ""
+msgstr "Command:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr ""
+msgstr "Configure the plugin"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr ""
+msgstr "Edit Action"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr ""
+msgstr "Enable _actions"
 
 #: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "General"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "If ticked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "If ticked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "If ticked, the selections won't affect the history except the manual copies"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "If ticked, this option allows to store one image inside the history"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "If ticked, this option will restore the history on every new Xfce session"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "_Ignore selections"
+msgstr "Ignore s_elections"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr ""
+msgstr "Name:"
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr ""
+msgstr "Pattern:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Regular expression"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
-msgstr ""
+msgstr "Save on _quit"
 
 #: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr ""
+msgstr "Size of the _history:"
 
 #: ../panel-plugin/settings-dialog.glade.h:24
 msgid "Store an _image"
-msgstr ""
+msgstr "Store an _image"
 
 #: ../panel-plugin/settings-dialog.glade.h:25
-#, fuzzy
 msgid "Sync _selections"
-msgstr "_Ignore selections"
+msgstr "Sync _selections"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "The pattern is always anchored within the special characters ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
+msgstr "Type here your custom text, for example an URL, a filename, etc."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -209,6 +189,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
@@ -216,27 +199,24 @@ msgstr "Are you sure you want to clear the history?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< Clipboard Empty >"
+msgstr "Clipboard is empty"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Contributors:"
 
 #: ../panel-plugin/plugin.c:308
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Clipboard manager for the Xfce desktop"
+msgstr "Clipboard Manager for Xfce"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr "Jeff Bailes"
 
 #: ../panel-plugin/plugin.c:331
-#, fuzzy
 msgid "Unable to open the settings dialog"
-msgstr "Unable to open the following url: %s"
+msgstr "Unable to open the settings dialogue"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Save clipboard contents on _exit"
