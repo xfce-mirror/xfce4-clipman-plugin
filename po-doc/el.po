@@ -99,11 +99,11 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in88(title)
 msgid "Clipman Menu"
-msgstr ""
+msgstr "Μενού Clipman"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in94(phrase)
 msgid "Menu displaying the history"
-msgstr ""
+msgstr "Μενού εμφάνισης ιστορικού"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in99(para)
 msgid "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel. To add a new item in the panel right click the panel and select “Add new item…”."
@@ -111,7 +111,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in107(title)
 msgid "Popup Command"
-msgstr ""
+msgstr "Αναδυόμενη εντολή"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in109(para)
 msgid "@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it popups the main menu. The command is practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</guimenu><guimenu>Keyboard</guimenu></menuchoice>."
@@ -119,7 +119,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in125(title)
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in127(para)
 msgid "The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It allows to tweak the history and to edit actions."
@@ -127,63 +127,63 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in133(title)
 msgid "General"
-msgstr ""
+msgstr "Γενικά"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in135(para)
 msgid "The following table describes the available options:"
-msgstr ""
+msgstr "Ο ακόλουθος πίνακας περιγράφει τις διαθέσιμες επιλογές:"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in139(title)
 msgid "General options in the Settings dialog"
-msgstr ""
+msgstr "Γενικές επιλογές στο παράθυρο διαλόγου ρυθμίσεων"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in143(entry)
 msgid "Options"
-msgstr ""
+msgstr "Επιλογές"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in144(entry)
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in149(entry)
 msgid "Sync selections"
-msgstr ""
+msgstr "Συγχρονισμός μαρκαρισμένων"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in150(entry)
 msgid "Sync the primary clipboard with the default clipboard in a way that it is possible to paste what gets selected"
-msgstr ""
+msgstr "Συγχρονισμός του πρωτεύοντος πρόχειρου με το προεπιλεγμένο πρόχειρο με τρόπο ώστε να είναι δυνατή η επικόλληση όσων μαρκάρονται"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in154(entry)
 msgid "Exclude from history"
-msgstr ""
+msgstr "Εξαίρεση από το ιστορικό"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in155(entry)
 msgid "Prevents the primary clipboard from being inserted in the history"
-msgstr ""
+msgstr "Αποτρέπει το πρωτεύον πρόχειρο από το να εισέρχεται στο ιστορικό"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in158(entry)
 msgid "Save on quit"
-msgstr ""
+msgstr "Αποθήκευση στην έξοδο"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in159(entry)
 msgid "Keeps the history at every new session"
-msgstr ""
+msgstr "Κρατά το ιστορικό σε κάθε νέα σύνοδο"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in162(entry)
 msgid "Store an image"
-msgstr ""
+msgstr "Αποθηκεύστε μια εικόνα"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in163(entry)
 msgid "Allows to store one image in the history"
-msgstr ""
+msgstr "Επιτρέπει την αποθήκευση εικόνας στο ιστορικό"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in166(entry)
 msgid "Size of the history"
-msgstr ""
+msgstr "Μέγεθος ιστορικού"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in167(entry)
 msgid "Sets the number of items to keep in history"
-msgstr ""
+msgstr "Ορίζει τον αριθμό των στοιχείων που θα κρατούνται στο ιστορικό"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in174(title)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in206(title)
