@@ -51,7 +51,7 @@ msgstr "2009"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in28(para)
 msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The complete license text is available from the <ulink type=\"http\" url=\"http://www.fsf.org/\">Free Software Foundation</ulink>."
-msgstr ""
+msgstr "Παραχωρείται η άδεια προς αντιγραφή, διανομή και/ή τροποποίηση αυτού του εγγράφου υπό τους όρους της GNU Free Documentation License, Έκδοση 1.3 ή οποιασδήποτε νεότερης έκδοσης δημοσιευμένης από το Free Software Foundation· χωρίς το κείμενο του εξώφυλλου, χωρίς το κείμενο του οπισθόφυλλου. Το πλήρες κείμενο της άδειας είναι διαθέσιμο από το <ulink type=\"http\" url=\"http://www.fsf.org/\">Ίδρυμα Ελεύθερου Λογισμικού </ulink>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in38(firstname)
 msgid "Mike"
@@ -115,7 +115,7 @@ msgstr "Αναδυόμενη εντολή"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in109(para)
 msgid "@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it popups the main menu. The command is practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</guimenu><guimenu>Keyboard</guimenu></menuchoice>."
-msgstr ""
+msgstr "Το @PACKAGE_NAME@ παρέχει το εργαλείο της γραμμής εντολών <application>xfce4-popup-clipman</application>. Όταν καλείται παρουσιάζει το κύριο μενού. Η εντολή είναι πρακτική για χρήση στο <emphasis role=\"bold\">Συντομεύσεις εφαρμογών</emphasis> που είναι διαθέσιμο στο <menuchoice><guimenu>μενού του Xfce</guimenu><guimenu>Ρυθμίσεις</guimenu><guimenu>Πληκτρολόγιο</guimenu></menuchoice>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in125(title)
 msgid "Settings"
@@ -200,11 +200,11 @@ msgstr "Ενέργειες"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in190(para)
 msgid "An action is a pair of an action name and a regular expression. Each action can have one or more commands. The support of actions is optional and can be enabled or disabled through the “Enable actions” option."
-msgstr ""
+msgstr "Μια ενέργεια είναι ένα ζευγάρι ονόματος και κανονικής έκφρασης. Κάθε ενέργεια μπορεί να έχει μία ή περισσότερες εντολές. Η υποστήριξη των ενεργειών είναι προαιρετική και μπορεί να ενεργοποιηθεί ή να απενεργοποιηθεί μέσω της επιλογής \"Ενεργοποίηση ενεργειών\"."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in195(para)
 msgid "To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a new dialog is opened."
-msgstr ""
+msgstr "Για να προσθέσετε μια ενέργεια κάντε κλικ στο εικονίδιο Προσθήκη, για να επεξεργαστείτε μια ενέργεια επιλέξτε την ενέργεια και κάντε κλικ στο εικονίδιο Επεξεργασία ή διπλό κλικ στην ενέργεια, και για να αφαιρέσετε μια ενέργεια επιλέξετε την ενέργεια και κάντε κλικ στο εικονίδιο Διαγραφή. Με την προσθήκη ή την επεξεργασία μιας ενέργειας ένα νέο παράθυρο διαλόγου ανοίγει."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in201(para)
 msgid "To learn more about actions go to <xref linkend=\"action-dialog\"/>."
@@ -353,11 +353,11 @@ msgstr "Εντολή"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in311(para)
 msgid "A command can reuse one or more substitutions from the regular expression. The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-pattern within parentheses or 0 for the complete text."
-msgstr ""
+msgstr "Μια εντολή μπορεί να επαναχρησιμοποιεί μία ή περισσότερες αντικαταστάσεις από μια κανονική έκφραση. Οι αντικαταστάσεις αναπαρίστανται από ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” όπου &lt;number&gt; αντιστοιχεί στο υπό-πρότυπο μέσα σε παρενθέσεις ή 0 για το πλήρες κείμενο."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in317(para)
 msgid "For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command ”<code>exo-open http://host/\\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”."
-msgstr ""
+msgstr "Για παράδειγμα, από το απλό πρότυπο ”<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>” είναι δυνατό να χρησιμοποιήσετε ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” για το κείμενο “bug #123” και ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” για το κείμενο “123”. Για την εντολή ”<code>exo-open http://host/\\1</code>”, η πραγματικά εκτελέσιμη εντολή θα ήταν ”<code>exo-open http://host/123</code>”."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in327(title)
 msgid "Xfconf"
@@ -365,7 +365,7 @@ msgstr "Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in329(para)
 msgid "@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following table lists all the properties with their possible values:"
-msgstr ""
+msgstr "Το @PACKAGE_NAME@ χρησιμοποιεί το Xfconf για να αποθηκεύσει τις ρυθμίσεις του. Αυτό σας επιτρέπει να αλλάξετε τις ρυθμίσεις με το εργαλείο <application>xfconf-query</application> ή <application>xfce4-settings-editor</application>. Το κανάλι είναι <constant>xfce4-panel</constant> και η βασική ιδιότητα είναι <constant>/plugins/clipman</constant>. Ο παρακάτω πίνακας παραθέτει όλες τις ιδιότητες με τις πιθανές τιμές τους:"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in336(title)
 msgid "Xfconf Properties"
@@ -467,7 +467,7 @@ msgstr "αληθές για την αποκατάσταση του ιστορι�
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in346(tbody)
 msgid "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
-msgstr ""
+msgstr "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></row><row><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/></row><row><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/></row> false <row><placeholder-13/><placeholder-14/><placeholder-15/><placeholder-16/></row><row><placeholder-17/><placeholder-18/><placeholder-19/><placeholder-20/></row><row><placeholder-21/><placeholder-22/><placeholder-23/><placeholder-24/></row>"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in389(para)
 msgid "To change a setting from a terminal type the command-line:"
@@ -479,7 +479,7 @@ msgstr "Υποστήριξη"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in400(para)
 msgid "To report a bug or a feature request use the bug tracking system at <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. If you have questions about the use of this software, please ask on the <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">Xfce mailing list</ulink> or point your IRC client to <emphasis role=\"bold\">irc.freenode.net</emphasis>, join the channel <emphasis role=\"bold\">#xfce</emphasis> and ask for help."
-msgstr ""
+msgstr "Για να αναφέρετε ένα σφάλμα ή να ζητήσετε κάποια επιπλέον δυνατότητα χρησιμοποιήστε το σύστημα σφαλμάτων στο <ulink type=\"http\" url=\"@PACKAGE_BUGREPORT@\">@PACKAGE_BUGREPORT@</ulink>. Αν έχετε ερωτήσεις πάνω στη χρήση αυτού του προγράμματος, παρακαλώ ρωτήστε στην <ulink type=\"http\" url=\"http://foo-projects.org/mailman/listinfo/xfce\">mailing list του Xfce</ulink> ή μέσω του IRC πελάτη σας στο <emphasis role=\"bold\">irc.freenode.net</emphasis>, στο κανάλι <emphasis role=\"bold\">#xfce</emphasis> και ρωτήστε για βοήθεια."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in411(title)
 msgid "About @PACKAGE_NAME@"
