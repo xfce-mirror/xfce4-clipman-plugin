@@ -75,7 +75,7 @@ msgstr "Εισαγωγή"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in55(para)
 msgid "@PACKAGE_NAME@ is a clipboard manager for Xfce. It keeps the clipboard contents around while it is usually lost when you close an application. It is able to handle text and images, and has a feature to execute actions on specific text by matching them against regular expressions."
-msgstr ""
+msgstr "Το @PACKAGE_NAME@ είναι ένας διαχειριστής προχείρου για το Xfce. Κρατά τα περιεχόμενα του προχείρου καθώς αυτά συνήθως χάνονται με το κλείσιμο μιας εφαρμογής. Είναι ικανό να διαχειρίζεται κείμενο και εικόνες, και έχει τη δυνατότητα να εκτελεί λειτουργίες σε συγκεκριμένα κείμενα ταιριάζοντάς τα κάνοντας χρήση κανονικών εκφράσεων."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in62(title)
 msgid "Anatomy of a Clipboard"
@@ -95,7 +95,7 @@ msgstr "Ξεκινώντας"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in81(para)
 msgid "@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear the history."
-msgstr ""
+msgstr "Το @PACKAGE_NAME@ χρησιμοποιείται για να κρατά στο ιστορικό μια λίστα των περιεχομένων του προχείρου και να τα επαναφέρει. Το ιστορικό εμφανίζεται σε ένα μενού κάνοντας κλικ στο κυρίως εικονίδιο. Μέσα από το μενού είναι δυνατό να επαναφερθεί ένα κείμενο και να καθαριστεί το ιστορικό."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in88(title)
 msgid "Clipman Menu"
@@ -107,7 +107,7 @@ msgstr "Μενού εμφάνισης ιστορικού"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in99(para)
 msgid "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel. To add a new item in the panel right click the panel and select “Add new item…”."
-msgstr ""
+msgstr "Υπάρχουν δύο τρόποι για να τρέξει το @PACKAGE_NAME@. Μπορείτε να επιλέξετε @PACKAGE_NAME@ από το μενού εφαρμογών στην κατηγορία Βοηθήματα ή πληκτρολογώντας <application>xfce4-clipman</application> στη γραμμή εντολών, ή μπορείτε να το προσθέσετε στο ταμπλό σας. Για να προσθέσετε ένα νέο στοιχείο στο ταμπλό κάντε δεξί κλικ στο ταμπλό και επιλέξτε \"Προσθήκη νέων αντικειμένων...\"."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in107(title)
 msgid "Popup Command"
@@ -123,7 +123,7 @@ msgstr "Ρυθμίσεις"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in127(para)
 msgid "The settings dialog is available under the “Properties” item in the right click context menu on the main icon. It allows to tweak the history and to edit actions."
-msgstr ""
+msgstr "Το παράθυρο διαλόγου ρυθμίσεων είναι διαθέσιμο στην επιλογή “Ιδιότητες” του μενού στο δεξί κλικ στο κυρίως εικονίδιο. Σας επιτρέπει να διαχειριστείτε το ιστορικό και να επεξεργαστείτε τις ενέργειες."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in133(title)
 msgid "General"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in201(para)
 msgid "To learn more about actions go to <xref linkend=\"action-dialog\"/>."
-msgstr ""
+msgstr "Για να μάθετε περισσότερα σχετικά με τις ενέργειες πηγαίνετε στο <xref linkend=\"action-dialog\"/>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in212(phrase)
 msgid "Settings dialog with the Actions tab"
@@ -221,11 +221,11 @@ msgstr "Διάλογος ενεργειών"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in222(para)
 msgid "An action has a human readable name that describes the pattern it is going to match. An action must have at least one command which also has a human readable name. The matched text can be reused in the command."
-msgstr ""
+msgstr "Μια ενέργεια έχει ένα αναγνώσιμο από τον άνθρωπο όνομα που να περιγράφει το πρότυπο με το οποίο πρόκειται να ταιριάξει. Μια ενέργεια πρέπει να έχει τουλάχιστον μία εντολή η οποία έχει επίσης ένα αναγνώσιμο από τον άνθρωπο όνομα. Το κείμενο που ταίριαξε μπορεί να επαναχρησιμοποιηθεί στην εντολή."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in227(para)
 msgid "The actions are always matched against text selections unless specified otherwise. When the box “Activate only on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C)."
-msgstr ""
+msgstr "Οι ενέργειες πάντα ταιριάζουν με το μαρκαρισμένο κείμενο εκτός αν οριστεί διαφορετικά. Όταν το κουτί \"Ενεργοποίηση μόνο στη χειροκίνητη αντιγραφή\" είναι επιλεγμένο, η ενέργεια θα ταιριάξει από το προεπιλεγμένο πρόχειρο (π.χ. με το Ctrl+C)."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in239(phrase)
 msgid "Action edit dialog"
@@ -253,7 +253,7 @@ msgstr "?+*"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in255(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means zero or one character, one or more characters, and zero or more characters."
-msgstr ""
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”:Σημαίνει αντίστοιχα κανένα ή ένα χαρακτήρα, ένα ή περισσότερους χαρακτήρες, και κανένα ή περισσότερους χαρακτήρες."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in260(code)
 msgid "(|)"
@@ -261,7 +261,7 @@ msgstr "(|)"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in259(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and substitution, the vertical bar is used as an OR operation."
-msgstr ""
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: Χρησιμοποιείται για ομαδοποίηση και υποκατάσταση, η κατακόρυφη μπάρα χρησιμοποιείται ως λογική πράξη ή."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in264(code)
 msgid "[^]"
@@ -269,7 +269,7 @@ msgstr "[^]"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in263(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a character from a set of characters and special characters, the circumflex is used at the start as a negation."
-msgstr ""
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: Χρησιμοποιείται για να ταιριάξει ένα χαρακτήρα από ένα σύνολο χαρακτήρων και ειδικών χαρακτήρων, η περισπωμένη χρησιμοποιείται στην αρχή ως διάψευση."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in268(code)
 msgid "\\"
@@ -277,11 +277,11 @@ msgstr "\\"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in267(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special character."
-msgstr ""
+msgstr "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: για τη χρήση ειδικών χαρακτήρων"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in272(para)
 msgid "Basic alphanumeric character class: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis>\". Character classes are used within square brackets to represent a set of characters."
-msgstr ""
+msgstr "Κλάση βασικών αλφαριθμητικών χαρακτήρων: \"<emphasis role=\"bold\"><code>A-Za-z0-9</code></emphasis>\". Οι κλάσεις χαρακτήρων χρησιμοποιούνται σε αγκύλες αναπαριστώντας ένα σύνολο χαρακτήρων."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in279(title)
 msgid "Examples"
@@ -297,7 +297,7 @@ msgstr "σφάλμα"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in282(listitem)
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", zero or one space, zero or one sharp character, and one or more numbers."
-msgstr ""
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": κείμενο \"<placeholder-2/>\", κανένα ή ένα διάστημα, κανένα ή ένα χαρακτήρα, και έναν ή περισσότερους αριθμούς."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in287(code)
 msgid "(http|ftp).+\\.(jpg|png|gif)"
@@ -325,7 +325,7 @@ msgstr "gif"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in286(listitem)
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text \"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
-msgstr ""
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": κείμενο \"<placeholder-2/>\" ή \"<placeholder-3/>\", έναν ή περισσότερους χαρακτήρες, ένα σημείο στίξης, και το κείμενο \"<placeholder-4/>\", \"<placeholder-5/>\" ή \"<placeholder-6/>\"."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in292(code)
 msgid "http://.{120}[^ ]+"
@@ -337,7 +337,7 @@ msgstr "http://"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in291(listitem)
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", 120 characters, and one or more characters except a space."
-msgstr ""
+msgstr "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": κείμενο \"<placeholder-2/>\", 120 χαρακτήρες, και ένας οι περισσότεροι χαρακτήρες εκτός από το διάστημα."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in299(title)
 msgid "External Ressource"
@@ -345,7 +345,7 @@ msgstr "Εξωτερικά πηγές"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in301(para)
 msgid "Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">Wikipedia article</ulink> about regular expressions."
-msgstr ""
+msgstr "Ρίξτε μια ματιά στο <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">άρθρο της Wikipedia</ulink> για τις κανονικές εκφράσεις."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in309(title)
 msgid "Command"
