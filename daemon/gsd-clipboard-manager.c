@@ -231,6 +231,19 @@ primary_clipboard_store (GsdClipboardManager *manager)
         return FALSE;
 }
 
+static gboolean
+primary_clipboard_restore (GsdClipboardManager *manager)
+{
+        if (manager->priv->primary_cache != NULL) {
+                gtk_clipboard_set_text (manager->priv->primary_clipboard,
+                                        manager->priv->primary_cache,
+                                        -1);
+                manager->priv->primary_internal_change = TRUE;
+        }
+
+        return FALSE;
+}
+
 static void
 primary_clipboard_owner_change (GsdClipboardManager *manager,
                                 GdkEventOwnerChange *event)
@@ -238,24 +251,20 @@ primary_clipboard_owner_change (GsdClipboardManager *manager,
         if (event->send_event == TRUE) {
                 return;
         }
+        if (manager->priv->primary_timeout != 0) {
+                g_source_remove (manager->priv->primary_timeout);
+                manager->priv->primary_timeout = 0;
+        }
 
         if (event->owner != 0) {
                 if (manager->priv->primary_internal_change == TRUE) {
                         manager->priv->primary_internal_change = FALSE;
                         return;
                 }
-                if (manager->priv->primary_timeout == 0) {
-                        manager->priv->primary_timeout =
-                          g_timeout_add (250, (GSourceFunc)primary_clipboard_store, manager);
-                }
+                manager->priv->primary_timeout = g_timeout_add (250, (GSourceFunc)primary_clipboard_store, manager);
         }
-        else {
-                if (manager->priv->primary_cache != NULL) {
-                        gtk_clipboard_set_text (manager->priv->primary_clipboard,
-                                                manager->priv->primary_cache,
-                                                -1);
-                        manager->priv->primary_internal_change = TRUE;
-                }
+        else if (gtk_clipboard_wait_is_text_available (manager->priv->primary_clipboard) == FALSE) {
+                manager->priv->primary_timeout = g_timeout_add (250, (GSourceFunc)primary_clipboard_restore, manager);
         }
 }
 
