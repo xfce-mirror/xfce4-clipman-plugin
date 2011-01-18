@@ -117,15 +117,15 @@ msgstr "Menú que mostra o historial"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in99(para)
 msgid "There are two ways to run @PACKAGE_NAME@. You can select @PACKAGE_NAME@ in the applications menu under the category Utility or type <application>xfce4-clipman</application> on the command-line, or you can add it into your panel. To add a new item in the panel right click the panel and select “Add new item…”."
-msgstr "Hai dous xeitos de executar @PACKAGE_NAME@. Pode seleccionar @PACKAGE_NAME@ no menú de aplicacións na categoría Utilidades ou introducir <application>xfce4-clipman</application> na liña de comandos, ou pode engadila ao panel. Para engadir un novo elemento ao panel prema co botón dereito no panel e seleccione \"Engadir novo elemento…\"."
+msgstr "Hai dous xeitos de executar @PACKAGE_NAME@. Pode seleccionar @PACKAGE_NAME@ no menú de aplicacións na categoría Utilidades ou introducir <application>xfce4-clipman</application> na liña de ordes, ou pode engadila ao panel. Para engadir un novo elemento ao panel prema co botón dereito no panel e seleccione \"Engadir novo elemento…\"."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in107(title)
 msgid "Popup Command"
-msgstr "Comando emerxente"
+msgstr "Orde emerxente"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in109(para)
 msgid "@PACKAGE_NAME@ provides the command-line tool <application>xfce4-popup-clipman</application>. When called it popups the main menu. The command is practical for the <emphasis role=\"bold\">Application Shortcuts</emphasis> available at <menuchoice><guimenu>Xfce Menu</guimenu><guimenu>Settings</guimenu><guimenu>Keyboard</guimenu></menuchoice>."
-msgstr "@PACKAGE_NAME@ proporciona a ferramenta de liña de comandos <application>xfce4-popup-clipman</application>. Cando se invoca emerxe o menú principal. O comando é práctico para os <emphasis role=\"bold\">Atallos de aplicacións</emphasis> que está dispoñible en <menuchoice><guimenu>Menú de Xfce</guimenu><guimenu>Configuración</guimenu><guimenu>Teclado</guimenu></menuchoice>."
+msgstr "@PACKAGE_NAME@ proporciona a ferramenta de liña de ordes <application>xfce4-popup-clipman</application>. Cando se invoca emerxe o menú principal. A orde é práctica para os <emphasis role=\"bold\">Atallos de aplicacións</emphasis> que está dispoñible en <menuchoice><guimenu>Menú de Xfce</guimenu><guimenu>Configuración</guimenu><guimenu>Teclado</guimenu></menuchoice>."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in125(title)
 msgid "Settings"
@@ -210,7 +210,7 @@ msgstr "Accións"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in190(para)
 msgid "An action is a pair of an action name and a regular expression. Each action can have one or more commands. The support of actions is optional and can be enabled or disabled through the “Enable actions” option."
-msgstr "Unha acción é unha parella composta por un nome de acción e unha expresión regular. Cada acción pode ter un ou máis comandos. O soporte das accións é opcional e pode activarse ou desactivarse a través da opción “Activar as accións”."
+msgstr "Unha acción é unha parella composta por un nome de acción e unha expresión regular. Cada acción pode ter unha ou máis ordes. A compatibilidade cas accións é opcional e pode activarse ou desactivarse a través da opción “Activar as accións”."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in195(para)
 msgid "To add an action click the Add icon, to edit an action select the action and click the Edit icon or double click the action, and to remove an action select an action and click the Delete icon. By adding or editing an action a new dialog is opened."
@@ -231,7 +231,7 @@ msgstr "Diálogo de acción"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in222(para)
 msgid "An action has a human readable name that describes the pattern it is going to match. An action must have at least one command which also has a human readable name. The matched text can be reused in the command."
-msgstr "Unha acción ten un nome lexible por humanos que describe o patrón que se vai comparar. Unha acción debe ter polo menos un comando que tamén ten un nome lexible por humanos. O texto comparado pódese reutilizar no comando."
+msgstr "Unha acción ten un nome lexible por humanos que describe o patrón que se vai comparar. Unha acción debe ter polo menos unha orde que tamén ten un nome lexible por humanos. O texto comparado pódese reutilizar na orde."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in227(para)
 msgid "The actions are always matched against text selections unless specified otherwise. When the box “Activate only on manual copy” is checked, the action will be matched from the default clipboard (e.g. with Ctrl+C)."
@@ -360,15 +360,15 @@ msgstr "Bótelle unha ollada ao <ulink type=\"http\" url=\"http://en.wikipedia.o
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in309(title)
 msgid "Command"
-msgstr "Comando"
+msgstr "Orde"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in311(para)
 msgid "A command can reuse one or more substitutions from the regular expression. The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-pattern within parentheses or 0 for the complete text."
-msgstr "Un comando pode reutilizar unha ou máis substitucións da expresión regular. As substitucións represéntanse cun ”<emphasis role=\"bold\"><code>\\&lt;número&gt;</code></emphasis>” onde &lt;número&gt; corresponde co subpatrón dentro dos parénteses ou con 0 para o texto completo."
+msgstr "Unha orde pode reutilizar unha ou máis substitucións da expresión regular. As substitucións represéntanse cun ”<emphasis role=\"bold\"><code>\\&lt;número&gt;</code></emphasis>” onde &lt;número&gt; corresponde co subpatrón dentro dos parénteses ou con 0 para o texto completo."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in317(para)
 msgid "For example, from the simple pattern ”<emphasis role=\"bold\"><code>bug #(123)</code></emphasis>” it is possible to use ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” for the text “bug #123” and ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” for the text “123”. For the command ”<code>exo-open http://host/\\1</code>”, the real executed command would be ”<code>exo-open http://host/123</code>”."
-msgstr "Por exemplo, partindo do simple patrón ”<emphasis role=\"bold\"><code>erro #(123)</code></emphasis>” é posible usar ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” para o texto “erro #123” e ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” para o texto “123”. Para o comando ”<code>exo-open http://host/\\1</code>”, o comando que se executará en realidade será ”<code>exo-open http://host/123</code>”."
+msgstr "Por exemplo, partindo do simple patrón ”<emphasis role=\"bold\"><code>erro #(123)</code></emphasis>” é posible usar ”<emphasis role=\"bold\"><code>\\0</code></emphasis>” para o texto “erro #123” e ”<emphasis role=\"bold\"><code>\\1</code></emphasis>” para o texto “123”. Para a orde ”<code>exo-open http://host/\\1</code>”, a orde que se executará en realidade será ”<code>exo-open http://host/123</code>”."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in327(title)
 msgid "Xfconf"
@@ -482,7 +482,7 @@ msgstr "<row><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></r
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in389(para)
 msgid "To change a setting from a terminal type the command-line:"
-msgstr "Para cambiar unha opción dende un terminal escriba a liña de comandos:"
+msgstr "Para cambiar unha opción dende un terminal escriba a liña de orde:"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in398(title)
 msgid "Support"
