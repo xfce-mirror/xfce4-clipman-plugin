@@ -1,12 +1,12 @@
 # Galician translation of xfce4-clipman-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -30,10 +30,8 @@ msgstr "Xestor de portarretallos"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63
-#: ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -87,7 +85,7 @@ msgstr "<b>Comportamento</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
-msgstr "<b>Comandos</b>"
+msgstr "<b>Ordes</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
@@ -107,7 +105,7 @@ msgstr "Por defecto a acción é provocada por unha selección, marque esta opci
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr "Comando:"
+msgstr "Orde:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
@@ -187,7 +185,7 @@ msgstr "Introduza aquí o seu texto, por exemplo un URL, un nome de ficheiro, et
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nos comandos. O parámetro \"\\0\" representa o texto completo. Se non sabe usar as expresións regulares, bótelle unha ollada á documentación de Clipman porque ten unha breve introdución a elas."
+msgstr "Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nas ordes. O parámetro \"\\0\" representa o texto completo. Se non sabe usar as expresións regulares, bótelle unha ollada á documentación de Clipman porque ten unha breve introdución a elas."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -196,7 +194,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Non foi posible executar o comando \"%s\"\n"
+"Non foi posible executar a orde \"%s\"\n"
 "\n"
 "%s"
 
@@ -231,40 +229,48 @@ msgstr "Non foi posible abrir o diálogo de configuración"
 
 #~ msgid "E_xclude from history"
 #~ msgstr "E_xcluír do historial"
+
 #~ msgid "Autostart Clipman"
 #~ msgstr "Iniciar automaticamente Clipman"
+
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "Desexa iniciar automaticamente o xestor de portarretallos?"
+
 #~ msgid "Authors of previous versions:"
 #~ msgstr "Autores das versións anteriores:"
+
 #~ msgid "There is already a clipboard manager running"
 #~ msgstr "Xa se está executando un xestor de portarretallos"
+
 #~ msgid "_Enable"
 #~ msgstr "_Activar"
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Se está marcado, as seleccións irán ó historial. Este comportamento pode "
-#~ "facer que o historial sexa ilexible, aínda que pode ser interesante no "
-#~ "caso de que sempre queira pegar o que selecciona."
+
+#~ msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+#~ msgstr "Se está marcado, as seleccións irán ó historial. Este comportamento pode facer que o historial sexa ilexible, aínda que pode ser interesante no caso de que sempre queira pegar o que selecciona."
+
 #~ msgid "Regex:"
 #~ msgstr "Expresión regular:"
+
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "_Gardar o contido do portarretallos ó saír"
+
 #~ msgid "_Show item numbers"
 #~ msgstr "_Mostrar os números de elemento"
+
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Xeral</b>"
+
 #~ msgid "Clipboard history items:"
 #~ msgstr "Elementos do historial do portarretallos:"
+
 #~ msgid "Menu item characters:"
 #~ msgstr "Caracteres de elemento do menú:"
+
 #~ msgid "Clear History"
 #~ msgstr "Limpar o historial"
+
 #~ msgid "Clipman History"
 #~ msgstr "Historial de Clipman"
+
 #~ msgid "Appearance"
 #~ msgstr "Aparencia"
-
