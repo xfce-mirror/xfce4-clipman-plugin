@@ -2,7 +2,7 @@
  *  Clipman - panel plugin for Xfce Desktop Environment
  *            popup command to show the clipman menu
  *  Copyright (C) 2002-2006  Olivier Fourdan
- *                2008-2009  Mike Massonnet <mmassonnet@xfce.org>
+ *                2008-2011  Mike Massonnet <mmassonnet@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
