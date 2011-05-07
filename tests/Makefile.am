@@ -11,8 +11,8 @@ INCLUDES =								\
 
 check_PROGRAMS = test-actions test-daemon test-targets
 test_actions_SOURCES = test_actions.c ../panel-plugin/actions.c ../panel-plugin/actions.h ../panel-plugin/common.h
-test_actions_CFLAGS = @GTK_CFLAGS@ @EXO_CFLAGS@ @LIBXFCE4UTIL_CFLAGS@ @LIBXFCEGUI4_CFLAGS@
-test_actions_LDADD = @GTK_LIBS@ @EXO_LIBS@ @LIBXFCE4UTIL_LIBS@ @LIBXFCEGUI4_LIBS@ 
+test_actions_CFLAGS = @GTK_CFLAGS@ @EXO_CFLAGS@ @LIBXFCE4UTIL_CFLAGS@ @LIBXFCE4UI_CFLAGS@
+test_actions_LDADD = @GTK_LIBS@ @EXO_LIBS@ @LIBXFCE4UTIL_LIBS@ @LIBXFCE4UI_LIBS@
 test_daemon_SOURCES = test_daemon.c
 test_daemon_CFLAGS = @GTK_CFLAGS@
 test_daemon_LDADD = $(top_builddir)/daemon/libdaemon.la @GTK_LIBS@
