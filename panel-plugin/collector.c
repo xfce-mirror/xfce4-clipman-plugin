@@ -49,6 +49,7 @@ struct _ClipmanCollectorPrivate
   gboolean              add_primary_clipboard;
   gboolean              history_ignore_primary_clipboard;
   gboolean              enable_actions;
+  gboolean              inhibit;
 };
 
 enum
@@ -56,6 +57,7 @@ enum
   ADD_PRIMARY_CLIPBOARD = 1,
   HISTORY_IGNORE_PRIMARY_CLIPBOARD,
   ENABLE_ACTIONS,
+  INHIBIT,
 };
 
 static void             clipman_collector_constructed       (GObject *object);
@@ -91,6 +93,12 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gboolean has_image;
   gchar *text;
   GdkPixbuf *image;
+
+  /* Jump over if collector is inhibited */
+  if (collector->priv->inhibit)
+    {
+      return;
+    }
 
   /* Jump over if the content is set from within clipman */
   if (collector->priv->internal_change)
@@ -252,6 +260,13 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, INHIBIT,
+                                   g_param_spec_boolean ("inhibit",
+                                                         "Inhibit",
+                                                         "Set to TRUE to disable the collector",
+                                                         FALSE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -314,6 +329,10 @@ clipman_collector_set_property (GObject *object,
       priv->enable_actions = g_value_get_boolean (value);
       break;
 
+    case INHIBIT:
+      priv->inhibit = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -341,7 +360,12 @@ clipman_collector_get_property (GObject *object,
       g_value_set_boolean (value, priv->enable_actions);
       break;
 
+    case INHIBIT:
+      g_value_set_boolean (value, priv->inhibit);
+      break;
+
     default:
       break;
     }
 }
+

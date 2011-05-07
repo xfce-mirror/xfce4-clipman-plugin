@@ -20,7 +20,6 @@
 #include <config.h>
 #endif
 
-#include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
@@ -40,6 +39,7 @@ G_DEFINE_TYPE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
 
 struct _ClipmanMenuPrivate
 {
+  GtkWidget            *mi_inhibit;
   GtkWidget            *mi_clear_history;
   ClipmanHistory       *history;
   GSList               *list;
@@ -49,6 +49,7 @@ struct _ClipmanMenuPrivate
 enum
 {
   REVERSE_ORDER = 1,
+  INHIBIT_MENU_ITEM,
 };
 
 static void             clipman_menu_finalize           (GObject *object);
@@ -73,6 +74,7 @@ static void            _clipman_menu_free_list          (ClipmanMenu *menu);
 
 static void             cb_set_clipboard                (const ClipmanHistoryItem *item);
 static void             cb_clear_history                (ClipmanMenu *menu);
+static void             cb_toggle_inhibit_mi            (ClipmanMenu *menu);
 
 
 
@@ -132,6 +134,13 @@ cb_clear_history (ClipmanMenu *menu)
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
   gtk_clipboard_clear (clipboard);
+}
+
+static void
+cb_toggle_inhibit_mi (ClipmanMenu *menu)
+{
+  gboolean toggle_value = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (menu->priv->mi_inhibit));
+  g_object_set (menu, "inhibit-menu-item", toggle_value, NULL);
 }
 
 /*
@@ -252,6 +261,13 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "Set to TRUE to display the menu in the reverse order",
                                                          FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, INHIBIT_MENU_ITEM,
+                                   g_param_spec_boolean ("inhibit-menu-item",
+                                                         "InhibitMenuItem",
+                                                         "Toggle the inhibit menu item to TRUE or FALSE",
+                                                         FALSE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -270,6 +286,10 @@ clipman_menu_init (ClipmanMenu *menu)
   /* Footer items */
   mi = gtk_separator_menu_item_new ();
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+
+  menu->priv->mi_inhibit = mi = gtk_check_menu_item_new_with_mnemonic (_("_Disable"));
+  gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+  g_signal_connect_swapped (mi, "toggled", G_CALLBACK (cb_toggle_inhibit_mi), menu);
 
   menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_CLEAR, NULL);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
@@ -300,6 +320,11 @@ clipman_menu_set_property (GObject *object,
       priv->reverse_order = g_value_get_boolean (value);
       break;
 
+    case INHIBIT_MENU_ITEM:
+      gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit),
+                                      g_value_get_boolean (value));
+      break;
+
     default:
       break;
     }
@@ -319,7 +344,12 @@ clipman_menu_get_property (GObject *object,
       g_value_set_boolean (value, priv->reverse_order);
       break;
 
+    case INHIBIT_MENU_ITEM:
+      g_value_set_boolean (value, gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit)));
+      break;
+
     default:
       break;
     }
 }
+

@@ -104,11 +104,15 @@ plugin_register (void)
                           G_TYPE_BOOLEAN, plugin->collector, "history-ignore-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
                           G_TYPE_BOOLEAN, plugin->collector, "enable-actions");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
+                          G_TYPE_BOOLEAN, plugin->collector, "inhibit");
 
   /* ClipmanMenu */
   plugin->menu = clipman_menu_new ();
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
+                          G_TYPE_BOOLEAN, plugin->menu, "inhibit-menu-item");
 
   /* Load the data */
   plugin_load (plugin);
