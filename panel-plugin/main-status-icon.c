@@ -122,11 +122,6 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
   if (G_UNLIKELY (plugin->popup_menu == NULL))
     {
       plugin->popup_menu = gtk_menu_new ();
-      mi = gtk_menu_item_new_with_label (_("Clipman"));
-      gtk_widget_set_sensitive (mi, FALSE);
-      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
-      mi = gtk_separator_menu_item_new ();
-      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_PROPERTIES, NULL);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_configure), plugin);
@@ -135,7 +130,7 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_about), plugin);
       mi = gtk_separator_menu_item_new ();
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
-      mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_REMOVE, NULL);
+      mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_QUIT, NULL);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_status_icon_quit), plugin);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       gtk_widget_show_all (plugin->popup_menu);
