@@ -30,12 +30,11 @@
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
-#include <glade/glade.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
 
 #include "common.h"
-#include "settings-dialog_glade.h"
+#include "settings-dialog_ui.h"
 #include "actions.h"
 
 static void             prop_dialog_run                 ();
@@ -70,7 +69,7 @@ static void             update_test_regex_textview_tags ();
 static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 
 static XfconfChannel *xfconf_channel = NULL;
-static GladeXML *gxml = NULL;
+static GtkBuilder *builder = NULL;
 static ClipmanActions *actions = NULL;
 static GtkWidget *settings_dialog = NULL;
 static guint test_regex_changed_timeout = 0;
@@ -82,73 +81,83 @@ prop_dialog_run (void)
 {
   GtkWidget *action_dialog;
 
-  /* GladeXML */
-  gxml = glade_xml_new_from_buffer (settings_dialog_glade, settings_dialog_glade_length, NULL, NULL);
+  builder = gtk_builder_new ();
+  gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, NULL);
 
   /* Dialogs */
-  settings_dialog = glade_xml_get_widget (gxml, "settings-dialog");
-  action_dialog = glade_xml_get_widget (gxml, "action-dialog");
+  settings_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "settings-dialog"));
+  action_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog"));
 
   /* General settings */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "add-selections")),
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "history-ignore-selections")),
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "history-ignore-selections")),
                                 DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "save-on-quit")),
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
                                 DEFAULT_SAVE_ON_QUIT);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "store-an-image")),
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
                                 (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
-  gtk_spin_button_set_value (GTK_SPIN_BUTTON (glade_xml_get_widget (gxml, "max-texts-in-history")),
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-texts-in-history")),
                              (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
+
   xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (gxml, "add-selections")), "active");
+                          gtk_builder_get_object (builder, "add-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (gxml, "history-ignore-selections")), "active");
+                          gtk_builder_get_object (builder, "history-ignore-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (gxml, "save-on-quit")), "active");
+                          gtk_builder_get_object (builder, "save-on-quit"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/max-images-in-history", G_TYPE_UINT,
-                          G_OBJECT (glade_xml_get_widget (gxml, "store-an-image")), "active");
+                          gtk_builder_get_object (builder, "store-an-image"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/max-texts-in-history", G_TYPE_UINT,
-                          G_OBJECT (glade_xml_get_widget (gxml, "max-texts-in-history")), "value");
+                          gtk_builder_get_object (builder, "max-texts-in-history"), "value");
 
   /* Actions tab and dialog */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "enable-actions")),
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "enable-actions")),
                                 DEFAULT_ENABLE_ACTIONS);
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          G_OBJECT (glade_xml_get_widget (gxml, "enable-actions")), "active");
+                          gtk_builder_get_object (builder, "enable-actions"), "active");
 
-  glade_xml_signal_connect_data (gxml, "cb_add_action", G_CALLBACK (cb_add_action), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_edit_action", G_CALLBACK (cb_edit_action), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_delete_action", G_CALLBACK (cb_delete_action), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_reset_actions", G_CALLBACK (cb_reset_actions), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_actions_row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_add_command", G_CALLBACK (cb_add_command), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_refresh_command", G_CALLBACK (cb_refresh_command), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_delete_command", G_CALLBACK (cb_delete_command), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_show_help", G_CALLBACK (cb_show_help), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_test_regex", G_CALLBACK (cb_test_regex), NULL);
-  glade_xml_signal_connect_data (gxml, "cb_test_regex_changed", G_CALLBACK (cb_test_regex_changed), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-add-action"), "clicked", G_CALLBACK (cb_add_action), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-delete-action"), "clicked", G_CALLBACK (cb_delete_action), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-reset-actions"), "clicked", G_CALLBACK (cb_reset_actions), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "actions"), "row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-add-command"), "clicked", G_CALLBACK (cb_add_command), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-refresh-command"), "clicked", G_CALLBACK (cb_refresh_command), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-delete-command"), "clicked", G_CALLBACK(cb_delete_command), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "settings-dialog-button-help"), "clicked", G_CALLBACK (cb_show_help), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-action-pattern"), "clicked", G_CALLBACK (cb_test_regex), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "regex-entry"), "changed", G_CALLBACK (cb_test_regex_changed), NULL);
 
-  setup_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "actions")));
-  setup_commands_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  g_signal_connect_swapped (gtk_builder_get_object (builder, "settings-dialog-button-close"), "clicked",
+                             G_CALLBACK (gtk_dialog_response), settings_dialog);
+
+  setup_actions_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "actions")));
+  setup_commands_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
   setup_test_regex_dialog ();
 
   /* Callbacks for the OK button sensitivity in the edit action dialog */
-  g_signal_connect_after (glade_xml_get_widget (gxml, "action-name"), "changed",
+  g_signal_connect_after (gtk_builder_get_object (builder, "action-name"), "changed",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
-  g_signal_connect_after (glade_xml_get_widget (gxml, "regex"), "changed",
+  g_signal_connect_after (gtk_builder_get_object (builder, "regex"), "changed",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
-  g_signal_connect_after (glade_xml_get_widget (gxml, "button-add-command"), "clicked",
+  g_signal_connect_after (gtk_builder_get_object (builder, "button-add-command"), "clicked",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
-  g_signal_connect_after (glade_xml_get_widget (gxml, "button-delete-command"), "clicked",
+  g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
+
+  g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
+                          G_CALLBACK (gtk_dialog_response), NULL);
+
+  g_signal_connect_swapped (gtk_builder_get_object (builder, "action-dialog-button-cancel"), "clicked",
+                             G_CALLBACK (gtk_dialog_response), action_dialog);
 
   /* Run the dialog */
   while ((gtk_dialog_run (GTK_DIALOG (settings_dialog))) == 2);
 
   gtk_widget_destroy (action_dialog);
   gtk_widget_destroy (settings_dialog);
-  g_object_unref (gxml);
+  g_object_unref (G_OBJECT(builder));
 
   /* Save the actions */
   clipman_actions_save (actions);
@@ -215,7 +224,8 @@ cb_show_help (GtkButton *button)
   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
     goto out;
 
-  xfce_err ("Unable to open documentation \"%s\"", filename);
+  xfce_dialog_show_error (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (button))),
+                          NULL, "Unable to open documentation \"%s\"", filename);
 
 out:
   g_free (filename);
@@ -285,11 +295,11 @@ apply_action (const gchar *original_action_name)
   gchar *command_name;
   gchar *command;
 
-  action_name = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")));
-  regex = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")));
-  group = (gint)gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")));
+  action_name = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")));
+  regex = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")));
+  group = (gint)gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "manual")));
 
-  treeview = glade_xml_get_widget (gxml, "commands");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "commands"));
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_model_get_iter_first (model, &iter))
     return;
@@ -310,7 +320,7 @@ apply_action (const gchar *original_action_name)
   while (gtk_tree_model_iter_next (model, &iter));
 
   /* Refresh the actions treeview */
-  treeview = glade_xml_get_widget (gxml, "actions");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "actions"));
   refresh_actions_treeview (GTK_TREE_VIEW (treeview));
 }
 
@@ -322,8 +332,8 @@ cb_actions_selection_changed (GtkTreeSelection *selection)
 
   sensitive = gtk_tree_selection_get_selected (selection, &model, NULL);
 
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "button-edit-action"), sensitive);
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "button-delete-action"), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-edit-action")), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-delete-action")), sensitive);
 }
 
 static void
@@ -332,7 +342,7 @@ cb_add_action (GtkButton *button)
   GtkWidget *action_dialog;
   gint res;
 
-  action_dialog = glade_xml_get_widget (gxml, "action-dialog");
+  action_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog"));
   entry_dialog_cleanup ();
 
   res = gtk_dialog_run (GTK_DIALOG (action_dialog));
@@ -352,7 +362,7 @@ cb_edit_action (GtkButton *button)
   GtkTreePath *path;
   GtkTreeViewColumn *column;
 
-  treeview = glade_xml_get_widget (gxml, "actions");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "actions"));
 
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
@@ -379,14 +389,14 @@ cb_actions_row_activated (GtkTreeView *treeview,
   gchar *title;
   gint res;
 
-  action_dialog = glade_xml_get_widget (gxml, "action-dialog");
+  action_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog"));
   entry_dialog_cleanup ();
 
   actions_model = gtk_tree_view_get_model (treeview);
   gtk_tree_model_get_iter (actions_model, &iter, path);
   gtk_tree_model_get (actions_model, &iter, 0, &entry, -1);
 
-  commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
 #if GLIB_CHECK_VERSION (2,16,0)
     {
       GHashTableIter hiter;
@@ -404,9 +414,9 @@ cb_actions_row_activated (GtkTreeView *treeview,
   g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_fill_commands, commands_model);
 #endif
 
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")), entry->action_name);
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), entry->pattern);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), entry->group);
+  gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")), entry->action_name);
+  gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")), entry->pattern);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "manual")), entry->group);
 
   res = gtk_dialog_run (GTK_DIALOG (action_dialog));
   gtk_widget_hide (action_dialog);
@@ -424,7 +434,7 @@ cb_delete_action (GtkButton *button)
   GtkTreeModel *model;
   GtkTreeIter iter;
 
-  treeview = glade_xml_get_widget (gxml, "actions");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "actions"));
 
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
@@ -463,7 +473,7 @@ cb_reset_actions (GtkButton *button)
 
   g_object_unref (actions);
   actions = clipman_actions_get ();
-  refresh_actions_treeview (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "actions")));
+  refresh_actions_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "actions")));
 }
 
 
@@ -495,13 +505,13 @@ entry_dialog_cleanup (void)
 {
   GtkTreeModel *model;
 
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "action-dialog-button-ok"), FALSE);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog-button-ok")), FALSE);
 
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")), "");
-  gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")), "");
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (glade_xml_get_widget (gxml, "manual")), FALSE);
+  gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")), "");
+  gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")), "");
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "manual")), FALSE);
 
-  model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
   gtk_list_store_clear (GTK_LIST_STORE (model));
 }
 
@@ -533,21 +543,21 @@ cb_commands_selection_changed (GtkTreeSelection *selection)
 
   sensitive = gtk_tree_selection_get_selected (selection, &model, &iter);
 
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "button-refresh-command"), sensitive);
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "button-delete-command"), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-refresh-command")), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-delete-command")), sensitive);
 
   if (sensitive)
     {
       gtk_tree_model_get (model, &iter, 1, &command_name, 2, &command, -1);
-      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "command-name")), command_name);
-      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "command")), command);
+      gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "command-name")), command_name);
+      gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "command")), command);
       g_free (command_name);
       g_free (command);
     }
   else
     {
-      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "command-name")), "");
-      gtk_entry_set_text (GTK_ENTRY (glade_xml_get_widget (gxml, "command")), "");
+      gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "command-name")), "");
+      gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "command")), "");
     }
 }
 
@@ -560,8 +570,8 @@ cb_add_command (GtkButton *button)
   GtkTreeIter iter;
   gchar *title;
 
-  command_name = glade_xml_get_widget (gxml, "command-name");
-  command = glade_xml_get_widget (gxml, "command");
+  command_name = GTK_WIDGET (gtk_builder_get_object (builder, "command-name"));
+  command = GTK_WIDGET (gtk_builder_get_object (builder, "command"));
 
   if (gtk_entry_get_text (GTK_ENTRY (command_name))[0] == '\0'
       || gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
@@ -570,7 +580,7 @@ cb_add_command (GtkButton *button)
   title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>",
                                    gtk_entry_get_text (GTK_ENTRY (command_name)),
                                    gtk_entry_get_text (GTK_ENTRY (command)));
-  model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
   gtk_list_store_append (GTK_LIST_STORE (model), &iter);
   gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title,
                       1, gtk_entry_get_text (GTK_ENTRY (command_name)),
@@ -592,14 +602,14 @@ cb_refresh_command (GtkButton *button)
   GtkWidget *command;
   gchar *title;
 
-  command_name = glade_xml_get_widget (gxml, "command-name");
-  command = glade_xml_get_widget (gxml, "command");
+  command_name = GTK_WIDGET (gtk_builder_get_object (builder, "command-name"));
+  command = GTK_WIDGET (gtk_builder_get_object (builder, "command"));
 
   if (gtk_entry_get_text (GTK_ENTRY (command_name))[0] == '\0'
       || gtk_entry_get_text (GTK_ENTRY (command))[0] == '\0')
     return;
 
-  treeview = glade_xml_get_widget (gxml, "commands");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "commands"));
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
     {
@@ -626,7 +636,7 @@ cb_delete_command (GtkButton *button)
   GtkTreeModel *model;
   GtkTreeIter iter;
 
-  treeview = glade_xml_get_widget (gxml, "commands");
+  treeview = GTK_WIDGET (gtk_builder_get_object (builder, "commands"));
 
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
@@ -647,7 +657,7 @@ setup_test_regex_dialog (void)
   GtkWidget *textview;
   GtkTextBuffer *buffer;
 
-  textview = glade_xml_get_widget (gxml, "regex-textview");
+  textview = GTK_WIDGET (gtk_builder_get_object (builder, "regex-textview"));
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
 
   gtk_text_buffer_create_tag (buffer, "match",
@@ -670,9 +680,9 @@ cb_test_regex (GtkButton *button)
   GtkWidget *entry;
   const gchar *pattern;
 
-  regex = glade_xml_get_widget (gxml, "regex");
-  dialog = glade_xml_get_widget (gxml, "regex-dialog");
-  entry = glade_xml_get_widget (gxml, "regex-entry");
+  regex = GTK_WIDGET (gtk_builder_get_object (builder, "regex"));
+  dialog = GTK_WIDGET (gtk_builder_get_object (builder, "regex-dialog"));
+  entry = GTK_WIDGET (gtk_builder_get_object (builder, "regex-entry"));
 
   pattern = gtk_entry_get_text (GTK_ENTRY (regex));
   gtk_entry_set_text (GTK_ENTRY (entry), pattern);
@@ -691,7 +701,7 @@ cb_test_regex_changed (GtkWidget *widget)
 {
 #if GTK_CHECK_VERSION (2, 16, 0)
   if (test_regex_changed_timeout == 0)
-    gtk_entry_set_icon_from_stock (GTK_ENTRY (glade_xml_get_widget (gxml, "regex-entry")),
+    gtk_entry_set_icon_from_stock (GTK_ENTRY (gtk_builder_get_object (builder, "regex-entry")),
                                    GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_REFRESH);
 #endif
 
@@ -721,8 +731,8 @@ update_test_regex_textview_tags (void)
   const gchar *pattern;
   gchar *text;
 
-  entry = glade_xml_get_widget (gxml, "regex-entry");
-  textview = glade_xml_get_widget (gxml, "regex-textview");
+  entry = GTK_WIDGET (gtk_builder_get_object (builder, "regex-entry"));
+  textview = GTK_WIDGET (gtk_builder_get_object (builder, "regex-textview"));
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
   gtk_text_buffer_get_iter_at_offset (buffer, &start, 0);
   gtk_text_buffer_get_iter_at_offset (buffer, &end, -1);
@@ -798,9 +808,9 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
   gboolean has_commands;
   gboolean sensitive = FALSE;
 
-  action_name = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "action-name")));
-  regex_pattern = gtk_entry_get_text (GTK_ENTRY (glade_xml_get_widget (gxml, "regex")));
-  model = gtk_tree_view_get_model (GTK_TREE_VIEW (glade_xml_get_widget (gxml, "commands")));
+  action_name = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")));
+  regex_pattern = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")));
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
   has_commands = gtk_tree_model_get_iter_first (model, &iter);
 
   if (action_name[0] != '\0' && regex_pattern[0] != '\0' && has_commands)
@@ -813,7 +823,7 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
         }
     }
 
-  gtk_widget_set_sensitive (glade_xml_get_widget (gxml, "action-dialog-button-ok"), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog-button-ok")), sensitive);
   return;
 }
 
@@ -869,4 +879,3 @@ main (gint argc,
   xfconf_shutdown ();
   return 0;
 }
-

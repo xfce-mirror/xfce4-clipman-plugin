@@ -10,8 +10,8 @@ dnl ***************************
 dnl *** Version information ***
 dnl ***************************
 m4_define([project_version_major], [1])
-m4_define([project_version_minor], [1])
-m4_define([project_version_micro], [4])
+m4_define([project_version_minor], [2])
+m4_define([project_version_micro], [0])
 m4_define([project_version_build], [@REVISION@])
 m4_define([project_version_tag], [git]) # leave empty for release
 m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [git], [project_version_tag()-project_version_build()], [project_version_tag()])])
@@ -54,16 +54,16 @@ dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
 XDT_CHECK_LIBX11_REQUIRE()
-XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.16.0])
 XDT_CHECK_PACKAGE([EXO], [exo-0.3], [0.3.0])
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.16.0])
-XDT_CHECK_PACKAGE([GDKX], [gdk-x11-2.0], [2.10.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.6.0])
+XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.18.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.18.0])
+XDT_CHECK_PACKAGE([GDKX], [gdk-x11-2.0], [2.14.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.14.0])
 XDT_CHECK_PACKAGE([GLADE], [libglade-2.0], [2.6.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.8.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.8.0])
 
 dnl ***************************
 dnl *** Check for libunique ***

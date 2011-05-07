@@ -38,7 +38,7 @@
 #include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 #include "common.h"
 
@@ -359,10 +359,9 @@ cb_entry_activated (GtkMenuItem *mi,
 
   DBG ("Execute command `%s'", real_command);
 
-  xfce_exec (real_command, FALSE, FALSE, &error);
-  if (error != NULL)
+  if (!gdk_spawn_command_line_on_screen (NULL, real_command, &error))
     {
-      xfce_err (_("Unable to execute the command \"%s\"\n\n%s"), real_command, error->message);
+      xfce_dialog_show_error (NULL, error, _("Unable to execute the command \"%s\"\n\n%s"), real_command, error->message);
       g_error_free (error);
     }
   g_free (real_command);

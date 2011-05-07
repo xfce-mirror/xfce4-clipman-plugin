@@ -26,9 +26,8 @@
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
-#include <libxfcegui4/libxfcegui4.h>
-#include <libxfce4panel/xfce-panel-plugin.h>
-#include <libxfce4panel/xfce-panel-convenience.h>
+#include <libxfce4ui/libxfce4ui.h>
+#include <libxfce4panel/libxfce4panel.h>
 
 #include "common.h"
 #include "plugin.h"
@@ -40,8 +39,6 @@
 static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
 
-static gboolean         panel_plugin_set_size           (MyPlugin *plugin,
-                                                         gint size);
 static gboolean         cb_button_pressed               (GtkButton *button,
                                                          GdkEventButton *event,
                                                          MyPlugin *plugin);
@@ -76,7 +73,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
   /* The image is set through the set_size callback */
-  plugin->image = gtk_image_new ();
+  plugin->image = xfce_panel_image_new_from_source (GTK_STOCK_PASTE);
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
   xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
@@ -84,8 +81,6 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                     G_CALLBACK (cb_button_pressed), plugin);
 
   /* Signals */
-  g_signal_connect_swapped (panel_plugin, "size-changed",
-                            G_CALLBACK (panel_plugin_set_size), plugin);
   xfce_panel_plugin_menu_show_about (panel_plugin);
   g_signal_connect_swapped (panel_plugin, "about",
                             G_CALLBACK (plugin_about), plugin);
@@ -100,23 +95,6 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                     G_CALLBACK (cb_menu_deactivate), plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
-}
-
-static gboolean
-panel_plugin_set_size (MyPlugin *plugin,
-                       gint size)
-{
-  GdkPixbuf *pixbuf;
-
-  gtk_widget_set_size_request (plugin->button, size, size);
-
-  size -= 2 + 2 * MAX (gtk_widget_get_style (plugin->button)->xthickness,
-                       gtk_widget_get_style (plugin->button)->ythickness);
-  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
-  gtk_image_set_from_pixbuf (GTK_IMAGE (plugin->image), pixbuf);
-  g_object_unref (G_OBJECT (pixbuf));
-
-  return TRUE;
 }
 
 static gboolean

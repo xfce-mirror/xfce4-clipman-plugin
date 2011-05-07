@@ -22,7 +22,7 @@
 
 #include <exo/exo.h>
 #include <gtk/gtk.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
 
 #include "collector.h"
@@ -122,7 +122,7 @@ cb_clear_history (ClipmanMenu *menu)
 {
   GtkClipboard *clipboard;
 
-  if (!xfce_confirm (_("Are you sure you want to clear the history?"), GTK_STOCK_YES, NULL))
+  if (!xfce_dialog_confirm (NULL, GTK_STOCK_YES, NULL, _("Are you sure you want to clear the history?"), NULL))
     return;
 
   clipman_history_clear (menu->priv->history);

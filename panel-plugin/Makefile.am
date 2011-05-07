@@ -16,9 +16,9 @@ bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
 #
 
 if MAINTAINER_MODE
-BUILT_SOURCES = settings-dialog_glade.h
-settings-dialog_glade.h: settings-dialog.glade
-	$(AM_V_GEN) exo-csource --static --strip-comments --strip-content --name=settings_dialog_glade $< >$@
+BUILT_SOURCES = settings-dialog_ui.h
+settings-dialog_ui.h: settings-dialog.ui
+	$(AM_V_GEN) exo-csource --static --strip-comments --strip-content --name=settings_dialog_ui $< >$@
 endif
 
 #
@@ -50,7 +50,7 @@ xfce4_popup_clipman_LDADD =						\
 xfce4_clipman_settings_SOURCES =					\
 	xfce4-clipman-settings.c					\
 	common.h							\
-	settings-dialog_glade.h						\
+	settings-dialog_ui.h						\
 	actions.c			actions.h			\
 	$(NULL)
 
@@ -60,9 +60,8 @@ xfce4_clipman_settings_CFLAGS =						\
 	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@GTK_CFLAGS@							\
-	@LIBXFCEGUI4_CFLAGS@						\
+	@LIBXFCE4UI_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
-	@GLADE_CFLAGS@							\
 	@UNIQUE_CFLAGS@							\
 	$(NULL)
 
@@ -71,9 +70,8 @@ xfce4_clipman_settings_LDADD =						\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@GTK_LIBS@							\
-	@LIBXFCEGUI4_LIBS@						\
+	@LIBXFCE4UI_LIBS@						\
 	@XFCONF_LIBS@							\
-	@GLADE_LIBS@							\
 	@UNIQUE_LIBS@							\
 	$(NULL)
 
@@ -100,7 +98,7 @@ xfce4_clipman_CFLAGS =							\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
-	@LIBXFCEGUI4_CFLAGS@						\
+	@LIBXFCE4UI_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	$(NULL)
 
@@ -112,7 +110,7 @@ xfce4_clipman_LDADD =							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
-	@LIBXFCEGUI4_LIBS@						\
+	@LIBXFCE4UI_LIBS@						\
 	@XFCONF_LIBS@							\
 	$(NULL)
 
@@ -141,7 +139,7 @@ xfce4_clipman_plugin_CFLAGS =						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
-	@LIBXFCEGUI4_CFLAGS@						\
+	@LIBXFCE4UI_CFLAGS@						\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	$(NULL)
@@ -154,7 +152,7 @@ xfce4_clipman_plugin_LDADD =						\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
-	@LIBXFCEGUI4_LIBS@						\
+	@LIBXFCE4UI_LIBS@						\
 	@LIBXFCE4PANEL_LIBS@						\
 	@XFCONF_LIBS@							\
 	$(NULL)
@@ -196,7 +194,7 @@ autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
 #
 
 EXTRA_DIST =								\
-	settings-dialog.glade						\
+	settings-dialog.ui						\
 	$(actions_in_files)						\
 	$(autostart_in_files)						\
 	$(desktop_in_in_files)						\
