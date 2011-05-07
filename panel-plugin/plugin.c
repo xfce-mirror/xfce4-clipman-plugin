@@ -333,8 +333,8 @@ plugin_configure (MyPlugin *plugin)
   if (error != NULL)
   {
     error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-                                           _("Unable to open the settings dialog"), NULL);
-    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message, NULL);
+                                           _("Unable to open the settings dialog"));
+    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
     gtk_dialog_run (GTK_DIALOG (error_dialog));
     gtk_widget_destroy (error_dialog);
     g_error_free (error);
