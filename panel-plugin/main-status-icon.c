@@ -77,12 +77,20 @@ static MyPlugin *
 status_icon_register (void)
 {
   MyPlugin *plugin = plugin_register ();
+  GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
 
   /* Menu Position Func */
   plugin->menu_position_func = (GtkMenuPositionFunc)gtk_status_icon_position_menu;
 
   /* Status Icon */
-  plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
+  if (gtk_icon_theme_has_icon (icon_theme, "clipman"))
+    {
+      plugin->status_icon = gtk_status_icon_new_from_icon_name ("clipman");
+    }
+  else
+    {
+      plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
+    }
   gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
   g_timeout_add_seconds (60, (GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
 

@@ -60,6 +60,7 @@ static void
 panel_plugin_register (XfcePanelPlugin *panel_plugin)
 {
   MyPlugin *plugin = plugin_register ();
+  GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
 
   /* Menu Position Func */
   plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
@@ -72,8 +73,14 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
-  /* The image is set through the set_size callback */
-  plugin->image = xfce_panel_image_new_from_source (GTK_STOCK_PASTE);
+  if (gtk_icon_theme_has_icon (icon_theme, "clipman"))
+    {
+      plugin->image = xfce_panel_image_new_from_source ("clipman");
+    }
+  else
+    {
+      plugin->image = xfce_panel_image_new_from_source (GTK_STOCK_PASTE);
+    }
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
   xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
