@@ -424,7 +424,17 @@ cb_popup_message_received (MyPlugin *plugin,
       if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
         {
           DBG ("Message received: %s", ev->data.b);
-          plugin_popup_menu (plugin);
+
+          if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
+            {
+              gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL, NULL, NULL,
+                              0, gtk_get_current_event_time ());
+            }
+          else
+            {
+              plugin_popup_menu (plugin);
+            }
+
           return TRUE;
         }
     }
