@@ -72,6 +72,8 @@ struct _ClipmanHistoryClass
 
   void
   (*item_added)             (ClipmanHistory *history);
+  void
+  (*clear)                  (ClipmanHistory *history);
 };
 
 struct _ClipmanHistory

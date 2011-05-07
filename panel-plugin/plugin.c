@@ -120,6 +120,8 @@ plugin_register (void)
   /* Connect signal to save content */
   g_signal_connect_swapped (plugin->history, "item-added",
                             G_CALLBACK (plugin_save), plugin);
+  g_signal_connect_swapped (plugin->history, "clear",
+                            G_CALLBACK (plugin_save), plugin);
 
   /* Set the selection for the popup command */
   my_plugin_set_popup_selection (plugin);
@@ -186,17 +188,30 @@ plugin_save (MyPlugin *plugin)
   const gchar **texts;
   gchar *data;
   gchar *filename;
+  gchar *dirname;
+  const gchar *name;
   gint n_texts, n_images;
   gboolean save_on_quit;
+  GDir *dir;
+
+  /* Create initial directory and remove cache files */
+  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
+
+  dir = g_dir_open (dirname, 0, NULL);
+  while ((name = g_dir_read_name (dir)) != NULL)
+    {
+      filename = g_build_filename (dirname, name, NULL);
+      g_unlink (filename);
+      g_free (filename);
+    }
+  g_dir_close (dir);
+
+  g_free (dirname);
 
   /* Return if the history must not be saved */
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
   if (save_on_quit == FALSE)
     return;
-
-  /* Create initial directory */
-  filename = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
-  g_free (filename);
 
   /* Save the history */
   list = clipman_history_get_list (plugin->history);

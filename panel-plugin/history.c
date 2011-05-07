@@ -58,6 +58,7 @@ enum
 enum
 {
   ITEM_ADDED,
+  CLEAR,
   LAST_SIGNAL,
 };
 static guint signals[LAST_SIGNAL];
@@ -359,6 +360,8 @@ clipman_history_clear (ClipmanHistory *history)
   history->priv->images = NULL;
 
   history->priv->item_to_restore = NULL;
+
+  g_signal_emit (history, signals[CLEAR], 0);
 }
 
 ClipmanHistory *
@@ -399,6 +402,13 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
     g_signal_new ("item-added", G_TYPE_FROM_CLASS (klass),
                   G_SIGNAL_RUN_LAST|G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (ClipmanHistoryClass, item_added),
+                  0, NULL, g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
+
+  signals[CLEAR] =
+    g_signal_new ("clear", G_TYPE_FROM_CLASS (klass),
+                  G_SIGNAL_RUN_LAST|G_SIGNAL_ACTION,
+                  G_STRUCT_OFFSET (ClipmanHistoryClass, clear),
                   0, NULL, g_cclosure_marshal_VOID__VOID,
                   G_TYPE_NONE, 0);
 
