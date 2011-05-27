@@ -21,7 +21,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
-msgstr "Klembordbeheer"
+msgstr "Klembordbeheerder"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
@@ -42,7 +42,7 @@ msgstr "Bewerken met Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "GNOME bug"
+msgstr "GNOME-fout"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
@@ -62,7 +62,7 @@ msgstr "Weergeven in Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "Xfce bug"
+msgstr "Xfce-bug"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
 msgid "<b>Reset actions</b>"
@@ -71,7 +71,7 @@ msgstr "<b>Acties op beginwaarden instellen</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:451
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Weet u zeker dat u de acties wilt instellen op de originele waarde?"
+msgstr "Weet u zeker dat u de acties wilt instellen op de standaardwaarden?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -83,7 +83,7 @@ msgstr "<b>Gedrag</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
-msgstr "<b>Commando's</b>"
+msgstr "<b>Opdrachten</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
@@ -107,11 +107,11 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr "Commando:"
+msgstr "Opdracht:"
 
 #: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr "Instellingen wijzigen"
+msgstr "Instellingen van plugin wijzigen"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
@@ -130,8 +130,8 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"Wanneer u deze optie aanvinkt zullen teksten in het klembord vergeleken "
-"worden met reguliere expressies en een menu zal mogelijke acties weergeven"
+"Wanneer u deze optie aanvinkt, zullen teksten in het klembord vergeleken "
+"worden met reguliere uitdrukkingen en een menu zal mogelijke acties weergeven"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
@@ -139,7 +139,7 @@ msgid ""
 "way that you can paste what you select"
 msgstr ""
 "Met deze optie zullen selecties op zo'n manier gesynchroniseerd worden met "
-"het standaard-klembord zodat u kunt plakken wat u selecteert"
+"het standaard-klembord, dat u kunt plakken wat u selecteert"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
@@ -175,7 +175,7 @@ msgstr "Patroon:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr "Reguliere expressie"
+msgstr "Reguliere uitdrukking"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -195,11 +195,11 @@ msgstr "_Selecties synchroniseren"
 
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "De expressie wordt altijd ingebed in de speciale tekens ^$"
+msgstr "Het patroon wordt altijd verankerd in de speciale tekens ^$"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr "Typ hier de aangepaste tekst (bijv. een URL of een bestandsnaam)."
+msgstr "Typ hier de aangepaste tekst (bijv. een URL of een bestandnaam)."
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
@@ -208,10 +208,10 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"U kunt de inwisselbare parameters \"\\1\", \"\\2\", enz. in de commando's "
+"U kunt de inwisselbare parameters \"\\1\", \"\\2\", enz. in de opdrachten "
 "gebruiken. De parameter \"\\0\" representeert de volledige tekst. Als u "
-"reguliere expressies niet kent kunt u de documentatie van Clipman "
-"raadplegen, welke een introductie tot reguliere expressies bevat."
+"reguliere uitdrukkingen niet kent, kunt u de documentatie van Clipman "
+"raadplegen, welke een inleiding tot reguliere uitdrukkingen bevat."
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -220,7 +220,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Kan het commando  \"%s\" niet uitvoeren\n"
+"Kan de opdracht  \"%s\" niet uitvoeren\n"
 "\n"
 "%s"
 
@@ -265,16 +265,16 @@ msgstr "Kan het instellingenvenster niet openen"
 #~ msgstr "Inhoud klembord opslaan bij _afsluiten"
 
 #~ msgid "_Show item numbers"
-#~ msgstr "Getallen _weergeven"
+#~ msgstr "Eelementnummers _weergeven"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Algemeen</b>"
 
 #~ msgid "Clipboard history items:"
-#~ msgstr "Items onthouden:"
+#~ msgstr "Elementen van de klembordgeschiedenis onthouden:"
 
 #~ msgid "Menu item characters:"
-#~ msgstr "Tekens in het menu:"
+#~ msgstr "Tekens in menu-element:"
 
 #~ msgid "Clear History"
 #~ msgstr "Geschiedenis wissen"
