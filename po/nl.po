@@ -62,7 +62,7 @@ msgstr "Weergeven in Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "Xfce-bug"
+msgstr "Xfce-fout"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
 msgid "<b>Reset actions</b>"
@@ -231,11 +231,11 @@ msgstr "Geschiedenis wissen?"
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
-msgstr "Het klembord is leeg"
+msgstr "Klembord is leeg"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr "Met dank aan:"
+msgstr "Bijdragers:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
@@ -243,14 +243,14 @@ msgstr "Klembordbeheer voor Xfce"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
-msgstr "Vincent Tunru"
+msgstr "Met dank aan de vertalers: Vincent Tunru en Pjotr."
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr "Kan het instellingenvenster niet openen"
 
 #~ msgid "E_xclude from history"
-#~ msgstr "_Uitsluiten van de  geschiedenis"
+#~ msgstr "_Uitsluiten van geschiedenis"
 
 #~ msgid ""
 #~ "If checked, the selections will go into the history. This behavior can "
@@ -265,7 +265,7 @@ msgstr "Kan het instellingenvenster niet openen"
 #~ msgstr "Inhoud klembord opslaan bij _afsluiten"
 
 #~ msgid "_Show item numbers"
-#~ msgstr "Eelementnummers _weergeven"
+#~ msgstr "Elementnummers _weergeven"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Algemeen</b>"
@@ -280,4 +280,4 @@ msgstr "Kan het instellingenvenster niet openen"
 #~ msgstr "Geschiedenis wissen"
 
 #~ msgid "Clipman History"
-#~ msgstr "Geschiedenis klembord"
+#~ msgstr "Klembordgeschiedenis"
