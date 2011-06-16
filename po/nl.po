@@ -10,12 +10,14 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
-"PO-Revision-Date: 2011-05-27 10:28+0100\n"
+"PO-Revision-Date: 2011-06-15 10:28+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl (Dutch)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
@@ -243,7 +245,8 @@ msgstr "Klembordbeheer voor Xfce"
 
 #: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
-msgstr "Met dank aan de vertalers: Vincent Tunru en Pjotr."
+msgstr "Vincent Tunru\n"
+"Pjotr"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
@@ -258,8 +261,8 @@ msgstr "Kan het instellingenvenster niet openen"
 #~ "you always want to paste what you select."
 #~ msgstr ""
 #~ "Wanneer u deze optie aanvinkt zullen selecties opgeslagen worden in de "
-#~ "geschiedenis. Dit gedrag kan de geschiedenis onleesbaar maken, het kan "
-#~ "echter interessant zijn indien u altijd wil plakken wat u selecteert."
+#~ "geschiedenis. Dit gedrag kan de geschiedenis onleesbaar maken, maar het "
+#~ "kan interessant zijn indien u altijd wil plakken wat u selecteert."
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "Inhoud klembord opslaan bij _afsluiten"
