@@ -2,7 +2,7 @@
 # Copyright (C) 2009
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Samed Beyribey <ras0ir@eventualis.org>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
@@ -63,15 +63,12 @@ msgid "Xfce Bug"
 msgstr "Xfce Hatası"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:449
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Eylem</b>"
+msgstr "<b>Eylemleri sıfırla</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:451
-#, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr "Bu öğeyi geçmişten silmek istediğinize emin misiniz?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Eylemleri sistem varsayılan değerlerine sıfırlamak istediğinizden emin misiniz?"
 
 #: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
@@ -98,12 +95,8 @@ msgid "Activate only on manual copy"
 msgstr "Sadece elle kopyalamada etkinleştir"
 
 #: ../panel-plugin/settings-dialog.glade.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Öntanımlı olarak işlem seçim ile başlatılır, elle kopyalama yaptığınızda "
-"işlemi başlatmak için bu seçeneği işaretleyin"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Öntanımlı olarak işlem seçim ile başlatılır, elle kopyalama yaptığınızda işlemi başlatmak için bu seçeneği işaretleyin"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -126,45 +119,28 @@ msgid "General"
 msgstr "Genel"
 
 #: ../panel-plugin/settings-dialog.glade.h:13
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve "
-"menüde kullanılabilir işlemler gösterilecektir"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve menüde kullanılabilir işlemler gösterilecektir"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere "
-"öntanımlı pano ile senkronize edilir "
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere öntanımlı pano ile senkronize edilir "
 
 #: ../panel-plugin/settings-dialog.glade.h:15
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi "
-"etkilemeyecektir"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi etkilemeyecektir"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün "
-"kılar"
+msgstr "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün kılar"
 
 #: ../panel-plugin/settings-dialog.glade.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son "
-"kullanıldığı şekilde göstermektedir."
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son kullanıldığı şekilde göstermektedir."
 
 #: ../panel-plugin/settings-dialog.glade.h:18
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "_Seçimi senkronize et"
+msgstr "Seçimleri yoksay"
 
 #: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
@@ -176,7 +152,7 @@ msgstr "Desen:"
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr ""
+msgstr "Düzenli ifadeler"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -203,16 +179,8 @@ msgid "Type here your custom text, for example an URL, a filename, etc."
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.glade.h:28
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri "
-"kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer "
-"düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu "
-"inceleyebilirsiniz. "
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu inceleyebilirsiniz. "
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -236,7 +204,7 @@ msgstr "Pano boş"
 
 #: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr ""
+msgstr "Katkıcılar:"
 
 #: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
@@ -256,10 +224,8 @@ msgstr "Ayarlar menüsü açılamadı"
 #~ msgid "Autostart Clipman"
 #~ msgstr "Pano yöneticisini otomatik çalıştır"
 
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr ""
-#~ "Pano yöneticisini sonraki girişinizde yeniden başlatmak ister misiniz?"
+#~ msgid "Do you want to restart the clipboard manager the next time you login?"
+#~ msgstr "Pano yöneticisini sonraki girişinizde yeniden başlatmak ister misiniz?"
 
 #~ msgid "Do you want to autostart the clipboard manager?"
 #~ msgstr "Pano yöneticisinin otomatik olarak çalıştırılmasını ister misiniz?"
@@ -273,14 +239,8 @@ msgstr "Ayarlar menüsü açılamadı"
 #~ msgid "_Enable"
 #~ msgstr "_Etkinleştir"
 
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Eğer seçilmişse, seçimler geçmiş kayıtlarına yazılacaktır. Bu davranış "
-#~ "geçmiş kayıtlarını  okunamaz yapabilir, ancak yapıştırmak istediğiniz "
-#~ "seçim konusunda yardımcı olabilir. "
+#~ msgid "If checked, the selections will go into the history. This behavior can bring the history to be unreadable, however it can be interesting in case you always want to paste what you select."
+#~ msgstr "Eğer seçilmişse, seçimler geçmiş kayıtlarına yazılacaktır. Bu davranış geçmiş kayıtlarını  okunamaz yapabilir, ancak yapıştırmak istediğiniz seçim konusunda yardımcı olabilir. "
 
 #~ msgid "Regex:"
 #~ msgstr "Düzenli İfade:"
