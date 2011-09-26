@@ -16,7 +16,6 @@ msgstr ""
 #. you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in91(None)
-#, fuzzy
 msgid "@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
 msgstr "@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7"
 
@@ -24,7 +23,6 @@ msgstr "@@image: 'images/clipman-menu.png'; md5=2e6d5507440db3059f7fb8354894d8c7
 #. you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in177(None)
-#, fuzzy
 msgid "@@image: 'images/clipman-settings-general.png'; md5=80b12264cccaabdd1335a1d8497b20ce"
 msgstr "@@image: 'images/clipman-settings-general.png'; md5=80b12264cccaabdd1335a1d8497b20ce"
 
@@ -32,7 +30,6 @@ msgstr "@@image: 'images/clipman-settings-general.png'; md5=80b12264cccaabdd1335
 #. you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in209(None)
-#, fuzzy
 msgid "@@image: 'images/clipman-settings-actions.png'; md5=e7c1a33b5d32929ac0d39818d7383386"
 msgstr "@@image: 'images/clipman-settings-actions.png'; md5=e7c1a33b5d32929ac0d39818d7383386"
 
@@ -40,13 +37,12 @@ msgstr "@@image: 'images/clipman-settings-actions.png'; md5=e7c1a33b5d32929ac0d3
 #. you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in236(None)
-#, fuzzy
 msgid "@@image: 'images/clipman-action-dialog.png'; md5=cd23d9a078896ff9c584f351fdc50948"
 msgstr "@@image: 'images/clipman-action-dialog.png'; md5=cd23d9a078896ff9c584f351fdc50948"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in18(title)
 msgid "@PACKAGE_NAME@ Manual"
-msgstr ""
+msgstr "@PACKAGE_NAME@ Klavuzu"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in23(year)
 msgid "2009"
@@ -57,25 +53,22 @@ msgid "Permission is granted to copy, distribute and/or modify this document und
 msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in38(firstname)
-#, fuzzy
 msgid "Mike"
 msgstr "Mike"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in39(surname)
-#, fuzzy
 msgid "Massonnet"
 msgstr "Massonnet"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in41(email)
 msgid "mmassonnet@xfce.org"
-msgstr ""
+msgstr "mmassonnet@xfce.org"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in46(releaseinfo)
 msgid "This manual describes version 1.0.1 of @PACKAGE_NAME@."
 msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in53(title)
-#, fuzzy
 msgid "Introduction"
 msgstr "Giriş"
 
@@ -97,7 +90,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in79(title)
 msgid "Getting Started"
-msgstr ""
+msgstr "Başlarken"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in81(para)
 msgid "@PACKAGE_NAME@ is used to keep in history a list of clipboard contents and to restore them. The history is displayed in a menu by clicking on the main icon. Within the menu it is possible to restore a text and to clear the history."
@@ -145,11 +138,11 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in143(entry)
 msgid "Options"
-msgstr ""
+msgstr "Seçenekler"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in144(entry)
 msgid "Description"
-msgstr ""
+msgstr "Tanım"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in149(entry)
 msgid "Sync selections"
@@ -176,8 +169,9 @@ msgid "Keeps the history at every new session"
 msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in162(entry)
+#, fuzzy
 msgid "Store an image"
-msgstr ""
+msgstr "Bir görüntü saklamak"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in163(entry)
 msgid "Allows to store one image in the history"
@@ -185,7 +179,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in166(entry)
 msgid "Size of the history"
-msgstr ""
+msgstr "Geçmiş boyutu"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in167(entry)
 msgid "Sets the number of items to keep in history"
@@ -202,7 +196,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in188(title)
 msgid "Actions"
-msgstr ""
+msgstr "Eylemler"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in190(para)
 msgid "An action is a pair of an action name and a regular expression. Each action can have one or more commands. The support of actions is optional and can be enabled or disabled through the “Enable actions” option."
@@ -239,7 +233,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in245(title)
 msgid "Regular Expression"
-msgstr ""
+msgstr "Düzenli İfade"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in247(para)
 msgid "Basic special characters: \"<emphasis role=\"bold\"><code>.?+*(|)[]\\</code></emphasis>\"."
@@ -247,7 +241,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in253(code)
 msgid "."
-msgstr ""
+msgstr "."
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in252(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: represents a single character."
@@ -255,7 +249,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in256(code)
 msgid "?+*"
-msgstr ""
+msgstr "?+*"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in255(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: respectively means zero or one character, one or more characters, and zero or more characters."
@@ -263,7 +257,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in260(code)
 msgid "(|)"
-msgstr ""
+msgstr "(|)"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in259(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used for grouping and substitution, the vertical bar is used as an OR operation."
@@ -271,7 +265,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in264(code)
 msgid "[^]"
-msgstr ""
+msgstr "[^]"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in263(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: used to match a character from a set of characters and special characters, the circumflex is used at the start as a negation."
@@ -279,7 +273,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in268(code)
 msgid "\\"
-msgstr ""
+msgstr "\\"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in267(listitem)
 msgid "”<emphasis role=\"bold\"><placeholder-1/></emphasis>”: escapes a special character."
@@ -291,7 +285,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in279(title)
 msgid "Examples"
-msgstr ""
+msgstr "Örnekler"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in283(code)
 msgid "bug ?#?[0-9]+"
@@ -307,27 +301,27 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in287(code)
 msgid "(http|ftp).+\\.(jpg|png|gif)"
-msgstr ""
+msgstr "(http|ftp).+\\.(jpg|png|gif)"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in288(emphasis)
 msgid "http"
-msgstr ""
+msgstr "http"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in288(emphasis)
 msgid "ftp"
-msgstr ""
+msgstr "ftp"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
 msgid "jpg"
-msgstr ""
+msgstr "jpg"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
 msgid "png"
-msgstr ""
+msgstr "png"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in289(emphasis)
 msgid "gif"
-msgstr ""
+msgstr "gif"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in286(listitem)
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\" or \"<placeholder-3/>\", one or more character, a point, and the text \"<placeholder-4/>\", \"<placeholder-5/>\" or \"<placeholder-6/>\"."
@@ -335,11 +329,11 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in292(code)
 msgid "http://.{120}[^ ]+"
-msgstr ""
+msgstr "http://.{120}[^ ]+"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in292(emphasis)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in291(listitem)
 msgid "\"<emphasis role=\"bold\"><placeholder-1/></emphasis>\": text \"<placeholder-2/>\", 120 characters, and one or more characters except a space."
@@ -347,7 +341,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in299(title)
 msgid "External Ressource"
-msgstr ""
+msgstr "Harici Kaynak"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in301(para)
 msgid "Have a look at the <ulink type=\"http\" url=\"http://en.wikipedia.org/wiki/Regular_expression\">Wikipedia article</ulink> about regular expressions."
@@ -355,7 +349,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in309(title)
 msgid "Command"
-msgstr ""
+msgstr "Komut"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in311(para)
 msgid "A command can reuse one or more substitutions from the regular expression. The substitutions are represented by ”<emphasis role=\"bold\"><code>\\&lt;number&gt;</code></emphasis>” where &lt;number&gt; corresponds to the sub-pattern within parentheses or 0 for the complete text."
@@ -367,7 +361,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in327(title)
 msgid "Xfconf"
-msgstr ""
+msgstr "Xfconf"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in329(para)
 msgid "@PACKAGE_NAME@ uses Xfconf to store its settings. That allows you to change the settings with the tool <application>xfconf-query</application> or <application>xfce4-settings-editor</application>. The channel is <constant>xfce4-panel</constant> and the base property is <constant>/plugins/clipman</constant>. The following table lists all the properties with their possible values:"
@@ -375,40 +369,41 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in336(title)
 msgid "Xfconf Properties"
-msgstr ""
+msgstr "Xfconf Özellikleri"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in340(entry)
 msgid "Property"
-msgstr ""
+msgstr "Özellik"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in341(entry)
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in342(entry)
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Standart"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in343(entry)
 msgid "Values"
-msgstr ""
+msgstr "Değerler"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in348(entry)
 msgid "/settings/add-primary-clipboard"
-msgstr ""
+msgstr "/settings/add-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in349(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in355(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in361(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in381(entry)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in350(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in356(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in362(entry)
 msgid "false"
-msgstr ""
+msgstr "false"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in351(entry)
 msgid "true to sync the primary clipboard with the default clipboard"
@@ -416,7 +411,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in354(entry)
 msgid "/settings/enable-actions"
-msgstr ""
+msgstr "/settings/enable-actions"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in357(entry)
 msgid "true to enable actions"
@@ -424,7 +419,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in360(entry)
 msgid "/settings/history-ignore-primary-clipboard"
-msgstr ""
+msgstr "/settings/history-ignore-primary-clipboard"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in363(entry)
 msgid "true to exclude the primary clipboard from the history"
@@ -432,16 +427,16 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in368(entry)
 msgid "/settings/max-images-in-history"
-msgstr ""
+msgstr "/settings/max-images-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in369(entry)
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in375(entry)
 msgid "uint"
-msgstr ""
+msgstr "uint"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in370(entry)
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in371(entry)
 msgid "0-5 number of images in history"
@@ -449,11 +444,11 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in374(entry)
 msgid "/settings/max-texts-in-history"
-msgstr ""
+msgstr "/settings/max-texts-in-history"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in376(entry)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in377(entry)
 msgid "5-100 number of texts in history"
@@ -461,11 +456,11 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in380(entry)
 msgid "/settings/save-on-quit"
-msgstr ""
+msgstr "/settings/save-on-quit"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in382(entry)
 msgid "true"
-msgstr ""
+msgstr "true"
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in383(entry)
 msgid "true to restore the history at every new session"
@@ -489,7 +484,7 @@ msgstr ""
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in411(title)
 msgid "About @PACKAGE_NAME@"
-msgstr ""
+msgstr "@ PACKAGE_NAME@ Hakkında "
 
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in413(para)
 msgid "@PACKAGE_NAME@ was written by Eduard Roccatello and then maintained by Nick Schermer. Nowadays it is written by Mike Massonnet (<email>mmassonnet@xfce.org</email>). Visit the <ulink type=\"http\" url=\"http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin\">@PACKAGE_NAME@ Web site</ulink>."
@@ -510,4 +505,4 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: ../docs/manual/C/xfce4-clipman-plugin.xml.in0(None)
 msgid "translator-credits"
-msgstr ""
+msgstr "translator-credits"
