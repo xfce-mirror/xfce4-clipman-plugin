@@ -291,16 +291,19 @@ cb_about_dialog_url_hook (GtkAboutDialog *dialog,
                           const gchar *uri,
                           gpointer user_data)
 {
-  gchar *command;
+  gchar *command = NULL;
 
-  command = g_strdup_printf ("exo-open %s", uri);
-  if (!g_spawn_command_line_async (command, NULL))
+  if (!gtk_show_uri (NULL, uri, GDK_CURRENT_TIME, NULL))
     {
+      command = g_strdup_printf ("exo-open --launch %s", uri);
+      if (!g_spawn_command_line_async (command, NULL))
+        {
+          g_free (command);
+          command = g_strdup_printf ("firefox %s", uri);
+          g_spawn_command_line_async (command, NULL);
+        }
       g_free (command);
-      command = g_strdup_printf ("firefox %s", uri);
-      g_spawn_command_line_async (command, NULL);
     }
-  g_free (command);
 }
 
 void

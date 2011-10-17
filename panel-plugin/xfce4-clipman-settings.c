@@ -187,40 +187,41 @@ cb_show_help (GtkButton *button)
   locale = g_strdup ("C");
 #endif
 
-  filename = g_strdup_printf (DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
+  filename = g_strdup_printf ("file://"DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
   if (!g_file_test (filename, G_FILE_TEST_EXISTS))
     {
       offset = g_strrstr (locale, "_");
       if (offset == NULL)
         {
           g_free (filename);
-          filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+          filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
         }
       else
         {
           *offset = '\0';
           g_free (filename);
-          filename = g_strdup_printf (DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
+          filename = g_strdup_printf ("file://"DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
           if (!g_file_test (filename, G_FILE_TEST_EXISTS))
             {
               g_free (filename);
-              filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+              filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
             }
         }
     }
 
   g_free (locale);
 #else
-  filename = g_strdup (DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+  filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
 #endif
 
   screen = gtk_widget_get_screen (GTK_WIDGET (button));
-  command = g_strdup_printf ("exo-open file://%s", filename);
+
+  command = g_strdup_printf ("exo-open --launch WebBrowser %s", filename);
   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
     goto out;
 
   g_free (command);
-  command = g_strdup_printf ("firefox file://%s", filename);
+  command = g_strdup_printf ("firefox %s", filename);
   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
     goto out;
 
