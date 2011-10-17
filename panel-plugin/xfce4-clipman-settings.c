@@ -95,6 +95,8 @@ prop_dialog_run (void)
                                 DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
                                 DEFAULT_SAVE_ON_QUIT);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reverse-order")),
+                                DEFAULT_REVERSE_ORDER);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
                                 (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-texts-in-history")),
@@ -106,6 +108,8 @@ prop_dialog_run (void)
                           gtk_builder_get_object (builder, "history-ignore-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "save-on-quit"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/reverse-menu-order", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "reverse-order"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/max-images-in-history", G_TYPE_UINT,
                           gtk_builder_get_object (builder, "store-an-image"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/max-texts-in-history", G_TYPE_UINT,

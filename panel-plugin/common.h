@@ -26,6 +26,7 @@
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    10
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
 #define DEFAULT_SAVE_ON_QUIT                            TRUE
+#define DEFAULT_REVERSE_ORDER                           FALSE
 
 /* Collector */
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD                   FALSE

@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-requires libxfce4ui 4.5 -->
+  <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkAdjustment" id="adjustment1">
-    <property name="upper">1000</property>
-    <property name="lower">5</property>
-    <property name="page_increment">10</property>
-    <property name="step_increment">5</property>
-    <property name="page_size">0</property>
     <property name="value">5</property>
+    <property name="lower">5</property>
+    <property name="upper">1000</property>
+    <property name="step_increment">5</property>
+    <property name="page_increment">10</property>
   </object>
   <object class="GtkTextBuffer" id="textbuffer1">
     <property name="text">Type here your custom text, for example an URL, a filename, etc.</property>
   </object>
-  <!-- interface-requires gtk+ 2.16 -->
-  <!-- interface-requires xfce4 2335.53032 -->
-  <!-- interface-naming-policy toplevel-contextual -->
   <object class="XfceTitledDialog" id="settings-dialog">
     <property name="title">Clipman</property>
     <property name="window_position">center</property>
@@ -63,7 +62,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="has_tooltip">True</property>
-                                <property name="tooltip-text" translatable="yes">If checked, the selections will be synced with the default clipboard in a way that you can paste what you select</property>
+                                <property name="tooltip_text" translatable="yes">If checked, the selections will be synced with the default clipboard in a way that you can paste what you select</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
@@ -111,7 +110,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="tooltip-text" translatable="yes">If checked, this option will restore the history on every new Xfce session</property>
+                                <property name="tooltip_text" translatable="yes">If checked, this option will restore the history on every new Xfce session</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
@@ -121,11 +120,11 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="store-an-image">
-                                <property name="label" translatable="yes">Store an _image</property>
+                                <property name="label" translatable="yes">Store last copied _image</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="tooltip-text" translatable="yes">If checked, this option allows to store one image inside the history</property>
+                                <property name="tooltip_text" translatable="yes">If checked, this option allows to store one image inside the history</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
@@ -140,12 +139,25 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="has_tooltip">True</property>
-                                <property name="tooltip-text" translatable="yes">If checked, the selections won't affect the history except the manual copies</property>
+                                <property name="tooltip_text" translatable="yes">If checked, the selections won't affect the history except the manual copies</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
                                 <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton" id="reverse-order">
+                                <property name="label" translatable="yes">Reverse order</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="tooltip_text" translatable="yes">If checked, reverse order of the history shown in the menu</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                             <child>
@@ -181,7 +193,7 @@
                                 </child>
                               </object>
                               <packing>
-                                <property name="position">3</property>
+                                <property name="position">4</property>
                               </packing>
                             </child>
                           </object>
@@ -225,7 +237,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="tooltip-text" translatable="yes">If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions</property>
+                    <property name="tooltip_text" translatable="yes">If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions</property>
                     <property name="use_underline">True</property>
                     <property name="draw_indicator">True</property>
                   </object>
@@ -356,6 +368,9 @@
                   </packing>
                 </child>
               </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child type="tab">
               <object class="GtkLabel" id="label-actions">
@@ -413,6 +428,10 @@
         </child>
       </object>
     </child>
+    <action-widgets>
+      <action-widget response="2">settings-dialog-button-help</action-widget>
+      <action-widget response="0">settings-dialog-button-close</action-widget>
+    </action-widgets>
   </object>
   <object class="GtkDialog" id="action-dialog">
     <property name="title" translatable="yes">Edit Action</property>
@@ -611,7 +630,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="has_tooltip">True</property>
-                        <property name="tooltip-text" translatable="yes">By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy</property>
+                        <property name="tooltip_text" translatable="yes">By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy</property>
                         <property name="draw_indicator">True</property>
                       </object>
                       <packing>
@@ -877,6 +896,7 @@
       </object>
     </child>
     <action-widgets>
+      <action-widget response="0">action-dialog-button-cancel</action-widget>
       <action-widget response="1">action-dialog-button-ok</action-widget>
     </action-widgets>
   </object>
@@ -931,7 +951,7 @@
                 </child>
               </object>
             </child>
-            <child type="label">
+            <child type="label_item">
               <placeholder/>
             </child>
           </object>
