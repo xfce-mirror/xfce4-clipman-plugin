@@ -113,6 +113,8 @@ plugin_register (void)
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
   xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
                           G_TYPE_BOOLEAN, plugin->menu, "inhibit-menu-item");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
+                          G_TYPE_UINT, plugin->menu, "paste-on-activate");
 
   /* Load the data */
   plugin_load (plugin);

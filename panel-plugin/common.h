@@ -34,6 +34,13 @@
 #define DEFAULT_ENABLE_ACTIONS                          FALSE
 
 /*
+ * Modes for paste-on-activate
+ */
+#define PASTE_INACTIVE  0
+#define PASTE_CTRL_V    1
+#define PASTE_SHIFT_INS 2
+
+/*
  * Selection for the popup command
  */
 

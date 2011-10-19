@@ -24,6 +24,13 @@
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
 
+#ifdef HAVE_LIBXTST
+#include <X11/Xlib.h>
+#include <X11/extensions/XTest.h>
+#include <X11/keysym.h>
+#endif
+
+#include "common.h"
 #include "collector.h"
 #include "history.h"
 
@@ -44,12 +51,18 @@ struct _ClipmanMenuPrivate
   ClipmanHistory       *history;
   GSList               *list;
   gboolean              reverse_order;
+#ifdef HAVE_LIBXTST
+  guint                 paste_on_activate;
+#endif
 };
 
 enum
 {
   REVERSE_ORDER = 1,
   INHIBIT_MENU_ITEM,
+#ifdef HAVE_LIBXTST
+  PASTE_ON_ACTIVATE,
+#endif
 };
 
 static void             clipman_menu_finalize           (GObject *object);
@@ -72,7 +85,8 @@ static void            _clipman_menu_free_list          (ClipmanMenu *menu);
  * Callbacks declarations
  */
 
-static void             cb_set_clipboard                (const ClipmanHistoryItem *item);
+static void             cb_set_clipboard                (GtkMenuItem *mi,
+                                                         const ClipmanHistoryItem *item);
 static void             cb_clear_history                (ClipmanMenu *menu);
 static void             cb_toggle_inhibit_mi            (ClipmanMenu *menu);
 
@@ -83,7 +97,7 @@ static void             cb_toggle_inhibit_mi            (ClipmanMenu *menu);
  */
 
 static void
-cb_set_clipboard (const ClipmanHistoryItem *item)
+cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 {
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
@@ -117,6 +131,63 @@ cb_set_clipboard (const ClipmanHistoryItem *item)
     default:
       g_assert_not_reached ();
     }
+
+#ifdef HAVE_LIBXTST
+  {
+    int dummyi;
+    KeySym key_sym;
+    KeyCode key_code;
+
+    Display *display = XOpenDisplay (NULL);
+    if (display == NULL)
+      {
+        return;
+      }
+    else if (!XQueryExtension (display, "XTEST", &dummyi, &dummyi, &dummyi))
+      {
+        XCloseDisplay (display);
+        return;
+      }
+
+    switch (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")))
+      {
+      case PASTE_INACTIVE:
+        break;
+
+      case PASTE_CTRL_V:
+        key_sym = XK_Control_L;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+        key_sym = XK_v;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+        key_sym = XK_v;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+        key_sym = XK_Control_L;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+        break;
+
+      case PASTE_SHIFT_INS:
+        key_sym = XK_Shift_L;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+        key_sym = XK_Insert;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+        key_sym = XK_Insert;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+        key_sym = XK_Shift_L;
+        key_code = XKeysymToKeycode (display, key_sym);
+        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+        break;
+      }
+
+    XCloseDisplay (display);
+  }
+#endif
 }
 
 static void
@@ -177,19 +248,22 @@ _clipman_menu_update_list (ClipmanMenu *menu)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
           mi = gtk_image_menu_item_new_with_label (item->preview.text);
-          g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
           mi = gtk_image_menu_item_new ();
           image = gtk_image_new_from_pixbuf (item->preview.image);
           gtk_container_add (GTK_CONTAINER (mi), image);
-          g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
           break;
 
         default:
           g_assert_not_reached ();
         }
+
+      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
+#ifdef HAVE_LIBXTST
+      g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
+#endif
 
       if (item == item_to_restore)
         {
@@ -268,6 +342,14 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "Toggle the inhibit menu item to TRUE or FALSE",
                                                          FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+#ifdef HAVE_LIBXTST
+  g_object_class_install_property (object_class, PASTE_ON_ACTIVATE,
+                                   g_param_spec_uint ("paste-on-activate",
+                                                      "PasteOnActivate",
+                                                      "Paste the content of a menu item when it is activated",
+                                                      0, 2, 0,
+                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+#endif
 }
 
 static void
@@ -324,7 +406,11 @@ clipman_menu_set_property (GObject *object,
       gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit),
                                       g_value_get_boolean (value));
       break;
-
+#ifdef HAVE_LIBXTST
+    case PASTE_ON_ACTIVATE:
+      priv->paste_on_activate = g_value_get_uint (value);
+      break;
+#endif
     default:
       break;
     }
@@ -347,7 +433,11 @@ clipman_menu_get_property (GObject *object,
     case INHIBIT_MENU_ITEM:
       g_value_set_boolean (value, gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit)));
       break;
-
+#ifdef HAVE_LIBXTST
+    case PASTE_ON_ACTIVATE:
+      g_value_set_uint (value, priv->paste_on_activate);
+      break;
+#endif
     default:
       break;
     }

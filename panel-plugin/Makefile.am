@@ -95,6 +95,7 @@ xfce4_clipman_CFLAGS =							\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
+	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
@@ -107,6 +108,7 @@ xfce4_clipman_LDADD =							\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
+	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
@@ -136,6 +138,7 @@ xfce4_clipman_plugin_CFLAGS =						\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
+	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@						\
@@ -149,6 +152,7 @@ xfce4_clipman_plugin_LDADD =						\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
+	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\

@@ -22,7 +22,6 @@
 
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
-#include <xfconf/xfconf.h>
 
 #include "common.h"
 #include "actions.h"
