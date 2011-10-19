@@ -71,14 +71,6 @@ static gint           __clipman_actions_entry_compare       (gpointer a,
 static gint           __clipman_actions_entry_compare_name  (gpointer a,
                                                              gpointer b);
 static void           __clipman_actions_entry_free          (ClipmanActionsEntry *entry);
-#if !GLIB_CHECK_VERSION (2,16,0)
-static void           __foreach_command_create_mi           (gpointer key,
-                                                             gpointer value,
-                                                             gpointer user_data);
-static void           __foreach_command_write_xml           (gpointer key,
-                                                             gpointer value,
-                                                             gpointer user_data);
-#endif
 
 /*
  * Callbacks declarations
@@ -430,49 +422,6 @@ __clipman_actions_entry_free (ClipmanActionsEntry *entry)
   g_slice_free (ClipmanActionsEntry, entry);
 }
 
-#if !GLIB_CHECK_VERSION (2,16,0)
-static void
-__foreach_command_create_mi (gpointer key,
-                             gpointer value,
-                             gpointer user_data)
-{
-  gchar *command_name = key;
-  gchar *command = value;
-  GtkWidget *menu = user_data;
-  GtkWidget *mi;
-
-  mi = gtk_menu_item_new_with_label (command_name);
-  g_object_set_data (G_OBJECT (mi), "text", g_object_get_data (G_OBJECT (menu), "text"));
-  g_object_set_data (G_OBJECT (mi), "command", command);
-  g_object_set_data (G_OBJECT (mi), "regex", g_object_get_data (G_OBJECT (menu), "regex"));
-  gtk_container_add (GTK_CONTAINER (menu), mi);
-  g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
-}
-
-static void
-__foreach_command_write_xml (gpointer key,
-                             gpointer value,
-                             gpointer user_data)
-{
-  gchar *command_name = key;
-  gchar *command = value;
-  GString *output = user_data;
-  gchar *tmp;
-
-  g_string_append (output, "\t\t\t<command>\n");
-
-  tmp = g_markup_escape_text (command_name, -1);
-  g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
-  g_free (tmp);
-
-  tmp = g_markup_escape_text (command, -1);
-  g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
-  g_free (tmp);
-
-  g_string_append (output, "\t\t\t</command>\n");
-}
-#endif
-
 /*
  * Public methods
  */
@@ -750,7 +699,6 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
       mi = gtk_separator_menu_item_new ();
       gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
 
-#if GLIB_CHECK_VERSION (2,16,0)
         {
           GHashTableIter iter;
           gpointer key, value;
@@ -765,10 +713,6 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
               g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
             }
         }
-#else
-      g_object_set_data (G_OBJECT (actions->priv->menu), "regex", entry->regex);
-      g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_create_mi, actions->priv->menu);
-#endif
 
       mi = gtk_separator_menu_item_new ();
       gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
@@ -864,7 +808,6 @@ clipman_actions_save (ClipmanActions *actions)
 
       g_string_append (output, "\t\t<commands>\n");
 
-#if GLIB_CHECK_VERSION (2,16,0)
         {
           GHashTableIter iter;
           gpointer key, value;
@@ -884,9 +827,6 @@ clipman_actions_save (ClipmanActions *actions)
               g_string_append (output, "\t\t\t</command>\n");
             }
         }
-#else
-      g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_write_xml, output);
-#endif
 
       g_string_append (output, "\t\t</commands>\n");
 

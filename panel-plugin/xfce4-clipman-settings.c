@@ -52,11 +52,6 @@ static void             cb_delete_action                (GtkButton *button);
 static void             cb_reset_actions                (GtkButton *button);
 static void             setup_commands_treeview         (GtkTreeView *treeview);
 static void             entry_dialog_cleanup            ();
-#if !GLIB_CHECK_VERSION(2,16,0)
-static void           __foreach_command_fill_commands   (gpointer key,
-                                                         gpointer value,
-                                                         gpointer user_data);
-#endif
 static void             cb_commands_selection_changed   (GtkTreeSelection *selection);
 static void             cb_add_command                  (GtkButton *button);
 static void             cb_refresh_command              (GtkButton *button);
@@ -402,7 +397,7 @@ cb_actions_row_activated (GtkTreeView *treeview,
   gtk_tree_model_get (actions_model, &iter, 0, &entry, -1);
 
   commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
-#if GLIB_CHECK_VERSION (2,16,0)
+
     {
       GHashTableIter hiter;
       gpointer key, value;
@@ -415,9 +410,6 @@ cb_actions_row_activated (GtkTreeView *treeview,
           g_free (title);
         }
     }
-#else
-  g_hash_table_foreach (entry->commands, (GHFunc)__foreach_command_fill_commands, commands_model);
-#endif
 
   gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")), entry->action_name);
   gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")), entry->pattern);
@@ -519,23 +511,6 @@ entry_dialog_cleanup (void)
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
   gtk_list_store_clear (GTK_LIST_STORE (model));
 }
-
-#if !GLIB_CHECK_VERSION(2,16,0)
-static void
-__foreach_command_fill_commands (gpointer key,
-                                 gpointer value,
-                                 gpointer user_data)
-{
-  GtkTreeModel *model = user_data;
-  GtkTreeIter iter;
-  gchar *title;
-
-  title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
-  gtk_list_store_append (GTK_LIST_STORE (_model), &iter);
-  gtk_list_store_set (GTK_LIST_STORE (model), &iter, 0, title, 1, key, 2, value, -1);
-  g_free (title);
-}
-#endif
 
 static void
 cb_commands_selection_changed (GtkTreeSelection *selection)
@@ -704,11 +679,9 @@ cb_test_regex (GtkButton *button)
 static void 
 cb_test_regex_changed (GtkWidget *widget)
 {
-#if GTK_CHECK_VERSION (2, 16, 0)
   if (test_regex_changed_timeout == 0)
     gtk_entry_set_icon_from_stock (GTK_ENTRY (gtk_builder_get_object (builder, "regex-entry")),
                                    GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_REFRESH);
-#endif
 
   if (test_regex_changed_timeout > 0)
     g_source_remove (test_regex_changed_timeout);
@@ -750,14 +723,10 @@ update_test_regex_textview_tags (void)
   regex = g_regex_new (pattern, G_REGEX_CASELESS|G_REGEX_MULTILINE, 0, NULL);
   if (regex == NULL)
     {
-#if GTK_CHECK_VERSION (2, 16, 0)
       gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_DIALOG_ERROR);
-#endif
       return;
     }
-#if GTK_CHECK_VERSION (2, 16, 0)
   gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_APPLY);
-#endif
 
   text = gtk_text_buffer_get_text (buffer, &start, &end, FALSE);
   if (!g_regex_match (regex, text, 0, &match_info))

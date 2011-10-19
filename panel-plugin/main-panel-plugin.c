@@ -67,9 +67,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   /* Panel Plugin */
   plugin->panel_plugin = panel_plugin;
-#if GTK_CHECK_VERSION (2,12,0)
   gtk_widget_set_tooltip_text (GTK_WIDGET (panel_plugin), _("Clipman"));
-#endif
 
   /* Panel Button */
   plugin->button = xfce_create_panel_toggle_button ();
