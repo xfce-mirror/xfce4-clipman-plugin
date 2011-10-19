@@ -65,6 +65,16 @@ XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.8.0])
 
+dnl ****************************************
+dnl *** Check for xtst (XTEST extension) ***
+dnl ****************************************
+XDT_CHECK_OPTIONAL_PACKAGE([LIBXTST], [xtst], [1.0.0])
+if test x"$LIBXTST_FOUND" = x"yes"; then
+	enable_libxtst=yes
+else
+	enable_libxtst=no
+fi
+
 dnl ***************************
 dnl *** Check for libunique ***
 dnl ***************************
@@ -164,6 +174,6 @@ echo
 echo "Build Configuration:"
 echo
 echo "    * Debug Support:    $enable_debug"
+echo "    * XTEST extension:  $enable_libxtst"
 echo "    * Unique:           $enable_unique"
 echo
-
