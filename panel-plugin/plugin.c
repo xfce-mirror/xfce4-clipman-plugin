@@ -349,7 +349,7 @@ plugin_configure (MyPlugin *plugin)
   GError *error = NULL;
   GtkWidget *error_dialog;
 
-  gdk_spawn_command_line_on_screen (gdk_screen_get_default (), "xfce4-clipman-settings", &error);
+  g_spawn_command_line_async ("xfce4-clipman-settings", &error);
   if (error != NULL)
   {
     error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,

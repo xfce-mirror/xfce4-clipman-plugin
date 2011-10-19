@@ -350,7 +350,8 @@ cb_entry_activated (GtkMenuItem *mi,
 
   DBG ("Execute command `%s'", real_command);
 
-  if (!gdk_spawn_command_line_on_screen (NULL, real_command, &error))
+  g_spawn_command_line_async (real_command, &error);
+  if (error != NULL)
     {
       xfce_dialog_show_error (NULL, error, _("Unable to execute the command \"%s\"\n\n%s"), real_command, error->message);
       g_error_free (error);

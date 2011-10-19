@@ -165,7 +165,6 @@ prop_dialog_run (void)
 static void
 cb_show_help (GtkButton *button)
 {
-  GdkScreen *screen;
   gchar *locale = NULL;
   gchar *offset;
   gchar *filename = NULL;
@@ -213,15 +212,13 @@ cb_show_help (GtkButton *button)
   filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
 #endif
 
-  screen = gtk_widget_get_screen (GTK_WIDGET (button));
-
   command = g_strdup_printf ("exo-open --launch WebBrowser %s", filename);
-  if (gdk_spawn_command_line_on_screen (screen, command, NULL))
+  if (g_spawn_command_line_async (command, NULL))
     goto out;
 
   g_free (command);
   command = g_strdup_printf ("firefox %s", filename);
-  if (gdk_spawn_command_line_on_screen (screen, command, NULL))
+  if (g_spawn_command_line_async (command, NULL))
     goto out;
 
   xfce_dialog_show_error (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (button))),
