@@ -93,6 +93,8 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   gchar *text;
   GdkPixbuf *image;
 
+  g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
+
   /* Jump over if collector is inhibited */
   if (collector->priv->inhibit)
     {
@@ -150,6 +152,8 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
 {
   GdkModifierType state;
   gchar *text;
+
+  g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
   /* Postpone until the selection is done */
   gdk_window_get_pointer (NULL, NULL, NULL, &state);
