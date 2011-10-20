@@ -2,13 +2,13 @@
 # Copyright (C) 2009 THE CLIPMAN PLUGIN'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the CLIPMAN PLUGIN package.
 # Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009.
-# , fuzzy
+#, fuzzy
 # GLOSSARIO
 # clipboard = appunti
 # history = cronologia
 # regex = espressione regolare
 # pattern = schema
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: CLIPMAN PLUGIN TRUNK\n"
@@ -17,10 +17,10 @@ msgstr ""
 "PO-Revision-Date: 2009-12-13 10:44+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian Translation Team <xfce-it-translators@googlegroups>.\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
@@ -131,7 +131,6 @@ msgid "General"
 msgstr "Generale"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
 msgid "If checked, reverse order of the history shown in the menu"
 msgstr ""
 "Se abilitata, questa opzione ripristinerà la cronologia a ogni nuova "
@@ -175,7 +174,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
-msgstr "Ignora _selezioni"
+msgstr "I_gnora selezioni"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Name:"
@@ -192,7 +191,7 @@ msgstr "Espressione regolare"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Reverse order"
-msgstr ""
+msgstr "Inverti ordine"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
@@ -203,9 +202,8 @@ msgid "Size of the _history:"
 msgstr "Dimensione della _cronologia:"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "Memorizza un'_immagine"
+msgstr "Memorizza l'ultima i_mmagine copiata"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Sync _selections"
@@ -249,7 +247,7 @@ msgstr "Gli appunti sono vuoti"
 
 #: ../panel-plugin/menu.c:372
 msgid "_Disable"
-msgstr ""
+msgstr "_Disabilita"
 
 #: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
