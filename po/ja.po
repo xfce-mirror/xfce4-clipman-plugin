@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Daichi Kawahata <daichi@xfce.org>, 2006.
 # Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2009-12-19 22:36+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
@@ -128,7 +128,6 @@ msgid "General"
 msgstr "一般"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
 msgid "If checked, reverse order of the history shown in the menu"
 msgstr ""
 "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
@@ -184,7 +183,7 @@ msgstr "正規表現"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Reverse order"
-msgstr ""
+msgstr "表示順を逆にする"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
@@ -195,9 +194,8 @@ msgid "Size of the _history:"
 msgstr "履歴のサイズ(_H):"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "画像を格納する(_I)"
+msgstr "最後にコピーした画像を格納する(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Sync _selections"
@@ -239,9 +237,8 @@ msgid "Clipboard is empty"
 msgstr "クリップボードは空です"
 
 #: ../panel-plugin/menu.c:372
-#, fuzzy
 msgid "_Disable"
-msgstr "有効(_E)"
+msgstr "無効(_D)"
 
 #: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
