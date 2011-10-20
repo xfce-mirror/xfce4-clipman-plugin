@@ -2,7 +2,7 @@
 # Copyright (C) 2005-2009 THE Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007, 2008, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-12-14 15:56+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
@@ -70,7 +70,7 @@ msgstr "<b>Repor acções</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:458
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Tem certeza que pretende repor as acções para as omissão do sistema?"
+msgstr "Tem certeza que pretende repor as acções para as omissões do sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
@@ -125,7 +125,6 @@ msgid "General"
 msgstr "Geral"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
 msgid "If checked, reverse order of the history shown in the menu"
 msgstr ""
 "Se activa, esta opção irá restaurar o histórico em cada nova sessão do Xfce"
@@ -178,11 +177,11 @@ msgstr "Padrão:"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Regular expression"
-msgstr "Expressão regular"
+msgstr "Expressão normal"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Reverse order"
-msgstr ""
+msgstr "Ordem inversa"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
@@ -190,12 +189,11 @@ msgstr "Gravar ao sai_r"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Size of the _history:"
-msgstr "Tamanho do _histórico:"
+msgstr "Dimensão do _histórico:"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "Armazenar uma _imagem"
+msgstr "Guardar última _imagem copiada"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Sync _selections"
@@ -230,24 +228,24 @@ msgstr ""
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
-msgstr "Tem certeza que pretende limpar o histórico?"
+msgstr "Tem certeza de que pretende apagar o histórico?"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:283
 msgid "Clipboard is empty"
-msgstr "Área de transferência vazia"
+msgstr "A área de transferência está vazia"
 
 #: ../panel-plugin/menu.c:372
 msgid "_Disable"
-msgstr ""
+msgstr "_Desactivar"
 
 #: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
-msgstr "Colaboradores:"
+msgstr "Contributos:"
 
 #: ../panel-plugin/plugin.c:333
 msgid "Clipboard Manager for Xfce"
-msgstr "Gestor de área de transferência para Xfce"
+msgstr "Gestor de área de transferência do Xfce"
 
 #: ../panel-plugin/plugin.c:342
 msgid "translator-credits"
