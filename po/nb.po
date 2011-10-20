@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0svn-r2842\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-12 19:12+0100\n"
+"POT-Creation-Date: 2011-10-20 11:44+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Terje Uriansrud <ter@operamail.com>\n"
 "Language-Team: Norwegian Bokmal\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,9 +27,9 @@ msgstr "Utklippstavlebehandler"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:331
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -64,138 +65,142 @@ msgstr ""
 msgid "Xfce Bug"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:449
+#: ../panel-plugin/xfce4-clipman-settings.c:456
 #, fuzzy
 msgid "<b>Reset actions</b>"
 msgstr "<b>Utklippstavle oppførsel</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:451
+#: ../panel-plugin/xfce4-clipman-settings.c:458
 #, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Er du sikker du vil slette dette elementet fra historikken?"
 
-#: ../panel-plugin/settings-dialog.glade.h:1
+#: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:2
+#: ../panel-plugin/settings-dialog.ui.h:2
 #, fuzzy
 msgid "<b>Behavior</b>"
 msgstr "<b>Utklippstavle oppførsel</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:3
+#: ../panel-plugin/settings-dialog.ui.h:3
 #, fuzzy
 msgid "<b>Commands</b>"
 msgstr "<b>Antall</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:4
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "<b>History</b>"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:5
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "Actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:7
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Command:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Configure the plugin"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Edit Action"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Enable _actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "General"
 msgstr "Generelt"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "If checked, reverse order of the history shown in the menu"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:14
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:15
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:17
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.ui.h:19
 #, fuzzy
 msgid "Ignore s_elections"
 msgstr "_Ignorer merket område"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Name:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "Pattern:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Regular expression"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Reverse order"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Size of the _history:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:24
-msgid "Store an _image"
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Store last copied _image"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:25
+#: ../panel-plugin/settings-dialog.ui.h:27
 #, fuzzy
 msgid "Sync _selections"
 msgstr "_Ignorer merket område"
 
-#: ../panel-plugin/settings-dialog.glade.h:26
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.glade.h:27
-msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.glade.h:28
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -203,7 +208,7 @@ msgid ""
 "has an introdution for them."
 msgstr ""
 
-#: ../panel-plugin/actions.c:367
+#: ../panel-plugin/actions.c:356
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -211,30 +216,34 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../panel-plugin/menu.c:127
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Er du sikker at du vil slette historikken?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:202
+#: ../panel-plugin/menu.c:283
 #, fuzzy
 msgid "Clipboard is empty"
 msgstr "< Tom utklippstavle >"
 
-#: ../panel-plugin/plugin.c:294
+#: ../panel-plugin/menu.c:372
+msgid "_Disable"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:308
+#: ../panel-plugin/plugin.c:333
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Utklippstavlebehandler for Xfce skrivebordet"
 
-#: ../panel-plugin/plugin.c:317
+#: ../panel-plugin/plugin.c:342
 msgid "translator-credits"
 msgstr "Terje Uriansrud"
 
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:356
 #, fuzzy
 msgid "Unable to open the settings dialog"
 msgstr "Klarte ikke åpne følgende url: %s"

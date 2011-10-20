@@ -1,17 +1,18 @@
 # Hungarian translation of xfce4-clipman-plugin
 # Copyright 2009. Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# 
+#
 # SZERVÁC Attila <sas@321.hu>, 2007.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-12 19:12+0100\n"
+"POT-Creation-Date: 2011-10-20 11:44+0200\n"
 "PO-Revision-Date: 2009-07-23 19:30+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,9 +28,9 @@ msgstr "Vágólapkezelő"
 #: ../xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
-#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
+#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:331
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -65,127 +66,158 @@ msgstr "Megjelenítés a Ristrettoval"
 msgid "Xfce Bug"
 msgstr "Xfce hiba"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:449
+#: ../panel-plugin/xfce4-clipman-settings.c:456
 msgid "<b>Reset actions</b>"
 msgstr "<b>Műveletek visszaállítása</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:451
-msgid "Are you sure you want to reset the actions to the system default values?"
-msgstr "Biztosan visszaállítja a műveleteket a rendszer alapértelmezett értékeire?"
+#: ../panel-plugin/xfce4-clipman-settings.c:458
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr ""
+"Biztosan visszaállítja a műveleteket a rendszer alapértelmezett értékeire?"
 
-#: ../panel-plugin/settings-dialog.glade.h:1
+#: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
 msgstr "<b>Művelet</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:2
+#: ../panel-plugin/settings-dialog.ui.h:2
 msgid "<b>Behavior</b>"
 msgstr "<b>Viselkedés</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:3
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "<b>Commands</b>"
 msgstr "<b>Parancsok</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:4
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "<b>History</b>"
 msgstr "<b>Előzmények</b>"
 
-#: ../panel-plugin/settings-dialog.glade.h:5
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "Actions"
 msgstr "Műveletek"
 
-#: ../panel-plugin/settings-dialog.glade.h:6
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr "Aktiválás csak kézi másoláskor"
 
-#: ../panel-plugin/settings-dialog.glade.h:7
-msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "A műveletet alapértelmezésben a kiválasztás aktiválja, ezt engedélyezve csak kézi másolás fogja aktiválni a műveletet."
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"A műveletet alapértelmezésben a kiválasztás aktiválja, ezt engedélyezve csak "
+"kézi másolás fogja aktiválni a műveletet."
 
-#: ../panel-plugin/settings-dialog.glade.h:8
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Command:"
 msgstr "Parancs:"
 
-#: ../panel-plugin/settings-dialog.glade.h:9
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Configure the plugin"
 msgstr "Bővítmény beállítása"
 
-#: ../panel-plugin/settings-dialog.glade.h:10
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Edit Action"
 msgstr "Művelet szerkesztése"
 
-#: ../panel-plugin/settings-dialog.glade.h:11
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Enable _actions"
 msgstr "_Műveletek engedélyezése"
 
-#: ../panel-plugin/settings-dialog.glade.h:12
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "General"
 msgstr "Általános"
 
-#: ../panel-plugin/settings-dialog.glade.h:13
-msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a lehetséges műveletek menüje"
+#: ../panel-plugin/settings-dialog.ui.h:13
+#, fuzzy
+msgid "If checked, reverse order of the history shown in the menu"
+msgstr "Az előzmények helyreállítása minden új Xfce munkamenetben"
 
-#: ../panel-plugin/settings-dialog.glade.h:14
-msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "A kiválasztások szinkronizálva lesznek az alapértelmezett vágólappal, így beillesztheti a kiválasztást"
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a "
+"lehetséges műveletek menüje"
 
-#: ../panel-plugin/settings-dialog.glade.h:15
-msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "A kiválasztások nem jelennek meg az előzmények között, csak a kézi másolások"
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"A kiválasztások szinkronizálva lesznek az alapértelmezett vágólappal, így "
+"beillesztheti a kiválasztást"
 
-#: ../panel-plugin/settings-dialog.glade.h:16
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"A kiválasztások nem jelennek meg az előzmények között, csak a kézi másolások"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Egy kép tárolása az előzmények között"
 
-#: ../panel-plugin/settings-dialog.glade.h:17
-msgid "If checked, this option will restore the history on every new Xfce session"
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
 msgstr "Az előzmények helyreállítása minden új Xfce munkamenetben"
 
-#: ../panel-plugin/settings-dialog.glade.h:18
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
 msgstr "Kiválasztások _mellőzése"
 
-#: ../panel-plugin/settings-dialog.glade.h:19
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Name:"
 msgstr "Név:"
 
-#: ../panel-plugin/settings-dialog.glade.h:20
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "Pattern:"
 msgstr "Minta:"
 
-#: ../panel-plugin/settings-dialog.glade.h:21
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Regular expression"
 msgstr "Reguláris kifejezés"
 
-#: ../panel-plugin/settings-dialog.glade.h:22
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Reverse order"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
 msgstr "Mentés _kilépéskor"
 
-#: ../panel-plugin/settings-dialog.glade.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Size of the _history:"
 msgstr "Elő_zmények mérete:"
 
-#: ../panel-plugin/settings-dialog.glade.h:24
-msgid "Store an _image"
+#: ../panel-plugin/settings-dialog.ui.h:26
+#, fuzzy
+msgid "Store last copied _image"
 msgstr "_Egy kép tárolása"
 
-#: ../panel-plugin/settings-dialog.glade.h:25
+#: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Sync _selections"
 msgstr "Kiválasztások szi_nkronizálása"
 
-#: ../panel-plugin/settings-dialog.glade.h:26
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "A minta mindig a ^$ speciális karakterek között található"
 
-#: ../panel-plugin/settings-dialog.glade.h:27
-msgid "Type here your custom text, for example an URL, a filename, etc."
-msgstr "Írja ide az egyéni szöveget, például egy URL-címet, fájlnevet stb."
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"A parancsokban használhatja a „\\1”, „\\2” stb. helyettesítési "
+"paramétereket. A „\\0” paraméter a teljes szöveget képviseli. Ha nem ismeri "
+"a reguláris kifejezéseket, nézze meg a Clipman dokumentációját, amely "
+"tartalmaz egy bevezetőt ezekhez."
 
-#: ../panel-plugin/settings-dialog.glade.h:28
-msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "A parancsokban használhatja a „\\1”, „\\2” stb. helyettesítési paramétereket. A „\\0” paraméter a teljes szöveget képviseli. Ha nem ismeri a reguláris kifejezéseket, nézze meg a Clipman dokumentációját, amely tartalmaz egy bevezetőt ezekhez."
-
-#: ../panel-plugin/actions.c:367
+#: ../panel-plugin/actions.c:356
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -196,30 +228,37 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:127
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Biztosan törli az előzményeket?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:202
+#: ../panel-plugin/menu.c:283
 msgid "Clipboard is empty"
 msgstr "A vágólap üres"
 
-#: ../panel-plugin/plugin.c:294
+#: ../panel-plugin/menu.c:372
+msgid "_Disable"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
 msgstr "Közreműködők:"
 
-#: ../panel-plugin/plugin.c:308
+#: ../panel-plugin/plugin.c:333
 msgid "Clipboard Manager for Xfce"
 msgstr "Vágólapkezelő az Xfce-hez"
 
-#: ../panel-plugin/plugin.c:317
+#: ../panel-plugin/plugin.c:342
 msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:356
 msgid "Unable to open the settings dialog"
 msgstr "A beállítások ablak nem nyitható meg"
+
+#~ msgid "Type here your custom text, for example an URL, a filename, etc."
+#~ msgstr "Írja ide az egyéni szöveget, például egy URL-címet, fájlnevet stb."
 
 #~ msgid "E_xclude from history"
 #~ msgstr "Kihagyás az _előzményekből"
