@@ -152,6 +152,7 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
 {
   GdkModifierType state;
   gchar *text;
+  static gchar *prev_text = NULL;
 
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
@@ -177,8 +178,12 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
             gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
 
           /* Match for actions */
-          if (collector->priv->enable_actions)
-            clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_SELECTION, text);
+          if (collector->priv->enable_actions && g_strcmp0 (text, prev_text))
+            {
+              clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_SELECTION, text);
+              g_free (prev_text);
+              prev_text = g_strdup (text);
+            }
         }
       g_free (text);
     }
