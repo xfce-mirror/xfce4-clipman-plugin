@@ -1,10 +1,10 @@
 # Dutch translation of the xfce4-clipman-plugin package.
 # Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the 
+# This file is distributed under the same license as the
 # xfce4-clipman-plugin package.
 # Vincent Tunru <projects@vinnl.nl>
 # Pjotr, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2011-06-15 10:28+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: \n"
-"Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../xfce4-clipman-plugin.desktop.in.h:1
@@ -128,7 +128,6 @@ msgid "General"
 msgstr "Algemeen"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
 msgid "If checked, reverse order of the history shown in the menu"
 msgstr ""
 "De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe "
@@ -188,7 +187,7 @@ msgstr "Reguliere uitdrukking"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Reverse order"
-msgstr ""
+msgstr "Keer de volgorde om"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Save on _quit"
@@ -199,9 +198,8 @@ msgid "Size of the _history:"
 msgstr "Grootte van de _geschiedenis"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "_Afbeelding opslaan"
+msgstr "Laatst gekopieerde afbeelding opslaan"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Sync _selections"
@@ -245,7 +243,7 @@ msgstr "Klembord is leeg"
 
 #: ../panel-plugin/menu.c:372
 msgid "_Disable"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
