@@ -1,0 +1,3 @@
+[submodule "doc"]
+	path = doc
+	url = git://git.xfce.org/xfce/xfce4-docs

@@ -6,8 +6,7 @@ SUBDIRS =								\
 	panel-plugin							\
 	tests								\
 	po								\
-	po-doc								\
-	docs								\
+	doc								\
 	$(NULL)
 
 distclean-local:
