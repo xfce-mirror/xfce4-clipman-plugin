@@ -167,9 +167,10 @@ cb_show_help (GtkButton *button)
 {
   gchar *locale = NULL;
   gchar *offset;
-  gchar *filename = NULL;
+  gchar *docpath = NULL;
   gchar *command = NULL;
   
+  /* Find localized documentation path on disk */
 #ifdef ENABLE_NLS
 #ifdef HAVE_LOCALE_H
   locale = g_strdup (setlocale (LC_MESSAGES, ""));
@@ -185,47 +186,61 @@ cb_show_help (GtkButton *button)
   locale = g_strdup ("C");
 #endif
 
-  filename = g_strdup_printf ("file://"DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
-  if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+  docpath = g_strdup_printf (DOCDIR"/html/%s/index.html", locale);
+  if (!g_file_test (docpath, G_FILE_TEST_EXISTS))
     {
       offset = g_strrstr (locale, "_");
       if (offset == NULL)
         {
-          g_free (filename);
-          filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+          g_free (docpath);
+          docpath = g_strdup (DOCDIR"/html/C/index.html");
         }
       else
         {
           *offset = '\0';
-          g_free (filename);
-          filename = g_strdup_printf ("file://"DATAROOTDIR"/xfce4/doc/%s/"PACKAGE".html", locale);
-          if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+          g_free (docpath);
+          docpath = g_strdup_printf (DOCDIR"/html/%s/index.html", locale);
+          if (!g_file_test (docpath, G_FILE_TEST_EXISTS))
             {
-              g_free (filename);
-              filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+              g_free (docpath);
+              docpath = g_strdup (DOCDIR"/html/C/index.html");
             }
         }
     }
 
   g_free (locale);
 #else
-  filename = g_strdup ("file://"DATAROOTDIR"/xfce4/doc/C/"PACKAGE".html");
+  docpath = g_strdup (DOCDIR"/html/C/index.html");
 #endif
 
-  command = g_strdup_printf ("exo-open --launch WebBrowser %s", filename);
+  /* Revert to online documentation if not available on disk */
+  if (g_file_test (docpath, G_FILE_TEST_EXISTS))
+    {
+      gchar *tmp = docpath;
+      docpath = g_strdup_printf ("file://%s", docpath);
+      g_free (tmp);
+    }
+  else
+    {
+      g_free (docpath);
+      docpath = g_strdup ("http://docs.xfce.org/help.php?package=xfce4-clipman-plugin");
+    }
+
+  /* Open documentation in webbrowser */
+  command = g_strdup_printf ("exo-open --launch WebBrowser %s", docpath);
   if (g_spawn_command_line_async (command, NULL))
     goto out;
 
   g_free (command);
-  command = g_strdup_printf ("firefox %s", filename);
+  command = g_strdup_printf ("firefox %s", docpath);
   if (g_spawn_command_line_async (command, NULL))
     goto out;
 
   xfce_dialog_show_error (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (button))),
-                          NULL, "Unable to open documentation \"%s\"", filename);
+                          NULL, "Unable to open documentation \"%s\"", docpath);
 
 out:
-  g_free (filename);
+  g_free (docpath);
   g_free (command);
 }
 
