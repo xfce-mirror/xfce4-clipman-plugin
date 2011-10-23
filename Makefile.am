@@ -18,8 +18,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 DISTCHECK_CONFIGURE_FLAGS =						\
-	--enable-xml2po							\
-	--enable-xsltproc						\
+	--enable-gen-doc						\
 	$(NULL)
 
 EXTRA_DIST =								\

@@ -1,3 +1,236 @@
+2011-10-24	Mike Massonnet
+=== Release 1.2.0 ===
+
+2011-10-24	Mike Massonnet
+Update code to show the documentation with new location
+
+	The code tries to find the new location of the localized documentation
+	otherwise to fallback on the online documentation.
+
+2011-10-21	Mike Massonnet
+Include documentation from xfce4-docs
+
+2011-10-20	Mike Massonnet
+actions: show the actions menu only once for the same text (bug 6633)
+
+2011-10-20	Mike Massonnet
+Replace gdk_spawn against g_spawn
+
+2011-10-19	Mike Massonnet
+collector: Check instance types of GtkClipboard (bug 6323)
+
+2011-10-19	Mike Massonnet
+New feature "paste-on-activate"
+
+	There is a new property in the ClipmanMenu class "paste-on-activate" that
+	is bound to the xfconf property "/tweaks/paste-on-activate". This new
+	property gives the possibility to paste a content that has been selected
+	in the history.
+
+	Currently the default value is off, there are two possible values to
+	paste the content with Ctrl+V or Shift+Insert.
+
+2011-10-19	Mike Massonnet
+Remove Glade package requirement from autoconf script
+
+2011-10-19	Mike Massonnet
+Remove deprecated CHECK_VERSION precompilation code
+
+2011-10-19	Mike Massonnet
+Add optional build dependency for XTEST extension
+
+	Include a test program that uses XTestFakeKeyEvent() to emulate Shift+Insert
+	in order to "paste" content, works also for Ctrl+v.
+
+	XTEST extension will be optional until an option is included in the settings
+	dialog, then it will be a hard-dependency.
+
+2011-10-17	Mike Massonnet
+Add option "Reverse menu order" inside the settings dialog
+
+	Add a checkbox inside the settings dialog for /tweaks/reverse-menu-order
+
+2011-10-17	Mike Massonnet
+Update code responsible to open website URL and manual
+
+2011-08-10	Mike Massonnet
+autoconf: Bump exo-0.3 to exo-1 0.6.0
+
+2011-05-07	Mike Massonnet
+Properly remove cache files on history clear (bug 6324)
+
+2011-05-07	Mike Massonnet
+Update copyright year and autogen.sh file
+
+2011-05-07	Mike Massonnet
+Use themed icon "clipman" or fallback to edit-paste (bug 6698)
+
+2011-05-07	Mike Massonnet
+Rework right click status icon menu
+
+2011-05-07	Mike Massonnet
+Add option /tweaks/popup-at-pointer
+
+	New option in order to popup the menu at the position of the mouse
+	pointer, works only if triggerred through xfce4-popup-clipman.
+
+2011-05-07	Mike Massonnet
+Shut down GCC warning messages
+
+	-Wunused-but-set-variable
+	-Wformat-extra-args
+
+2011-05-07	Mike Massonnet
+Readd "Inhibit" option (bug 6522)
+
+2011-05-07	Mike Massonnet
+Fix make check
+
+2011-05-07	Mike Massonnet
+Port to libxfce4ui (bug 6853)
+
+	Applied patch from Matias De lellis.
+	Bumped version to 1.2.0 and adapted dependecy versions to Xfce 4.8.
+
+2011-01-09	Mike Massonnet
+daemon: dispatch primary clipboard restoration
+
+	The GtkEntryCompletion widget is continuously removing ownership over
+	the clipboard, quickly after that setting it back.
+
+	The code assumed that when the ownership was removed, it could safely
+	restore the cached value. Wrong. This causes the widget to "erase" its
+	current selection and typing continues at the end of the string (as seen
+	in GNOME bug 333320).
+
+	Now restoring works through a dispatched GSource, which enables to
+	remove this GSource if ownership is set right back again.
+
+2010-10-24	Mike Massonnet
+tests: Add option -p in test_targets.c to print text
+
+2010-01-23	Mike Massonnet
+[status-icon] On autostart file update reset TryExec/Exec keys
+
+2010-01-07	Mike Massonnet
+[daemon] Fix possible NULL values (bug #6119 #6120)
+
+	As reported, the abrt program detected a possible crash when the default
+	cache is used to restore content or fill the selection while it is NULL.
+
+2009-12-27	Mike Massonnet
+[tests] Build with make check
+
+	Drop the "if MAINTAINER_MODE" block and switch noinst against check. The
+	test programs will therefore always be possible to be built by running
+	make -C tests check.
+
+2009-12-22	Mike Massonnet
+Don't build the panel plugin with GSEAL_ENABLE
+
+2009-12-19	Mike Massonnet
+[settings-dialog] Only expand the commands treeview in the action dialog
+
+
+2009-12-19	Mike Massonnet
+Make compiler happy
+
+	Ran the code with debug on and fixed all the warnings.
+
+2009-12-14	Mike Massonnet
+[regex-test-dialog] Show a refresh icon while typing
+
+2009-12-13	Mike Massonnet
+[settings-dialog] Increase border in action dialog
+
+2009-12-13	Mike Massonnet
+[actions] Save pattern parallel to the GRegex
+
+	As the pattern is modified locally (last commit) it is needed to keep
+	the pattern in a separate data memory. The ClipmanActionEntry has a new
+	member "pattern". The code has been updated to use entry->pattern
+	instead of g_regex_get_pattern.
+
+2009-12-13	Mike Massonnet
+[actions] Fix anchored regex
+
+	The use of the compilation flag ANCHORED only constraint the match at
+	the first matching point. Now the regex is changed manually with $ at
+	the end.
+
+2009-12-13	Mike Massonnet
+[settings-dialog] Fix utf8 offset for tagging
+
+	The tag were missplaced because GMatchInfo returns the position in bytes
+	and not in characters. This is fixed by using g_utf8_pointer_to_offset.
+
+	Also change the regex compilation flags, use MULTILINE and drop DOTALL,
+	to use every new lines as a new string to test against.
+
+2009-12-12	Mike Massonnet
+[actions] New regex-dialog to quickly make tests
+
+	The new dialog is opened by pressing the button beneath the action
+	pattern in the action dialog. It lets the user type in random text to
+	perform matches with the given regex pattern.
+
+2009-12-11	Mike Massonnet
+[settings-dialog] Polishment and actions-reset-button
+
+	Set the settings dialog an inch bigger. Repolish the action dialog. New
+	button beneath the actions treeview to reset the actions to the system
+	default values.
+
+2009-12-11	Mike Massonnet
+[actions] Add whitespace pattern to action "Bugz"
+
+	As suggested by Christoph (bug #6069).
+
+2009-12-09	Mike Massonnet
+[daemon] Fix a leak
+
+	There was a lost bit, credit goes to Nick who noticed this.
+
+2009-12-09	Mike Massonnet
+[daemon] Fix bad assumption that I could free/copy the selection
+
+	The code handling the get-selection callback was changed to free the
+	selection and than copy the cached selection into it. This was baaad as
+	it made further calls to the get-selection callback when freeing the
+	selection which ended in a crash. The code has been switched back to the
+	heavier version of calling the set function.
+
+2009-12-08	Mike Massonnet
+[actions] Update default actions in XML file
+
+2009-12-07	Mike Massonnet
+[daemon] Be less aggressive to store the primary clipboard
+
+	The primary clipboard was saved very, very aggressively. This showed a
+	real slow down when doing selections. Now it is delayed inside a timeout
+	at a quarter second interval and will save for real once the selection
+	is done (no mouse button hold or shift button on keyboard).
+	If the selection is lost, we avoid storing the cached value again by
+	keeping a state with an internal boolean value.
+
+2009-12-07	Mike Massonnet
+Make the code GSEAL-proof
+
+2009-11-22	Mike Massonnet
+[build-env] Add X11 link to xfce4-clipman-settings
+
+2009-11-21	Mike Massonnet
+[status-icon] Position the popup menu correctly
+
+2009-11-20	Mike Massonnet
+Add GNOME back inside the desktop entry file
+
+2009-11-19	Mike Massonnet
+[build-env] Use silent flags (as in parole)
+
+2009-11-19	Mike Massonnet
+[daemon] Drop useless ownership variable
+
 2009-11-15	Mike Massonnet
 === Release 1.1.3 ===
 
