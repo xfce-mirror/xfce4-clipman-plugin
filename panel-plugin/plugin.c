@@ -95,6 +95,8 @@ plugin_register (void)
                           G_TYPE_UINT, plugin->history, "max-images-in-history");
   xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit",
                           G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
+                          G_TYPE_BOOLEAN, plugin->history, "reorder-items");
 
   /* ClipmanCollector */
   plugin->collector = clipman_collector_get ();

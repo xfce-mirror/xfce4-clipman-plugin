@@ -46,6 +46,7 @@ struct _ClipmanHistoryPrivate
   guint                 max_texts_in_history;
   guint                 max_images_in_history;
   gboolean              save_on_quit;
+  gboolean              reorder_items;
 };
 
 enum
@@ -53,6 +54,7 @@ enum
   MAX_TEXTS_IN_HISTORY = 1,
   MAX_IMAGES_IN_HISTORY,
   SAVE_ON_QUIT,
+  REORDER_ITEMS,
 };
 
 enum
@@ -216,8 +218,17 @@ clipman_history_add_text (ClipmanHistory *history,
   if (list != NULL)
     {
       DBG ("Found a previous occurence for text `%s'", text);
-      __clipman_history_item_free (list->data);
-      history->priv->texts = g_slist_delete_link (history->priv->texts, list);
+      item = list->data;
+      if (history->priv->reorder_items)
+        {
+          __clipman_history_item_free (item);
+          history->priv->texts = g_slist_delete_link (history->priv->texts, list);
+        }
+      else
+        {
+          history->priv->item_to_restore = item;
+          return;
+        }
     }
 
   /* Store the text */
@@ -433,6 +444,14 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                          "True if the history must be saved on quit",
                                                          DEFAULT_SAVE_ON_QUIT,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class,
+                                   REORDER_ITEMS,
+                                   g_param_spec_boolean ("reorder-items",
+                                                         "ReorderItems",
+                                                         "Always push last clipboard content to the top of the history",
+                                                         DEFAULT_REORDER_ITEMS,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -470,6 +489,10 @@ clipman_history_set_property (GObject *object,
       priv->save_on_quit = g_value_get_boolean (value);
       break;
 
+    case REORDER_ITEMS:
+      priv->reorder_items = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -495,6 +518,10 @@ clipman_history_get_property (GObject *object,
 
     case SAVE_ON_QUIT:
       g_value_set_boolean (value, priv->save_on_quit);
+      break;
+
+    case REORDER_ITEMS:
+      g_value_set_boolean (value, priv->reorder_items);
       break;
 
     default:
