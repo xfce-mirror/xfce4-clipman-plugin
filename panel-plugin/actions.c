@@ -57,9 +57,23 @@ struct _ClipmanActionsPrivate
   GFileMonitor         *file_monitor;
   GSList               *entries;
   GtkWidget            *menu;
+  gboolean              skip_action_on_key_down;
+};
+
+enum
+{
+  SKIP_ACTION_ON_KEY_DOWN = 1,
 };
 
 static void             clipman_actions_finalize            (GObject *object);
+static void             clipman_actions_set_property        (GObject *object,
+                                                             guint property_id,
+                                                             const GValue *value,
+                                                             GParamSpec *pspec);
+static void             clipman_actions_get_property        (GObject *object,
+                                                             guint property_id,
+                                                             GValue *value,
+                                                             GParamSpec *pspec);
 
 /*
  * Misc functions declarations
@@ -672,6 +686,16 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   ClipmanActionsEntry *entry;
   GtkWidget *mi;
   GSList *l, *entries;
+  GdkModifierType state;
+
+  if (actions->priv->skip_action_on_key_down)
+    {
+      gdk_window_get_pointer (NULL, NULL, NULL, &state);
+      if (state & GDK_CONTROL_MASK)
+        {
+          return;
+        }
+    }
 
   entries = clipman_actions_match (actions, group, text);
 
@@ -881,6 +905,15 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
 
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_actions_finalize;
+  object_class->set_property = clipman_actions_set_property;
+  object_class->get_property = clipman_actions_get_property;
+
+  g_object_class_install_property (object_class, SKIP_ACTION_ON_KEY_DOWN,
+                                   g_param_spec_boolean ("skip-action-on-key-down",
+                                                         "SkipActionOnKeyDown",
+                                                         "Skip the action if the Control key is pressed down",
+                                                         DEFAULT_SKIP_ACTION_ON_KEY_DOWN,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -910,5 +943,43 @@ clipman_actions_finalize (GObject *object)
   _clipman_actions_free_list (actions);
   g_object_unref (actions->priv->file_monitor);
   g_object_unref (actions->priv->file);
+}
+
+static void
+clipman_actions_set_property (GObject *object,
+                              guint property_id,
+                              const GValue *value,
+                              GParamSpec *pspec)
+{
+  ClipmanActionsPrivate *priv = CLIPMAN_ACTIONS (object)->priv;
+
+  switch (property_id)
+    {
+    case SKIP_ACTION_ON_KEY_DOWN:
+      priv->skip_action_on_key_down = g_value_get_boolean (value);
+      break;
+
+    default:
+      break;
+    }
+}
+
+static void
+clipman_actions_get_property (GObject *object,
+                              guint property_id,
+                              GValue *value,
+                              GParamSpec *pspec)
+{
+  ClipmanActionsPrivate *priv = CLIPMAN_ACTIONS (object)->priv;
+
+  switch (property_id)
+    {
+    case SKIP_ACTION_ON_KEY_DOWN:
+      g_value_set_boolean (value, priv->skip_action_on_key_down);
+      break;
+
+    default:
+      break;
+    }
 }
 

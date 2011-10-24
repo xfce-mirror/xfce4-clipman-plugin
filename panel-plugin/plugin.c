@@ -86,6 +86,8 @@ plugin_register (void)
 
   /* ClipmanActions */
   plugin->actions = clipman_actions_get ();
+  xfconf_g_property_bind  (plugin->channel, "/tweaks/skip-action-on-key-down",
+                           G_TYPE_BOOLEAN, plugin->actions, "skip-action-on-key-down");
 
   /* ClipmanHistory */
   plugin->history = clipman_history_get ();
