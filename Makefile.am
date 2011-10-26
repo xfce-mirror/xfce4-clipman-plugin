@@ -12,11 +12,6 @@ SUBDIRS =								\
 distclean-local:
 	rm -rf *.cache *~
 
-desktopdir = $(datadir)/applications
-desktop_in_files = xfce4-clipman-plugin.desktop.in
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
-
 DISTCHECK_CONFIGURE_FLAGS =						\
 	--enable-gen-doc						\
 	$(NULL)
@@ -31,11 +26,9 @@ EXTRA_DIST =								\
 	intltool-extract.in						\
 	intltool-merge.in						\
 	intltool-update.in						\
-	$(desktop_in_files)						\
 	$(NULL)
 
 CLEANFILES =								\
-	$(desktop_DATA)							\
 	$(NULL)
 
 DISTCLEANFILES =							\

@@ -37,7 +37,7 @@
  */
 
 static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (panel_plugin_register);
+XFCE_PANEL_PLUGIN_REGISTER (panel_plugin_register);
 
 static gboolean         cb_button_pressed               (GtkButton *button,
                                                          GdkEventButton *event,

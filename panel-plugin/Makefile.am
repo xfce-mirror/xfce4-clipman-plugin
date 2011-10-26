@@ -121,10 +121,10 @@ xfce4_clipman_LDADD =							\
 # Panel Plugin
 #
 
-plugindir = $(libexecdir)/xfce4/panel-plugins
-plugin_PROGRAMS = xfce4-clipman-plugin
+plugindir = $(libdir)/xfce4/panel/plugins
+plugin_LTLIBRARIES = libclipman.la
 
-xfce4_clipman_plugin_SOURCES =						\
+libclipman_la_SOURCES =							\
 	main-panel-plugin.c						\
 	common.h							\
 	plugin.c			plugin.h			\
@@ -134,7 +134,7 @@ xfce4_clipman_plugin_SOURCES =						\
 	menu.c				menu.h				\
 	$(NULL)
 
-xfce4_clipman_plugin_CFLAGS =						\
+libclipman_la_CFLAGS =							\
 	-DPANEL_PLUGIN							\
 	@GIO_CFLAGS@							\
 	@EXO_CFLAGS@							\
@@ -148,7 +148,7 @@ xfce4_clipman_plugin_CFLAGS =						\
 	@XFCONF_CFLAGS@							\
 	$(NULL)
 
-xfce4_clipman_plugin_LDADD =						\
+libclipman_la_LIBADD =							\
 	$(top_builddir)/daemon/libdaemon.la				\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
@@ -175,15 +175,15 @@ actions_DATA = $(actions_in_files:.xml.in=.xml)
 # Desktop Entry File
 #
 
-desktopdir = $(datadir)/xfce4/panel-plugins
-desktop_in_in_files = xfce4-clipman-plugin.desktop.in.in
-desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+pluginsdir = $(datadir)/xfce4/panel/plugins
+plugins_in_files = xfce4-clipman-plugin.desktop.in
+plugins_DATA = $(plugins_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-%.desktop.in: %.desktop.in.in
-	$(AM_V_GEN) sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(plugindir)^" \
-		$< > $@
+appsdir = $(datadir)/applications
+apps_in_files = xfce4-clipman.desktop.in
+apps_DATA = $(apps_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 #
 # Autostart File
@@ -202,13 +202,15 @@ EXTRA_DIST =								\
 	settings-dialog.ui						\
 	$(actions_in_files)						\
 	$(autostart_in_files)						\
-	$(desktop_in_in_files)						\
+	$(plugins_in_files)						\
+	$(apps_in_files)						\
 	$(NULL)
 
 CLEANFILES =								\
 	$(actions_DATA)							\
 	$(autostart_DATA)						\
-	$(desktop_DATA)							\
+	$(plugins_DATA)							\
+	$(apps_DATA)							\
 	$(NULL)
 
 DISTCLEANFILES =							\
