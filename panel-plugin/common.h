@@ -22,15 +22,13 @@
  * Default values
  */
 
-/* History */
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    10
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
 #define DEFAULT_SAVE_ON_QUIT                            TRUE
+#define DEFAULT_POPUP_AT_POINTER                        FALSE
 #define DEFAULT_REVERSE_ORDER                           FALSE
 #define DEFAULT_REORDER_ITEMS                           TRUE
 #define DEFAULT_SKIP_ACTION_ON_KEY_DOWN                 FALSE
-
-/* Collector */
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD                   FALSE
 #define DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD        TRUE
 #define DEFAULT_ENABLE_ACTIONS                          FALSE
