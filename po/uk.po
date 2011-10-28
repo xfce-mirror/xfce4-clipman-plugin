@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 11:44+0200\n"
+"POT-Creation-Date: 2011-10-28 15:59+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
@@ -19,18 +19,18 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
 msgstr "Керування буфером обміну"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Керування буфером обміну"
 
@@ -66,11 +66,25 @@ msgstr "Переглянути в Ristretto"
 msgid "Xfce Bug"
 msgstr "Помилка Xfce"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:456
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
 msgstr "<b>Скинути дії</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:458
+#: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr ""
@@ -101,6 +115,10 @@ msgid "Activate only on manual copy"
 msgstr "Активувати тільки для копіювання вручну"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Automatically paste a selected item from the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
@@ -108,32 +126,25 @@ msgstr ""
 "Типово дії спрацьовують при виборі, перевірте цю опцію щоб дія спрацьовувала "
 "тільки тоді, коли Ви робите копіювання самостійно"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "Команда:"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Налаштувати плагін"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
 msgstr "Редагувати дію"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
 msgstr "Дозволити _дії"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Основне"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
-msgid "If checked, reverse order of the history shown in the menu"
-msgstr ""
-"IЯкщо відмічено, ця опція буде відновлювати історію на кожний новий сеанс "
-"Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -177,39 +188,71 @@ msgid "Name:"
 msgstr "Назва:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
+msgid "P_osition menu at mouse pointer"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
 msgstr "Фрагмент:"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Regular expression"
-msgstr "Регулярний вираз"
-
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Reverse order"
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:24
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Re_verse history order"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Regular expression"
+msgstr "Регулярний вираз"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+#, fuzzy
+msgid "Reverse order of the history shown in the menu"
+msgstr ""
+"IЯкщо відмічено, ця опція буде відновлювати історію на кожний новий сеанс "
+"Xfce"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
 msgstr "Зберегти при _виході"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
 msgstr "Розмір істо_рії:"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:30
 #, fuzzy
 msgid "Store last copied _image"
 msgstr "Зберегти _малюнок"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
 msgstr "Синхронізувати вид_ілені"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Фрагмент завжди обрамленийспеціальними символами ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Tweaks"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -221,7 +264,20 @@ msgstr ""
 "регулярними виразами, то дивіться документацію плагіна Clipman, що "
 "представлена для нього."
 
-#: ../panel-plugin/actions.c:356
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Paste instantly:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+#, fuzzy
+msgid "_Reorder history items"
+msgstr "Історія входжень до буферу обміну:"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "_Skip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -232,32 +288,32 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
 msgstr "Ви впевнені, що хочете очистити історію?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:283
+#: ../panel-plugin/menu.c:272
 msgid "Clipboard is empty"
 msgstr "Буфер обміну порожній"
 
-#: ../panel-plugin/menu.c:372
+#: ../panel-plugin/menu.c:360
 msgid "_Disable"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:319
+#: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
 msgstr "Помічники:"
 
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
 msgstr "Керування буфером обміну для Xfce"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr "Dmitry Nikitin"
 
-#: ../panel-plugin/plugin.c:356
+#: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Неможливо відкрити діалог налаштувань"
 
@@ -271,9 +327,6 @@ msgstr "Неможливо відкрити діалог налаштувань"
 
 #~ msgid "_Show item numbers"
 #~ msgstr "Показувати номера пункт_ів"
-
-#~ msgid "Clipboard history items:"
-#~ msgstr "Історія входжень до буферу обміну:"
 
 #~ msgid "Menu item characters:"
 #~ msgstr "Меню входжень символів:"

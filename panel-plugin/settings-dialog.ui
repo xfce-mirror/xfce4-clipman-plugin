@@ -384,7 +384,7 @@
                       <object class="GtkLabel" id="label-paste-on-activate">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">_Paste on activate:</property>
+                        <property name="label" translatable="yes">_Paste instantly:</property>
                         <property name="use_underline">True</property>
                         <property name="mnemonic_widget">combobox-paste-on-activate</property>
                       </object>
@@ -461,7 +461,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="skip-action">
-                    <property name="label" translatable="yes">_Skip action by holding Control</property>
+                    <property name="label" translatable="yes">_Skip actions by holding Control</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>

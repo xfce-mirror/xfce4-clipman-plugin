@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 11:44+0200\n"
+"POT-Creation-Date: 2011-10-28 15:59+0200\n"
 "PO-Revision-Date: 2010-02-20 12:59+0100\n"
 "Last-Translator: Rihards Priedītis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
@@ -20,18 +20,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
 msgstr "Starpliktuves pārvaldnieks"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Starpliktuve"
 
@@ -67,11 +67,25 @@ msgstr "Apskatīt ar Ristretto"
 msgid "Xfce Bug"
 msgstr "Xfce Bug"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:456
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
 msgstr "<b>Atiestatīšanas darbības</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:458
+#: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr ""
@@ -103,6 +117,10 @@ msgid "Activate only on manual copy"
 msgstr "Aktivizēt tikai uz rokas kopiju"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Automatically paste a selected item from the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
@@ -110,30 +128,25 @@ msgstr ""
 "Pēc noklusēta darbības tiek izraisītas pēc atlases, atzīmējiet šo opciju, "
 "lai darbības tiktu aktivizētas pēc kopēšanas ar roku"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "Komanda:"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Konfigurēt spraudni"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
 msgstr "Rediģēt darbības"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
 msgstr "Ieslēgt d_arbības"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Vispārēji"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
-msgid "If checked, reverse order of the history shown in the menu"
-msgstr "Ja atlasīts, opcija atjaunos vēsturi katrā jaunajā Xfce sesijā"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -175,39 +188,69 @@ msgid "Name:"
 msgstr "Nosaukums:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
+msgid "P_osition menu at mouse pointer"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
 msgstr "Paterns:"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Regular expression"
-msgstr "Regulārā izteiksme"
-
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Reverse order"
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:24
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Re_verse history order"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Regular expression"
+msgstr "Regulārā izteiksme"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+#, fuzzy
+msgid "Reverse order of the history shown in the menu"
+msgstr "Ja atlasīts, opcija atjaunos vēsturi katrā jaunajā Xfce sesijā"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
 msgstr "Saglabāt uz i_ziešanu"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
 msgstr "_Vēstures izmērs:"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:30
 #, fuzzy
 msgid "Store last copied _image"
 msgstr "Glabāt _attēli"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
 msgstr "Sinhronizēt a_tlasi"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Šis modelis ir vienmēr enkurots ar īpašajām rakstzīmēm ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Tweaks"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -218,7 +261,20 @@ msgstr ""
 "tālāk. Parametrs \"\\0\" nozīmē pilnu tekstu. Ja jūs nezināt regulārās "
 "izteiksmes, apskatiet dokumentāciju, kas nāca līdzi Clipman."
 
-#: ../panel-plugin/actions.c:356
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Paste instantly:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+#, fuzzy
+msgid "_Reorder history items"
+msgstr "Starpliktuves vēstures vienumi:"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "_Skip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -229,32 +285,32 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
 msgstr "Esat drošs, ka vēlaties notīrīt vēsturi?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:283
+#: ../panel-plugin/menu.c:272
 msgid "Clipboard is empty"
 msgstr "Starpliktuve ir tukša"
 
-#: ../panel-plugin/menu.c:372
+#: ../panel-plugin/menu.c:360
 msgid "_Disable"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:319
+#: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
 msgstr "Atbalstītāji:"
 
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
 msgstr "Starpliktuves pārvaldnieks Xfce videi"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr "Rihards Priedītis"
 
-#: ../panel-plugin/plugin.c:356
+#: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Neizdevās atvērt uzstādījumu dialogu"
 
@@ -270,9 +326,6 @@ msgstr "Neizdevās atvērt uzstādījumu dialogu"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Vispārēji</b>"
-
-#~ msgid "Clipboard history items:"
-#~ msgstr "Starpliktuves vēstures vienumi:"
 
 #~ msgid "Menu item characters:"
 #~ msgstr "Izvēlnes vienuma rakstzīmes:"

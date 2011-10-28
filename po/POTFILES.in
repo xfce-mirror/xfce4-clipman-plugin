@@ -1,6 +1,6 @@
-xfce4-clipman-plugin.desktop.in
+panel-plugin/xfce4-clipman.desktop.in
 panel-plugin/xfce4-clipman-actions.xml.in
-panel-plugin/xfce4-clipman-plugin.desktop.in.in
+panel-plugin/xfce4-clipman-plugin.desktop.in
 panel-plugin/xfce4-clipman-plugin-autostart.desktop.in
 panel-plugin/xfce4-clipman-settings.c
 [type: gettext/glade]panel-plugin/settings-dialog.ui

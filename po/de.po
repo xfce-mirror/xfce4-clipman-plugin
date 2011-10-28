@@ -4,33 +4,33 @@
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006.
 # Fabian Nowak <timystery@arcor.de>, 2007, 2009.
 # Simon Schneider <simon@schneiderimtal.de>, 2009
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 11:44+0200\n"
+"POT-Creation-Date: 2011-10-28 15:59+0200\n"
 "PO-Revision-Date: 2009-07-04 07:43+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
 msgstr "Verwaltung der Zwischenablagen"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Zwischenablage"
 
@@ -66,11 +66,25 @@ msgstr "Mit Ristretto betrachten"
 msgid "Xfce Bug"
 msgstr "Fehler bei Xfce"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:456
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
 msgstr "<b>Aktionen zurücksetzen</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:458
+#: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr ""
@@ -101,6 +115,10 @@ msgid "Activate only on manual copy"
 msgstr "Nur bei manuellem Kopieren aktivieren"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Automatically paste a selected item from the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
@@ -108,32 +126,25 @@ msgstr ""
 "Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese Option "
 "anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "Befehl:"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Plugin einrichten"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
 msgstr "Aktion bearbeiten"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
 msgstr "_Aktionen ermöglichen"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Allgemein"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-#, fuzzy
-msgid "If checked, reverse order of the history shown in the menu"
-msgstr ""
-"Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
-"wiederherzustellen."
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -181,40 +192,72 @@ msgid "Name:"
 msgstr "Name:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
+msgid "P_osition menu at mouse pointer"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
 msgstr "Muster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+#, fuzzy
+msgid "Re_verse history order"
+msgstr "Umgekehrte Reihenfolge"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Regulärer Ausdruck"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:27
 #, fuzzy
-msgid "Reverse order"
-msgstr "Umgekehrte Reihenfolge"
+msgid "Reverse order of the history shown in the menu"
+msgstr ""
+"Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
+"wiederherzustellen."
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
 msgstr "Beim _Verlassen speichern"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
 msgstr "_Größe des Verlaufs:"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:30
 #, fuzzy
 msgid "Store last copied _image"
 msgstr "_Bild speichern"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
 msgstr "_Auswahl abgleichen"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« verankert."
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Tweaks"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -226,7 +269,20 @@ msgstr ""
 "keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu "
 "Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
-#: ../panel-plugin/actions.c:356
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Paste instantly:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+#, fuzzy
+msgid "_Reorder history items"
+msgstr "Größe des Verlaufsspeichers:"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "_Skip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -237,36 +293,36 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:283
+#: ../panel-plugin/menu.c:272
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
-#: ../panel-plugin/menu.c:372
+#: ../panel-plugin/menu.c:360
 #, fuzzy
 msgid "_Disable"
 msgstr "_Aktivieren"
 
-#: ../panel-plugin/plugin.c:319
+#: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
 msgstr "Mitwirkende:"
 
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
 msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr ""
 "Enrico Tröger\n"
 "Fabian Nowak\n"
 "Simon Schneider"
 
-#: ../panel-plugin/plugin.c:356
+#: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Konnte Einstellungsdialog nicht öffnen"
 
@@ -298,9 +354,6 @@ msgstr "Konnte Einstellungsdialog nicht öffnen"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Allgemein</b>"
-
-#~ msgid "Clipboard history items:"
-#~ msgstr "Größe des Verlaufsspeichers:"
 
 #~ msgid "Menu item characters:"
 #~ msgstr "Länge der Menüeinträge:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0svn-r2842\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 11:44+0200\n"
+"POT-Creation-Date: 2011-10-28 15:59+0200\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Terje Uriansrud <ter@operamail.com>\n"
 "Language-Team: Norwegian Bokmal\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #, fuzzy
 msgid "Clipboard manager"
 msgstr "Utklippstavlebehandler"
 
-#: ../xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:331
+#: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -65,12 +65,26 @@ msgstr ""
 msgid "Xfce Bug"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:456
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr ""
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
 #, fuzzy
 msgid "<b>Reset actions</b>"
 msgstr "<b>Utklippstavle oppførsel</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:458
+#: ../panel-plugin/xfce4-clipman-settings.c:519
 #, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
@@ -103,34 +117,34 @@ msgid "Activate only on manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Automatically paste a selected item from the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Generelt"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "If checked, reverse order of the history shown in the menu"
-msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -168,39 +182,68 @@ msgid "Name:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:21
-msgid "Pattern:"
+msgid "P_osition menu at mouse pointer"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Regular expression"
+msgid "Pattern:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Reverse order"
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:24
-msgid "Save on _quit"
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Size of the _history:"
+msgid "Re_verse history order"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Store last copied _image"
+msgid "Regular expression"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Reverse order of the history shown in the menu"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Save on _quit"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Size of the _history:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Store last copied _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:31
 #, fuzzy
 msgid "Sync _selections"
 msgstr "_Ignorer merket område"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Tweaks"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -208,7 +251,20 @@ msgid ""
 "has an introdution for them."
 msgstr ""
 
-#: ../panel-plugin/actions.c:356
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Paste instantly:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+#, fuzzy
+msgid "_Reorder history items"
+msgstr "Utklippstavle historikkelementer"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "_Skip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -216,34 +272,34 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
 msgstr "Er du sikker at du vil slette historikken?"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:283
+#: ../panel-plugin/menu.c:272
 #, fuzzy
 msgid "Clipboard is empty"
 msgstr "< Tom utklippstavle >"
 
-#: ../panel-plugin/menu.c:372
+#: ../panel-plugin/menu.c:360
 msgid "_Disable"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:319
+#: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/plugin.c:337
 #, fuzzy
 msgid "Clipboard Manager for Xfce"
 msgstr "Utklippstavlebehandler for Xfce skrivebordet"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr "Terje Uriansrud"
 
-#: ../panel-plugin/plugin.c:356
+#: ../panel-plugin/plugin.c:360
 #, fuzzy
 msgid "Unable to open the settings dialog"
 msgstr "Klarte ikke åpne følgende url: %s"
@@ -256,9 +312,6 @@ msgstr "Klarte ikke åpne følgende url: %s"
 
 #~ msgid "<b>General</b>"
 #~ msgstr "<b>Generelt</b>"
-
-#~ msgid "Clipboard history items:"
-#~ msgstr "Utklippstavle historikkelementer"
 
 #~ msgid "Menu item characters:"
 #~ msgstr "Antall tegn i menyen"
