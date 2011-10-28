@@ -252,9 +252,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
         }
 
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-#ifdef HAVE_LIBXTST
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
-#endif
 
       if (item == item_to_restore)
         {
@@ -333,14 +331,13 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "Toggle the inhibit menu item to TRUE or FALSE",
                                                          FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
-#ifdef HAVE_LIBXTST
+
   g_object_class_install_property (object_class, PASTE_ON_ACTIVATE,
                                    g_param_spec_uint ("paste-on-activate",
                                                       "PasteOnActivate",
                                                       "Paste the content of a menu item when it is activated",
                                                       0, 2, 0,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
-#endif
 }
 
 static void
