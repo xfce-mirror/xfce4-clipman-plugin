@@ -23,12 +23,9 @@
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
-
-#ifdef HAVE_LIBXTST
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
-#endif
 
 #include "common.h"
 #include "collector.h"
@@ -51,18 +48,14 @@ struct _ClipmanMenuPrivate
   ClipmanHistory       *history;
   GSList               *list;
   gboolean              reverse_order;
-#ifdef HAVE_LIBXTST
   guint                 paste_on_activate;
-#endif
 };
 
 enum
 {
   REVERSE_ORDER = 1,
   INHIBIT_MENU_ITEM,
-#ifdef HAVE_LIBXTST
   PASTE_ON_ACTIVATE,
-#endif
 };
 
 static void             clipman_menu_finalize           (GObject *object);
@@ -132,7 +125,6 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       g_assert_not_reached ();
     }
 
-#ifdef HAVE_LIBXTST
   {
     int dummyi;
     KeySym key_sym;
@@ -187,7 +179,6 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 
     XCloseDisplay (display);
   }
-#endif
 }
 
 static void
@@ -406,11 +397,11 @@ clipman_menu_set_property (GObject *object,
       gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit),
                                       g_value_get_boolean (value));
       break;
-#ifdef HAVE_LIBXTST
+
     case PASTE_ON_ACTIVATE:
       priv->paste_on_activate = g_value_get_uint (value);
       break;
-#endif
+
     default:
       break;
     }
@@ -433,11 +424,11 @@ clipman_menu_get_property (GObject *object,
     case INHIBIT_MENU_ITEM:
       g_value_set_boolean (value, gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (priv->mi_inhibit)));
       break;
-#ifdef HAVE_LIBXTST
+
     case PASTE_ON_ACTIVATE:
       g_value_set_uint (value, priv->paste_on_activate);
       break;
-#endif
+
     default:
       break;
     }
