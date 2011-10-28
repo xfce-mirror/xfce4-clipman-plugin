@@ -108,7 +108,7 @@ if test x"$enable_gen_doc" = x"yes"; then
   ])
 
   if test x"$enable_gen_doc" = x"no"; then
-    AC_MSG_ERROR([Compiling with --enable-gen-doc but no suitable gnome-doc-utils found.])
+    AC_MSG_ERROR([Compiling with --enable-gen-doc but no suitable gnome-doc-utils and/or itstool found.])
   fi
 fi
 AM_CONDITIONAL([GENERATE_DOCUMENTATION], [test x"$enable_gen_doc" = x"yes"])
@@ -153,6 +153,7 @@ echo "    * Debug Support:    $enable_debug"
 echo "    * XTEST extension:  $enable_libxtst"
 echo "    * Unique:           $enable_unique"
 echo
+if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
 echo "Enable Documentation: $enable_gen_doc"
 echo
-
+fi
