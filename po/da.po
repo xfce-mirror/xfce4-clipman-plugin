@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-12-12 20:21+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "X-Poedit-Language: Danish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: DENMARK\n"
@@ -68,17 +68,17 @@ msgstr "Xfce-fejl"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -117,7 +117,7 @@ msgstr "Aktivér kun ved manuel kopiering"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Indsæt automatisk et valgt element fra historikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -194,7 +194,7 @@ msgstr "Navn:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "P_ositionér menu ved musemarkør"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -249,7 +249,7 @@ msgstr "Mønstret er altid forankret inden i det specielle tegn ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Tilretninger"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
@@ -271,12 +271,11 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Indsæt øjeblikkeligt:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Udklipholderhistorik:"
+msgstr "Sortér historikelementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
