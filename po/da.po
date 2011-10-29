@@ -212,9 +212,8 @@ msgid ""
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "Omvendt rækkefølge"
+msgstr "Om_vend historik"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
@@ -279,7 +278,7 @@ msgstr "Sortér historikelementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Skip aktioner ved at holde Control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
