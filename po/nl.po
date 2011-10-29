@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2011-06-15 10:28+0200\n"
+"PO-Revision-Date: 2011-10-29 10:28+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: \n"
 "Language: nl (Dutch)\n"
@@ -68,17 +68,17 @@ msgstr "Xfce-fout"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -115,7 +115,7 @@ msgstr "Alleen activeren bij handmatig kopiëren"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Plak automatisch een geselecteerd element vanuit de geschiedenis"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -191,7 +191,7 @@ msgstr "Naam:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "Plaats menu bij de muispijl"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -201,28 +201,25 @@ msgstr "Patroon:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Laat het menu opduiken bij de muispijlpositie, maar alleen voor "
+"de opdracht xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Plaats de laatst gekopieerde tekst bovenaan in de geschiedenis, voor het gemak"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "Keer de volgorde om"
+msgstr "Keer de geschiedenisvolgorde om"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Reguliere uitdrukking"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe "
-"sessie"
+msgstr "Draai de volgorde van de geschiedenis zoals getoond in het menu, om"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -246,13 +243,16 @@ msgstr "Het patroon wordt altijd verankerd in de speciale tekens ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Aanpassingen"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
+"Wanneer de selectie gereed is (muis of toetsenbord) en de Ctrl-toets nog "
+"steeds ingedrukt is, zal het opduikmenu voor overeenkomende acties worden "
+"overgeslagen"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -268,16 +268,15 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Plak meteen:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Elementen van de klembordgeschiedenis onthouden:"
+msgstr "Elementen van de klembordgeschiedenis herschikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Sla acties over door Ctrl vast te houden"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
