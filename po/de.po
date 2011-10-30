@@ -116,9 +116,8 @@ msgid "Activate only on manual copy"
 msgstr "Nur bei manuellem Kopieren aktivieren"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
-#, fuzzy
 msgid "Automatically paste a selected item from the history"
-msgstr "Füge automatisch einen ausgewählten Eintrag aus dem Verlauf ein"
+msgstr "Automatisch den ausgewählten Eintrag aus dem Verlauf einfügen"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -208,14 +207,14 @@ msgid ""
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:24
+#, fuzzy
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Letzten kopierten Text an die Spitze des Verlaufs verschieben, nützlich beim Anordnen alter Einträge"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "Umgekehrte Reihenfolge"
+msgstr "Umgekehrte Reihenfolge des Verlaufs"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
@@ -251,7 +250,7 @@ msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« veranker
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Feineinstellungnen"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
@@ -305,9 +304,8 @@ msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
 #: ../panel-plugin/menu.c:360
-#, fuzzy
 msgid "_Disable"
-msgstr "_Aktivieren"
+msgstr "_Deaktivieren"
 
 #: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
