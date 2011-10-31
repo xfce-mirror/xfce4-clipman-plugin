@@ -1,3 +1,14 @@
+Version 1.2.1 - 2011-10-31
+
+- New options in the settings dialog under the tab "Tweaks".
+  * reorder-items: push or not the last copied text to the top of
+    history, default is set to true.
+  * skip-action-on-key-down: ignore matched actions when Ctrl is
+    pressed down at the end of the selection, default is set to
+    false.
+- Include existing hidden options in the "Tweaks" tab.
+- Use new Xfce Panel plugin installation location.
+
 Version 1.2.0 - 2011-10-24
 
 - Ported documentation to Mallard and moved it into the xfce4-docs repo.

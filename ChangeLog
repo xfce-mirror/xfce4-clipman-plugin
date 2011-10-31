@@ -1,3 +1,70 @@
+2011-10-31	Mike Massonnet
+=== Release 1.2.1 ===
+
+2011-10-31	Mike Massonnet
+actions: Use "skip_action_on_key_down" option only for selections
+
+	Don't use this option for actions that have to be triggered for
+	the default clipboard (Ctrl+C).
+
+2011-10-28	Mike Massonnet
+menu.c: Remove forgotten #ifdef HAVE_LIBXTST
+
+2011-10-28	Mike Massonnet
+build-env: Make xtst a hard-dependency
+
+2011-10-28	Mike Massonnet
+build-env: Update error message for --enable-gen-doc
+
+2011-10-28	Mike Massonnet
+Bind paste-on-activate combobox to Xfconf
+
+	The paste-on-activate combobox shows a list of possible values as
+	text strings None, Ctrl+V, and Shift+Ins and has its 'active'
+	property binded to the Xfconf property /tweaks/paste-on-activate.
+
+2011-10-27	Mike Massonnet
+Add "Tweaks" tab in the Settings dialog
+
+	Modified the settings-dialog.ui file to include a new tab with
+	existing hidden settings.
+	
+	Binded all the checkboxes to their Xfconf properties.
+
+2011-10-27	Mike Massonnet
+README: Update dependencies list
+
+2011-10-26	Mike Massonnet
+Use new Panel 4.8 installation directory for plugin
+
+	Install plugin under the new location $prefix/lib/xfce4/panel/plugins/
+	and update the main-panel-plugin.c code with the right macro to build
+	libclipman.so instead of the executable binary.
+	
+	Moved the xfce4-clipman-plugin.desktop.in file to the panel-plugin
+	directory as xfce4-clipman.desktop.in.
+
+2011-10-25	Mike Massonnet
+doc: Update git submodule reference
+
+
+2011-10-24	Mike Massonnet
+actions: Add "skip-action-on-key-down" option
+
+	This option lets the user skip the actions popup menu by holding
+	the Control key down when the selection is done, by default it's
+	set to false.
+	
+	The Xfconf property /tweaks/skip-action-key-down is binded to it.
+
+2011-10-24	Mike Massonnet
+history: Add "reorder-items" option
+
+	This option lets user choose to push or not the last copied text to
+	the top of the history, by default it's set to true.
+	
+	The Xfconf property /tweaks/reorder-items is binded to it.
+
 2011-10-24	Mike Massonnet
 === Release 1.2.0 ===
 
