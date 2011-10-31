@@ -688,7 +688,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   GSList *l, *entries;
   GdkModifierType state;
 
-  if (actions->priv->skip_action_on_key_down)
+  if (actions->priv->skip_action_on_key_down && group == ACTION_GROUP_SELECTION)
     {
       gdk_window_get_pointer (NULL, NULL, NULL, &state);
       if (state & GDK_CONTROL_MASK)
