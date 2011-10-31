@@ -115,7 +115,7 @@ msgstr "Активувати тільки для копіювання вручн
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Автоматично вставляти вибраний елемент з історії"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -188,7 +188,7 @@ msgstr "Назва:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "П_оказувати меню при покажчику миші"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -198,12 +198,12 @@ msgstr "Фрагмент:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Спливаючі меню в позиції курсора миші, тільки для команд xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Переносить останньо скопійований текст на початок історії, корисно для зміни порядок старих елементів"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -247,7 +247,7 @@ msgstr "Підкрутки"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Коли виділення зроблено (мишею або клавіатурою) і клавішою Control все ще натиснута, тоді контекстне меню для відповідних дій буде пропущено"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -267,11 +267,11 @@ msgstr "_Вставити миттєво:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "_Поміняти порядок елементів історії"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Пропустити дію, тримаючи клавішу Control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
