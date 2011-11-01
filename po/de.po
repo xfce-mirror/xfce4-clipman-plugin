@@ -67,7 +67,6 @@ msgid "Xfce Bug"
 msgstr "Fehler bei Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
-#, fuzzy
 msgid "None"
 msgstr "Nichts"
 
@@ -194,7 +193,7 @@ msgstr "Name:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "Menü beim Mauszeiger _positionieren"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -204,13 +203,12 @@ msgstr "Muster:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Das Menü an der Position des Mauszeigers öffnen (nur für den Befehl »xfce4-popup-clipman«)"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
-#, fuzzy
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Letzten kopierten Text an die Spitze des Verlaufs verschieben, nützlich beim Anordnen alter Einträge"
+msgstr "Zuletzt kopierten Text an die Spitze des Verlaufs verschieben, nützlich zum Umordnen alter Einträge"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -221,7 +219,6 @@ msgid "Regular expression"
 msgstr "Regulärer Ausdruck"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
 msgstr ""
 "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung "
@@ -236,9 +233,8 @@ msgid "Size of the _history:"
 msgstr "_Größe des Verlaufs:"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "_Bild speichern"
+msgstr "Zulettt kopiertes _Bild speichern"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
@@ -256,7 +252,7 @@ msgstr "Feineinstellungnen"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Wenn die Auswahl getroffen ist (per Maus oder Tastatur) und die Strg-Taste gedrückt ist, wird das Menü für zugehörige Aktionen nicht angezeigt"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -272,16 +268,15 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Sofort einfügen:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Größe des Verlaufsspeichers:"
+msgstr "_Verlauf umgekehrt anordnen"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "Aktionen auslassen durch Drücken der Strg-Taste"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
