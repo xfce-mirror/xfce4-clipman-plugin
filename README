@@ -23,6 +23,7 @@ http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/
 * libxfce4ui-1 4.8
 * libxfce4panel-1.0 4.8
 * libxfconf-0 4.8
+* xproto 7.0
 * xtst 1.0
 
  Optional
