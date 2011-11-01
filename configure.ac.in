@@ -35,6 +35,12 @@ AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE()
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
+dnl **************************
+dnl *** Initialize libtool ***
+dnl **************************
+LT_PREREQ([2.2.6])
+LT_INIT([disable-static])
+
 dnl ********************************
 dnl *** Check for basic programs ***
 dnl ********************************
@@ -42,7 +48,6 @@ AC_PROG_CC()
 AM_PROG_CC_C_O()
 AC_PROG_LD()
 AC_PROG_INSTALL()
-AC_PROG_LIBTOOL()
 AC_PROG_INTLTOOL()
 
 dnl **********************************

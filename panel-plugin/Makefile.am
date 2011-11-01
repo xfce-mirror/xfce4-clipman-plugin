@@ -146,6 +146,15 @@ libclipman_la_CFLAGS =							\
 	@LIBXFCE4UI_CFLAGS@						\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
+	$(PLATFORM_CFLAGS)						\
+	$(NULL)
+
+libclipman_la_LDFLAGS =							\
+	-avoid-version							\
+	-module								\
+	-no-undefined							\
+	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
+	$(PLATFORM_LDFLAGS)						\
 	$(NULL)
 
 libclipman_la_LIBADD =							\
