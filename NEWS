@@ -1,3 +1,10 @@
+Version 1.2.2 - 2011-11-01
+
+- Update build environment.
+  * Bug 8093: Add package check for xproto.
+  * Build libclipman with -avoid-version and -module.
+  * Bump Libtool version and disable static libraries (part of bug 6920).
+
 Version 1.2.1 - 2011-10-31
 
 - New options in the settings dialog under the tab "Tweaks".

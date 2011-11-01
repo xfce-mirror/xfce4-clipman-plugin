@@ -1,3 +1,15 @@
+2011-11-01	Mike Massonnet
+=== Release 1.2.2 ===
+
+2011-11-01	Mike Massonnet
+build-env: Update rules for libclipman.so
+
+	Use new libtool syntax in autoconf script and depend on version 2.2.6.
+	Update automake rule for libclipman.la with -avoid-version -module.
+
+2011-11-01	Mike Massonnet
+build-env: Add hard-dependency to xproto
+
 2011-10-31	Mike Massonnet
 === Release 1.2.1 ===
 
