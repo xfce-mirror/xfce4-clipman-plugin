@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-12-19 22:36+0900\n"
+"POT-Creation-Date: 2011-11-02 22:16+0900\n"
+"PO-Revision-Date: 2011-11-02 22:16+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "Language: ja\n"
@@ -67,17 +67,17 @@ msgstr "Xfce バグ"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -114,7 +114,7 @@ msgstr "手動コピー時のみアクティブにする"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "履歴から選択したアイテムを自動的に貼り付けます"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -188,7 +188,7 @@ msgstr "名前:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "マウスポインタの位置にメニューを表示する(_O)"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -199,26 +199,27 @@ msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr ""
+"xfce4-popup-clipman コマンドを実行した時メニューをマウスポインタの位置にポッ"
+"プアップ表示します"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
+"コピーしたテキストと同じものが履歴にある場合にそれを履歴の先頭に移動します "
+"(履歴からの除去順位が下がります)"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "表示順を逆にする"
+msgstr "履歴の表示順を逆にする(_V)"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "正規表現"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
+msgstr "メニューに表示する履歴の順序を逆にします"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -242,13 +243,15 @@ msgstr "パターンには常に特殊文字 ^$ が適用されます"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "詳細"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
+"(マウスやキーボードで) 選択が完了した後に Control キーが押されたままでもマッ"
+"チアクションのポップアップメニューを表示しません"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -263,15 +266,15 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "即時貼り付け(_P):"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "履歴アイテムの順序を並べ替える(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "Control キーを押したままの時のアクションをスキップする(_S)"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
