@@ -1,12 +1,12 @@
 # Galician translation of xfce4-clipman-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,10 +15,10 @@ msgstr ""
 "PO-Revision-Date: 2009-12-18 17:56+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
@@ -70,17 +70,17 @@ msgstr "Erro de Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Ningún"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Maiús+Inserir"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -118,7 +118,7 @@ msgstr "Activar só ao copiar manualmente"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Pegar automaticamente un elemento seleccionado no historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -210,16 +210,14 @@ msgid ""
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "Inverter a orde"
+msgstr "In_verter a orde do historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Expresión regular"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
 msgstr ""
 "Se está marcado, esta opción restablecerá o historial en cada vez que se "
@@ -247,7 +245,7 @@ msgstr "O patrón sempre levará os caracteres especiais ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Axustes"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
@@ -272,9 +270,8 @@ msgid "_Paste instantly:"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Elementos do historial do portarretallos:"
+msgstr "_Reorganizar os elementos do historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
