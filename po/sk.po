@@ -6,16 +6,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.1.0\n"
+"Project-Id-Version: 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2011-10-07 11:41+0200\n"
+"PO-Revision-Date: 2011-11-02 12:58+0100\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
-"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"Language-Team: slovenčina <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
@@ -67,17 +67,17 @@ msgstr "Chyba Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -114,7 +114,7 @@ msgstr "Aktivovať len na ručné kopírovanie"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Automaticky vložiť vybranú položku z histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -184,7 +184,7 @@ msgstr "Názov:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "P_ozícia ponuky pri ukazovateli myši"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -195,26 +195,27 @@ msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr ""
+"Zobraziť vyskakovaciu ponuku pri ukazovateli myši iba pre príkaz xfce4-popup-"
+"clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
+"Vložiť naposledy kopírovaný text do hornej časti histórie, užitočné pre "
+"preusporiadanie starých položiek"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
 msgid "Re_verse history order"
-msgstr "Obrátené poradie"
+msgstr "Ob_rátené poradie histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Regulárne výrazy"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"Ak je zaškrtnuté, tak bude v ponuke zobrazené obrátené poradie histórie"
+msgstr "Obrátené poradie histórie sa zobrazí v ponuke"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -238,13 +239,15 @@ msgstr "Vzorka je vždy uvedená medzi špeciálnymi znakmi ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Doladenie"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
+"Ak je výber ukončený (myšou alebo klávesnicou) a tlačidlo Control je stále "
+"stlačené, vyskakovacia ponuka pre odpovedajúce akcie bude preskočená"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -260,15 +263,15 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Vložiť okamžite:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "Ob_rátiť položky histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "Pre_skočiť akcie podržaním tlačidla Control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
