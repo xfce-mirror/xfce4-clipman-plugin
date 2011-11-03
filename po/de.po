@@ -212,7 +212,7 @@ msgstr "Zuletzt kopierten Text an die Spitze des Verlaufs verschieben, nützlich
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr "Umgekehrte Reihenfolge des Verlaufs"
+msgstr "_Umgekehrte Reihenfolge des Verlaufs"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
@@ -234,7 +234,7 @@ msgstr "_Größe des Verlaufs:"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Store last copied _image"
-msgstr "Zulettt kopiertes _Bild speichern"
+msgstr "Zuletzt kopiertes _Bild speichern"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
@@ -276,7 +276,7 @@ msgstr "_Verlauf umgekehrt anordnen"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr "Aktionen auslassen durch Drücken der Strg-Taste"
+msgstr "A_ktionen auslassen durch Drücken der Strg-Taste"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
