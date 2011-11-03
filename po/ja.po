@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-02 22:16+0900\n"
-"PO-Revision-Date: 2011-11-02 22:16+0900\n"
+"PO-Revision-Date: 2011-11-03 14:05+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "Language: ja\n"
@@ -270,7 +270,7 @@ msgstr "即時貼り付け(_P):"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr "履歴アイテムの順序を並べ替える(_R)"
+msgstr "履歴アイテムを並べ替える(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
