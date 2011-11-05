@@ -3,14 +3,14 @@
 #   the xfce4-clipman-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
 # Hunt Xu <huntxu@live.cn>, 2009.
-#
+# Chipong Luo <chipong_l@yahoo.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2009-12-12 19:12+0100\n"
 "PO-Revision-Date: 2009-12-13 20:25+0800\n"
-"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
+"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Chinese(Simplified) <xfce-i18n@xfce.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,24 +18,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
 msgstr "剪贴板管理器"
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:63 ../panel-plugin/main-status-icon.c:88
+#: ../panel-plugin/main-status-icon.c:127 ../panel-plugin/plugin.c:306
 msgid "Clipman"
-msgstr "Clipman"
+msgstr "Clipman 剪贴板管理器"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr "查看错误报告"
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
@@ -43,342 +43,201 @@ msgstr "使用 Gimp 编辑"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "查看 GNOME 错误报告"
+msgstr "GNOME 缺陷"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr "图像"
+msgstr "图片"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "长 URL"
+msgstr "长地址"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "缩短 URL"
+msgstr "缩短地址"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr "使用 Ristretto 查看"
+msgstr "使用 Ristretto 图片查看器查看"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "查看 Xfce 错误报告"
+msgstr "Xfce 缺陷"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
-msgid "None"
-msgstr ""
-
-#. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
-msgid "Ctrl+V"
-msgstr ""
-
-#. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
-msgid "Shift+Insert"
-msgstr ""
-
-#: ../panel-plugin/xfce4-clipman-settings.c:517
+#: ../panel-plugin/xfce4-clipman-settings.c:449
 msgid "<b>Reset actions</b>"
 msgstr "<b>重置动作</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
+#: ../panel-plugin/xfce4-clipman-settings.c:451
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "您确定您想要重置该动作至系统默认值吗？"
+msgstr "您确定要重置此动作为系统默认值吗？"
 
-#: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/settings-dialog.glade.h:1
 msgid "<b>Action</b>"
 msgstr "<b>动作</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/settings-dialog.glade.h:2
 msgid "<b>Behavior</b>"
 msgstr "<b>行为</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:3
+#: ../panel-plugin/settings-dialog.glade.h:3
 msgid "<b>Commands</b>"
 msgstr "<b>命令</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:4
+#: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
 msgstr "历史"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
 msgstr "动作"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.glade.h:6
 msgid "Activate only on manual copy"
 msgstr "仅在手动复制时激活"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.glade.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"默认情况下选中即激活此动作，如果只需要在您手动进行复制时执行此动作，请选中此"
-"选项"
+"默认为选中即激活此动作，如果只需要在您手动复制时执行此动作则选中此选项"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
-msgstr "命令:"
+msgstr "命令："
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.glade.h:9
 msgid "Configure the plugin"
-msgstr "配置此插件"
+msgstr "配置插件"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
 msgstr "修改动作"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
-msgstr "允许动作(_A)"
+msgstr "启用动作(_A)"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.glade.h:12
 msgid "General"
 msgstr "一般"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.glade.h:13
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"如果选中此项，剪贴板中的文字将会使用正则表达式进行匹配，并弹出供选择动作的菜"
-"单"
+"如果选中，剪贴板中的文字会相对正则表达式匹配并显示一可能动作的菜单"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "如果选中此项，选择的内容将会被同步到剪贴板中以便您粘贴选择的内容"
+msgstr ""
+"如果选中，选择的内容会以一种您能粘贴您所选内容的方式与默认的剪贴板同步"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "如果选中此项，除非手动进行复制，否则选择的内容将不会影响历史记录"
+msgstr "如果选中，除非手动复制，否则所选内容将不会影响历史"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "选中该项将允许在历史记录中保存一幅图像"
+msgstr "如果选中，此选项让在历史中储存图片"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.glade.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "选中该项将在每次Xfce会话启动时恢复历史记录"
+msgstr "如果选中，此选项将在每个新 Xfce 会话中恢复历史"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
-msgstr "忽略选取的区域(_E)"
+msgstr "忽略所选内容(_E)"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.glade.h:19
 msgid "Name:"
-msgstr "名字:"
+msgstr "名称："
 
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr "匹配模式:"
+msgstr "匹配规则："
 
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-#, fuzzy
-msgid "Re_verse history order"
-msgstr "倒序排列"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
 msgstr "正则表达式"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
-msgid "Reverse order of the history shown in the menu"
-msgstr "选中该项将在菜单中将历史倒序排列"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
 msgstr "退出时保存(_Q)"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.glade.h:23
 msgid "Size of the _history:"
-msgstr "历史文件大小(_H):"
+msgstr "历史大小(_H)："
 
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr "保存最近复制的一幅图像(_I)"
+#: ../panel-plugin/settings-dialog.glade.h:24
+msgid "Store an _image"
+msgstr "储存图片(_I)"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.glade.h:25
 msgid "Sync _selections"
-msgstr "同步选取的区域(_S)"
+msgstr "同步所选内容(_S)"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "匹配模式总被包含在一对特殊符号 ^ 和 $ 之间"
+msgstr "匹配规则总是固定在特殊字符 ^$ 内"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr ""
+#: ../panel-plugin/settings-dialog.glade.h:27
+msgid "Type here your custom text, for example an URL, a filename, etc."
+msgstr "在这里输入您的自定义文本，比如地址、文件名等。"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"您可以在命令中使用替换参数\"\\1\"、\"\\2\"等。参数\"\\0\"代表整个文本。如果您"
-"不熟悉正则表达式，请参看Clipman的文档中相关的介绍。"
+"您可以在命令中使用 “\\1”、“\\2” 等替换参数。参数 “\\0” 代表完整文本。"
+"如果您不了解正则表达式，看看 Clipman 剪贴板管理器的介绍它们的文档。"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
-msgid "_Reorder history items"
-msgstr "剪贴板历史记录项目："
-
-#: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr ""
-
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr ""
-"无法执行命令 \"%s\"\n"
+"无法执行命令 “%s”\n"
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:127
 msgid "Are you sure you want to clear the history?"
-msgstr "您确定您想要清除历史记录吗？"
+msgstr "您确定要清除历史吗？"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:202
 msgid "Clipboard is empty"
-msgstr "历史记录为空"
+msgstr "剪贴板是空的"
 
-#: ../panel-plugin/menu.c:360
-msgid "_Disable"
-msgstr "禁用(_D)"
-
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:294
 msgid "Contributors:"
-msgstr "贡献者:"
+msgstr "贡献者："
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:308
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 桌面环境的剪贴板管理器"
+msgstr "Xfce 剪贴板管理器"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:317
 msgid "translator-credits"
 msgstr ""
-"Hydonsingore Cia\n"
-"Hunt Xu"
+"Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\n"
+"Hunt Xu <huntxu@live.cn>, 2009.\n"
+"Chipong Luo <chipong_l@yahoo.com>, 2011."
 
-#: ../panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
 msgstr "无法打开设置对话框"
-
-#~ msgid "Type here your custom text, for example an URL, a filename, etc."
-#~ msgstr "在这里输入您自定义的文本，例如 URL、文件名等等。"
-
-#~ msgid "E_xclude from history"
-#~ msgstr "从历史记录中排除(_X)"
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "自动启动剪贴板管理器"
-
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr "您希望在下次登录时重新启动剪贴板管理器吗？"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "是否让剪贴板管理器自动启动？"
-
-#~ msgid "Authors of previous versions:"
-#~ msgstr "之前版本的作者:"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "已有一个剪贴板管理器正在运行中"
-
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "如果选中该项，所选择内容将会保存在历史记录中。历史记录中的内容可能无法被阅"
-#~ "读，但如果您需要经常粘贴您所选择的内容，选中该项将对您有相当的帮助。"
-
-#~ msgid "Regex:"
-#~ msgstr "正则表达式:"
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "离开时储存剪贴板内容(_e)"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "显示项目编号(_S)"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>一般</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "菜单项目字数："
-
-#~ msgid "Clear History"
-#~ msgstr "清除历史记录"
-
-#~ msgid "Clipman History"
-#~ msgstr "Clipman 历史记录"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "防止剪贴板空白(_v)"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "正常的剪贴板管理(_m)"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "严格区分两份剪贴板(_b)"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "分离剪贴板(_p)"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>菜单外观</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "外观"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< 预设历史记录空白 >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< 选取历史记录空白 >"
