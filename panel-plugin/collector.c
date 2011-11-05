@@ -154,7 +154,7 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
   gchar *text;
   static gchar *prev_text = NULL;
 
-  g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
+  g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
 
   /* Postpone until the selection is done */
   gdk_window_get_pointer (NULL, NULL, NULL, &state);
