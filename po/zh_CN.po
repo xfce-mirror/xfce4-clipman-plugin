@@ -1,12 +1,12 @@
 # Simplified Chinese for xfce4-clipman-plugin package.
 # This file is distributed under the same license as
-#   the xfce4-clipman-plugin package.
+# the xfce4-clipman-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
 # Hunt Xu <huntxu@live.cn>, 2009.
 # Chipong Luo <chipong_l@yahoo.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.1\n"
+"Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
 "PO-Revision-Date: 2009-12-13 20:25+0800\n"
