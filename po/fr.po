@@ -214,7 +214,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr "Inverser l'ordre de l'historique"
+msgstr "In_verser l'ordre de l'historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
