@@ -220,7 +220,6 @@ msgid "Regular expression"
 msgstr "Regulært udtryk"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
 msgstr ""
 "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny "
