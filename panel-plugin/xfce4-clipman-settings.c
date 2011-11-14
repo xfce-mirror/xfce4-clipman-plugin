@@ -514,7 +514,7 @@ cb_reset_actions (GtkButton *button)
                                                GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_QUESTION,
                                                GTK_BUTTONS_YES_NO,
-                                               _("<b>Reset actions</b>"), NULL);
+                                               _("<b>Reset actions</b>"));
   gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
                                             _("Are you sure you want to reset the actions to the system default values?"));
   res = gtk_dialog_run (GTK_DIALOG (dialog));
