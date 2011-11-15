@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
-"Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
+"PO-Revision-Date: 2011-11-16 01:46+0800\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -20,96 +20,93 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "剪貼簿管理程式"
+msgstr "剪貼簿管理員"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/main-status-icon.c:61
+#: ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "以 Gimp 編輯"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "GNOME Bug"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "長網址"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "縮短該網址"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "以 Ristretto 檢視"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "Xfce Bug"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>剪貼簿行為</b>"
+msgstr "<b>重設動作</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
 #, fuzzy
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
+msgid "Are you sure you want to reset the actions to the system default values?"
 msgstr "您確定您想要清除歷史字句嗎？"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>動作</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
-#, fuzzy
 msgid "<b>Behavior</b>"
-msgstr "<b>剪貼簿行為</b>"
+msgstr "<b>行為</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "<b>Commands</b>"
-msgstr ""
+msgstr "<b>指令</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>歷史</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid "Actions"
-msgstr ""
+msgstr "動作"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
@@ -120,46 +117,39 @@ msgid "Automatically paste a selected item from the history"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
-msgstr ""
+msgstr "指令："
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
-msgstr ""
+msgstr "設定插件"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
-msgstr ""
+msgstr "編輯動作"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
-msgstr ""
+msgstr "啟用動作(_A)"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "一般"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
+msgid "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:17
@@ -168,18 +158,16 @@ msgid "If checked, this option allows to store one image inside the history"
 msgstr "選取此項可顯示歷史字句清單中的項目編號。"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-#, fuzzy
 msgid "Ignore s_elections"
-msgstr "忽視選取的區域(_I)"
+msgstr "忽略選取內容(_E)"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Name:"
-msgstr ""
+msgstr "名稱："
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
@@ -187,17 +175,14 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
-msgstr ""
+msgstr "樣式："
 
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
+msgid "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
+msgid "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
@@ -214,20 +199,19 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
-msgstr ""
+msgstr "退出時儲存(_Q)"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
-msgstr ""
+msgstr "歷史的大小(_H)："
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Store last copied _image"
-msgstr ""
+msgstr "儲存上次複製的影像(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-#, fuzzy
 msgid "Sync _selections"
-msgstr "忽視選取的區域(_I)"
+msgstr "同步選取內容(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
@@ -235,34 +219,27 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "調校"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
+msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "立即貼上(_P)："
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "剪貼簿歷史字句項目："
+msgstr "重新排序歷史項目(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "透過按住 Ctrl 鍵跳過動作(_S)"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -271,6 +248,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"無法執行指令「%s」\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
@@ -278,30 +258,30 @@ msgstr "您確定您想要清除歷史字句嗎？"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:272
-#, fuzzy
 msgid "Clipboard is empty"
-msgstr "< 歷史字句空白 >"
+msgstr "剪貼簿空白"
 
 #: ../panel-plugin/menu.c:360
 msgid "_Disable"
-msgstr ""
+msgstr "停用(_D)"
 
 #: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
-msgstr ""
+msgstr "貢獻者："
 
 #: ../panel-plugin/plugin.c:337
-#, fuzzy
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 桌面環境的剪貼簿管理程式"
+msgstr "Xfce 的剪貼簿管理員"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr "Hydonsingore Cia"
+msgstr ""
+"Hydonsingore Cia, 2009.\n"
+"Cheng-Chia Tseng <pswo10680@gmail.com>, 2011."
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
-msgstr ""
+msgstr "無法開啟設定值對話窗"
 
 #~ msgid "Save clipboard contents on _exit"
 #~ msgstr "離開時儲存剪貼簿內容(_E)"
