@@ -204,12 +204,12 @@ msgstr "Mønster:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for xfce4-popup-clipman kommando."
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Skub den senest kopierede tekst øverst i historikken. Det kan bruges hvis man vil omorganisere gamle elementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -253,7 +253,7 @@ msgstr "Tilretninger"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten stadig er holdt nede, vil menuen popop blive udeladt"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
