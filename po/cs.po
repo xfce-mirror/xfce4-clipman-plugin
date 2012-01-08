@@ -1,14 +1,14 @@
 # Czech translation of the xfce4-clipman-plugin package.
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Michal Várady <miko.vaji@gmail.com>, 2006.
+# Michal Várady <miko.vaji@gmail.com>, 2006-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-12-29 00:38+0100\n"
+"PO-Revision-Date: 2012-01-08 16:38+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <xfce-i18n@xfce.org>\n"
 "Language: cs\n"
@@ -30,7 +30,8 @@ msgstr "Správce schránky"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/main-status-icon.c:61
+#: ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Správce schránky"
@@ -69,25 +70,24 @@ msgstr "Chyba prostředí Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Žádný"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
 msgstr "<b>Obnovit akce</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
+msgid "Are you sure you want to reset the actions to the system default values?"
 msgstr "Opravdu chcete obnovit akce na výchozí systémové nastavení?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
@@ -116,15 +116,11 @@ msgstr "Aktivovat pouze při ručním kopírování"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Automaticky vložit vybranou položku z historie"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Ve výchozím nastavení je akce spuštěna výběrem, zaškrtněnte tuto volbu pro "
-"spuštění akce pouze při ručním kopírování"
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Ve výchozím nastavení je akce spuštěna výběrem, zaškrtněnte tuto volbu pro spuštění akce pouze při ručním kopírování"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -147,38 +143,24 @@ msgid "General"
 msgstr "Obecné"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Pokud je volba zaškrtnuta, text schránky bude otestován na shodu s "
-"regulárním výrazem a nabídka zobrazí možné akce"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Pokud je volba zaškrtnuta, text schránky bude otestován na shodu s regulárním výrazem a nabídka zobrazí možné akce"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Pokud je volba zaškrtnuta, výběry budou synchronizovány s výchozí schránkou "
-"tak, že budete moci vložit to, co označíte"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Pokud je volba zaškrtnuta, výběry budou synchronizovány s výchozí schránkou tak, že budete moci vložit to, co označíte"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Pokud je volba zaškrtnuta, výběry neovlivní historii, kromě ručního "
-"kopírování"
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Pokud je volba zaškrtnuta, výběry neovlivní historii, kromě ručního kopírování"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Pokud je volba zaškrtnuta, bude možné uložit jeden obrázek v historii"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Pokud je volba zaškrtnuta, bude historie obnovena při každém přihlášení do "
-"nové relace Xfce"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Pokud je volba zaškrtnuta, bude historie obnovena při každém přihlášení do nové relace Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -190,37 +172,31 @@ msgstr "Název:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "U_místit nabídku na pozici ukazatele myši"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
 msgstr "Vzorek:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr ""
+msgid "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
+msgstr "Nabídka se zobrazí na pozici ukazatale myši, pouze pro příkaz xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgid "Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Přesune poslední zkopírovaný text na první místo v historii, užitečné pro přeuspořádání starých položek"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "_Otočit pořadí v historii"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Regulární výrazy"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"Pokud je volba zaškrtnuta, bude historie obnovena při každém přihlášení do "
-"nové relace Xfce"
+msgstr "Otočit pořadí historie zobrazené v nabídce"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -231,9 +207,8 @@ msgid "Size of the _history:"
 msgstr "Velikost _historie:"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "Uložit _obrázek"
+msgstr "_Uložit poslední zkopírovaný obrázek"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
@@ -245,38 +220,27 @@ msgstr "Vzorek je vždy uvozen mezi speciálními znaky ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Vyladění"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
+msgstr "Pokud je při provádění výběru (myší nebo klávesnicí) stisknuta klávesa Control, nebude zobrazena nabídka odpovídajících akcí"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"V příkazech můžete použít nahrazovací parametry \"\\1\", \"\\2\", atd. "
-"Parametr \"\\0\" představuje úplný text. Naznáte-li regulární výrazy, "
-"nahlédněte do dokumentace aplikace Clipman, která obsahuje úvod do této "
-"problematiky."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "V příkazech můžete použít nahrazovací parametry \"\\1\", \"\\2\", atd. Parametr \"\\0\" představuje úplný text. Naznáte-li regulární výrazy, nahlédněte do dokumentace aplikace Clipman, která obsahuje úvod do této problematiky."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Vložit přímo:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Položky historie nabídky:"
+msgstr "_Přeuspořádat položky historie"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Zrušit akce při stisknuté klávese Control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -299,9 +263,8 @@ msgid "Clipboard is empty"
 msgstr "Schránka je prázdná"
 
 #: ../panel-plugin/menu.c:360
-#, fuzzy
 msgid "_Disable"
-msgstr "_Povolit"
+msgstr "_Zakázat"
 
 #: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
