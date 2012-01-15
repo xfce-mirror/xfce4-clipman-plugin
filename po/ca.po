@@ -2,7 +2,7 @@
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.
 # Harald Servat Gelabert <redcrash@gmail.com>, 2009.
 #
 msgid ""
@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-12-14 10:50+0100\n"
-"Last-Translator: Harald Servat <redcrash@gmail.com>\n"
+"PO-Revision-Date: 2012-01-15 19:46+0100\n"
+"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,8 @@ msgstr "Gestor de porta-retalls"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/main-status-icon.c:61
+#: ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:335
 msgid "Clipman"
 msgstr "Porta-retalls «Clipman»"
@@ -69,28 +70,25 @@ msgstr "Error de Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Maj+Inser"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
 msgstr "<b>Reiniciar accions</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
-msgid ""
-"Are you sure you want to reset the actions to the system default values?"
-msgstr ""
-"Esteu segur que voleu reiniciar les accions als valors per defecte del "
-"sistema?"
+msgid "Are you sure you want to reset the actions to the system default values?"
+msgstr "Esteu segur que voleu reiniciar les accions als valors per defecte del sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
@@ -118,15 +116,11 @@ msgstr "Activa'l només amb la còpia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Enganxa automàticament un element seleccionat del historia"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per "
-"a executar l'acció només quan es faci una còpia manual."
+msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
+msgstr "Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per a executar l'acció només quan es faci una còpia manual."
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -149,39 +143,24 @@ msgid "General"
 msgstr "General"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Si està activat el text del porta-retalls es farà coincidir amb expressions "
-"regulars i apareixerà un menú amb les accions disponibles"
+msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+msgstr "Si està activat el text del porta-retalls es farà coincidir amb expressions regulars i apareixerà un menú amb les accions disponibles"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Si està marcat, les seleccions seran sincronitzades amb el porta-retalls per "
-"defecte per tal que pugueu enganxar el que seleccioneu"
+msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+msgstr "Si està marcat, les seleccions seran sincronitzades amb el porta-retalls per defecte per tal que pugueu enganxar el que seleccioneu"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Si la casella està marcada, les seleccions, llevat de les còpies manuals, no "
-"afectaran l'historial."
+msgid "If checked, the selections won't affect the history except the manual copies"
+msgstr "Si la casella està marcada, les seleccions, llevat de les còpies manuals, no afectaran l'historial."
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Si està activat aquesta opció permet emmagatzemar una imatge en l'historial"
+msgstr "Si està activat aquesta opció permet emmagatzemar una imatge en l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Si està activat aquesta opció permet recuperar l'historial en cadascuna de "
-"les noves sessions de Xfce"
+msgid "If checked, this option will restore the history on every new Xfce session"
+msgstr "Si està activat aquesta opció permet recuperar l'historial en cadascuna de les noves sessions de Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -193,37 +172,31 @@ msgstr "Nom:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "_Posa el menú en el punter del ratolí"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
 msgstr "Patró:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr ""
+msgid "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
+msgstr "Menú emergent en la posició del punter del ratolí, només pel l'ordre «xfce4-popup-clipman»"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgid "Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Puja el darrer text copiat a dalt de l'historial, útil per tornar a ordenar els elements antics"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "Ordre invers del historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Expressió regular"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"Si està activat aquesta opció permet recuperar l'historial en cadascuna de "
-"les noves sessions de Xfce"
+msgstr "L'ordre invers de l'historial mostrat en el menú"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -234,9 +207,8 @@ msgid "Size of the _history:"
 msgstr "Mida de l'_historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "Emmagatzema una _imatge"
+msgstr "Emmagatzema la darrera _imatge copiada"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
@@ -248,38 +220,27 @@ msgstr "El patró s'ha ancorat sempre sempre entre els caràcters especials ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Ajustaments"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
+msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, es saltarà el menú emergent d'accions"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden emprar "
-"en la comanda. El paràmetre \"\\0\" representa el text complet. Si desconeix "
-"les expressions regulars, faci un cop d'ull a la introducció que hi ha en la "
-"documentació de Clipman."
+msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
+msgstr "Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden emprar en la comanda. El paràmetre \"\\0\" representa el text complet. Si desconeix les expressions regulars, faci un cop d'ull a la introducció que hi ha en la documentació de Clipman."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Enganxa a l'instant:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Històric del porta-retalls:"
+msgstr "_Reordena els elements de l'hitorial"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Salta les accions pitjant la tecla de control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -302,9 +263,8 @@ msgid "Clipboard is empty"
 msgstr "El porta-retalls és buit"
 
 #: ../panel-plugin/menu.c:360
-#, fuzzy
 msgid "_Disable"
-msgstr "_Activar"
+msgstr "_Inhabilita"
 
 #: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
@@ -318,7 +278,7 @@ msgstr "Gestor de porta-retalls per l'escriptori Xfce"
 msgid "translator-credits"
 msgstr ""
 "Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.\n"
-"Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009.\n"
+"Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\n"
 "Harald Servat Gelabert <redcrash@gmail.com>, 2009."
 
 #: ../panel-plugin/plugin.c:360
