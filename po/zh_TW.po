@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2011-11-16 01:46+0800\n"
+"PO-Revision-Date: 2012-01-15 11:24+0800\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
 "Language: zh_TW\n"
@@ -84,9 +84,8 @@ msgid "<b>Reset actions</b>"
 msgstr "<b>重設動作</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
-#, fuzzy
 msgid "Are you sure you want to reset the actions to the system default values?"
-msgstr "您確定您想要清除歷史字句嗎？"
+msgstr "您確定您要重設動作回系統預設值嗎？"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
@@ -110,15 +109,15 @@ msgstr "動作"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "僅於手動複製時啟動"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "自動從歷史貼上選取的項目"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "預設情況下，動作是由選取所觸發，勾選此選項讓您只在手動複製時觸發動作"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -142,24 +141,23 @@ msgstr "一般"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr ""
+msgstr "若選取此項，剪貼簿文字會比對常規表述式，接著會顯示選單提供可能的動作"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr ""
+msgstr "若選取此項，選取內容會與預設的剪貼簿同步，您可以貼上您選取的東西"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgstr "若選取此項，選取內容不會影響歷史，除了手動複製外"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-#, fuzzy
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "選取此項可顯示歷史字句清單中的項目編號。"
+msgstr "若選取此項，可在歷史中儲存影像"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "若選取此項，每次新的 Xfce 工作階段都會還原歷史"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -171,7 +169,7 @@ msgstr "名稱："
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "放置選單於滑鼠指標處(_O)"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -179,23 +177,23 @@ msgstr "樣式："
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
-msgstr ""
+msgstr "在滑鼠指標位置彈出選單，僅供 xfce4-popup-clipman 指令使用"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "推送最後複製的文字至歷史頂端，對於重排老舊項目很有用"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "還原歷史順序(_V)"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
-msgstr ""
+msgstr "常規表述式"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
+msgstr "還原選單中顯示的歷史順序"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -215,7 +213,7 @@ msgstr "同步選取內容(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "樣式總是以特殊字元 ^$ 定位"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
@@ -223,11 +221,11 @@ msgstr "調校"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "當選取完成 (滑鼠或鍵盤)，且 Ctrl 鍵仍被按住時，比對動作的彈出選單會被略過"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr ""
+msgstr "您可以在指令中使用替換參數「\\1」、「\\2」...等。參數「\\0」代表完整的文字。若您不瞭解常規表述式，請看一下 Clipman 的文件，有相關的簡介。"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
