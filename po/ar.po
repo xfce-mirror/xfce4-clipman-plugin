@@ -1,22 +1,26 @@
+# Mohammad Alhargan <malham1@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2008-07-15 22:57+0200\n"
-"Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
-"Language-Team: Arabeyes <doc@arabeyes.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-02-04 09:38+0300\n"
+"Last-Translator: Mohammad Alhargan <malham1@hotmail.com>\n"
+"Language-Team: http://www.vertaal.com.ar/files/opensuse-11-4/ar/list/\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.0\n"
 "X-Poedit-Language: Arabic\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
-msgstr ""
+msgstr "مدير الحافظة"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
@@ -25,211 +29,221 @@ msgstr ""
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:335
 msgid "Clipman"
-msgstr ""
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "تحرير باستخدام جيمب"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr ""
+msgstr "علة جنوم"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr ""
+msgstr "صورة"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr ""
+msgstr "عنوان URL طويل"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr ""
+msgstr "تقليص URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr ""
+msgstr "عرض مع ريستريتو"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr ""
+msgstr "علة Xfce"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "بدون"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
-msgstr ""
+msgstr "<b>إعادة تعيين الإجراءات</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr ""
+msgstr "متأكد أنك تريد إعادة تعيين الإجراءات إلى لقيم النظام الافتراضية؟"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>إجراء</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "<b>Behavior</b>"
-msgstr ""
+msgstr "<b>السلوك</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "<b>Commands</b>"
-msgstr ""
+msgstr "<b>أوامر</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "<b>History</b>"
-msgstr ""
+msgstr "<b>التاريخ</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid "Actions"
-msgstr ""
+msgstr "الإجراءات"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "تنشيط فقط عند النسخ اليدوي"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "لصق عنصر محدد من التاريخ تلقائياً"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
+"بشكل افتراضي الإجراء بسبب التحديد، حدد هذا الخيار لتشغيل الإجراء فقط عندما "
+"تقوم بإجراء نسخة اليدوي"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
-msgstr ""
+msgstr "الأمر:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
-msgstr ""
+msgstr "إعداد الملحق"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
-msgstr ""
+msgstr "عدّل الإجراء"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid "Enable _actions"
-msgstr ""
+msgstr "تمكين _الإجراءات"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
+"إذا كان محدداً، سيتم مطابقة النصوص للحافظة ضد التعابير العادية، وسيتم عرض "
+"قائمة بالإجراءات التي يمكن اتخاذها"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
+"كان محدداً، التحديدات سيتم مزامنتها مع الحافظة إفتراضياً بحيث يمكنك لصق ما "
+"قمت بتحديده"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+msgstr "إذا كان محدداً، التحديدات لن تؤثر على تاريخ ما عدا النسخ اليدوي"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+msgstr "إذا كان محددا، يسمح هذا الخيار بتخزين صورة واحدة داخل تاريخ"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "إذا كان محدداً، هذا الخيار سيستعيد المحفوظات في كل جلسة جديدة من إكسفيس"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
-msgstr ""
+msgstr "تجاهل التحديد"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Name:"
-msgstr ""
+msgstr "إسم:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "موقع القائمة عند مؤشر الفأرة"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
-msgstr ""
+msgstr "نمط:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "اعرض قائمة منبثقة عند موضع مؤشر الفأرة، فقط للأمر xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
+"دفع آخر نص منسوخ إلى الجزء العلوي من التاريخ، مفيدة لإعادة ترتيب العناصر "
+"القديمة"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "عكس ترتيب التاريخ"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
-msgstr ""
+msgstr "تعبير عادي"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
+msgstr "عكس ترتيب التاريخ المبين في قائمة"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
-msgstr ""
+msgstr "احفظ عند الخروج"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
-msgstr ""
+msgstr "حجم التاريخ:"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Store last copied _image"
-msgstr ""
+msgstr "أحفظ آخر صورة منسوخة"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
-msgstr ""
+msgstr "مزامنة التحديد"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "النمط يرتكز دائماً داخل الأحرف الخاصة ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "تطويع"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
+"عندما يتم الاختيار (الفأرة أو لوحة المفاتيح) وما زال الضغط مستمراً على مفتاح "
+"التحكم، سيتم تخطي قائمة لإجراءات المطابقة المنبثقة"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -238,18 +252,21 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
+"يمكنك استخدام المعلمات البديلة \"\\1\"، \"\\2\" وهكذا دواليك في الأوامر. المعلمة "
+"\"\\0\" تمثل النص الكامل. إذا كنت لا تعرف التعبيرات العادية، ألق نظرة على وثائق "
+"Clipman تحتوي عرض لها."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_لصق مباشر:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "_إعادة ترتيب عناصر التاريخ"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_تجاوز الإجراءات بالضغط على زر التحكم Control"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -258,32 +275,35 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"غير قادر على تنفيذ الأمر \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "متأكد أنك تريد مسح المحفوظات؟"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:272
 msgid "Clipboard is empty"
-msgstr ""
+msgstr "الحافظة فارغة"
 
 #: ../panel-plugin/menu.c:360
 msgid "_Disable"
-msgstr ""
+msgstr "_عطّل"
 
 #: ../panel-plugin/plugin.c:323
 msgid "Contributors:"
-msgstr ""
+msgstr "المساهمون:"
 
 #: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
-msgstr ""
+msgstr "مدير حافظة اكسفيس"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr ""
+msgstr "محمد الحرقان <malham1@gmail.com>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
-msgstr ""
+msgstr "غير قادر على فتح مربع حوار الإعدادات"
