@@ -172,7 +172,7 @@ msgstr "名称："
 
 #: ../panel-plugin/settings-dialog.glade.h:20
 msgid "Pattern:"
-msgstr "匹配规则："
+msgstr "类型："
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
@@ -197,7 +197,7 @@ msgstr "同步选择区(_S)"
 #: ../panel-plugin/settings-dialog.glade.h:26
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
-"匹配规则总是固定在特殊字符 ^$ 内"
+"类型总是固定在特殊字符 ^$ 内"
 
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
