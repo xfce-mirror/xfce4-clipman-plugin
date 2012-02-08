@@ -4,7 +4,7 @@
 # the xfce4-clipman-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-12 19:12+0100\n"
 "PO-Revision-Date: 2009-12-13 20:25+0800\n"
-"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
+"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese(Simplified) <xfce-i18n@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "<b>命令</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:4
 msgid "<b>History</b>"
-msgstr "历史"
+msgstr "<b>历史</b>"
 
 #: ../panel-plugin/settings-dialog.glade.h:5
 msgid "Actions"
@@ -104,8 +104,8 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"默认为选中即激活此动作，如果只需要在您"
-"手动复制时执行此动作则选中此选项"
+"默认为选中即激活此动作，如果只需要在您手动"
+"复制时执行此动作则选中此选项"
 
 #: ../panel-plugin/settings-dialog.glade.h:8
 msgid "Command:"
@@ -117,7 +117,7 @@ msgstr "配置插件"
 
 #: ../panel-plugin/settings-dialog.glade.h:10
 msgid "Edit Action"
-msgstr "修改动作"
+msgstr "编辑动作"
 
 #: ../panel-plugin/settings-dialog.glade.h:11
 msgid "Enable _actions"
@@ -132,23 +132,23 @@ msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr ""
-"如果选中，剪贴板文字会相对正则表达式"
-"匹配并显示一可能动作的菜单"
+"如果选中，剪贴板文字会相对正则表达式匹配并"
+"显示一可能动作的菜单"
 
 #: ../panel-plugin/settings-dialog.glade.h:14
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr ""
-"如果选中，选择区会以一种您能粘贴您所选"
-"内容的方式与默认的剪贴板同步"
+"如果选中，选择区会以一种您能粘贴您所选内容的"
+"方式与默认的剪贴板同步"
 
 #: ../panel-plugin/settings-dialog.glade.h:15
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr ""
-"如果选中，除非手动复制，否则选择区将"
-"不会影响历史"
+"如果选中，除非手动复制，否则选择区将不会影响"
+"历史"
 
 #: ../panel-plugin/settings-dialog.glade.h:16
 msgid "If checked, this option allows to store one image inside the history"
@@ -159,8 +159,8 @@ msgstr ""
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr ""
-"如果选中，此选项将在每个新 Xfce 会话中"
-"恢复历史"
+"如果选中，此选项将在每个新 Xfce 会话中恢复"
+"历史"
 
 #: ../panel-plugin/settings-dialog.glade.h:18
 msgid "Ignore s_elections"
@@ -176,7 +176,7 @@ msgstr "类型："
 
 #: ../panel-plugin/settings-dialog.glade.h:21
 msgid "Regular expression"
-msgstr "正则表达式"
+msgstr "正则表达"
 
 #: ../panel-plugin/settings-dialog.glade.h:22
 msgid "Save on _quit"
@@ -202,8 +202,7 @@ msgstr ""
 #: ../panel-plugin/settings-dialog.glade.h:27
 msgid "Type here your custom text, for example an URL, a filename, etc."
 msgstr ""
-"在这里输入您的自定义文本，比如 URL、"
-"文件名等。"
+"在此输入您的自定义文字，比如 URL、文件名等。"
 
 #: ../panel-plugin/settings-dialog.glade.h:28
 msgid ""
@@ -212,10 +211,10 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"您可以在命令中使用 “\\1”、“\\2” 等"
-"替换参数。参数 “\\0” 代表完整文本。"
-"如果您不了解正则表达式，看看 Clipman "
-"剪贴板管理器的介绍它们的文档。"
+"您可以在命令中使用 “\\1”、“\\2” 等替换"
+"参数。参数 “\\0” 代表完整文本。如果您不"
+"了解正则表达，看看 Clipman 的介绍它们的"
+"文档。"
 
 #: ../panel-plugin/actions.c:367
 #, c-format
@@ -250,7 +249,7 @@ msgid "translator-credits"
 msgstr ""
 "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\n"
 "Hunt Xu <huntxu@live.cn>, 2009.\n"
-"Chipong Luo <chipong_l@yahoo.com>, 2011, 2012。"
+"Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
 
 #: ../panel-plugin/plugin.c:331
 msgid "Unable to open the settings dialog"
