@@ -85,7 +85,7 @@ msgstr "<b>재설정 동작</b>"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid "Are you sure you want to reset the actions to the system default values?"
-msgstr "정말로 시스템 기본 값으로 동작을 재설정 하시겠습니까?"
+msgstr "정말로 시스템 기본 값으로 동작을 재설정 하시렵니까?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
