@@ -109,7 +109,7 @@ msgstr "동작"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
-msgstr "수동 복사시만 활성화"
+msgstr "수동 복사할 때만 활성화"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
@@ -217,7 +217,7 @@ msgstr "패턴은 언제나 특수문자 ^$에 연결될 것입니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr "꼼수"
+msgstr "수정"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
