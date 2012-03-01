@@ -217,7 +217,7 @@ msgstr "패턴은 언제나 특수문자 ^$에 연결될 것입니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr "수정"
+msgstr "기능향상"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
