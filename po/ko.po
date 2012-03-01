@@ -279,25 +279,3 @@ msgstr "Seong-ho Cho <darkcircle.0426@gmail.com>"
 msgid "Unable to open the settings dialog"
 msgstr "설정 대화상자를 열 수 없습니다"
 
-#~ msgid "Type here your custom text, for example an URL, a filename, etc."
-#~ msgstr ""
-#~ "ここにカスタム文字列を入力してください。例えば URL やファイル名など。"
-
-#~ msgid "E_xclude from history"
-#~ msgstr "履歴に残さない(_X)"
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "Clipman の自動起動"
-
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr "次回ログイン時にクリップボードマネージャを自動起動しますか?"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "クリップボードマネージャを自動起動にしますか?"
-
-#~ msgid "Authors of previous versions:"
-#~ msgstr "以前のバージョンの開発者:"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "クリップボードマネージャはすでに動作しています"
