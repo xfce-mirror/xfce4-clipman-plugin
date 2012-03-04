@@ -39,6 +39,12 @@
 static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
 XFCE_PANEL_PLUGIN_REGISTER (panel_plugin_register);
 
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+static gboolean         panel_plugin_set_size           (XfcePanelPlugin *panel_plugin,
+                                                         gint             size,
+                                                         MyPlugin        *plugin);
+#endif
+
 static gboolean         cb_button_pressed               (GtkButton *button,
                                                          GdkEventButton *event,
                                                          MyPlugin *plugin);
@@ -70,7 +76,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   gtk_widget_set_tooltip_text (GTK_WIDGET (panel_plugin), _("Clipman"));
 
   /* Panel Button */
-  plugin->button = xfce_create_panel_toggle_button ();
+  plugin->button = xfce_panel_create_toggle_button ();
   if (gtk_icon_theme_has_icon (icon_theme, "clipman"))
     {
       plugin->image = xfce_panel_image_new_from_source ("clipman");
@@ -81,6 +87,11 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
     }
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
+
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+  xfce_panel_plugin_set_small (panel_plugin, TRUE);
+#endif
+
   xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
   g_signal_connect (plugin->button, "button-press-event",
                     G_CALLBACK (cb_button_pressed), plugin);
@@ -98,9 +109,25 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                             G_CALLBACK (plugin_free), plugin);
   g_signal_connect (plugin->menu, "deactivate",
                     G_CALLBACK (cb_menu_deactivate), plugin);
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+  g_signal_connect (panel_plugin, "size-changed", G_CALLBACK (panel_plugin_set_size), plugin);
+#endif
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
+
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+static gboolean
+panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
+                       gint             size,
+                       MyPlugin        *plugin)
+{
+  size /= xfce_panel_plugin_get_nrows (panel_plugin);
+  gtk_widget_set_size_request(GTK_WIDGET(plugin->button), size, size);
+
+  return TRUE;
+}
+#endif
 
 static gboolean
 cb_button_pressed (GtkButton *button,
