@@ -105,7 +105,7 @@ xfce4_clipman_CFLAGS =							\
 	$(NULL)
 
 xfce4_clipman_LDADD =							\
-	$(top_builddir)/daemon/libdaemon.la				\
+	$(top_builddir)/x11-clipboard-manager/libdaemon.la		\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
@@ -158,7 +158,7 @@ libclipman_la_LDFLAGS =							\
 	$(NULL)
 
 libclipman_la_LIBADD =							\
-	$(top_builddir)/daemon/libdaemon.la				\
+	$(top_builddir)/x11-clipboard-manager/libdaemon.la		\
 	@GIO_LIBS@							\
 	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\

@@ -131,7 +131,7 @@ icons/22x22/Makefile
 icons/24x24/Makefile
 icons/32x32/Makefile
 icons/scalable/Makefile
-daemon/Makefile
+x11-clipboard-manager/Makefile
 panel-plugin/Makefile
 tests/Makefile
 po/Makefile.in

@@ -30,7 +30,7 @@
 #include <libxfce4panel/libxfce4panel.h>
 #endif
 
-#include <daemon/daemon.h>
+#include <x11-clipboard-manager/daemon.h>
 #include "actions.h"
 #include "collector.h"
 #include "history.h"

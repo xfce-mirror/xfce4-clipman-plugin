@@ -2,7 +2,7 @@ NULL =
 
 SUBDIRS =								\
 	icons								\
-	daemon								\
+	x11-clipboard-manager						\
 	panel-plugin							\
 	tests								\
 	po								\
