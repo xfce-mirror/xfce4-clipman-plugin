@@ -47,7 +47,7 @@ msgstr "GNOME 버그"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
-msgstr "이미지"
+msgstr "그림"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
@@ -153,7 +153,7 @@ msgstr "이것을 표시하면 수동 복사를 제외한 모든 기록에 선�
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "이것을 표시하면 기록 안에 이미지를 저장할 수 있도록 합니다"
+msgstr "이것을 표시하면 기록 안에 그림을 저장할 수 있도록 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "If checked, this option will restore the history on every new Xfce session"
@@ -205,7 +205,7 @@ msgstr "기록 크기(_H):"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Store last copied _image"
-msgstr "마지막에 복사한 이미지 저장(_I)"
+msgstr "마지막에 복사한 그림 저장(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
