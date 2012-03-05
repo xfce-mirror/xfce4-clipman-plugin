@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2009-2011 Mike Massonnet <mmassonnet@xfce.org>
+ *  Copyright (c) 2009-2012 Mike Massonnet <mmassonnet@xfce.org>
  *
  *  XML parsing based on Xfce4 Panel:
  *  Copyright (c) 2005 Jasper Huijsmans <jasper@xfce.org>
