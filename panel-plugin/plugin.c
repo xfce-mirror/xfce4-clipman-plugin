@@ -119,6 +119,8 @@ plugin_register (void)
                           G_TYPE_BOOLEAN, plugin->menu, "inhibit-menu-item");
   xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
                           G_TYPE_UINT, plugin->menu, "paste-on-activate");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/never-confirm-history-clear",
+                          G_TYPE_BOOLEAN, plugin->menu, "never-confirm-history-clear");
 
   /* Load the data */
   plugin_load (plugin);

@@ -20,6 +20,7 @@
 #include <config.h>
 #endif
 
+#include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
@@ -49,6 +50,7 @@ struct _ClipmanMenuPrivate
   GSList               *list;
   gboolean              reverse_order;
   guint                 paste_on_activate;
+  gboolean              never_confirm_history_clear;
 };
 
 enum
@@ -56,6 +58,7 @@ enum
   REVERSE_ORDER = 1,
   INHIBIT_MENU_ITEM,
   PASTE_ON_ACTIVATE,
+  NEVER_CONFIRM_HISTORY_CLEAR,
 };
 
 static void             clipman_menu_finalize           (GObject *object);
@@ -184,10 +187,35 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 static void
 cb_clear_history (ClipmanMenu *menu)
 {
+  gint res;
+  GtkWidget *dialog;
   GtkClipboard *clipboard;
 
-  if (!xfce_dialog_confirm (NULL, GTK_STOCK_YES, NULL, _("Are you sure you want to clear the history?"), NULL))
-    return;
+  if (!menu->priv->never_confirm_history_clear)
+    {
+      dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
+                                       GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
+                                       _("Are you sure you want to clear the history?"));
+
+
+      {
+        GtkWidget *message_area = gtk_message_dialog_get_message_area (GTK_MESSAGE_DIALOG (dialog));
+        GtkWidget *checkbox = gtk_check_button_new_with_label (_("Don't ask again"));
+        exo_binding_new (G_OBJECT (checkbox), "active", G_OBJECT (menu), "never-confirm-history-clear");
+        gtk_widget_show (checkbox);
+        gtk_container_add (GTK_CONTAINER (message_area), checkbox);
+
+        res = gtk_dialog_run (GTK_DIALOG (dialog));
+        gtk_widget_destroy (dialog);
+
+        if (res != GTK_RESPONSE_YES)
+          {
+            g_object_set (menu, "never-confirm-history-clear", FALSE, NULL);
+            return;
+          }
+      }
+
+    }
 
   clipman_history_clear (menu->priv->history);
 
@@ -338,6 +366,13 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                       "Paste the content of a menu item when it is activated",
                                                       0, 2, 0,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, NEVER_CONFIRM_HISTORY_CLEAR,
+                                   g_param_spec_boolean ("never-confirm-history-clear",
+                                                         "NeverConfirmHistoryClear",
+                                                         "Set to FALSE to clear the history list with confirmation",
+                                                         FALSE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -399,6 +434,10 @@ clipman_menu_set_property (GObject *object,
       priv->paste_on_activate = g_value_get_uint (value);
       break;
 
+    case NEVER_CONFIRM_HISTORY_CLEAR:
+      priv->never_confirm_history_clear = g_value_get_boolean (value);
+      break;
+
     default:
       break;
     }
@@ -424,6 +463,10 @@ clipman_menu_get_property (GObject *object,
 
     case PASTE_ON_ACTIVATE:
       g_value_set_uint (value, priv->paste_on_activate);
+      break;
+
+    case NEVER_CONFIRM_HISTORY_CLEAR:
+      g_value_set_boolean (value, priv->never_confirm_history_clear);
       break;
 
     default:
