@@ -771,6 +771,13 @@ clipman_actions_load (ClipmanActions *actions)
 
   if (!load)
     {
+      /* Create user directory early to be sure it exists for next actions */
+      GFile *dir = g_file_get_parent (actions->priv->file);
+      g_file_make_directory_with_parents (dir, NULL, NULL);
+      g_object_unref (dir);
+      dir = NULL;
+
+      /* Load from system wide file */
       filename = g_strdup (SYSCONFDIR"/xdg/xfce4/panel/xfce4-clipman-actions.xml");
       load = g_file_get_contents (filename, &data, (gsize*)&size, NULL);
       g_free (filename);
