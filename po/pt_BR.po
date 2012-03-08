@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-08 20:42+0000\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -29,9 +29,9 @@ msgstr "Gerenciador de área de transferência"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -88,7 +88,9 @@ msgstr "<b>Redefinir Ações</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Tem certeza que deseja remover redefinir as ações para os valores padrões do sistema?"
+msgstr ""
+"Tem certeza que deseja remover redefinir as ações para os valores padrões do "
+"sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "<b>Action</b>"
@@ -122,7 +124,9 @@ msgstr "Automaticamente colar um item selecionado do histórico"
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Por padrão, a ação é ativada por uma seleção, marque essa opção para ativar a ação somente quando você faz uma cópia manual"
+msgstr ""
+"Por padrão, a ação é ativada por uma seleção, marque essa opção para ativar "
+"a ação somente quando você faz uma cópia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -148,18 +152,23 @@ msgstr "Geral"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
-msgstr "Se marcado, os textos da área de transferência serão comparados com expressões regulares e um menu exibirá as ações possíveis"
+msgstr ""
+"Se marcado, os textos da área de transferência serão comparados com "
+"expressões regulares e um menu exibirá as ações possíveis"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Se marcado, as seleções serão sincronizadas com a área de transferência padrão de modo que você pode colar o que você selecionar"
+msgstr ""
+"Se marcado, as seleções serão sincronizadas com a área de transferência "
+"padrão de modo que você pode colar o que você selecionar"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Se marcado, as seleções não afetarão o histórico, exceto as cópias manuais"
+msgstr ""
+"Se marcado, as seleções não afetarão o histórico, exceto as cópias manuais"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
@@ -170,7 +179,8 @@ msgstr ""
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Se marcado, esta opção irá restaurar o histórico de cada nova sessão Xfce"
+msgstr ""
+"Se marcado, esta opção irá restaurar o histórico de cada nova sessão Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -192,12 +202,16 @@ msgstr "Padrão:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Mostrar menu na posição do ponteiro do mouse, somente para o comando xfce4-popup-clipman"
+msgstr ""
+"Mostrar menu na posição do ponteiro do mouse, somente para o comando xfce4-"
+"popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Mover último texto copiado para o topo do histórico, útil para reordenar itens antigos"
+msgstr ""
+"Mover último texto copiado para o topo do histórico, útil para reordenar "
+"itens antigos"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -239,7 +253,9 @@ msgstr "Ajustes"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Quando a seleção é feita (por mouse ou teclado) e a tecla Control ainda está pressionada, o menu de contexto para ações correspondentes será ignorado"
+msgstr ""
+"Quando a seleção é feita (por mouse ou teclado) e a tecla Control ainda está "
+"pressionada, o menu de contexto para ações correspondentes será ignorado"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -247,7 +263,11 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Você pode usar os parâmetros de substituição \"\\1\", \"\\2\" e assim por diante nos comandos. O parâmetro \"\\0\" representa o texto completo. Se você não conhece expressões regulares, dê uma olhada na documentação do Clipman que possui uma introdução deste tópico."
+msgstr ""
+"Você pode usar os parâmetros de substituição \"\\1\", \"\\2\" e assim por "
+"diante nos comandos. O parâmetro \"\\0\" representa o texto completo. Se "
+"você não conhece expressões regulares, dê uma olhada na documentação do "
+"Clipman que possui uma introdução deste tópico."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
@@ -272,24 +292,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Você tem certeza que deseja limpar o histórico?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Não perguntar novamente"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "A Área de transferência está vazia"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Desabilitar"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Contribuidores"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Gerenciador da área de transferência para Xfce"
 
