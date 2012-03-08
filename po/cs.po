@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2012-01-08 16:38+0100\n"
+"POT-Creation-Date: 2012-03-08 20:42+0000\n"
+"PO-Revision-Date: 2012-03-08 21:44+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <xfce-i18n@xfce.org>\n"
 "Language: cs\n"
@@ -29,10 +29,10 @@ msgstr "Správce schránky"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61
 #: ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Správce schránky"
 
@@ -253,24 +253,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Opravdu chcete vyprázdnit historii?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Příště se již nedotazovat"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Schránka je prázdná"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Zakázat"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Přispěvatelé:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Správce schránky pro prostředí Xfce"
 
