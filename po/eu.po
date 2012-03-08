@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-08 20:42+0000\n"
 "PO-Revision-Date: 2009-04-18 12:27+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
@@ -28,9 +28,9 @@ msgstr "Arbel kudeatzailea"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -198,12 +198,16 @@ msgstr "Patroia:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Menu leihoa sagu markatzaile kokalekuan ireki, xfce4-popup-clipman komandoarentzat bakarrik"
+msgstr ""
+"Menu leihoa sagu markatzaile kokalekuan ireki, xfce4-popup-clipman "
+"komandoarentzat bakarrik"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Ipini kopiatutako azken testua historia goialdean, erabilgarri elementu zaharrak ordenatzeko"
+msgstr ""
+"Ipini kopiatutako azken testua historia goialdean, erabilgarri elementu "
+"zaharrak ordenatzeko"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -246,7 +250,9 @@ msgstr "Gomendioak"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Hautapena eginda dagoenean (sagu edo teklatuaz) eta Kontrol tekla sakatua mantentzen bada egindako ekintzen leihoa saltatuko da"
+msgstr ""
+"Hautapena eginda dagoenean (sagu edo teklatuaz) eta Kontrol tekla sakatua "
+"mantentzen bada egindako ekintzen leihoa saltatuko da"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -283,24 +289,28 @@ msgstr ""
 "\n"
 "%s komandoa exekutatu"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Ziur historia garbitu nahi duzula?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Ez galdetu berriz"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Arbela hutsa dago"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Desgaitu"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Laguntzaileak:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce mahaigainerako arbel kudeatzailea"
 
