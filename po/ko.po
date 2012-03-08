@@ -175,7 +175,7 @@ msgstr "이름:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr "마우스 포인터에 메뉴 위치(_P)"
+msgstr "마우스 포인터에 메뉴 위치(_O)"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -243,7 +243,7 @@ msgstr "기록 항목 재정렬(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr "Control 을 누른 채로 동작 건너뛰기(_S)"
+msgstr "Control을 누른 채로 동작 건너뛰기(_S)"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
