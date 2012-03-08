@@ -3,6 +3,12 @@
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
 #
+# Please write your name and e-mail into "translator-credits" if you update this translation script.
+#
+# ex ) msgstr ""
+#      "Gil-dong Hong <gdhong0101@gmail.com>\n"
+#      "YourName Kim <ynkim@gmail.com>"
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin.master\n"
