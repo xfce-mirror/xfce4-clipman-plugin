@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-09 02:30+0000\n"
 "PO-Revision-Date: 2009-07-04 07:43+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
@@ -28,9 +28,9 @@ msgstr "Verwaltung der Zwischenablagen"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Zwischenablage"
 
@@ -203,12 +203,16 @@ msgstr "Muster:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Das Menü an der Position des Mauszeigers öffnen (nur für den Befehl »xfce4-popup-clipman«)"
+msgstr ""
+"Das Menü an der Position des Mauszeigers öffnen (nur für den Befehl »xfce4-"
+"popup-clipman«)"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Zuletzt kopierten Text an die Spitze des Verlaufs verschieben, nützlich zum Umordnen alter Einträge"
+msgstr ""
+"Zuletzt kopierten Text an die Spitze des Verlaufs verschieben, nützlich zum "
+"Umordnen alter Einträge"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -252,7 +256,9 @@ msgstr "Feineinstellungnen"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Wenn die Auswahl getroffen ist (per Maus oder Tastatur) und die Strg-Taste gedrückt ist, wird das Menü für zugehörige Aktionen nicht angezeigt"
+msgstr ""
+"Wenn die Auswahl getroffen ist (per Maus oder Tastatur) und die Strg-Taste "
+"gedrückt ist, wird das Menü für zugehörige Aktionen nicht angezeigt"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -289,24 +295,29 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
+#: ../panel-plugin/menu.c:203
+#, fuzzy
+msgid "Don't ask again"
+msgstr "Nicht erneut nachfragen"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Deaktivieren"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Mitwirkende:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
 
