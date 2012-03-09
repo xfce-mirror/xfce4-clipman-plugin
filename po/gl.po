@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-09 08:18+0000\n"
 "PO-Revision-Date: 2009-12-18 17:56+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -30,9 +30,9 @@ msgstr "Xestor de portarretallos"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -202,7 +202,7 @@ msgstr "Patrón:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Mostrar o menú na posición do punteiro do rato, só para a orde xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
@@ -288,24 +288,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Está seguro de que desexa limpar o historial?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Non volver preguntar"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "O portarretallos está baleiro"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Desactivar"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "contribuíntes:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Un xestor de portarretallos para Xfce"
 
