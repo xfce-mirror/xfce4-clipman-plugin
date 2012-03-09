@@ -300,7 +300,6 @@ msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
 #: ../panel-plugin/menu.c:203
-#, fuzzy
 msgid "Don't ask again"
 msgstr "Nicht erneut nachfragen"
 
