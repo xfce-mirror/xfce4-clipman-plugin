@@ -2,7 +2,7 @@
 # translation of xfce4-clipman-plugin to Icelandic
 # Copyright (C) 2012 Free Software Foundation
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Sveinn í Felli <sveinki@nett.is>, 2012.
 msgid ""
 msgstr ""
@@ -12,12 +12,12 @@ msgstr ""
 "PO-Revision-Date: 2012-03-09 09:12+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: \n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -194,7 +194,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "Snúa _við röð ferils"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
@@ -248,7 +248,7 @@ msgstr "_Líma strax:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "Snúa við _röð ferils"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
@@ -271,7 +271,7 @@ msgstr ""
 
 #: ../panel-plugin/menu.c:203
 msgid "Don't ask again"
-msgstr ""
+msgstr "Ekki spyrja aftur"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:300
@@ -297,4 +297,3 @@ msgstr "Sveinn í Felli, sveinki@nett.is, 2012"
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr ""
-
