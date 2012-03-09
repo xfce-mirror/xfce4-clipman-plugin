@@ -1,25 +1,25 @@
 # translation of el.po to Greek
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Evaggelos Balaskas <ebalaskas@ebalaskas.gr>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-09 02:30+0000\n"
 "PO-Revision-Date: 2011-01-07 18:34+0200\n"
 "Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Language: Greek\n"
-"X-Poedit-Country: GREECE\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: GREECE\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -30,9 +30,9 @@ msgstr "Διαχειριστής προχείρου"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -74,13 +74,15 @@ msgstr ""
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
+#, fuzzy
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
+#, fuzzy
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -223,7 +225,6 @@ msgid "Regular expression"
 msgstr "Κανονική έκφραση"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
 msgstr ""
 "Εάν επιλεχθεί, αυτή η επιλογή θα επαναφέρει το ιστορικό σε κάθε νέα συνεδρία "
@@ -295,24 +296,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε τον καθαρισμό του ιστορικού;"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr ""
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Το πρόχειρο είναι κενό"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Συντελεστές:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Διαχειριστής προχείρου για το xfce"
 
