@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-09 19:54+0000\n"
 "PO-Revision-Date: 2011-10-28 15:59+0200\n"
 "Last-Translator: Mike Massonnet <mmassonnet@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -27,9 +27,9 @@ msgstr "Gestionnaire de presse-papier"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -292,24 +292,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Êtes-vous certain de vouloir effacer l'historique ?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Ne plus demander"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Le presse-papier est vide"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Désactiver"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Contributeurs :"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionnaire de presse-papier pour Xfce"
 
