@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-12 00:06+0000\n"
 "PO-Revision-Date: 2009-08-08 15:30+0200\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -25,9 +25,9 @@ msgstr "Manajer papan klip"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -196,12 +196,16 @@ msgstr "Pola:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-clipman"
+msgstr ""
+"Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-"
+"clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan item lama"
+msgstr ""
+"Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan "
+"item lama"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -244,7 +248,9 @@ msgstr "Tweak"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
+msgstr ""
+"Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih "
+"ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -281,24 +287,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda yakin ingin membersihkan riwayat?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Jangan tanyakan lagi"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Papan klip kosong"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Nonaktifkan"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Kontributor:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Manajer papan klip untuk Xfce"
 
