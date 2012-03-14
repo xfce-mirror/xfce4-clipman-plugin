@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-14 21:42+0000\n"
 "PO-Revision-Date: 2009-04-18 12:28+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
@@ -27,9 +27,9 @@ msgstr "Керування буфером обміну"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:76
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Керування буфером обміну"
 
@@ -198,12 +198,15 @@ msgstr "Фрагмент:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Спливаючі меню в позиції курсора миші, тільки для команд xfce4-popup-clipman"
+msgstr ""
+"Спливаючі меню в позиції курсора миші, тільки для команд xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Переносить останньо скопійований текст на початок історії, корисно для зміни порядок старих елементів"
+msgstr ""
+"Переносить останньо скопійований текст на початок історії, корисно для зміни "
+"порядок старих елементів"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -247,7 +250,9 @@ msgstr "Підкрутки"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Коли виділення зроблено (мишею або клавіатурою) і клавішою Control все ще натиснута, тоді контекстне меню для відповідних дій буде пропущено"
+msgstr ""
+"Коли виділення зроблено (мишею або клавіатурою) і клавішою Control все ще "
+"натиснута, тоді контекстне меню для відповідних дій буде пропущено"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -284,24 +289,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Ви впевнені, що хочете очистити історію?"
 
+#: ../panel-plugin/menu.c:203
+msgid "Don't ask again"
+msgstr "Не запитувати знову"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:300
 msgid "Clipboard is empty"
 msgstr "Буфер обміну порожній"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:395
 msgid "_Disable"
 msgstr "_Відключити"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Помічники:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Керування буфером обміну для Xfce"
 
