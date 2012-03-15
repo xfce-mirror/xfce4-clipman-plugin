@@ -39,12 +39,8 @@
 static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
 XFCE_PANEL_PLUGIN_REGISTER (panel_plugin_register);
 
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
-static gboolean         panel_plugin_set_size           (XfcePanelPlugin *panel_plugin,
-                                                         gint             size,
-                                                         MyPlugin        *plugin);
-#endif
-
+static gboolean         plugin_set_size                 (MyPlugin *plugin,
+                                                         gint size);
 static gboolean         cb_button_pressed               (GtkButton *button,
                                                          GdkEventButton *event,
                                                          MyPlugin *plugin);
@@ -107,27 +103,25 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                             G_CALLBACK (plugin_save), plugin);
   g_signal_connect_swapped (panel_plugin, "free-data",
                             G_CALLBACK (plugin_free), plugin);
+  g_signal_connect_swapped (panel_plugin, "size-changed",
+                            G_CALLBACK (plugin_set_size), plugin);
   g_signal_connect (plugin->menu, "deactivate",
                     G_CALLBACK (cb_menu_deactivate), plugin);
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
-  g_signal_connect (panel_plugin, "size-changed", G_CALLBACK (panel_plugin_set_size), plugin);
-#endif
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
 
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
 static gboolean
-panel_plugin_set_size (XfcePanelPlugin *panel_plugin,
-                       gint             size,
-                       MyPlugin        *plugin)
+plugin_set_size (MyPlugin *plugin,
+                 gint size)
 {
-  size /= xfce_panel_plugin_get_nrows (panel_plugin);
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+  size /= xfce_panel_plugin_get_nrows (plugin->panel_plugin);
+#endif
   gtk_widget_set_size_request(GTK_WIDGET(plugin->button), size, size);
 
   return TRUE;
 }
-#endif
 
 static gboolean
 cb_button_pressed (GtkButton *button,
@@ -157,14 +151,12 @@ my_plugin_position_menu (GtkMenu *menu,
                          gboolean *push_in,
                          MyPlugin *plugin)
 {
-  GtkWidget *button;
   gint button_width, button_height;
   GtkRequisition requisition;
   GtkOrientation orientation;
 
-  button = plugin->button;
   orientation = xfce_panel_plugin_get_orientation (plugin->panel_plugin);
-  gtk_widget_get_size_request (button, &button_width, &button_height);
+  gtk_widget_get_size_request (plugin->button, &button_width, &button_height);
   gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
   gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (plugin->panel_plugin)), x, y);
 
