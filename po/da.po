@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 1.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-03-25 07:06+0000\n"
 "PO-Revision-Date: 2009-12-12 20:21+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -28,9 +28,9 @@ msgstr "Udklipsholderhåndtering"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -204,12 +204,16 @@ msgstr "Mønster:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for xfce4-popup-clipman kommando."
+msgstr ""
+"Lad menuen poppe op på musemarkørens position. Det virker kun for xfce4-"
+"popup-clipman kommando."
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Skub den senest kopierede tekst øverst i historikken. Det kan bruges hvis man vil omorganisere gamle elementer"
+msgstr ""
+"Skub den senest kopierede tekst øverst i historikken. Det kan bruges hvis "
+"man vil omorganisere gamle elementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -253,7 +257,9 @@ msgstr "Tilretninger"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten stadig er holdt nede, vil menuen popop blive udeladt"
+msgstr ""
+"Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten "
+"stadig er holdt nede, vil menuen popop blive udeladt"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -290,24 +296,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Er du sikker på, at du ønsker at slette historikken?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Unlad at spørge igen"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Udklipsholder er tomt"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_Slå fra"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Bidragydere:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Udklipsholderhåndtering til Xfce"
 
