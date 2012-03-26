@@ -12,10 +12,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin.master\n"
-"Report-Msgid-Bugs-To: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
-"POT-Creation-Date: 2011-11-02 22:16+0900\n"
-"PO-Revision-Date: 2012-02-28 05:35+0900\n"
-"Last-Translator: Seong-ho, Cho <darkcircle.0426@gmail.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-26 12:06+0000\n"
+"PO-Revision-Date: 2012-03-27 02:53+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -32,10 +32,10 @@ msgstr "클립보드 관리자"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61
 #: ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -45,11 +45,11 @@ msgstr "버그들"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "GIMP로 편집하기"
+msgstr "김프로 편집하기"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "GNOME 버그"
+msgstr "그놈 버그"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
@@ -65,7 +65,7 @@ msgstr "URL 줄이기"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
-msgstr "Ristretto로 보기"
+msgstr "리스트레또로 보기"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
@@ -256,24 +256,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "정말로 기록을 비우시렵니까?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "다시 묻지 않음"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "클립보드가 비었습니다"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "비활성화(_D)"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "공헌자:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce를 위한 클립보드 관리자"
 
