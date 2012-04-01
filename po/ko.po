@@ -227,7 +227,7 @@ msgstr "기능향상"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
-msgstr "선택이 끝났고(마우스 혹은 키보드) Control 키가 계속 눌려져 있다면, 적절한 동작에 대한 단축 메뉴를 띄우지 않을 것입니다"
+msgstr "선택이 끝났고(마우스 또는 키보드) Control 키가 계속 눌려져 있다면, 적절한 동작에 대한 단축 메뉴를 띄우지 않을 것입니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
