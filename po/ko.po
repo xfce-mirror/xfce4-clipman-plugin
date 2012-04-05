@@ -123,7 +123,7 @@ msgstr "기록으로부터 선택한 항목을 자동으로 붙여넣기"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr "기본적으로 선택하면 동작이 시작되니, 수동 복사를 만들 때만 동작을 수행하려면 이 옵션을 표시하도록 합니다"
+msgstr "기본적으로 선택에 따라 동작을 시작하니, 수동 복사를 만들 때만 동작을 수행하려면 이 옵션을 표시하도록 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
