@@ -40,14 +40,14 @@ G_DEFINE_TYPE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
 
 struct _ClipmanHistoryPrivate
 {
-  GSList               *_texts;
-  GSList               *_images;
-  GSList               *items;
-  const ClipmanHistoryItem *item_to_restore;
-  guint                 max_texts_in_history;
-  guint                 max_images_in_history;
-  gboolean              save_on_quit;
-  gboolean              reorder_items;
+  GSList                       *items;
+  const ClipmanHistoryItem     *item_to_restore;
+  guint                         max_texts_in_history;
+  guint                         max_images_in_history;
+  guint                         n_texts;
+  guint                         n_images;
+  gboolean                      save_on_quit;
+  gboolean                      reorder_items;
 };
 
 enum
@@ -101,58 +101,90 @@ static void
 _clipman_history_add_item (ClipmanHistory *history,
                            ClipmanHistoryItem *item)
 {
-  GSList *list, *last;
-  guint max_items;
+  GSList *list;
+  ClipboardHistoryItem *_item;
   guint list_length;
+  guint n_texts = 0;
+  guint n_images = 0;
 
-  /* Pick up values */
-  switch (item->type)
+  /* Count initial items */
+  for (list = history->priv->items; list != NULL; list = list->next)
     {
-    case CLIPMAN_HISTORY_TYPE_TEXT:
-      list = history->priv->_texts;
-      max_items = history->priv->max_texts_in_history;
-      break;
-
-    case CLIPMAN_HISTORY_TYPE_IMAGE:
-      list = history->priv->_images;
-      max_items = history->priv->max_images_in_history;
-      break;
-
-    default:
-      g_assert_not_reached ();
+      _item = list->data;
+      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+        {
+          n_texts++;
+        }
+      else if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+        {
+          n_images++;
+        }
     }
 
-  /* Check if the history is full */
-  list_length = g_slist_length (list);
-  while (list_length >= max_items)
+  list_length = n_texts + n_images;
+
+  /* First truncate history to max_items (max_texts stands for the size of the history) */
+  while (list_length > history->priv->max_texts_in_history)
     {
       DBG ("Delete oldest content from the history");
-      last = g_slist_last (list);
-      __clipman_history_item_free (last->data);
-      history->priv->items = g_slist_remove (history->priv->items, last->data);
-      list = g_slist_delete_link (list, last);
+      list = g_slist_last (history->priv->items);
+      _item = list->data;
+
+      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+        {
+          n_texts--;
+        }
+      else if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+        {
+          n_images--;
+        }
       list_length--;
+
+      __clipman_history_item_free (_item);
+      history->priv->items = g_slist_remove (history->priv->items, _item);
     }
 
-  /* Add the new item to the history */
-  list = g_slist_prepend (list, item);
+  /* Free last image from history if max_images is reached, otherwise last item from history */
+  if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE && n_images >= history->priv->max_images_in_history)
+    {
+      while (n_images >= history->priv->max_images_in_history)
+        {
+          guint i = 1;
+
+          for (list = history->priv->items; list != NULL; list = list->next)
+            {
+              _item = list->data;
+
+              if (_item->type != CLIPMAN_HISTORY_TYPE_IMAGE)
+                continue;
+
+              i++;
+
+              if (i < n_images)
+                continue;
+
+              if (n_images >= history->priv->max_images_in_history)
+                {
+                  __clipman_history_item_free (_item);
+                  history->priv->items = g_slist_remove (history->priv->items, _item);
+                }
+              n_images--;
+
+              break;
+            }
+        }
+    }
+  else if (list_length == history->priv->max_texts_in_history)
+    {
+      list = g_slist_last (history->priv->items);
+      _item = list->data;
+      __clipman_history_item_free (_item);
+      history->priv->items = g_slist_remove (history->priv->items, _item);
+    }
+
+  /* Prepend item to start of the history */
   history->priv->items = g_slist_prepend (history->priv->items, item);
   history->priv->item_to_restore = item;
-
-  /* Update list pointer in private data */
-  switch (item->type)
-    {
-    case CLIPMAN_HISTORY_TYPE_TEXT:
-      history->priv->_texts = list;
-      break;
-
-    case CLIPMAN_HISTORY_TYPE_IMAGE:
-      history->priv->_images = list;
-      break;
-
-    default:
-      g_assert_not_reached ();
-    }
 
   /* Emit signal */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
@@ -191,6 +223,8 @@ __g_slist_compare_texts (gconstpointer a,
 {
   const ClipmanHistoryItem *item = a;
   const gchar *text = b;
+  if (item->type != CLIPMAN_HISTORY_TYPE_TEXT)
+    return -1;
   return g_ascii_strcasecmp (item->content.text, text);
 }
 
@@ -214,19 +248,18 @@ clipman_history_add_text (ClipmanHistory *history,
   gchar *tmp1, *tmp2;
   const gchar *offset;
   gint preview_length = 48;
-  GSList *link;
+  GSList *list;
 
   /* Search for a previously existing content */
-  link = g_slist_find_custom (history->priv->_texts, text, (GCompareFunc)__g_slist_compare_texts);
-  if (link != NULL)
+  list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
+  if (list != NULL)
     {
       DBG ("Found a previous occurence for text `%s'", text);
-      item = link->data;
+      item = list->data;
       if (history->priv->reorder_items)
         {
           __clipman_history_item_free (item);
-          history->priv->items = g_slist_remove (history->priv->items, link->data);
-          history->priv->_texts = g_slist_delete_link (history->priv->_texts, link);
+          history->priv->items = g_slist_remove (history->priv->items, list->data);
         }
       else
         {
@@ -362,20 +395,11 @@ clipman_history_clear (ClipmanHistory *history)
 
   DBG ("Clear the history");
 
-  for (list = history->priv->_texts; list != NULL; list = list->next)
+  for (list = history->priv->items; list != NULL; list = list->next)
     __clipman_history_item_free (list->data);
 
-  for (list = history->priv->_images; list != NULL; list = list->next)
-    __clipman_history_item_free (list->data);
-
-  g_slist_free (history->priv->_texts);
-  g_slist_free (history->priv->_images);
   g_slist_free (history->priv->items);
-
-  history->priv->_texts = NULL;
-  history->priv->_images = NULL;
   history->priv->items = NULL;
-
   history->priv->item_to_restore = NULL;
 
   g_signal_emit (history, signals[CLEAR], 0);
@@ -464,6 +488,9 @@ static void
 clipman_history_init (ClipmanHistory *history)
 {
   history->priv = GET_PRIVATE (history);
+  history->priv->item_to_restore = NULL;
+  history->priv->n_texts = 0;
+  history->priv->n_images = 0;
 }
 
 static void
