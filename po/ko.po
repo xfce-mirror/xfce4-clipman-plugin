@@ -279,7 +279,7 @@ msgstr "공헌자:"
 
 #: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce를 위한 클립보드 관리자"
+msgstr "Xfce 클립보드 관리자"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
