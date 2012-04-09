@@ -13,3 +13,5 @@ install-data-hook:
 		echo "***";						\
 	fi
 
+uninstall-local:
+	-rm $(datadir)/icons/hicolor/icon-theme.cache

@@ -1,6 +1,6 @@
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <daemon/daemon.h>
+#include <x11-clipboard-manager/daemon.h>
 
 int main (int argc, char *argv[])
 {
