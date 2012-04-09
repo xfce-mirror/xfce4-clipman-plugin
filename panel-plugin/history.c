@@ -102,7 +102,7 @@ _clipman_history_add_item (ClipmanHistory *history,
                            ClipmanHistoryItem *item)
 {
   GSList *list;
-  ClipboardHistoryItem *_item;
+  ClipmanHistoryItem *_item;
   guint list_length;
   guint n_texts = 0;
   guint n_images = 0;
