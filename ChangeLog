@@ -1,3 +1,54 @@
+2012-04-09	Mike Massonnet
+=== Release 1.2.3 ===
+
+2012-04-09	Mike Massonnet
+Fix typo s/ClipboardHistoryItem/ClipmanHistoryItem/
+
+2012-04-06	Mike Massonnet
+Fix 906099: Handle images and texts as one stack
+
+	Texts and images were still handled differently, and copying
+	new texts wouldn't remove old images. That's fixed.
+
+	Now max_texts_in_history is used as the length of the history.
+
+2012-03-15	Mike Massonnet
+Bug #8571: Fix height of history menu
+
+2012-03-15	Mike Massonnet
+Fix 1a5a2b: Add support for GTK 2.14
+
+2012-03-12	Mike Massonnet
+settings: Update online documentation URL
+
+2012-03-08	Mike Massonnet
+Bug #8307: Handle images and texts as one stack
+
+	The images and texts are handle in two lists, but the History class
+	returns a copy of a list named in intern "items" that is a copy of
+	the pointers from the images and texts lists.
+
+2012-03-06	Mike Massonnet
+Bug #8523: Added a checkbox "Don't ask again" to clear the history
+
+2012-03-05	 Mike Massonnet
+actions: Make sure configuration directory for actions exists
+
+2012-03-05	Mike Massonnet
+Update copyright years
+
+2012-03-04	Mike Massonnet
+Bug 8403: Include rows support from Xfce Panel 4.9
+
+2012-03-04	Mike Massonnet
+daemon: Rename directory daemon to x11-clipboard-manager
+
+2011-11-14	Mike Massonnet
+Bug 8147: Don't terminate gtk_message_dialog_new_with_markup with NULL
+
+2011-11-05	Mike Massonnet
+Bug 8106: Use g_return_val_if_fail instead of g_return_if_fail
+
 2011-11-01	Mike Massonnet
 === Release 1.2.2 ===
 

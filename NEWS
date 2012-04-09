@@ -1,3 +1,12 @@
+Version 1.2.3 - 2012-04-09
+
+- Use new online documentation location http://docs.xfce.org/
+- Bug 8307: Handle images and texts as one stack
+- Bug 8523: Added a checkbox "Don't ask again" to clear the history
+- Bug 8403: Include rows support from Xfce Panel 4.9
+- Bug 8147: Don't terminate gtk_message_dialog_new_with_markup with NULL
+- Bug 8106: Use g_return_val_if_fail instead of g_return_if_fail
+
 Version 1.2.2 - 2011-11-01
 
 - Update build environment.
