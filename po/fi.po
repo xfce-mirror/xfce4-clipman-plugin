@@ -2,17 +2,17 @@
 # Copyright (C) 2009 Mike Massonnet
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Copyright (C) 2009 Lassi Kojo.
-# Copyright (C) 2010 Jari Rahkonen.
+# Copyright (C) 2010-2012 Jari Rahkonen.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 1.0.0\n"
+"Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2010-10-17 00:22+0300\n"
+"POT-Creation-Date: 2012-04-12 14:24+0000\n"
+"PO-Revision-Date: 2012-04-12 17:53+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
-"Language: \n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,14 +22,14 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 msgid "Clipboard manager"
-msgstr "Leikepöytien hallintatyökalu"
+msgstr "Leikepöydän hallinta"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -67,17 +67,17 @@ msgstr "Xfce:n vikailmoitus"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:194
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Vaihto+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
 msgid "<b>Reset actions</b>"
@@ -114,7 +114,7 @@ msgstr "Ainoastaan käsin kopioitaessa"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Liitä automaattisesti valittu historian kohde"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -182,7 +182,7 @@ msgstr "Nimi:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "Avaa valikko _hiiren kohdalla"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -193,24 +193,26 @@ msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr ""
+"Näytä valikko hiiren osoittimen kohdalla, vain käskyllä xfce4-popup-clipman" 
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
+"Siirrä viimeksi kopioitu teksti historian ylimmäksi; helpottaa vanhojen "
+"kohteiden järjestämistä"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "Käännä historian järjestys"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
 msgstr "Säännöllinen lauseke"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
 msgid "Reverse order of the history shown in the menu"
-msgstr "Säilytä historia Xfce-istuntojen välillä"
+msgstr "Käännä valikossa näytettävän historian järjestys"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Save on _quit"
@@ -221,9 +223,8 @@ msgid "Size of the _history:"
 msgstr "Historian k_oko:"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
 msgid "Store last copied _image"
-msgstr "Tallenna _kuva"
+msgstr "Säilytä viimeksi kopioitu _kuva"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Sync _selections"
@@ -235,13 +236,15 @@ msgstr "Lauseke ympäröidään aina erikoismerkeillä ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "Hienosäätö"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
+"Kun valinta on tehty (hiirellä tai näppäimillä) ja Ctrl on yhä painettuna, "
+"vastaavien toimintojen ponnahdusvalikko ohitetaan" 
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -250,22 +253,21 @@ msgid ""
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
 msgstr ""
-"Korvausmerkinnät kuten \"\\1\" ja \"\\2\" korvataan löydetyillä "
-"vastaavuuksilla. Merkintä \"\\0\" korvataan koko tekstillä. Ohjeita "
-"sännöllisten lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen "
-"käyttöoppaasta."
+"Voit käyttää komennoissa korvausmerkinnät kuten \"\\1\" ja \"\\2\"."
+"Merkintä \"\\0\" korvataan koko tekstillä. Ohjeita säännöllisten "
+"lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen käyttöoppaasta."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Liitä heti:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr ""
+msgstr "_Järjestä historian kohteita"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "_Ohita toiminnot Ctrl-painikkeella"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -278,24 +280,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Haluatko varmasti tyhjentää historian?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Älä kysy uudelleen"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Leikepöytä on tyhjä"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
-msgstr ""
+msgstr "_Poista käytöstä"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Avustavat kehittäjät:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Leikepöytien hallinta Xfce:lle"
 
@@ -303,11 +309,8 @@ msgstr "Leikepöytien hallinta Xfce:lle"
 msgid "translator-credits"
 msgstr ""
 "Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
-"Jari Rahkonen <jari.rahkonen@pp1.inet.fi"
+"Jari Rahkonen <jari.rahkonen@pp1.inet.fi>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Asetusikkunaa ei voi avata"
-
-#~ msgid "Type here your custom text, for example an URL, a filename, etc."
-#~ msgstr "Kirjoita tähän mukautettua tekstiä, kuten URL, tiedostonimi tms."
