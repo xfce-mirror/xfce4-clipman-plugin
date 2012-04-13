@@ -44,8 +44,6 @@ struct _ClipmanHistoryPrivate
   const ClipmanHistoryItem     *item_to_restore;
   guint                         max_texts_in_history;
   guint                         max_images_in_history;
-  guint                         n_texts;
-  guint                         n_images;
   gboolean                      save_on_quit;
   gboolean                      reorder_items;
 };
@@ -489,8 +487,6 @@ clipman_history_init (ClipmanHistory *history)
 {
   history->priv = GET_PRIVATE (history);
   history->priv->item_to_restore = NULL;
-  history->priv->n_texts = 0;
-  history->priv->n_images = 0;
 }
 
 static void
