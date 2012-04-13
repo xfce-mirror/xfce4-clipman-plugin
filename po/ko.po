@@ -231,7 +231,7 @@ msgstr "선택이 끝났고(마우스 또는 키보드) Control 키가 계속 �
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "명령상에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 완전한 본문을 나타냅니다. 만약 정규표현식을 잘 모른다면  정규표현식을 소개한 Clipman의 문서를 보시기 바랍니다."
+msgstr "명령상에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 완전한 본문을 나타냅니다. 정규표현식을 잘 모른다면 정규표현식을 소개한 Clipman의 문서를 보시기 바랍니다."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
