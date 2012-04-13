@@ -207,7 +207,7 @@ msgstr "저장하고 나가기(_Q)"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Size of the _history:"
-msgstr "기록 크기(_H):"
+msgstr "기록 갯수(_H):"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Store last copied _image"
