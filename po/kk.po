@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-04-16 04:39+0000\n"
 "PO-Revision-Date: 2010-08-13 15:07+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
@@ -28,9 +28,9 @@ msgstr "Алмасу буферін басқарушысы"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -196,7 +196,9 @@ msgstr "Үлгі:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "xfce4-popup-clipman командасы үшін мәзірді тышқан курсоры тұрған жерінен көрсету"
+msgstr ""
+"xfce4-popup-clipman командасы үшін мәзірді тышқан курсоры тұрған жерінен "
+"көрсету"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
@@ -243,7 +245,10 @@ msgstr "Құлықтар"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Ерекшелеу аяқталған кезде (тышқан не пернетақтадан) Control батырмасы басулы күйінде болса, сәйкес келген әрекеттер үшін қалқымалы мәзір көрсетілмейтін болады."
+msgstr ""
+"Ерекшелеу аяқталған кезде (тышқан не пернетақтадан) Control батырмасы басулы "
+"күйінде болса, сәйкес келген әрекеттер үшін қалқымалы мәзір көрсетілмейтін "
+"болады."
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -279,24 +284,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Тарихты өшіруді шынымен қалайсыз ба?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Келесі рет сұрамау"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Алмасу буфері бос"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "Сө_ндіру"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Үлесін қосқандар:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce үшін алмасу буфері басқарушысы"
 
