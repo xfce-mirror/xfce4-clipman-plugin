@@ -119,7 +119,7 @@ msgstr "수동 복사할 때만 활성화"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
-msgstr "기록으로부터 선택한 항목을 자동으로 붙여넣기"
+msgstr "기록에서 선택한 항목을 자동으로 붙여넣기"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
