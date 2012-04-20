@@ -9,11 +9,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 20:42+0000\n"
+"Report-Msgid-Bugs-To: <xfce-i18n@xfce.org>\n"
+"POT-Creation-Date: 2012-04-20 06:24+0000\n"
 "PO-Revision-Date: 2009-12-13 20:25+0800\n"
 "Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
-"Language-Team: Chinese(Simplified) <xfce-i18n@xfce.org>\n"
+"Language-Team: Chinese(Simplified) <xfce-i18n-cn@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "剪贴板管理器"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:76
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
@@ -276,16 +276,16 @@ msgstr ""
 msgid "Are you sure you want to clear the history?"
 msgstr "您确定要清除历史吗？"
 
-#: ../panel-plugin/menu.c:203
+#: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
 msgstr "不再询问"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:300
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "剪贴板是空的"
 
-#: ../panel-plugin/menu.c:395
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "禁用(_D)"
 
