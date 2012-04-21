@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
+"POT-Creation-Date: 2012-04-20 23:39+0000\n"
 "PO-Revision-Date: 2009-07-23 19:30+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
@@ -28,9 +28,9 @@ msgstr "Vágólapkezelő"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -197,12 +197,16 @@ msgstr "Minta:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "A menü megjelenítése az egérmutató pozíciójánál, csak az xfce4-popup-clipman parancshoz"
+msgstr ""
+"A menü megjelenítése az egérmutató pozíciójánál, csak az xfce4-popup-clipman "
+"parancshoz"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Utoljára másolt szöveg előzmények tetejére helyezése, hasznos régi elemek átrendezéséhez"
+msgstr ""
+"Utoljára másolt szöveg előzmények tetejére helyezése, hasznos régi elemek "
+"átrendezéséhez"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -244,7 +248,9 @@ msgstr "Hangolások"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Ha a Ctrl billentyű le van nyomva a kijelölés (egérrel vagy billentyűzettel) befejezésekor, akkor a társított műveletek felugró menüje nem jelenik meg."
+msgstr ""
+"Ha a Ctrl billentyű le van nyomva a kijelölés (egérrel vagy billentyűzettel) "
+"befejezésekor, akkor a társított műveletek felugró menüje nem jelenik meg."
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -281,24 +287,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Biztosan törli az előzményeket?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Ne kérdezze újra"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "A vágólap üres"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_Letiltás"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Közreműködők:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Vágólapkezelő az Xfce-hez"
 
