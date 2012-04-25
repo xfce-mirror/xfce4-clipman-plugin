@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-13 21:03+0900\n"
-"PO-Revision-Date: 2012-04-13 21:10+0900\n"
+"PO-Revision-Date: 2012-04-25 20:37+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "Language: ja\n"
@@ -254,7 +254,7 @@ msgstr ""
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
-msgstr "履歴をクリアーしてもよろしいですか?"
+msgstr "履歴をクリアしてもよろしいですか?"
 
 #: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
