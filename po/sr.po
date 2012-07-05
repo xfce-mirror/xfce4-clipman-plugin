@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# salepetronije <salepetronije@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-19 06:24+0000\n"
+"PO-Revision-Date: 2012-07-05 08:27+0200\n"
+"Last-Translator: salepetronije <salepetronije@gmail.com>\n"
+"Language-Team: српски <xfce-i18n@xfce.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+msgid "Clipboard manager"
+msgstr "Управник исечака"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: ../panel-plugin/main-panel-plugin.c:72
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:336
+msgid "Clipman"
+msgstr "Секач"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Bugz"
+msgstr "Грешке"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "Уреди Гнуовим програмом за обраду слика"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "GNOME Bug"
+msgstr "Грешка Гнома"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Image"
+msgstr "Слика"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Long URL"
+msgstr "Породужи адресу"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "Shrink the URL"
+msgstr "Смањи адресу"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "View with Ristretto"
+msgstr "Прегледај Ристретом"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Xfce Bug"
+msgstr "Грешка ИксФЦЕ-а"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr "Ништа"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr "Ктрл+В"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr "Шифт+Унеси"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
+msgid "<b>Reset actions</b>"
+msgstr "<b>Врати поставке радње</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:519
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr ""
+"Да ли сте сигурни да желите да повратите поставке радњи на задате вредности "
+"система?"
+
+#: ../panel-plugin/settings-dialog.ui.h:1
+msgid "<b>Action</b>"
+msgstr "<b>Радња</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "<b>Behavior</b>"
+msgstr "<b>Понашање</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid "<b>Commands</b>"
+msgstr "<b>Наредбе</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>History</b>"
+msgstr "<b>Историјат</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Actions"
+msgstr "Радње"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "Activate only on manual copy"
+msgstr "Покрени само ручним умножавањем"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Automatically paste a selected item from the history"
+msgstr "Аутоматски налепи одабрану ставку из историјата"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+"По основи радња се покреће избором, означите ову могућност да покренете "
+"радњу само када радите ручно умножавање"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Command:"
+msgstr "Наредба:"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "Configure the plugin"
+msgstr "Подеси прикључак"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Edit Action"
+msgstr "Уредите радњу"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid "Enable _actions"
+msgstr "Омогући _радње"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "General"
+msgstr "Опште"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr ""
+"Уколико је означено, исечци текста ће бити упоређени са уобичајеним изразима "
+"а изборник ће приказати могуће радње"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr ""
+"Уколико је означено, избор ће бити усаглашен са основном оставом исечака на "
+"начин тако да ћете моћи да налепите оно што сте изабрали"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr ""
+"Уколико је означено, избор неће утицати на историјат осим на ручне умношке"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid "If checked, this option allows to store one image inside the history"
+msgstr ""
+"Уколико је означена, ова могућност дозвољава чување једне слике у историјату"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr ""
+"Уколико је означена, ова могућност ће повратити историјат на свакој новој "
+"сесији ИксФЦЕ-а"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "Ignore s_elections"
+msgstr "Занемари _изборе"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Name:"
+msgstr "Назив:"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "P_osition menu at mouse pointer"
+msgstr "П_остави изборник на показивач миша"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Pattern:"
+msgstr "Образац:"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr ""
+"Прикажи искачући изборник на положају показивача миша, само за наредбу "
+"„xfce4-popup-clipman“"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr ""
+"Гурни последњи умножени текст на врх историјата, корисно за промену "
+"распореда старих ставки"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Re_verse history order"
+msgstr "_Преокрени редослед историјата"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Regular expression"
+msgstr "Регуларан израз"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Reverse order of the history shown in the menu"
+msgstr "Преокрени распоред историјата приказан у изборнику"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Save on _quit"
+msgstr "Сачувај при _изласку"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Size of the _history:"
+msgstr "Величина _историјата:"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Store last copied _image"
+msgstr "Сачувај последњу умножену _слику"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Sync _selections"
+msgstr "Усагласи _изборе"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "Образац је увек усидрен између нарочитих знака ^$"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Tweaks"
+msgstr "Лицкања"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+"Када је избор одрађен (мишем или тастатуром) а тастер „контрол“ је још увек "
+"притиснут, искачући изборник за одговарајуће радње ће бити прескочен"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr ""
+"Можете користити параметре замене „\\1“, „\\2\", и тако даље, у наредбама. "
+"Параметар „\\0“ представља потпун текст. Уколико не знате регуларне изразе, "
+"погледајте документацију Секача која има увод о њима."
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Paste instantly:"
+msgstr "_Налепи тренутно:"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "_Reorder history items"
+msgstr "_Поново поређај ставке историјата"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "_Skip actions by holding Control"
+msgstr "_Прескочи радње држећи тастер „Ктрл“"
+
+#: ../panel-plugin/actions.c:370
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
+"Нисам успео да извршим наредбу „%s“\n"
+"\n"
+"%s"
+
+#: ../panel-plugin/menu.c:198
+msgid "Are you sure you want to clear the history?"
+msgstr "Да ли сте сигурни да желите да избришете историјат?"
+
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Не питај поново"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:304
+msgid "Clipboard is empty"
+msgstr "Остава исечака је празна"
+
+#: ../panel-plugin/menu.c:399
+msgid "_Disable"
+msgstr "_Онемогући"
+
+#: ../panel-plugin/plugin.c:324
+msgid "Contributors:"
+msgstr "Доприносиоци:"
+
+#: ../panel-plugin/plugin.c:338
+msgid "Clipboard Manager for Xfce"
+msgstr "Управник исечака за ИксФЦЕ"
+
+#: ../panel-plugin/plugin.c:346
+msgid "translator-credits"
+msgstr "Саша Петровић <salepetronije@gmail.com>"
+
+#: ../panel-plugin/plugin.c:360
+msgid "Unable to open the settings dialog"
+msgstr "Не могу да отворим прозорче подешавања"
