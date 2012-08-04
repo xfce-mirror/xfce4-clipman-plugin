@@ -311,7 +311,7 @@ msgstr "Το πρόχειρο είναι κενό"
 
 #: ../panel-plugin/menu.c:399
 msgid "_Disable"
-msgstr ""
+msgstr "Απενεργοποίηση"
 
 #: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
