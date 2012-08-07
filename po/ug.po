@@ -119,7 +119,7 @@ msgstr "تاللانغان تۈرنى ئىزدىن ئاپتوماتىك چاپل
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "كۆڭۈلدە تاللاش تاماملانغاندا مەشغۇلات ئېلىپ بېرىلىدۇ، بىراق بۇ تاللانما تاللانسا، پەقەت قولدا كۆچۈرگەندىلا مەشغۇلات ئېلىپ بېرىلىدۇ."
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -127,7 +127,7 @@ msgstr "بۇيرۇق:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
-msgstr "قىستۇرما تەڭشە"
+msgstr "قىستۇرما سەپلەش"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
@@ -177,7 +177,7 @@ msgstr "ئاتى:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "تىزىملىك چاشقىنەك بار ئورۇندا تۇرسۇن(_O)"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -187,12 +187,12 @@ msgstr "ئەندىزە:"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "بۇيرۇق xfce4-popup-clipman نى ئىجرا قىلغاندا تىزىملىكنى چاشقىنەك ئىسترېلكىسىنىڭ ئورنىدا سەكرىتىپ كۆرسىتىدۇ."
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "ئىزدا كۆچۈرگەن مەزمۇن بىلەن ئوخشاش مەزمۇن بولسا ئۇنى ئىزنىڭ ئەڭ بېشىغا يۆتكەيدۇ."
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -224,17 +224,17 @@ msgstr "تاللانغىنى بىلەن ماس قەدەملە(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "مەزكۇر ئەندىزىگە ئالاھىدە ھەرپ ^$ ھەمىشە قوللىنىلىدۇ"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr ""
+msgstr "تەپسىلاتلار"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "تاللاش تاماملانغاندا(چاشقىنەك ياكى ھەرپتاختىسى ئىشلىتىپ) Control كۇنۇپكىسى يەنىلا بېسىلىپ تۇرسا، ئىزدەش مەشغۇلاتىڭ سەكرىمە تىزىملىكى كۆرسىتىلمەيدۇ."
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
@@ -254,7 +254,7 @@ msgstr "ئىزلارنى قايتا تەرتىپلە(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "كۇنۇپكا Control بېسىلىپ تۇرغاندا مەشغۇلاتتىن ئۆتۈپ كەتسۇن(_S)"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -285,11 +285,11 @@ msgstr "تۆھپىكارلار:"
 
 #: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce دىكى چاپلاش تاختىسىنى باشقۇرغۇ"
+msgstr "ئېكس ف س ئې (Xfce) دىكى چاپلاش تاختىسىنى باشقۇرغۇ"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr "Gheyret T.Kenji <gheyret@gmail.com> 2010"
+msgstr "غەيرەت ت.كەنجى <gheyret@gmail.com>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
