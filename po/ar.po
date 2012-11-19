@@ -1,19 +1,20 @@
 # Mohammad Alhargan <malham1@hotmail.com>, 2012.
+# محمد الحرقان <malham1@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2012-02-04 09:38+0300\n"
-"Last-Translator: Mohammad Alhargan <malham1@hotmail.com>\n"
-"Language-Team: http://www.vertaal.com.ar/files/opensuse-11-4/ar/list/\n"
+"POT-Creation-Date: 2012-11-18 23:09+0000\n"
+"PO-Revision-Date: 2012-11-19 05:48+0300\n"
+"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
+"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.0\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Poedit-Language: Arabic\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
@@ -25,9 +26,9 @@ msgstr "مدير الحافظة"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
+#: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -37,7 +38,7 @@ msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "تحرير باستخدام جيمب"
+msgstr "تحرير باستخدام جمب"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
@@ -49,11 +50,11 @@ msgstr "صورة"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Long URL"
-msgstr "عنوان URL طويل"
+msgstr "المسار طويل"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "Shrink the URL"
-msgstr "تقليص URL"
+msgstr "تقليص المسار"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
@@ -119,7 +120,7 @@ msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr ""
-"بشكل افتراضي الإجراء بسبب التحديد، حدد هذا الخيار لتشغيل الإجراء فقط عندما "
+"بشكل افتراضي الإجراء بحسب التحديد، حدد هذا الخيار لتشغيل الإجراء فقط عندما "
 "تقوم بإجراء نسخة اليدوي"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
@@ -161,11 +162,11 @@ msgstr ""
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "إذا كان محدداً، التحديدات لن تؤثر على تاريخ ما عدا النسخ اليدوي"
+msgstr "إذا كان محدداً، التحديدات لن تؤثر على التاريخ ما عدا النسخ اليدوي"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "إذا كان محددا، يسمح هذا الخيار بتخزين صورة واحدة داخل تاريخ"
+msgstr "إذا كان محددا، يسمح هذا الخيار بتخزين صورة واحدة داخل التاريخ"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid ""
@@ -254,7 +255,7 @@ msgid ""
 msgstr ""
 "يمكنك استخدام المعلمات البديلة \"\\1\"، \"\\2\" وهكذا دواليك في الأوامر. المعلمة "
 "\"\\0\" تمثل النص الكامل. إذا كنت لا تعرف التعبيرات العادية، ألق نظرة على وثائق "
-"Clipman تحتوي عرض لها."
+"Clipman."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
@@ -279,30 +280,34 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "متأكد أنك تريد مسح المحفوظات؟"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "لا تسأل مرة أخرى"
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "الحافظة فارغة"
 
-#: ../panel-plugin/menu.c:360
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_عطّل"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "المساهمون:"
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "مدير حافظة اكسفيس"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr "محمد الحرقان <malham1@gmail.com>"
+msgstr "محمد الحرقان"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
