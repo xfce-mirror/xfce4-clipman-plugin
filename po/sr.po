@@ -6,16 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-19 06:24+0000\n"
+"POT-Creation-Date: 2013-02-01 10:03+0000\n"
 "PO-Revision-Date: 2012-07-05 08:27+0200\n"
 "Last-Translator: salepetronije <salepetronije@gmail.com>\n"
 "Language-Team: српски <xfce-i18n@xfce.org>\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -319,4 +318,4 @@ msgstr "Саша Петровић <salepetronije@gmail.com>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
-msgstr "Не могу да отворим прозорче подешавања"
+msgstr "Нисам успео отворим прозорче подешавања"
