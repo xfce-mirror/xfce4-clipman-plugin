@@ -244,8 +244,14 @@ msgstr "_Preskočite akcije držeći Control tipku"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
-msgid "Unable to execute the command \"%s\"\n"
-msgstr "Nije moguće izvršiti naredbu \"%s\"\n"
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
+"Nije moguće izvršiti naredbu \"%s\"\n"
+"\n"
+"%s"
 
 #: ../panel-plugin/menu.c:189
 msgid "Are you sure you want to clear the history?"
