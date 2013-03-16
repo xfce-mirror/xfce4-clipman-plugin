@@ -2,6 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
 # Ivica Kolić <ikoli@yahoo.com>, 2011.
+# Denis Štogl <denisstogl@gmail.com>, 2013.
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-28 15:59+0200\n"
 "PO-Revision-Date: 2011-10-31 17:46+0100\n"
-"Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
+"Last-Translator: Denis Štogl <denisstogl@gmail.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Bugz"
-msgstr ""
+msgstr "Pogreške"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
@@ -45,7 +46,7 @@ msgstr "Uredi pomoću Gimp-a"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "GNOME Bug"
-msgstr "GNOME Bug"
+msgstr "GNOME Pogreška"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Image"
@@ -65,7 +66,7 @@ msgstr "Pogledaj pomoću Ristretto-a"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Xfce Bug"
-msgstr "Xfce Bug"
+msgstr "Xfce Pogreška"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
@@ -111,7 +112,7 @@ msgstr "Akcije"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Aktiviraj samo pri ručnom kopiranju"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Automatically paste a selected item from the history"
@@ -119,7 +120,7 @@ msgstr "Automatski zalijepi odabranu stavku iz povijesti"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Zadano će se akcija pokrenuti pri označavanju teksta, označi ovu opciju ako želiš da se akcija pokrene samo pri ručnom kopiranju"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
@@ -127,7 +128,7 @@ msgstr "Naredba:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
-msgstr "Konfiguriraj priključak"
+msgstr "Konfiguriraj dodatak"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Edit Action"
@@ -143,23 +144,23 @@ msgstr "Osnovno"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr ""
+msgstr "Ako je označeno, tekst u međusremniku će biti uspoređen s regularnim izrazon i prikazat će se moguće akcije u meniju"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr ""
+msgstr "Ako je označeno, označeni tekst će biti sinkroniziran sa zadanim međuspremnikom na način da će se moći zaljepiti tekst koji je označen"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "Ako su označene,odabiri neće utjecati na povijest osim ručnih kopija"
+msgstr "Ako je označeno,odabiri neće utjecati na povijest osim ručnih kopija"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Ako je označena,ova opcija dopušta spremanje jedne slike unutar povijesti"
+msgstr "Ako je označeno, dopušteno je spremanje jedne slike unutar povijesti"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "Ako je označeno, povijest međuspremnika će biti vraćena pri start nove Xfce sesije"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -171,7 +172,7 @@ msgstr "Ime:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "O_tvori meni na mjestu pokazivača miša"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Pattern:"
@@ -179,7 +180,7 @@ msgstr "Uzorak:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
-msgstr ""
+msgstr "Otvori skočni meni na mjestu pokazivača miša, samo za xfce4-popup-clipman naredbu"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Push last copied text to the top of the history, useful to reorder old items"
@@ -191,7 +192,7 @@ msgstr "Ob_rnuti redoslijed povijesti"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Regular expression"
-msgstr ""
+msgstr "Regularni izraz"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Reverse order of the history shown in the menu"
@@ -215,7 +216,7 @@ msgstr "Uskladi _odabire"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Uzorak je uvijek usidren između posebnih znakova ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
@@ -223,11 +224,11 @@ msgstr "Ugađanja"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Kada je tekst označen (mišem ili tipkovnicom) i pritisnuta je Control tipka, skočni meni za odgovarajuće akcije bit će preskočen"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr ""
+msgstr "U naredbama možete korisiti parametre zamjene \"\\1\", \"\\2\" itd. Parametar \"\\0\" predstavlja cijeli tekst. Ukoliko ne poznajete regularne izraze pogledaje dokumentaciju Clipman dodatka gdje možete naći uvod u regularne izraze."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
@@ -271,11 +272,11 @@ msgstr "Suradnici:"
 
 #: ../panel-plugin/plugin.c:337
 msgid "Clipboard Manager for Xfce"
-msgstr ""
+msgstr "Upravitelj međuspremnikom za Xfce"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr "Ivica Kolić <ikoli@yahoo.com>"
+msgstr "Ivica Kolić <ikoli@yahoo.com> \n Denis Štogl <denisstogl@gmail.com>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
