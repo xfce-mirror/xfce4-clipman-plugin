@@ -1,7 +1,7 @@
-# Japanese translation of the xfce4-clipman-plugin package.
+# Korean translation of the xfce4-clipman-plugin package.
 # Copyright (C) 2005-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012, 2013.
 #
 # Please write your name and e-mail into "translator-credits" if you update this translation script.
 #
@@ -147,15 +147,15 @@ msgstr "일반"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
-msgstr "이것을 표시하면 클립보드 텍스트를 정규 표현식을 대상으로 비교하며 가능한 동작을 메뉴에 보여줄 것입니다"
+msgstr "이것을 표시하면 클립보드 텍스트를 정규 표현식을 대상으로 비교하며 가능한 동작을 메뉴에 보여줍니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
-msgstr "이것을 표시하면 선택한 항목을 선택하여 붙일 수 있도록 기본 클립보드와 동기화 할 것입니다"
+msgstr "이것을 표시하면 선택한 항목을 선택하여 붙일 수 있도록 기본 클립보드와 동기화 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "If checked, the selections won't affect the history except the manual copies"
-msgstr "이것을 표시하면 수동 복사를 제외한 모든 기록에 선택에 대한 영향을 주지 않을 것입니다. "
+msgstr "이것을 표시하면 수동 복사를 제외한 모든 기록에 선택에 대한 영향을 주지 않습니다. "
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "If checked, this option allows to store one image inside the history"
@@ -163,7 +163,7 @@ msgstr "이것을 표시하면 기록 안에 그림을 저장할 수 있도록 �
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "If checked, this option will restore the history on every new Xfce session"
-msgstr "이것을 표시하면 새로 Xfce 세션을 시작할 때마다 기록을 복원할 것입니다"
+msgstr "이것을 표시하면 새로 Xfce 세션을 시작할 때마다 기록을 복원합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Ignore s_elections"
@@ -219,7 +219,7 @@ msgstr "선택 항목 동기화(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "패턴은 언제나 특수문자 ^$에 연결될 것입니다"
+msgstr "패턴은 언제나 특수문자 ^$에 연결됩니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
@@ -227,11 +227,11 @@ msgstr "기능향상"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
-msgstr "선택이 끝났고(마우스 또는 키보드) Control 키가 계속 눌려져 있다면, 적절한 동작에 대한 단축 메뉴를 띄우지 않을 것입니다"
+msgstr "선택이 끝났고(마우스 또는 키보드) Control 키가 계속 눌려져 있다면, 적절한 동작에 대한 단축 메뉴를 띄우지 않습니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introdution for them."
-msgstr "명령상에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 완전한 본문을 나타냅니다. 정규표현식을 잘 모른다면 정규표현식을 소개한 Clipman의 문서를 보시기 바랍니다."
+msgstr "명령상에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 완전한 본문을 나타냅니다. 정규표현식을 잘 모른다면 정규표현식을 소개한 Clipman의 문서를 보십시오."
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "_Paste instantly:"
