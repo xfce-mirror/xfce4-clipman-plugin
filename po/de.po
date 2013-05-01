@@ -4,19 +4,19 @@
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006.
 # Fabian Nowak <timystery@arcor.de>, 2007, 2009.
 # Simon Schneider <simon@schneiderimtal.de>, 2009
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 02:30+0000\n"
+"POT-Creation-Date: 2013-05-01 08:06+0000\n"
 "PO-Revision-Date: 2009-07-04 07:43+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <xfce-i18n@xfce.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
@@ -28,7 +28,7 @@ msgstr "Verwaltung der Zwischenablagen"
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:76
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
@@ -250,7 +250,7 @@ msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« veranker
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Tweaks"
-msgstr "Feineinstellungnen"
+msgstr "Feineinstellungen"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
@@ -299,16 +299,16 @@ msgstr ""
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
-#: ../panel-plugin/menu.c:203
+#: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
 msgstr "Nicht erneut nachfragen"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:300
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
-#: ../panel-plugin/menu.c:395
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_Deaktivieren"
 
