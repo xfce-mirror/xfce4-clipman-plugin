@@ -115,6 +115,7 @@ xfce4_clipman_LDADD =							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
 	@XFCONF_LIBS@							\
+	@QRENCODE_LIBS@							\
 	$(NULL)
 
 #
@@ -169,6 +170,7 @@ libclipman_la_LIBADD =							\
 	@LIBXFCE4UI_LIBS@						\
 	@LIBXFCE4PANEL_LIBS@						\
 	@XFCONF_LIBS@							\
+	@QRENCODE_LIBS@
 	$(NULL)
 
 #

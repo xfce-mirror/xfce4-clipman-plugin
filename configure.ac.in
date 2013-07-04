@@ -81,6 +81,16 @@ else
 	enable_unique=no
 fi
 
+dnl *****************************
+dnl *** Check for libqrencode ***
+dnl *****************************
+XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [3.3.0], libqrencode, [QR Code support])
+if test x"$QRENCODE_FOUND" = x"yes"; then
+	enable_qrencode=yes
+else
+	enable_qrencode=no
+fi
+
 dnl *******************************
 dnl *** Check for documentation ***
 dnl *******************************
@@ -148,6 +158,7 @@ echo "Build Configuration:"
 echo
 echo "    * Debug Support:    $enable_debug"
 echo "    * Unique:           $enable_unique"
+echo "    * QR Code:          $enable_qrencode"
 echo
 if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
 echo "Enable Documentation: $enable_gen_doc"

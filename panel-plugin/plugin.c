@@ -113,6 +113,10 @@ plugin_register (void)
 
   /* ClipmanMenu */
   plugin->menu = clipman_menu_new ();
+#ifdef HAVE_QRENCODE
+  xfconf_g_property_bind (plugin->channel, "/settings/show-qr-code",
+                          G_TYPE_BOOLEAN, plugin->menu, "show-qr-code");
+#endif
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
   xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
@@ -321,6 +325,7 @@ plugin_about (MyPlugin *plugin)
                              "",
                              _("Contributors:"),
                              "(c) 2008-2009 David Collins",
+			     "(c) 2013 Christian Hesse",
                              NULL, };
   const gchar *documenters[] = { "Mike Massonnet", NULL, };
   const gchar *license =

@@ -28,6 +28,10 @@
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 
+#ifdef HAVE_QRENCODE
+#include <qrencode.h>
+#endif
+
 #include "common.h"
 #include "collector.h"
 #include "history.h"
@@ -48,6 +52,9 @@ struct _ClipmanMenuPrivate
   ClipmanHistory       *history;
   GSList               *list;
   gboolean              reverse_order;
+#ifdef HAVE_QRENCODE
+  gboolean              show_qr_code;
+#endif
   guint                 paste_on_activate;
   gboolean              never_confirm_history_clear;
 };
@@ -55,6 +62,9 @@ struct _ClipmanMenuPrivate
 enum
 {
   REVERSE_ORDER = 1,
+#ifdef HAVE_QRENCODE
+  SHOW_QR_CODE,
+#endif
   PASTE_ON_ACTIVATE,
   NEVER_CONFIRM_HISTORY_CLEAR,
 };
@@ -68,6 +78,10 @@ static void             clipman_menu_get_property       (GObject *object,
                                                          guint property_id,
                                                          GValue *value,
                                                          GParamSpec *pspec);
+#ifdef HAVE_QRENCODE
+GdkPixbuf *             clipman_menu_qrcode             (char *text);
+#endif
+
 
 /*
  * Private methods declarations
@@ -79,6 +93,10 @@ static void            _clipman_menu_free_list          (ClipmanMenu *menu);
  * Callbacks declarations
  */
 
+#ifdef HAVE_QRENCODE
+static void		cb_set_qrcode                   (GtkMenuItem *mi,
+                                                         const GdkPixbuf *pixbuf);
+#endif
 static void             cb_set_clipboard                (GtkMenuItem *mi,
                                                          const ClipmanHistoryItem *item);
 static void             cb_clear_history                (ClipmanMenu *menu);
@@ -88,6 +106,28 @@ static void             cb_clear_history                (ClipmanMenu *menu);
 /*
  * Callbacks
  */
+
+#ifdef HAVE_QRENCODE
+static void
+cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
+{
+  GtkClipboard *clipboard;
+  ClipmanCollector *collector;
+  ClipmanHistory *history;
+
+  collector = clipman_collector_get ();
+  clipman_collector_set_is_restoring (collector);
+  g_object_unref (collector);
+
+  history = clipman_history_get ();
+  clipman_history_add_image (history, pixbuf);
+
+  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  gtk_clipboard_set_image (clipboard, GDK_PIXBUF (pixbuf));
+
+  g_object_unref (history);
+}
+#endif
 
 static void
 cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
@@ -235,6 +275,9 @@ static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
   GtkWidget *mi, *image;
+#ifdef HAVE_QRENCODE
+  GdkPixbuf *pixbuf;
+#endif
   ClipmanHistoryItem *item;
   const ClipmanHistoryItem *item_to_restore;
   GSList *list, *l;
@@ -286,6 +329,37 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
       gtk_widget_show_all (mi);
     }
+
+#ifdef HAVE_QRENCODE
+  /* Draw QR Code if clipboard content is text */
+  if (menu->priv->show_qr_code && item_to_restore && item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT)
+    {
+      mi = gtk_separator_menu_item_new ();
+      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
+      gtk_widget_show_all (mi);
+
+      if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text)) != NULL)
+        {
+          mi = gtk_image_menu_item_new ();
+          gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_pixbuf (pixbuf));
+          g_signal_connect (mi, "activate", G_CALLBACK (cb_set_qrcode), pixbuf);
+          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
+          gtk_widget_show_all (mi);
+	  g_object_unref(pixbuf);
+        }
+      else
+        {
+          mi = gtk_menu_item_new_with_label (_("Could not generate QR-Code."));
+          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
+          gtk_widget_set_sensitive (mi, FALSE);
+          gtk_widget_show (mi);
+        }
+    }
+#endif
+
   g_slist_free (list);
 
   if (pos == 0)
@@ -346,6 +420,15 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "Set to TRUE to display the menu in the reverse order",
                                                          FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+#ifdef HAVE_QRENCODE
+  g_object_class_install_property (object_class, SHOW_QR_CODE,
+                                   g_param_spec_boolean ("show-qr-code",
+                                                         "ShowQrCode",
+                                                         "Set to TRUE to display QR-Code in the menu",
+                                                         FALSE,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+#endif
 
   g_object_class_install_property (object_class, PASTE_ON_ACTIVATE,
                                    g_param_spec_uint ("paste-on-activate",
@@ -408,6 +491,12 @@ clipman_menu_set_property (GObject *object,
       priv->reverse_order = g_value_get_boolean (value);
       break;
 
+#ifdef HAVE_QRENCODE
+    case SHOW_QR_CODE:
+      priv->show_qr_code = g_value_get_boolean (value);
+      break;
+#endif
+
     case PASTE_ON_ACTIVATE:
       priv->paste_on_activate = g_value_get_uint (value);
       break;
@@ -448,3 +537,42 @@ clipman_menu_get_property (GObject *object,
     }
 }
 
+#ifdef HAVE_QRENCODE
+GdkPixbuf *
+clipman_menu_qrcode (char *text)
+{
+	QRcode *qrcode;
+	GdkPixbuf *pixbuf, *pixbuf_scaled;
+	int i, j, k, rowstride, channels;
+	guchar *pixel;
+	unsigned char *data;
+	
+	qrcode = QRcode_encodeString8bit(text, 0, QR_ECLEVEL_L);
+
+	if (qrcode == NULL)
+		return NULL;
+
+	data = qrcode->data;
+
+	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, qrcode->width + 2, qrcode->width + 2);
+
+	pixel = gdk_pixbuf_get_pixels (pixbuf);
+	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+	channels = gdk_pixbuf_get_n_channels (pixbuf);
+
+	gdk_pixbuf_fill(pixbuf, 0xffffffff);
+	for (i = 1; i <= qrcode->width; i++)
+		for (j = 1; j <= qrcode->width; j++) {
+			for (k = 0; k < channels; k++)
+				pixel[i * rowstride + j * channels + k] = !(*data & 0x1) * 0xff;
+			data++;
+		}
+
+	pixbuf_scaled = gdk_pixbuf_scale_simple (pixbuf, (qrcode->width + 2) * 3, (qrcode->width + 2) * 3, GDK_INTERP_NEAREST);
+
+	QRcode_free(qrcode);
+	g_object_unref(pixbuf);
+	
+	return pixbuf_scaled;
+}
+#endif

@@ -87,6 +87,12 @@ prop_dialog_run (void)
   /* General settings */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
+#ifdef HAVE_QRENCODE
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "show-qr-code")),
+                                DEFAULT_SHOW_QR_CODE);
+#else
+  gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
+#endif
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "history-ignore-selections")),
                                 DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
@@ -98,6 +104,10 @@ prop_dialog_run (void)
 
   xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "add-selections"), "active");
+#ifdef HAVE_QRENCODE
+  xfconf_g_property_bind (xfconf_channel, "/settings/show-qr-code", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "show-qr-code"), "active");
+#endif
   xfconf_g_property_bind (xfconf_channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "history-ignore-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
