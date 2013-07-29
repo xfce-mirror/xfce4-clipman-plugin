@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# k3lt01 <keltoiboy@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-07-29 08:38+0000\n"
+"Last-Translator: k3lt01 <keltoiboy@gmail.com>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/projects/p/xfce/language/en_AU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_AU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+#: ../panel-plugin/main-panel-plugin.c:72
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:336
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Clipboard manager"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Image"
+msgstr "Image"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "Edit with Gimp"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "View with Ristretto"
+msgstr "View with Ristretto"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Bugz"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Xfce Bug"
+msgstr "Xfce Bug"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "GNOME Bug"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Long URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Shrink the URL"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:190
+msgid "None"
+msgstr "None"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:192
+msgid "Ctrl+V"
+msgstr "Ctrl+V"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:194
+msgid "Shift+Insert"
+msgstr "Shift+Insert"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:517
+msgid "<b>Reset actions</b>"
+msgstr "<b>Reset actions</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:519
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Are you sure you want to reset the actions to the system default values?"
+
+#: ../panel-plugin/settings-dialog.ui.h:1
+msgid "Configure the plugin"
+msgstr "Configure the plugin"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "Sync _selections"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "If checked, the selections will be synced with the default clipboard in a way that you can paste what you select"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>Behavior</b>"
+msgstr "<b>Behaviour</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Save on _quit"
+msgstr "Save on _quit"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "If checked, this option will restore the history on every new Xfce session"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Store last copied _image"
+msgstr "Store last copied _image"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "If checked, this option allows to store one image inside the history"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Ignore s_elections"
+msgstr "Ignore s_elections"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "If checked, the selections won't affect the history except the manual copies"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Size of the _history:"
+msgstr "Size of the _history:"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid "<b>History</b>"
+msgstr "<b>History</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "General"
+msgstr "General"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "Enable _actions"
+msgstr "Enable _actions"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Actions"
+msgstr "Actions"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid "Automatically paste a selected item from the history"
+msgstr "Automatically paste a selected item from the history"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "_Paste instantly:"
+msgstr "_Paste instantly:"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "P_osition menu at mouse pointer"
+msgstr "P_osition menu at mouse pointer"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr "_Reorder history items"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Push last copied text to the top of the history, useful to reorder old items"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Re_verse history order"
+msgstr "Re_verse history order"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Reverse order of the history shown in the menu"
+msgstr "Reverse order of the history shown in the menu"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr "_Skip actions by holding Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Tweaks"
+msgstr "Tweaks"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Edit Action"
+msgstr "Edit Action"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the commands. The parameter \"\\0\" represents the complete text. If you don't know regular expressions, have a look at the documentation of Clipman that has an introduction for them."
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Name:"
+msgstr "Name:"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Pattern:"
+msgstr "Pattern:"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "The pattern is always anchored within the special characters ^$"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Activate only on manual copy"
+msgstr "Activate only on manual copy"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "By default the action is triggered by a selection, check this option to trigger the action only when you make a manual copy"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "<b>Action</b>"
+msgstr "<b>Action</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "Command:"
+msgstr "Command:"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "<b>Commands</b>"
+msgstr "<b>Commands</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "Regular expression"
+msgstr "Regular expression"
+
+#: ../panel-plugin/actions.c:370
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr "Unable to execute the command \"%s\"\n\n%s"
+
+#: ../panel-plugin/menu.c:198
+msgid "Are you sure you want to clear the history?"
+msgstr "Are you sure you want to clear the history?"
+
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr "Don't ask again"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:304
+msgid "Clipboard is empty"
+msgstr "Clipboard is empty"
+
+#: ../panel-plugin/menu.c:399
+msgid "_Disable"
+msgstr "_Disable"
+
+#: ../panel-plugin/plugin.c:324
+msgid "Contributors:"
+msgstr "Contributors:"
+
+#: ../panel-plugin/plugin.c:338
+msgid "Clipboard Manager for Xfce"
+msgstr "Clipboard Manager for Xfce"
+
+#: ../panel-plugin/plugin.c:346
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: ../panel-plugin/plugin.c:360
+msgid "Unable to open the settings dialog"
+msgstr "Unable to open the settings dialog"
