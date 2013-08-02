@@ -1,72 +1,74 @@
-# Clipman plugin Turkish translation.
-# Copyright (C) 2009
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Samed Beyribey <ras0ir@eventualis.org>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Necdet Yücel <necdetyucel@gmail.com>, 2013
+# Samed Beyribey <ras0ir@eventualis.org>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.9.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 17:09+0000\n"
-"PO-Revision-Date: 2009-07-06 11:23+0200\n"
-"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
-"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-08-02 13:27+0000\n"
+"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Pano yöneticisi"
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Pano yöneticisi"
+
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Hatalar"
+msgid "Image"
+msgstr "Resim"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Gimp ile Düzenle"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "GNOME Hatası"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Resim"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "Uzun URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "URL'yi kısalt"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Ristretto ile görüntüle"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Hatalar"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Xfce Hatası"
 
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "GNOME Hatası"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Uzun URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "URL'yi kısalt"
+
 #: ../panel-plugin/xfce4-clipman-settings.c:190
-#, fuzzy
 msgid "None"
-msgstr "Hiç"
+msgstr "Hiçbiri"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:192
@@ -85,200 +87,176 @@ msgstr "<b>Eylemleri sıfırla</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:519
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr ""
-"Eylemleri sistem varsayılan değerlerine sıfırlamak istediğinizden emin "
-"misiniz?"
+msgstr "Eylemleri sistem varsayılan değerlerine sıfırlamak istediğinizden emin misiniz?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Eylem</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "<b>Behavior</b>"
-msgstr "<b>Davranış</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Komutlar</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>Geçmiş</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Eylemler"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Sadece elle kopyalamada etkinleştir"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-#, fuzzy
-msgid "Automatically paste a selected item from the history"
-msgstr "Geçmişten seçilmiş öğeyi otomatik olarak yapıştır"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Öntanımlı olarak işlem seçim ile başlatılır, elle kopyalama yaptığınızda "
-"işlemi başlatmak için bu seçeneği işaretleyin"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Komut:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Eklentiyi yapılandır"
 
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "_Seçimi senkronize et"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere öntanımlı pano ile senkronize edilir "
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>Behavior</b>"
+msgstr "<b>Davranış</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Save on _quit"
+msgstr "Çıkışta _kaydet"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son kullanıldığı şekilde göstermektedir."
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Store last copied _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün kılar"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Ignore s_elections"
+msgstr "Seçimleri yoksay"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi etkilemeyecektir"
+
 #: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Eylemi Düzenle"
+msgid "Size of the _history:"
+msgstr "Geçmiş _boyutu:"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "Eylemleri etkinleş_tir"
+msgid "<b>History</b>"
+msgstr "<b>Geçmiş</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Genel"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve "
-"menüde kullanılabilir işlemler gösterilecektir"
+msgid "Enable _actions"
+msgstr "Eylemleri etkinleş_tir"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere "
-"öntanımlı pano ile senkronize edilir "
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve menüde kullanılabilir işlemler gösterilecektir"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi "
-"etkilemeyecektir"
+msgid "Actions"
+msgstr "Eylemler"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
+msgid "Automatically paste a selected item from the history"
 msgstr ""
-"Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün "
-"kılar"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "_Paste instantly:"
 msgstr ""
-"Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son "
-"kullanıldığı şekilde göstermektedir."
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Ignore s_elections"
-msgstr "Seçimleri yoksay"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "İsim:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Desen:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
 msgstr "Geçmiş sırasını _tersine çevir"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr "Düzenli ifadeler"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Reverse order of the history shown in the menu"
 msgstr ""
-"Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son "
-"kullanıldığı şekilde göstermektedir."
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Tweaks"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "Çıkışta _kaydet"
+msgid "Edit Action"
+msgstr "Eylemi Düzenle"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Geçmiş _boyutu:"
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu inceleyebilirsiniz. "
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
-msgid "Store last copied _image"
-msgstr "Res_im sakla"
+msgid "Name:"
+msgstr "İsim:"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "_Seçimi senkronize et"
+msgid "Pattern:"
+msgstr "Desen:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr ""
+msgid "Activate only on manual copy"
+msgstr "Sadece elle kopyalamada etkinleştir"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Öntanımlı olarak işlem seçim ile başlatılır, elle kopyalama yaptığınızda işlemi başlatmak için bu seçeneği işaretleyin"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri "
-"kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer "
-"düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu "
-"inceleyebilirsiniz. "
+msgid "<b>Action</b>"
+msgstr "<b>Eylem</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr ""
+msgid "Command:"
+msgstr "Komut:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
-msgid "_Reorder history items"
-msgstr "Pano geçmiş öğeleri:"
+msgid "<b>Commands</b>"
+msgstr "<b>Komutlar</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr ""
+msgid "Regular expression"
+msgstr "Düzenli ifadeler"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -286,10 +264,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Verilen komut \"%s\" çalıştırılamadı\n"
-"\n"
-"%s"
+msgstr "Verilen komut \"%s\" çalıştırılamadı\n\n%s"
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
@@ -305,9 +280,8 @@ msgid "Clipboard is empty"
 msgstr "Pano boş"
 
 #: ../panel-plugin/menu.c:399
-#, fuzzy
 msgid "_Disable"
-msgstr "_Etkinleştir"
+msgstr "_Etkisizleştir"
 
 #: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
@@ -324,80 +298,3 @@ msgstr "Samed Beyribey"
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Ayarlar menüsü açılamadı"
-
-#~ msgid "E_xclude from history"
-#~ msgstr "Geçmişe dahil et_me"
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "Pano yöneticisini otomatik çalıştır"
-
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr ""
-#~ "Pano yöneticisini sonraki girişinizde yeniden başlatmak ister misiniz?"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "Pano yöneticisinin otomatik olarak çalıştırılmasını ister misiniz?"
-
-#~ msgid "Authors of previous versions:"
-#~ msgstr "Geçmiş sürüm yöneticileri:"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "Çalışan bir pano yöneticisi zaten mevcut"
-
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Eğer seçilmişse, seçimler geçmiş kayıtlarına yazılacaktır. Bu davranış "
-#~ "geçmiş kayıtlarını  okunamaz yapabilir, ancak yapıştırmak istediğiniz "
-#~ "seçim konusunda yardımcı olabilir. "
-
-#~ msgid "Regex:"
-#~ msgstr "Düzenli İfade:"
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Pano içeriğini _çıkışta kaydet"
-
-#~ msgid "A_dd selections to the history"
-#~ msgstr "Seçilenleri geçmiş_e ekle"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Öğe numaralarını göster"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Genel</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Menü öğe karakterleri:"
-
-#~ msgid "Clear History"
-#~ msgstr "Geçmişi temizle"
-
-#~ msgid "Clipman History"
-#~ msgstr "Clipman Geçmişi"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "Panonun boşalmasını engelle"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "Normal pano _yönetimi"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Panoları harfi harfine ayır"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Panoları _ayır"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Menü Görünümü</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Görünüm"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Öntanımlı Geçmiş Boş >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Seçim Geçmişi Boş >"
