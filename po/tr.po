@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2013-08-02 13:27+0000\n"
+"PO-Revision-Date: 2013-09-11 13:02+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtları
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Store last copied _image"
-msgstr ""
+msgstr "Son _kopyalanan görüntüyü sakla"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "If checked, this option allows to store one image inside the history"
@@ -161,30 +161,30 @@ msgstr "Eylemler"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid "Automatically paste a selected item from the history"
-msgstr ""
+msgstr "Geçmişten bir nesne seçildiğinde otomatik olarak yapıştır"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Anında yapıştır:"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "Menüyü imlece göre konumlandır"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Sadece xfce4-popup-clipman komutu için imlecin bulunduğu konumda menüyü aç"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "_Reorder history items"
-msgstr ""
+msgstr "Geçmiş nesnelerini _yeniden sırala"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Son kopyalanan metni geçmişin en üstüne taşı, eski nesneleri yeniden sıralamak için kolaylık sağlar"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
@@ -192,7 +192,7 @@ msgstr "Geçmiş sırasını _tersine çevir"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
+msgstr "Menüde gösterilen geçmişi tersine diz"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Skip actions by holding Control"
