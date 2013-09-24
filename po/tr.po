@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2013-09-13 21:37+0000\n"
+"PO-Revision-Date: 2013-09-24 00:30+0000\n"
 "Last-Translator: Fatih Erdem <93.fatiherdem@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr "Menüde gösterilen geçmişi tersine diz"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "Control tuşuna basılı tutarak eylemleri _atla"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
@@ -231,7 +231,7 @@ msgstr "Desen:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Desen daima ^$ özel karakterleri arasında yer alır"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Activate only on manual copy"
