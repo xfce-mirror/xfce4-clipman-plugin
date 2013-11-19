@@ -1,65 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-07-13 19:54+0100\n"
-"Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
-"Language-Team: Asturian <alministradores@softastur.org>\n"
-"Language: ast\n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-11-19 16:28+0000\n"
+"Last-Translator: Nick <nick@xfce.org>\n"
+"Language-Team: Asturian (http://www.transifex.com/projects/p/xfce/language/ast/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: ast\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Xestor de cartafueyu"
+#: ../panel-plugin/main-panel-plugin.c:72
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:336
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard manager"
+msgstr "Xestor de cartafueyu"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Fallos"
+msgid "Image"
+msgstr "Imaxe"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Editar con GIMP"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "Fallu de GNOME"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Imaxe"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "URL llarga"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "Acurtiar la URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Ver con Ristretto"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Fallos"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Fallu de Xfce"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "Fallu de GNOME"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "URL llarga"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Acurtiar la URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
@@ -76,204 +79,181 @@ msgid "Shift+Insert"
 msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.c:517
-#, fuzzy
 msgid "<b>Reset actions</b>"
-msgstr "<b>Aición</b>"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.c:519
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "¿Ta seguru de querer desaniciar esti clip del historial?"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Aición</b>"
+msgid "Configure the plugin"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "Sincronizar les _seleiciones"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Si ta activáu, sincronizaránse les seleiciones col cartafueyu por defeutu de mou que puedas apegar lo qu'escoyiste"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "<b>Behavior</b>"
 msgstr "<b>Comportamientu</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Comandos</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>Hestorial</b>"
-
 #: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Aiciones"
+msgid "Save on _quit"
+msgstr "Guardar al _colar"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Activar namái copia manual"
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Si ta activáu, esta opción restablecerá l'hestorial en cada nueva sesión de Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
+msgid "Store last copied _image"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Por defeutu l'aición ye activada por una Escoyeta, marca esta opción "
-"p'activar l'aición namái cuando se fai una copia manual"
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Si ta activáu, esta opción permítete atroxar una imaxe nel hestorial"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Comandu:"
+msgid "Ignore s_elections"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:10
-#, fuzzy
-msgid "Configure the plugin"
-msgstr "Configurar el complementu"
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Si ta activáu, la Escoyeta nun afeutará l'hestorial, esceutu les copies manuales"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Editar aición"
+msgid "Size of the _history:"
+msgstr "Tamañu del _hestorial:"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "Activar _aiciones"
+msgid "<b>History</b>"
+msgstr "<b>Hestorial</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Xeneral"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Si ta activáu, los testos del cartafueyu compararánse con espresiones "
-"regulares y un menú amosará les aiciones posibles"
+msgid "Enable _actions"
+msgstr "Activar _aiciones"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Si ta activáu, sincronizaránse les seleiciones col cartafueyu por defeutu de "
-"mou que puedas apegar lo qu'escoyiste"
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Si ta activáu, los testos del cartafueyu compararánse con espresiones regulares y un menú amosará les aiciones posibles"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Si ta activáu, la Escoyeta nun afeutará l'hestorial, esceutu les copies "
-"manuales"
+msgid "Actions"
+msgstr "Aiciones"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si ta activáu, esta opción permítete atroxar una imaxe nel hestorial"
+msgid "Automatically paste a selected item from the history"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
+msgid "_Paste instantly:"
 msgstr ""
-"Si ta activáu, esta opción restablecerá l'hestorial en cada nueva sesión de "
-"Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-#, fuzzy
-msgid "Ignore s_elections"
-msgstr "Sincronizar les _seleiciones"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "Nome:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Patrón:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
 msgstr ""
 
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Reverse order of the history shown in the menu"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr ""
+
 #: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-#, fuzzy
-msgid "Reverse order of the history shown in the menu"
+msgid "Tweaks"
 msgstr ""
-"Si ta activáu, esta opción restablecerá l'hestorial en cada nueva sesión de "
-"Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "Guardar al _colar"
+msgid "Edit Action"
+msgstr "Editar aición"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Tamañu del _hestorial:"
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "Puedes usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes nos comandos. El parámetru \"\\0\" representa'l testu completu. Si nun conoces les espresiones regulares, mira la documentación de Clipman, au hai una introducción sobro les mesmes."
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-#, fuzzy
-msgid "Store last copied _image"
-msgstr "Atroxar una _imaxe"
+msgid "Name:"
+msgstr "Nome:"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "Sincronizar les _seleiciones"
+msgid "Pattern:"
+msgstr "Patrón:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr ""
+msgid "Activate only on manual copy"
+msgstr "Activar namái copia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Por defeutu l'aición ye activada por una Escoyeta, marca esta opción p'activar l'aición namái cuando se fai una copia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Puedes usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes nos "
-"comandos. El parámetru \"\\0\" representa'l testu completu. Si nun conoces "
-"les espresiones regulares, mira la documentación de Clipman, au hai una "
-"introducción sobro les mesmes."
+msgid "<b>Action</b>"
+msgstr "<b>Aición</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr ""
+msgid "Command:"
+msgstr "Comandu:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
-msgid "_Reorder history items"
-msgstr "Elementos del historial del portapapeles:"
+msgid "<b>Commands</b>"
+msgstr "<b>Comandos</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
+msgid "Regular expression"
 msgstr ""
 
 #: ../panel-plugin/actions.c:370
@@ -282,30 +262,30 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Nun puede executase'l comandu \"%s\"\n"
-"\n"
-"%s"
+msgstr "Nun puede executase'l comandu \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "¿De xuru que quies desaniciar l'hestorial?"
 
+#: ../panel-plugin/menu.c:207
+msgid "Don't ask again"
+msgstr ""
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Clipboard ta ermu"
 
-#: ../panel-plugin/menu.c:360
-#, fuzzy
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
-msgstr "_Activar"
+msgstr ""
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:337
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Xestor de cartafueyu pal escritoriu Xfce"
 
@@ -316,78 +296,3 @@ msgstr "Softastur www.softastur.org"
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Imposible abrir el diálogu de preferencies: %s"
-
-#~ msgid "E_xclude from history"
-#~ msgstr "E_scluyir del hestorial"
-
-#~ msgid "Autostart Clipman"
-#~ msgstr "Autoarranque de Clipman"
-
-#~ msgid ""
-#~ "Do you want to restart the clipboard manager the next time you login?"
-#~ msgstr ""
-#~ "¿Quies reaniciar el xestor de portapapeles la próxima vegada que inicie "
-#~ "sesión?"
-
-#~ msgid "Do you want to autostart the clipboard manager?"
-#~ msgstr "¿Quies entamar automáticamente el xestor de portapapeles?"
-
-#~ msgid "Authors of previous versions:"
-#~ msgstr "Autores de versiones anteriores:"
-
-#~ msgid "There is already a clipboard manager running"
-#~ msgstr "Ya esiste un xestor de portapapeles en execución"
-
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Si ta activada, les selecciones irán al historial. Esti comportamiento "
-#~ "puede facer que el historial seya ilegible, aunque puede ser interesante "
-#~ "en caso de que siempres quiera apegar lo que escueyi"
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Guardar conteníu del portapapeles al _colar"
-
-#~ msgid "A_dd selections to the history"
-#~ msgstr "Aña_dir selecciones al historial"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Amosar númberu de elementu"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>General</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Caracteres de los elementos del menú:"
-
-#~ msgid "Clear History"
-#~ msgstr "Llimpiar historial"
-
-#~ msgid "Clipman History"
-#~ msgstr "Historial de Clipman"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "E_vitar el borráu del portapapeles"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "Xestión nor_mal del portapapeles"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Separar estrictamente am_bos portapapeles"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Se_parar portapapeles"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Apariencia del menú</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Apariencia"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Historial predetermináu baleru >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Historial de Escoyeta baleru >"
