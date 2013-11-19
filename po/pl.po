@@ -1,71 +1,70 @@
-# Polish translation for xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Piotr Maliński <admin@rk.edu.pl>, 2006.
-# Piotr Sokół <psokol@jabster.pl>, 2009, 2011, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Piotr Maliński <admin@rk.edu.pl>, 2006
+# Piotr Sokół <psokol@jabster.pl>, 2009,2011-2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 1.2.2\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-22 13:06+0000\n"
-"PO-Revision-Date: 2012-10-24 10:16+0200\n"
-"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
-"Language-Team: polski <>\n"
-"Language: pl\n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-11-19 16:28+0000\n"
+"Last-Translator: Nick <nick@xfce.org>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/xfce/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
-"%100<10 || n%100>=20)) ? 1 : 2));\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Zarządza skopiowanymi elementami"
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 #: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Menedżer schowka"
 
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Zarządza skopiowanymi elementami"
+
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Błędy"
+msgid "Image"
+msgstr "Obraz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Otwórz za pomocą Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "Błąd GNOME"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Obraz"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "Długi adres URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "Skróć adres URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Otwórz za pomocą Ristretto"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Błędy"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Błąd Xfce"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "Błąd GNOME"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Długi adres URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Skróć adres URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
@@ -91,186 +90,173 @@ msgid ""
 msgstr "Przywrócić domyślne czynności?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Czynność</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "<b>Behavior</b>"
-msgstr "<b>Zachowanie</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Polecenia</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>Historia</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Czynności"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Aktywowanie tylko po ręcznym skopiowaniu"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr "Wkleja automatycznie zaznaczony element historii"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Uruchamia czynność tylko po ręcznym skopiowaniu elementu, pomijając "
-"zaznaczanie"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Polecenie: "
-
-#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Konfiguruje ustawienia wtyczki"
 
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "Synchronizowanie _zaznaczenia"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Kopiuje do schowka zaznaczony tekst w celu szybkiego jego wklejenia"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>Behavior</b>"
+msgstr "<b>Zachowanie</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Save on _quit"
+msgstr "Zapisywanie zawartości przed z_akończeniem"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Przywraca historię schowka po zalogowaniu"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Store last copied _image"
+msgstr "Przechowywanie ostatnio skopiowanego _obrazu"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Umożliwia przechowywanie jednego obrazu w historii schowka"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Ignore s_elections"
+msgstr "Ignorowanie _zaznaczania"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Pomija umieszczanie zaznaczonego tekstu w historii"
+
 #: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Edycja czynności"
+msgid "Size of the _history:"
+msgstr "Ilość _elementów:"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "_Włączenie"
+msgid "<b>History</b>"
+msgstr "<b>Historia</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Ogólne"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla menu z "
-"możliwymi czynnościami"
+msgid "Enable _actions"
+msgstr "_Włączenie"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Kopiuje do schowka zaznaczony tekst w celu szybkiego jego wklejenia"
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla menu z możliwymi czynnościami"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Pomija umieszczanie zaznaczonego tekstu w historii"
+msgid "Actions"
+msgstr "Czynności"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Umożliwia przechowywanie jednego obrazu w historii schowka"
+msgid "Automatically paste a selected item from the history"
+msgstr "Wkleja automatycznie zaznaczony element historii"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Przywraca historię schowka po zalogowaniu"
+msgid "_Paste instantly:"
+msgstr "_Natychmiastowe wklejanie:"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Ignore s_elections"
-msgstr "Ignorowanie _zaznaczania"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "Nazwa: "
-
-#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "Wyświetlanie menu w p_ozycji kursora myszy"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Wzór:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
-"Wyświetla menu apletu w pozycji kursora myszy. Do użycia tylko z poleceniem "
-"xfce-popup-clipman."
+msgstr "Wyświetla menu apletu w pozycji kursora myszy. Do użycia tylko z poleceniem xfce-popup-clipman."
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr "_Zmienianie kolejności elementów"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-"Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. "
-"Umożliwia zmianę kolejności elementów."
+msgstr "Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. Umożliwia zmianę kolejności elementów."
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
 msgstr "_Odwrócenie kolejności elementów historii"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr "Wyrażenie regularne"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Reverse order of the history shown in the menu"
 msgstr "Odwraca kolejność elementów historii w menu apletu"
 
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr "_Pomijanie czynności przytrzymując klawisz Ctrl"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Pomija wyświetlanie menu podręcznego dopasowanych czynności po przytrzymaniu klawisza Ctrl w trakcie zaznaczania "
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Tweaks"
+msgstr "Usprawnienia"
+
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "Zapisywanie zawartości przed z_akończeniem"
+msgid "Edit Action"
+msgstr "Edycja czynności"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Ilość _elementów:"
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "W poleceniach można używać parametrów typu „\\1”, „\\2”. Parametr „\\0” reprezentuje cały tekst. Więcej informacji na temat wyrażeń regularnych można odnaleźć w dokumentacji programu."
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr "Przechowywanie ostatnio skopiowanego _obrazu"
+msgid "Name:"
+msgstr "Nazwa: "
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "Synchronizowanie _zaznaczenia"
+msgid "Pattern:"
+msgstr "Wzór:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Wzór jest zawsze oznaczany za pomocą znaków ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr "Usprawnienia"
+msgid "Activate only on manual copy"
+msgstr "Aktywowanie tylko po ręcznym skopiowaniu"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-"Pomija wyświetlanie menu podręcznego dopasowanych czynności po przytrzymaniu "
-"klawisza Ctrl w trakcie zaznaczania "
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Uruchamia czynność tylko po ręcznym skopiowaniu elementu, pomijając zaznaczanie"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"W poleceniach można używać parametrów typu „\\1”, „\\2”. Parametr „\\0” "
-"reprezentuje cały tekst. Więcej informacji na temat wyrażeń regularnych "
-"można odnaleźć w dokumentacji programu."
+msgid "<b>Action</b>"
+msgstr "<b>Czynność</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr "_Natychmiastowe wklejanie:"
+msgid "Command:"
+msgstr "Polecenie: "
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "_Zmienianie kolejności elementów"
+msgid "<b>Commands</b>"
+msgstr "<b>Polecenia</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr "_Pomijanie czynności przytrzymując klawisz Ctrl"
+msgid "Regular expression"
+msgstr "Wyrażenie regularne"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -278,10 +264,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Nie można wykonać polecenia „%s”\n"
-"\n"
-"%s"
+msgstr "Nie można wykonać polecenia „%s”\n\n%s"
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
@@ -310,57 +293,8 @@ msgstr "Zarządza skopiowanymi elementami"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr ""
-"Piotr Maliński <admin@rk.edu.pl>, 2006.\n"
-"Piotr Sokół <psokol@jabster.pl>, 2009, 2011, 2012."
+msgstr "Piotr Maliński <admin@rk.edu.pl>, 2006.\nPiotr Sokół <psokol@jabster.pl>, 2009, 2011, 2012."
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Nie można otworzyć okna preferencji"
-
-#, fuzzy
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr "Dodaje do historii schowka ciągi, po ich zaznaczeniu."
-
-#~ msgid "Edit Command"
-#~ msgstr "Edycja polecenia"
-
-#~ msgid ""
-#~ "Enable the actions to match the clipboard texts against regular "
-#~ "expressions"
-#~ msgstr ""
-#~ "Przyporządkowywuje akcje do tekstu schowka na podstawie wyrażeń "
-#~ "regularnych"
-
-#~ msgid "Regex:"
-#~ msgstr "Wyrażenie regularne: "
-
-#~ msgid ""
-#~ "You can use the matching regex parameters \"\\1\", \"\\2\" and so on in "
-#~ "the command to replace it against the matched sub-texts. The parameter "
-#~ "\"\\0\" represents the complete text."
-#~ msgstr ""
-#~ "W wierszu poleceń użyć można parametrów „\\1”, „\\2”, itd... Reprezentują "
-#~ "one kolejne człony ciągu znaków, określone w wyrażeniu regularnym. "
-#~ "Parametr „\\0” reprezentuje cały ciąg."
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Zapisywanie zawartości przed z_akończeniem"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Numery obiektów"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Ogólne</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Znaki pozycji menu:"
-
-#~ msgid "Clear History"
-#~ msgstr "Wyczyść"
-
-#~ msgid "Clipman History"
-#~ msgstr "Historia schowka"
