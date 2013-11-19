@@ -1,69 +1,70 @@
-# Slovak translation of the xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Robert Hartl <hartl.robert@gmail.com>, 2009, 2010.
-# Tomáš Vadina <kyberdev@gmail.com>, 2011.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Robert Hartl <hartl.robert@gmail.com>, 2009-2010
+# Tomáš Vadina <tomasvadina+transifex@myopera.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.2.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 20:42+0000\n"
-"PO-Revision-Date: 2011-11-02 12:58+0100\n"
-"Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
-"Language-Team: slovenčina <sk-i18n@lists.linux.sk>\n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-11-19 16:28+0000\n"
+"Last-Translator: Nick <nick@xfce.org>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/xfce/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Správca schránky"
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:76
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Správca schránky"
+
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Chyby"
+msgid "Image"
+msgstr "Obrázok"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Upraviť v aplikácii Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "Chyba Gnome"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Obrázok"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "Dlhá URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "Skrátiť URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Zobraziť v aplikácii Risttretto"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Chyby"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Chyba Xfce"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "Chyba Gnome"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Dlhá URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Skrátiť URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
@@ -89,189 +90,173 @@ msgid ""
 msgstr "Naozaj chcete obnoviť akcie na predvolené systémové hodnoty?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Akcia</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "<b>Behavior</b>"
-msgstr "<b>Správanie</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Príkazy</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>História</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Akcie"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Aktivovať len na ručné kopírovanie"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr "Automaticky vložiť vybranú položku z histórie"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"V prednastavenom nastavení je akcia spustená výberom, zaškrtnite túto voľbu "
-"pre spustenie akcie iba pri ručnom kopírovaní"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Príkaz:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Nastavenie zásuvného modulu"
 
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "_Synchronizovať výbery"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Ak je zapnuté, výbery budú synchronizované s predvolenou schránkou tak, že budete môcť vložiť to, čo označíte"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>Behavior</b>"
+msgstr "<b>Správanie</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Save on _quit"
+msgstr "Uložiť pri _ukončení"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Ak je zapnuté, história bude obnovená pri každom novom sedení Xfce"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Store last copied _image"
+msgstr "Uložiť naposledy kopírovaný _obrázok"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Ak je zapnuté, bude možné uložiť jeden obrázok v histórii"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Ignore s_elections"
+msgstr "_Ignorovať výbery"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Ak je zapnuté, výbery neovplyvnia históriu, okrem ručného kopírovania"
+
 #: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Upraviť akciu"
+msgid "Size of the _history:"
+msgstr "Veľkosť _histórie:"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "Povoliť _akcie"
+msgid "<b>History</b>"
+msgstr "<b>História</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Všeobecné"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Ak je zapnuté, text schránky bude otestovaný na zhodu s regulárnym výrazom a "
-"ponuka zobrazí možné akcie"
+msgid "Enable _actions"
+msgstr "Povoliť _akcie"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Ak je zapnuté, výbery budú synchronizované s predvolenou schránkou tak, že "
-"budete môcť vložiť to, čo označíte"
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Ak je zapnuté, text schránky bude otestovaný na zhodu s regulárnym výrazom a ponuka zobrazí možné akcie"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Ak je zapnuté, výbery neovplyvnia históriu, okrem ručného kopírovania"
+msgid "Actions"
+msgstr "Akcie"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Ak je zapnuté, bude možné uložiť jeden obrázok v histórii"
+msgid "Automatically paste a selected item from the history"
+msgstr "Automaticky vložiť vybranú položku z histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Ak je zapnuté, história bude obnovená pri každom novom sedení Xfce"
+msgid "_Paste instantly:"
+msgstr "_Vložiť okamžite:"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Ignore s_elections"
-msgstr "_Ignorovať výbery"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "Názov:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "P_ozícia ponuky pri ukazovateli myši"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Vzorka:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
-"Zobraziť vyskakovaciu ponuku pri ukazovateli myši iba pre príkaz xfce4-popup-"
-"clipman"
+msgstr "Zobraziť vyskakovaciu ponuku pri ukazovateli myši iba pre príkaz xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr "Ob_rátiť položky histórie"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-"Vložiť naposledy kopírovaný text do hornej časti histórie, užitočné pre "
-"preusporiadanie starých položiek"
+msgstr "Vložiť naposledy kopírovaný text do hornej časti histórie, užitočné pre preusporiadanie starých položiek"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
 msgstr "Ob_rátené poradie histórie"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr "Regulárne výrazy"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Reverse order of the history shown in the menu"
 msgstr "Obrátené poradie histórie sa zobrazí v ponuke"
 
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr "Pre_skočiť akcie podržaním tlačidla Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Ak je výber ukončený (myšou alebo klávesnicou) a tlačidlo Control je stále stlačené, vyskakovacia ponuka pre odpovedajúce akcie bude preskočená"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Tweaks"
+msgstr "Doladenie"
+
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "Uložiť pri _ukončení"
+msgid "Edit Action"
+msgstr "Upraviť akciu"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Veľkosť _histórie:"
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "V príkazoch môžte použiť nahradzovacie parametre \"\\1\", \"\\2\", atď. Parameter \"\\0\" predstavuje úplný text. Ak nepoznáte regulárne výrazy, nahliadnite do dokumentácie aplikácie Clipman, ktorá obsahuje úvod do tejto problematiky."
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr "Uložiť naposledy kopírovaný _obrázok"
+msgid "Name:"
+msgstr "Názov:"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "_Synchronizovať výbery"
+msgid "Pattern:"
+msgstr "Vzorka:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Vzorka je vždy uvedená medzi špeciálnymi znakmi ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr "Doladenie"
+msgid "Activate only on manual copy"
+msgstr "Aktivovať len na ručné kopírovanie"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-"Ak je výber ukončený (myšou alebo klávesnicou) a tlačidlo Control je stále "
-"stlačené, vyskakovacia ponuka pre odpovedajúce akcie bude preskočená"
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "V prednastavenom nastavení je akcia spustená výberom, zaškrtnite túto voľbu pre spustenie akcie iba pri ručnom kopírovaní"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"V príkazoch môžte použiť nahradzovacie parametre \"\\1\", \"\\2\", atď. "
-"Parameter \"\\0\" predstavuje úplný text. Ak nepoznáte regulárne výrazy, "
-"nahliadnite do dokumentácie aplikácie Clipman, ktorá obsahuje úvod do tejto "
-"problematiky."
+msgid "<b>Action</b>"
+msgstr "<b>Akcia</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr "_Vložiť okamžite:"
+msgid "Command:"
+msgstr "Príkaz:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "Ob_rátiť položky histórie"
+msgid "<b>Commands</b>"
+msgstr "<b>Príkazy</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr "Pre_skočiť akcie podržaním tlačidla Control"
+msgid "Regular expression"
+msgstr "Regulárne výrazy"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -279,25 +264,22 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Nedá sa spustiť príkaz \"%s\"\n"
-"\n"
-"%s"
+msgstr "Nedá sa spustiť príkaz \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Naozaj chcete vyčistiť históriu?"
 
-#: ../panel-plugin/menu.c:203
+#: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
 msgstr "Nepýtať sa znova"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:300
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Schránka je prázdna"
 
-#: ../panel-plugin/menu.c:395
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_Zakázať"
 
@@ -311,14 +293,8 @@ msgstr "Správca schránky pre Xfce"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
-msgstr ""
-"Robert Hartl <hartl.robert@gmail.com>\n"
-"Tomáš Vadina <kyberdev@gmail.com>"
+msgstr "Robert Hartl <hartl.robert@gmail.com>\nTomáš Vadina <kyberdev@gmail.com>"
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Nedá sa otvoriť dialóg nastavení"
-
-#~ msgid "Type here your custom text, for example an URL, a filename, etc."
-#~ msgstr ""
-#~ "Sem napíšte svoj vlastný text, napríklad adresu URL, názov súboru, atď."
