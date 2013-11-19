@@ -1,67 +1,69 @@
-# Indonesian translations for xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Andhika Padmawan  <andhika.padmawan@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Andhika Padmawan  <andhika.padmawan@gmail.com>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-12 00:06+0000\n"
-"PO-Revision-Date: 2009-08-08 15:30+0200\n"
-"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
-"Language-Team: Indonesian <id@li.org>\n"
+"POT-Creation-Date: 2013-07-03 20:51+0200\n"
+"PO-Revision-Date: 2013-11-19 16:28+0000\n"
+"Last-Translator: Nick <nick@xfce.org>\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/xfce/language/id/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Manajer papan klip"
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:76
+#: ../panel-plugin/main-panel-plugin.c:72
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Manajer papan klip"
+
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Bugz"
+msgid "Image"
+msgstr "Citra"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Sunting dengan Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "Kutu GNOME"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Citra"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "URL Panjang"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "Kecilkan URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Tampilkan dengan Ristretto"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Bugz"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Kutu Xfce"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "Kutu GNOME"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "URL Panjang"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Kecilkan URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:190
 msgid "None"
@@ -87,194 +89,173 @@ msgid ""
 msgstr "Anda yakin ingin mengatur ulang aksi ke nilai standar sistem?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Aksi</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "<b>Behavior</b>"
-msgstr "<b>Perilaku</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Perintah</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>Riwayat</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Aksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Hanya aktivasi pada papan klip standar"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr "Tempel secara otomatis item terpilih dari riwayat"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-"Secara standar aksi dipanggil dengan pemilihan, centang opsi ini untuk "
-"memanggil aksi hanya jika anda membuat salinan manual"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Perintah:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Atur plugin"
 
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "Sinkronisasi _seleksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar dimana anda dapat merekatkan apa yang anda pilih"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "<b>Behavior</b>"
+msgstr "<b>Perilaku</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Save on _quit"
+msgstr "Simpan saat _keluar"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Store last copied _image"
+msgstr "Simpan _gambar disalin terakhir"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Ignore s_elections"
+msgstr "Abaikan _seleksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
+
 #: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Sunting Aksi"
+msgid "Size of the _history:"
+msgstr "Ukuran _riwayat:"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "Aktifkan _aksi"
+msgid "<b>History</b>"
+msgstr "<b>Riwayat</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "General"
 msgstr "Umum"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler dan "
-"sebuah menu akan menampilkan aksi yang memungkinkan"
+msgid "Enable _actions"
+msgstr "Aktifkan _aksi"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-"Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar "
-"dimana anda dapat merekatkan apa yang anda pilih"
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler dan sebuah menu akan menampilkan aksi yang memungkinkan"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-"Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
+msgid "Actions"
+msgstr "Aksi"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-"Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam "
-"riwayat"
+msgid "Automatically paste a selected item from the history"
+msgstr "Tempel secara otomatis item terpilih dari riwayat"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-"Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+msgid "_Paste instantly:"
+msgstr "_Tempel secara instan:"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Ignore s_elections"
-msgstr "Abaikan _seleksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "Nama:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "P_osisi menu di penunjuk tetikus"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Pola:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
-"Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-"
-"clipman"
+msgstr "Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "_Reorder history items"
+msgstr "_Urutkan kembali item riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-"Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan "
-"item lama"
+msgstr "Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan item lama"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
 msgstr "Ba_lik urutan riwayat"
 
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Reverse order of the history shown in the menu"
+msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Skip actions by holding Control"
+msgstr "_Lewati aksi dengan menekan Control"
+
 #: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr "Ekspresi reguler"
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Reverse order of the history shown in the menu"
-msgstr ""
-"Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+msgid "Tweaks"
+msgstr "Tweak"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "Simpan saat _keluar"
+msgid "Edit Action"
+msgstr "Sunting Aksi"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Ukuran _riwayat:"
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "Anda dapat menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterusnya di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Jika anda tidak mengerti ekspresi reguler, silakan lihat dokumentasi Clipman yang memiliki pengenalan terhadap itu"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr "Simpan _gambar disalin terakhir"
+msgid "Name:"
+msgstr "Nama:"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "Sinkronisasi _seleksi"
+msgid "Pattern:"
+msgstr "Pola:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Pola ini selalu terkait dengan karakter spesial ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr "Tweak"
+msgid "Activate only on manual copy"
+msgstr "Hanya aktivasi pada papan klip standar"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-"Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih "
-"ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Secara standar aksi dipanggil dengan pemilihan, centang opsi ini untuk memanggil aksi hanya jika anda membuat salinan manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr ""
-"Anda dapat menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterusnya "
-"di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Jika anda tidak "
-"mengerti ekspresi reguler, silakan lihat dokumentasi Clipman yang memiliki "
-"pengenalan terhadap itu"
+msgid "<b>Action</b>"
+msgstr "<b>Aksi</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr "_Tempel secara instan:"
+msgid "Command:"
+msgstr "Perintah:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "_Urutkan kembali item riwayat"
+msgid "<b>Commands</b>"
+msgstr "<b>Perintah</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr "_Lewati aksi dengan menekan Control"
+msgid "Regular expression"
+msgstr "Ekspresi reguler"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -282,25 +263,22 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Tak dapat mengeksekusi perintah \"%s\"\n"
-"\n"
-"%s"
+msgstr "Tak dapat mengeksekusi perintah \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda yakin ingin membersihkan riwayat?"
 
-#: ../panel-plugin/menu.c:203
+#: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
 msgstr "Jangan tanyakan lagi"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:300
+#: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
 msgstr "Papan klip kosong"
 
-#: ../panel-plugin/menu.c:395
+#: ../panel-plugin/menu.c:399
 msgid "_Disable"
 msgstr "_Nonaktifkan"
 
@@ -319,64 +297,3 @@ msgstr "Andhika Padmawan"
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Tak dapat membuka dialog pengaturan"
-
-#~ msgid "Type here your custom text, for example an URL, a filename, etc."
-#~ msgstr ""
-#~ "Ketikkan teks suai anda di sini, misalnya sebuah URL, nama berkas, dll."
-
-#~ msgid "E_xclude from history"
-#~ msgstr "K_eluarkan dari riwayat"
-
-#~ msgid ""
-#~ "If checked, the selections will go into the history. This behavior can "
-#~ "bring the history to be unreadable, however it can be interesting in case "
-#~ "you always want to paste what you select."
-#~ msgstr ""
-#~ "Jika dicentang, seleksi akan masuk ke dalam riwayat. Perilaku ini dapat "
-#~ "menjadikan riwayat tak dapat dibaca, akan tetapi perilaku ini dapat "
-#~ "menjadi menarik jika anda selalu ingin merekatkan apa yang anda pilih."
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Simpan isi papan klip saat _keluar"
-
-#~ msgid "A_dd selections to the history"
-#~ msgstr "T_ambah pilihan ke riwayat"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Tampilkan nomor item"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Umum</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Karakter item menu:"
-
-#~ msgid "Clear History"
-#~ msgstr "Bersihkan Riwayat"
-
-#~ msgid "Clipman History"
-#~ msgstr "Riwayat Clipman"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "Ce_gah papan klip kosong"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "Manajemen _papan klip normal"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Ketat memisahkan _kedua papan klip"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Pi_sahkan papan klip"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Tampilan Menu</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Tampilan"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Riwayat Standar Kosong >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Riwayat Seleksi Kosong >"
