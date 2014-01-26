@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2014-01-26 05:30+0000\n"
+"PO-Revision-Date: 2014-01-26 06:17+0000\n"
 "Last-Translator: Ta Kernc\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/xfce/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -174,42 +174,42 @@ msgstr "P_ostavi meni ob miškin kazalec"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Prikaži meni ob miškinem kazalcu, samo za ukaz xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "_Reorder history items"
-msgstr ""
+msgstr "P_rerazvrsti vsebino zgodovine"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Potisni zadnje kopirano besedilo na vrh zgodovine"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Re_verse history order"
-msgstr ""
+msgstr "Obrni _vrstni red zgodovine"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Reverse order of the history shown in the menu"
-msgstr ""
+msgstr "Obratno razvrsti predmete zgodovine v meniju."
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Skip actions by holding Control"
-msgstr ""
+msgstr "Preskoči dejanja s tipko Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Ko je označeno besedilo (z miško ali tipkovnico) in je tipka Control še vedno pritisnjena, bo prikazni meni za ujemajoča dejanja preskočen."
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Tweaks"
-msgstr ""
+msgstr "Prilagoditve"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Edit Action"
-msgstr ""
+msgstr "Uredi dejanje"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid ""
@@ -217,45 +217,45 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr ""
+msgstr "V ukazih lahko uporabite nadomestitvene parametre \"\\1\", \"\\2\" itd. Parameter \"\\0\" predstavlja celotno besedilo. V primeru, da ne poznate regularnih izrazov, poglejte v dokumentacijo Clipman, ki vsebuje uvod v njih."
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Name:"
-msgstr ""
+msgstr "Naziv:"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Pattern:"
-msgstr ""
+msgstr "Izraz:"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
+msgstr "Izraz je vedno vsidran med posebna znaka ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Aktiviraj samo ob ročnem kopiranju"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Privzeto se dejanje sproži z izbiro besedila. V primeru, da je ta možnost označena, se dejanje sproži, samo ko ročno kopirate besedilo."
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "<b>Action</b>"
-msgstr ""
+msgstr "<b>Dejanje</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid "Command:"
-msgstr ""
+msgstr "Ukaz:"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "<b>Commands</b>"
-msgstr ""
+msgstr "<b>Ukazi</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "Regular expression"
-msgstr ""
+msgstr "Regularni izraz"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -263,32 +263,32 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Ni bilo mogoče zagnati ukaza \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:198
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite počistiti zgodovino odložišča?"
 
 #: ../panel-plugin/menu.c:207
 msgid "Don't ask again"
-msgstr ""
+msgstr "Ne sprašuj več"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:304
 msgid "Clipboard is empty"
-msgstr ""
+msgstr "Odložišče je prazno"
 
 #: ../panel-plugin/menu.c:399
 msgid "_Disable"
-msgstr ""
+msgstr "_Onemogoči"
 
 #: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
-msgstr ""
+msgstr "Prispevali so:"
 
 #: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
-msgstr ""
+msgstr "Upravljalnik odložišča za Xfce"
 
 #: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
@@ -296,4 +296,4 @@ msgstr ""
 
 #: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
-msgstr ""
+msgstr "Ni mogoče odpreti okna z nastavitvami."
