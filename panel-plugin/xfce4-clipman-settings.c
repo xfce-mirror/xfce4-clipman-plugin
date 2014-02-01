@@ -155,10 +155,14 @@ prop_dialog_run (void)
                                 DEFAULT_REORDER_ITEMS);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reverse-order")),
                                 DEFAULT_REVERSE_ORDER);
-  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "skip-action")),
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "skip-action-1")),
                             DEFAULT_ENABLE_ACTIONS);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action")),
+  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "skip-action-2")),
+                            DEFAULT_ENABLE_ACTIONS);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
                                 DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
+                                !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
 
   xfconf_g_property_bind (xfconf_channel, "/tweaks/popup-at-pointer", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "popup-at-pointer"), "active");
@@ -167,9 +171,11 @@ prop_dialog_run (void)
   xfconf_g_property_bind (xfconf_channel, "/tweaks/reverse-menu-order", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "reverse-order"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action"), "sensitive");
+                          gtk_builder_get_object (builder, "skip-action-1"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "skip-action-2"), "sensitive");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action"), "active");
+                          gtk_builder_get_object (builder, "skip-action-1"), "active");
 
   /* Tweaks tab: paste-on-activate combobox */
   combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
