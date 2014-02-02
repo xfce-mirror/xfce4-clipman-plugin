@@ -492,7 +492,7 @@
                 </child>
                 <child>
                   <object class="GtkRadioButton" id="skip-action-2">
-                    <property name="label" translatable="yes">_Skip actions by holding Control</property>
+                    <property name="label" translatable="yes">S_kip actions by holding Control</property>
                     <property name="group">skip-action-1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
