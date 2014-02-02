@@ -1,3 +1,23 @@
+2014-02-02	Mike Massonnet
+=== Release 1.2.4 ===
+
+2014-02-02  Mike Massonnet
+Remove doc submodule
+
+2014-02-02  Mike Massonnet
+Bug #10667: define different menmonic
+
+2014-02-02  Christian Hesse
+Bug #9528: QR-code encoder
+
+    Optional build, requires libqrencode >= 3.3.
+
+2014-02-01  Mike Massonnet
+Bug #9896: move Disable item inside context/right-click menu
+
+2014-02-01  Mike Massonnet
+Bug #10506: allow skipping actions by pressing or not CTRL
+
 2012-04-09	Mike Massonnet
 === Release 1.2.3 ===
 

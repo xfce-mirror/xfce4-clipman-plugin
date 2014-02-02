@@ -1,3 +1,11 @@
+Version 1.2.4 - 2014-02-02
+
+- Removed doc submodule
+- Bug 10667: Define different menmonic
+- Bug 9528: QR-code encoder
+- Bug 9896: Move Disable item inside context/right-click menu
+- Bug 10506: Allow skipping actions by pressing or not CTRL
+
 Version 1.2.3 - 2012-04-09
 
 - Use new online documentation location http://docs.xfce.org/
