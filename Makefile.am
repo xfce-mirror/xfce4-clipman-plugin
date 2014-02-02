@@ -6,15 +6,10 @@ SUBDIRS =								\
 	panel-plugin							\
 	tests								\
 	po								\
-	doc								\
 	$(NULL)
 
 distclean-local:
 	rm -rf *.cache *~
-
-DISTCHECK_CONFIGURE_FLAGS =						\
-	--enable-gen-doc						\
-	$(NULL)
 
 EXTRA_DIST =								\
 	AUTHORS								\
