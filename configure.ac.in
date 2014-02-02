@@ -23,6 +23,7 @@ AC_COPYRIGHT([Copyright (c) 2005-2012
         The Xfce development team. All rights reserved.])
 AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin],
        	[http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin])
+AC_CONFIG_HEADERS([config.h])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([project_version_build])
@@ -31,7 +32,6 @@ dnl ***************************
 dnl *** Initialize automake ***
 dnl ***************************
 AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2])
-AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE()
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
