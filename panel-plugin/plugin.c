@@ -115,8 +115,6 @@ plugin_register (void)
   plugin->menu = clipman_menu_new ();
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
-  xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
-                          G_TYPE_BOOLEAN, plugin->menu, "inhibit-menu-item");
   xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
                           G_TYPE_UINT, plugin->menu, "paste-on-activate");
   xfconf_g_property_bind (plugin->channel, "/tweaks/never-confirm-history-clear",

@@ -133,6 +133,10 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_PROPERTIES, NULL);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_configure), plugin);
+      mi = gtk_check_menu_item_new_with_mnemonic (_("_Disable"));
+      gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
+      xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
+                              G_TYPE_BOOLEAN, mi, "active");
       mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_ABOUT, NULL);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup_menu), mi);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (plugin_about), plugin);

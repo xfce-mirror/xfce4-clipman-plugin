@@ -92,11 +92,17 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   g_signal_connect (plugin->button, "button-press-event",
                     G_CALLBACK (cb_button_pressed), plugin);
 
-  /* Signals */
+  /* Context menu */
   xfce_panel_plugin_menu_show_about (panel_plugin);
+  xfce_panel_plugin_menu_show_configure (panel_plugin);
+  mi = gtk_check_menu_item_new_with_mnemonic (_("_Disable"));
+  xfce_panel_plugin_menu_insert_item (panel_plugin, mi);
+  xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
+                          G_TYPE_BOOLEAN, mi, "active");
+
+  /* Signals */
   g_signal_connect_swapped (panel_plugin, "about",
                             G_CALLBACK (plugin_about), plugin);
-  xfce_panel_plugin_menu_show_configure (panel_plugin);
   g_signal_connect_swapped (panel_plugin, "configure-plugin",
                             G_CALLBACK (plugin_configure), plugin);
   g_signal_connect_swapped (panel_plugin, "save",
