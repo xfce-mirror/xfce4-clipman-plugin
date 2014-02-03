@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# asvl <alyoshin.s@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2013-11-19 16:28+0000\n"
-"Last-Translator: Nick <nick@xfce.org>\n"
+"POT-Creation-Date: 2014-02-03 00:31+0100\n"
+"PO-Revision-Date: 2014-02-03 19:00+0000\n"
+"Last-Translator: asvl <alyoshin.s@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/xfce/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,9 +21,9 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:72
+#: ../panel-plugin/main-panel-plugin.c:73
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:336
+#: ../panel-plugin/plugin.c:339
 msgid "Clipman"
 msgstr "Менеджер буфера обмена (Clipman)"
 
@@ -54,7 +55,7 @@ msgstr "Ошибка в Xfce"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "GNOME Bug"
-msgstr "Ошибки в GNOME"
+msgstr "Ошибка в GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
@@ -64,25 +65,25 @@ msgstr "Длинный URL"
 msgid "Shrink the URL"
 msgstr "Сократить URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
 msgstr "Отключена"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: ../panel-plugin/xfce4-clipman-settings.c:208
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: ../panel-plugin/xfce4-clipman-settings.c:210
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
 msgstr "<b>Сброс действий</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Вы хотите заменить все ваши действия на предлагаемые по умолчанию?"
@@ -102,159 +103,184 @@ msgid ""
 msgstr "Автоматически копировать выделенный текст"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Show _QR-Code"
+msgstr "Показать QR-_код"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "Отображать QR-код для текущего выбранного элемента буфера обмена"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "<b>Behavior</b>"
 msgstr "<b>Поведение</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Save on _quit"
 msgstr "Сохранять при в_ыходе"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr "Хранить журнал между сессиями Xfce"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
 msgstr "Хранить последнее _изображение"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Хранить последнее скопированное изображение"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
 msgstr "Пропускать _выделение"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Не заносить в журнал выделенный (а не скопированный) текст"
+msgstr "Не заносить в журнал выделенный, но не скопированный текст"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
 msgstr "Размер _журнала:"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>History</b>"
 msgstr "<b>Журнал</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "General"
 msgstr "Основные настройки"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "Enable _actions"
 msgstr "Разрешить _действия"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr "Отображать меню возможных действий в зависимости от текста в Буфере обмена"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Actions"
 msgstr "Действия"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Automatically paste a selected item from the history"
 msgstr "Автоматическая вставка выделенного элемента журнала"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid "_Paste instantly:"
 msgstr "Быстрая _вставка:"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "Меню у указателя _мыши"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Выводит меню в позиции указателя мыши (только для команды xfce4-popup-clipman)."
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
 msgstr "Пере_упорядочивать журнал"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Помещает последний использованный элемент в начало журнала."
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
 msgstr "В о_братном порядке"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reverse order of the history shown in the menu"
 msgstr "Показывать содержимое журнала в обратном порядке"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Skip actions by holding Control"
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Show actions by holding Control"
+msgstr "О_тображать действия клавишей Ctrl"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "После завершения выделения (мышью или клавиатурой) и удержании клавиши Ctrl, будет отображено всплывающее меню с соответствующими действиями"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "S_kip actions by holding Control"
 msgstr "От_ключать действия клавишей Ctrl"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Не выводить меню действий, если при выделении была нажата клавиша Ctrl."
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Tweaks"
 msgstr "Дополнительно"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "Настройка действия"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "В командах можно использовать символы подстановки «\\1», «\\2», и т.д. Параметр «\\0» представляет весь текст. За дополнительной информацией о регулярных выражениях обратитесь к справке Clipman."
+msgstr "В командах можно использовать параметры подстановки «\\1», «\\2», и т.д. Параметр «\\0» представляет весь текст. За дополнительной информацией о регулярных выражениях обратитесь к справке Clipman."
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
 msgstr "Название:"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Pattern:"
 msgstr "Шаблон:"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Шаблон всегда ограничен символами ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Activate only on manual copy"
 msgstr "Только при копировании"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Выполнять действия только при явном копировании текста, а не просто при выделении"
+msgstr "Выполнять действия только при явном копировании текста, а не при выделении"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "<b>Action</b>"
 msgstr "<b>Действие</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Command:"
 msgstr "Команда:"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "<b>Commands</b>"
 msgstr "<b>Команды</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Regular expression"
 msgstr "Регулярное выражение"
+
+#: ../panel-plugin/main-panel-plugin.c:99
+#: ../panel-plugin/main-status-icon.c:136
+msgid "_Disable"
+msgstr "Отклю_чить"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -264,35 +290,35 @@ msgid ""
 "%s"
 msgstr "Не удалось выполнить команду «%s»\n\n%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
 msgstr "Вы действительно хотите очистить журнал?"
 
-#: ../panel-plugin/menu.c:207
+#: ../panel-plugin/menu.c:244
 msgid "Don't ask again"
 msgstr "Больше не задавать этот вопрос"
 
+#: ../panel-plugin/menu.c:354
+msgid "Could not generate QR-Code."
+msgstr "Не удалось создать QR-код."
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:304
+#: ../panel-plugin/menu.c:368
 msgid "Clipboard is empty"
-msgstr "< Буфер обмена пуст >"
+msgstr "Буфер обмена пуст"
 
-#: ../panel-plugin/menu.c:399
-msgid "_Disable"
-msgstr "Отклю_чить"
-
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "Участники:"
 
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
 msgstr "Менеджер буфера обмена для Xfce"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
 msgstr "Pavel Labushev\nAleksandr Ponomarenko"
 
-#: ../panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
 msgstr "Невозможно открыть диалог настроек"
