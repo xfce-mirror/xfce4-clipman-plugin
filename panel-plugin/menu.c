@@ -261,9 +261,11 @@ cb_clear_history (ClipmanMenu *menu)
   clipman_history_clear (menu->priv->history);
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  gtk_clipboard_set_text (clipboard, "", 1);
   gtk_clipboard_clear (clipboard);
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+  gtk_clipboard_set_text (clipboard, "", 1);
   gtk_clipboard_clear (clipboard);
 }
 
