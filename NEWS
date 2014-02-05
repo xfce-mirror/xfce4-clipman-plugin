@@ -1,3 +1,8 @@
+Version 1.2.5 - 2014-02-05
+
+- Set empty text on the clipboard when clearing history
+- Bind skip-action option on the correct radio button (setting was reversed)
+
 Version 1.2.4 - 2014-02-02
 
 - Removed doc submodule

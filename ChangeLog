@@ -1,3 +1,16 @@
+2014-02-05	Mike Massonnet
+=== Release 1.2.5 ===
+
+2014-02-05	Mike Massonnet
+Bind skip-action option on the correct radio button (setting was reversed)
+
+2014-02-05	Mike Massonnet
+Set empty text on the clipboard when clearing history
+
+    Call gtk_clipboard_text with an empty string before calling
+    gtk_clipboard_clear. gtk_clipboard_clear must only be called after
+    owning the clipboard.
+
 2014-02-02	Mike Massonnet
 === Release 1.2.4 ===
 
