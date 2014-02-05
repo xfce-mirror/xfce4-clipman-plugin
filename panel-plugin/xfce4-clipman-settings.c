@@ -185,7 +185,7 @@ prop_dialog_run (void)
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "skip-action-2"), "sensitive");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-1"), "active");
+                          gtk_builder_get_object (builder, "skip-action-2"), "active");
 
   /* Tweaks tab: paste-on-activate combobox */
   combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
