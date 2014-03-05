@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2014
+# theppitak <theppitak@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-03 00:31+0100\n"
+"PO-Revision-Date: 2014-03-05 16:10+0000\n"
+"Last-Translator: theppitak <theppitak@gmail.com>\n"
+"Language-Team: Thai (http://www.transifex.com/projects/p/xfce/language/th/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:339
+msgid "Clipman"
+msgstr "คลิปแมน"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "เครื่องมือจัดการคลิปบอร์ด"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Image"
+msgstr "รูปภาพ"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "แก้ไขด้วย Gimp"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "View with Ristretto"
+msgstr "ดูด้วย Ristretto"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "บั๊ก"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Xfce Bug"
+msgstr "บั๊ก Xfce"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "บั๊ก GNOME"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "URL ยาว"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "ย่อ URL"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:206
+msgid "None"
+msgstr "ไม่ใช้"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:208
+msgid "Ctrl+V"
+msgstr "Ctrl+V"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:210
+msgid "Shift+Insert"
+msgstr "Shift+Insert"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:533
+msgid "<b>Reset actions</b>"
+msgstr "<b>ล้างคืนการกระทำ</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:535
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการล้างการกระทำคืนกลับเป็นค่าปริยายของระบบ?"
+
+#: ../panel-plugin/settings-dialog.ui.h:1
+msgid "Configure the plugin"
+msgstr "ตั้งค่าปลั๊กอิน"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "ปรับให้ตรงกับการป้ายเ_ลือก"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "ถ้าเลือก จะปรับการป้ายเลือกไปที่คลิปบอร์ดปริยาย ซึ่งจะทำให้คุณสามารถแปะสิ่งที่คุณเลือกได้"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Show _QR-Code"
+msgstr "แสดง _QR-Code"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "ถ้าเลือก เมนูจะแสดง QR-Code ของรายการคลิปบอร์ดที่เลือกอยู่"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "<b>Behavior</b>"
+msgstr "<b>พฤติกรรม</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Save on _quit"
+msgstr "บันทึกก่อน_ออก"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "ถ้าเลือก ก็จะมีการฟื้นค่าประวัติทุกครั้งที่เข้าสู่วาระ Xfce"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Store last copied _image"
+msgstr "เก็บรูป_ภาพสุดท้ายที่คัดลอก"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "ถ้าเลือก ก็จะสามารถเก็บรูปภาพหนึ่งรูปในประวัติได้"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Ignore s_elections"
+msgstr "ไม่สนใจการเ_ลือก"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "ถ้าเลือก การป้ายเลือกก็จะไม่มีผลต่อประวัติ ยกเว้นการสั่งคัดลอกโดยตรง"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Size of the _history:"
+msgstr "ขนาดของ_ประวัติ:"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "<b>History</b>"
+msgstr "<b>ประวัติ</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "General"
+msgstr "ทั่วไป"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Enable _actions"
+msgstr "เปิดใช้การ_กระทำ"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "ถ้าเลือก ก็จะเทียบข้อความในคลิปบอร์ดกับนิพจน์เรกิวลาร์ และจะแสดงการกระทำที่เป็นไปได้ในเมนู"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Actions"
+msgstr "การกระทำ"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "Automatically paste a selected item from the history"
+msgstr "แปะรายการที่เลือกในประวัติโดยอัตโนมัติ"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "_Paste instantly:"
+msgstr "แ_ปะทันที:"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "P_osition menu at mouse pointer"
+msgstr "เปิดเมนูที่_ตำแหน่งตัวชี้เมาส์"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "ผุดเมนูที่ตำแหน่งตัวชี้เมาส์ ใช้สำหรับคำสั่ง xfce4-popup-clipman เท่านั้น"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "_Reorder history items"
+msgstr "เ_รียงลำดับรายการประวัติใหม่"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "แทรกข้อความที่คัดลอกล่าสุดเข้าที่ด้านบนสุดของประวัติ เป็นประโยชน์ในการเรียงลำดับรายการเก่า"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Re_verse history order"
+msgstr "_กลับลำดับรายการประวัติ"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Reverse order of the history shown in the menu"
+msgstr "กลับลำดับของประวัติที่แสดงในเมนู"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Show actions by holding Control"
+msgstr "แ_สดงการกระทำด้วยการกดปุ่ม Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "เมื่อการเลือกเสร็จสิ้น (ด้วยเมาส์หรือแป้นพิมพ์) และปุ่ม Control ยังกดอยู่ จะผุดเมนูแสดงการกระทำที่ตรงกัน"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "S_kip actions by holding Control"
+msgstr "_ข้ามการกระทำด้วยการกดปุ่ม Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "เมื่อการเลือกเสร็จสิ้น (ด้วยเมาส์หรือแป้นพิมพ์) และปุ่ม Control ยังกดอยู่ จะข้ามเมนูแสดงการกระทำที่ตรงกันไป"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Tweaks"
+msgstr "การปรับละเอียด"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Edit Action"
+msgstr "แก้ไขการกระทำ"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. If you don't "
+"know regular expressions, have a look at the documentation of Clipman that "
+"has an introdution for them."
+msgstr "คุณสามารถใช้พารามิเตอร์แทนที่ \"\\1\", \"\\2\" และอื่นๆ ในคำสั่งได้ พารามิเตอร์ \"\\0\" จะแทนข้อความทั้งหมด ถ้าคุณไม่ทราบเกี่ยวกับนิพจน์เรกิวลาร์ กรุณาอ่านเอกสารของคลิปแมน ซึ่งมีคำแนะนำให้"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Name:"
+msgstr "ชื่อ:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "Pattern:"
+msgstr "แพตเทิร์น:"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "แพตเทิร์นจะถูกครอบด้วยอักขระพิเศษ ^$ เสมอ"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "Activate only on manual copy"
+msgstr "เรียกใช้เฉพาะเมื่อสั่งคัดลอกโดยตรงเท่านั้น"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "โดยปกติแล้ว การกระทำจะถูกสะกิดด้วยการป้ายเลือก เลือกตัวเลือกนี้ถ้าต้องการให้สะกิดการกระทำเฉพาะเมื่อสั่งคัดลอกโดยตรงเท่านั้น"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "<b>Action</b>"
+msgstr "<b>การกระทำ</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Command:"
+msgstr "คำสั่ง:"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "<b>Commands</b>"
+msgstr "<b>คำสั่ง</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "Regular expression"
+msgstr "นิพจน์เรกิวลาร์"
+
+#: ../panel-plugin/main-panel-plugin.c:99
+#: ../panel-plugin/main-status-icon.c:136
+msgid "_Disable"
+msgstr "ปิ_ดใช้"
+
+#: ../panel-plugin/actions.c:370
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr "ไม่สามารถเรียกทำงานคำสั่ง \"%s\"\n\n%s"
+
+#: ../panel-plugin/menu.c:235
+msgid "Are you sure you want to clear the history?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติ?"
+
+#: ../panel-plugin/menu.c:244
+msgid "Don't ask again"
+msgstr "ไม่ต้องถามอีก"
+
+#: ../panel-plugin/menu.c:354
+msgid "Could not generate QR-Code."
+msgstr "ไม่สามารถสร้าง QR-Code"
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:368
+msgid "Clipboard is empty"
+msgstr "คลิปบอร์ดว่างเปล่า"
+
+#: ../panel-plugin/plugin.c:326
+msgid "Contributors:"
+msgstr "ผู้ร่วมสมทบงาน:"
+
+#: ../panel-plugin/plugin.c:341
+msgid "Clipboard Manager for Xfce"
+msgstr "เครื่องมือจัดการคลิปบอร์ดสำหรับ Xfce"
+
+#: ../panel-plugin/plugin.c:349
+msgid "translator-credits"
+msgstr "Theppitak Karoonboonyanan"
+
+#: ../panel-plugin/plugin.c:363
+msgid "Unable to open the settings dialog"
+msgstr "ไม่สามารถเปิดกล่องโต้ตอบตั้งค่า"
