@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-04-15 01:55+0000\n"
+"PO-Revision-Date: 2014-04-17 16:20+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "Almisnitrador del cartafueyu"
+msgstr "Alministrador del cartafueyu"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -100,11 +100,11 @@ msgstr "Sincronizar les _escoyetes"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si ta activáu, sincronizaránse les seleiciones col cartafueyu por defeutu de mou que pueas apegar lo qu'escoyisti"
+msgstr "Si ta conseñáu, sincronizaránse les seleiciones col cartafueyu por defeutu de mou que pueas apegar lo qu'escoyisti"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Show _QR-Code"
-msgstr ""
+msgstr "Amosar códigu _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -135,12 +135,12 @@ msgstr "Si ta conseñáu, esta opción permítete atroxar una imaxe na historia"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
-msgstr "Inorar esbilles"
+msgstr "Inorar _escoyetes"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si ta conseñáu, les escoyetes nun afeutarán la historia, esceuto les copies manuales"
+msgstr "Si ta conseñáu, les escoyetes nun afeutarán la historia, quitante les copies manuales"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
@@ -188,7 +188,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
-msgstr ""
+msgstr "_Reordenar los oxetos de la historia"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
@@ -205,23 +205,23 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "_Amosar opciones calcando Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Cuando se faga una escoyeta (mur o tecláu) y la tecla Control tea entá calcada, amosaráse'l menú emerxente pa les opciones concasaes"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "_Saltar aiciones calcando Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Cuando se faga una escoyeta (mur o tecláu) y la tecla Control tea entá calcada, saltaráse'l menú emerxente pa les opciones concasaes"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Tweaks"
@@ -237,7 +237,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Puedes usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes nos comandos. El parámetru \"\\0\" representa'l testu completu. Si nun conoces les espresiones regulares, mira la documentación de Clipman, au hai una introducción sobro les mesmes."
+msgstr "Pues usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes nos comandos. El parámetru \"\\0\" representa'l testu completu. Si nun conoces les espresiones regulares, mira la documentación de Clipman, au hai una introducción sobro les mesmes."
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
@@ -300,7 +300,7 @@ msgstr "Nun entrugar más"
 
 #: ../panel-plugin/menu.c:354
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "Nun pue xenerase'l códigu QR."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:368
