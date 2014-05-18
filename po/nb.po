@@ -1,268 +1,288 @@
-# Norwegian Bokmal translations for xfce4-clipman-plugin package.
-# Copyright (C) 2007 THE xfce4-clipman-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Terje Uriansrud <ter@operamail.com>, 2007.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# kingu <comradekingu@gmail.com>, 2014
+# haarek <haarektrans@gmail.com>, 2014
+# Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.0svn-r2842\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
-"Last-Translator: Terje Uriansrud <ter@operamail.com>\n"
-"Language-Team: Norwegian Bokmal\n"
-"Language: \n"
+"POT-Creation-Date: 2014-02-03 00:31+0100\n"
+"PO-Revision-Date: 2014-05-18 16:13+0000\n"
+"Last-Translator: kingu <comradekingu@gmail.com>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
-msgid "Clipboard manager"
-msgstr "Utklippstavlebehandler"
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:339
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard manager"
+msgstr "Utklipps-behandler"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr ""
+msgid "Image"
+msgstr "Bilde"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Rediger med Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr ""
+msgid "View with Ristretto"
+msgstr "Vis i Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
+msgid "Bugz"
 msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr ""
+msgid "Xfce Bug"
+msgstr "Xfce-feil"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr ""
+msgid "GNOME Bug"
+msgstr "GNOME-feil"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
-msgid "View with Ristretto"
-msgstr ""
+msgid "Long URL"
+msgstr "Lang URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
-msgid "Xfce Bug"
-msgstr ""
+msgid "Shrink the URL"
+msgstr "Forkort URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: ../panel-plugin/xfce4-clipman-settings.c:208
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: ../panel-plugin/xfce4-clipman-settings.c:210
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
-#, fuzzy
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
-msgstr "<b>Utklippstavle oppførsel</b>"
+msgstr "<b>Tilbakestill handlinger</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
-#, fuzzy
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Er du sikker du vil slette dette elementet fra historikken?"
+msgstr "Er du sikker på at du ønsker å tilbakestille handlingene til standard systemverdier?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr ""
+msgid "Configure the plugin"
+msgstr "Oppsett at tillegget"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
-#, fuzzy
-msgid "<b>Behavior</b>"
-msgstr "<b>Utklippstavle oppførsel</b>"
+msgid "Sync _selections"
+msgstr "Oppdater _utvalg"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
-#, fuzzy
-msgid "<b>Commands</b>"
-msgstr "<b>Antall</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "Configure the plugin"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "General"
-msgstr "Generelt"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:15
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr ""
+msgstr "Hvis huket av, vil måten utvalgene synkroniseres med forvalgt utklippstavle håndteres slik at du kan lime inn det du velger"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Show _QR-Code"
+msgstr "Vis _QR-kode"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "Hvis valgt vil menyen vise en QR-kode for det valgte utklippselementet."
 
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "<b>Behavior</b>"
+msgstr "<b>Oppførsel</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Save on _quit"
+msgstr "Lagre ved _avslutning"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr ""
+msgstr "Hvis huket av, dette valget gjennoppretter historikk for hver ny Xfce-økt"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Store last copied _image"
+msgstr "Lagre sist kopierte _bilde"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Hvis huket av, dette valget tillater deg å lagre ett bilde i historikken"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Ignore s_elections"
+msgstr "Ignorer u_tvalg"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Hvis huket av, utvalgene vil ikke ha innvirkning på historikken, bortsett manuelle kopier"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Size of the _history:"
+msgstr "Størrelse på _historikken:"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "<b>History</b>"
+msgstr "<b>Historikk</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "General"
+msgstr "Generelt"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Enable _actions"
+msgstr "Aktiver _handlinger"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Hvis huket av, tekst i utklippstavlen vil bli jamført med regulære uttrykk og en meny vil vise mulige handlinger"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Actions"
+msgstr "Handlinger"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
-#, fuzzy
-msgid "Ignore s_elections"
-msgstr "_Ignorer merket område"
+msgid "Automatically paste a selected item from the history"
+msgstr "Automatisk lim inn valgt element fra historikken."
 
 #: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr ""
+msgid "_Paste instantly:"
+msgstr "_Lim inn umiddelbart:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "P_osisjoner meny på peker"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:23
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Oppsprettsmeny på pekerposisjonen, bare for xfce4-popup-clipman kommando"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "_Reorder history items"
+msgstr "_Reorganiser historikkelementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Puff sist kopierte tekst til toppen i historikken, nyttig for å reorganisere gamle elementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr ""
+msgstr "Re_verser historikkens forordning"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr ""
+msgid "Reverse order of the history shown in the menu"
+msgstr "Reverser forordning på historikken vist i menyen"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Reverse order of the history shown in the menu"
-msgstr ""
+msgid "_Show actions by holding Control"
+msgstr "_Vis handlinger ved å holde nede Ctrl-tasten"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr ""
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Når et utvalget er gjort ( med mus eller tastatur) og Ctrl-tasten fremdeles er nede, vil oppsprettsmenyen for jamførte handlinger bli vist"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr ""
+msgid "S_kip actions by holding Control"
+msgstr "H_opp over handlinger ved å holde nede Ctrl"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-#, fuzzy
-msgid "Sync _selections"
-msgstr "_Ignorer merket område"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Når et utvalget er gjort (med mus eller tastatur) og Ctrl-tasten fremdeles er nede, vil oppsprettsmenyen for jamførte handlinger utgå"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Tweaks"
+msgstr "Justeringer"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Edit Action"
+msgstr "Rediger handling"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr ""
+msgstr "Du kan bruke alternative parameter \"\\1\", \"\\2\" osv. i kommandoene. Parameteret \"\\0\" representerer hele teksten. Hvis du ikke kan regulære uttryk kan du lære det i dokumentasjonen til Clipman, der en introduksjon derav er å finne."
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Name:"
+msgstr "Navn:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "Pattern:"
+msgstr "Mønster:"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr ""
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "Mønsteret er alltid forankret innenfor spesialtegnene ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
-msgid "_Reorder history items"
-msgstr "Utklippstavle historikkelementer"
+msgid "Activate only on manual copy"
+msgstr "Aktiver kun ved manuell kopiering"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr ""
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Forvalgt handlingsmønster er at handling blir utløst av et utvalg, huk av dette valget for å sette i verk en handling bare når du tar en kopi manuelt"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "<b>Action</b>"
+msgstr "<b>Handling</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Command:"
+msgstr "Kommando:"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "<b>Commands</b>"
+msgstr "<b>Kommandoer</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "Regular expression"
+msgstr "Regulært uttrykk"
+
+#: ../panel-plugin/main-panel-plugin.c:99
+#: ../panel-plugin/main-status-icon.c:136
+msgid "_Disable"
+msgstr "_Deaktiver"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -270,78 +290,37 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Kan ikke utføre kommandoen «%s»\n\n%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
 msgstr "Er du sikker at du vil slette historikken?"
 
+#: ../panel-plugin/menu.c:244
+msgid "Don't ask again"
+msgstr "Ikke spør igjen"
+
+#: ../panel-plugin/menu.c:354
+msgid "Could not generate QR-Code."
+msgstr "Klarte ikke å generere QR-kode."
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
-#, fuzzy
+#: ../panel-plugin/menu.c:368
 msgid "Clipboard is empty"
-msgstr "< Tom utklippstavle >"
+msgstr "Utklippstavlen er tom"
 
-#: ../panel-plugin/menu.c:360
-msgid "_Disable"
-msgstr ""
-
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
-msgstr ""
+msgstr "Medvirkende:"
 
-#: ../panel-plugin/plugin.c:337
-#, fuzzy
+#: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
-msgstr "Utklippstavlebehandler for Xfce skrivebordet"
+msgstr "Utklippstavlebehandler for Xfce"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
-msgstr "Terje Uriansrud"
+msgstr "haarek - Harald <https://www.transifex.com/accounts/profile/haarek/>\nkingu - Allan Nordhøy <https://www.transifex.com/accounts/profile/kingu/>\npapparonny - Ronny K. M. Olufsen <https://www.transifex.com/accounts/profile/papparonny/>\nTerje Uriansrud <terje@uriansrud.net>"
 
-#: ../panel-plugin/plugin.c:360
-#, fuzzy
+#: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
-msgstr "Klarte ikke åpne følgende url: %s"
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Lagre utklippstavlens innhold ved _avslutning"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Vis elementnummer"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Generelt</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Antall tegn i menyen"
-
-#~ msgid "Clear History"
-#~ msgstr "Tøm historikk"
-
-#~ msgid "Clipman History"
-#~ msgstr "Utklippstavle historikk"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "_Unngå tom utklippstavle"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "_Normal utklippstavlestyring"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Separer _begge utklippstavlene"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "Se_parate utklippstavler"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Menyutseende</b>"
-
-#~ msgid "Appearance"
-#~ msgstr "Utseende"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Tom standard historikk >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Tom markert historikk >"
+msgstr "Kunne ikke åpne innstillings-dialog"
