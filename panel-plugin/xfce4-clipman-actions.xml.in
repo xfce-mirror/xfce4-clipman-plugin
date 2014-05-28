@@ -47,7 +47,7 @@
 	</action>
 	<action>
 		<_name>Long URL</_name>
-		<regex>http://[^ ]{120,}</regex>
+		<regex>http://[^\s]{120,}</regex>
 		<commands>
 			<command>
 				<_name>Shrink the URL</_name>
