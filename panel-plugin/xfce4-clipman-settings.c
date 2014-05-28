@@ -285,7 +285,7 @@ cb_show_help (GtkButton *button)
   else
     {
       g_free (docpath);
-      docpath = g_strdup ("http://docs.xfce.org/extra/clipman/start");
+      docpath = g_strdup ("http://docs.xfce.org/panel-plugins/clipman/start");
     }
 
   /* Open documentation in webbrowser */
