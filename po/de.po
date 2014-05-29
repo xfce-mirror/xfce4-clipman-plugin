@@ -5,6 +5,7 @@
 # Translators:
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006
 # Fabian Nowak <timystery@arcor.de>, 2007,2009
+# hannes_xfce <johannes.lips@gmail.com>, 2014
 # Simon Schneider <simon@schneiderimtal.de>, 2009
 # to_ba, 2014
 msgid ""
@@ -12,9 +13,9 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-03-12 14:52+0000\n"
-"Last-Translator: to_ba\n"
-"Language-Team: German (http://www.transifex.com/projects/p/xfce/language/de/)\n"
+"PO-Revision-Date: 2014-05-29 06:14+0000\n"
+"Last-Translator: hannes_xfce <johannes.lips@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -113,7 +114,7 @@ msgstr "_QR-Code anzeigen"
 msgid ""
 "If checked, the menu shows a QR-Code of the corrently selected clipboard "
 "entry"
-msgstr ""
+msgstr "Wenn ausgewählt, zeigt das Menü einen QR-Code des ausgewählten Inhalts der Zwischenablage an"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "<b>Behavior</b>"
@@ -208,17 +209,17 @@ msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "Anzeige der Aktionen durch Halten der Strg-Taste"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Wenn die Auswahl getroffen ist (per Maus oder Tastatur) und die Strg-Taste gedrückt ist, wird das Menü für zugehörige Aktionen angezeigt"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "A_ktionen auslassen durch Drücken der Strg-Taste"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
