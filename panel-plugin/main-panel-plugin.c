@@ -177,7 +177,6 @@ my_plugin_position_menu (GtkMenu *menu,
       case XFCE_SCREEN_POSITION_SW_H:
       case XFCE_SCREEN_POSITION_S:
       case XFCE_SCREEN_POSITION_SE_H:
-        g_message ("horiz: %d + %d + %d > %d", *y, button_height, requisition.height, gdk_screen_height ());
         if (above)
           /* Show menu above */
           *y -= requisition.height;
@@ -192,7 +191,6 @@ my_plugin_position_menu (GtkMenu *menu,
         break;
 
       default:
-        g_message ("verti: %d + %d + %d > %d", *x, button_width, requisition.width, gdk_screen_width ());
         if (*x + button_width + requisition.width > gdk_screen_width ())
           /* Show menu on the right */
           *x -= requisition.width;
