@@ -319,13 +319,13 @@ cb_about_dialog_url_hook (GtkAboutDialog *dialog,
 void
 plugin_about (MyPlugin *plugin)
 {
-  const gchar *authors[] = { "(c) 2008-2012 Mike Massonnet",
+  const gchar *authors[] = { "(c) 2008-2014 Mike Massonnet",
                              "(c) 2005-2006 Nick Schermer",
                              "(c) 2003 Eduard Roccatello",
                              "",
                              _("Contributors:"),
                              "(c) 2008-2009 David Collins",
-			     "(c) 2013 Christian Hesse",
+                             "(c) 2013 Christian Hesse",
                              NULL, };
   const gchar *documenters[] = { "Mike Massonnet", NULL, };
   const gchar *license =
@@ -340,7 +340,7 @@ plugin_about (MyPlugin *plugin)
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
-                         "copyright", "Copyright © 2003-2012 The Xfce development team",
+                         "copyright", "Copyright © 2003-2014 The Xfce development team",
                          "license", license,
                          "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin",
                          "website-label", "goodies.xfce.org",
