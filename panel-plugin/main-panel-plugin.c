@@ -158,45 +158,53 @@ my_plugin_position_menu (GtkMenu *menu,
                          gboolean *push_in,
                          MyPlugin *plugin)
 {
+  gboolean above = TRUE;
   gint button_width, button_height;
   GtkRequisition requisition;
-  GtkOrientation orientation;
+  XfceScreenPosition screen_position;
 
-  orientation = xfce_panel_plugin_get_orientation (plugin->panel_plugin);
+  screen_position = xfce_panel_plugin_get_screen_position (plugin->panel_plugin);
   gtk_widget_get_size_request (plugin->button, &button_width, &button_height);
   gtk_widget_size_request (GTK_WIDGET (menu), &requisition);
   gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (plugin->panel_plugin)), x, y);
 
-  switch (orientation)
+  switch (screen_position)
     {
-    case GTK_ORIENTATION_HORIZONTAL:
-      if (*y + button_height + requisition.height > gdk_screen_height ())
-        /* Show menu above */
-        *y -= requisition.height;
-      else
-        /* Show menu below */
-        *y += button_height;
+      case XFCE_SCREEN_POSITION_NW_H:
+      case XFCE_SCREEN_POSITION_N:
+      case XFCE_SCREEN_POSITION_NE_H:
+        above = FALSE;
+      case XFCE_SCREEN_POSITION_SW_H:
+      case XFCE_SCREEN_POSITION_S:
+      case XFCE_SCREEN_POSITION_SE_H:
+        g_message ("horiz: %d + %d + %d > %d", *y, button_height, requisition.height, gdk_screen_height ());
+        if (above)
+          /* Show menu above */
+          *y -= requisition.height;
+        else
+          /* Show menu below */
+          *y += button_height;
 
-      if (*x + requisition.width > gdk_screen_width ())
-        /* Adjust horizontal position */
-        *x = gdk_screen_width () - requisition.width;
-      break;
+        if (*x + requisition.width > gdk_screen_width ())
+          /* Adjust horizontal position */
+          *x = gdk_screen_width () - requisition.width;
 
-    case GTK_ORIENTATION_VERTICAL:
-      if (*x + button_width + requisition.width > gdk_screen_width ())
-        /* Show menu on the right */
-        *x -= requisition.width;
-      else
-        /* Show menu on the left */
-        *x += button_width;
+        break;
 
-      if (*y + requisition.height > gdk_screen_height ())
-        /* Adjust vertical position */
-        *y = gdk_screen_height () - requisition.height;
-      break;
+      default:
+        g_message ("verti: %d + %d + %d > %d", *x, button_width, requisition.width, gdk_screen_width ());
+        if (*x + button_width + requisition.width > gdk_screen_width ())
+          /* Show menu on the right */
+          *x -= requisition.width;
+        else
+          /* Show menu on the left */
+          *x += button_width;
 
-    default:
-      break;
+        if (*y + requisition.height > gdk_screen_height ())
+          /* Adjust vertical position */
+          *y = gdk_screen_height () - requisition.height;
+
+        break;
     }
 }
 
