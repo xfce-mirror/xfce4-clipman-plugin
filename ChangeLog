@@ -1,3 +1,33 @@
+2014-05-31	Mike Massonnet
+=== Release 1.2.6 ===
+
+2014-05-31  Mike Massonnet
+Include .appdata.xml file inside tarball distribution
+
+2014-05-31  Mike Massonnet
+Fix typo and use correct screenshot for .appdata.xml (bug 10926)
+
+2014-05-31  Mike Massonnet
+Include an .appdata.xml file
+
+2014-05-31  Mike Massonnet
+Move icons/ to data/icons/
+
+2014-05-30  Mike Massonnet
+Switch to gtk_clipboard_request_text for retrieving text (bug 10225)
+
+2014-05-30  Mike Massonnet
+Update Years
+
+2014-05-30  Mike Massonnet
+Position menu with XfceScreenPosition (bug 8849)
+
+2014-05-28	Mike Massonnet
+Update default action Long URL with whitespace \s
+
+2014-05-28	Mike Massonnet
+Fix link to online documentaion
+
 2014-02-05	Mike Massonnet
 === Release 1.2.5 ===
 

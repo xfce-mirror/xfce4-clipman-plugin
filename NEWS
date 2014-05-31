@@ -1,3 +1,11 @@
+Version 1.2.6 - 2014-05-31
+
+- Include an .appdata.xml file
+- Switch to gtk_clipboard_request_text for retrieving text (bug 10225)
+- Position menu with XfceScreenPosition (bug 8849)
+- Update default action Long URL with whitespace \s
+- Fix link to online documentaion
+
 Version 1.2.5 - 2014-02-05
 
 - Set empty text on the clipboard when clearing history
