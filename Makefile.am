@@ -1,7 +1,7 @@
 NULL = 
 
 SUBDIRS =								\
-	icons								\
+	data								\
 	x11-clipboard-manager						\
 	panel-plugin							\
 	tests								\
