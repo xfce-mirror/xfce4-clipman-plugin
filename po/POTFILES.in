@@ -1,3 +1,4 @@
+data/appdata/xfce4-clipman.appdata.xml.in
 panel-plugin/xfce4-clipman.desktop.in
 panel-plugin/xfce4-clipman-actions.xml.in
 panel-plugin/xfce4-clipman-plugin.desktop.in

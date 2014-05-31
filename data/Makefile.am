@@ -1,2 +1,2 @@
-SUBDIRS = icons
+SUBDIRS = appdata icons
 
