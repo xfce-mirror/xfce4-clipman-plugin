@@ -9,7 +9,7 @@
   <description>
     <_p>
       Clipboard Manager provided as a panel plugin for Xfce and as a standalone
-      application running in the notification area. I keeps a history of text
+      application running in the notification area. It keeps a history of text
       and images of content copied to the clipboard. It also has a feature to
       execute actions on specific text selection by matching them against
       regexes.
@@ -18,11 +18,7 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>http://http://i2.wp.com/smdavis.us/wp-content/uploads/2014/04/Numix_parole.png</image>
-    </screenshot>
-    <screenshot>
-      <caption>Parole in Xubuntu with the MPRIS2 plugin</caption>
-      <image>http://i2.wp.com/smdavis.us/wp-content/uploads/2014/04/Parole_Plugins.png</image>
+      <image>http://docs.xfce.org/_media/extra/clipman/clipman-menu.png</image>
     </screenshot>
   </screenshots>
 
