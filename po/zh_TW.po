@@ -4,21 +4,30 @@
 # 
 # Translators:
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
+# 柏諺 黃 <s8321414@gmail.com>, 2014
 # Walter Cheuk <wwycheuk@gmail.com>, 2014
 # 柏諺 黃 <s8321414@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-04-16 12:25+0000\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-06-02 03:37+0000\n"
 "Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "剪貼簿管理員提供一個 Xfce 的面板插件與在通知區域中單獨執行的應用程式。它保留了文字及圖片被複製到剪貼簿的歷史。它也有被選擇的文字符合正則表達式時可執行的功能。"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -300,12 +309,12 @@ msgstr "您確定您想要清除歷史字句嗎？"
 msgid "Don't ask again"
 msgstr "別再詢問"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "無法製作 QR 碼。"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "剪貼簿空白"
 
