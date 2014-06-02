@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-06-01 15:55+0000\n"
+"PO-Revision-Date: 2014-06-02 08:51+0000\n"
 "Last-Translator: SpiKe <leguen.yannick@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Le Gestionnaire de presse-papier fournit un greffon pour le tableau de bord Xfce et une application autonome qui fonctionne dans la zone de notification. Il conserve un historique du texte et des images du contenu copié dans le presse-papier. Il dispose aussi d'une fonctionnalité pour exécuter des actions sur une sélection de texte spécifique au travers d'expression régulières."
+msgstr "Le Gestionnaire de presse-papier fournit un greffon pour le tableau de bord Xfce et une application autonome qui fonctionne dans la zone de notification. Il conserve un historique du texte et des images du contenu copié dans le presse-papier. Il dispose aussi d'une fonctionnalité pour exécuter des actions sur une sélection de texte spécifique au travers d'expressions régulières."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
