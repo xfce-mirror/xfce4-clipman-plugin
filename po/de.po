@@ -5,22 +5,30 @@
 # Translators:
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006
 # Fabian Nowak <timystery@arcor.de>, 2007,2009
-# hannes_xfce <johannes.lips@gmail.com>, 2014
+# Johannes Lips <johannes.lips@gmail.com>, 2014
 # Simon Schneider <simon@schneiderimtal.de>, 2009
-# to_ba, 2014
+# Tobias Bannert, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-05-29 06:14+0000\n"
-"Last-Translator: hannes_xfce <johannes.lips@gmail.com>\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-06-13 00:13+0000\n"
+"Last-Translator: Tobias Bannert\n"
 "Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -35,7 +43,7 @@ msgstr "Zwischenablage"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "Verwaltung der Zwischenablagen"
+msgstr "Zwischenablageverwaltung"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -63,11 +71,11 @@ msgstr "Fehler bei Gnome"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
-msgstr "Lange Webadresse"
+msgstr "Lange Netzadresse"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "Webadresse kürzen"
+msgstr "Netzadresse kürzen"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
@@ -94,7 +102,7 @@ msgstr "Möchten Sie die Aktionen wirklich auf die Standardeinstellungen zurück
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Configure the plugin"
-msgstr "Plugin einrichten"
+msgstr "Erweiterung einrichten"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "Sync _selections"
@@ -104,7 +112,7 @@ msgstr "_Auswahl abgleichen"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Falls Sie dies auswählen, wird die jeweilige Auswahl mit der Standardzwischenablage derart abgeglichen, dass Sie jeweils auch das einfügen können, was Sie gerade ausgewählt haben"
+msgstr "Falls ausgewählt, wird die jeweilige Auswahl mit der Standardzwischenablage derart abgeglichen, dass Sie jeweils auch das einfügen können, was Sie gerade ausgewählt haben"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Show _QR-Code"
@@ -302,12 +310,12 @@ msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?
 msgid "Don't ask again"
 msgstr "Nicht erneut nachfragen"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Es konnte kein QR-Code erstellt werden."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
@@ -317,7 +325,7 @@ msgstr "Mitwirkende:"
 
 #: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
-msgstr "Zwischenablagenverwaltung für den Xfce-Desktop"
+msgstr "Zwischenablageverwaltung für die Xfce-Arbeitsumgebung"
 
 #: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
