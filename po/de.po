@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-06-13 00:13+0000\n"
+"PO-Revision-Date: 2014-07-01 16:16+0000\n"
 "Last-Translator: Tobias Bannert\n"
 "Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "Die Zwischenablageverwaltung, bereitgestellt als eine Leistenerweiterung für Xfce und als eine alleinstehende Anwendung, die im Benachrichtigungsfeld läuft. Es enthält einen Verlauf von Text und Bildern vom Inhalt der in die Zwischenablage kopiert wurde. Es hat auch eine Funktion, um Aktionen an bestimmten ausgewählten Texten durch Vergleiche gegen reguläre Ausdrücke auszuführen."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -135,7 +135,7 @@ msgstr "Beim _Verlassen speichern"
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
+msgstr "Wenn ausgewählt, wird diese Option den Verlauf, bei jeder neuen Xfce-Sitzung, wiederherzustellen."
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
@@ -143,7 +143,7 @@ msgstr "Zuletzt kopiertes _Bild speichern"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Aktivieren Sie diese Option, um ein Bild im Verlaufsspeicher aufzunehmen"
+msgstr "Wenn ausgewählt, wird diese Option es erlauben, ein Bild im Verlauf zu speichern aufzunehmen"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
@@ -152,7 +152,7 @@ msgstr "_Auswahl ignorieren"
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Aktivieren Sie diese Option, damit die Auswahlen den Verlauf nicht betreffen mit Ausnahme der manuellen Kopien."
+msgstr "Wenn ausgewählt, werden die Auswahlen den Verlauf nicht betreffen mit Ausnahme der manuellen Kopien."
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
@@ -174,7 +174,7 @@ msgstr "_Aktionen ermöglichen"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
-msgstr "Aktivieren Sie diese Option, um die Texte aus der Zwischenablage mit regulären Ausdrücken zu vergleichen. Ein Menü zeigt dann die möglichen Aktionen."
+msgstr "Wenn ausgewählt, wird die Zwischenablagetext mit regulären Ausdrücken verglichen und ein Menü wird die möglichen Aktionen anzeigen."
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Actions"
