@@ -3,21 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# salepetronije <salepetronije@gmail.com>, 2012
-# salepetronije <salepetronije@gmail.com>, 2014
+# Саша Петровић <salepetronije@gmail.com>, 2012
+# Саша Петровић <salepetronije@gmail.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-02-26 13:55+0000\n"
-"Last-Translator: salepetronije <salepetronije@gmail.com>\n"
-"Language-Team: Serbian (http://www.transifex.com/projects/p/xfce/language/sr/)\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-07-01 21:09+0000\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
+"Language-Team: Serbian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Управник исечака у виду прикључка за полицу ИксФЦЕ-а и као самосталан програм који ради у обавештајној области. Бележи историју текста и слика садржаја умноженог у оставу исечака. Такође, може да извршава радње над изабраним текстом његовим упоређивањем са регуларним изразима."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -60,11 +68,11 @@ msgstr "Грешка Гнома"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
-msgstr "Породужи адресу"
+msgstr "Дуга адреса"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "Смањи адресу"
+msgstr "Скрати адресу"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
@@ -91,17 +99,17 @@ msgstr "Да ли сте сигурни да желите да повратит�
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Configure the plugin"
-msgstr "Подеси прикључак"
+msgstr "Подесите прикључак"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "Sync _selections"
-msgstr "Усагласи _изборе"
+msgstr "Усклади _изборе"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Уколико је означено, избор ће бити усаглашен са основном оставом исечака на начин тако да ћете моћи да налепите оно што сте изабрали"
+msgstr "Уколико је означено, избор ће бити усклађен са основном оставом исечака на начин тако да ћете моћи да налепите оно што сте изабрали"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Show _QR-Code"
@@ -163,7 +171,7 @@ msgstr "Омогући _радње"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
-msgstr "Уколико је означено, исечци текста ће бити упоређени са уобичајеним изразима а изборник ће приказати могуће радње"
+msgstr "Уколико је означено, исечци текста ће бити упоређени са регуларним изразима а изборник ће приказати могуће радње"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Actions"
@@ -171,7 +179,7 @@ msgstr "Радње"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Automatically paste a selected item from the history"
-msgstr "Аутоматски налепи одабрану ставку из историјата"
+msgstr "Самостално налепи одабрану ставку из историјата"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "_Paste instantly:"
@@ -212,7 +220,7 @@ msgstr "_Приказуј радње на држање притиснутог д
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Када је избор извршен (мишем или тастатуром), и дугме контроле се држи  притиснуто, приказаће се изборник одговарајућих радњи"
+msgstr "Када је избор извршен (мишем или тастатуром), и дугме контроле се држи притиснуто, приказаће се изборник одговарајућих радњи"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "S_kip actions by holding Control"
@@ -238,7 +246,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Можете користити параметре замене „\\1“, „\\2\", и тако даље, у наредбама. Параметар „\\0“ представља потпун текст. Уколико не знате регуларне изразе, погледајте документацију Секача која има увод о њима."
+msgstr "Можете користити одреднице замене „\\1“, „\\2\", и тако даље, у наредбама. Одредница „\\0“ представља потпун текст. Уколико не знате регуларне изразе, погледајте документацију Секача која има увод о њима."
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
@@ -299,12 +307,12 @@ msgstr "Да ли сте сигурни да желите да избришет�
 msgid "Don't ask again"
 msgstr "Не питај поново"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Нисам успео да образујем КуР шифру"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Остава исечака је празна"
 
@@ -322,4 +330,4 @@ msgstr "Саша Петровић <salepetronije@gmail.com>"
 
 #: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
-msgstr "Нисам успео отворим прозорче подешавања"
+msgstr "Нисам успео отворим прозорче поставки"
