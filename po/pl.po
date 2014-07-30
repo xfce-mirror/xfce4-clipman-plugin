@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dawid <hoek@hoek.pl>, 2014
 # Piotr Maliński <admin@rk.edu.pl>, 2006
 # Piotr Sokół <psokol@jabster.pl>, 2009,2011-2012
 # Piotr Strębski <strebski@o2.pl>, 2014
@@ -10,15 +11,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-02-07 16:23+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/xfce/language/pl/)\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-07-30 05:32+0000\n"
+"Last-Translator: Dawid <hoek@hoek.pl>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Menedżer Schowka umieszczony jako wtyczka dla panelu Xfce i jako samodzielna aplikacja działająca w obszarze powiadomień. Utrzymuje historii tekstu i obrazów z treści skopiowanych do schowka. Posiada również funkcję do wykonywania czynności na konkretnie wybranym tekście, dopasowując je do wyrażeń regularnych."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -300,12 +309,12 @@ msgstr "Wyczyścić historię schowka?"
 msgid "Don't ask again"
 msgstr "Pomijanie tego pytania w przyszłości"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Nie można wygenerować QR-Code."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Schowek jest pusty"
 
