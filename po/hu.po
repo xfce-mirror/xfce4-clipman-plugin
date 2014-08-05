@@ -4,27 +4,36 @@
 # 
 # Translators:
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009
+# Gyönki Bendegúz <gyonkibendeguz@gmail.com>, 2014
 # Attila SZERVÁC <sas@321.hu>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2013-11-19 16:28+0000\n"
-"Last-Translator: Nick <nick@xfce.org>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/xfce/language/hu/)\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-08-05 16:40+0000\n"
+"Last-Translator: Gyönki Bendegúz <gyonkibendeguz@gmail.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr ""
+
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:72
+#: ../panel-plugin/main-panel-plugin.c:73
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:336
+#: ../panel-plugin/plugin.c:339
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -66,25 +75,25 @@ msgstr "Hosszú URL"
 msgid "Shrink the URL"
 msgstr "URL tömörítése"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
 msgstr "Nincs"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: ../panel-plugin/xfce4-clipman-settings.c:208
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: ../panel-plugin/xfce4-clipman-settings.c:210
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
 msgstr "<b>Műveletek visszaállítása</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Biztosan visszaállítja a műveleteket a rendszer alapértelmezett értékeire?"
@@ -104,115 +113,135 @@ msgid ""
 msgstr "A kiválasztások szinkronizálva lesznek az alapértelmezett vágólappal, így beillesztheti a kiválasztást"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Show _QR-Code"
+msgstr "_QR-kód megjelenítése"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "Ha be van jelölve, akkor a menü megjeleníti az éppen kiválasztott vágólap elem QR-kódját"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "<b>Behavior</b>"
 msgstr "<b>Viselkedés</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Save on _quit"
 msgstr "Mentés _kilépéskor"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr "Az előzmények helyreállítása minden új Xfce munkamenetben"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
 msgstr "Utoljára másolt _kép tárolása"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Egy kép tárolása az előzmények között"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
 msgstr "Kiválasztások _mellőzése"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "A kiválasztások nem jelennek meg az előzmények között, csak a kézi másolások"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
 msgstr "Elő_zmények mérete:"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>History</b>"
 msgstr "<b>Előzmények</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "General"
 msgstr "Általános"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "Enable _actions"
 msgstr "_Műveletek engedélyezése"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions "
 "and a menu will display possible actions"
 msgstr "A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a lehetséges műveletek menüje"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Actions"
 msgstr "Műveletek"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Automatically paste a selected item from the history"
 msgstr "Az előzményekből kiválasztott elem automatikus beillesztése"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid "_Paste instantly:"
 msgstr "Beillesztés _azonnal:"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "Menü pozicionálása az egérmutatónál"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "A menü megjelenítése az egérmutató pozíciójánál, csak az xfce4-popup-clipman parancshoz"
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
 msgstr "_Előzményelemek átrendezése"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Utoljára másolt szöveg előzmények tetejére helyezése, hasznos régi elemek átrendezéséhez"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
 msgstr "_Előzménysorrend megfordítása"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reverse order of the history shown in the menu"
 msgstr "Az előzmények sorrendjének megfordítása a menüben"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Skip actions by holding Control"
-msgstr "_Műveletek kihagyása a Ctrl lenyomásával"
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Show actions by holding Control"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "S_kip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Ha a Ctrl billentyű le van nyomva a kijelölés (egérrel vagy billentyűzettel) befejezésekor, akkor a társított műveletek felugró menüje nem jelenik meg."
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Tweaks"
 msgstr "Hangolások"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "Művelet szerkesztése"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -220,43 +249,48 @@ msgid ""
 "has an introdution for them."
 msgstr "A parancsokban használhatja a „\\1”, „\\2” stb. helyettesítési paramétereket. A „\\0” paraméter a teljes szöveget képviseli. Ha nem ismeri a reguláris kifejezéseket, nézze meg a Clipman dokumentációját, amely tartalmaz egy bevezetőt ezekhez."
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
 msgstr "Név:"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Pattern:"
 msgstr "Minta:"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "A minta mindig a ^$ speciális karakterek között található"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Activate only on manual copy"
 msgstr "Aktiválás csak kézi másoláskor"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "A műveletet alapértelmezésben a kiválasztás aktiválja, ezt engedélyezve csak kézi másolás fogja aktiválni a műveletet."
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "<b>Action</b>"
 msgstr "<b>Művelet</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Command:"
 msgstr "Parancs:"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "<b>Commands</b>"
 msgstr "<b>Parancsok</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Regular expression"
 msgstr "Reguláris kifejezés"
+
+#: ../panel-plugin/main-panel-plugin.c:99
+#: ../panel-plugin/main-status-icon.c:136
+msgid "_Disable"
+msgstr "_Letiltás"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -266,35 +300,35 @@ msgid ""
 "%s"
 msgstr "A(z) „%s” parancs nem hajtható végre\n\n%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
 msgstr "Biztosan törli az előzményeket?"
 
-#: ../panel-plugin/menu.c:207
+#: ../panel-plugin/menu.c:244
 msgid "Don't ask again"
 msgstr "Ne kérdezze újra"
 
+#: ../panel-plugin/menu.c:356
+msgid "Could not generate QR-Code."
+msgstr ""
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:304
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "A vágólap üres"
 
-#: ../panel-plugin/menu.c:399
-msgid "_Disable"
-msgstr "_Letiltás"
-
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "Közreműködők:"
 
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
 msgstr "Vágólapkezelő az Xfce-hez"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 
-#: ../panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
 msgstr "A beállítások ablak nem nyitható meg"
