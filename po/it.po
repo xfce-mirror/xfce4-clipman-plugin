@@ -3,21 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# cri <cri.penta@gmail.com>, 2014
+# Cristian Marchi <cri.penta@gmail.com>, 2014
 # Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-02-14 18:27+0000\n"
-"Last-Translator: cri <cri.penta@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/xfce/language/it/)\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-08-13 10:22+0000\n"
+"Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Gestore degli appunti fornito come plugin del pannello di Xfce e come un'applicazione indipendente in esecuzione nell'area di notifica. Mantiene la cronologia di testi e immagini copiati negli appunti. Consente anche di eseguire specifiche azioni sui testi in base ad espressioni regolari."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -299,12 +307,12 @@ msgstr "Svuotare davvero la cronologia?"
 msgid "Don't ask again"
 msgstr "Non chiedere di nuovo"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Impossibile generare il codice QR"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Gli appunti sono vuoti"
 
