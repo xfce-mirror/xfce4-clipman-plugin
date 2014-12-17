@@ -9,15 +9,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-04-11 10:21+0000\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2014-12-17 11:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic (http://www.transifex.com/projects/p/xfce/language/is/)\n"
+"Language-Team: Icelandic (http://www.transifex.com/projects/p/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Klippiborðsstjórinn (Clipboard Manager) er gefinn út sem skjástikuviðbót fyrir XFCE og einnig sem sjálfstætt forrit sem keyrir í tilkynningasvæði kerfisbakkans. Hann heldur utan um feril þeirra texta og myndefnis sem hefur verið afritað á klippispjaldið. Hann er einnig með þann möguleika að keyra ákveðnar aðgerðir á tiltekinn valinn textameð því að bera hann saman við reglulegar segðir (regexes)."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -299,12 +307,12 @@ msgstr "Ertu viss um að þú viljir eyða skipanaferlinum?"
 msgid "Don't ask again"
 msgstr "Ekki spyrja aftur"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Gat ekki útbúið QR-kóða:"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Klippispjald er tómt"
 
