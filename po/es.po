@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Abel Martín <abel.martin.ruiz@gmail.com>, 2009
-# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
+# Adolfo Jayme Barrientos <fito@libreoffice.org>, 2014
 # Pablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2014
 # Roberto <roberdmd@gmail.com>, 2008
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-08-02 02:07+0000\n"
+"PO-Revision-Date: 2014-12-25 23:34+0000\n"
 "Last-Translator: Pablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "El Gestor del portapapeles provee un complemento para el panel de Xfce y
 #: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
 #: ../panel-plugin/plugin.c:339
 msgid "Clipman"
-msgstr "Clipman"
+msgstr "portapapeles"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
@@ -88,7 +88,7 @@ msgstr "Ctrl+V"
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:210
 msgid "Shift+Insert"
-msgstr "Shift+Insert"
+msgstr "Tab+Entrar"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -195,7 +195,7 @@ msgstr "P_osicionar menú junto al cursor del ratón"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Abrir el menú en la posición del cursor del ratón, solamente para la orden xfce4-popup-clipman"
+msgstr "Abrir el menú en la posición del cursor del ratón, solamente para la orden «xfce4-popup-clipman»"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
@@ -248,7 +248,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Puede usar los parámetros de sustitución \"\\1\", \"\\2\" y siguientes en las órdenes. El parámetro \"\\0\" representa el texto completo. Si no conoce las expresiones regulares, mire la documentación de Clipman, donde hay una introducción sobre las mismas."
+msgstr "Puede usar los parámetros de sustitución «\\1», «\\2» y siguientes en las órdenes. El parámetro «\\0» representa el texto completo. Si no conoce las expresiones regulares, mire la documentación de Portapapeles, donde hay una introducción sobre las mismas."
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
@@ -328,7 +328,7 @@ msgstr "Gestor del portapapeles para Xfce"
 
 #: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
-msgstr "Roberto <roberdmd@gmail.com>, 2008\nAbel Martín <abel.martin.ruiz@gmail.com>, 2009\nElega <elega@elega.com.ar>\nSergio <oigres200@gmail.com>, 2012\nPablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2014\nAdolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014"
+msgstr "Roberto <roberdmd@gmail.com>, 2008\nAbel Martín <abel.martin.ruiz@gmail.com>, 2009\nElega <elega@elega.com.ar>\nSergio <oigres200@gmail.com>, 2012\nPablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2015\nAdolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014"
 
 #: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
