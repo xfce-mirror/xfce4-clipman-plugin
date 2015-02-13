@@ -6,15 +6,16 @@
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # Hunt Xu <huntxu@live.cn>, 2009
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
-# yjwork <yjwork@qq.com>, 2014
+# 玉堂白鹤 <yjwork@qq.com>, 2014
 # 周潇波 <zhouxiaobo.500@gmail.com>, 2014
+# 玉堂白鹤 <yjwork@qq.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-08-29 04:18+0000\n"
-"Last-Translator: yjwork <yjwork@qq.com>\n"
+"PO-Revision-Date: 2015-02-13 05:31+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,13 +218,13 @@ msgstr "翻转在菜单中所示项目的顺序"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "按住 Ctrl 以显示动作（_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "选择结束(鼠标或键盘)且仍按住 Ctrl 时，会显示匹配动作的弹出窗口"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "S_kip actions by holding Control"
