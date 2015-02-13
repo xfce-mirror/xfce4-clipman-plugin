@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-02-13 05:31+0000\n"
+"PO-Revision-Date: 2015-02-13 05:53+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "剪贴板管理器提供一个 Xfce 的面板插件和在通知区域中单独执行的应用程式。它保留了文字及图片被复制到剪贴板的历史。它也有被选择的文字符合正则表达式时可执行的功能。"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -123,7 +123,7 @@ msgstr "显示二维码(_Q)"
 msgid ""
 "If checked, the menu shows a QR-Code of the corrently selected clipboard "
 "entry"
-msgstr ""
+msgstr "如果选中，菜单将会显示正确选中的剪贴板条目的 QR 码"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "<b>Behavior</b>"
