@@ -3,22 +3,30 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kingu <comradekingu@gmail.com>, 2014
-# haarek <haarektrans@gmail.com>, 2014
+# Allan Nordhøy <comradekingu@gmail.com>, 2014-2015
+# Harald <haarektrans@gmail.com>, 2014
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-05-18 16:13+0000\n"
-"Last-Translator: kingu <comradekingu@gmail.com>\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2015-02-21 14:34+0000\n"
+"Last-Translator: Allan Nordhøy <comradekingu@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Utklippstavlebehandleren tilbys som et paneltillegg for Xfce og som frittstående program kjørende i varslingsområdet. Det tar vare på historikk og tekst fra bilder og innhold som kopieres til utklippstavlen. Det har også den egenskapen at det utfører handlinger på gitt tekst ved å jamføre dem mot regulære uttrykk."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -49,7 +57,7 @@ msgstr "Vis i Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Bugz"
-msgstr ""
+msgstr "Bugz"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
@@ -300,12 +308,12 @@ msgstr "Er du sikker at du vil slette historikken?"
 msgid "Don't ask again"
 msgstr "Ikke spør igjen"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
 msgstr "Klarte ikke å generere QR-kode."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Utklippstavlen er tom"
 
