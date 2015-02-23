@@ -6,13 +6,14 @@
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2013
 # Georgi Georgiev <georgiev_1994@abv.bg>, 2014
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014
+# Lyubomir Vasilev, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-06-05 11:25+0000\n"
-"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
+"PO-Revision-Date: 2015-02-23 12:58+0000\n"
+"Last-Translator: Lyubomir Vasilev\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -247,7 +248,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Можете да използвате заместващи параметри \"\\1\", \"\\2\" и така нататък в командите. Параметърът \"\\0\" представлява пълен текст. Ако не знаете регулярните изрази, погледнете инструкциите за тях в документацията на Clipman."
+msgstr "Можете да използвате заместващи параметри „\\1“, „\\2“ и т.н. в командите. Параметърът „\\0“ представлява целия текст. Ако не знаете как да използвате регулярни изрази, погледнете инструкциите за тях в документацията на Clipman."
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
@@ -298,7 +299,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Не може да бъде изпълнена команда \"%s\"\n\n%s"
+msgstr "Неуспешно изпълнение на командата „%s“\n\n%s"
 
 #: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
