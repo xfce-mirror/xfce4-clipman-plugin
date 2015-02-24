@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-02-23 00:37+0000\n"
+"PO-Revision-Date: 2015-02-24 01:32+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -195,7 +195,7 @@ msgstr "P_osición del menú nel mur"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
+msgstr "Emerxer el menú na posición del mur, namái pal comandu xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
@@ -204,7 +204,7 @@ msgstr "_Reordenar los oxetos de la historia"
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Poner el caberu testu copiáu enriba la historia, útil pa reordenar elementos vieyos"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
@@ -236,7 +236,7 @@ msgstr "Cuando se faga una escoyeta (mur o tecláu) y la tecla Control tea entá
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Tweaks"
-msgstr ""
+msgstr "Axustes"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
