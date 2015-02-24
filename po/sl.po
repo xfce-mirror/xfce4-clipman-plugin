@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kernc, 2014
+# kernc, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-11-26 01:25+0000\n"
+"PO-Revision-Date: 2015-02-24 02:54+0000\n"
 "Last-Translator: kernc\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "Upravljalnik z odložiščem nastopa kot vstavek za Xfce pult ali kot samostojen program v obvestilnem področju. Hrani zgodovino besedil in slik iz vsebine, ki ste jih kopirali v odložišče. Dodatno ima zmožnost poganjanja ukazov, ko označite določeno besedilo, kar lahko nastavite z regularnimi izrazi."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -219,11 +219,11 @@ msgstr "_Prikaži dejanja z držanjem tipke Control"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Ko označite besedilo (z miško ali tipkovnico) in pritisnete tipko Control, se prikaže pojavni meni za dejanja, ki ustrezajo označenemu besedilu."
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "Pres_koči dejanja z držanjem tipke Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
@@ -308,7 +308,7 @@ msgstr "Ne sprašuj več"
 
 #: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "Ni bilo mogoče ustvariti QR-kode"
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:370
@@ -325,7 +325,7 @@ msgstr "Upravljalnik odložišča za Xfce"
 
 #: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
-msgstr ""
+msgstr "Prevod: Kiberpipa"
 
 #: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
