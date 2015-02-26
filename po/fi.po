@@ -1,273 +1,294 @@
-# Finnish translations for xfce4-clipman-plugin package.
-# Copyright (C) 2009 Mike Massonnet
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Copyright (C) 2009 Lassi Kojo.
-# Copyright (C) 2010-2012 Jari Rahkonen.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Pasi Lallinaho <pasi@shimmerproject.org>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-12 14:24+0000\n"
-"PO-Revision-Date: 2012-04-12 17:53+0300\n"
-"Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
-"Language-Team: Finnish\n"
-"Language: fi\n"
+"POT-Creation-Date: 2014-06-01 00:31+0200\n"
+"PO-Revision-Date: 2015-02-26 01:12+0000\n"
+"Last-Translator: Pasi Lallinaho <pasi@shimmerproject.org>\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-msgid "Clipboard manager"
-msgstr "Leikepöydän hallinta"
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
+#: ../panel-plugin/plugin.c:339
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:72
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:336
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard manager"
+msgstr "Leikepöydän hallinta"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr "Vikailmoitukset"
+msgid "Image"
+msgstr "Kuva"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
 msgstr "Muokkaa GIMP:ssä"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr "GNOME-vikailmoitus"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr "Kuva"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr "Pitkä URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr "Luo lyhyt URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "View with Ristretto"
 msgstr "Näytä Ristrettolla"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Vikailmoitukset"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
 msgstr "Xfce:n vikailmoitus"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "GNOME-vikailmoitus"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Pitkä URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Luo lyhyt URL"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
 msgstr "Ei mitään"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: ../panel-plugin/xfce4-clipman-settings.c:208
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: ../panel-plugin/xfce4-clipman-settings.c:210
 msgid "Shift+Insert"
 msgstr "Vaihto+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
 msgstr "<b>Nollaa toiminnot</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Haluatko varmasti palauttaa toiminnot järjestelmän oletusarvoihin?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr "<b>Toiminto</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "<b>Behavior</b>"
-msgstr "<b>Käytös</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "<b>Commands</b>"
-msgstr "<b>Komennot</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr "<b>Historia</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr "Toiminnot"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Ainoastaan käsin kopioitaessa"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr "Liitä automaattisesti valittu historian kohde"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "Toiminto suoritetaan vain kopioidessa, ei heti tehtyäsi valinnan."
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Komento:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Configure the plugin"
 msgstr "Liitännäisen asetukset"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr "Muokkaa toimintoa"
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "Sync _selections"
+msgstr "_Päivitä valinnat"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr "Käytä t_oimintoja"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "General"
-msgstr "Yleiset"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-"Tarjoa tekstileikkeille soveltuvia toimintoja vertaamalla niitä "
-"säännöllisiin lausekkeisiin."
-
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr ""
-"Valinnat päivitetään oletusleikepöydälle siten, että voit liittää, mitä "
-"valitset."
+msgstr "Valinnat päivitetään oletusleikepöydälle siten, että voit liittää, mitä valitset."
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Show _QR-Code"
+msgstr "Näytä _QR-koodi"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Valinnat vaikuttavat historiaan ainoastaan käsin kopioitaessa"
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Tallenna yksi kuva leikehistoriaan"
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "<b>Behavior</b>"
+msgstr "<b>Käytös</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "Save on _quit"
+msgstr "_Tallenna lopetettaessa"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
 msgstr "Säilytä historia Xfce-istuntojen välillä"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Store last copied _image"
+msgstr "Säilytä viimeksi kopioitu _kuva"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Tallenna yksi kuva leikehistoriaan"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
 msgstr "Älä _huomioi valintoja"
 
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Valinnat vaikuttavat historiaan ainoastaan käsin kopioitaessa"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Size of the _history:"
+msgstr "Historian k_oko:"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "<b>History</b>"
+msgstr "<b>Historia</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "General"
+msgstr "Yleiset"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Enable _actions"
+msgstr "Käytä t_oimintoja"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "Tarjoa tekstileikkeille soveltuvia toimintoja vertaamalla niitä säännöllisiin lausekkeisiin."
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Actions"
+msgstr "Toiminnot"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "Automatically paste a selected item from the history"
+msgstr "Liitä automaattisesti valittu historian kohde"
+
 #: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr "Nimi:"
+msgid "_Paste instantly:"
+msgstr "_Liitä heti:"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "P_osition menu at mouse pointer"
 msgstr "Avaa valikko _hiiren kohdalla"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr "Lauseke:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr ""
-"Näytä valikko hiiren osoittimen kohdalla, vain käskyllä xfce4-popup-clipman" 
+msgstr "Näytä valikko hiiren osoittimen kohdalla, vain käskyllä xfce4-popup-clipman"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "_Reorder history items"
+msgstr "_Järjestä historian kohteita"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-"Siirrä viimeksi kopioitu teksti historian ylimmäksi; helpottaa vanhojen "
-"kohteiden järjestämistä"
+msgstr "Siirrä viimeksi kopioitu teksti historian ylimmäksi; helpottaa vanhojen kohteiden järjestämistä"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
 msgstr "Käännä historian järjestys"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr "Säännöllinen lauseke"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Reverse order of the history shown in the menu"
 msgstr "Käännä valikossa näytettävän historian järjestys"
 
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Show actions by holding Control"
+msgstr ""
+
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr "_Tallenna lopetettaessa"
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr "Historian k_oko:"
+msgid "S_kip actions by holding Control"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr "Säilytä viimeksi kopioitu _kuva"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Sync _selections"
-msgstr "_Päivitä valinnat"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr "Lauseke ympäröidään aina erikoismerkeillä ^$"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr "Hienosäätö"
-
-#: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-"Kun valinta on tehty (hiirellä tai näppäimillä) ja Ctrl on yhä painettuna, "
-"vastaavien toimintojen ponnahdusvalikko ohitetaan" 
+msgstr "Kun valinta on tehty (hiirellä tai näppäimillä) ja Ctrl on yhä painettuna, vastaavien toimintojen ponnahdusvalikko ohitetaan"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Tweaks"
+msgstr "Hienosäätö"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Edit Action"
+msgstr "Muokkaa toimintoa"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr ""
-"Voit käyttää komennoissa korvausmerkinnät kuten \"\\1\" ja \"\\2\"."
-"Merkintä \"\\0\" korvataan koko tekstillä. Ohjeita säännöllisten "
-"lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen käyttöoppaasta."
+msgstr "Voit käyttää komennoissa korvausmerkinnät kuten \"\\1\" ja \"\\2\".Merkintä \"\\0\" korvataan koko tekstillä. Ohjeita säännöllisten lausekkeiden käyttöön löydät esimerkiksi tämän sovelluksen käyttöoppaasta."
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Name:"
+msgstr "Nimi:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "Pattern:"
+msgstr "Lauseke:"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr "_Liitä heti:"
+msgid "The pattern is always anchored within the special characters ^$"
+msgstr "Lauseke ympäröidään aina erikoismerkeillä ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "_Järjestä historian kohteita"
+msgid "Activate only on manual copy"
+msgstr "Ainoastaan käsin kopioitaessa"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr "_Ohita toiminnot Ctrl-painikkeella"
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Toiminto suoritetaan vain kopioidessa, ei heti tehtyäsi valinnan."
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "<b>Action</b>"
+msgstr "<b>Toiminto</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Command:"
+msgstr "Komento:"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "<b>Commands</b>"
+msgstr "<b>Komennot</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "Regular expression"
+msgstr "Säännöllinen lauseke"
+
+#: ../panel-plugin/main-panel-plugin.c:99
+#: ../panel-plugin/main-status-icon.c:136
+msgid "_Disable"
+msgstr "_Poista käytöstä"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -275,42 +296,37 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
-"Komennon \"%s\" suoritus ei onnistu\n"
-"\n"
-"%s"
+msgstr "Komennon \"%s\" suoritus ei onnistu\n\n%s"
 
-#: ../panel-plugin/menu.c:198
+#: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
 msgstr "Haluatko varmasti tyhjentää historian?"
 
-#: ../panel-plugin/menu.c:207
+#: ../panel-plugin/menu.c:244
 msgid "Don't ask again"
 msgstr "Älä kysy uudelleen"
 
+#: ../panel-plugin/menu.c:356
+msgid "Could not generate QR-Code."
+msgstr "QR-koodin luominen epäonnistui."
+
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:304
+#: ../panel-plugin/menu.c:370
 msgid "Clipboard is empty"
 msgstr "Leikepöytä on tyhjä"
 
-#: ../panel-plugin/menu.c:399
-msgid "_Disable"
-msgstr "_Poista käytöstä"
-
-#: ../panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "Avustavat kehittäjät:"
 
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
 msgstr "Leikepöytien hallinta Xfce:lle"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
-msgstr ""
-"Lassi Kojo <lassi.kojo@sivutpystyyn.net>\n"
-"Jari Rahkonen <jari.rahkonen@pp1.inet.fi>"
+msgstr "Lassi Kojo <lassi.kojo@sivutpystyyn.net>\nJari Rahkonen <jari.rahkonen@pp1.inet.fi>"
 
-#: ../panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
 msgstr "Asetusikkunaa ei voi avata"
