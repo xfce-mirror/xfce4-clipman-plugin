@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-02-13 05:53+0000\n"
+"PO-Revision-Date: 2015-03-02 05:18+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -144,7 +144,7 @@ msgstr "储存上次复制的图片(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "如果选中，此选项让在历史中储存图片"
+msgstr "如果选中此选项，可在历史中储存图片"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
