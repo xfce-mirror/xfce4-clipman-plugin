@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-03-02 05:18+0000\n"
+"PO-Revision-Date: 2015-03-02 06:02+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr "退出时保存(_Q)"
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "如果选中，此选项将在每个新 Xfce 会话中恢复历史"
+msgstr "如果选中此选项，将在每个新 Xfce 会话中恢复历史"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
@@ -201,7 +201,7 @@ msgstr "在鼠标光标位置弹出菜单，仅用于 xfce4-popup-clipman 命令
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
-msgstr "冲排序历史项目(_R)"
+msgstr "重新排序历史项目(_R)"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
