@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-03-17 12:45+0000\n"
+"PO-Revision-Date: 2015-04-08 22:11+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Iškarpinės Tvarkyklė pateikiama kaip Xfce skydelio įskiepis bei kaip atskira, pranešimų srityje vykdoma, programa. Ji saugo, į iškarpinę nukopijuoto turinio teksto ir paveikslėlių, žurnalą. Programoje taip pat yra galimybė, esant tam tikro teksto žymėjimui, vykdyti veiksmus, atitinkančius tam tikras reguliarias išraiškas."
+msgstr "Iškarpinės Tvarkytuvė pateikiama kaip Xfce skydelio įskiepis bei kaip atskira, pranešimų srityje vykdoma, programa. Ji saugo, į iškarpinę nukopijuoto turinio teksto ir paveikslėlių, žurnalą. Programoje taip pat yra galimybė, esant tam tikro teksto žymėjimui, vykdyti veiksmus, atitinkančius tam tikras reguliarias išraiškas."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -40,7 +40,7 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "Iškarpinės tvarkyklė"
+msgstr "Iškarpinės tvarkytuvė"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -322,7 +322,7 @@ msgstr "Prisidėjo:"
 
 #: ../panel-plugin/plugin.c:341
 msgid "Clipboard Manager for Xfce"
-msgstr "Iškarpinės tvarkyklė skirta Xfce"
+msgstr "Iškarpinės tvarkytuvė skirta Xfce"
 
 #: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
