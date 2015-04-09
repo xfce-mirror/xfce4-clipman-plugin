@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-04-08 22:11+0000\n"
+"PO-Revision-Date: 2015-04-09 21:15+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgstr "Iš_saugoti išeinant"
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Jei pasirinkta, istorija bus atstatyta su kiekviena nauja Xfce sesija"
+msgstr "Jei pasirinkta, istorija bus atstatyta su kiekvienu nauju Xfce seansu"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
