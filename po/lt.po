@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
-# Moo, 2015
+# Moo, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-09-20 20:11+0000\n"
+"PO-Revision-Date: 2016-01-12 22:54+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -113,13 +113,13 @@ msgstr "Jei pasirinkta, pasirinkimai bus sinchronizuoti su numatytąja iškarpin
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Show _QR-Code"
-msgstr "Rodyti _QR-Kodą"
+msgstr "Rodyti _QR-kodą"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
 "If checked, the menu shows a QR-Code of the corrently selected clipboard "
 "entry"
-msgstr "Jei pažymėta, meniu bus rodomas, šiuo metu pažymėto iškarpinės įrašo, QR-Kodas"
+msgstr "Jei pažymėta, meniu bus rodomas, šiuo metu pažymėto iškarpinės įrašo, QR-kodas"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "<b>Behavior</b>"
@@ -309,7 +309,7 @@ msgstr "Daugiau neklausti"
 
 #: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
-msgstr "Nepavyko sukurti QR-Kodo."
+msgstr "Nepavyko sukurti QR-kodo."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:370
