@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-01-13 02:01+0000\n"
+"PO-Revision-Date: 2016-03-17 17:37+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr "<b>Elgsena</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid "Save on _quit"
-msgstr "Iš_saugoti išeinant"
+msgstr "Įrašyti _išeinant"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
@@ -136,7 +136,7 @@ msgstr "Jei pasirinkta, istorija bus atstatyta su kiekvienu nauju Xfce seansu"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
-msgstr "Išsaugoti paskutinį nukopijuotą _paveikslėlį"
+msgstr "Įrašyti paskutinį nukopijuotą _paveikslėlį"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
