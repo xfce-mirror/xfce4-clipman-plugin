@@ -4,16 +4,17 @@
 # 
 # Translators:
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009
-# Gyönki Bendegúz <gyonkibendeguz@gmail.com>, 2014
+# gyeben <gyonkibendeguz@gmail.com>, 2016
+# gyeben <gyonkibendeguz@gmail.com>, 2014
 # Attila SZERVÁC <sas@321.hu>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-08-05 16:40+0000\n"
-"Last-Translator: Gyönki Bendegúz <gyonkibendeguz@gmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/hu/)\n"
+"PO-Revision-Date: 2016-04-01 17:03+0000\n"
+"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -310,7 +311,7 @@ msgstr "Ne kérdezze újra"
 
 #: ../panel-plugin/menu.c:356
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "Nem sikerült a QR-kód generálása."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:370
