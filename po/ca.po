@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-05-01 15:19+0000\n"
+"PO-Revision-Date: 2016-05-01 18:42+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "El gestor del porta-retalls es proporciona com a connector de plafó de l'Xfce i com una aplicació independent que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiat al porta-retalls. També té una funció per executar accions sobre la selecció d'un text específic, fent-les coincidir amb expressions regulars."
+msgstr "El gestor del porta-retalls es proporciona com a connector de plafó de Xfce i com una aplicació independent que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiat al porta-retalls. També té una funció per executar accions sobre la selecció d'un text específic, fent-les coincidir amb expressions regulars."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -249,7 +249,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden emprar en la comanda. El paràmetre \"\\0\" representa el text complet. Si desconeix les expressions regulars, faci un cop d'ull a la introducció que hi ha en la documentació de Clipman."
+msgstr "Els paràmetres de substitució \"\\1\", \"\\2\" i posteriors es poden utilitzar en les ordres. El paràmetre \"\\0\" representa el text complet. Si no coneixeu les expressions regulars, doneu un cop d'ull a la introducció que hi ha en la documentació de Clipman."
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Name:"
