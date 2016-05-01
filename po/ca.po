@@ -7,13 +7,14 @@
 # Harald Servat <redcrash@gmail.com>, 2009
 # Davidmp <medipas@gmail.com>, 2016
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-03-31 14:43+0000\n"
-"Last-Translator: Davidmp <medipas@gmail.com>\n"
+"PO-Revision-Date: 2016-05-01 15:19+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -328,7 +329,7 @@ msgstr "Gestor de porta-retalls per l'escriptori Xfce"
 
 #: ../panel-plugin/plugin.c:349
 msgid "translator-credits"
-msgstr "Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\nHarald Servat Gelabert <redcrash@gmail.com>, 2009."
+msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\nHarald Servat Gelabert <redcrash@gmail.com>, 2009.\nRobert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016."
 
 #: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
