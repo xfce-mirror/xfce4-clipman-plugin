@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-05-01 18:42+0000\n"
+"PO-Revision-Date: 2016-05-02 13:08+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -333,4 +333,4 @@ msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz
 
 #: ../panel-plugin/plugin.c:363
 msgid "Unable to open the settings dialog"
-msgstr "No s'ha pogut obrir la finestra de preferències"
+msgstr "No s'ha pogut obrir el diàleg d'ajusts"
