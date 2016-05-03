@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-05-03 12:13+0000\n"
+"PO-Revision-Date: 2016-05-03 18:52+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "URL completa"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "Escurça la URL"
+msgstr "Escurça l'URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:206
 msgid "None"
@@ -112,7 +112,7 @@ msgstr "Sincronitza les _seleccions"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si es marca, les seleccions es sincronitzaran amb el porta-retalls predeterminat per tal que pugueu enganxar allò que seleccioneu"
+msgstr "Si es marca, les seleccions se sincronitzaran amb el porta-retalls predeterminat per tal que pugueu enganxar allò que seleccioneu"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Show _QR-Code"
@@ -156,7 +156,7 @@ msgstr "Si es marca, les seleccions, llevat de les còpies manuals, no afectaran
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
-msgstr "Mida de l'_històric"
+msgstr "Mida de l'_històric:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>History</b>"
@@ -233,7 +233,7 @@ msgstr "Ome_t accions mantenint premuda la tecla Control"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, es saltarà el menú emergent d'accions"
+msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, se saltarà el menú emergent d'accions"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Tweaks"
