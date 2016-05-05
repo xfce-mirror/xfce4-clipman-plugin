@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-05-03 18:52+0000\n"
+"PO-Revision-Date: 2016-05-05 11:00+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "Desa en _sortir"
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Si es marca, aquesta opció recuperarà l'històric en cadascuna de les sessions noves de Xfce"
+msgstr "Si es marca, aquesta opció recuperarà l'historial en cadascuna de les sessions noves de Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Store last copied _image"
@@ -143,7 +143,7 @@ msgstr "Emmagatzema la darrera _imatge copiada"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si es marca, aquesta opció permet emmagatzemar una imatge dins de l'històric"
+msgstr "Si es marca, aquesta opció permet emmagatzemar una imatge dins de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Ignore s_elections"
@@ -152,15 +152,15 @@ msgstr "Ignora les s_eleccions"
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si es marca, les seleccions, llevat de les còpies manuals, no afectaran l’històric."
+msgstr "Si es marca, les seleccions, llevat de les còpies manuals, no afectaran l'historial."
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Size of the _history:"
-msgstr "Mida de l'_històric:"
+msgstr "Mida de l'_historial:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>History</b>"
-msgstr "<b>Històric</b>"
+msgstr "<b>Historial</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "General"
@@ -182,7 +182,7 @@ msgstr "Accions"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "Automatically paste a selected item from the history"
-msgstr "Enganxa automàticament un element seleccionat de l’històric"
+msgstr "Enganxa automàticament un element seleccionat de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "_Paste instantly:"
@@ -200,20 +200,20 @@ msgstr "Mostra el menú emergent en la posició del punter del ratolí, només p
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "_Reorder history items"
-msgstr "_Reordena els elements de l’històric"
+msgstr "_Reordena els elements de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Empeny l'últim text copiat a la part superior de l'històric, útil per tornar a ordenar els elements antics"
+msgstr "Empeny l'últim text copiat a la part superior de l'historial, útil per tornar a ordenar els elements antics"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Re_verse history order"
-msgstr "Ordre invers de l’històric"
+msgstr "Ordre invers de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reverse order of the history shown in the menu"
-msgstr "Es mostra al menú l'ordre invers de l’històric"
+msgstr "Es mostra al menú l'ordre invers de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Show actions by holding Control"
@@ -304,7 +304,7 @@ msgstr "No s'ha pogut executar l'ordre «%s»\n\n%s"
 
 #: ../panel-plugin/menu.c:235
 msgid "Are you sure you want to clear the history?"
-msgstr "Voleu buidar l’històric?"
+msgstr "Voleu buidar l'historial?"
 
 #: ../panel-plugin/menu.c:244
 msgid "Don't ask again"
