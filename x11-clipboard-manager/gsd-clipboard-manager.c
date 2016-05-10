@@ -276,7 +276,7 @@ start_clipboard_idle_cb (GsdClipboardManager *manager)
         Window                  window;
         Time                    timestamp;
 
-        display = GDK_DISPLAY ();
+        display = gdk_x11_get_default_xdisplay ();
         init_atoms (display);
 
         /* Check if there is a clipboard manager running */

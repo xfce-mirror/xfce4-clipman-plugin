@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
-#include <exo/exo.h>
+//#include <exo/exo.h>
 #include <libxfce4util/libxfce4util.h>
 
 #include "common.h"
@@ -277,7 +277,7 @@ clipman_history_add_text (ClipmanHistory *history,
   tmp1 = g_strstrip (g_strdup (text));
   while (g_strstr_len (tmp1, preview_length, "  "))
     {
-      tmp2 = exo_str_replace (tmp1, "  ", " ");
+      //tmp2 = exo_str_replace (tmp1, "  ", " ");
       g_free (tmp1);
       tmp1 = tmp2;
     }
@@ -323,7 +323,7 @@ clipman_history_add_image (ClipmanHistory *history,
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
-  item->preview.image = exo_gdk_pixbuf_scale_ratio (GDK_PIXBUF (image), 128);
+  //item->preview.image = exo_gdk_pixbuf_scale_ratio (GDK_PIXBUF (image), 128);
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
@@ -557,4 +557,3 @@ clipman_history_get_property (GObject *object,
       break;
     }
 }
-

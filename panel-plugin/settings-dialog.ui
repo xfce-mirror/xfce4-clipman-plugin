@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <interface>
-  <requires lib="gtk+" version="2.16"/>
-  <!-- interface-requires libxfce4ui 4.5 -->
+  <requires lib="gtk+" version="3.14"/>
+  <requires lib="libxfce4ui" version="4.12"/>
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkAdjustment" id="adjustment1">
     <property name="value">5</property>
@@ -24,7 +24,7 @@
     <property name="has_separator">False</property>
     <property name="subtitle" translatable="yes">Configure the plugin</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="settings-dialog-vbox">
+      <object class="GtkBox" id="settings-dialog-vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
@@ -34,7 +34,7 @@
             <property name="can_focus">True</property>
             <property name="border_width">6</property>
             <child>
-              <object class="GtkVBox" id="vbox-general">
+              <object class="GtkBox" id="vbox-general">
                 <property name="visible">True</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
@@ -51,7 +51,7 @@
                         <property name="bottom_padding">6</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkVBox" id="vbox-behavior">
+                          <object class="GtkBox" id="vbox-behavior">
                             <property name="visible">True</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
@@ -115,7 +115,7 @@
                         <property name="bottom_padding">6</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkVBox" id="vbox-history">
+                          <object class="GtkBox" id="vbox-history">
                             <property name="visible">True</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
@@ -163,8 +163,9 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkHBox" id="hbox-history-size">
+                              <object class="GtkBox" id="hbox-history-size">
                                 <property name="visible">True</property>
+                                <property name="orientation">horizontal</property>s
                                 <property name="spacing">4</property>
                                 <child>
                                   <object class="GtkLabel" id="label-history-size">
@@ -228,7 +229,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox-actions">
+              <object class="GtkBox" id="vbox-actions">
                 <property name="visible">True</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
@@ -250,8 +251,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkHBox" id="hbox2">
+                  <object class="GtkBox" id="hbox2">
                     <property name="visible">True</property>
+                    <property name="orientation">horizontal</property>
                     <property name="spacing">6</property>
                     <child>
                       <object class="GtkScrolledWindow" id="scrolledwindow1">
@@ -274,7 +276,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkVBox" id="vbox4">
+                      <object class="GtkBox" id="vbox4">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
@@ -385,14 +387,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox-tweaks">
+              <object class="GtkBox" id="vbox-tweaks">
                 <property name="visible">True</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
-                  <object class="GtkHBox" id="hbox1">
+                  <object class="GtkBox" id="hbox1">
                     <property name="visible">True</property>
+                    <property name="orientation">horizontal</property>
                     <property name="tooltip_text" translatable="yes">Automatically paste a selected item from the history</property>
                     <property name="spacing">4</property>
                     <child>
@@ -586,14 +589,15 @@
     <property name="transient_for">settings-dialog</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="action-dialog-vbox">
+      <object class="GtkBox" id="action-dialog-vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <object class="GtkHBox" id="hbox-regex-info">
+          <object class="GtkBox" id="hbox-regex-info">
             <property name="visible">True</property>
             <property name="border_width">2</property>
+            <property name="orientation">horizontal</property>
             <property name="spacing">6</property>
             <child>
               <object class="GtkImage" id="image-regex-info">
@@ -638,13 +642,14 @@
                 <property name="bottom_padding">6</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkVBox" id="vbox-action">
+                  <object class="GtkBox" id="vbox-action">
                     <property name="visible">True</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">6</property>
                     <child>
-                      <object class="GtkHBox" id="hbox-action-name">
+                      <object class="GtkBox" id="hbox-action-name">
                         <property name="visible">True</property>
+                        <property name="orientation">horizontal</property>
                         <property name="spacing">4</property>
                         <child>
                           <object class="GtkLabel" id="label-action-name">
@@ -674,7 +679,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox1-action-pattern">
+                      <object class="GtkBox" id="hbox1-action-pattern">
                         <property name="visible">True</property>
                         <property name="spacing">4</property>
                         <child>
@@ -690,7 +695,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkHBox" id="hbox2-action-pattern">
+                          <object class="GtkBox" id="hbox2-action-pattern">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
@@ -733,7 +738,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox-pattern-info">
+                      <object class="GtkBox" id="hbox-pattern-info">
                         <property name="visible">True</property>
                         <property name="spacing">2</property>
                         <child>
@@ -808,16 +813,16 @@
                 <property name="bottom_padding">6</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkHBox" id="hbox-commands">
+                  <object class="GtkBox" id="hbox-commands">
                     <property name="visible">True</property>
                     <property name="spacing">6</property>
                     <child>
-                      <object class="GtkVBox" id="vbox-commands">
+                      <object class="GtkBox" id="vbox-commands">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
-                          <object class="GtkHBox" id="hbox-command-name">
+                          <object class="GtkBox" id="hbox-command-name">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
@@ -850,7 +855,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkHBox" id="hbox-command">
+                          <object class="GtkBox" id="hbox-command">
                             <property name="visible">True</property>
                             <property name="spacing">4</property>
                             <child>
@@ -908,7 +913,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkVBox" id="vbox-command-buttons">
+                      <object class="GtkBox" id="vbox-command-buttons">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
@@ -1052,7 +1057,7 @@
     <property name="transient_for">action-dialog</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="regex-dialog-vbox">
+      <object class="GtkBox" id="regex-dialog-vbox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>

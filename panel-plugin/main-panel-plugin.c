@@ -85,9 +85,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
 
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
   xfce_panel_plugin_set_small (panel_plugin, TRUE);
-#endif
 
   xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
   g_signal_connect (plugin->button, "button-press-event",
@@ -205,4 +203,3 @@ my_plugin_position_menu (GtkMenu *menu,
         break;
     }
 }
-

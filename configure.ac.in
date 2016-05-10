@@ -10,8 +10,8 @@ dnl ***************************
 dnl *** Version information ***
 dnl ***************************
 m4_define([project_version_major], [1])
-m4_define([project_version_minor], [2])
-m4_define([project_version_micro], [6])
+m4_define([project_version_minor], [4])
+m4_define([project_version_micro], [0])
 m4_define([project_version_build], [@REVISION@])
 m4_define([project_version_tag], []) # leave empty for release
 m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [git], [project_version_tag()-project_version_build()], [project_version_tag()])])
@@ -59,22 +59,21 @@ dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
 XDT_CHECK_LIBX11_REQUIRE()
-XDT_CHECK_PACKAGE([EXO], [exo-1], [0.6.0])
-XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.18.0])
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.18.0])
-XDT_CHECK_PACKAGE([GDKX], [gdk-x11-2.0], [2.14.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.14.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.8.0])
+XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.32.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.32.0])
+XDT_CHECK_PACKAGE([GDKX], [gdk-x11-3.0], [3.12.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.10.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
 XDT_CHECK_PACKAGE([LIBXPROTO], [xproto], [7.0.0])
 XDT_CHECK_PACKAGE([LIBXTST], [xtst], [1.0.0])
 
 dnl ***************************
 dnl *** Check for libunique ***
 dnl ***************************
-XDT_CHECK_OPTIONAL_PACKAGE([UNIQUE], [unique-1.0], [1.0.0], unique, [Unique support])
+XDT_CHECK_OPTIONAL_PACKAGE([UNIQUE], [unique-3.0], [3.0.0], unique, [Unique support])
 if test x"$UNIQUE_FOUND" = x"yes"; then
 	enable_unique=yes
 else

@@ -203,11 +203,11 @@ prop_dialog_run (void)
     gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (combobox), cell, "text", 0, NULL);
   }
 
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), _("None"));
+  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("None"));
   /* TRANSLATORS: Keyboard shortcut */
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), _("Ctrl+V"));
+  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Ctrl+V"));
   /* TRANSLATORS: Keyboard shortcut */
-  gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), _("Shift+Insert"));
+  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
   gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
 
   xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
@@ -231,7 +231,7 @@ cb_show_help (GtkButton *button)
   gchar *offset;
   gchar *docpath = NULL;
   gchar *command = NULL;
-  
+
   /* Find localized documentation path on disk */
 #ifdef ENABLE_NLS
 #ifdef HAVE_LOCALE_H
@@ -750,12 +750,12 @@ cb_test_regex (GtkButton *button)
   gtk_widget_hide (dialog);
 }
 
-static void 
+static void
 cb_test_regex_changed (GtkWidget *widget)
 {
   if (test_regex_changed_timeout == 0)
-    gtk_entry_set_icon_from_stock (GTK_ENTRY (gtk_builder_get_object (builder, "regex-entry")),
-                                   GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_REFRESH);
+    gtk_entry_set_icon_from_icon_name (GTK_ENTRY (gtk_builder_get_object (builder, "regex-entry")),
+                                   GTK_ENTRY_ICON_SECONDARY, "gtk-refresh");
 
   if (test_regex_changed_timeout > 0)
     g_source_remove (test_regex_changed_timeout);
@@ -797,10 +797,10 @@ update_test_regex_textview_tags (void)
   regex = g_regex_new (pattern, G_REGEX_CASELESS|G_REGEX_MULTILINE, 0, NULL);
   if (regex == NULL)
     {
-      gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_DIALOG_ERROR);
+      gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, "dialog-error");
       return;
     }
-  gtk_entry_set_icon_from_stock (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_APPLY);
+  gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, "dialog-apply");
 
   text = gtk_text_buffer_get_text (buffer, &start, &end, FALSE);
   if (!g_regex_match (regex, text, 0, &match_info))

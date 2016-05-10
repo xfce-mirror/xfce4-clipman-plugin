@@ -44,7 +44,7 @@
 
 static gboolean         my_plugin_set_popup_selection   (MyPlugin *plugin);
 static gboolean         cb_popup_message_received       (MyPlugin *plugin,
-                                                         GdkEventClient *ev);
+                                                         GdkEvent *ev, gpointer user_data);
 static gboolean         xfce_popup_grab_available       (GdkWindow *win,
                                                          guint32 timestamp);
 
@@ -56,7 +56,7 @@ clipboard_manager_ownership_exists (void)
   Display *display;
   Atom atom;
 
-  display = GDK_DISPLAY ();
+  display = gdk_x11_get_default_xdisplay ();
   atom = XInternAtom (display, "CLIPBOARD_MANAGER", FALSE);
   return XGetSelectionOwner (display, atom);
 }
@@ -296,26 +296,6 @@ plugin_free (MyPlugin *plugin)
   xfconf_shutdown ();
 }
 
-static void
-cb_about_dialog_url_hook (GtkAboutDialog *dialog,
-                          const gchar *uri,
-                          gpointer user_data)
-{
-  gchar *command = NULL;
-
-  if (!gtk_show_uri (NULL, uri, GDK_CURRENT_TIME, NULL))
-    {
-      command = g_strdup_printf ("exo-open --launch %s", uri);
-      if (!g_spawn_command_line_async (command, NULL))
-        {
-          g_free (command);
-          command = g_strdup_printf ("firefox %s", uri);
-          g_spawn_command_line_async (command, NULL);
-        }
-      g_free (command);
-    }
-}
-
 void
 plugin_about (MyPlugin *plugin)
 {
@@ -334,7 +314,6 @@ plugin_about (MyPlugin *plugin)
     "the Free Software Foundation; either version 2 of the License, or\n"
     "(at your option) any later version.\n";
 
-  gtk_about_dialog_set_url_hook (cb_about_dialog_url_hook, NULL, NULL);
   gtk_show_about_dialog (NULL,
                          "program-name", _("Clipman"),
                          "logo-icon-name", "xfce4-clipman-plugin",
@@ -382,7 +361,9 @@ plugin_popup_menu (MyPlugin *plugin)
       xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
     }
 #elif defined (STATUS_ICON)
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
+G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin->status_icon,
                   0, gtk_get_current_event_time ());
@@ -401,26 +382,28 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
   Atom                selection_atom;
   GtkWidget          *win;
   Window              id;
+  Display            *display;
 
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
   id = GDK_WINDOW_XID (gtk_widget_get_window (win));
+  display = gdk_x11_get_default_xdisplay ();
 
   gscreen = gtk_widget_get_screen (win);
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
                                     gdk_screen_get_number (gscreen));
-  selection_atom = XInternAtom (GDK_DISPLAY(), selection_name, FALSE);
+  selection_atom = XInternAtom (display, selection_name, FALSE);
 
-  if (XGetSelectionOwner (GDK_DISPLAY(), selection_atom))
+  if (XGetSelectionOwner (display, selection_atom))
     {
       gtk_widget_destroy (win);
       return FALSE;
     }
 
-  XSelectInput (GDK_DISPLAY(), id, PropertyChangeMask);
-  XSetSelectionOwner (GDK_DISPLAY(), selection_atom, id, GDK_CURRENT_TIME);
+  XSelectInput (display, id, PropertyChangeMask);
+  XSetSelectionOwner (display, selection_atom, id, GDK_CURRENT_TIME);
 
-  g_signal_connect_swapped (win, "client-event",
+  g_signal_connect_swapped (win, "event",
                             G_CALLBACK (cb_popup_message_received), plugin);
 
   return TRUE;
@@ -428,7 +411,7 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
 
 static gboolean
 cb_popup_message_received (MyPlugin *plugin,
-                           GdkEventClient *ev)
+                           GdkEvent *ev, gpointer user_data)
 {
   {
     /* Copy workaround from xfdesktop to handle the awkward case where binding
@@ -436,7 +419,9 @@ cb_popup_message_received (MyPlugin *plugin,
 #ifdef PANEL_PLUGIN
     GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (plugin->button));
 #elif defined (STATUS_ICON)
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     GdkScreen *screen = gtk_status_icon_get_screen (plugin->status_icon);
+G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
     GdkWindow *root = gdk_screen_get_root_window (screen);
     if (!xfce_popup_grab_available (root, GDK_CURRENT_TIME))
@@ -446,11 +431,11 @@ cb_popup_message_received (MyPlugin *plugin,
       }
   }
 
-  if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
-    {
-      if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
-        {
-          DBG ("Message received: %s", ev->data.b);
+  //if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
+    //{
+      //if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
+        //{
+          //DBG ("Message received: %s", ev->data.b);
 
           if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
             {
@@ -463,10 +448,10 @@ cb_popup_message_received (MyPlugin *plugin,
             }
 
           return TRUE;
-        }
-    }
+        //}
+    //}
 
-  return FALSE;
+  //return FALSE;
 }
 
 /* Code taken from xfwm4/src/menu.c:grab_available().  This should fix the case
@@ -480,40 +465,42 @@ xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
         GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
         GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |
         GDK_POINTER_MOTION_MASK;
-    GdkGrabStatus g1;
-    GdkGrabStatus g2;
+    GdkDisplay* display = gdk_window_get_display(win);
+    GdkDeviceManager *device_manager = gdk_display_get_device_manager(display);
+    GdkDevice* device = gdk_device_manager_get_client_pointer(device_manager);
+    GdkGrabStatus g;
+    //GdkGrabStatus g2;
     gboolean grab_failed = FALSE;
     gint i = 0;
 
     TRACE ("entering grab_available");
 
-    g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
-    g2 = gdk_keyboard_grab (win, TRUE, timestamp);
+    g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
+    //g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
+    //g2 = gdk_keyboard_grab (win, TRUE, timestamp);
 
-    while ((i++ < 2500) && (grab_failed = ((g1 != GDK_GRAB_SUCCESS)
-                || (g2 != GDK_GRAB_SUCCESS))))
+    while ((i++ < 2500) && (grab_failed = (g != GDK_GRAB_SUCCESS)))
     {
         TRACE ("grab not available yet, waiting... (%i)", i);
         g_usleep (100);
-        if (g1 != GDK_GRAB_SUCCESS)
+        if (g != GDK_GRAB_SUCCESS)
         {
-            g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
+            g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
         }
-        if (g2 != GDK_GRAB_SUCCESS)
-        {
-            g2 = gdk_keyboard_grab (win, TRUE, timestamp);
-        }
+//        if (g2 != GDK_GRAB_SUCCESS)
+//        {
+//            g2 = gdk_keyboard_grab (win, TRUE, timestamp);
+//        }
     }
 
-    if (g1 == GDK_GRAB_SUCCESS)
+    if (g == GDK_GRAB_SUCCESS)
     {
-        gdk_pointer_ungrab (timestamp);
+        gdk_device_ungrab (device, timestamp);
     }
-    if (g2 == GDK_GRAB_SUCCESS)
-    {
-        gdk_keyboard_ungrab (timestamp);
-    }
+//    if (g2 == GDK_GRAB_SUCCESS)
+//    {
+//        gdk_keyboard_ungrab (timestamp);
+//    }
 
     return (!grab_failed);
 }
-

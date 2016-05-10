@@ -34,6 +34,7 @@
 /*
  * Status Icon
  */
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
 static MyPlugin*        status_icon_register            ();
 static gboolean         cb_status_icon_is_embedded      (GtkStatusIcon *status_icon);
@@ -91,7 +92,7 @@ status_icon_register (void)
     {
       plugin->status_icon = gtk_status_icon_new_from_stock (GTK_STOCK_PASTE);
     }
-  gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
+  //gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
   g_timeout_add_seconds (60, (GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
 
   /* Signals */
@@ -236,4 +237,4 @@ update_autostart_file (gboolean autostart)
   g_key_file_free (keyfile);
   g_free (userfile);
 }
-
+G_GNUC_END_IGNORE_DEPRECATIONS

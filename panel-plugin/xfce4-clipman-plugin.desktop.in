@@ -7,3 +7,4 @@ Icon=xfce4-clipman-plugin
 X-XFCE-Module=clipman
 X-XFCE-Internal=false
 X-XFCE-Unique=true
+X-XFCE-API=2.0

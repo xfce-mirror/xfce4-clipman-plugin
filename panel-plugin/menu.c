@@ -20,7 +20,7 @@
 #include <config.h>
 #endif
 
-#include <exo/exo.h>
+//#include <exo/exo.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
@@ -242,7 +242,7 @@ cb_clear_history (ClipmanMenu *menu)
         GtkWidget *content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
 #endif
         GtkWidget *checkbox = gtk_check_button_new_with_label (_("Don't ask again"));
-        exo_binding_new (G_OBJECT (checkbox), "active", G_OBJECT (menu), "never-confirm-history-clear");
+        //exo_binding_new (G_OBJECT (checkbox), "active", G_OBJECT (menu), "never-confirm-history-clear");
         gtk_widget_show (checkbox);
         gtk_container_add (GTK_CONTAINER (content_area), checkbox);
 
@@ -548,7 +548,7 @@ clipman_menu_qrcode (char *text)
 	int i, j, k, rowstride, channels;
 	guchar *pixel;
 	unsigned char *data;
-	
+
 	qrcode = QRcode_encodeString8bit(text, 0, QR_ECLEVEL_L);
 
 	if (qrcode == NULL)
@@ -574,7 +574,7 @@ clipman_menu_qrcode (char *text)
 
 	QRcode_free(qrcode);
 	g_object_unref(pixbuf);
-	
+
 	return pixbuf_scaled;
 }
 #endif

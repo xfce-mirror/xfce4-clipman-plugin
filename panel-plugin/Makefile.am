@@ -1,4 +1,4 @@
-NULL = 
+NULL =
 
 INCLUDES =								\
 	-I${top_srcdir}							\
@@ -58,7 +58,6 @@ xfce4_clipman_settings_SOURCES =					\
 xfce4_clipman_settings_CFLAGS =						\
 	-DGSEAL_ENABLE							\
 	@GIO_CFLAGS@							\
-	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -68,7 +67,6 @@ xfce4_clipman_settings_CFLAGS =						\
 
 xfce4_clipman_settings_LDADD =						\
 	@GIO_LIBS@							\
-	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\
@@ -94,7 +92,6 @@ xfce4_clipman_CFLAGS =							\
 	-DGSEAL_ENABLE							\
 	-DSTATUS_ICON							\
 	@GIO_CFLAGS@							\
-	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
@@ -107,7 +104,6 @@ xfce4_clipman_CFLAGS =							\
 xfce4_clipman_LDADD =							\
 	$(top_builddir)/x11-clipboard-manager/libdaemon.la		\
 	@GIO_LIBS@							\
-	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
@@ -138,7 +134,6 @@ libclipman_la_SOURCES =							\
 libclipman_la_CFLAGS =							\
 	-DPANEL_PLUGIN							\
 	@GIO_CFLAGS@							\
-	@EXO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
@@ -161,7 +156,6 @@ libclipman_la_LDFLAGS =							\
 libclipman_la_LIBADD =							\
 	$(top_builddir)/x11-clipboard-manager/libdaemon.la		\
 	@GIO_LIBS@							\
-	@EXO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\

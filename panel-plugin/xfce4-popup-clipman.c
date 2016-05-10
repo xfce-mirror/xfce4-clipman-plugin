@@ -36,13 +36,15 @@ clipman_plugin_check_is_running (GtkWidget *widget,
   GdkScreen          *gscreen;
   gchar              *selection_name;
   Atom                selection_atom;
+  Display            *display;
 
+  display = gdk_x11_get_default_xdisplay ();
   gscreen = gtk_widget_get_screen (widget);
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
                                     gdk_screen_get_number (gscreen));
-  selection_atom = XInternAtom (GDK_DISPLAY(), selection_name, FALSE);
+  selection_atom = XInternAtom (display, selection_name, FALSE);
 
-  if ((*xid = XGetSelectionOwner (GDK_DISPLAY(), selection_atom)))
+  if ((*xid = XGetSelectionOwner (display, selection_atom)))
     return TRUE;
 
   return FALSE;
@@ -51,7 +53,7 @@ clipman_plugin_check_is_running (GtkWidget *widget,
 gint
 main (gint argc, gchar *argv[])
 {
-  GdkEventClient        gev;
+  GdkEvent              gev;
   GtkWidget            *win;
   Window                id;
 
@@ -60,15 +62,16 @@ main (gint argc, gchar *argv[])
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
 
-  gev.type              = GDK_CLIENT_EVENT;
-  gev.window            = gtk_widget_get_window (win);
-  gev.send_event        = TRUE;
-  gev.message_type      = gdk_atom_intern ("STRING", FALSE);
-  gev.data_format       = 8;
-  g_snprintf (gev.data.b, sizeof (gev.data.b), XFCE_CLIPMAN_MESSAGE);
+  //gev.type              = GDK_CLIENT_EVENT;
+  //gev.window            = gtk_widget_get_window (win);
+  //gev.send_event        = TRUE;
+  //gev.message_type      = gdk_atom_intern ("STRING", FALSE);
+  //gev.data_format       = 8;
+  //g_snprintf (gev.data.b, sizeof (gev.data.b), XFCE_CLIPMAN_MESSAGE);
 
   if (clipman_plugin_check_is_running (win, &id))
-    gdk_event_send_client_message ((GdkEvent *)&gev, (GdkNativeWindow)id);
+    g_warning ("Fixme...");
+    //gdk_event_send_client_message ((GdkEvent *)&gev, (GdkNativeWindow)id);
   else
     g_warning ("Can't find the xfce4-clipman-plugin.\n");
   gdk_flush ();
@@ -77,4 +80,3 @@ main (gint argc, gchar *argv[])
 
   return FALSE;
 }
-
