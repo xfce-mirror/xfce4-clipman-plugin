@@ -305,13 +305,17 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new_with_label (item->preview.text);
+G_GNUC_END_IGNORE_DEPRECATIONS
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
           image = gtk_image_new_from_pixbuf (item->preview.image);
           gtk_container_add (GTK_CONTAINER (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
           break;
 
         default:
@@ -323,8 +327,10 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
       if (item == item_to_restore)
         {
-          image = gtk_image_new_from_stock (GTK_STOCK_GO_FORWARD, GTK_ICON_SIZE_MENU);
+          image = gtk_image_new_from_icon_name ("go-next-symbolic", GTK_ICON_SIZE_MENU);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
         }
 
       menu->priv->list = g_slist_prepend (menu->priv->list, mi);
@@ -343,7 +349,9 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
       if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text)) != NULL)
         {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
+G_GNUC_END_IGNORE_DEPRECATIONS
           gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_pixbuf (pixbuf));
           g_signal_connect (mi, "activate", G_CALLBACK (cb_set_qrcode), pixbuf);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
@@ -451,6 +459,7 @@ static void
 clipman_menu_init (ClipmanMenu *menu)
 {
   GtkWidget *mi;
+  GtkWidget *image;
 
   menu->priv = GET_PRIVATE (menu);
 
@@ -464,7 +473,11 @@ clipman_menu_init (ClipmanMenu *menu)
   mi = gtk_separator_menu_item_new ();
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
-  menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_from_stock (GTK_STOCK_CLEAR, NULL);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_with_mnemonic (_("_Clear history"));
+  image = gtk_image_new_from_icon_name ("edit-clear-symbolic", GTK_ICON_SIZE_MENU);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu->priv->mi_clear_history), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
 

@@ -80,7 +80,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
     }
   else
     {
-      plugin->image = xfce_panel_image_new_from_source (GTK_STOCK_PASTE);
+      plugin->image = xfce_panel_image_new_from_source ("edit-paste");
     }
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
