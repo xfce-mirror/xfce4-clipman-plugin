@@ -189,25 +189,11 @@ prop_dialog_run (void)
 
   /* Tweaks tab: paste-on-activate combobox */
   combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
-
-  {
-    GtkListStore *store;
-    GtkCellRenderer *cell;
-
-    store = gtk_list_store_new (1, G_TYPE_STRING);
-    gtk_combo_box_set_model (GTK_COMBO_BOX (combobox), GTK_TREE_MODEL (store));
-    g_object_unref (store);
-
-    cell = gtk_cell_renderer_text_new ();
-    gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combobox), cell, TRUE);
-    gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (combobox), cell, "text", 0, NULL);
-  }
-
-  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("None"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("None"));
   /* TRANSLATORS: Keyboard shortcut */
-  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Ctrl+V"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Ctrl+V"));
   /* TRANSLATORS: Keyboard shortcut */
-  //gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
   gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
 
   xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
