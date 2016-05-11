@@ -120,9 +120,7 @@ static gboolean
 plugin_set_size (MyPlugin *plugin,
                  gint size)
 {
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
   size /= xfce_panel_plugin_get_nrows (plugin->panel_plugin);
-#endif
   gtk_widget_set_size_request(GTK_WIDGET(plugin->button), size, size);
 
   return TRUE;
