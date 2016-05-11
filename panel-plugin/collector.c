@@ -146,11 +146,14 @@ static gboolean
 cb_check_primary_clipboard (ClipmanCollector *collector)
 {
   GdkModifierType state;
+  GdkDisplay* display = gdk_display_get_default ();
+  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+  GdkDevice* device = gdk_device_manager_get_client_pointer (device_manager);
 
   g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
 
   /* Postpone until the selection is done */
-  gdk_window_get_pointer (NULL, NULL, NULL, &state);
+  gdk_window_get_device_position (NULL, device, NULL, NULL, &state);
   if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
     return TRUE;
 
@@ -386,4 +389,3 @@ clipman_collector_get_property (GObject *object,
       break;
     }
 }
-
