@@ -276,7 +276,7 @@ clipman_history_add_text (ClipmanHistory *history,
   tmp1 = g_strstrip (g_strdup (text));
   while (g_strstr_len (tmp1, preview_length, "  "))
     {
-      //tmp2 = exo_str_replace (tmp1, "  ", " ");
+      tmp2 = g_strjoinv(" ", g_strsplit(tmp1, " ", -1));
       g_free (tmp1);
       tmp1 = tmp2;
     }
