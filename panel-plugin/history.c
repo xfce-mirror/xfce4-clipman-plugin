@@ -23,7 +23,6 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
-//#include <exo/exo.h>
 #include <libxfce4util/libxfce4util.h>
 
 #include "common.h"
@@ -323,7 +322,7 @@ clipman_history_add_image (ClipmanHistory *history,
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
-  //item->preview.image = exo_gdk_pixbuf_scale_ratio (GDK_PIXBUF (image), 128);
+  item->preview.image = gdk_pixbuf_scale_simple (GDK_PIXBUF (image), 128, 128, GDK_INTERP_BILINEAR);
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
