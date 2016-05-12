@@ -394,6 +394,8 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
                                     gdk_screen_get_number (gscreen));
   selection_atom = XInternAtom (display, selection_name, FALSE);
 
+  g_free(selection_name);
+
   if (XGetSelectionOwner (display, selection_atom))
     {
       gtk_widget_destroy (win);

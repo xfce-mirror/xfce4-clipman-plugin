@@ -53,7 +53,6 @@ clipman_plugin_check_is_running (GtkWidget *widget,
 gint
 main (gint argc, gchar *argv[])
 {
-  GdkEvent              gev;
   GtkWidget            *win;
   Window                id;
 
