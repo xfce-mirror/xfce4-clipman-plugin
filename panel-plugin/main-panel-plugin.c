@@ -74,13 +74,13 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   /* Panel Button */
   plugin->button = xfce_panel_create_toggle_button ();
-  if (gtk_icon_theme_has_icon (icon_theme, "clipman"))
+  if (gtk_icon_theme_has_icon (icon_theme, "clipman-symbolic"))
     {
-      plugin->image = xfce_panel_image_new_from_source ("clipman");
+      plugin->image = gtk_image_new_from_icon_name ("clipman-symbolic", GTK_ICON_SIZE_MENU);
     }
   else
     {
-      plugin->image = xfce_panel_image_new_from_source ("edit-paste");
+      plugin->image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
     }
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
