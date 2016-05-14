@@ -273,12 +273,13 @@ clipman_history_add_text (ClipmanHistory *history,
   item->content.text = g_strdup (text);
 
   /* Strip white spaces for preview */
-  tmp1 = g_strstrip (g_strdup (text));
-  while (g_strstr_len (tmp1, preview_length, "  "))
+  tmp1 = g_strchomp (g_strdup (text));
+
+  tmp2 = tmp1;
+  while (tmp2)
     {
-      tmp2 = g_strjoinv(" ", g_strsplit(tmp1, " ", -1));
-      g_free (tmp1);
-      tmp1 = tmp2;
+      tmp2 = g_strchug(++tmp2);
+      tmp2 = g_strstr_len (tmp1, preview_length, "  ");
     }
 
   /* Shorten preview */
