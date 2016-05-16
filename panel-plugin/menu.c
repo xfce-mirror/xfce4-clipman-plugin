@@ -237,7 +237,9 @@ cb_clear_history (ClipmanMenu *menu)
       {
         GtkWidget *content_area = gtk_message_dialog_get_message_area (GTK_MESSAGE_DIALOG (dialog));
         GtkWidget *checkbox = gtk_check_button_new_with_label (_("Don't ask again"));
-        //exo_binding_new (G_OBJECT (checkbox), "active", G_OBJECT (menu), "never-confirm-history-clear");
+        g_object_bind_property(G_OBJECT (checkbox), "active",
+                               G_OBJECT (menu), "never-confirm-history-clear",
+                               G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
         gtk_widget_show (checkbox);
         gtk_container_add (GTK_CONTAINER (content_area), checkbox);
 
