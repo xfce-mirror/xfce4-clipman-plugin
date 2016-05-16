@@ -19,7 +19,7 @@ m4_define([project_version], [project_version_major().project_version_minor().pr
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2005-2012
+AC_COPYRIGHT([Copyright (c) 2005-2016
         The Xfce development team. All rights reserved.])
 AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin],
        	[http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin])
@@ -61,8 +61,8 @@ dnl ***********************************
 XDT_CHECK_LIBX11_REQUIRE()
 XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.32.0])
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.32.0])
-XDT_CHECK_PACKAGE([GDKX], [gdk-x11-3.0], [3.12.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.12.0])
+XDT_CHECK_PACKAGE([GDKX], [gdk-x11-3.0], [3.14.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.14.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
