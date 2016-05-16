@@ -1,0 +1,16 @@
+*.gmo
+Makefile.in
+Makefile.in.in
+.deps
+.libs
+*.o
+configure
+configure.ac
+Makefile
+*.lo
+*.la
+autom4te.cache
+config.*
+*~
+intltool-*.in
+INSTALL
