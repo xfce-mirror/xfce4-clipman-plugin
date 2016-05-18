@@ -356,11 +356,8 @@ plugin_popup_menu (MyPlugin *plugin)
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin,
                   0, gtk_get_current_event_time ());
-  if (gtk_grab_get_current () == plugin->menu)
-    {
-      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
-    }
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+  xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
 #elif defined (STATUS_ICON)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
@@ -484,38 +481,25 @@ xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
     GdkDeviceManager *device_manager = gdk_display_get_device_manager(display);
     GdkDevice* device = gdk_device_manager_get_client_pointer(device_manager);
     GdkGrabStatus g;
-    //GdkGrabStatus g2;
     gboolean grab_failed = FALSE;
     gint i = 0;
 
     TRACE ("entering grab_available");
 
     g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
-    //g1 = gdk_pointer_grab (win, TRUE, mask, NULL, NULL, timestamp);
-    //g2 = gdk_keyboard_grab (win, TRUE, timestamp);
 
     while ((i++ < 2500) && (grab_failed = (g != GDK_GRAB_SUCCESS)))
     {
         TRACE ("grab not available yet, waiting... (%i)", i);
         g_usleep (100);
         if (g != GDK_GRAB_SUCCESS)
-        {
             g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
-        }
-//        if (g2 != GDK_GRAB_SUCCESS)
-//        {
-//            g2 = gdk_keyboard_grab (win, TRUE, timestamp);
-//        }
     }
 
     if (g == GDK_GRAB_SUCCESS)
     {
         gdk_device_ungrab (device, timestamp);
     }
-//    if (g2 == GDK_GRAB_SUCCESS)
-//    {
-//        gdk_keyboard_ungrab (timestamp);
-//    }
 
     return (!grab_failed);
 }
