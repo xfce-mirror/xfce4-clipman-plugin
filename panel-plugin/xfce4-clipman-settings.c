@@ -42,7 +42,9 @@ static void             cb_show_help                    (GtkButton *button);
 static void             setup_actions_treeview          (GtkTreeView *treeview);
 static void             refresh_actions_treeview        (GtkTreeView *treeview);
 static void             apply_action                    (const gchar *original_action_name);
-static void             cb_enable_actions               (GtkCheckButton *checkbutton);
+static void             cb_enable_actions               (GtkSwitch *enable_actions,
+                                                         gboolean state,
+                                                         gpointer user_data);
 static void             cb_actions_selection_changed    (GtkTreeSelection *selection);
 static void             cb_add_action                   (GtkButton *button);
 static void             cb_edit_action                  (GtkButton *button);
@@ -77,7 +79,7 @@ prop_dialog_run (void)
 {
   GtkWidget *action_dialog;
   GtkWidget *combobox;
-  GtkWidget *checkbutton;
+  GtkWidget *enable_actions;
 
   builder = gtk_builder_new ();
   gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, NULL);
@@ -120,13 +122,13 @@ prop_dialog_run (void)
                           gtk_builder_get_object (builder, "max-texts-in-history"), "value");
 
   /* Actions tab and dialog */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "enable-actions")),
+  gtk_switch_set_state (GTK_SWITCH (gtk_builder_get_object (builder, "enable-actions")),
                                 DEFAULT_ENABLE_ACTIONS);
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
 
-  checkbutton = GTK_WIDGET (gtk_builder_get_object (builder, "enable-actions"));
-  g_signal_connect (GTK_WIDGET (checkbutton), "toggled", G_CALLBACK (cb_enable_actions), NULL);
+  enable_actions = GTK_WIDGET (gtk_builder_get_object (builder, "enable-actions"));
+  g_signal_connect (GTK_WIDGET (enable_actions), "state-set", G_CALLBACK (cb_enable_actions), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-add-action"), "clicked", G_CALLBACK (cb_add_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-delete-action"), "clicked", G_CALLBACK (cb_delete_action), NULL);
@@ -144,7 +146,7 @@ prop_dialog_run (void)
 
   setup_actions_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "actions")));
   setup_commands_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
-  cb_enable_actions (GTK_CHECK_BUTTON (checkbutton));
+  cb_enable_actions (GTK_SWITCH (enable_actions), gtk_switch_get_state(GTK_SWITCH(enable_actions)), NULL);
   setup_test_regex_dialog ();
 
   /* Callbacks for the OK button sensitivity in the edit action dialog */
@@ -390,17 +392,13 @@ apply_action (const gchar *original_action_name)
 }
 
 static void
-cb_enable_actions (GtkCheckButton *checkbutton)
+cb_enable_actions (GtkSwitch *enable_actions, gboolean state, gpointer user_data)
 {
-    gboolean sensitive;
-
-    sensitive = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(checkbutton));
-
-    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "actions")), sensitive);
-    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-add-action")), sensitive);
-    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-edit-action")), sensitive);
-    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-delete-action")), sensitive);
-    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-reset-actions")), sensitive);
+    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "actions")), state);
+    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-add-action")), state);
+    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-edit-action")), state);
+    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-delete-action")), state);
+    gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "button-reset-actions")), state);
 }
 
 static void
