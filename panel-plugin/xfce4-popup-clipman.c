@@ -53,24 +53,32 @@ clipman_plugin_check_is_running (GtkWidget *widget,
 gint
 main (gint argc, gchar *argv[])
 {
-  GtkWidget            *win;
+  XEvent                event;
+  GtkWidget             *win;
+  GdkWindow             *window;
   Window                id;
+  Display               *display;
 
   gtk_init (&argc, &argv);
 
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
 
-  //gev.type              = GDK_CLIENT_EVENT;
-  //gev.window            = gtk_widget_get_window (win);
-  //gev.send_event        = TRUE;
-  //gev.message_type      = gdk_atom_intern ("STRING", FALSE);
-  //gev.data_format       = 8;
-  //g_snprintf (gev.data.b, sizeof (gev.data.b), XFCE_CLIPMAN_MESSAGE);
+  window = gtk_widget_get_window (GTK_WIDGET (win));
+  display = gdk_x11_display_get_xdisplay (gdk_window_get_display (window));
+  event.xclient.type = ClientMessage;
+  event.xclient.message_type = XInternAtom (display, "STRING", False);
+  event.xclient.format = 8;
+  g_snprintf (event.xclient.data.b, sizeof (event.xclient.data.b), XFCE_CLIPMAN_MESSAGE);
 
-  if (clipman_plugin_check_is_running (win, &id))
-    g_warning ("Fixme...");
-    //gdk_event_send_client_message ((GdkEvent *)&gev, (GdkNativeWindow)id);
+  if (clipman_plugin_check_is_running (win, &id)) {
+    event.xclient.window = id;
+    XSendEvent (display,
+                (Window) id,
+                False,
+                NoEventMask,
+                &event);
+    }
   else
     g_warning ("Can't find the xfce4-clipman-plugin.\n");
   gdk_flush ();

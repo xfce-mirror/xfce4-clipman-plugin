@@ -43,8 +43,9 @@
  */
 
 static gboolean         my_plugin_set_popup_selection   (MyPlugin *plugin);
-static gboolean         cb_popup_message_received       (MyPlugin *plugin,
-                                                         GdkEvent *ev, gpointer user_data);
+static GdkFilterReturn  event_filter_popup_menu         (GdkXEvent *xevent,
+                                                         GdkEvent *event,
+                                                         MyPlugin *plugin);
 static gboolean         xfce_popup_grab_available       (GdkWindow *win,
                                                          guint32 timestamp);
 
@@ -132,7 +133,6 @@ plugin_register (void)
                             G_CALLBACK (plugin_save), plugin);
   g_signal_connect_swapped (plugin->history, "clear",
                             G_CALLBACK (plugin_save), plugin);
-
   /* Set the selection for the popup command */
   my_plugin_set_popup_selection (plugin);
 
@@ -280,6 +280,7 @@ plugin_free (MyPlugin *plugin)
       gsd_clipboard_manager_stop (plugin->daemon);
       g_object_unref (plugin->daemon);
     }
+  gdk_window_remove_filter (gtk_widget_get_window(plugin->menu), (GdkFilterFunc) event_filter_popup_menu, plugin);
   gtk_widget_destroy (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);
@@ -383,6 +384,7 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
   GtkWidget          *win;
   Window              id;
   Display            *display;
+  GdkWindow          *window;
 
   win = gtk_invisible_new ();
   gtk_widget_realize (win);
@@ -393,7 +395,6 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
                                     gdk_screen_get_number (gscreen));
   selection_atom = XInternAtom (display, selection_name, FALSE);
-
   g_free(selection_name);
 
   if (XGetSelectionOwner (display, selection_atom))
@@ -405,39 +406,51 @@ my_plugin_set_popup_selection (MyPlugin *plugin)
   XSelectInput (display, id, PropertyChangeMask);
   XSetSelectionOwner (display, selection_atom, id, GDK_CURRENT_TIME);
 
-  g_signal_connect_swapped (win, "event",
-                            G_CALLBACK (cb_popup_message_received), plugin);
+  window = gtk_widget_get_window (win);
+  gdk_window_add_filter (window, (GdkFilterFunc) event_filter_popup_menu, plugin);
 
   return TRUE;
 }
 
-static gboolean
-cb_popup_message_received (MyPlugin *plugin,
-                           GdkEvent *ev, gpointer user_data)
+static GdkFilterReturn
+event_filter_popup_menu (GdkXEvent *xevent, GdkEvent *event, MyPlugin *plugin)
 {
-  {
+    XClientMessageEvent *evt;
+    GdkScreen *screen;
+    GdkWindow *root;
+    Atom message_type;
+    evt = (XClientMessageEvent *)xevent;
+
+    if (((XEvent *)xevent)->type != ClientMessage)
+      return GDK_FILTER_CONTINUE;
+
+    message_type = XInternAtom (gdk_x11_get_default_xdisplay (), "STRING", FALSE);
+    if (evt->message_type != message_type)
+      return GDK_FILTER_CONTINUE;
+
     /* Copy workaround from xfdesktop to handle the awkward case where binding
      * a keyboard shortcut to the popup command doesn't always work out... */
 #ifdef PANEL_PLUGIN
-    GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (plugin->button));
+    screen = gtk_widget_get_screen (GTK_WIDGET (plugin->button));
 #elif defined (STATUS_ICON)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-    GdkScreen *screen = gtk_status_icon_get_screen (plugin->status_icon);
+    screen = gtk_status_icon_get_screen (plugin->status_icon);
 G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
-    GdkWindow *root = gdk_screen_get_root_window (screen);
+    root = gdk_screen_get_root_window (screen);
+
     if (!xfce_popup_grab_available (root, GDK_CURRENT_TIME))
       {
         g_critical ("Unable to get keyboard/mouse grab.");
         return FALSE;
       }
-  }
 
-  //if (G_LIKELY (ev->data_format == 8 && *(ev->data.b) != '\0'))
-    //{
-      //if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, ev->data.b))
-        //{
-          //DBG ("Message received: %s", ev->data.b);
+  if (G_LIKELY (evt->format == 8) && (*(evt->data.b) != '\0'))
+    {
+
+      if (!g_ascii_strcasecmp (XFCE_CLIPMAN_MESSAGE, evt->data.b))
+        {
+          DBG ("Message received: %s", evt->data.b);
 
           if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
             {
@@ -450,10 +463,10 @@ G_GNUC_END_IGNORE_DEPRECATIONS
             }
 
           return TRUE;
-        //}
-    //}
+        }
+    }
 
-  //return FALSE;
+  return FALSE;
 }
 
 /* Code taken from xfwm4/src/menu.c:grab_available().  This should fix the case
