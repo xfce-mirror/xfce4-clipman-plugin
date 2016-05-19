@@ -432,6 +432,7 @@ static void
 __clipman_actions_entry_free (ClipmanActionsEntry *entry)
 {
   g_free (entry->action_name);
+  g_free (entry->pattern);
   g_regex_unref (entry->regex);
   g_hash_table_destroy (entry->commands);
   g_slice_free (ClipmanActionsEntry, entry);

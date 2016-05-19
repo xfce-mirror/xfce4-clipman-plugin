@@ -43,6 +43,7 @@ clipman_plugin_check_is_running (GtkWidget *widget,
   selection_name = g_strdup_printf (XFCE_CLIPMAN_SELECTION"%d",
                                     gdk_screen_get_number (gscreen));
   selection_atom = XInternAtom (display, selection_name, FALSE);
+  g_free(selection_name);
 
   if ((*xid = XGetSelectionOwner (display, selection_atom)))
     return TRUE;
