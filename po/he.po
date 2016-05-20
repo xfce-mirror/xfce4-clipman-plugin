@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Elishai Eliyahu <e1907@mm.st>, 2016
-# GenghisKhan <genghiskhan@gmx.ca>, 2014
+# GenghisKhan <genghiskhan@gmx.ca>, 2014,2016
 # GenghisKhan <genghiskhan@gmx.ca>, 2012
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-03-14 16:24+0000\n"
-"Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
+"POT-Creation-Date: 2016-05-20 00:30+0200\n"
+"PO-Revision-Date: 2016-05-20 04:45+0000\n"
+"Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,8 +33,7 @@ msgstr "מנהל לוח אטיב מסופק כתוסף פאנל ל-Xfce וכתו
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:339
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -42,7 +41,7 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "מנהל לוח גזירה"
+msgstr "מנהל לוח אטיב"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -76,220 +75,232 @@ msgstr "‏URL ארוך"
 msgid "Shrink the URL"
 msgstr "כיווץ כתובת URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:206
+#: ../panel-plugin/xfce4-clipman-settings.c:199
 msgid "None"
 msgstr "ללא"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:208
+#: ../panel-plugin/xfce4-clipman-settings.c:201
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:210
+#: ../panel-plugin/xfce4-clipman-settings.c:203
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:536
 msgid "<b>Reset actions</b>"
 msgstr "<b>אפס פעולות</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:538
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "האם ברצונך לאפס את הפעולות לערכי ברירת מחדל של המערכת?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Configure the plugin"
-msgstr "הגדר את התוסף"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "Sync _selections"
-msgstr "_סנכרן בחירות"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "כאשר אפשרות זו מסומנת, הבחירות יסונכרנו עם לוח הגזירה הברירת מחדלי באופן שתעמוד לרשותך האפשרות להדביק את בחירתך"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Show _QR-Code"
-msgstr "הצג _QR-Code"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
-"entry"
-msgstr "אם נבחר, התפריט מראה QR-Code של ערך לוח אטיב נבחר נוכחי"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "<b>Behavior</b>"
-msgstr "<b>התנהגות</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Save on _quit"
-msgstr "שמור ב_יציאה"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "כאשר אפשרות זו מסומנת, אפשרות זו תשחזר את ההיסטוריה בכל שסן חדש של Xfce"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Store last copied _image"
-msgstr "אחסן _תמונה אחרונה שהועתקה"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "כאשר אפשרות זו מסומנת, אפשרות זו תרשה לך לאכסן תמונה אחת בתוך ההיסטוריה"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Ignore s_elections"
-msgstr "הת_עלם מבחירות"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "כאשר אפשרות זו מסומנת, הבחירות לא ישפיעו על ההיסטוריה למעט העתקות ידניות"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Size of the _history:"
-msgstr "אורך של היסטוריה"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "<b>History</b>"
-msgstr "<b>היסטוריה</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "General"
-msgstr "כללי"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Enable _actions"
-msgstr "אפשר _פעולות"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "כאשר אפשרות זו מסומנת, התמלילים של לוח הגזירה יושוו אל נגד ביטויים רגולריים (RegEx) ויוצג תפריט שימנה פעולות אפשריות"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Actions"
-msgstr "פעולות"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Automatically paste a selected item from the history"
-msgstr "הדבקה אוטומטית של פריט נבחר מההיסטוריה"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "_Paste instantly:"
-msgstr "ה_דבק מיידית:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr "הצבת תפריט עם סמן העכבר"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "הקפצת התפריט באזור בו סמן העכבר ממוקם, עבור הפקודה xfce4-popup-clipman בלבד"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "_Reorder history items"
-msgstr "_סדר מחדש פריטי היסטוריה"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "דחיפת התמלילים המועתקים האחרונים אל ראש ההיסטוריה, יעיל כדי לסדר מחדש פריטים ישנים"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Re_verse history order"
-msgstr "ה_פוך סדר ההיסטוריה"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Reverse order of the history shown in the menu"
-msgstr "הפיכת סדר ההיסטוריה המוצג בתפריט"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "_Show actions by holding Control"
-msgstr "הצג _פעולות בעת לחיצה על Ctrl"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "כאשר הבחירה הסתיימה (עכבר או מקלדת) וכפתור קונטרול עדיין לחוץ, יוצג התפריט הקופץ לפעולות מותאמות "
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "S_kip actions by holding Control"
-msgstr "_דלג על פעולות על-ידי לחיצה ממושכת על Control"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "כאשר שפעולת הבחירה מסתיימת (מקלדת או עכבר) והמקש ‏Ctrl עדיין לחוץ, ‏Clipman יתעלם מהתפריט הקופץ עבור פעולות תואמות"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Tweaks"
-msgstr "כוונון"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "עריכת פעולה"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "לרשותך עומדת האפשרות להשתמש בפרמטרים חלופיים \"\\1\", \"\\2\" וכך הלאה. הפרמטר \"\\0\" מייצג את התמליל בשלמותו. במידה ואינך יודע/ת ביטויים רגולריים (RegEx) ניתן לקרוא את התיעוד של Clipman שמכיל מבוא עבורם."
+msgstr "באפשרותך להשתמש בפרמטרים חלופיים \"\\1\", \"\\2\" וכך הלאה. הפרמטר \"\\0\" מייצג את התמליל בשלמותו. במידה ואינך יודע/ת ביטויים רגולריים (RegEx) ניתן לקרוא את התיעוד של Clipman שמכיל מבוא עבורם."
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
 msgstr "שם:"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Pattern:"
 msgstr "תבנית:"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "התבנית תמיד מעוגנת בתווים מיוחדים ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr "הפעלה בהעתקה ידנית בלבד"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "באופן רגיל הפעולה מופעלת על-ידי בחירה, ניתן לסמן את אפשרות זו כדי להפעיל את הפעולה בהעתקה ידנית בלבד"
+msgstr "באופן שגרתי הפעולה מופעלת על-ידי בחירה, באפשרותך לסמן את אפשרות זו כדי להפעיל את הפעולה בהעתקה ידנית בלבד"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
 msgstr "<b>פעולה</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "פקודה:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>Commands</b>"
 msgstr "<b>פקודות</b>"
 
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Sync _selections"
+msgstr "_סנכרן בחירות"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "כאשר אפשרות זו מסומנת, הבחירות יסונכרנו עם לוח אטיב ברירת מחדל באופן כזה שתעמוד לרשותך האפשרות להדביק את בחירתך"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Show _QR-Code"
+msgstr "הצג _QR-Code"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "אם נבחר, התפריט מראה QR-Code של ערך לוח אטיב נבחר נוכחי"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>Behavior</b>"
+msgstr "<b>התנהגות</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Save on _quit"
+msgstr "שמור ב_יציאה"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "כאשר אפשרות זו מסומנת, אפשרות זו תשחזר את ההיסטוריה בכל שסן חדש של Xfce"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Store last copied _image"
+msgstr "אחסן _תמונה אחרונה שהועתקה"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "כאשר אפשרות זו מסומנת, אפשרות זו תרשה לך לאכסן תמונה אחת בתוך ההיסטוריה"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Ignore s_elections"
+msgstr "הת_עלם מבחירות"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "כאשר אפשרות זו מסומנת, הבחירות לא ישפיעו על ההיסטוריה למעט העתקות ידניות"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Size of the _history:"
+msgstr "אורך של היסטוריה"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "<b>History</b>"
+msgstr "<b>היסטוריה</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "General"
+msgstr "כללי"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Enable actions"
+msgstr "אפשר _פעולות"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "כאשר אפשרות זו מסומנת, התמלילים של לוח אטיב יושוו לנגד ביטויים רגולריים (RegEx) ותפריט יציג פעולות אפשריות"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Add action"
+msgstr "הוסף פעולה"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Edit action"
+msgstr "ערוך פעולה"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Delete action"
+msgstr "מחק פעולה"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Reset all actions to the system default values"
+msgstr "אפס את כל הפעולות לערכים ברירת מחדל"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Actions"
+msgstr "פעולות"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Automatically paste a selected item from the history"
+msgstr "הדבק אוטומטית של פריט נבחר מההיסטוריה"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "_Paste instantly:"
+msgstr "ה_דבק מיידית:"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "P_osition menu at mouse pointer"
+msgstr "הצבת תפריט עם סמן העכבר"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "הקפצת התפריט באזור בו סמן העכבר ממוקם, עבור הפקודה xfce4-popup-clipman בלבד"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Reorder history items"
+msgstr "_סדר מחדש פריטי היסטוריה"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "דחוף טקסטים מועתקים אחרונים לראש ההיסטוריה, יעיל כדי לסדר מחדש פריטים ישנים"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "Re_verse history order"
+msgstr "ה_פוך סדר ההיסטוריה"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "Reverse order of the history shown in the menu"
+msgstr "הפיכת סדר ההיסטוריה המוצג בתפריט"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "_Show actions by holding Control"
+msgstr "הצג _פעולות בעת לחיצה על Ctrl"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "כאשר הבחירה הסתיימה (עכבר או מקלדת) וכפתור קונטרול עדיין לחוץ, יוצג התפריט הקופץ לפעולות מותאמות "
+
 #: ../panel-plugin/settings-dialog.ui.h:42
+msgid "S_kip actions by holding Control"
+msgstr "_דלג על פעולות על-ידי לחיצה ממושכת על Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "כאשר שפעולת הבחירה מסתיימת (מקלדת או עכבר) והמקש ‏Ctrl עדיין לחוץ, ‏Clipman יתעלם מהתפריט הקופץ עבור פעולות תואמות"
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid "Tweaks"
+msgstr "כוונון"
+
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Regular expression"
 msgstr "ביטוי רגולרי (RegEx)"
 
-#: ../panel-plugin/main-panel-plugin.c:99
-#: ../panel-plugin/main-status-icon.c:136
+#: ../panel-plugin/main-panel-plugin.c:97
+#: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
 msgstr "_נטרל"
 
@@ -301,35 +312,39 @@ msgid ""
 "%s"
 msgstr "לא מסוגל להריץ את הפקודה \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:235
+#: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
 msgstr "האם אתה בטוח כי ברצונך לנקות את ההיסטוריה?"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
 msgstr "אל תשאל שוב"
 
-#: ../panel-plugin/menu.c:356
+#: ../panel-plugin/menu.c:361
 msgid "Could not generate QR-Code."
 msgstr "לא ניתן ךהפיק QR-Code."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:370
+#: ../panel-plugin/menu.c:375
 msgid "Clipboard is empty"
-msgstr "לוח הגזירה ריק"
+msgstr "לוח אטיב ריק"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/menu.c:474
+msgid "_Clear history"
+msgstr "_טהר היסטוריה"
+
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "תורמים:"
 
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
-msgstr "מנהל לוח גזירה עבור Xfce"
+msgstr "מנהל לוח אטיב עבור Xfce"
 
-#: ../panel-plugin/plugin.c:349
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Isratine Citizen <genghiskhan@gmx.ca>"
 
-#: ../panel-plugin/plugin.c:363
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "לא מסוגל לפתוח את תיבת דו־שיח הגדרות"
