@@ -31,7 +31,7 @@ cb (GtkClipboard *clipboard,
       selection_data = gtk_clipboard_wait_for_contents (clipboard, atoms[i]);
       if (selection_data != NULL)
         {
-          g_print ("%s (f:%d, l:%d)\n", atom_name, selection_data->format, selection_data->length);
+          g_print ("%s (f:%d, l:%d)\n", atom_name, gtk_selection_data_get_format (selection_data), gtk_selection_data_get_length(selection_data));
           gtk_selection_data_free (selection_data);
         }
       else
