@@ -14,3 +14,11 @@ config.*
 *~
 intltool-*.in
 INSTALL
+/aclocal.m4
+/compile
+/depcomp
+/install-sh
+/libtool
+/ltmain.sh
+/missing
+xfce4-clipman-plugin*.tar.bz2
