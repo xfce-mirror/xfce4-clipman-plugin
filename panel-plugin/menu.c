@@ -161,7 +161,8 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       break;
 
     default:
-      g_assert_not_reached ();
+      DBG("Ignoring unknown history type %d", item->type);
+      return;
     }
 
   {
@@ -316,7 +317,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
           break;
 
         default:
-          g_assert_not_reached ();
+          DBG("Ignoring unknown history type %d", item->type);
+          continue;
         }
 
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
