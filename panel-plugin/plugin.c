@@ -461,6 +461,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
             }
 
           return TRUE;
+        } else if (!g_ascii_strcasecmp (XFCE_CLIPMAN_ACTION_MESSAGE, evt->data.b))
+        {
+             clipman_collector_show_actions();
         }
     }
 

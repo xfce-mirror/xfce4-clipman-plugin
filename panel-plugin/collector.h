@@ -52,6 +52,7 @@ GType                   clipman_collector_get_type              ();
 
 ClipmanCollector *      clipman_collector_get                   ();
 void                    clipman_collector_set_is_restoring      (ClipmanCollector *collector);
+void                    clipman_collector_show_actions          ();
 
 #endif /* !__CLIPMAN_COLLECTOR_H__ */
 

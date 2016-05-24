@@ -10,7 +10,7 @@ INCLUDES =								\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	$(NULL)
 
-bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
+bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings xfce4-popup-clipman-actions
 
 #
 # Maintainer Mode
@@ -39,6 +39,28 @@ xfce4_popup_clipman_CFLAGS =                                            \
 	$(NULL)
 
 xfce4_popup_clipman_LDADD =						\
+	@LIBX11_LIBS@							\
+	@GDKX_LIBS@							\
+	@GTK_LIBS@							\
+	$(NULL)
+
+#
+# Action Popup Command
+#
+
+xfce4_popup_clipman_actions_SOURCES =						\
+	xfce4-popup-clipman-actions.c						\
+	common.h							\
+	$(NULL)
+
+xfce4_popup_clipman_actions_CFLAGS =                                            \
+	-DGSEAL_ENABLE							\
+	@LIBX11_CFLAGS@							\
+	@GDKX_CFLAGS@							\
+	@GTK_CFLAGS@							\
+	$(NULL)
+
+xfce4_popup_clipman_actions_LDADD =						\
 	@LIBX11_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\

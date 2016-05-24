@@ -45,8 +45,9 @@
  * Selection for the popup command
  */
 
-#define XFCE_CLIPMAN_SELECTION    "XFCE_CLIPMAN_SELECTION"
-#define XFCE_CLIPMAN_MESSAGE      "MENU"
+#define XFCE_CLIPMAN_SELECTION        "XFCE_CLIPMAN_SELECTION"
+#define XFCE_CLIPMAN_MESSAGE          "MENU"
+#define XFCE_CLIPMAN_ACTION_MESSAGE   "ACTIONS"
 
 /*
  * Action Groups
