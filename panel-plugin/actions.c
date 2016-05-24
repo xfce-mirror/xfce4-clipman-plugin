@@ -687,16 +687,18 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   ClipmanActionsEntry *entry;
   GtkWidget *mi;
   GSList *l, *entries;
-  GdkModifierType state;
+  GdkModifierType state = 0;
   GdkDisplay* display = gdk_display_get_default ();
   GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
   GdkDevice* device = gdk_device_manager_get_client_pointer (device_manager);
+  GdkScreen* screen = gdk_screen_get_default ();
+  GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
   if (group == ACTION_GROUP_SELECTION)
     {
       gint ctrl_mask = 0;
 
-      gdk_window_get_device_position (NULL, device, NULL, NULL, &state);
+      gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
       ctrl_mask = state & GDK_CONTROL_MASK;
       if (ctrl_mask && actions->priv->skip_action_on_key_down)
         {
