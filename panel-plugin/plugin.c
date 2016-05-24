@@ -362,6 +362,7 @@ plugin_popup_menu (MyPlugin *plugin)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
 G_GNUC_END_IGNORE_DEPRECATIONS
+  usleep(100000);
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin->status_icon,
                   0, gtk_get_current_event_time ());
