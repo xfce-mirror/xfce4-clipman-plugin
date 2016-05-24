@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 00:30+0200\n"
-"PO-Revision-Date: 2016-05-23 14:27+0000\n"
+"PO-Revision-Date: 2016-05-24 10:03+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -215,19 +215,19 @@ msgstr "Wanneer u deze optie aanvinkt, zullen teksten in het klembord vergeleken
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Add action"
-msgstr ""
+msgstr "Actie toevoegen"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Edit action"
-msgstr ""
+msgstr "Actie bewerken"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Delete action"
-msgstr ""
+msgstr "Actie wissen"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Alle acties terugzetten op de standaardwaarden van het systeem"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Actions"
@@ -328,7 +328,7 @@ msgstr "Klembord is leeg"
 
 #: ../panel-plugin/menu.c:474
 msgid "_Clear history"
-msgstr ""
+msgstr "Geschiedenis _wissen"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
