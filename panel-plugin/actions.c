@@ -760,7 +760,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
 
   gtk_widget_show_all (actions->priv->menu);
-  while (usleep(100000) == -1);
+  usleep(100000);
   gtk_menu_popup (GTK_MENU (actions->priv->menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time ());
 
   g_slist_free (entries);

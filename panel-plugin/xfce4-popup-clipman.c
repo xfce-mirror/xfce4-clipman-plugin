@@ -70,7 +70,14 @@ main (gint argc, gchar *argv[])
   event.xclient.type = ClientMessage;
   event.xclient.message_type = XInternAtom (display, "STRING", False);
   event.xclient.format = 8;
-  g_snprintf (event.xclient.data.b, sizeof (event.xclient.data.b), XFCE_CLIPMAN_MESSAGE);
+  if (!g_ascii_strcasecmp(argv[0], "xfce4-popup-clipman-actions"))
+    {
+      g_snprintf (event.xclient.data.b, sizeof (event.xclient.data.b), XFCE_CLIPMAN_ACTION_MESSAGE);
+    }
+  else
+    {
+      g_snprintf (event.xclient.data.b, sizeof (event.xclient.data.b), XFCE_CLIPMAN_MESSAGE);
+    }
 
   if (clipman_plugin_check_is_running (win, &id)) {
     event.xclient.window = id;

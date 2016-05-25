@@ -150,6 +150,7 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
     }
 
   gtk_menu_set_screen (GTK_MENU (plugin->popup_menu), gtk_status_icon_get_screen (plugin->status_icon));
+  usleep(100000);
   gtk_menu_popup (GTK_MENU (plugin->popup_menu), NULL, NULL,
                   (GtkMenuPositionFunc)gtk_status_icon_position_menu, plugin->status_icon,
                   0, gtk_get_current_event_time ());

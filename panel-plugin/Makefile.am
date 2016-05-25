@@ -49,7 +49,7 @@ xfce4_popup_clipman_LDADD =						\
 #
 
 xfce4_popup_clipman_actions_SOURCES =						\
-	xfce4-popup-clipman-actions.c						\
+	xfce4-popup-clipman.c						\
 	common.h							\
 	$(NULL)
 

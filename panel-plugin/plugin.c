@@ -353,6 +353,7 @@ plugin_popup_menu (MyPlugin *plugin)
 {
 #ifdef PANEL_PLUGIN
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
+  usleep(100000);
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin,
                   0, gtk_get_current_event_time ());
@@ -452,6 +453,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
           if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
             {
+              usleep(100000);
               gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL, NULL, NULL,
                               0, gtk_get_current_event_time ());
             }
