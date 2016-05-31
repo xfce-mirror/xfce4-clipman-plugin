@@ -147,8 +147,13 @@ cb_check_primary_clipboard (ClipmanCollector *collector)
 {
   GdkModifierType state = 0;
   GdkDisplay* display = gdk_display_get_default ();
+#if GTK_CHECK_VERSION (3, 20, 0)
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+  GdkDevice *device = gdk_seat_get_pointer (seat);
+#else
   GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice* device = gdk_device_manager_get_client_pointer (device_manager);
+  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
 

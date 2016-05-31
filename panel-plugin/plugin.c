@@ -353,7 +353,12 @@ plugin_popup_menu (MyPlugin *plugin)
 {
 #ifdef PANEL_PLUGIN
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
-  usleep(100000);
+
+  if(!gtk_widget_has_grab(plugin->menu))
+  {
+    gtk_grab_add(plugin->menu);
+  }
+
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin,
                   0, gtk_get_current_event_time ());
@@ -363,7 +368,12 @@ plugin_popup_menu (MyPlugin *plugin)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
 G_GNUC_END_IGNORE_DEPRECATIONS
-  usleep(100000);
+
+  if(!gtk_widget_has_grab(plugin->menu))
+  {
+    gtk_grab_add(plugin->menu);
+  }
+
   gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                   plugin->menu_position_func, plugin->status_icon,
                   0, gtk_get_current_event_time ());
@@ -453,7 +463,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
           if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
             {
-              usleep(100000);
               gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL, NULL, NULL,
                               0, gtk_get_current_event_time ());
             }
@@ -472,6 +481,16 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   return FALSE;
 }
 
+#if GTK_CHECK_VERSION (3, 20, 0)
+static void
+make_window_visible (GdkSeat *seat,
+                     GdkWindow *window,
+                     gpointer user_data)
+{
+  gdk_window_show (window);
+}
+#endif
+
 /* Code taken from xfwm4/src/menu.c:grab_available().  This should fix the case
  * where binding 'xfdesktop -menu' to a keyboard shortcut sometimes works and
  * sometimes doesn't.  Credit for this one goes to Olivier.
@@ -479,32 +498,40 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 static gboolean
 xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
 {
-    GdkEventMask mask =
-        GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
-        GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |
-        GDK_POINTER_MOTION_MASK;
     GdkDisplay* display = gdk_window_get_display(win);
-    GdkDeviceManager *device_manager = gdk_display_get_device_manager(display);
-    GdkDevice* device = gdk_device_manager_get_client_pointer(device_manager);
-    GdkGrabStatus g;
-    gboolean grab_failed = FALSE;
+#if GTK_CHECK_VERSION (3, 20, 0)
+    GdkSeat *seat = gdk_display_get_default_seat (display);
+#else
+    GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+    GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
+    GdkGrabStatus g = GDK_GRAB_ALREADY_GRABBED;
+    gboolean grab_failed = TRUE;
     gint i = 0;
 
     TRACE ("entering grab_available");
 
-    g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
-
-    while ((i++ < 2500) && (grab_failed = (g != GDK_GRAB_SUCCESS)))
+    /* With a keyboard grab elsewhere, we have to wait on that to clear.
+     * So try up to 2500 times and only keep trying when the failure is
+     * already grabbed, any other failure mode will never succeed.
+     */
+    while ((i++ < 2500) && grab_failed && g == GDK_GRAB_ALREADY_GRABBED)
     {
-        TRACE ("grab not available yet, waiting... (%i)", i);
-        g_usleep (100);
-        if (g != GDK_GRAB_SUCCESS)
-            g = gdk_device_grab (device, win, GDK_OWNERSHIP_WINDOW, TRUE, mask, NULL, timestamp);
-    }
-
-    if (g == GDK_GRAB_SUCCESS)
-    {
-        gdk_device_ungrab (device, timestamp);
+#if GTK_CHECK_VERSION (3, 20, 0)
+      g = gdk_seat_grab(seat, win, GDK_SEAT_CAPABILITY_KEYBOARD, TRUE, NULL, NULL, make_window_visible, NULL);
+      if (g == GDK_GRAB_SUCCESS)
+      {
+          gdk_seat_ungrab (seat);
+          grab_failed = FALSE;
+      }
+#else
+      g = gdk_device_grab(device, win, GDK_KEY_PRESS_MASK, TRUE, mask, NULL, timestamp);
+      if (g == GDK_GRAB_SUCCESS)
+      {
+          gdk_device_ungrab(device, timestamp);
+          grab_failed = FALSE;
+      }
+#endif
     }
 
     return (!grab_failed);

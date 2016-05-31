@@ -215,8 +215,13 @@ primary_clipboard_store (GsdClipboardManager *manager)
         GdkModifierType state;
         gchar *text;
         GdkDisplay* display = gdk_display_get_default ();
+#if GTK_CHECK_VERSION (3, 20, 0)
+        GdkSeat *seat = gdk_display_get_default_seat (display);
+        GdkDevice *device = gdk_seat_get_pointer (seat);
+#else
         GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-        GdkDevice* device = gdk_device_manager_get_client_pointer (device_manager);
+        GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
 
         gdk_window_get_device_position (NULL, device, NULL, NULL, &state);
         if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK)) {

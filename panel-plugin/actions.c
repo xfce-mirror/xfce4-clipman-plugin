@@ -689,8 +689,13 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   GSList *l, *entries;
   GdkModifierType state = 0;
   GdkDisplay* display = gdk_display_get_default ();
+#if GTK_CHECK_VERSION (3, 20, 0)
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+  GdkDevice *device = gdk_seat_get_pointer (seat);
+#else
   GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice* device = gdk_device_manager_get_client_pointer (device_manager);
+  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
@@ -760,7 +765,13 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
 
   gtk_widget_show_all (actions->priv->menu);
-  usleep(100000);
+
+  if(!gtk_widget_has_grab(actions->priv->menu))
+  {
+    gtk_grab_add(actions->priv->menu);
+  }
+
+
   gtk_menu_popup (GTK_MENU (actions->priv->menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time ());
 
   g_slist_free (entries);
