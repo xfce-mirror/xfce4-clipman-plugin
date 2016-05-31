@@ -116,6 +116,5 @@ echo
 echo "Build Configuration:"
 echo
 echo "    * Debug Support:    $enable_debug"
-echo "    * Unique:           $enable_unique"
 echo "    * QR Code:          $enable_qrencode"
 echo
