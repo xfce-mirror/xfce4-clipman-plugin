@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 00:30+0200\n"
-"PO-Revision-Date: 2016-05-30 21:54+0000\n"
+"PO-Revision-Date: 2016-05-30 23:05+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -144,7 +144,7 @@ msgstr "<b>Komandos</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "Sync _selections"
-msgstr "Sinchronizuoti _pasirinkimus"
+msgstr "Sinchronizuoti ž_ymėjimus"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
