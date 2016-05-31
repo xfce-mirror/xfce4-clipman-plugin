@@ -70,16 +70,6 @@ XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
 XDT_CHECK_PACKAGE([LIBXPROTO], [xproto], [7.0.0])
 XDT_CHECK_PACKAGE([LIBXTST], [xtst], [1.0.0])
 
-dnl ***************************
-dnl *** Check for libunique ***
-dnl ***************************
-XDT_CHECK_OPTIONAL_PACKAGE([UNIQUE], [unique-3.0], [3.0.0], unique, [Unique support])
-if test x"$UNIQUE_FOUND" = x"yes"; then
-	enable_unique=yes
-else
-	enable_unique=no
-fi
-
 dnl *****************************
 dnl *** Check for libqrencode ***
 dnl *****************************

@@ -24,10 +24,6 @@
 #include <locale.h>
 #endif
 
-#ifdef HAVE_UNIQUE
-#include <unique/unique.h>
-#endif
-
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
@@ -81,11 +77,7 @@ prop_dialog_run (void)
   GtkWidget *combobox;
   GtkWidget *enable_actions;
 
-  builder = gtk_builder_new ();
-  gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, NULL);
-
   /* Dialogs */
-  settings_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "settings-dialog"));
   action_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog"));
 
   /* General settings */
@@ -880,47 +872,41 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
 
 
 
-/* Main */
-#ifdef HAVE_UNIQUE
-static UniqueResponse
-cb_unique_app (UniqueApp *app,
-               gint command,
-               UniqueMessageData *message_data,
-               guint time_,
-               gpointer user_data)
-{
-  if (command != UNIQUE_ACTIVATE)
-    {
-      return UNIQUE_RESPONSE_PASSTHROUGH;
-    }
-
-  gtk_window_present (GTK_WINDOW (settings_dialog));
-  return UNIQUE_RESPONSE_OK;
-}
-#endif
-
 gint
 main (gint argc,
       gchar *argv[])
 {
+  GtkApplication *app;
+  GError *error = NULL;
+
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
   xfconf_init (NULL);
   gtk_init (&argc, &argv);
 
-#ifdef HAVE_UNIQUE
-    {
-      UniqueApp *app = unique_app_new ("org.xfce.Clipman", NULL);
-      if (unique_app_is_running (app))
-        {
-          if (unique_app_send_message (app, UNIQUE_ACTIVATE, NULL) == UNIQUE_RESPONSE_OK)
-            {
-              g_object_unref (app);
-              return 0;
-            }
-        }
-      g_signal_connect (app, "message-received", G_CALLBACK (cb_unique_app), NULL);
-    }
-#endif
+  app = gtk_application_new ("org.xfce.Clipman", G_APPLICATION_FLAGS_NONE);
+
+  g_application_register (G_APPLICATION (app), NULL, &error);
+  if (error != NULL)
+  {
+    g_warning ("Unable to register GApplication: %s", error->message);
+    g_clear_error (&error);
+    return 1;
+  }
+
+  if (g_application_get_is_remote (G_APPLICATION (app)))
+  {
+    g_application_activate (G_APPLICATION (app));
+    g_object_unref (app);
+    return 0;
+  }
+
+  builder = gtk_builder_new ();
+  gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, NULL);
+
+  /* Main Dialog */
+  settings_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "settings-dialog"));
+
+  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), settings_dialog);
 
   xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   actions = clipman_actions_get ();
