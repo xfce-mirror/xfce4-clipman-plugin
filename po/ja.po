@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Daichi Kawahata <daichi@xfce.org>, 2006
-# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2014-06-01 08:06+0000\n"
-"Last-Translator: Masato HASHIMOTO <cabezon.hashimoto@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ja/)\n"
+"POT-Creation-Date: 2016-05-20 00:30+0200\n"
+"PO-Revision-Date: 2016-06-01 03:34+0000\n"
+"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
+"Language-Team: Japanese (http://www.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,8 +31,7 @@ msgstr "クリップボードマネージャーは Xfce 用のパネルプラグ
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:339
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -74,173 +73,34 @@ msgstr "長い URL"
 msgid "Shrink the URL"
 msgstr "URL を短縮"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:206
+#: ../panel-plugin/xfce4-clipman-settings.c:199
 msgid "None"
 msgstr "なし"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:208
+#: ../panel-plugin/xfce4-clipman-settings.c:201
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:210
+#: ../panel-plugin/xfce4-clipman-settings.c:203
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:536
 msgid "<b>Reset actions</b>"
 msgstr "<b>アクションのリセット</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:538
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "アクションをシステムデフォルトにリセットしてもよろしいですか?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Configure the plugin"
-msgstr "プラグインの設定"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "Sync _selections"
-msgstr "選択領域と同期をとる(_S)"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "チェックマークをつけると、選択領域とデフォルトクリップボードとの同期がとられ、選択しただけで貼り付けできるようになります"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Show _QR-Code"
-msgstr "QR-Code を表示する(_Q)"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
-"entry"
-msgstr "チェックマークをつけると、選択されているクリップボードエントリの QR-Code をメニューに表示します"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "<b>Behavior</b>"
-msgstr "<b>振る舞い</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Save on _quit"
-msgstr "終了時に保存する(_Q)"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Store last copied _image"
-msgstr "最後にコピーした画像を格納する(_I)"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "チェックマークをつけると、画像を履歴に格納することができます"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Ignore s_elections"
-msgstr "選択領域を無視する(_E)"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "チェックマークをつけると、履歴には手動でコピーしたもののみが格納され、選択領域は影響を与えません"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Size of the _history:"
-msgstr "履歴のサイズ(_H):"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "<b>History</b>"
-msgstr "<b>履歴</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "General"
-msgstr "一般"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Enable _actions"
-msgstr "アクションを有効にする(_A)"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "チェックマークをつけると、クリップボードの文字列は正規表現とマッチされ、利用可能なメニューが表示されます"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Actions"
-msgstr "アクション"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Automatically paste a selected item from the history"
-msgstr "履歴から選択したアイテムを自動的に貼り付けます"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "_Paste instantly:"
-msgstr "即時貼り付け(_P):"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr "マウスポインターの位置にメニューを表示する(_O)"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "xfce4-popup-clipman コマンドを実行した時メニューをマウスポインターの位置にポップアップ表示します"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "_Reorder history items"
-msgstr "履歴アイテムを並べ替える(_R)"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "コピーしたテキストと同じものが履歴にある場合にそれを履歴の先頭に移動します (履歴からの除去順序が下がります)"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Re_verse history order"
-msgstr "履歴の表示順を逆にする(_V)"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Reverse order of the history shown in the menu"
-msgstr "メニューに表示する履歴の順序を逆にします"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "_Show actions by holding Control"
-msgstr "Control キーを押したままの時のアクションを表示する(_S)"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "(マウスやキーボードで) 選択が完了した後に Control キーが押されたままの時マッチしたアクションをポップアップメニューに表示します"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "S_kip actions by holding Control"
-msgstr "Control キーを押したままでもアクションを表示しない(_K)"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "(マウスやキーボードで) 選択が完了した後に Control キーが押されたままでもマッチアクションのポップアップメニューを表示しません"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Tweaks"
-msgstr "詳細"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "アクションの編集"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -248,46 +108,197 @@ msgid ""
 "has an introdution for them."
 msgstr "コマンドに \"\\1\"、\"\\2\" などの置換パラメーターが使用できます。パラメーター \"\\0\" は完全な文字列になります。正規表現が分からない場合は、Clipman のドキュメントなどを参照してください。"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
 msgstr "名前:"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Pattern:"
 msgstr "パターン:"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "パターンには常に特殊文字 ^$ が適用されます"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr "手動コピー時のみアクティブにする"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "デフォルトでは、アクションは領域を選択したときに開始されますが、このオプションにチェックマークをつけると、手動でコピー操作を行ったときに開始されるようになります"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
 msgstr "<b>アクション</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "コマンド:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>Commands</b>"
 msgstr "<b>コマンド</b>"
 
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Sync _selections"
+msgstr "選択領域と同期をとる(_S)"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "チェックマークをつけると、選択領域とデフォルトクリップボードとの同期がとられ、選択しただけで貼り付けできるようになります"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Show _QR-Code"
+msgstr "QR-Code を表示する(_Q)"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "チェックマークをつけると、選択されているクリップボードエントリの QR-Code をメニューに表示します"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>Behavior</b>"
+msgstr "<b>振る舞い</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Save on _quit"
+msgstr "終了時に保存する(_Q)"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "チェックマークをつけると、新しい Xfce セッション開始時に履歴が復元されます"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Store last copied _image"
+msgstr "最後にコピーした画像を格納する(_I)"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "チェックマークをつけると、画像を履歴に格納することができます"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Ignore s_elections"
+msgstr "選択領域を無視する(_E)"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "チェックマークをつけると、履歴には手動でコピーしたもののみが格納され、選択領域は影響を与えません"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Size of the _history:"
+msgstr "履歴のサイズ(_H):"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "<b>History</b>"
+msgstr "<b>履歴</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "General"
+msgstr "一般"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Enable actions"
+msgstr "アクションを有効(_E)"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions "
+"and a menu will display possible actions"
+msgstr "チェックマークをつけると、クリップボードの文字列は正規表現とマッチされ、利用可能なメニューが表示されます"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "Add action"
+msgstr "アクションの追加"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Edit action"
+msgstr "アクションの編集"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Delete action"
+msgstr "アクションの削除"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Reset all actions to the system default values"
+msgstr "全てのアクションをシステムデフォルト値にリセットする"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Actions"
+msgstr "アクション"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Automatically paste a selected item from the history"
+msgstr "履歴から選択したアイテムを自動的に貼り付けます"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "_Paste instantly:"
+msgstr "即時貼り付け(_P):"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "P_osition menu at mouse pointer"
+msgstr "マウスポインターの位置にメニューを表示する(_O)"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "xfce4-popup-clipman コマンドを実行した時メニューをマウスポインターの位置にポップアップ表示します"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "_Reorder history items"
+msgstr "履歴アイテムを並べ替える(_R)"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "コピーしたテキストと同じものが履歴にある場合にそれを履歴の先頭に移動します (履歴からの除去順序が下がります)"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "Re_verse history order"
+msgstr "履歴の表示順を逆にする(_V)"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "Reverse order of the history shown in the menu"
+msgstr "メニューに表示する履歴の順序を逆にします"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "_Show actions by holding Control"
+msgstr "Control キーを押したままの時のアクションを表示する(_S)"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "(マウスやキーボードで) 選択が完了した後に Control キーが押されたままの時マッチしたアクションをポップアップメニューに表示します"
+
 #: ../panel-plugin/settings-dialog.ui.h:42
+msgid "S_kip actions by holding Control"
+msgstr "Control キーを押したままでもアクションを表示しない(_K)"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "(マウスやキーボードで) 選択が完了した後に Control キーが押されたままでもマッチアクションのポップアップメニューを表示しません"
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid "Tweaks"
+msgstr "詳細"
+
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Regular expression"
 msgstr "正規表現"
 
-#: ../panel-plugin/main-panel-plugin.c:99
-#: ../panel-plugin/main-status-icon.c:136
+#: ../panel-plugin/main-panel-plugin.c:97
+#: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
 msgstr "無効(_D)"
 
@@ -299,35 +310,39 @@ msgid ""
 "%s"
 msgstr "コマンド \"%s\" を実行できません\n\n%s"
 
-#: ../panel-plugin/menu.c:235
+#: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
 msgstr "履歴をクリアしてもよろしいですか?"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
 msgstr "次回から確認しない"
 
-#: ../panel-plugin/menu.c:356
+#: ../panel-plugin/menu.c:361
 msgid "Could not generate QR-Code."
 msgstr "QR-Code を生成できませんでした。"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:370
+#: ../panel-plugin/menu.c:375
 msgid "Clipboard is empty"
 msgstr "クリップボードは空です"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/menu.c:474
+msgid "_Clear history"
+msgstr "履歴のクリア(_C)"
+
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "貢献者:"
 
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 用クリップボードマネージャー"
 
-#: ../panel-plugin/plugin.c:349
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Daichi Kawahata\nNobuhiro Iwamatsu\nMasato Hashimoto"
 
-#: ../panel-plugin/plugin.c:363
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "設定ダイアログを開けません"
