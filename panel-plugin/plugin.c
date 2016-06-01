@@ -501,9 +501,6 @@ xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
     GdkDisplay* display = gdk_window_get_display(win);
 #if GTK_CHECK_VERSION (3, 20, 0)
     GdkSeat *seat = gdk_display_get_default_seat (display);
-#else
-    GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-    GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
 #endif
     GdkGrabStatus g = GDK_GRAB_ALREADY_GRABBED;
     gboolean grab_failed = TRUE;
@@ -525,12 +522,14 @@ xfce_popup_grab_available (GdkWindow *win, guint32 timestamp)
           grab_failed = FALSE;
       }
 #else
-      g = gdk_device_grab(device, win, GDK_KEY_PRESS_MASK, TRUE, mask, NULL, timestamp);
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      g = gdk_keyboard_grab (win, TRUE, timestamp);
       if (g == GDK_GRAB_SUCCESS)
       {
-          gdk_device_ungrab(device, timestamp);
+          gdk_keyboard_ungrab(timestamp);
           grab_failed = FALSE;
       }
+      G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
     }
 
