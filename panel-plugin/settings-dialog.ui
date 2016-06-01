@@ -504,7 +504,7 @@
     <property name="step_increment">5</property>
     <property name="page_increment">10</property>
   </object>
-  <object class="XfceTitledDialog" id="settings-dialog">
+  <object class="GtkDialog" id="settings-dialog">
     <property name="can_focus">False</property>
     <property name="title">Clipman</property>
     <property name="window_position">center</property>
@@ -802,7 +802,7 @@
                       <object class="GtkLabel" id="label1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">_Enable actions</property>
+                        <property name="label" translatable="yes">_Enable automatic actions</property>
                         <property name="use_underline">True</property>
                         <property name="xalign">0</property>
                       </object>
@@ -816,7 +816,8 @@
                       <object class="GtkSwitch" id="enable-actions">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions</property>
+                        <property name="tooltip_text" translatable="yes">If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.
+Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (and a match was found)</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
