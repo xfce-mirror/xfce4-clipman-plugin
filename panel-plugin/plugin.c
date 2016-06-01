@@ -25,7 +25,6 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
-#include <libxfce4util/libxfce4util.h>
 
 #ifdef PANEL_PLUGIN
 #include <libxfce4panel/libxfce4panel.h>

@@ -22,7 +22,6 @@
 
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
-#include <libxfce4util/libxfce4util.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>

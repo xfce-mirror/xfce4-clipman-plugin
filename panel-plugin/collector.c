@@ -21,7 +21,6 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <libxfce4util/libxfce4util.h>
 
 #include "common.h"
 #include "actions.h"
@@ -257,7 +256,7 @@ clipman_collector_show_actions (void)
   ClipmanHistory     *history;
   GSList *entries;
   gint group;
-    
+
   history = clipman_history_get();
   collector = clipman_collector_get();
 
