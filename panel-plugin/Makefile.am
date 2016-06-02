@@ -10,7 +10,7 @@ AM_CPPFLAGS =								\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	$(NULL)
 
-bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings 
+bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
 
 #
 # Maintainer Mode
@@ -94,6 +94,7 @@ xfce4_clipman_CFLAGS =							\
 	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
+	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	$(NULL)
@@ -105,6 +106,7 @@ xfce4_clipman_LDADD =							\
 	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
+	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
 	@XFCONF_LIBS@							\
 	@QRENCODE_LIBS@							\
@@ -134,6 +136,7 @@ libclipman_la_CFLAGS =							\
 	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
+	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
@@ -155,6 +158,7 @@ libclipman_la_LIBADD =							\
 	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
+	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
 	@LIBXFCE4PANEL_LIBS@						\
 	@XFCONF_LIBS@							\

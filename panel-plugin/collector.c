@@ -25,6 +25,7 @@
 #include "common.h"
 #include "actions.h"
 #include "history.h"
+#include <libxfce4util/libxfce4util.h>
 
 #include "collector.h"
 
