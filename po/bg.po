@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 00:30+0200\n"
-"PO-Revision-Date: 2016-05-20 06:21+0000\n"
+"POT-Creation-Date: 2016-06-02 00:31+0200\n"
+"PO-Revision-Date: 2016-06-02 17:10+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Clipboard Manager представлява добавка за пане�
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -75,25 +75,25 @@ msgstr "Пълен URL"
 msgid "Shrink the URL"
 msgstr "Съкращаване на адреса"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:199
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
 msgstr "Нищо"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:201
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:203
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:536
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
 msgstr "<b>Рестартиране на действия</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:538
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Искате ли да върнете действията към тяхната начална стойност?"
@@ -207,95 +207,95 @@ msgid "General"
 msgstr "Общи"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable actions"
-msgstr "_Разрешаване на действия"
+msgid "_Enable automatic actions"
+msgstr "_Разреши автоматичните действия"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "Ако бъде избрано, текстове от системният буфер ще бъдат съчетани с регулярни изрази и в менюто ще се показват възможните действия"
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
 msgstr "Добавяне на действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
 msgstr "Редактиране на действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
 msgstr "Изтриване на действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
 msgstr "Нулиране на всички действия до първоначалните им стойности"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
 msgstr "Действия"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Automatically paste a selected item from the history"
 msgstr "Автоматично поставяне на избраните елементи от историята"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
 msgstr "Постави незабавно:"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
 msgstr "Позиция на менюто в показалеца на мишката"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Изскачащи съобщения в позицията на показалеца на мишката. Само за командата xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
 msgstr "Преподреждане на елементите от историята"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Натиснете последният копиран текст в началото на историята. Използвайте да преподредите старите елементи"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
 msgstr "Обърни подредбата на историята"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
 msgstr "Обърни подредбата на историята показвана в менюто"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
 msgstr "Покажете действия, като задържите Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Когато изборът е направен (мишка или клавиатура) и бутонът Control все още е натиснат, появилото се меню за съвпадащи действия ще бъде показано"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
 msgstr "Пропуснете действия, като задържите Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Когато изборът е направен (мишка или клавиатура) и бутонът Control все още е натиснат, появилото се меню за съвпадащи действия ще бъде пропуснато"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
 msgstr "Допълнителни настройки"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
 msgstr "Регулярен израз"
 
@@ -304,7 +304,7 @@ msgstr "Регулярен израз"
 msgid "_Disable"
 msgstr "Изключване"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:369
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -320,31 +320,31 @@ msgstr "Наистина ли желаете да изчистите истор�
 msgid "Don't ask again"
 msgstr "Не ме питай повече"
 
-#: ../panel-plugin/menu.c:361
+#: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
 msgstr "Не може да се създаде QR-Code."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:375
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
 msgstr "Системният буфер е празен"
 
-#: ../panel-plugin/menu.c:474
+#: ../panel-plugin/menu.c:475
 msgid "_Clear history"
 msgstr "_Изчистване на историята"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/plugin.c:306
 msgid "Contributors:"
 msgstr "Сътрудници:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:320
 msgid "Clipboard Manager for Xfce"
 msgstr "Клипборд мениджър за Xfce"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:328
 msgid "translator-credits"
 msgstr "Kiril Kirilov (Cybercop) <cybercop_montana@abv.bg>"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:342
 msgid "Unable to open the settings dialog"
 msgstr "Неуспех при отварянето на диалога с настройките"
