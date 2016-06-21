@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-01 00:31+0200\n"
-"PO-Revision-Date: 2015-07-19 17:17+0000\n"
+"POT-Creation-Date: 2016-06-02 00:31+0200\n"
+"PO-Revision-Date: 2016-06-21 19:19+0000\n"
 "Last-Translator: Påvel Nicklasson <pavelnicklasson@bahnhof.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/p/xfce-panel-plugins/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,8 +31,7 @@ msgstr "Urklippshanteraren tillhandahålls som ett panelinsticksprogram och som 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:339
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -74,173 +73,34 @@ msgstr "Lång URL"
 msgid "Shrink the URL"
 msgstr "Korta ner URL:en"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:206
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
 msgstr "Ingen"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:208
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:210
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
 msgstr "Skift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
 msgstr "<b>Återställ åtgärder</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Är du säker på att du vill återställa åtgärderna till systemets standardvärden?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Configure the plugin"
-msgstr "Konfigurera insticksprogrammet"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "Sync _selections"
-msgstr "Synkronisera _markeringar"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Om förbockat, kommer markeringen att synkas med standardurklippet på ett sätt så att du kan klistra in vad du väljer"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Show _QR-Code"
-msgstr "Visa _QR-kod"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
-"entry"
-msgstr "Om förbockat, visar menyn en QR-kod för den för närvarande valda urklippsposten"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "<b>Behavior</b>"
-msgstr "<b>Beteende</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Save on _quit"
-msgstr "Spara vid a_vslut"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Om förbockad, detta alternativ kommer att återställa historiken vid varje ny Xfce-session"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Store last copied _image"
-msgstr "Lagra senast kopierade b_ild"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Om förbockad, detta alternativ tillåter att en bild lagras i historiken"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Ignore s_elections"
-msgstr "Ignorera ma_rkeringar"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Om förbockad, markeringarna kommer inte att påverka historiken utom manuella kopior"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Size of the _history:"
-msgstr "Storlek för _historik:"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "<b>History</b>"
-msgstr "<b>Historik</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "General"
-msgstr "Allmänt"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Enable _actions"
-msgstr "Aktivera _åtgärder"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "Om förbockad, urklippets text kommer att matchas mot reguljära uttryck och en meny kommer att visa möjliga åtgärder."
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Actions"
-msgstr "Åtgärder"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Automatically paste a selected item from the history"
-msgstr "Klistrar automatiskt in valt objekt från historiken."
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "_Paste instantly:"
-msgstr "_Klistra in direkt:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr "P_lacera menyn vid markören"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Popup-menyn vid muspekarens läge, bara för xfce4-popup-clipman kommandot"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "_Reorder history items"
-msgstr "O_rdna historikobjekt"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Knuffa sist kopierad text till historikens topp, användbart för att ordna objekt"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Re_verse history order"
-msgstr "_Vänd historikordning"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Reverse order of the history shown in the menu"
-msgstr "Vänd ordning på historiken som visas i menyn"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "_Show actions by holding Control"
-msgstr "Vi_sa åtgärder genom att trycka ner Ctrl"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Då markeringen är gjord (mus eller tangentbord) och Ctrl-tangenten fortfarande nedtryckt, kommer pop-up menyn för passande åtgärder att visas"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "S_kip actions by holding Control"
-msgstr "_Hoppa över åtgärder genom att hålla ner Ctrl"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Då markeringen är gjord (mus eller tangentbord) och Ctrl-tangenten fortfarande nedtryckt, kommer pop-up menyn för passande åtgärder att hoppas över"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Tweaks"
-msgstr "Justeringar"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "Redigera åtgärd"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -248,50 +108,201 @@ msgid ""
 "has an introdution for them."
 msgstr "Du kan använda substitutionsparametrarna \"\\1\", \"\\2\" och så vidare i kommandona. Parametern \"\\0\" representerar hela texten. Om du inte känner till reguljära uttryck, ta en titt i Clipmans dokumentation som innehåller en introduktion om dem."
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
 msgstr "Namn:"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Pattern:"
 msgstr "Mönster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Mönstret är alltid förankrat i specialtecknet ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr "Aktivera endast vid manuell kopiering"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Som standard utlöses åtgärden av en markering, bocka för detta alternativ för att utlösa åtgärden bara då du gör en manuell kopia"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
 msgstr "<b>Åtgärd</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "Kommando:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>Commands</b>"
 msgstr "<b>Kommandon</b>"
 
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Sync _selections"
+msgstr "Synkronisera _markeringar"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Om förbockat, kommer markeringen att synkas med standardurklippet på ett sätt så att du kan klistra in vad du väljer"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Show _QR-Code"
+msgstr "Visa _QR-kod"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"entry"
+msgstr "Om förbockat, visar menyn en QR-kod för den för närvarande valda urklippsposten"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>Behavior</b>"
+msgstr "<b>Beteende</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Save on _quit"
+msgstr "Spara vid a_vslut"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Om förbockad, detta alternativ kommer att återställa historiken vid varje ny Xfce-session"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Store last copied _image"
+msgstr "Lagra senast kopierade b_ild"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Om förbockad, detta alternativ tillåter att en bild lagras i historiken"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Ignore s_elections"
+msgstr "Ignorera ma_rkeringar"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Om förbockad, markeringarna kommer inte att påverka historiken utom manuella kopior"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Size of the _history:"
+msgstr "Storlek för _historik:"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "<b>History</b>"
+msgstr "<b>Historik</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "General"
+msgstr "Allmänt"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Enable automatic actions"
+msgstr "_Aktivera automatiska åtgärder"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Om markerat, kommer urklippstexter att matchas mot reguljära uttryck och en meny med möjliga åtgärder kommer automatiskt att visas.\nI annat fall kommer menyn endast att visas när \"xfce4-popup-clipman-actions\" anropas (och matchningar hittades)"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Add action"
+msgstr "Lägg till åtgärd"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Edit action"
+msgstr "Redigera åtgärd"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Delete action"
+msgstr "Ta bort åtgärd"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Reset all actions to the system default values"
+msgstr "Återställ alla åtgärder till systemets standardvärden"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Automatically paste a selected item from the history"
+msgstr "Klistrar automatiskt in valt objekt från historiken."
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "_Paste instantly:"
+msgstr "_Klistra in direkt:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "P_osition menu at mouse pointer"
+msgstr "P_lacera menyn vid markören"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Visa menyn vid muspekarens läge, endast för xfce4-popup-clipman kommandot"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "_Reorder history items"
+msgstr "O_rdna historikobjekt"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Knuffa sist kopierad text till historikens topp, användbart för att ordna objekt"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "Re_verse history order"
+msgstr "_Vänd historikordning"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Reverse order of the history shown in the menu"
+msgstr "Vänd ordning på historiken som visas i menyn"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Show actions by holding Control"
+msgstr "Vi_sa åtgärder genom att trycka ner Ctrl"
+
 #: ../panel-plugin/settings-dialog.ui.h:42
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Då markeringen är gjord (mus eller tangentbord) och Ctrl-tangenten fortfarande är nedtryckt, kommer sammanhangsmenyn för passande åtgärder att visas"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid "S_kip actions by holding Control"
+msgstr "_Hoppa över åtgärder genom att hålla ner Ctrl"
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Då markeringen är gjord (mus eller tangentbord) och Ctrl-tangenten fortfarande är nedtryckt, kommer sammanhangsmenyn för passande åtgärder att hoppas över"
+
+#: ../panel-plugin/settings-dialog.ui.h:45
+msgid "Tweaks"
+msgstr "Justeringar"
+
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
 msgstr "Reguljärt uttryck"
 
-#: ../panel-plugin/main-panel-plugin.c:99
-#: ../panel-plugin/main-status-icon.c:136
+#: ../panel-plugin/main-panel-plugin.c:97
+#: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
 msgstr "_Inaktivera"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:369
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -299,35 +310,39 @@ msgid ""
 "%s"
 msgstr "Det gick inte att köra kommandot \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:235
+#: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
 msgstr "Är du säker på att du vill tömma historiken?"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
 msgstr "Fråga inte igen"
 
-#: ../panel-plugin/menu.c:356
+#: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
 msgstr "Det gick inte att generera QR-kod."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:370
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
 msgstr "Urklippet är tomt"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/menu.c:475
+msgid "_Clear history"
+msgstr "_Rensa historik"
+
+#: ../panel-plugin/plugin.c:306
 msgid "Contributors:"
 msgstr "Bidragsgivare:"
 
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:320
 msgid "Clipboard Manager for Xfce"
 msgstr "Urklippshanterare för Xfce"
 
-#: ../panel-plugin/plugin.c:349
+#: ../panel-plugin/plugin.c:328
 msgid "translator-credits"
 msgstr "Daniel Nylander\nPåvel Nicklasson"
 
-#: ../panel-plugin/plugin.c:363
+#: ../panel-plugin/plugin.c:342
 msgid "Unable to open the settings dialog"
 msgstr "Det gick inte att öppna inställningsdialogen"
