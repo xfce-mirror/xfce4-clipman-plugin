@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Sergey Alyoshin <alyoshin.s@gmail.com>, 2014,2016
+# Simple88, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 00:30+0200\n"
-"PO-Revision-Date: 2016-05-29 11:23+0000\n"
-"Last-Translator: Sergey Alyoshin <alyoshin.s@gmail.com>\n"
+"POT-Creation-Date: 2016-06-02 00:31+0200\n"
+"PO-Revision-Date: 2016-06-22 05:07+0000\n"
+"Last-Translator: Simple88\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr "Менеджер буфера обмена может быть моду�
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
 msgid "Clipman"
 msgstr "Менеджер буфера обмена Clipman"
 
@@ -72,25 +73,25 @@ msgstr "Длинный URL"
 msgid "Shrink the URL"
 msgstr "Сократить URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:199
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
 msgstr "Отключена"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:201
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:203
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:536
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
 msgstr "<b>Сброс действий</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:538
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Вы хотите заменить все ваши действия на предлагаемые по умолчанию?"
@@ -204,95 +205,95 @@ msgid "General"
 msgstr "Основные настройки"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable actions"
-msgstr "Разрешить _действия"
+msgid "_Enable automatic actions"
+msgstr "Разрешить _автоматические действия"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "Отображать меню возможных действий в зависимости от текста в Буфере обмена"
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Если отмечено, тексты из Буфера обмена будут сопоставлены с регулярными выражениями и меню автоматически будет отображать возможные действия.\nВ противном случае меню будет появляться только при вызове «xfce4-popup-clipman-actions» (и если соответствие найдено)"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
 msgstr "Добавить действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
 msgstr "Изменить действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
 msgstr "Удалить действие"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
 msgstr "Вернуть все действия к системным значениям по умолчанию"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
 msgstr "Действия"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Automatically paste a selected item from the history"
 msgstr "Автоматическая вставка выделенного элемента журнала"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
 msgstr "Быстрая _вставка:"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
 msgstr "Меню у указателя _мыши"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Выводит меню в позиции указателя мыши (только для команды xfce4-popup-clipman)."
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
 msgstr "Пере_упорядочивать журнал"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Помещает последний использованный элемент в начало журнала."
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
 msgstr "В о_братном порядке"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
 msgstr "Показывать содержимое журнала в обратном порядке"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
 msgstr "О_тображать действия клавишей Ctrl"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "После завершения выделения (мышью или клавиатурой) и удержании клавиши Ctrl, будет отображено всплывающее меню с соответствующими действиями"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
 msgstr "От_ключать действия клавишей Ctrl"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Не выводить меню действий, если при выделении была нажата клавиша Ctrl."
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
 msgstr "Дополнительно"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
 msgstr "Регулярное выражение"
 
@@ -301,7 +302,7 @@ msgstr "Регулярное выражение"
 msgid "_Disable"
 msgstr "Отклю_чить"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:369
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -317,31 +318,31 @@ msgstr "Вы действительно хотите очистить журна
 msgid "Don't ask again"
 msgstr "Больше не задавать этот вопрос"
 
-#: ../panel-plugin/menu.c:361
+#: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
 msgstr "Не удалось создать QR-код."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:375
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
 msgstr "Буфер обмена пуст"
 
-#: ../panel-plugin/menu.c:474
+#: ../panel-plugin/menu.c:475
 msgid "_Clear history"
 msgstr "О_чистить журнал"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/plugin.c:306
 msgid "Contributors:"
 msgstr "Участники:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:320
 msgid "Clipboard Manager for Xfce"
 msgstr "Менеджер буфера обмена для Xfce"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:328
 msgid "translator-credits"
 msgstr "Pavel Labushev\nAleksandr Ponomarenko"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:342
 msgid "Unable to open the settings dialog"
 msgstr "Невозможно открыть диалог настроек"
