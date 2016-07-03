@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 00:30+0200\n"
-"PO-Revision-Date: 2016-05-27 04:36+0000\n"
+"POT-Creation-Date: 2016-06-02 00:31+0200\n"
+"PO-Revision-Date: 2016-07-03 13:57+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "클립보드 관리자는 Xfce 패널 플러그인이며, 알림 영역�
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -72,25 +72,25 @@ msgstr "긴 URL"
 msgid "Shrink the URL"
 msgstr "URL 줄이기"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:199
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
 msgstr "없음"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:201
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:203
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:536
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
 msgstr "<b>재설정 동작</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:538
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "정말로 시스템 기본값으로 동작을 재설정 하시렵니까?"
@@ -105,7 +105,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "명령상에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 완전한 본문을 나타냅니다. 정규표현식을 잘 모른다면 정규표현식을 소개한 Clipman의 문서를 보십시오."
+msgstr "명령에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 전체 문장을 나타냅니다. 정규 표현식을 잘 모른다면 Clipman의 정규표현식 소개 문서를 보십시오."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -117,17 +117,17 @@ msgstr "패턴:"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "패턴은 언제나 특수문자 ^$에 연결됩니다"
+msgstr "패턴을 항상 특수문자 ^$에 연결합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
-msgstr "수동 복사할 때만 활성화"
+msgstr "직접 복사할 때만 활성화"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "기본적으로 선택에 따라 동작을 시작하니, 수동 복사를 만들 때만 동작을 수행하려면 이 옵션을 표시하도록 합니다"
+msgstr "기본적으로 선택 여부에 따라 동작하므로, 직접 복사할 때만 동작을 수행하려면 이 옵션을 표시하십시오"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
@@ -149,7 +149,7 @@ msgstr "선택 항목 동기화(_S)"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "이것을 표시하면 선택한 항목을 선택하여 붙일 수 있도록 기본 클립보드와 동기화 합니다"
+msgstr "이 부분을 표시하면 선택한 항목을 선택하여 붙일 수 있도록 기본 클립보드와 동기화 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -172,7 +172,7 @@ msgstr "저장하고 나가기(_Q)"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "이것을 표시하면 새로 Xfce 세션을 시작할 때마다 기록을 복원합니다"
+msgstr "이 부분을 표시하면 새로 Xfce 세션을 시작할 때마다 기록을 복원합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -180,7 +180,7 @@ msgstr "마지막에 복사한 그림 저장(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "이것을 표시하면 기록 안에 그림을 저장할 수 있도록 합니다"
+msgstr "이 부분을 표시하면 기록 안에 그림을 저장할 수 있도록 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -189,7 +189,7 @@ msgstr "선택 무시(_E)"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "이것을 표시하면 수동 복사를 제외한 모든 기록에 선택에 대한 영향을 주지 않습니다. "
+msgstr "이 부분을 표시하면 수동 복사를 제외한 모든 기록에 선택에 대한 영향을 주지 않습니다. "
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
@@ -204,95 +204,95 @@ msgid "General"
 msgstr "일반"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable actions"
-msgstr "동작 활성화(_E)"
+msgid "_Enable automatic actions"
+msgstr "자동 동작 활성화(_E)"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "이것을 표시하면 클립보드 텍스트를 정규 표현식을 대상으로 비교하며 가능한 동작을 메뉴에 보여줍니다"
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "이 부분을 표시하면, 정규 표현식과 클립보드의 텍스트를 비교하고, 가능한 동작을 메뉴에 자동으로 표시합니다.\n아니면 \"xfce4-popup-clipman-actions\"를 실행할 때 (그리고 일치하는 부분을 찾았을 때) 메뉴를 나타냅니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
 msgstr "동작 추가"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
 msgstr "동작 편집"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
 msgstr "동작 삭제"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
 msgstr "모든 동작을 시스템 기본값으로 초기화"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
 msgstr "동작"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Automatically paste a selected item from the history"
 msgstr "기록에서 선택한 항목을 자동으로 붙여넣기"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
 msgstr "임시로 붙여넣기(_P):"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
 msgstr "마우스 포인터에 메뉴 위치(_O)"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "xfce4-popup-clipman 명령만을 위해, 마우스 포인터 위치에 단축메뉴를 띄웁니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
 msgstr "기록 항목 재정렬(_R)"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "최근 복사한 문자열을 기록 상단에 올려놓습니다. 오래된 항목을 재정렬하는데 유용합니다"
+msgstr "최근 복사한 문자열을 기록 상단에 올려둡니다. 오래된 항목을 재정렬하는데 유용합니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
 msgstr "기록 순서 뒤집기(_V)"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
 msgstr "메뉴에 기록상의 역순으로 보입니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
 msgstr "Ctrl키를 눌러 동작 표시(_S)"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "(마우스 또는 키보드로)선택이 끝나고 Ctrl 키가 그대로 눌려있는 상태라면, 일치하는 동작에 대한 단축 메뉴가 나타납니다"
+msgstr "(마우스 또는 키보드로)선택이 끝나고 Ctrl키를 계속 누르고 있으면, 적절한 동작에 대한 단축 메뉴가 나타납니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
 msgstr "Ctrl키를 눌러 동작 무시(_K)"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "선택이 끝났고(마우스 또는 키보드) Control 키가 계속 눌려져 있다면, 적절한 동작에 대한 단축 메뉴를 띄우지 않습니다"
+msgstr "(마우스 또는 키보드로)선택이 끝난 상태에서 Control키를 계속 누르고 있으면, 적절한 동작에 대한 단축 메뉴를 나타내지 않습니다"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
 msgstr "기능향상"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
 msgstr "정규 표현식"
 
@@ -301,7 +301,7 @@ msgstr "정규 표현식"
 msgid "_Disable"
 msgstr "비활성화(_D)"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:369
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -317,31 +317,31 @@ msgstr "정말로 기록을 비우시렵니까?"
 msgid "Don't ask again"
 msgstr "다시 묻지 않음"
 
-#: ../panel-plugin/menu.c:361
+#: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
 msgstr "QR-코드를 만들 수 없습니다."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:375
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
 msgstr "클립보드가 비었습니다"
 
-#: ../panel-plugin/menu.c:474
+#: ../panel-plugin/menu.c:475
 msgid "_Clear history"
 msgstr "기록 지우기(_C)"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/plugin.c:306
 msgid "Contributors:"
 msgstr "공헌자:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:320
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 클립보드 관리자"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:328
 msgid "translator-credits"
 msgstr "Seong-ho Cho <darkcircle.0426@gmail.com>"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:342
 msgid "Unable to open the settings dialog"
-msgstr "설정 대화상자를 열 수 없습니다"
+msgstr "설정 대화 상자를 열 수 없습니다"
