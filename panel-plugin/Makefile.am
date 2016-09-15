@@ -221,5 +221,6 @@ DISTCLEANFILES =							\
 	$(NULL)
 
 install-exec-hook:
-	$(LN_S) -f $(exec_prefix)/bin/xfce4-popup-clipman $(DESTDIR)$(exec_prefix)/bin/xfce4-popup-clipman-actions
+	cd $(DESTDIR)$(exec_prefix)/bin && \
+	$(LN_S) xfce4-popup-clipman xfce4-popup-clipman-actions
 
