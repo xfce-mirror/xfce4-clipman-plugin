@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-06-24 12:41+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-09-16 20:02+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Iškarpinės tvarkytuvė pateikiama kaip Xfce skydelio įskiepis bei kai
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -158,9 +158,9 @@ msgstr "Rodyti _QR-kodą"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Jei pažymėta, meniu bus rodomas, šiuo metu pažymėto iškarpinės įrašo, QR-kodas"
+msgstr "Jei pažymėta, meniu bus rodomas šiuo metu pažymėto iškarpinės įrašo QR-kodas"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -250,7 +250,7 @@ msgstr "_Pelės žymeklio vieta"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Parodyti iššokantį langą pelės žymeklio vietoje, tik xfce4-popup-clipman komandai"
+msgstr "Parodyti iškylantįjį meniu pelės žymeklio vietoje, tik xfce4-popup-clipman komandai"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
@@ -277,7 +277,7 @@ msgstr "Ro_dyti veiksmus, nuspaudus Control klavišą"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Kuomet žymėjimas yra atliktas (pele ar klaviatūra) ir Control klavišas vis dar yra nuspaustas, atitinkamiems veiksmams bus rodomas iššokantis meniu"
+msgstr "Kuomet žymėjimas yra atliktas (pele ar klaviatūra) ir Control (Vald) klavišas vis dar yra nuspaustas, atitinkamiems veiksmams bus rodomas iškylantysis meniu"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
@@ -287,7 +287,7 @@ msgstr "P_raleisti veiksmus, nuspaudus Control klavišą"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Pasirinkus (pele ar klaviatūra) ir Control klavišas vis dar paspaustas, iššokantis meniu atitinkamiem veiksmams bus praleistas"
+msgstr "Kai pasirinkimas (pele ar klaviatūra) yra atliktas ir Control (Vald) klavišas yra vis dar nuspaustas spaustas, iškylantysis meniu atitinkamiems veiksmams bus praleistas"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
@@ -302,7 +302,7 @@ msgstr "Reguliarieji reiškiniai"
 msgid "_Disable"
 msgstr "Išju_ngti"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -331,18 +331,18 @@ msgstr "Iškarpinė tuščia"
 msgid "_Clear history"
 msgstr "_Išvalyti istoriją"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Prisidėjo:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Iškarpinės tvarkytuvė skirta Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Algimantas Margevičius <margevicius.algimantas@gmail.com>\nMoo"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Nepavyko atverti nustatymų dialogo"
