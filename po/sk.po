@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-07-12 09:28+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-09-16 18:02+0000\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Správca schránky vo forme zásuvného modulu panela XFCE a ako samosta
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -152,7 +152,7 @@ msgstr "_Synchronizovať výbery"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Ak je zapnuté, výbery budú synchronizované s predvolenou schránkou tak, že budete môcť vložiť to, čo označíte"
+msgstr "Ak je zaškrtnuté, výbery budú synchronizované s predvolenou schránkou tak, že budete môcť vložiť to, čo označíte"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -160,9 +160,9 @@ msgstr "Zobraziť _QR-kód"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Ak je zvolené, menu zobrazuje QR-kód aktuálne zvolenej položky schránky"
+msgstr "Ak je zaškrtnuté, v menu sa zobrazí QR-kód aktuálne vybratej položky schránky"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -175,7 +175,7 @@ msgstr "Uložiť pri _ukončení"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Ak je zapnuté, história bude obnovená pri každom novom sedení Xfce"
+msgstr "Ak je zaškrtnuté, história bude obnovená pri každom novom sedení Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -183,7 +183,7 @@ msgstr "Uložiť naposledy kopírovaný _obrázok"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Ak je zapnuté, bude možné uložiť jeden obrázok v histórii"
+msgstr "Ak je zaškrtnuté, bude možné uložiť jeden obrázok v histórii"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -192,7 +192,7 @@ msgstr "_Ignorovať výbery"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Ak je zapnuté, výbery neovplyvnia históriu, okrem ručného kopírovania"
+msgstr "Ak je zaškrtnuté, výbery neovplyvnia históriu, okrem ručného kopírovania"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
@@ -304,7 +304,7 @@ msgstr "Regulárne výrazy"
 msgid "_Disable"
 msgstr "_Zakázať"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -333,18 +333,18 @@ msgstr "Schránka je prázdna"
 msgid "_Clear history"
 msgstr "Vy_mazať históriu"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Prispievatelia:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Správca schránky pre Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Robert Hartl <hartl.robert@gmail.com>\nTomáš Vadina <kyberdev@gmail.com>"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Nedá sa otvoriť dialóg nastavení"
