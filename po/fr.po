@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-06-02 07:12+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-09-17 08:30+0000\n"
 "Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Le Gestionnaire de presse-papier fournit un greffon pour le tableau de b
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -153,7 +153,7 @@ msgstr "S_ynchroniser les sélections"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si elle est cochée, les sélections seront synchronisées avec le presse-papiers par défaut de manière à ce que vous puissiez coller ce que vous sélectionné"
+msgstr "Si coché, les sélections seront synchronisées avec le presse-papiers par défaut de manière à ce que vous puissiez coller ce que vous sélectionnez"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -161,9 +161,9 @@ msgstr "Voir le code _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Si elle est cochée, le menu affiche un code QR de l'entrée du presse-papiers actuellement sélectionné"
+msgstr "Si coché, le menu affiche un code QR de l’entrée actuellement sélectionnée du presse-papiers"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -176,7 +176,7 @@ msgstr "Enregistrer en _quittant"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Si coché, cette option restaure l'historique à chaque nouvelle session Xfce"
+msgstr "Si cochée, cette option restaure l'historique à chaque nouvelle session Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -184,7 +184,7 @@ msgstr "Stocker la dernière _image copiée"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si coché, cette option vous permet de stocker une image à l'intérieur de l'historique"
+msgstr "Si cochée, cette option vous permet de stocker une image à l'intérieur de l'historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -193,7 +193,7 @@ msgstr "I_gnorer les sélections"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si coché, les sélections n'affecteront pas l'histoire à l'exception des copies manuelles"
+msgstr "Si coché, les sélections n'affectent pas l'historique, à l'exception des copies manuelles"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
@@ -305,7 +305,7 @@ msgstr "Expression régulière"
 msgid "_Disable"
 msgstr "_Désactiver"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -334,18 +334,18 @@ msgstr "Le presse-papier est vide"
 msgid "_Clear history"
 msgstr "_Effacer l'historique"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Contributeurs :"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionnaire de presse-papier pour Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "L’équipe de traduction francophone de Xfce"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Échec à l'ouverture de la fenêtre de paramètres"
