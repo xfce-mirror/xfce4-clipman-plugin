@@ -4,8 +4,9 @@
 # 
 # Translators:
 # Abel Martín <abel.martin.ruiz@gmail.com>, 2009
+# Adolfo Jayme-Barrientos, 2014
 # Adolfo Jayme Barrientos, 2014
-# Fitoschido, 2014
+# Adolfo Jayme-Barrientos, 2014
 # Fitoschido, 2014
 # gabrieltandil <gabriel.tandil@gmail.com>, 2016
 # gabrieltandil <gabriel.tandil@gmail.com>, 2016
@@ -15,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-06-14 14:41+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-09-21 15:58+0000\n"
 "Last-Translator: Manolo Díaz <diaz.manolo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "El Gestor del portapapeles provee un complemento para el panel de Xfce y
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "portapapeles"
 
@@ -164,9 +165,9 @@ msgstr "Mostrar código _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Si está marcado, El menú mostrará el código QR para la entrada del portapapeles seleccionada"
+msgstr "Si está marcado, el menú muestra el código QR de la la entrada seleccionada del portapapeles"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -308,7 +309,7 @@ msgstr "Expresión regular"
 msgid "_Disable"
 msgstr "_Desactivar"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -337,18 +338,18 @@ msgstr "El portapapeles está vacío"
 msgid "_Clear history"
 msgstr "_Limpiar historial"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Colaboradores:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor del portapapeles para Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Roberto <roberdmd@gmail.com>, 2008\nAbel Martín <abel.martin.ruiz@gmail.com>, 2009\nElega <elega@elega.com.ar>\nSergio <oigres200@gmail.com>, 2012\nPablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2015\nAdolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "No se puede abrir el diálogo de configuración"
