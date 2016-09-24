@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-06-04 15:49+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-09-24 12:46+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Malay (http://www.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Pengurus Papan Keratan disediakan sebagai pemalam panel untuk Xfce dan s
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -157,9 +157,9 @@ msgstr "Tunjuk Kod-_QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Jika ditanda, menu tunjukkan Kod-QR bagi masukan papan keratan terpilih yang betul"
+msgstr "Jika ditanda, menu menunjukkan Kod-QR bagi masukan papan keratan terpilih semasa"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -301,7 +301,7 @@ msgstr "Ungkapan nalar"
 msgid "_Disable"
 msgstr "_Dilumpuhkan"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -330,18 +330,18 @@ msgstr "Papan keratan kosong"
 msgid "_Clear history"
 msgstr "_Kosongkan sejarah"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Penyumbang:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Pengurus Papan Keratan untuk Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "abuyop <abuyop@gmail.com>"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Tidak boleh buka dialog tetapan"
