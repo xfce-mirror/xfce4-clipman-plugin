@@ -6,6 +6,7 @@
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # Hunt Xu <huntxu@live.cn>, 2009
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
+# Levi Zhou <congzhou821@gmail.com>, 2016
 # Mingcong Bai <jeffbai@aosc.xyz>, 2016
 # 玉堂白鹤 <yjwork@qq.com>, 2014
 # xiaobo zhou <zhouxiaobo.500@gmail.com>, 2014
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-08-07 08:05+0000\n"
-"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2016-10-22 13:19+0000\n"
+"Last-Translator: Levi Zhou <congzhou821@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,13 +31,13 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "剪贴板管理器提供一个 Xfce 的面板插件和在通知区域中单独执行的应用程式。它保留了文字及图片被复制到剪贴板的历史。它也有被选择的文字符合正则表达式时可执行的功能。"
+msgstr "剪贴板管理器是一个 Xfce 的面板插件，它在通知区域中单独执行。它保留了文字及图片被复制到剪贴板的历史。它也有在被选择的文字符合正则表达式时执行的功能。"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman 剪贴板管理器"
 
@@ -163,9 +164,9 @@ msgstr "显示二维码(_Q)"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "如果选中，菜单将会显示正确选中的剪贴板条目的 QR 码"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -307,7 +308,7 @@ msgstr "正则表达"
 msgid "_Disable"
 msgstr "禁用(_D)"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -336,18 +337,18 @@ msgstr "剪贴板是空的"
 msgid "_Clear history"
 msgstr "清除历史(_C)"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "贡献者："
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 剪贴板管理器"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\nHunt Xu <huntxu@live.cn>, 2009.\nChipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "未能打开设置对话框"
