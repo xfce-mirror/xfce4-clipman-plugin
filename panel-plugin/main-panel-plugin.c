@@ -64,6 +64,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   MyPlugin *plugin = plugin_register ();
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GtkWidget *mi = NULL;
+  GtkCssProvider *css_provider;
 
   /* Menu Position Func */
   plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
@@ -84,6 +85,22 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
     }
   gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
+  gtk_widget_set_name (GTK_WIDGET (plugin->button), "xfce4-clipman-plugin");
+
+  /* Sane default Gtk style */
+  css_provider = gtk_css_provider_new ();
+  gtk_css_provider_load_from_data (css_provider,
+                                   "#xfce4-clipman-plugin {"
+                                   "-GtkWidget-focus-padding: 0;"
+                                   "-GtkWidget-focus-line-width: 0;"
+                                   "-GtkButton-default-border: 0;"
+                                   "-GtkButton-inner-border: 0;"
+                                   "padding: 1px;"
+                                   "border-width: 1px;}",
+                                   -1, NULL);
+  gtk_style_context_add_provider (GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (plugin->button))),
+                                  GTK_STYLE_PROVIDER (css_provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
 
   xfce_panel_plugin_set_small (panel_plugin, TRUE);
 
@@ -120,8 +137,38 @@ static gboolean
 plugin_set_size (MyPlugin *plugin,
                  gint size)
 {
+  GtkStyleContext *context;
+  GtkBorder padding, border;
+  gint width, icon_width;
+  gint xthickness;
+  gint ythickness;
+
   size /= xfce_panel_plugin_get_nrows (plugin->panel_plugin);
   gtk_widget_set_size_request(GTK_WIDGET(plugin->button), size, size);
+
+
+  /* Calculate the size of the widget because the theme can override it */
+  context = gtk_widget_get_style_context (GTK_WIDGET (plugin->button));
+  gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (plugin->button)), &padding);
+  gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (plugin->button)), &border);
+  xthickness = padding.left + padding.right + border.left + border.right;
+  ythickness = padding.top + padding.bottom + border.top + border.bottom;
+
+  /* Calculate the size of the space left for the icon */
+  width = size - 2 * MAX (xthickness, ythickness);
+
+  /* Since symbolic icons are usually only provided in 16px we
+  * try to be clever and use size steps */
+  if (width <= 21)
+    icon_width = 16;
+  else if (width >=22 && width <= 29)
+    icon_width = 24;
+  else if (width >= 30 && width <= 40)
+    icon_width = 32;
+  else
+    icon_width = width;
+  /* Adjust icon-size to panel size */
+  gtk_image_set_pixel_size (GTK_IMAGE (plugin->image), icon_width);
 
   return TRUE;
 }
