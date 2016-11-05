@@ -300,7 +300,8 @@ plugin_free (MyPlugin *plugin)
 void
 plugin_about (MyPlugin *plugin)
 {
-  const gchar *authors[] = { "(c) 2008-2014 Mike Massonnet",
+  const gchar *authors[] = { "(c) 2014-2016 Simon Steinbeiss",
+                             "(c) 2008-2014 Mike Massonnet",
                              "(c) 2005-2006 Nick Schermer",
                              "(c) 2003 Eduard Roccatello",
                              "",
@@ -320,7 +321,7 @@ plugin_about (MyPlugin *plugin)
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
-                         "copyright", "Copyright © 2003-2014 The Xfce development team",
+                         "copyright", "Copyright © 2003-2016 The Xfce development team",
                          "license", license,
                          "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin",
                          "website-label", "goodies.xfce.org",
