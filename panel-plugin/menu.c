@@ -271,6 +271,16 @@ cb_clear_history (ClipmanMenu *menu)
  */
 
 static void
+_clipman_menu_adjust_geometry (ClipmanMenu *menu)
+{
+  GtkAllocation allocation = {};
+
+  gtk_widget_get_preferred_width (GTK_WIDGET (menu), NULL, &allocation.width);
+  gtk_widget_get_preferred_height (GTK_WIDGET (menu), NULL, &allocation.height);
+  gtk_widget_size_allocate (GTK_WIDGET (menu), &allocation);
+}
+
+static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
   GtkWidget *mi, *image;
@@ -382,6 +392,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       /* Set the clear history item insensitive */
       gtk_widget_set_sensitive (menu->priv->mi_clear_history, FALSE);
     }
+
+  _clipman_menu_adjust_geometry(menu);
 }
 
 static void
