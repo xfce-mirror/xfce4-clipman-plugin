@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-10-19 20:39+0000\n"
+"PO-Revision-Date: 2016-11-24 18:54+0000\n"
 "Last-Translator: Cédric Valmary <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "Afichar lo còde _QR"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr ""
+msgstr "Se marcat, lo menú aficha un còdi QR de l’entrada actualament seleccionada del quichapapièrs"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -206,7 +206,7 @@ msgstr "General"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Enable automatic actions"
-msgstr ""
+msgstr "_Activar las accions automaticas"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
@@ -228,7 +228,7 @@ msgstr "Suprimir l'accion"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Reïnicializar totas las accions a las valors per defaut del sistèma"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
