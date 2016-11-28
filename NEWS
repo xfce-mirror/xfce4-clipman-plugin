@@ -1,3 +1,16 @@
+Version 1.4.1 - 2016-11-28
+
+- New application icon
+- Improve clipman panel plugin icon sizing (Bug #12854)
+- Add a non-symbolic fallback icon
+- Adjust menu geometry to fit all elements (Bug #12865)
+- Avoid 'bad symlink' warning. (Bug #12850)
+- Fix tooltip of show QR code (Bug #12752)
+- Translation updates: Chinese (China), Chinese (Taiwan), Croatian, Dutch
+  (Flemish), English (Australia), French, German, Hebrew, Icelandic, Japanese,
+  Korean, Lithuanian, Malay, Occitan, Polish, Portuguese, Portuguese (Brazilian),
+  Slovak, Spanish, Swedish, Ukrainia
+
 Version 1.4.0 - 2016-09-15
 
 - Port to Gtk3
