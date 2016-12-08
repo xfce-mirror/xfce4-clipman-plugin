@@ -33,7 +33,7 @@ http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/
 ---------
 
 % tar xf xfce4-clipman-plugin-<version>.tar.bz2
-% ./configure
+% ./autogen.sh
 % make
 % make install
 
