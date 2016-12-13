@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-09-16 20:02+0000\n"
+"PO-Revision-Date: 2016-12-12 23:37+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +168,7 @@ msgstr "<b>Elgsena</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "Save on _quit"
-msgstr "Įrašyti _išeinant"
+msgstr "Įrašyti, _išeinant"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
