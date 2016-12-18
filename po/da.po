@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-12-08 23:28+0000\n"
+"PO-Revision-Date: 2016-12-17 23:52+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -256,7 +256,7 @@ msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for xfce
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr "Sortér historikelementer"
+msgstr "_Omorganisér historikelementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
