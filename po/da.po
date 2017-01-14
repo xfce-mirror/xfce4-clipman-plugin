@@ -6,13 +6,13 @@
 # Aputsiak Niels Janussen <aj@isit.gl>, 2015
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2016
-# scootergrisen, 2016
+# scootergrisen, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-12-17 23:52+0000\n"
+"PO-Revision-Date: 2017-01-14 14:22+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr "Ctrl+V"
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
-msgstr "Shift+Insert"
+msgstr "Skift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
