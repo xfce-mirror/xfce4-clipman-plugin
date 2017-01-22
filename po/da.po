@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-01-21 19:41+0000\n"
+"PO-Revision-Date: 2017-01-22 17:44+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -347,4 +347,4 @@ msgstr "Jens Hyllegaard\nPer Kongstad\n\nDansk-gruppen <dansk@dansk-gruppen.dk>\
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Kan ikke åbne indstillingsdialogen"
+msgstr "Kunne ikke åbne indstillingsdialogen"
