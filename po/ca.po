@@ -7,14 +7,14 @@
 # Harald Servat <redcrash@gmail.com>, 2009
 # Davidmp <medipas@gmail.com>, 2016
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2017
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-08-23 14:09+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2017-02-10 10:05+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "El gestor del porta-retalls es proporciona com a connector de plafó de 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Porta-retalls «Clipman»"
 
@@ -162,7 +162,7 @@ msgstr "Mostra el codi _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Si es marca, el menú mostra un codi QR de l'entrada seleccionada en aquest moment al porta-retalls"
 
@@ -291,7 +291,7 @@ msgstr "Ome_t les accions en mantenir premuda la tecla Control"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, se saltarà el menú emergent d'accions"
+msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, s'ometrà el menú emergent d'accions"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
@@ -306,7 +306,7 @@ msgstr "Expressió regular"
 msgid "_Disable"
 msgstr "_Inhabilita"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -335,18 +335,18 @@ msgstr "El porta-retalls està buit"
 msgid "_Clear history"
 msgstr "Nete_ja l'historial"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Contribuïdors:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor de porta-retalls per l'escriptori Xfce"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\nHarald Servat Gelabert <redcrash@gmail.com>, 2009.\nRobert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016."
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "No s'ha pogut obrir el diàleg d'ajusts"
