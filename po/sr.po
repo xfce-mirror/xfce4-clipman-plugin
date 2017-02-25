@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Саша Петровић <salepetronije@gmail.com>, 2012
-# Саша Петровић <salepetronije@gmail.com>, 2012,2014,2016
+# Саша Петровић <salepetronije@gmail.com>, 2012,2014,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-06-05 13:56+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2017-02-25 15:29+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Управник исечака у виду прикључка поли�
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Секач"
 
@@ -158,7 +158,7 @@ msgstr "Приказуј _КуР-шифре"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Ако је означено, изборник приказује КуР-шифру тренутно означене ставке оставе исечака"
 
@@ -302,7 +302,7 @@ msgstr "Регуларан израз"
 msgid "_Disable"
 msgstr "_Онемогући"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -331,18 +331,18 @@ msgstr "Остава исечака је празна"
 msgid "_Clear history"
 msgstr "_Очисти оставу"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Доприносиоци:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Управник исечака ИксФЦЕ-а"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Саша Петровић <salepetronije@gmail.com>"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Нисам успео отворим прозорче поставки"
