@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-03-03 23:31+0000\n"
+"PO-Revision-Date: 2017-03-03 23:37+0000\n"
 "Last-Translator: Apóstolos Papaðimitríu <apostolos.papadimitriu@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,7 @@ msgstr "_Ενεργοποίηση αυτοματοποιημένων ενεργ�
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+msgstr "Εάν επιλεχθεί, τα κείμενα του προχείρου θα συγκρίνονται με κανονικές παραστάσεις και ένα μενού θα εμφανίζει τις πιθανές ενέργειες αυτόματα\nΕιδάλλως το μενού θα εμφανίζεται μόνο όταν καλείται το \"xfce4-popup-clipman-actions\" (αν έχει βρεθεί κάτι που ταιριάζει)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
