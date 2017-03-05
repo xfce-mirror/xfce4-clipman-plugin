@@ -56,18 +56,42 @@ main (gint argc,
       gchar *argv[])
 {
   MyPlugin *plugin;
+  GtkApplication *app;
+  GError *error = NULL;
 
   gtk_init (&argc, &argv);
+  app = gtk_application_new ("org.xfce.clipman", 0);
+
+  g_application_register (G_APPLICATION (app), NULL, &error);
+  if (error != NULL)
+    {
+      g_warning ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      error = NULL;
+    }
+
+  if (g_application_get_is_remote (G_APPLICATION (app)))
+    {
+      g_message ("Primary instance org.xfce.clipman already running");
+      g_object_unref (app);
+      return FALSE;
+    }
 
   g_set_application_name (_("Clipman"));
   plugin = status_icon_register ();
   install_autostart_file ();
 
+  /* TODO this callback popups at systray position, need to popup at cursor
+   * position if option is set, this logic can be handled directly by
+   * plugin_popup_menu function. */
+  g_signal_connect_swapped (app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+
   gtk_main ();
 
   g_object_unref (plugin->status_icon);
+  g_object_unref (app);
 
-  return 0;
+  return FALSE;
 }
 
 /*
