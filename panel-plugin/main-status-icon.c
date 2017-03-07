@@ -81,9 +81,6 @@ main (gint argc,
   plugin = status_icon_register ();
   install_autostart_file ();
 
-  /* TODO this callback popups at systray position, need to popup at cursor
-   * position if option is set, this logic can be handled directly by
-   * plugin_popup_menu function. */
   g_signal_connect_swapped (app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
 
   gtk_main ();

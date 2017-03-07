@@ -342,32 +342,34 @@ plugin_configure (MyPlugin *plugin)
 void
 plugin_popup_menu (MyPlugin *plugin)
 {
+  if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
+    {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                      NULL, NULL,
+                      0, gtk_get_current_event_time ());
+G_GNUC_END_IGNORE_DEPRECATIONS
+    }
+  else
+    {
 #ifdef PANEL_PLUGIN
-  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
-
-  if(!gtk_widget_has_grab(plugin->menu))
-  {
-    gtk_grab_add(plugin->menu);
-  }
-
-  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                  plugin->menu_position_func, plugin,
-                  0, gtk_get_current_event_time ());
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-  xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+      gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                      plugin->menu_position_func, plugin->panel_plugin,
+                      0, gtk_get_current_event_time ());
+G_GNUC_END_IGNORE_DEPRECATIONS
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
 #elif defined (STATUS_ICON)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_status_icon_get_screen (plugin->status_icon));
+      gtk_menu_set_screen (GTK_MENU (plugin->menu),
+                           gtk_status_icon_get_screen (plugin->status_icon));
+      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
+                      plugin->menu_position_func, plugin->status_icon,
+                      0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
-
-  if(!gtk_widget_has_grab(plugin->menu))
-  {
-    gtk_grab_add(plugin->menu);
-  }
-
-  gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                  plugin->menu_position_func, plugin->status_icon,
-                  0, gtk_get_current_event_time ());
 #endif
+  }
 }
 
