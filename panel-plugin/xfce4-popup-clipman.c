@@ -25,6 +25,47 @@
 
 #include <gtk/gtk.h>
 
+
+/* Initial code was taken from xfwm4/src/menu.c:grab_available().
+ * TODO replace deprecated GTK/GDK functions.
+ */
+static gboolean
+grab_keyboard ()
+{
+  guint32 timestamp = GDK_CURRENT_TIME;
+  GdkScreen *screen = gdk_screen_get_default ();
+  GdkWindow *win = gdk_screen_get_root_window (screen);
+  GdkEventMask mask =
+    GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
+    GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |
+    GDK_POINTER_MOTION_MASK;
+  GdkGrabStatus grab_status;
+  gboolean grab_failed = FALSE;
+  gint i = 0;
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  grab_status = gdk_keyboard_grab (win, TRUE, timestamp);
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+  while ((i++ < 2500) && (grab_status != GDK_GRAB_SUCCESS))
+    {
+      g_usleep (1000);
+      if (grab_status != GDK_GRAB_SUCCESS)
+        {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          grab_status = gdk_keyboard_grab (win, TRUE, timestamp);
+G_GNUC_END_IGNORE_DEPRECATIONS
+        }
+    }
+
+  if (grab_status == GDK_GRAB_SUCCESS)
+    {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      gdk_keyboard_ungrab (timestamp);
+G_GNUC_END_IGNORE_DEPRECATIONS
+    }
+}
+
 gint
 main (gint argc, gchar *argv[])
 {
@@ -44,14 +85,9 @@ main (gint argc, gchar *argv[])
 
   if (g_application_get_is_remote (G_APPLICATION (app)))
     {
-      /* FIXME g_usleep is a workaround when using the popup command through a
-       * keyboard shortcut, in fact the code needs to call gdk_seat_grb/ungrab
-       * for the gtkmenu to show up.
-       */
-      g_usleep(500000);
+      grab_keyboard ();
       g_application_activate (G_APPLICATION (app));
       g_object_unref (app);
-      return 0;
     }
   else
     {
