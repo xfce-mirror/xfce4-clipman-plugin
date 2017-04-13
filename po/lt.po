@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
-# Moo, 2015-2016
+# Moo, 2015-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-12-12 23:37+0000\n"
+"PO-Revision-Date: 2017-04-13 14:23+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr "Aktyvuoti tik kopijuojant rankiniu būdu"
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Pagal nutylėjimą veiksmas yra iššaukiamas pasirinkus, pažymėkite šią parinktį ir veiksmas bus iššaukiamas tik kai kopijuosite rankiniu būdu."
+msgstr "Pagal nutylėjimą veiksmas yra iššaukiamas pasirinkus, pažymėkite šį parametrą ir veiksmas bus iššaukiamas tik tuomet, kai kopijuosite rankiniu būdu."
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
@@ -181,7 +181,7 @@ msgstr "Įrašyti paskutinį nukopijuotą _paveikslą"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Jei pažymėta, ši parinktis leidžia saugoti paveikslą pačioje istorijoje"
+msgstr "Jei pažymėta, šis parametras leidžia saugoti paveikslą pačioje istorijoje"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
