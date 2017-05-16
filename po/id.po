@@ -3,28 +3,35 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# padmawan <andhika.padmawan@gmail.com>, 2014
-# Andhika Padmawan  <andhika.padmawan@gmail.com>, 2009
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2014
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 00:31+0100\n"
-"PO-Revision-Date: 2014-02-04 02:16+0000\n"
-"Last-Translator: padmawan <andhika.padmawan@gmail.com>\n"
-"Language-Team: Indonesian (http://www.transifex.com/projects/p/xfce/language/id/)\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2017-05-16 04:40+0000\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Manajer Papan Klip disediakan sebagai panel pengaya untuk Xfce dan sebagai aplikasi mandiri yang berjalan di area notifikasi. Ini menyimpan riwayat teks dan gambar konten yang disalin ke papan klip. Ini juga memiliki fitur untuk melakukan tindakan pada pemilihan teks tertentu dengan mencocokkannya dengan regex."
+
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:339
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -66,173 +73,34 @@ msgstr "URL Panjang"
 msgid "Shrink the URL"
 msgstr "Kecilkan URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:206
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
 msgstr "Tak ada"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:208
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:210
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
 msgstr "<b>Atur Ulang Aksi</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Anda yakin ingin mengatur ulang aksi ke nilai standar sistem?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Configure the plugin"
-msgstr "Atur plugin"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "Sync _selections"
-msgstr "Sinkronisasi _seleksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar dimana anda dapat merekatkan apa yang anda pilih"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Show _QR-Code"
-msgstr "Tampilkan Kode _QR"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
-"entry"
-msgstr "Jika dicentang, menu menampilkan Kode QR dari entri papan klip yang terpilih dengan benar"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "<b>Behavior</b>"
-msgstr "<b>Perilaku</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Save on _quit"
-msgstr "Simpan saat _keluar"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Store last copied _image"
-msgstr "Simpan _gambar disalin terakhir"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam riwayat"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Ignore s_elections"
-msgstr "Abaikan _seleksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Size of the _history:"
-msgstr "Ukuran _riwayat:"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "<b>History</b>"
-msgstr "<b>Riwayat</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "General"
-msgstr "Umum"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Enable _actions"
-msgstr "Aktifkan _aksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "Jika dicentang, teks papan klip akan dicocokkan dengan ekspresi reguler dan sebuah menu akan menampilkan aksi yang memungkinkan"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Actions"
-msgstr "Aksi"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "Automatically paste a selected item from the history"
-msgstr "Tempel secara otomatis item terpilih dari riwayat"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "_Paste instantly:"
-msgstr "_Tempel secara instan:"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr "P_osisi menu di penunjuk tetikus"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "_Reorder history items"
-msgstr "_Urutkan kembali item riwayat"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan item lama"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Re_verse history order"
-msgstr "Ba_lik urutan riwayat"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Reverse order of the history shown in the menu"
-msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "_Show actions by holding Control"
-msgstr "_Tampilkan aksi dengan menekan Control"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan, menu popup untuk aksi yang cocok akan ditampilkan"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "S_kip actions by holding Control"
-msgstr "L_ewati aksi dengan menekan Control"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Tweaks"
-msgstr "Tweak"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Edit Action"
 msgstr "Sunting Aksi"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -240,46 +108,197 @@ msgid ""
 "has an introdution for them."
 msgstr "Anda dapat menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterusnya di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Jika anda tidak mengerti ekspresi reguler, silakan lihat dokumentasi Clipman yang memiliki pengenalan terhadap itu"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
 msgstr "Nama:"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Pattern:"
 msgstr "Pola:"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Pola ini selalu terkait dengan karakter spesial ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
 msgstr "Hanya aktivasi pada papan klip standar"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Secara standar aksi dipanggil dengan pemilihan, centang opsi ini untuk memanggil aksi hanya jika anda membuat salinan manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
 msgstr "<b>Aksi</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
 msgstr "Perintah:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>Commands</b>"
 msgstr "<b>Perintah</b>"
 
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Sync _selections"
+msgstr "Sinkronisasi _seleksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip standar dimana anda dapat merekatkan apa yang anda pilih"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Show _QR-Code"
+msgstr "Tampilkan Kode _QR"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Jika dicentang, menu akan menampilkan Kode-QR dari entri papan klip yang dipilih saat ini"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>Behavior</b>"
+msgstr "<b>Perilaku</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Save on _quit"
+msgstr "Simpan saat _keluar"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Store last copied _image"
+msgstr "Simpan _gambar disalin terakhir"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Jika dicentang, opsi ini mengizinkan untuk menyimpan satu citra di dalam riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Ignore s_elections"
+msgstr "Abaikan _seleksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Jika dicentang, opsi tidak akan berdampak pada riwayat kecuali salinan manual"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Size of the _history:"
+msgstr "Ukuran _riwayat:"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "<b>History</b>"
+msgstr "<b>Riwayat</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "General"
+msgstr "Umum"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Enable automatic actions"
+msgstr "_Aktifkan tindakan otomatis"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Jika dicentang, teks papan klip akan disesuaikan dengan ekspresi reguler dan sebuah menu akan menampilkan kemungkinan tindakan secara otomatis.\nJika tidak, menu hanya akan muncul saat memanggil \"xfce4-popup-clipman-actions\" (dan kecocokan yang ditemukan)"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Add action"
+msgstr "Tambah aksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Edit action"
+msgstr "Sunting aksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Delete action"
+msgstr "Hapus aksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Reset all actions to the system default values"
+msgstr "Setel ulang semua tindakan ke nilai bawaan sistem"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Actions"
+msgstr "Aksi"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Automatically paste a selected item from the history"
+msgstr "Tempel secara otomatis item terpilih dari riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "_Paste instantly:"
+msgstr "_Tempel secara instan:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "P_osition menu at mouse pointer"
+msgstr "P_osisi menu di penunjuk tetikus"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-popup-clipman"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "_Reorder history items"
+msgstr "_Urutkan kembali item riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Dorong teks disalin terakhir ke puncak riwayat, berguna untuk mengurutkan item lama"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "Re_verse history order"
+msgstr "Ba_lik urutan riwayat"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Reverse order of the history shown in the menu"
+msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce baru"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Show actions by holding Control"
+msgstr "_Tampilkan aksi dengan menekan Control"
+
 #: ../panel-plugin/settings-dialog.ui.h:42
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan, menu popup untuk aksi yang cocok akan ditampilkan"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid "S_kip actions by holding Control"
+msgstr "L_ewati aksi dengan menekan Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Jika pemilihan selesai (tetikus atau papan ketik) dan tombol Control masih ditekan,  menu popup untuk aksi yang cocok akan dilewatkan"
+
+#: ../panel-plugin/settings-dialog.ui.h:45
+msgid "Tweaks"
+msgstr "Tweak"
+
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
 msgstr "Ekspresi reguler"
 
-#: ../panel-plugin/main-panel-plugin.c:99
-#: ../panel-plugin/main-status-icon.c:136
+#: ../panel-plugin/main-panel-plugin.c:97
+#: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
 msgstr "_Nonaktifkan"
 
@@ -291,35 +310,39 @@ msgid ""
 "%s"
 msgstr "Tak dapat mengeksekusi perintah \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:235
+#: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda yakin ingin membersihkan riwayat?"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
 msgstr "Jangan tanyakan lagi"
 
-#: ../panel-plugin/menu.c:354
+#: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
 msgstr "Tak dapat membuat Kode QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:368
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
 msgstr "Papan klip kosong"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/menu.c:475
+msgid "_Clear history"
+msgstr "_bersihkan riwayat"
+
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Kontributor:"
 
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Manajer papan klip untuk Xfce"
 
-#: ../panel-plugin/plugin.c:349
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
-msgstr "Andhika Padmawan"
+msgstr "Andhika Padmawan\nKukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
 
-#: ../panel-plugin/plugin.c:363
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Tak dapat membuka dialog pengaturan"
