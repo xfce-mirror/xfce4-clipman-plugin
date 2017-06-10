@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pjotr <pjotrvertaalt@gmail.com>, 2014,2016
+# Pjotr <pjotrvertaalt@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2016-09-16 10:16+0000\n"
+"PO-Revision-Date: 2017-06-10 10:49+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Klembordbeheerder als invoegtoepassing voor de werkbalk van Xfce en als een op zichzelf staande toepassing die draait in het meldvak. Hij houdt een geschiedenis bij van tekst en afbeeldingen die zijn gekopieerd naar het klembord. Hij heeft ook een functie waarmee acties kunnen worden uitgevoerd op een bepaalde tekstselectie, door deze af te zetten tegen regexes."
+msgstr "Klembordbeheerder als invoegsel voor de werkbalk van Xfce en als een op zichzelf staande toepassing die draait in het meldvak. Hij houdt een geschiedenis bij van tekst en afbeeldingen die zijn gekopieerd naar het klembord. Hij heeft ook een functie waarmee acties kunnen worden uitgevoerd op een bepaalde tekstselectie, door deze af te zetten tegen regexes."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
