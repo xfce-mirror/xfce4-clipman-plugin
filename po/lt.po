@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-06-17 23:29+0000\n"
+"PO-Revision-Date: 2017-07-02 20:18+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -177,7 +177,7 @@ msgstr "Jei pažymėta, istorija bus atstatyta su kiekvienu nauju Xfce seansu"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
-msgstr "Įrašyti paskutinį nukopijuotą _paveikslą"
+msgstr "Saugoti paskutinį nukopijuotą _paveikslą"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
@@ -240,7 +240,7 @@ msgstr "Automatiškai įklijuoti pasirinktą elementą iš istorijos"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
-msgstr "_Iškart įklijuoti:"
+msgstr "_Iškart įdėti:"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
@@ -254,7 +254,7 @@ msgstr "Parodyti iškylantįjį meniu pelės žymeklio vietoje, tik xfce4-popup-
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr "_Surūšiuoti istorijos įrašus"
+msgstr "_Surikiuoti istorijos įrašus"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
