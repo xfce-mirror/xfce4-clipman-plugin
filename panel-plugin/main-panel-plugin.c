@@ -204,6 +204,8 @@ my_plugin_position_menu (GtkMenu *menu,
   GtkRequisition natural_size;
   XfceScreenPosition screen_position;
 
+  g_return_if_fail (XFCE_IS_PANEL_PLUGIN (plugin->panel_plugin));
+
   screen_position = xfce_panel_plugin_get_screen_position (plugin->panel_plugin);
   gtk_widget_get_size_request (plugin->button, &button_width, &button_height);
   gtk_widget_get_preferred_size (GTK_WIDGET (menu), &minimum_size, &natural_size);

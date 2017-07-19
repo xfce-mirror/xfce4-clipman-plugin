@@ -356,7 +356,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                      plugin->menu_position_func, plugin->panel_plugin,
+                      plugin->menu_position_func, plugin,
                       0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
@@ -372,4 +372,3 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
   }
 }
-
