@@ -58,6 +58,7 @@ struct _MyPlugin
   GtkMenuPositionFunc   menu_position_func;
   GtkWidget            *popup_menu;
   gulong                popup_menu_id;
+  GtkApplication       *app;
 };
 
 /*
@@ -73,4 +74,3 @@ void                    plugin_configure                (MyPlugin *plugin);
 void                    plugin_popup_menu               (MyPlugin *plugin);
 
 #endif /* !__CLIPMAN_PLUGIN_H__ */
-

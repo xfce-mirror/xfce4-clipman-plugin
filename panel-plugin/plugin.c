@@ -63,6 +63,7 @@ MyPlugin *
 plugin_register (void)
 {
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
+  GError *error = NULL;
 
   /* Locale */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
@@ -73,6 +74,25 @@ plugin_register (void)
       plugin->daemon = gsd_clipboard_manager_new ();
       gsd_clipboard_manager_start (plugin->daemon, NULL);
     }
+
+  plugin->app = gtk_application_new ("org.xfce.clipman", 0);
+  g_application_register (G_APPLICATION (plugin->app), NULL, &error);
+  if (error != NULL)
+    {
+      g_warning ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      error = NULL;
+    }
+
+  if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
+    {
+      g_message ("Primary instance org.xfce.clipman already running");
+      g_object_unref (plugin->app);
+      return FALSE;
+    }
+
+  g_set_application_name (_("Clipman"));
+  g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
 
   /* Xfconf */
   xfconf_init (NULL);
@@ -283,6 +303,7 @@ plugin_free (MyPlugin *plugin)
   gtk_widget_destroy (plugin->popup_menu);
 #endif
 
+  g_object_unref (plugin->app);
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
 }
