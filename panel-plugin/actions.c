@@ -771,8 +771,9 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
     gtk_grab_add(actions->priv->menu);
   }
 
-
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_popup (GTK_MENU (actions->priv->menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time ());
+G_GNUC_END_IGNORE_DEPRECATIONS
 
   g_slist_free (entries);
 }
