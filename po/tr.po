@@ -5,14 +5,14 @@
 # Translators:
 # Aşır <asirkaraman@yahoo.de>, 2014
 # Fatih ERDEM <93.fatiherdem@gmail.com>, 2013
-# Necdet Yücel <necdetyucel@gmail.com>, 2013-2014,2016
+# Necdet Yücel <necdetyucel@gmail.com>, 2013-2014,2016-2017
 # Samed Beyribey <ras0ir@eventualis.org>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 00:31+0200\n"
-"PO-Revision-Date: 2016-07-25 08:37+0000\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2017-07-24 08:37+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Geçici Taşıma Panosu Yöneticisi Xfce için bir panel eklentisi olara
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:318
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -160,9 +160,9 @@ msgstr "_QR-Code göster"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"If checked, the menu shows a QR-Code of the corrently selected clipboard "
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Bu onay kutusu işaretlendiğinde, Seçili Panoda secilen öğe icin  menüde bir QR-Code gösterir"
+msgstr "İşaretlendiğinde menü mevcut seçili pano içeriğinin bir QR kodunu görüntüler"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -304,7 +304,7 @@ msgstr "Düzenli ifadeler"
 msgid "_Disable"
 msgstr "_Etkisizleştir"
 
-#: ../panel-plugin/actions.c:369
+#: ../panel-plugin/actions.c:370
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -333,18 +333,18 @@ msgstr "Pano boş"
 msgid "_Clear history"
 msgstr "_Geçmişi temizle"
 
-#: ../panel-plugin/plugin.c:306
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
 msgstr "Katkıcılar:"
 
-#: ../panel-plugin/plugin.c:320
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce için Pano Yöneticisi"
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Samed Beyribey"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
 msgstr "Ayarlar menüsü açılamadı"
