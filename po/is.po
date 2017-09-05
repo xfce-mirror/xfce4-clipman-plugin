@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2014
+# Sveinn í Felli <sv1@fellsnet.is>, 2014,2017
 # Sveinn í Felli <sveinki@nett.is>, 2012,2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"PO-Revision-Date: 2017-09-05 12:14+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -212,7 +212,7 @@ msgstr "_Virkja sjálfvirkar aðgerðir"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+msgstr "Ef hakað er við þetta, þá verður texti klippispjaldsins mátaður við reglulegar segðir, valmynd mun birta mögulegar aðgerðir.\nAnnars mun valmyndin einungis birtast við skipunina \"xfce4-popup-clipman-actions\" (og að samsvörun hafi fundist)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
