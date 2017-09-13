@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-13 15:23+0000\n"
+"PO-Revision-Date: 2017-09-13 19:25+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -252,7 +252,7 @@ msgstr "P_ositionér menu ved musemarkør"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for xfce4-popup-clipman kommando."
+msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for kommandoen xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
@@ -347,4 +347,4 @@ msgstr "Jens Hyllegaard\nPer Kongstad\n\nDansk-gruppen <dansk@dansk-gruppen.dk>\
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Kunne ikke åbne indstillingsdialogen"
+msgstr "Kan ikke åbne indstillingsdialogen"
