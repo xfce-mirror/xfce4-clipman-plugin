@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Denis Štogl <denisstogl@gmail.com>, 2013
-# Edin Veskovic <edin.veskovic@openmailbox.org>, 2014
+# Edin Veskovic <edin.lockedin@gmail.com>, 2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2013
 # Ivica  Kolić <ikoli@yahoo.com>, 2011
 # Lovro Kudelić <lovro.kudelic@outlook.com>, 2016
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"PO-Revision-Date: 2017-09-19 18:06+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
