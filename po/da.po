@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"PO-Revision-Date: 2017-09-29 17:25+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -293,7 +293,7 @@ msgstr "Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
-msgstr "Tilretninger"
+msgstr "Finjusteringer"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
@@ -302,7 +302,7 @@ msgstr "Regulært udtryk"
 #: ../panel-plugin/main-panel-plugin.c:97
 #: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
-msgstr "_Slå fra"
+msgstr "_Deaktivér"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
