@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"PO-Revision-Date: 2017-10-02 10:41+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -47,11 +47,11 @@ msgstr "Paveikslas"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Redaguoti su Gimp"
+msgstr "Redaguoti naudojant Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "View with Ristretto"
-msgstr "Žiūrėti su Ristretto"
+msgstr "Žiūrėti naudojant Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Bugz"
