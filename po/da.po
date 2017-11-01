@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-11-01 07:41+0000\n"
+"PO-Revision-Date: 2017-11-01 16:33+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Udklipsholder-håndtering tilbydes som et panelmodul til Xfce, og som et enkeltstående program som kører i notifikationsområdet. Den bevarer en historik over tekst og billeder fra indhold som er kopieret over i udklipsholderen. Den kan også udføre handlinger på særligt valgte tekster ved at matche dem med regulære udtryk."
+msgstr "Udklipsholderhåndtering tilbydes som et panelplugin til Xfce, og som et enkeltstående program som kører i notifikationsområdet. Den bevarer en historik over tekst og billeder fra indhold som er kopieret i udklipsholderen. Den kan også udføre handlinger på særligt valgte tekster ved at matche dem mod regulære udtryk."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -73,7 +73,7 @@ msgstr "Lang URL"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "Formindsk URL'en"
+msgstr "Gør URL'en kort"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
@@ -96,7 +96,7 @@ msgstr "<b>Nulstil handlinger</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Er du sikker på, at du vil nulstille handlinger til systemets standardværdier?"
+msgstr "Er du sikker på, at du vil nulstille handlingerne til systemets standardværdier?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Edit Action"
@@ -108,7 +108,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" og så videre i kommandoer. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke har kendskal til regulære udtryk, kan du gennemse dokumentation til Clipman for at få kendskab til dem."
+msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke kender til regulære udtryk, så kan du kigge på dokumentation til Clipman for at få en introduktion til dem."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -130,7 +130,7 @@ msgstr "Aktivér kun ved manuel kopiering"
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Som standard er denne handling udløst af en markering. Kryds denne indstilling af, for kun at udløse denne handling, når du laver en manuel kopi"
+msgstr "Som standard er denne handling udløst af en markering. Tilvælg denne valgmulighed, for kun at udløse handlingen, når du laver en manuel kopi"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
@@ -152,7 +152,7 @@ msgstr "Synkronisér _markeringer"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Hvis afkrydset, vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
+msgstr "Hvis den er tilvalgt, så vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -162,7 +162,7 @@ msgstr "Vis _QR-kode"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Hvis afkrydset, viser menuen en QR-kode af den valgte post i udklipsholderen"
+msgstr "Hvis den er tilvalgt, så viser menuen en QR-kode af den valgte post i udklipsholderen"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -175,7 +175,7 @@ msgstr "Gem ved _afslut"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
+msgstr "Hvis den er tilvalgt, så vil denne valgmulighed gendanne historikken ved enhver ny Xfce-session"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -183,7 +183,7 @@ msgstr "Gem sideste kopierede _billede"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Hvis afkrydset, vil denne indstilling tillade dig at gemme et billede indeni historikken"
+msgstr "Hvis den er tilvalgt, så tillader den dig at gemme et billede i historikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -192,11 +192,11 @@ msgstr "Ignorér _markeringer"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Hvis afkrydset, vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
+msgstr "Hvis den er tilvalgt, så vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
-msgstr "Størrelse af _historikken:"
+msgstr "Størrelsen af _historikken:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "<b>History</b>"
@@ -214,7 +214,7 @@ msgstr "_Aktivér automatiske handlinger"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Hvis denne er valgt vil tekstbidder i udklipsholderen blive matchet med regulære udtryk og en menu vil automatisk vise mulige handlinger.\nEllers vil menuen kun vise sig, når der kaldes \"xfce4-popup-clipman-actions\" (og der findes en match)"
+msgstr "Hvis den er tilvalgt, så vil tekster i udklipsholderen blive matchet mod regulære udtryk og en menu vil automatisk vise mulige handlinger.\nEllers vil menuen kun blive vist, når \"xfce4-popup-clipman-actions\" kaldes (og der blev fundet et match)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
@@ -230,7 +230,7 @@ msgstr "Slet handling"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
-msgstr "Nulstil alle handlinger til standardværdier"
+msgstr "Nulstil alle handlinger til systemets standardværdier"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
@@ -246,13 +246,13 @@ msgstr "_Indsæt øjeblikkeligt:"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
-msgstr "P_ositionér menu ved musemarkør"
+msgstr "_Placér menu ved musemarkør"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Lad menuen poppe op på musemarkørens position. Det virker kun for kommandoen xfce4-popup-clipman"
+msgstr "Lad menuen poppe op ved musemarkørens placering. Gælder kun til kommandoen xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
@@ -265,31 +265,31 @@ msgstr "Skub den senest kopierede tekst øverst i historikken. Det kan bruges hv
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
-msgstr "Om_vend historik"
+msgstr "Om_vend historikkens rækkefølge"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Hvis afkrydset, vil denne indstilling gendanne historikken ved enhver ny Xfce-session"
+msgstr "Omvend rækkefølgen på historikken som vises i menuen"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
-msgstr "Vi_s handlinger ved at holde kontroltasten nede"
+msgstr "Vi_s handlinger ved at holde Control-tasten nede"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten stadig er holdt nede, vil pop op-menuen for matchende handlinger blive vist"
+msgstr "Når valget er foretaget (mus eller tastatur) og Control-asten stadig er holdt nede, så vises pop op-menuen for matchende handlinger"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
-msgstr "_Skip handlinger ved at holde kontroltasten nede"
+msgstr "_Spring handlinger over ved at holde Control-tasten nede"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Når udvælgelsen er foretaget (med mus eller tastatur) og kontroltasten stadig er holdt nede, vil pop op-menuen blive udeladt"
+msgstr "Når valget er foretaget (mus eller tastatur) og Control-tasten stadig er holdt nede, så springes pop op-menuen for matchende handlinger over"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
@@ -310,7 +310,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Kunne ikke udføre kommandoen \"%s\"\n\n%s"
+msgstr "Kan ikke eksekvere kommandoen \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
@@ -322,12 +322,12 @@ msgstr "Spørg ikke igen"
 
 #: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
-msgstr "Kunne ikke oprette QR-kode."
+msgstr "Kunne ikke genererer QR-kode."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
-msgstr "Udklipsholder er tomt"
+msgstr "Udklipsholderen er tom"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
