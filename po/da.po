@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-11-03 11:12+0000\n"
+"PO-Revision-Date: 2017-11-03 18:08+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "Billede"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Redigér med Gimp"
+msgstr "Rediger med Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "View with Ristretto"
@@ -100,7 +100,7 @@ msgstr "Er du sikker på, at du vil nulstille handlingerne til systemets standar
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Edit Action"
-msgstr "Redigér handling"
+msgstr "Rediger handling"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
@@ -222,7 +222,7 @@ msgstr "Tilføj handling"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
-msgstr "Redigér handling"
+msgstr "Rediger handling"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
@@ -310,7 +310,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Kan ikke eksekvere kommandoen \"%s\"\n\n%s"
+msgstr "Kan ikke udføre kommandoen \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
