@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ammuu5, 2017
 # Pasi Lallinaho <pasi@shimmerproject.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2017-12-19 06:50+0000\n"
+"Last-Translator: Ammuu5\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,7 +206,7 @@ msgstr "Yleiset"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Enable automatic actions"
-msgstr ""
+msgstr "_Ota käyttöön automaattiset toiminnot"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
@@ -215,19 +216,19 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
-msgstr ""
+msgstr "Lisää toiminto"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
-msgstr ""
+msgstr "Muokkaa toimintoa"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
-msgstr ""
+msgstr "Poista toiminto"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Palauta kaikki toiminnot järjestelmän oletusarvoihin"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
@@ -276,7 +277,7 @@ msgstr ""
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Kun valinta on tehty (hiirellä tai näppäimillä) ja Ctrl on yhä painettuna, vastaavien toimintojen ponnahdusvalikko ohitetaan"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
@@ -328,7 +329,7 @@ msgstr "Leikepöytä on tyhjä"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
-msgstr ""
+msgstr "_Tyhjennä historia"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
