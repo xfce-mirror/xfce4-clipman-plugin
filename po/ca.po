@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-12-28 17:04+0000\n"
+"PO-Revision-Date: 2017-12-31 05:04+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "<b>Restableix les accions</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Esteu segur que voleu reiniciar les accions als valors predeterminats del sistema?"
+msgstr "Esteu segur que voleu restablir les accions als valors predeterminats del sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Edit Action"
