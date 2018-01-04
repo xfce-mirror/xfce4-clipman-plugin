@@ -110,6 +110,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   xfce_panel_plugin_menu_show_about (panel_plugin);
   xfce_panel_plugin_menu_show_configure (panel_plugin);
   mi = gtk_check_menu_item_new_with_mnemonic (_("_Disable"));
+  gtk_widget_show (mi);
   xfce_panel_plugin_menu_insert_item (panel_plugin, GTK_MENU_ITEM (mi));
   xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
                           G_TYPE_BOOLEAN, mi, "active");
