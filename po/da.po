@@ -6,13 +6,13 @@
 # Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2015
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2016
-# scootergrisen, 2016-2017
+# scootergrisen, 2016-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-12-16 15:16+0000\n"
+"PO-Revision-Date: 2018-03-04 23:01+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -279,7 +279,7 @@ msgstr "Vi_s handlinger ved at holde Control-tasten nede"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Når valget er foretaget (mus eller tastatur) og Control-asten stadig er holdt nede, så vises pop op-menuen for matchende handlinger"
+msgstr "Når valget er foretaget (mus eller tastatur) og Control-tasten stadig er holdt nede, så vises pop op-menuen for matchende handlinger"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
