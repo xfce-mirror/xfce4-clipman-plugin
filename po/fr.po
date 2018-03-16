@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Charles Monzat <superboa@hotmail.fr>, 2016
+# Charles Monzat <superboa@hotmail.fr>, 2016,2018
 # jc1 <jc1.quebecos@gmail.com>, 2013-2014
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
 # Mike Massonnet <mmassonnet@xfce.org>, 2009
@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-01-05 19:59+0000\n"
-"Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
+"PO-Revision-Date: 2018-03-16 16:55+0000\n"
+"Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Le Gestionnaire de presse-papier fournit un greffon pour le tableau de bord Xfce et une application autonome qui fonctionne dans la zone de notification. Il conserve un historique du texte et des images du contenu copié dans le presse-papier. Il dispose aussi d'une fonctionnalité pour exécuter des actions sur une sélection de texte spécifique au travers d'expressions régulières."
+msgstr "Le Gestionnaire de presse-papiers fournit un greffon pour le tableau de bord Xfce et une application autonome qui fonctionne dans la zone de notification. Il conserve un historique du texte et des images du contenu copié dans le presse-papiers. Il dispose aussi d’une fonctionnalité pour exécuter des actions sur une sélection de texte spécifique au travers d’expressions régulières."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -74,7 +74,7 @@ msgstr "URL longue"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "Raccourcir l'URL"
+msgstr "Raccourcir l’URL"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
@@ -109,7 +109,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Vous pouvez utiliser les paramètres de substitution « \\1 », « \\2 » et ainsi de suite dans les commandes. Le paramètre « \\0 » représente le texte complet. Si vous ne connaissez pas les expressions régulières, consultez la documentation de Clipman qui possède une introduction pour elles."
+msgstr "Vous pouvez utiliser les paramètres de substitution « \\1 », « \\2 » et ainsi de suite dans les commandes. Le paramètre « \\0 » représente le texte complet. Si vous ne connaissez pas les expressions régulières, consultez la documentation de Clipman qui possède une introduction pour elles."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -121,7 +121,7 @@ msgstr "Motif :"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
-msgstr "Le patron est toujours entouré des caractères spéciaux ^$"
+msgstr "Le motif est toujours entouré des caractères spéciaux ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "Activate only on manual copy"
@@ -131,7 +131,7 @@ msgstr "Activer uniquement lors des copies manuelles"
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Par défaut l'action est déclenchée par une sélection, activez cette option pour déclencher l'action uniquement si vous faites une copie manuelle"
+msgstr "Par défaut, l’action est déclenchée par une sélection, activez cette option pour déclencher l’action uniquement si vous faites une copie manuelle"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "<b>Action</b>"
@@ -153,7 +153,7 @@ msgstr "S_ynchroniser les sélections"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si coché, les sélections seront synchronisées avec le presse-papiers par défaut de manière à ce que vous puissiez coller ce que vous sélectionnez"
+msgstr "Si coché, les sélections seront synchronisées avec le presse-papiers par défaut, de manière à ce que vous puissiez coller ce que vous sélectionnez"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -176,7 +176,7 @@ msgstr "Enregistrer en _quittant"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Si cochée, cette option restaure l'historique à chaque nouvelle session Xfce"
+msgstr "Si cochée, cette option restaure l’historique à chaque nouvelle session Xfce"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -184,7 +184,7 @@ msgstr "Stocker la dernière _image copiée"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si cochée, cette option vous permet de stocker une image à l'intérieur de l'historique"
+msgstr "Si cochée, cette option vous permet de stocker une image à l’intérieur de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -193,11 +193,11 @@ msgstr "I_gnorer les sélections"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si coché, les sélections n'affectent pas l'historique, à l'exception des copies manuelles"
+msgstr "Si coché, les sélections n’affectent pas l’historique, à l’exception des copies manuelles"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
-msgstr "Taille de l'_historique :"
+msgstr "Taille de l’_historique :"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "<b>History</b>"
@@ -215,7 +215,7 @@ msgstr "_Activer les actions automatiques"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Si coché, les textes du presse-papier sont comparés à des expressions régulières et un menu affiche automatiquement les actions possibles.\nSinon le menu apparaît uniquement lors d'un appel à la commande « xfce4-popup-clipman-actions » (et lorsqu'une correspondance a été trouvée)"
+msgstr "Si coché, les textes du presse-papiers sont comparés à des expressions régulières et un menu affiche automatiquement les actions possibles.\nSinon, le menu apparaît uniquement lors d’un appel à la commande « xfce4-popup-clipman-actions » (et lorsqu’une correspondance a été trouvée)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
@@ -239,11 +239,11 @@ msgstr "Actions"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Automatically paste a selected item from the history"
-msgstr "Coller automatiquement un élément sélectionné depuis l'historique"
+msgstr "Coller automatiquement un élément sélectionné depuis l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
-msgstr "_Coller instantanément :"
+msgstr "_Coller instantanément :"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
@@ -257,20 +257,20 @@ msgstr "Positionne le menu au pointeur de la souris, uniquement pour la commande
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr "_Réordonner les éléments de l'historique"
+msgstr "_Réordonner les éléments de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Place le dernier texte copié en haut de l'historique, utile pour réorganiser les éléments anciens"
+msgstr "Place le dernier texte copié en haut de l’historique, utile pour réorganiser les éléments anciens"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
-msgstr "In_verser l'ordre de l'historique"
+msgstr "In_verser l’ordre de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Inverse l'ordre de l'historique montré dans le menu"
+msgstr "Inverse l’ordre de l’historique montré dans le menu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
@@ -280,7 +280,7 @@ msgstr "_Voir les actions en pressant Ctrl"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Lorsque la sélection est terminée (souris ou clavier) et que la touche Ctrl est encore enfoncée, le menu des actions n'est pas affiché"
+msgstr "Lorsque la sélection est terminée (souris ou clavier) et que la touche Ctrl est encore enfoncée, le menu des actions n’est pas affiché"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
@@ -311,11 +311,11 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Impossible d'exécuter la commande « %s »\n\n%s"
+msgstr "Impossible d’exécuter la commande « %s »\n\n%s"
 
 #: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
-msgstr "Êtes-vous sûr de vouloir effacer l'historique ?"
+msgstr "Êtes-vous sûr de vouloir effacer l’historique ?"
 
 #: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
@@ -332,7 +332,7 @@ msgstr "Le presse-papier est vide"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
-msgstr "_Effacer l'historique"
+msgstr "_Effacer l’historique"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
@@ -348,4 +348,4 @@ msgstr "L’équipe de traduction francophone de Xfce"
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Échec à l'ouverture de la fenêtre de paramètres"
+msgstr "Échec à l’ouverture de la fenêtre de paramètres"
