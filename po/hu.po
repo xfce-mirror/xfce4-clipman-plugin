@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-04-28 20:23+0000\n"
+"PO-Revision-Date: 2018-04-29 10:16+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -163,7 +163,7 @@ msgstr "_QR-kód megjelenítése"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr ""
+msgstr "Ha be van jelölve, akkor a menü megjeleníti az éppen kiválasztott vágólap elem QR-kódját"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -209,29 +209,29 @@ msgstr "Általános"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Enable automatic actions"
-msgstr ""
+msgstr "Automatikus műveletek _engedélyezése"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+msgstr "A vágólapszövegekre reguláris kifejezések lesznek illesztve és megjelenik a lehetséges műveletek menüje.\nEgyébként a menü csak az „xfce4-popup-clipman-action” meghívásakor jelenik meg, ha volt találat."
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
-msgstr ""
+msgstr "Művelet hozzáadása"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
-msgstr ""
+msgstr "Művelet szerkesztése"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
-msgstr ""
+msgstr "Művelet törlése"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Összes művelet visszaállítása az alapértelmezett értékekre"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
@@ -274,17 +274,17 @@ msgstr "Az előzmények sorrendjének megfordítása a menüben"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "Műveletek _megjelenítése a Ctrl lenyomásával"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Ha a Ctrl billentyű le van nyomva a kijelölés (egérrel vagy billentyűzettel) befejezésekor, akkor a társított műveletek felugró menüje megjelenik."
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "Műveletek _kihagyása a Ctrl lenyomásával"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
@@ -332,7 +332,7 @@ msgstr "A vágólap üres"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
-msgstr ""
+msgstr "Előzmények _törlése"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
