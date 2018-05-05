@@ -7,14 +7,14 @@
 # Harald Servat <redcrash@gmail.com>, 2009
 # Davidmp <medipas@gmail.com>, 2016
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2017
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2018
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-12-31 14:02+0000\n"
+"PO-Revision-Date: 2018-05-05 19:37+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "El gestor del porta-retalls es proporciona com a connector de plafó de 
 #: ../panel-plugin/main-panel-plugin.c:73
 #: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
 msgid "Clipman"
-msgstr "Porta-retalls «Clipman»"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
