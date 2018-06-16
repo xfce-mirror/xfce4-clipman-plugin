@@ -7,14 +7,14 @@
 # jc1 <jc1.quebecos@gmail.com>, 2013-2014
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
 # Mike Massonnet <mmassonnet@xfce.org>, 2009
-# Yannick Le Guen <leguen.yannick@gmail.com>, 2014,2016
+# Yannick Le Guen <leguen.yannick@gmail.com>, 2014,2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-03-16 22:42+0000\n"
-"Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
+"PO-Revision-Date: 2018-06-16 09:07+0000\n"
+"Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,11 +113,11 @@ msgstr "Vous pouvez utiliser les paramètres de substitution « \\1 », « \\
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
-msgstr "Nom :"
+msgstr "Nom :"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Pattern:"
-msgstr "Motif :"
+msgstr "Motif :"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid "The pattern is always anchored within the special characters ^$"
@@ -139,7 +139,7 @@ msgstr "<b>Action</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "Command:"
-msgstr "Commande :"
+msgstr "Commande :"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>Commands</b>"
@@ -270,7 +270,7 @@ msgstr "In_verser l’ordre de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Inverse l’ordre de l’historique montré dans le menu"
+msgstr "Inverse l’ordre de l’historique affiché dans le menu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
@@ -336,7 +336,7 @@ msgstr "_Effacer l’historique"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
-msgstr "Contributeurs :"
+msgstr "Contributeurs :"
 
 #: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
