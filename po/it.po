@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Cristian Marchi <cri.penta@gmail.com>, 2014
+# Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 # Enrico B. <enricobe@hotmail.com>, 2016
 # Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-07-11 15:06+0000\n"
+"PO-Revision-Date: 2018-07-12 09:58+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Gestore degli appunti fornito come plugin del pannello di Xfce e come un'applicazione indipendente in esecuzione nell'area di notifica. Mantiene la cronologia di testi e immagini copiati negli appunti. Consente anche di eseguire specifiche azioni sui testi in base ad espressioni regolari."
+msgstr "Gestore degli appunti fornito come componente aggiuntivo del pannello di Xfce e come un'applicazione indipendente in esecuzione nell'area di notifica. Mantiene la cronologia dei testi ed immagini copiati negli appunti. Consente anche di eseguire specifiche azioni sui testi in base ad espressioni regolari."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -151,7 +152,7 @@ msgstr "Sincronizza _selezioni"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Se abilitata, la selezione verrà sincronizzata con la clipboard di default in modo che si possa incollare ciò che si seleziona"
+msgstr "Se abilitata, la selezione verrà sincronizzata con gli appunti predefiniti in modo che si possa incollare ciò che si seleziona"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -213,7 +214,7 @@ msgstr "Abilita azioni automatich_e"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Se abilitata, i testi degli appunti saranno confrontati con le espressioni regolari e un menu visualizzerà le azioni possibili.\nAltrimenti il menù apparirà solamente quando si richiama \"xfce4-popup-clipman-actions\" (e una corrispondenza viene trovata)"
+msgstr "Se abilitata, i testi degli appunti saranno confrontati con le espressioni regolari ed un menu visualizzerà le azioni possibili.\nAltrimenti il menù apparirà solamente quando si richiama \"xfce4-popup-clipman-actions\" (e una corrispondenza viene trovata)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
@@ -268,27 +269,27 @@ msgstr "In_verti l'ordine della cronologia"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Se abilitata, questa opzione ripristinerà la cronologia a ogni nuova sessione di Xfce"
+msgstr "Inverte l'ordine della cronologia mostrata nel menù"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
-msgstr "_Mostra le azioni premendo Control"
+msgstr "_Mostra le azioni premendo il tasto Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Quando la selezione è terminata (mouse o tastiera) e il tasto Control è ancora premuto, verrà mostrato il menu a comparsa per le azioni corrispondenti"
+msgstr "Quando la selezione è terminata (con il mouse o tastiera) e il tasto CTRL è ancora premuto, verrà mostrato il menu a comparsa per le azioni corrispondenti"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "S_kip actions by holding Control"
-msgstr "S_alta l'azione premendo Control"
+msgstr "S_alta l'azione premendo il tasto CTRL"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Quando la selezione è stata effettuata (mouse o tastiera) e il tasto Ctrl è ancora premuto, il menu a comparsa per le azioni corrispondenti verrà saltato"
+msgstr "Quando la selezione è stata effettuata (con mouse o tastiera) e il tasto CTRL è ancora premuto, il menu a comparsa per le azioni corrispondenti verrà saltato"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "Tweaks"
@@ -342,7 +343,7 @@ msgstr "Gestore degli appunti per Xfce"
 
 #: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
-msgstr "Gianluca Foddis\nCristian Marchi, 2014"
+msgstr "Emanuele Petriglia, <inbox@emanuelepetriglia.me> 2018\nGianluca Foddis\nCristian Marchi, 2014"
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
