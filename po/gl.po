@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
+# Xosé, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2018-07-12 21:37+0000\n"
+"Last-Translator: Xosé\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -153,13 +154,13 @@ msgstr "Se está marcado, as seleccións hanse sincronizar co portarretallos pre
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
-msgstr ""
+msgstr "Mostrar código _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr ""
+msgstr "Ao marcalo, o menú mostra un código QR da entrada do portapapeis seleccionada"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -205,7 +206,7 @@ msgstr "Xeral"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Enable automatic actions"
-msgstr ""
+msgstr "A_ctivar as accións automáticas"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
@@ -215,19 +216,19 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
-msgstr ""
+msgstr "Engadir acció"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
-msgstr ""
+msgstr "Editar acción"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
-msgstr ""
+msgstr "Eliminar acción"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Restaurar todas as accións aos valores predeterminados do sistema"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Actions"
@@ -239,11 +240,11 @@ msgstr "Pegar automaticamente un elemento seleccionado no historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "_Paste instantly:"
-msgstr ""
+msgstr "_Pegar instantaneamente:"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
-msgstr ""
+msgstr "C_olocar o menú no punteiro do rato"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -258,7 +259,7 @@ msgstr "_Reorganizar os elementos do historial"
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
+msgstr "Empuxar o último texto copiado até o primeiro lugar do historial, o que é útil para reordenar elementos antigos"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
@@ -270,7 +271,7 @@ msgstr "Se está marcado, esta opción restablecerá o historial en cada vez que
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "Mo_strar accións ao manter Control premido"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
@@ -328,7 +329,7 @@ msgstr "O portarretallos está baleiro"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
-msgstr ""
+msgstr "Limpar o _historial"
 
 #: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
