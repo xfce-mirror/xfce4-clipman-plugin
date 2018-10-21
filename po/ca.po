@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-08-21 20:30+0000\n"
+"PO-Revision-Date: 2018-10-21 08:17+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "El gestor del porta-retalls es proporciona com a connector de plafó de Xfce i com una aplicació independent que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiat al porta-retalls. També té una funció per executar accions sobre la selecció d'un text específic, fent-les coincidir amb expressions regulars."
+msgstr "El gestor del porta-retalls es proporciona com a connector de tauler de Xfce i com una aplicació independent que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiat al porta-retalls. També té una funció per executar accions sobre la selecció d'un text específic, fent-les coincidir amb expressions regulars."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
