@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-10-21 08:17+0000\n"
+"PO-Revision-Date: 2018-10-22 19:56+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "Error de GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
-msgstr "URL completa"
+msgstr "URL complet"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
@@ -341,7 +341,7 @@ msgstr "Contribuïdors:"
 
 #: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
-msgstr "Gestor de porta-retalls per l'escriptori Xfce"
+msgstr "Gestor de porta-retalls per a l'escriptori Xfce"
 
 #: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
