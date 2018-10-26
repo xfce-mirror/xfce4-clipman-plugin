@@ -1,3 +1,16 @@
+Version 1.4.3 - 2018-10-27
+
+- Switch to xfce_panel_plugin_get_icon_size for consistent icon sizes
+- Make sure the "Disable" menuitem is shown in the panel plugin
+- Translation updates: Arabic, Asturian, Basque, Belarusian, Bulgarian,
+  Catalan, Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish,
+  Dutch (Flemish), English (Australia), English (Great Britain), Finnish,
+  French, Galician, German, Greek, Hebrew, Hungarian, Icelandic, Indonesian,
+  Italian, Japanese, Kazakh, Korean, Latvian, Lithuanian, Malay, Norwegian
+  Bokmål, Occitan, Polish, Portuguese, Portuguese (Brazilian), Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, Urdu, Urdu
+  (Pakistan), Uyghur
+
 Version 1.4.2 - 2017-07-21
 
 - Port to GtkApplication
