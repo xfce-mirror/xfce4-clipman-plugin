@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2018-10-31 10:12+0000\n"
+"PO-Revision-Date: 2018-10-31 12:27+0000\n"
 "Last-Translator: Charles Monzat <c.monzat@laposte.net>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "Bogue GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
-msgstr "URL longue"
+msgstr "URL long"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
@@ -98,11 +98,11 @@ msgstr "<b>Réinitialiser les actions</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Êtes-vous sûr de vouloir réinitialiser les actions aux valeurs par défaut du système ?"
+msgstr "Voulez-vous vraiment réinitialiser les actions aux valeurs par défaut du système ?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Edit Action"
-msgstr "Éditer l'action"
+msgstr "Modifier l’action"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid ""
@@ -110,7 +110,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Vous pouvez utiliser les paramètres de substitution « \\1 », « \\2 » et ainsi de suite dans les commandes. Le paramètre « \\0 » représente le texte complet. Si vous ne connaissez pas les expressions régulières, consultez la documentation de Clipman qui possède une introduction pour elles."
+msgstr "Vous pouvez utiliser les paramètres de substitution « \\1 », « \\2 » et ainsi de suite dans les commandes. Le paramètre « \\0 » représente le texte complet. Si vous ne connaissez pas les expressions régulières, consultez la documentation de Clipman qui possède une introduction dédiée à celles-ci."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -158,7 +158,7 @@ msgstr "Si coché, les sélections seront synchronisées avec le presse-papiers 
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
-msgstr "Voir le code _QR"
+msgstr "Afficher le code _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -172,7 +172,7 @@ msgstr "<b>Comportement</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "Save on _quit"
-msgstr "Enregistrer en _quittant"
+msgstr "Enregistrer en q_uittant"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -224,11 +224,11 @@ msgstr "Ajouter une action"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Edit action"
-msgstr "Éditer l'action"
+msgstr "Modifier l’action"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "Delete action"
-msgstr "Supprimer l'action"
+msgstr "Supprimer l’action"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Reset all actions to the system default values"
@@ -254,24 +254,24 @@ msgstr "P_ositionner le menu au pointeur de la souris"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Positionne le menu au pointeur de la souris, uniquement pour la commande xfce4-popup-clipman"
+msgstr "Cette option positionne le menu au pointeur de la souris, uniquement pour la commande xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
-msgstr "_Réordonner les éléments de l’historique"
+msgstr "_Réorganiser les éléments de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Place le dernier texte copié en haut de l’historique, utile pour réorganiser les éléments anciens"
+msgstr "Cette option place le dernier texte copié en haut de l’historique, utile pour réorganiser les éléments anciens"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
-msgstr "In_verser l’ordre de l’historique"
+msgstr "_Inverser l’ordre de l’historique"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Inverse l’ordre de l’historique affiché dans le menu"
+msgstr "Cette option inverse l’ordre de l’historique affiché dans le menu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
@@ -304,7 +304,7 @@ msgstr "Expression régulière"
 #: ../panel-plugin/main-panel-plugin.c:97
 #: ../panel-plugin/main-status-icon.c:137
 msgid "_Disable"
-msgstr "_Désactiver"
+msgstr "Dé_sactiver"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -316,7 +316,7 @@ msgstr "Impossible d’exécuter la commande « %s »\n\n%s"
 
 #: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
-msgstr "Êtes-vous sûr de vouloir effacer l’historique ?"
+msgstr "Voulez-vous vraiment effacer l’historique ?"
 
 #: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
@@ -329,7 +329,7 @@ msgstr "Impossible de générer le code QR."
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
-msgstr "Le presse-papier est vide"
+msgstr "Le presse-papiers est vide"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
@@ -341,7 +341,7 @@ msgstr "Contributeurs :"
 
 #: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
-msgstr "Gestionnaire de presse-papier pour Xfce"
+msgstr "Gestionnaire de presse-papiers pour Xfce"
 
 #: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
@@ -349,4 +349,4 @@ msgstr "L’équipe de traduction francophone de Xfce"
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Échec à l’ouverture de la fenêtre de paramètres"
+msgstr "Échec à l’ouverture de la fenêtre des paramètres"
