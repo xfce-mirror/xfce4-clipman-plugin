@@ -9,7 +9,7 @@
 # Levi Zhou <congzhou821@gmail.com>, 2016
 # Mingcong Bai <jeffbai@aosc.xyz>, 2016
 # 玉堂白鹤 <yjwork@qq.com>, 2014
-# xiaobo zhou <zhouxiaobo.500@gmail.com>, 2014
+# Cally Mal <zhouxiaobo.500@gmail.com>, 2014
 # 玉堂白鹤 <yjwork@qq.com>, 2015
 msgid ""
 msgstr ""
