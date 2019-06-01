@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-05-16 12:44+0000\n"
+"PO-Revision-Date: 2019-06-01 19:50+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgstr "Hvis den er tilvalgt, så vil denne valgmulighed gendanne historikken ve
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
-msgstr "Gem seneste kopierede _billede"
+msgstr "Gem seneste kopieret _billede"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
@@ -261,7 +261,7 @@ msgstr "_Omorganisér historikelementer"
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Skub den senest kopierede tekst øverst i historikken. Det kan bruges hvis man vil omorganisere gamle elementer"
+msgstr "Skub den senest kopieret tekst øverst i historikken. Det kan bruges hvis man vil omorganisere gamle elementer"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
