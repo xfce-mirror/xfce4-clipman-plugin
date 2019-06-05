@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-06-01 19:50+0000\n"
+"PO-Revision-Date: 2019-06-05 13:50+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -108,7 +108,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Du kan bruge udskriftningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke kender til regulære udtryk, så kan du kigge på dokumentation til Clipman for at få en introduktion til dem."
+msgstr "Du kan bruge erstatningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Hvis du ikke kender til regulære udtryk, så kan du kigge på dokumentation til Clipman for at få en introduktion til dem."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -246,7 +246,7 @@ msgstr "_Indsæt øjeblikkeligt:"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "P_osition menu at mouse pointer"
-msgstr "_Placér menu ved musemarkør"
+msgstr "_Placer menu ved musemarkør"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
