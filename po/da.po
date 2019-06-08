@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-06-05 13:50+0000\n"
+"PO-Revision-Date: 2019-06-08 20:16+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -152,7 +152,7 @@ msgstr "Synkronisér _markeringer"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Hvis den er tilvalgt, så vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
+msgstr "Hvis den er afkrydset, så vil markeringerne blive synkroniseret med standardudklipsholderen på en måde som tillader dig, at indsætte hvad du vælger"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -162,7 +162,7 @@ msgstr "Vis _QR-kode"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Hvis den er tilvalgt, så viser menuen en QR-kode af den valgte post i udklipsholderen"
+msgstr "Hvis den er afkrydset, så viser menuen en QR-kode af den valgte post i udklipsholderen"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "<b>Behavior</b>"
@@ -175,7 +175,7 @@ msgstr "Gem ved _afslut"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Hvis den er tilvalgt, så vil denne valgmulighed gendanne historikken ved enhver ny Xfce-session"
+msgstr "Hvis den er afkrydset, så vil denne valgmulighed gendanne historikken ved enhver ny Xfce-session"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -183,7 +183,7 @@ msgstr "Gem seneste kopieret _billede"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Hvis den er tilvalgt, så tillader den dig at gemme et billede i historikken"
+msgstr "Hvis den er afkrydset, så tillader den dig at gemme et billede i historikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -192,7 +192,7 @@ msgstr "Ignorér _markeringer"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Hvis den er tilvalgt, så vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
+msgstr "Hvis den er afkrydset, så vil markeringerne ikke have indflydelse på historikken undtaget de manuelle kopieringer"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
@@ -214,7 +214,7 @@ msgstr "_Aktivér automatiske handlinger"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Hvis den er tilvalgt, så vil tekster i udklipsholderen blive matchet mod regulære udtryk og en menu vil automatisk vise mulige handlinger.\nEllers vil menuen kun blive vist, når \"xfce4-popup-clipman-actions\" kaldes (og der blev fundet et match)"
+msgstr "Hvis den er afkrydset, så vil tekster i udklipsholderen blive matchet mod regulære udtryk og en menu vil automatisk vise mulige handlinger.\nEllers vil menuen kun blive vist, når \"xfce4-popup-clipman-actions\" kaldes (og der blev fundet et match)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
