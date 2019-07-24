@@ -6,14 +6,15 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2014-2015
 # Allan Nordhøy <epost@anotheragency.no>, 2016
 # Harald H. <haarektrans@gmail.com>, 2014
+# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2019
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2019-07-24 09:46+0000\n"
+"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +109,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "Du kan bruke alternative parameter \"\\1\", \"\\2\" osv. i kommandoene. Parameteret \"\\0\" representerer hele teksten. Hvis du ikke kan regulære uttryk kan du lære det i dokumentasjonen til Clipman, der en introduksjon derav er å finne."
+msgstr "Du kan bruke alternative parametere «\\1», «\\2» osv. i kommandoene. Parameteren «\\0» representerer hele teksten. Dokumentasjonen til Clipman har en innføring i regulære uttrykk."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -175,7 +176,7 @@ msgstr "Lagre ved _avslutning"
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, this option will restore the history on every new Xfce session"
-msgstr "Hvis huket av, dette valget gjennoppretter historikk for hver ny Xfce-økt"
+msgstr "Hvis huket av så vil dette valget gjennopprette historikk for hver ny Xfce-økt"
 
 #: ../panel-plugin/settings-dialog.ui.h:18
 msgid "Store last copied _image"
@@ -183,7 +184,7 @@ msgstr "Lagre sist kopierte _bilde"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "If checked, this option allows to store one image inside the history"
-msgstr "Hvis huket av, dette valget tillater deg å lagre ett bilde i historikken"
+msgstr "Hvis huket av så vil dette valget tillate deg å lagre ett bilde i historikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid "Ignore s_elections"
@@ -192,7 +193,7 @@ msgstr "Ignorer u_tvalg"
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Hvis huket av, utvalgene vil ikke ha innvirkning på historikken, bortsett manuelle kopier"
+msgstr "Hvis huket av så vil utvalgene ikke ha innvirkning på historikken, bortsett manuelle kopier"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "Size of the _history:"
@@ -214,7 +215,7 @@ msgstr "_Skru på automatiske valg"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Hvis huket av, tekst i utklippstavlen vil bli jamført med regulære uttrykk og en meny vil vise mulige handlinger automatisk.\nEllers vil menyen opptre hvis man påkaller \"xfce4-popup-clipman-actions\" (og noe som samsvarer ble funnet)"
+msgstr "Hvis huket av så vil tekst i utklippstavlen bli jamført med regulære uttrykk og en meny vil vise mulige handlinger automatisk.\nEllers vil menyen dukke opp hvis man påkaller «xfce4-popup-clipman-actions» (og noe som samsvarer ble funnet)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
