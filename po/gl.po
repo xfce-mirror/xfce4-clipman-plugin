@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2018
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2018-2019
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 # Xosé, 2018
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-03-12 21:49+0000\n"
+"PO-Revision-Date: 2019-08-02 07:16+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "Xestor de portarretallos"
+msgstr "Xestor do portapapeis"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -56,15 +56,15 @@ msgstr "Ver con Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Bugz"
-msgstr "Erros"
+msgstr "Fallos"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
-msgstr "Erro de Xfce"
+msgstr "Fallo de Xfce"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "GNOME Bug"
-msgstr "Erro de GNOME"
+msgstr "Fallo de GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
@@ -151,7 +151,7 @@ msgstr "Sincronizar as _seleccións"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Se está marcado, as seleccións hanse sincronizar co portarretallos predeterminado dun xeito que poida pegar o que selecciona"
+msgstr "Se está marcado, as seleccións hanse sincronizar co portapapeis predeterminado dun xeito que poida pegar o que selecciona"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
@@ -268,7 +268,7 @@ msgstr "In_verter a orde do historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Se está marcado, esta opción restablecerá o historial en cada vez que se inicie unha nova sesión de Xfce"
+msgstr "Orde inversa do historial amosado no menú"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
@@ -326,7 +326,7 @@ msgstr "Non foi posíbel xerar o código QR."
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
-msgstr "O portarretallos está baleiro"
+msgstr "O portapapeis está baleiro"
 
 #: ../panel-plugin/menu.c:475
 msgid "_Clear history"
@@ -338,7 +338,7 @@ msgstr "contribuíntes:"
 
 #: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
-msgstr "Un xestor de portarretallos para Xfce"
+msgstr "Un xestor de portapapeis para Xfce"
 
 #: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
