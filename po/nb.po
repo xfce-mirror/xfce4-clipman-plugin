@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-07-24 09:46+0000\n"
+"PO-Revision-Date: 2019-08-11 05:47+0000\n"
 "Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Clipman"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
 msgid "Clipboard manager"
-msgstr "Utklipps-behandler"
+msgstr "Utklippsbehandler"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -83,12 +83,12 @@ msgstr "Ingen"
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
-msgstr "Ctrl+V"
+msgstr "Ctrl + V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
-msgstr "Shift+Insert"
+msgstr "Shift + Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
@@ -209,7 +209,7 @@ msgstr "Generelt"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "_Enable automatic actions"
-msgstr "_Skru på automatiske valg"
+msgstr "_Slå på automatiske valg"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid ""
@@ -266,11 +266,11 @@ msgstr "Puff sist kopierte tekst til toppen i historikken, nyttig for å reorgan
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Re_verse history order"
-msgstr "Re_verser historikkens forordning"
+msgstr "Re_verser historikkrekkefølgen"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Reverse order of the history shown in the menu"
-msgstr "Reverser forordning på historikken vist i menyen"
+msgstr "Reverser historikkrekkefølgen vist i menyen"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
@@ -348,4 +348,4 @@ msgstr "haarek - Harald <https://www.transifex.com/accounts/profile/haarek/>\nki
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Kunne ikke åpne innstillings-dialog"
+msgstr "Klarte ikke åpne innstillingsdialog"
