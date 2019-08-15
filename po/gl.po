@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-08-02 07:16+0000\n"
+"PO-Revision-Date: 2019-08-15 06:20+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Xestor de portapapeis fornecido como un engadido de panel para Xfce e como aplicativo autónomo que se executa na zona de notificación. Mantén un histórico de texto e imaxes de contido copiados no portapapeis. Tamén ten unha función para executar accións sobre a selección de texto específica, combinándoas con expresións regulares."
+msgstr "Xestor de portapapeis fornecido como un engadido de panel para Xfce e como aplicativo autónomo que se executa na zona de notificación. Mantén un historial de texto e imaxes de contido copiados no portapapeis. Tamén ten unha función para executar accións sobre a selección de texto específica, combinándoas con expresións regulares."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -95,7 +95,7 @@ msgstr "<b>Restablecer as accións</b>"
 #: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Está seguro de que desexa restablecer os valores predeterminados das accións?"
+msgstr "Desexa realmente restabelecer os valores predeterminados das accións do sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Edit Action"
@@ -155,7 +155,7 @@ msgstr "Se está marcado, as seleccións hanse sincronizar co portapapeis predet
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Show _QR-Code"
-msgstr "Mostrar código _QR"
+msgstr "Amosar código _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
@@ -169,7 +169,7 @@ msgstr "<b>Comportamento</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "Save on _quit"
-msgstr "Gardar ó _saír"
+msgstr "Gardar ao _saír"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -251,7 +251,7 @@ msgstr "C_olocar o menú no punteiro do rato"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Mostrar o menú na posición do punteiro do rato, só para a orde xfce4-popup-clipman"
+msgstr "Amosar o menú na posición do punteiro do rato, só para a orde xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
@@ -309,11 +309,11 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Non foi posible executar a orde \"%s\"\n\n%s"
+msgstr "Non se puido executar a orde \"%s\"\n\n%s"
 
 #: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
-msgstr "Está seguro de que desexa limpar o historial?"
+msgstr "Desexa realmente limpar o historial?"
 
 #: ../panel-plugin/menu.c:239
 msgid "Don't ask again"
@@ -321,7 +321,7 @@ msgstr "Non volver preguntar"
 
 #: ../panel-plugin/menu.c:362
 msgid "Could not generate QR-Code."
-msgstr "Non foi posíbel xerar o código QR."
+msgstr "Non se puido xerar o código QR."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:376
@@ -346,4 +346,4 @@ msgstr "Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.\n\nProxecto T
 
 #: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "Non foi posible abrir o diálogo de configuración"
+msgstr "Non se puido abrir o diálogo de configuración"
