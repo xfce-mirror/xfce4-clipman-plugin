@@ -10,7 +10,7 @@ actions on specific text selection by matching them against regexes.
  Homepage
 ----------
 
-http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/
+https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin
 
 
  Dependencies
@@ -46,5 +46,5 @@ See the INSTALL file for more instructions.
 You can report bugs and feature requests at http://bugs.xfce.org.  Choose the
 product Xfce Panel Plugins and the component clipman.
 
-You can also join the Xfce Goodies mailing-list:
-http://foo-projects.org/mailman/listinfo/goodies-dev.
+You can also join the Xfce development mailing-list:
+https://mail.xfce.org/mailman/listinfo/xfce4-dev

@@ -22,9 +22,9 @@
     </screenshot>
   </screenshots>
 
-  <url type="homepage">http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin</url>
+  <url type="homepage">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin</url>
   <url type="bugtracker">https://bugzilla.xfce.org/</url>
-  <url type="help">http://docs.xfce.org/panel-plugins/clipman/start</url>
+  <url type="help">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin</url>
 
   <updatecontact>xfce4-dev@xfce.org</updatecontact>
 

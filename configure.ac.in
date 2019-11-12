@@ -22,7 +22,7 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2005-2016
         The Xfce development team. All rights reserved.])
 AC_INIT([Clipman], [project_version], [http://bugzilla.xfce.org/], [xfce4-clipman-plugin],
-       	[http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin])
+        [https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin])
 AC_CONFIG_HEADERS([config.h])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
