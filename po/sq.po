@@ -1,268 +1,306 @@
-# Albanian translation of the xfce4-clipman-plugin package.
-# Copyright (C) 2005-2007 The Xfce development team.
-# This file is distributed under the same license as the xfce4-clipman-plugin package.
-# Besnik Bleta <besnik@programeshqip.org>, 2007.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Besnik <besnik@programeshqip.org>, 2007,2020
+# Besnik <besnik@programeshqip.org>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-clipman-plugin 0.8.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:59+0200\n"
-"PO-Revision-Date: 2009-04-18 12:28+0200\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
-"Language-Team: Albanian <xfce-i18n@xfce.org>\n"
-"Language: sq\n"
+"POT-Creation-Date: 2016-09-15 18:31+0200\n"
+"PO-Revision-Date: 2020-01-28 20:45+0000\n"
+"Last-Translator: Besnik <besnik@programeshqip.org>\n"
+"Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Përgjegjës të Papastre dhënë si një shtojcë paneli për Xfce-në dhe si aplikacion më vete që xhiron te zona e njoftimeve. Mban një historik teksti dhe figurash të lëndës së kopjuar te e papastra. Përmban gjithashtu një veçori për të ekzekutuar veprime në rast përzgjedhje teksti të caktuar duke e përputhur këtë me shprehje të rregullta."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#, fuzzy
-msgid "Clipboard manager"
-msgstr "Përgjegjës i Së Papastrës"
+#: ../panel-plugin/main-panel-plugin.c:73
+#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-#: ../panel-plugin/main-panel-plugin.c:70
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:335
-#, fuzzy
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard manager"
+msgstr "Përgjegjës të papastre"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Bugz"
-msgstr ""
+msgid "Image"
+msgstr "Figurë"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr ""
+msgstr "Përpunojeni me GIMP"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "GNOME Bug"
-msgstr ""
+msgid "View with Ristretto"
+msgstr "Shiheni me Ristretto"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Image"
-msgstr ""
+msgid "Bugz"
+msgstr "Të meta"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Long URL"
-msgstr ""
+msgid "Xfce Bug"
+msgstr "E metë Xfce"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "Shrink the URL"
-msgstr ""
+msgid "GNOME Bug"
+msgstr "E metë GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
-msgid "View with Ristretto"
-msgstr ""
+msgid "Long URL"
+msgstr "ULR e gjatë"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
-msgid "Xfce Bug"
-msgstr ""
+msgid "Shrink the URL"
+msgstr "Tkurre URL-në"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: ../panel-plugin/xfce4-clipman-settings.c:184
 msgid "None"
-msgstr ""
+msgstr "Asnjë"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: ../panel-plugin/xfce4-clipman-settings.c:186
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: ../panel-plugin/xfce4-clipman-settings.c:188
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
-#, fuzzy
+#: ../panel-plugin/xfce4-clipman-settings.c:511
 msgid "<b>Reset actions</b>"
-msgstr "<b>Sjellje e së Papastrës</b>"
+msgstr "<b>Rikthe veprimet te vlerat parazgjedhje</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
-#, fuzzy
+#: ../panel-plugin/xfce4-clipman-settings.c:513
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Jeni i sigurtë se doni të fshihet ky shënim nga historiku?"
+msgstr "Jeni i sigurt se doni të rikthehen veprimet te vlerat parazgjedhje të sistemit?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "<b>Action</b>"
-msgstr ""
+msgid "Edit Action"
+msgstr "Përpunoni Veprim"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
-#, fuzzy
-msgid "<b>Behavior</b>"
-msgstr "<b>Sjellje e së Papastrës</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-#, fuzzy
-msgid "<b>Commands</b>"
-msgstr "<b>Numra</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>History</b>"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Automatically paste a selected item from the history"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "Configure the plugin"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Edit Action"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Enable _actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "General"
-msgstr "Të përgjithshme"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "If checked, this option allows to store one image inside the history"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-#, fuzzy
-msgid "Ignore s_elections"
-msgstr "_Shpërfill përzgjedhje"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Name:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "P_osition menu at mouse pointer"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Pattern:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Re_verse history order"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Regular expression"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Reverse order of the history shown in the menu"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Save on _quit"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Size of the _history:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Store last copied _image"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-#, fuzzy
-msgid "Sync _selections"
-msgstr "_Shpërfill përzgjedhje"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Tweaks"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
+msgstr "Te urdhrat mund të përdorni parametrat e zëvendësimit \"\\1\", \"\\2\" e me radhë. Parametri \"\\0\" përfaqëson tekstin e plotë. Nëse nuk dini shprehje të rregullta, hidhini një sy dokumentimit të Clipman-it që përmban një hyrje në to."
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid "Name:"
+msgstr "Emër:"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Pattern:"
+msgstr "Rregullsi:"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "The pattern is always anchored within the special characters ^$"
 msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "Activate only on manual copy"
+msgstr "Aktivizoje vetëm për kopjim dorazi"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"By default the action is triggerred by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr "Si parazgjedhje, veprimi vihet në punë nga një përzgjedhje, i vini shenjë kësaj mundësie që veprimi të vihet në punë vetëm kur bëni një kopje dorazi"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "<b>Action</b>"
+msgstr "<b>Veprim</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "Command:"
+msgstr "Urdhër:"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "<b>Commands</b>"
+msgstr "<b>Urdhra</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "Sync _selections"
+msgstr "Njëkohëso _përzgjedhjet"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Nëse i vihet shenjë, përzgjedhjet do të njëkohësohen me të papastrën parazgjedhje në mënyrë që të ngjitni çfarë përzgjidhni"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Show _QR-Code"
+msgstr "Shfaqni Kod _QR"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Nëse i vihet shenjë, menuja shfaq një Kod QR të zërit të tanishëm të përzgjedhur të të papastrës"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>Behavior</b>"
+msgstr "<b>Sjellje</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "Save on _quit"
+msgstr "Ruaje gjatë _daljes"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Nëse i vihet shenjë, kjo mundësi do të rikthejë historikun gjatë çdo sesioni Xfce të ri"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid "Store last copied _image"
+msgstr "Depozito _figurën e kopjuar së fundi"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Nëse i vihet shenjë, kjo mundësi lejon të depozitohet një figurë brenda historikut"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Ignore s_elections"
+msgstr "Shpërfilli _përzgjedhjet"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Nëse i vihet shenjë, përzgjedhjet s’do të prekin historikun, hiq kopje të bëra dorazi"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Size of the _history:"
+msgstr "Madhësi e _historikut:"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "<b>History</b>"
+msgstr "<b>Historik</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "General"
+msgstr "Të përgjithshme"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "_Enable automatic actions"
+msgstr "_Aktivizo veprime automatike"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Nëse i vihet shenjë, tekstet e të papastrës do të krahasohen për përputhje me shprehje të rregullta dhe një menu do të shfaqë automatikisht veprime të mundshme.\nPërndryshe, menuja do të shfaqet vetëm kur thirret \"xfce4-popup-clipman-actions\" (dhe kur gjendet një përputhje)"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Add action"
+msgstr "Shtoni veprim"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Edit action"
+msgstr "Përpunoni veprim"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "Delete action"
+msgstr "Fshi veprim"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Reset all actions to the system default values"
+msgstr "Riktheji krejt veprime te vlerat e sistemit parazgjedhje"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Actions"
+msgstr "Veprime"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Automatically paste a selected item from the history"
+msgstr "Ngjit automatikisht një objekt të përzgjedhur prej historikut"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "_Paste instantly:"
+msgstr "_Ngjite menjëherë:"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "P_osition menu at mouse pointer"
+msgstr "_Vendose menunë te treguesi i miut"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
-msgid "_Paste instantly:"
-msgstr ""
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Hap menunë si flluskë te pozicioni i treguesit të miut, vetëm për urdhrin xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
-#, fuzzy
 msgid "_Reorder history items"
-msgstr "Objekte historiku të papastre:"
+msgstr "_Rirenditni objekte historiku"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
-msgid "_Skip actions by holding Control"
-msgstr ""
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Kaloje tekstin e kopjuar të fundit në krye të historikut, e dobishme për të rirenditur objekte të vjetër"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "Re_verse history order"
+msgstr "_Përmbys rend historiku"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Reverse order of the history shown in the menu"
+msgstr "Përmbysni rendin e historikut të shfaqur te menuja"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Show actions by holding Control"
+msgstr "_Shfaqi veprimet, kur mbahet shtypur tasti Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Kur ka mbaruar përzgjedhja (me mi ose tastierë) dhe tasti Control është ende i shtypur, do të shfaqet menuja flluskë për veprimet që kanë përputhje"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid "S_kip actions by holding Control"
+msgstr "_Anashkaloji veprimet, kur mbahet shtypur tasti Control"
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Kur ka mbaruar përzgjedhja (me mi ose tastierë) dhe tasti Control është ende i shtypur, do të anashkalohet menuja flluskë për veprimet që kanë përputhje"
+
+#: ../panel-plugin/settings-dialog.ui.h:45
+msgid "Tweaks"
+msgstr "Përimtime"
+
+#: ../panel-plugin/settings-dialog.ui.h:46
+msgid "Regular expression"
+msgstr "Shprehje e rregullt"
+
+#: ../panel-plugin/main-panel-plugin.c:97
+#: ../panel-plugin/main-status-icon.c:137
+msgid "_Disable"
+msgstr "_Çaktivizoje"
 
 #: ../panel-plugin/actions.c:370
 #, c-format
@@ -270,78 +308,41 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "S’arrihet të përmbushet urdhri \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:189
+#: ../panel-plugin/menu.c:234
 msgid "Are you sure you want to clear the history?"
-msgstr "Jeni të sigurtë se doni të fshihet historiku?"
+msgstr "Jeni i sigurt se doni të spastrohet historiku?"
+
+#: ../panel-plugin/menu.c:239
+msgid "Don't ask again"
+msgstr "Mos pyet sërish"
+
+#: ../panel-plugin/menu.c:362
+msgid "Could not generate QR-Code."
+msgstr "S’u prodhua dot Kod QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:272
-#, fuzzy
+#: ../panel-plugin/menu.c:376
 msgid "Clipboard is empty"
-msgstr "< E papastra Bosh >"
+msgstr "E papastra është e zbrazët"
 
-#: ../panel-plugin/menu.c:360
-msgid "_Disable"
-msgstr ""
+#: ../panel-plugin/menu.c:475
+msgid "_Clear history"
+msgstr "_Spastro _historikun"
 
-#: ../panel-plugin/plugin.c:323
+#: ../panel-plugin/plugin.c:307
 msgid "Contributors:"
-msgstr ""
+msgstr "Pjesëmarrës:"
 
-#: ../panel-plugin/plugin.c:337
-#, fuzzy
+#: ../panel-plugin/plugin.c:321
 msgid "Clipboard Manager for Xfce"
-msgstr "Përgjegjësin i Së Papastrës për Desktopin Xfce 4"
+msgstr "Përgjegjësi të Papastre për Xfce"
 
-#: ../panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:329
 msgid "translator-credits"
 msgstr "Besnik Bleta"
 
-#: ../panel-plugin/plugin.c:360
-#, fuzzy
+#: ../panel-plugin/plugin.c:343
 msgid "Unable to open the settings dialog"
-msgstr "I pazoti të hapë url-në vijuese: %s"
-
-#~ msgid "Save clipboard contents on _exit"
-#~ msgstr "Ruaj përmbajtjen e së papastrës gjatë _daljes"
-
-#~ msgid "Pre_vent empty clipboard"
-#~ msgstr "Para_ndalo të papastër bosh"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Të përgjithshme</b>"
-
-#~ msgid "Normal clipboard _management"
-#~ msgstr "A_dministrim të papastre normale"
-
-#~ msgid "Strictly separate _both clipboards"
-#~ msgstr "Nda prerazi të _dy të papastrat"
-
-#~ msgid "_Show item numbers"
-#~ msgstr "_Shfaq numra objektesh"
-
-#~ msgid "Se_parate clipboards"
-#~ msgstr "N_daj të papastra"
-
-#~ msgid "<b>Menu Appearance</b>"
-#~ msgstr "<b>Dukje Menuje</b>"
-
-#~ msgid "Menu item characters:"
-#~ msgstr "Gërma objekti menuje:"
-
-#~ msgid "Appearance"
-#~ msgstr "Dukje"
-
-#~ msgid "< Default History Empty >"
-#~ msgstr "< Historiku Parazgjedhje është Bosh >"
-
-#~ msgid "< Selection History Empty >"
-#~ msgstr "< Historiku i Përzgjedhjes është Bosh >"
-
-#~ msgid "Clear History"
-#~ msgstr "Pastro Historikun"
-
-#~ msgid "Clipman History"
-#~ msgstr "Historik"
+msgstr "S’arrihet të hapet dialogu i rregullimeve"
