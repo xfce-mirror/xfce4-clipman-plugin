@@ -10,6 +10,16 @@
     <property name="step_increment">5</property>
     <property name="page_increment">10</property>
   </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">help-browser</property>
+  </object>
+  <object class="GtkImage" id="image6">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">window-close-symbolic</property>
+  </object>
   <object class="XfceTitledDialog" id="settings-dialog">
     <property name="can_focus">False</property>
     <property name="title">Clipman</property>
@@ -31,11 +41,12 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="settings-dialog-button-help">
-                <property name="label">gtk-help</property>
+                <property name="label">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="image">image5</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -45,11 +56,12 @@
             </child>
             <child>
               <object class="GtkButton" id="settings-dialog-button-close">
-                <property name="label">gtk-close</property>
+                <property name="label">_Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="image">image6</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1147,6 +1159,9 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
       <action-widget response="1">action-dialog-button-ok</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkTextBuffer" id="textbuffer1">
+    <property name="text">Type here your custom text, for example an URL, a filename, etc.</property>
+  </object>
   <object class="GtkDialog" id="regex-dialog">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Regular expression</property>
@@ -1270,8 +1285,5 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
       <action-widget response="-6">regex-dialog-button-cancel</action-widget>
       <action-widget response="-10">regex-dialog-button-ok</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkTextBuffer" id="textbuffer1">
-    <property name="text">Type here your custom text, for example an URL, a filename, etc.</property>
   </object>
 </interface>
