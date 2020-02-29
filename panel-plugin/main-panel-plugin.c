@@ -89,10 +89,6 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   css_provider = gtk_css_provider_new ();
   gtk_css_provider_load_from_data (css_provider,
                                    "#xfce4-clipman-plugin {"
-                                   "-GtkWidget-focus-padding: 0;"
-                                   "-GtkWidget-focus-line-width: 0;"
-                                   "-GtkButton-default-border: 0;"
-                                   "-GtkButton-inner-border: 0;"
                                    "padding: 1px;"
                                    "border-width: 1px;}",
                                    -1, NULL);
