@@ -128,6 +128,15 @@ cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
 #endif
 
 static void
+cb_set_clipboard_from_primary (GtkMenuItem *mi)
+{
+  GtkClipboard *clipboard;
+
+  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  gtk_clipboard_set_text (clipboard, gtk_menu_item_get_label (mi), -1);
+}
+
+static void
 cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 {
   GtkClipboard *clipboard;
@@ -319,6 +328,7 @@ _clipman_menu_adjust_geometry (ClipmanMenu *menu)
 static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
+  GtkClipboard *clipboard;
   GtkWidget *mi, *image;
 #ifdef HAVE_QRENCODE
   GdkPixbuf *pixbuf;
@@ -328,6 +338,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   GSList *list, *l;
   gint pos = 0;
   gint i = 0;
+  gchar *selection_primary;
+  gboolean skip_primary = FALSE;
 
   /* Get the most recent item in the history */
   item_to_restore = clipman_history_get_item_to_restore (menu->priv->history);
@@ -430,6 +442,28 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
       /* Set the clear history item insensitive */
       gtk_widget_set_sensitive (menu->priv->mi_clear_history, FALSE);
+    }
+
+  /* Show the primary clipboard item so it can be selected for keyboard pasting */
+  clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+  selection_primary = gtk_clipboard_wait_for_text (clipboard);
+  if (selection_primary)
+    {
+      skip_primary = (item_to_restore
+          && g_strcmp0 (selection_primary, item_to_restore->content.text) == 0);
+      if (skip_primary == FALSE)
+        {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          mi = gtk_image_menu_item_new_with_label (selection_primary);
+          image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
+          gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
+          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
+          gtk_widget_show_all (mi);
+          g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), NULL);
+          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+        }
+      g_free (selection_primary);
     }
 
   _clipman_menu_adjust_geometry(menu);
