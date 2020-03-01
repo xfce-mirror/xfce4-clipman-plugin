@@ -1160,7 +1160,7 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
     </action-widgets>
   </object>
   <object class="GtkTextBuffer" id="textbuffer1">
-    <property name="text">Type here your custom text, for example an URL, a filename, etc.</property>
+    <property name="text">Type here your custom text, for example a URL, a filename, etc.</property>
   </object>
   <object class="GtkDialog" id="regex-dialog">
     <property name="can_focus">False</property>
