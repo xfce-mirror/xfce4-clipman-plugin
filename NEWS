@@ -1,3 +1,18 @@
+1.4.4
+======
+- settings: Improve layout
+- settings: Drop some GtkStock items
+- Update support URLs from goodies to docs.xfce.org (Bug #16141)
+- Drop deprecated Gtk style properties
+- Also show desktop file in Cinnamon (Bug #14058)
+- Fix getting modifier in gsd-clipboard-manager (Bug #14642)
+- Fix typo
+- Translation Updates:
+  Albanian, Armenian (Armenia), Belarusian, Catalan, Chinese (China),
+  Czech, Danish, Finnish, French, Galician, Hebrew, Icelandic, Italian,
+  Kazakh, Norwegian Bokmål, Polish, Portuguese, Slovak, Slovenian,
+  Spanish, Turkish, Ukrainian,
+
 Version 1.4.3 - 2018-10-27
 
 - Switch to xfce_panel_plugin_get_icon_size for consistent icon sizes
