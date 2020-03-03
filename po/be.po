@@ -4,14 +4,16 @@
 # 
 # Translators:
 # Andrej Zakharevich <andrej@zahar.ws>, 2011
-# Zmicer Turok <zmicerturok@gmail.com>, 2019
+# Andrej Zakharevich <andrej@zahar.ws>, 2011
+# Zmicer Turok <nashtlumach@gmail.com>, 2019
+# Zmicer Turok <nashtlumach@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-01-15 08:44+0000\n"
-"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
+"PO-Revision-Date: 2020-03-03 10:34+0000\n"
+"Last-Translator: Zmicer Turok <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +27,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Кіраўнік буфера абмену можа быць як убудовай для панэлі Xfce, так і самастойнай праграмай, што выконваецца на прасторы апавяшчэнняў. Ён захоўвае гісторыю скапіяваных у буфер абмену тэксту і выяў. Ёсць магчымасць выконваць дзеянні з абраным тэкстам паводле сталых выразаў."
+msgstr "Кіраўнік буфера абмену можа быць як убудовай для панэлі Xfce, так і самастойнай праграмай для прасторы апавяшчэнняў. Ён захоўвае гісторыю скапіяваных у буфер абмену тэксту і выяў. Ёсць магчымасць выконваць дзеянні з абраным тэкстам паводле рэгулярных выразаў."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
@@ -43,11 +45,11 @@ msgstr "Кіраўнік буфера абмену"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
-msgstr "Малюнак"
+msgstr "Выява"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Рэдагаваць з дапамогай Gimp"
+msgstr "Рэдагаваць у Gimp"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "View with Ristretto"
@@ -106,7 +108,7 @@ msgid ""
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
 "know regular expressions, have a look at the documentation of Clipman that "
 "has an introdution for them."
-msgstr "У загадах магчыма выкарыстоўваць параметры замены «\\1», «\\2», и г.д. Параметр «\\0» увасабляе ўвесь тэкст. Дадатковыя звесткі пра сталыя выразы можна паглядзець у даведцы Clipman."
+msgstr "У загадах магчыма выкарыстоўваць параметры замены «\\1», «\\2», і г. д. Параметр «\\0» увасабляе ўвесь тэкст. Дадатковыя звесткі пра рэгулярныя выразы можна паглядзець у даведцы Clipman."
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "Name:"
@@ -212,7 +214,7 @@ msgstr "_Уключыць аўтаматычныя дзеянні"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Калі адзначана, тэксты з буфера абмену будуць параўноўвацца са сталымі выразамі і ў меню будуць паказвацца магчымыя дзеянні.\nІнакш, меню будзе з'яўляцца пры выкліку «xfce4-popup-clipman-actions» (калі супадзенняў не знойдзена)"
+msgstr "Калі адзначана, тэксты з буфера абмену будуць параўноўвацца з рэгулярнымі выразамі і ў меню будуць паказвацца магчымыя дзеянні.\nІнакш, меню будзе з'яўляцца пры выкліку «xfce4-popup-clipman-actions» (калі супадзенняў не знойдзена)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Add action"
@@ -250,7 +252,7 @@ msgstr "Ме_ню на месцы паказальніка мышы"
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
-msgstr "Выводзіць меню на месцы паказальніка мышы (толькі для загаду xfce4-popup-clipman)"
+msgstr "Выводзіць меню на месцы паказальніка мышы (толькі для загада xfce4-popup-clipman)"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "_Reorder history items"
@@ -271,7 +273,7 @@ msgstr "Паказваць гісторыю ў адваротным парадк
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Show actions by holding Control"
-msgstr "_Паказваць дзеянні клавішай Control"
+msgstr "_Паказваць дзеянні клавішай Ctrl"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid ""
@@ -295,7 +297,7 @@ msgstr "Твікі"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Regular expression"
-msgstr "Сталы выраз"
+msgstr "Рэгулярны выраз"
 
 #: ../panel-plugin/main-panel-plugin.c:97
 #: ../panel-plugin/main-status-icon.c:137
