@@ -41,7 +41,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="settings-dialog-button-help">
-                <property name="label">_Help</property>
+                <property name="label" translatable="yes">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -56,7 +56,7 @@
             </child>
             <child>
               <object class="GtkButton" id="settings-dialog-button-close">
-                <property name="label">_Close</property>
+                <property name="label" translatable="yes">_Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1160,7 +1160,7 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
     </action-widgets>
   </object>
   <object class="GtkTextBuffer" id="textbuffer1">
-    <property name="text">Type here your custom text, for example a URL, a filename, etc.</property>
+    <property name="text" translatable="yes">Type here your custom text, for example a URL, a filename, etc.</property>
   </object>
   <object class="GtkDialog" id="regex-dialog">
     <property name="can_focus">False</property>
