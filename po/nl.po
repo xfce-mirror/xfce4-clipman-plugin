@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pjotr <pjotrvertaalt@gmail.com>, 2014,2016-2017
+# Pjotr <pjotrvertaalt@gmail.com>, 2014,2016-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-23 19:02+0000\n"
+"POT-Creation-Date: 2020-03-04 00:32+0100\n"
+"PO-Revision-Date: 2020-03-04 12:15+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -29,8 +29,9 @@ msgstr "Klembordbeheerder als invoegsel voor de werkbalk van Xfce en als een op 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+#: ../panel-plugin/main-panel-plugin.c:74
+#: ../panel-plugin/main-status-icon.c:80 ../panel-plugin/plugin.c:94
+#: ../panel-plugin/plugin.c:331
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -96,10 +97,169 @@ msgid ""
 msgstr "Weet u zeker dat u de acties wilt terugzetten op de standaardwaarden?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+msgid "_Help"
+msgstr "_Hulp"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Close"
+msgstr "S_luiten"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid "Sync _selections"
+msgstr "_Selecties synchroniseren"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Met deze optie zullen selecties op zo'n manier gesynchroniseerd worden met het standaardklembord, dat u kunt plakken wat u selecteert"
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Show _QR-Code"
+msgstr "Toon _QR-code"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Indien aangevinkt toont het menu een QR-code van het thans geselecteerde element in het klembord"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "<b>Behavior</b>"
+msgstr "<b>Gedrag</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "Save on _quit"
+msgstr "Opslaan bij _sluiten"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe sessie"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "Store last copied _image"
+msgstr "Laatst gekopieerde afbeelding opslaan"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Deze optie biedt de mogelijkheid één afbeelding in de geschiedenis op te slaan"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid "Ignore s_elections"
+msgstr "_Selecties negeren"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Met deze optie zal de geschiedenis alleen veranderd worden bij handmatig kopiëren"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "Size of the _history:"
+msgstr "Grootte van de _geschiedenis"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>History</b>"
+msgstr "<b>Geschiedenis</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "General"
+msgstr "Algemeen"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid "_Enable automatic actions"
+msgstr "Automatische acties inschakelen"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Indien aangevinkt, zullen de klembordteksten worden vergeleken met overeenkomstige reguliere uitdrukkingen en een menu zal automatisch mogelijke acties tonen.\nAnders zal het menu alleen verschijnen bij het aanroepen van 'xfce4-popup-clipman-actions' (als er een overeenkomst werd gevonden)"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Add action"
+msgstr "Actie toevoegen"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "Edit action"
+msgstr "Actie bewerken"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Delete action"
+msgstr "Actie wissen"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Reset all actions to the system default values"
+msgstr "Alle acties terugzetten op de standaardwaarden van het systeem"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Actions"
+msgstr "Acties"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Automatically paste a selected item from the history"
+msgstr "Plak automatisch een geselecteerd element vanuit de geschiedenis"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "_Paste instantly:"
+msgstr "_Plak meteen:"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "P_osition menu at mouse pointer"
+msgstr "Plaats menu bij de muispijl"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Laat het menu opduiken bij de muispijlpositie, maar alleen voor de opdracht xfce4-popup-clipman"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "_Reorder history items"
+msgstr "Elementen van de klembordgeschiedenis herschikken"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Plaats de laatst gekopieerde tekst bovenaan in de geschiedenis, voor het gemak"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Re_verse history order"
+msgstr "Keer de geschiedenisvolgorde om"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Reverse order of the history shown in the menu"
+msgstr "Draai de volgorde om van de geschiedenis zoals getoond in het menu"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "_Show actions by holding Control"
+msgstr "Toon acties door de Ctrl-toets ingedrukt te houden"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Wanneer de selectie is voltooid (met muis of toetsenbord) en de Ctrl-toets nog steeds ingedrukt is, zal het opduikmenu voor overeenkomende acties worden getoond"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "S_kip actions by holding Control"
+msgstr "Sla acties door Ctrl-toets ingedrukt te houden, over"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Wanneer de selectie gereed is (muis of toetsenbord) en de Ctrl-toets nog steeds ingedrukt is, zal het opduikmenu voor overeenkomende acties worden overgeslagen"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "Tweaks"
+msgstr "Aanpassingen"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid "Edit Action"
 msgstr "Actie bewerken"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -107,197 +267,50 @@ msgid ""
 "has an introdution for them."
 msgstr "U kunt de inwisselbare parameters '\\1', '\\2', enz. in de opdrachten gebruiken. De parameter '\\0' representeert de volledige tekst. Als u reguliere uitdrukkingen niet kent, kunt u de documentatie van Clipman raadplegen, welke een inleiding tot reguliere uitdrukkingen bevat."
 
-#: ../panel-plugin/settings-dialog.ui.h:3
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Name:"
 msgstr "Naam:"
 
-#: ../panel-plugin/settings-dialog.ui.h:4
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Pattern:"
 msgstr "Patroon:"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Het patroon wordt altijd verankerd binnen de speciale tekens ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Activate only on manual copy"
 msgstr "Alleen activeren bij handmatig kopiëren"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Standaard wordt de actie geactiveerd door een selectie; kies deze optie om de actie alleen te activeren wanneer er iets handmatig wordt gekopieerd"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
 msgstr "<b>Actie</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Command:"
 msgstr "Opdracht:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "<b>Commands</b>"
 msgstr "<b>Opdrachten</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Sync _selections"
-msgstr "_Selecties synchroniseren"
+#: ../panel-plugin/settings-dialog.ui.h:48
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr "Tik hier uw eigen tekst, bijvoorbeeld een webadres of een bestandsnaam."
 
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Met deze optie zullen selecties op zo'n manier gesynchroniseerd worden met het standaardklembord, dat u kunt plakken wat u selecteert"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Show _QR-Code"
-msgstr "Toon _QR-code"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "Indien aangevinkt toont het menu een QR-code van het thans geselecteerde element in het klembord"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "<b>Behavior</b>"
-msgstr "<b>Gedrag</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Save on _quit"
-msgstr "Opslaan bij _sluiten"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "De optie biedt de mogelijkheid de geschiedenis te herstellen bij elke nieuwe sessie"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Store last copied _image"
-msgstr "Laatst gekopieerde afbeelding opslaan"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Deze optie biedt de mogelijkheid één afbeelding in de geschiedenis op te slaan"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Ignore s_elections"
-msgstr "_Selecties negeren"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Met deze optie zal de geschiedenis alleen veranderd worden bij handmatig kopiëren"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Size of the _history:"
-msgstr "Grootte van de _geschiedenis"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "<b>History</b>"
-msgstr "<b>Geschiedenis</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "General"
-msgstr "Algemeen"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable automatic actions"
-msgstr "Automatische acties inschakelen"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Indien aangevinkt, zullen de klembordteksten worden vergeleken met overeenkomstige reguliere uitdrukkingen en een menu zal automatisch mogelijke acties tonen.\nAnders zal het menu alleen verschijnen bij het aanroepen van 'xfce4-popup-clipman-actions' (als er een overeenkomst werd gevonden)"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Add action"
-msgstr "Actie toevoegen"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Edit action"
-msgstr "Actie bewerken"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Delete action"
-msgstr "Actie wissen"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Reset all actions to the system default values"
-msgstr "Alle acties terugzetten op de standaardwaarden van het systeem"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "Actions"
-msgstr "Acties"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Automatically paste a selected item from the history"
-msgstr "Plak automatisch een geselecteerd element vanuit de geschiedenis"
-
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid "_Paste instantly:"
-msgstr "_Plak meteen:"
-
-#: ../panel-plugin/settings-dialog.ui.h:35
-msgid "P_osition menu at mouse pointer"
-msgstr "Plaats menu bij de muispijl"
-
-#: ../panel-plugin/settings-dialog.ui.h:36
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Laat het menu opduiken bij de muispijlpositie, maar alleen voor de opdracht xfce4-popup-clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "Elementen van de klembordgeschiedenis herschikken"
-
-#: ../panel-plugin/settings-dialog.ui.h:38
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Plaats de laatst gekopieerde tekst bovenaan in de geschiedenis, voor het gemak"
-
-#: ../panel-plugin/settings-dialog.ui.h:39
-msgid "Re_verse history order"
-msgstr "Keer de geschiedenisvolgorde om"
-
-#: ../panel-plugin/settings-dialog.ui.h:40
-msgid "Reverse order of the history shown in the menu"
-msgstr "Draai de volgorde om van de geschiedenis zoals getoond in het menu"
-
-#: ../panel-plugin/settings-dialog.ui.h:41
-msgid "_Show actions by holding Control"
-msgstr "Toon acties door de Ctrl-toets ingedrukt te houden"
-
-#: ../panel-plugin/settings-dialog.ui.h:42
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Wanneer de selectie is voltooid (met muis of toetsenbord) en de Ctrl-toets nog steeds ingedrukt is, zal het opduikmenu voor overeenkomende acties worden getoond"
-
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "S_kip actions by holding Control"
-msgstr "Sla acties door Ctrl-toets ingedrukt te houden, over"
-
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Wanneer de selectie gereed is (muis of toetsenbord) en de Ctrl-toets nog steeds ingedrukt is, zal het opduikmenu voor overeenkomende acties worden overgeslagen"
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid "Tweaks"
-msgstr "Aanpassingen"
-
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Regular expression"
 msgstr "Reguliere uitdrukking"
 
-#: ../panel-plugin/main-panel-plugin.c:97
-#: ../panel-plugin/main-status-icon.c:137
+#: ../panel-plugin/main-panel-plugin.c:108
+#: ../panel-plugin/main-status-icon.c:158
 msgid "_Disable"
 msgstr "Uitschakelen"
 
@@ -317,31 +330,31 @@ msgstr "Weet u zeker dat u de geschiedenis wil wissen?"
 msgid "Don't ask again"
 msgstr "Vraag dit niet opnieuw"
 
-#: ../panel-plugin/menu.c:362
+#: ../panel-plugin/menu.c:372
 msgid "Could not generate QR-Code."
 msgstr "Kon geen QR-code genereren."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:376
+#: ../panel-plugin/menu.c:386
 msgid "Clipboard is empty"
 msgstr "Klembord is leeg"
 
-#: ../panel-plugin/menu.c:475
+#: ../panel-plugin/menu.c:487
 msgid "_Clear history"
 msgstr "Geschiedenis _wissen"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
 msgstr "Bijdragers:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:333
 msgid "Clipboard Manager for Xfce"
 msgstr "Klembordbeheer voor Xfce"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:341
 msgid "translator-credits"
 msgstr "Vincent Tunru\nPjotr <pjotrvertaalt@gmail.com>"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:355
 msgid "Unable to open the settings dialog"
 msgstr "Kan het instellingenvenster niet openen"
