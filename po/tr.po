@@ -7,13 +7,13 @@
 # Fatih ERDEM <93.fatiherdem@gmail.com>, 2013
 # Necdet Yücel <necdetyucel@gmail.com>, 2013-2014,2016-2017
 # Samed Beyribey <ras0ir@eventualis.org>, 2009
-# Serdar Sağlam <teknomobil@msn.com>, 2019
+# Serdar Sağlam <teknomobil@msn.com>, 2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-08-02 06:57+0000\n"
+"POT-Creation-Date: 2020-03-04 00:32+0100\n"
+"PO-Revision-Date: 2020-03-05 17:17+0000\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +33,9 @@ msgstr "Geçici Taşıma Panosu Yöneticisi Xfce için bir panel eklentisi olara
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
+#: ../panel-plugin/main-panel-plugin.c:74
+#: ../panel-plugin/main-status-icon.c:80 ../panel-plugin/plugin.c:94
+#: ../panel-plugin/plugin.c:331
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -100,10 +101,169 @@ msgid ""
 msgstr "Eylemleri sistem varsayılan değerlerine sıfırlamak istediğinizden emin misiniz?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Close"
+msgstr "_Kapat"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid "Sync _selections"
+msgstr "_Seçimi eşitle"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere öntanımlı pano ile senkronize edilir "
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid "Show _QR-Code"
+msgstr "_QR-Code göster"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "İşaretlendiğinde menü mevcut seçili pano içeriğinin bir QR kodunu görüntüler"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid "<b>Behavior</b>"
+msgstr "<b>Davranış</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "Save on _quit"
+msgstr "Çıkışta _kaydet"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid ""
+"If checked, this option will restore the history on every new Xfce session"
+msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son kullanıldığı şekilde göstermektedir."
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "Store last copied _image"
+msgstr "Son _kopyalanan görüntüyü sakla"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün kılar"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid "Ignore s_elections"
+msgstr "Seçimleri yoksay"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi etkilemeyecektir"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "Size of the _history:"
+msgstr "Geçmiş _boyutu:"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "<b>History</b>"
+msgstr "<b>Geçmiş</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "General"
+msgstr "Genel"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid "_Enable automatic actions"
+msgstr "_Otomatik eylemleri etkinleştir"
+
+#: ../panel-plugin/settings-dialog.ui.h:18
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve menüde kullanılabilir işlemler gösterilecektir.\nAksi halde menü sadece \"xfce4-popup-clipman-actions\" çalıştırıldığında (ve bir eşleşme bulunduğunda) görünecektir"
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid "Add action"
+msgstr "Eylem ekle"
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "Edit action"
+msgstr "Eylem düzenle"
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Delete action"
+msgstr "Eylem sil"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Reset all actions to the system default values"
+msgstr "Tüm eylemleri sistem varsayılanlarına döndür"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Actions"
+msgstr "Eylemler"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Automatically paste a selected item from the history"
+msgstr "Geçmişten bir nesne seçildiğinde otomatik olarak yapıştır"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "_Paste instantly:"
+msgstr "_Anında yapıştır:"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "P_osition menu at mouse pointer"
+msgstr "Menüyü imlece göre konumlandır"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Sadece xfce4-popup-clipman komutu için imlecin bulunduğu konumda menüyü aç"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "_Reorder history items"
+msgstr "Geçmiş nesnelerini _yeniden sırala"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Son kopyalanan metni geçmişin en üstüne taşı, eski nesneleri yeniden sıralamak için kolaylık sağlar"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "Re_verse history order"
+msgstr "Geçmiş sırasını _tersine çevir"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Reverse order of the history shown in the menu"
+msgstr "Menüde gösterilen geçmişi tersine diz"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "_Show actions by holding Control"
+msgstr "Control tuşuna basılı tutarak eylemleri _göster"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr "Eğer seçim tamamlanmışsa (fare veya klavye ile) ve Control tuşu hala basılıysa eşleşen eylemler için açılır pencere menüsü gösterilecek"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "S_kip actions by holding Control"
+msgstr "Control tuşuna basılı tutarak eylemleri _atla"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr "Eğer seçim tamamlanmışsa (fareyle ya da klavyeyle) ve Control tuşu hala basılıysa açılır pencere menüsü eşleşme davranışı atlama olarak yapılacak"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "Tweaks"
+msgstr "İnce Ayalar"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid "Edit Action"
 msgstr "Eylemi Düzenle"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -111,197 +271,50 @@ msgid ""
 "has an introdution for them."
 msgstr "Komutlarda \"\\1\", \"\\2\" vs. gibi değiştirme parametreleri kullanabilirsiniz. \"\\0\"  parametresi bütün yazıyı ifade eder. Eğer düzenli ifadeler hakkında bilginiz yoksa, Clipman dokümantasyonunu inceleyebilirsiniz. "
 
-#: ../panel-plugin/settings-dialog.ui.h:3
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Name:"
 msgstr "İsim:"
 
-#: ../panel-plugin/settings-dialog.ui.h:4
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Pattern:"
 msgstr "Desen:"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Desen daima ^$ özel karakterleri arasında yer alır"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Activate only on manual copy"
 msgstr "Sadece elle kopyalamada etkinleştir"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Öntanımlı olarak işlem seçim ile başlatılır, elle kopyalama yaptığınızda işlemi başlatmak için bu seçeneği işaretleyin"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
 msgstr "<b>Eylem</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Command:"
 msgstr "Komut:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "<b>Commands</b>"
 msgstr "<b>Komutlar</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Sync _selections"
-msgstr "_Seçimi eşitle"
+#: ../panel-plugin/settings-dialog.ui.h:48
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr "Buraya özel metninizi yazın; örneğin bir URL, bir dosya adı vb."
 
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Eğer seçili ise, seçimleriniz, seçtiğiniz zaman yapıştırılmak üzere öntanımlı pano ile senkronize edilir "
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Show _QR-Code"
-msgstr "_QR-Code göster"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "İşaretlendiğinde menü mevcut seçili pano içeriğinin bir QR kodunu görüntüler"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "<b>Behavior</b>"
-msgstr "<b>Davranış</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Save on _quit"
-msgstr "Çıkışta _kaydet"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Eğer seçilmişse, bu seçenek her Xfce oturumunda geçmiş kayıtlarını en son kullanıldığı şekilde göstermektedir."
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Store last copied _image"
-msgstr "Son _kopyalanan görüntüyü sakla"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Eğer seçilmişse, bu seçenek geçmiş içerisinde bir resim saklamayı mümkün kılar"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Ignore s_elections"
-msgstr "Seçimleri yoksay"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Eğer seçili ise, elle idare edilen kopyalar haricinde seçilenler geçmişi etkilemeyecektir"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Size of the _history:"
-msgstr "Geçmiş _boyutu:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "<b>History</b>"
-msgstr "<b>Geçmiş</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "General"
-msgstr "Genel"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable automatic actions"
-msgstr "_Otomatik eylemleri etkinleştir"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Eğer seçilmişse, pano yazıları düzenli ifadelere göre eşleştirilecek ve menüde kullanılabilir işlemler gösterilecektir.\nAksi halde menü sadece \"xfce4-popup-clipman-actions\" çalıştırıldığında (ve bir eşleşme bulunduğunda) görünecektir"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Add action"
-msgstr "Eylem ekle"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Edit action"
-msgstr "Eylem düzenle"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Delete action"
-msgstr "Eylem sil"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Reset all actions to the system default values"
-msgstr "Tüm eylemleri sistem varsayılanlarına döndür"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "Actions"
-msgstr "Eylemler"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Automatically paste a selected item from the history"
-msgstr "Geçmişten bir nesne seçildiğinde otomatik olarak yapıştır"
-
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid "_Paste instantly:"
-msgstr "_Anında yapıştır:"
-
-#: ../panel-plugin/settings-dialog.ui.h:35
-msgid "P_osition menu at mouse pointer"
-msgstr "Menüyü imlece göre konumlandır"
-
-#: ../panel-plugin/settings-dialog.ui.h:36
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Sadece xfce4-popup-clipman komutu için imlecin bulunduğu konumda menüyü aç"
-
-#: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "Geçmiş nesnelerini _yeniden sırala"
-
-#: ../panel-plugin/settings-dialog.ui.h:38
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Son kopyalanan metni geçmişin en üstüne taşı, eski nesneleri yeniden sıralamak için kolaylık sağlar"
-
-#: ../panel-plugin/settings-dialog.ui.h:39
-msgid "Re_verse history order"
-msgstr "Geçmiş sırasını _tersine çevir"
-
-#: ../panel-plugin/settings-dialog.ui.h:40
-msgid "Reverse order of the history shown in the menu"
-msgstr "Menüde gösterilen geçmişi tersine diz"
-
-#: ../panel-plugin/settings-dialog.ui.h:41
-msgid "_Show actions by holding Control"
-msgstr "Control tuşuna basılı tutarak eylemleri _göster"
-
-#: ../panel-plugin/settings-dialog.ui.h:42
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Eğer seçim tamamlanmışsa (fare veya klavye ile) ve Control tuşu hala basılıysa eşleşen eylemler için açılır pencere menüsü gösterilecek"
-
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "S_kip actions by holding Control"
-msgstr "Control tuşuna basılı tutarak eylemleri _atla"
-
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Eğer seçim tamamlanmışsa (fareyle ya da klavyeyle) ve Control tuşu hala basılıysa açılır pencere menüsü eşleşme davranışı atlama olarak yapılacak"
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid "Tweaks"
-msgstr "İnce Ayalar"
-
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Regular expression"
 msgstr "Düzenli ifadeler"
 
-#: ../panel-plugin/main-panel-plugin.c:97
-#: ../panel-plugin/main-status-icon.c:137
+#: ../panel-plugin/main-panel-plugin.c:108
+#: ../panel-plugin/main-status-icon.c:158
 msgid "_Disable"
 msgstr "_Etkisizleştir"
 
@@ -321,31 +334,31 @@ msgstr "Geçmişi temizlemek istediğinizden emin misiniz?"
 msgid "Don't ask again"
 msgstr "Bir daha sorma"
 
-#: ../panel-plugin/menu.c:362
+#: ../panel-plugin/menu.c:372
 msgid "Could not generate QR-Code."
 msgstr "QR-Code oluşturulamadı."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:376
+#: ../panel-plugin/menu.c:386
 msgid "Clipboard is empty"
 msgstr "Pano boş"
 
-#: ../panel-plugin/menu.c:475
+#: ../panel-plugin/menu.c:487
 msgid "_Clear history"
 msgstr "_Geçmişi temizle"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/plugin.c:319
 msgid "Contributors:"
 msgstr "Katkıcılar:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:333
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce için Pano Yöneticisi"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:341
 msgid "translator-credits"
 msgstr "Samed Beyribey\nSerdar Sağlam"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:355
 msgid "Unable to open the settings dialog"
 msgstr "Ayarlar menüsü açılamadı"
