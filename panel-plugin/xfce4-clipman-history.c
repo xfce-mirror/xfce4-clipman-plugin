@@ -276,7 +276,18 @@ main (gint argc, gchar *argv[])
       return FALSE;
     }
 
+  xfconf_init (NULL);
+  plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   plugin->history = clipman_history_get ();
+  xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history",
+                          G_TYPE_UINT, plugin->history, "max-texts-in-history");
+  xfconf_g_property_bind (plugin->channel, "/settings/max-images-in-history",
+                          G_TYPE_UINT, plugin->history, "max-images-in-history");
+  xfconf_g_property_bind (plugin->channel, "/settings/save-on-quit",
+                          G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
+                          G_TYPE_BOOLEAN, plugin->history, "reorder-items");
+
   plugin_load (plugin);
 
   dialog = clipman_history_dialog_init (plugin);
