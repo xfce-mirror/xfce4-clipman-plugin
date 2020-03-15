@@ -46,6 +46,8 @@ static gboolean         cb_button_pressed               (GtkButton *button,
                                                          MyPlugin *plugin);
 static void             cb_menu_deactivate              (GtkMenuShell *menu,
                                                          MyPlugin *plugin);
+static void             cb_inhibit_toggled              (GtkCheckMenuItem *mi,
+                                                         gpointer user_data);
 static void             my_plugin_position_menu         (GtkMenu *menu,
                                                          gint *x,
                                                          gint *y,
@@ -65,6 +67,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GtkWidget *mi = NULL;
   GtkCssProvider *css_provider;
+  GtkStyleContext *context;
 
   /* Menu Position Func */
   plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
@@ -88,13 +91,13 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Sane default Gtk style */
   css_provider = gtk_css_provider_new ();
   gtk_css_provider_load_from_data (css_provider,
-                                   "#xfce4-clipman-plugin {"
-                                   "padding: 1px;"
-                                   "border-width: 1px;}",
+                                   ".inhibited { opacity: 0.5; }",
                                    -1, NULL);
-  gtk_style_context_add_provider (GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (plugin->button))),
-                                  GTK_STYLE_PROVIDER (css_provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
+  context = GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (plugin->image)));
+  gtk_style_context_add_provider (context,
+                                  GTK_STYLE_PROVIDER (css_provider),
+                                  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+  g_object_unref (css_provider);
 
   xfce_panel_plugin_set_small (panel_plugin, TRUE);
 
@@ -108,6 +111,8 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   mi = gtk_check_menu_item_new_with_mnemonic (_("_Disable"));
   gtk_widget_show (mi);
   xfce_panel_plugin_menu_insert_item (panel_plugin, GTK_MENU_ITEM (mi));
+  g_signal_connect (G_OBJECT (mi), "toggled",
+                    G_CALLBACK (cb_inhibit_toggled), plugin->image);
   xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
                           G_TYPE_BOOLEAN, mi, "active");
 
@@ -191,6 +196,23 @@ cb_menu_deactivate (GtkMenuShell *menu,
                     MyPlugin *plugin)
 {
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), FALSE);
+}
+
+static void
+cb_inhibit_toggled (GtkCheckMenuItem *mi,
+                    gpointer user_data)
+{
+  GtkStyleContext *context;
+  GtkWidget *image = GTK_WIDGET (user_data);
+
+  g_return_if_fail (GTK_IS_WIDGET (image));
+
+  context = gtk_widget_get_style_context (GTK_WIDGET (image));
+
+  if (gtk_check_menu_item_get_active (mi))
+    gtk_style_context_add_class (context, "inhibited");
+  else
+    gtk_style_context_remove_class (context, "inhibited");
 }
 
 static void
