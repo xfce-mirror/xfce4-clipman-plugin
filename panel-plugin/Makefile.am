@@ -10,7 +10,7 @@ AM_CPPFLAGS =								\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	$(NULL)
 
-bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings
+bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings xfce4-clipman-history
 
 #
 # Maintainer Mode
@@ -42,6 +42,45 @@ xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
+	$(NULL)
+
+#
+# History Command
+#
+
+xfce4_clipman_history_SOURCES =						\
+	xfce4-clipman-history.c						\
+	actions.c							\
+	common.h							\
+	collector.c							\
+	history.c							\
+	menu.c							\
+	plugin.c							\
+	$(NULL)
+
+xfce4_clipman_history_CFLAGS =                                            \
+	-DGSEAL_ENABLE							\
+	@LIBX11_CFLAGS@							\
+	@LIBXTST_CFLAGS@						\
+	@GIO_CFLAGS@							\
+	@GDKX_CFLAGS@							\
+	@GTK_CFLAGS@							\
+	@LIBXFCE4UTIL_CFLAGS@					\
+	@LIBXFCE4UI_CFLAGS@						\
+	@XFCONF_CFLAGS@							\
+	$(NULL)
+
+xfce4_clipman_history_LDADD =						\
+	$(top_builddir)/x11-clipboard-manager/libdaemon.la		\
+	@LIBX11_LIBS@							\
+	@LIBXTST_LIBS@							\
+	@GIO_LIBS@							\
+	@GDKX_LIBS@							\
+	@GTK_LIBS@							\
+	@LIBXFCE4UTIL_LIBS@						\
+	@LIBXFCE4UI_LIBS@						\
+	@XFCONF_LIBS@							\
+	@QRENCODE_LIBS@							\
 	$(NULL)
 
 #

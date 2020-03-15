@@ -19,10 +19,6 @@
 #ifndef __CLIPMAN_PLUGIN_H__
 #define __CLIPMAN_PLUGIN_H__
 
-#if ! defined (PANEL_PLUGIN) && ! defined (STATUS_ICON)
-#error "None of PANEL_PLUGIN or STATUS_ICON is defined for preprocessing"
-#endif
-
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
 
