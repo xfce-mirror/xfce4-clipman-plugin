@@ -226,51 +226,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
 //      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
 //      g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
-//
-//      if (item == item_to_restore)
-//        {
-//          image = gtk_image_new_from_icon_name ("go-next-symbolic", GTK_ICON_SIZE_MENU);
-//G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-//          gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-//G_GNUC_END_IGNORE_DEPRECATIONS
-//        }
-
-      //menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-//      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
-//      gtk_widget_show_all (mi);
     }
-
-#ifdef HAVE_QRENCODE
-  /* Draw QR Code if clipboard content is text */
-//  if (menu->priv->show_qr_code && item_to_restore && item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT)
-//    {
-//      mi = gtk_separator_menu_item_new ();
-//      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-//      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
-//      gtk_widget_show_all (mi);
-//
-//      if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text)) != NULL)
-//        {
-//G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-//          mi = gtk_image_menu_item_new ();
-//G_GNUC_END_IGNORE_DEPRECATIONS
-//          gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_pixbuf (pixbuf));
-//          g_signal_connect (mi, "activate", G_CALLBACK (cb_set_qrcode), pixbuf);
-//          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-//          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
-//          gtk_widget_show_all (mi);
-//    g_object_unref(pixbuf);
-//        }
-//      else
-//        {
-//          mi = gtk_menu_item_new_with_label (_("Could not generate QR-Code."));
-//          menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-//          gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
-//          gtk_widget_set_sensitive (mi, FALSE);
-//          gtk_widget_show (mi);
-//        }
-//    }
-#endif
 
   g_slist_free (list);
 
