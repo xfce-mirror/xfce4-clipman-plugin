@@ -243,15 +243,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   return box;
 }
 
-static void
-clipman_history_dialog_response (GtkWidget *dialog,
-                                 gint       response_id,
-                                 gpointer   user_data)
-{
-  if (response_id = GTK_RESPONSE_CLOSE)
-    gtk_main_quit ();
-}
-
 GtkWidget *
 clipman_history_dialog_init (MyPlugin *plugin)
 {
@@ -283,6 +274,32 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_widget_show_all (box);
 
   return dialog;
+}
+
+static void
+clipman_history_dialog_finalize (MyPlugin *plugin)
+{
+  plugin_save (plugin);
+  gtk_main_quit ();
+}
+
+static void
+clipman_history_dialog_response (GtkWidget *dialog,
+                                 gint       response_id,
+                                 MyPlugin  *plugin)
+{
+  if (response_id = GTK_RESPONSE_CLOSE)
+    clipman_history_dialog_finalize (plugin);
+}
+
+gboolean
+clipman_history_dialog_delete_event (GtkWidget *widget,
+                                     GdkEvent  *event,
+                                     MyPlugin  *plugin)
+{
+  clipman_history_dialog_finalize (plugin);
+
+  return TRUE;
 }
 
 gint
@@ -330,8 +347,8 @@ main (gint argc, gchar *argv[])
   plugin_load (plugin);
 
   dialog = clipman_history_dialog_init (plugin);
-  g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (gtk_main_quit), NULL);
-  g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), NULL);
+  g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (clipman_history_dialog_delete_event), plugin);
+  g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
   gtk_window_present (GTK_WINDOW (dialog));
   gtk_main ();
 
