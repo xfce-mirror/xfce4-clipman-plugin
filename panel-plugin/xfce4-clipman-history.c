@@ -288,7 +288,7 @@ clipman_history_dialog_response (GtkWidget *dialog,
                                  gint       response_id,
                                  MyPlugin  *plugin)
 {
-  if (response_id = GTK_RESPONSE_CLOSE)
+  if (response_id == GTK_RESPONSE_CLOSE)
     clipman_history_dialog_finalize (plugin);
 }
 
