@@ -197,38 +197,48 @@ clipman_history_treeview_init (MyPlugin *plugin)
   plugin->history = clipman_history_get ();
   list = clipman_history_get_list (plugin->history);
   //list = g_slist_reverse (list);
-
-  for (l = list, i = 0; l != NULL; l = l->next, i++)
+  if (list == NULL)
     {
-      item = l->data;
-
-      switch (item->type)
+      gtk_list_store_insert_with_values (liststore, &iter, 0,
+                                         COLUMN_PREVIEW, _("Clipboard is empty"),
+                                         COLUMN_TEXT, "",
+                                         -1);
+    }
+  else
+    {
+      for (l = list, i = 0; l != NULL; l = l->next, i++)
         {
-        case CLIPMAN_HISTORY_TYPE_TEXT:
-          gtk_list_store_insert_with_values (liststore, &iter, i,
-                                             COLUMN_PREVIEW, item->preview.text,
-                                             COLUMN_TEXT, item->content.text,
-                                             -1);
-          break;
+          item = l->data;
 
-        case CLIPMAN_HISTORY_TYPE_IMAGE:
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-//          mi = gtk_image_menu_item_new ();
-//          image = gtk_image_new_from_pixbuf (item->preview.image);
-//          gtk_container_add (GTK_CONTAINER (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
-          break;
+          switch (item->type)
+            {
+            case CLIPMAN_HISTORY_TYPE_TEXT:
+              gtk_list_store_insert_with_values (liststore, &iter, i,
+                                                 COLUMN_PREVIEW, item->preview.text,
+                                                 COLUMN_TEXT, item->content.text,
+                                                 -1);
+              break;
 
-        default:
-          DBG("Ignoring unknown history type %d", item->type);
-          continue;
+            case CLIPMAN_HISTORY_TYPE_IMAGE:
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    //          mi = gtk_image_menu_item_new ();
+    //          image = gtk_image_new_from_pixbuf (item->preview.image);
+    //          gtk_container_add (GTK_CONTAINER (mi), image);
+    G_GNUC_END_IGNORE_DEPRECATIONS
+              break;
+
+            default:
+              DBG("Ignoring unknown history type %d", item->type);
+              continue;
+            }
+
+    //      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
+    //      g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
         }
 
-//      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-//      g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
+      g_slist_free (list);
     }
 
-  g_slist_free (list);
 
   return box;
 }
