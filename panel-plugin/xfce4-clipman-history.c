@@ -35,6 +35,7 @@
 
 enum
 {
+  COLUMN_PREVIEW,
   COLUMN_TEXT,
   N_COLUMNS
 };
@@ -148,7 +149,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_widget_show (scroll);
 
   /* create the store */
-  liststore = gtk_list_store_new (N_COLUMNS, G_TYPE_STRING);
+  liststore = gtk_list_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING);
 
   /* create treemodel with filter */
   filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (liststore), NULL);
@@ -172,6 +173,17 @@ clipman_history_treeview_init (MyPlugin *plugin)
   column = gtk_tree_view_column_new ();
   gtk_tree_view_column_pack_start (column, renderer, TRUE);
   gtk_tree_view_column_set_attributes (column, renderer,
+                                       "text", COLUMN_PREVIEW,
+                                       NULL);
+  g_object_set (G_OBJECT (renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+
+  /* text renderer */
+  renderer = gtk_cell_renderer_text_new ();
+  column = gtk_tree_view_column_new ();
+  gtk_tree_view_column_set_visible (column, FALSE);
+  gtk_tree_view_column_pack_start (column, renderer, TRUE);
+  gtk_tree_view_column_set_attributes (column, renderer,
                                        "text", COLUMN_TEXT,
                                        NULL);
   g_object_set (G_OBJECT (renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
@@ -188,7 +200,10 @@ clipman_history_treeview_init (MyPlugin *plugin)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
-          gtk_list_store_insert_with_values (liststore, &iter, i, COLUMN_TEXT, item->content.text, -1);
+          gtk_list_store_insert_with_values (liststore, &iter, i,
+                                             COLUMN_PREVIEW, item->preview.text,
+                                             COLUMN_TEXT, item->content.text,
+                                             -1);
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
