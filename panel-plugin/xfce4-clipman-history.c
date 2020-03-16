@@ -47,6 +47,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                                GtkTreeViewColumn *column,
                                gpointer           user_data)
 {
+  GtkWidget *window;
   GtkClipboard *clipboard;
   GtkTreeSelection *selection;
   GtkTreeModel *model;
@@ -71,6 +72,10 @@ clipman_history_row_activated (GtkTreeView       *treeview,
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
   gtk_clipboard_set_text (clipboard, text, -1);
+
+  window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
+  if (GTK_IS_WINDOW (window))
+    gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
 }
 
 static gboolean
@@ -272,18 +277,35 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   return box;
 }
 
+static void
+clipman_history_dialog_response (GtkWidget *dialog,
+                                 gint       response_id,
+                                 gpointer   user_data)
+{
+  if (response_id = GTK_RESPONSE_CLOSE)
+    gtk_main_quit ();
+}
+
 GtkWidget *
 clipman_history_dialog_init (MyPlugin *plugin)
 {
   GtkWidget *dialog;
   GtkWidget *box;
   GtkWidget *label;
+  GtkWidget *icon;
+  GtkWidget *button;
 
   dialog = xfce_titled_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog), _("Clipboard History"));
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-clipman-plugin");
   gtk_window_set_default_size (GTK_WINDOW (dialog), 350, 450);
   gtk_window_set_type_hint (GTK_WINDOW (dialog), GDK_WINDOW_TYPE_HINT_NORMAL);
+
+  xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Close"), GTK_RESPONSE_CLOSE);
+  icon = gtk_image_new_from_icon_name ("window-close-symbolic", GTK_ICON_SIZE_BUTTON);
+  gtk_button_set_image (GTK_BUTTON (button), icon);
+  xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_CLOSE);
 
   box = clipman_history_treeview_init (plugin);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), box);
@@ -338,6 +360,7 @@ main (gint argc, gchar *argv[])
 
   dialog = clipman_history_dialog_init (plugin);
   g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (gtk_main_quit), NULL);
+  g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), NULL);
   gtk_window_present (GTK_WINDOW (dialog));
   gtk_main ();
 
