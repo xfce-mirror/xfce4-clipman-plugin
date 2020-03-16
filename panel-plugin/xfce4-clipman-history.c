@@ -40,6 +40,38 @@ enum
 };
 
 
+static void
+clipman_history_row_activated (GtkTreeView       *treeview,
+                               GtkTreePath       *path,
+                               GtkTreeViewColumn *column,
+                               gpointer           user_data)
+{
+  GtkClipboard *clipboard;
+  GtkTreeSelection *selection;
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+  gboolean ret;
+  gchar *text;
+
+  ret = gtk_tree_model_get_iter (gtk_tree_view_get_model (treeview), &iter, path);
+  if (!ret)
+    return;
+
+  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
+  if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+    return;
+
+  gtk_tree_model_get (model, &iter,
+                      COLUMN_TEXT, &text,
+                      -1);
+
+  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  gtk_clipboard_set_text (clipboard, text, -1);
+
+  clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+  gtk_clipboard_set_text (clipboard, text, -1);
+}
+
 static gboolean
 clipman_history_visible_func (GtkTreeModel *model,
                               GtkTreeIter  *iter,
@@ -128,6 +160,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
+  g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), NULL);
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
 
@@ -148,8 +181,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   list = clipman_history_get_list (plugin->history);
   //list = g_slist_reverse (list);
 
-  if (list != NULL)
-    g_warning ("startin the loop");
   for (l = list, i = 0; l != NULL; l = l->next, i++)
     {
       item = l->data;
@@ -157,7 +188,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
-          gtk_list_store_insert_with_values (liststore, &iter, i, COLUMN_TEXT, item->preview.text, -1);
+          gtk_list_store_insert_with_values (liststore, &iter, i, COLUMN_TEXT, item->content.text, -1);
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
