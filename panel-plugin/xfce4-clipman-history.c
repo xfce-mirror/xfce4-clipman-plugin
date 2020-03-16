@@ -280,7 +280,7 @@ static void
 clipman_history_dialog_finalize (MyPlugin *plugin)
 {
   plugin_save (plugin);
-  gtk_main_quit ();
+  g_application_quit(G_APPLICATION(plugin->app));
 }
 
 static void
@@ -302,6 +302,12 @@ clipman_history_dialog_delete_event (GtkWidget *widget,
   return TRUE;
 }
 
+/* dummy function as we don't want to activate */
+static void
+activate (GApplication *app, gpointer      user_data)
+{
+}
+
 gint
 main (gint argc, gchar *argv[])
 {
@@ -313,8 +319,8 @@ main (gint argc, gchar *argv[])
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-  app = gtk_application_new ("org.xfce.clipman.history", 0);
-  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), dialog);
+  app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
   g_application_run (G_APPLICATION (app), argc, argv);
 
   g_application_register (G_APPLICATION (app), NULL, &error);
@@ -332,6 +338,7 @@ main (gint argc, gchar *argv[])
       return FALSE;
     }
 
+  plugin->app = app;
   xfconf_init (NULL);
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   plugin->history = clipman_history_get ();
@@ -344,13 +351,17 @@ main (gint argc, gchar *argv[])
   xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
                           G_TYPE_BOOLEAN, plugin->history, "reorder-items");
 
+  plugin->menu = clipman_menu_new ();
+  xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
+                          G_TYPE_UINT, plugin->menu, "paste-on-activate");
+
   plugin_load (plugin);
 
   dialog = clipman_history_dialog_init (plugin);
   g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (clipman_history_dialog_delete_event), plugin);
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
   gtk_window_present (GTK_WINDOW (dialog));
-  gtk_main ();
+  gtk_dialog_run(GTK_DIALOG(dialog));
 
   return FALSE;
 }
