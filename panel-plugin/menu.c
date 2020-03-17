@@ -164,60 +164,68 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       return;
     }
 
-  {
-    int dummyi;
-    KeySym key_sym;
-    KeyCode key_code;
+  cb_paste_on_activate (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")));
+}
 
-    Display *display = XOpenDisplay (NULL);
-    if (display == NULL)
-      {
-        return;
-      }
-    else if (!XQueryExtension (display, "XTEST", &dummyi, &dummyi, &dummyi))
-      {
-        XCloseDisplay (display);
-        return;
-      }
+void
+cb_paste_on_activate (guint paste_on_activate)
+{
+  int dummyi;
+  KeySym key_sym;
+  KeyCode key_code;
 
-    switch (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")))
-      {
-      case PASTE_INACTIVE:
-        break;
+  g_warning ("paste on activate...");
 
-      case PASTE_CTRL_V:
-        key_sym = XK_Control_L;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-        key_sym = XK_v;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-        key_sym = XK_v;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-        key_sym = XK_Control_L;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-        break;
+  Display *display = XOpenDisplay (NULL);
+  if (display == NULL)
+    {
+      return;
+    }
+  else if (!XQueryExtension (display, "XTEST", &dummyi, &dummyi, &dummyi))
+    {
+      XCloseDisplay (display);
+      return;
+    }
+  g_warning ("moving on... %d", paste_on_activate);
 
-      case PASTE_SHIFT_INS:
-        key_sym = XK_Shift_L;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-        key_sym = XK_Insert;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-        key_sym = XK_Insert;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-        key_sym = XK_Shift_L;
-        key_code = XKeysymToKeycode (display, key_sym);
-        XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-        break;
-      }
+  switch (paste_on_activate)
+    {
+    case PASTE_INACTIVE:
+      break;
 
-    XCloseDisplay (display);
-  }
+    case PASTE_CTRL_V:
+      g_warning ("ctrl + v");
+      key_sym = XK_Control_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_v;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_v;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      key_sym = XK_Control_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      break;
+
+    case PASTE_SHIFT_INS:
+      key_sym = XK_Shift_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_Insert;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_Insert;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      key_sym = XK_Shift_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      break;
+    }
+
+  XCloseDisplay (display);
 }
 
 static void

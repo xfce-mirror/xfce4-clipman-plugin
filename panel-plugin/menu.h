@@ -53,5 +53,6 @@ GType                   clipman_menu_get_type           ();
 
 GtkWidget *             clipman_menu_new                ();
 
-#endif /* !__CLIPMAN_MENU_H__ */
+void                    cb_paste_on_activate            (guint paste_on_activate);
 
+#endif /* !__CLIPMAN_MENU_H__ */

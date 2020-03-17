@@ -29,6 +29,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <x11-clipboard-manager/daemon.h>
 
+#include <menu.h>
 #include <plugin.h>
 #include <history.h>
 
@@ -45,7 +46,7 @@ static void
 clipman_history_row_activated (GtkTreeView       *treeview,
                                GtkTreePath       *path,
                                GtkTreeViewColumn *column,
-                               gpointer           user_data)
+                               MyPlugin          *plugin)
 {
   GtkWidget *window;
   GtkClipboard *clipboard;
@@ -54,6 +55,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   GtkTreeIter iter;
   gboolean ret;
   gchar *text;
+  guint paste_on_activate;
 
   ret = gtk_tree_model_get_iter (gtk_tree_view_get_model (treeview), &iter, path);
   if (!ret)
@@ -74,6 +76,17 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   gtk_clipboard_set_text (clipboard, text, -1);
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
+
+  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+  if (paste_on_activate > 0)
+    {
+      g_warning ("close the window and paste.,..");
+      gtk_window_iconify (GTK_WINDOW (window));
+      g_usleep (100000);
+      cb_paste_on_activate (paste_on_activate);
+      //gtk_window_deiconify (GTK_WINDOW (window));
+    }
+
   if (GTK_IS_WINDOW (window))
     gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
 }
@@ -166,7 +179,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
-  g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), NULL);
+  g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
 
