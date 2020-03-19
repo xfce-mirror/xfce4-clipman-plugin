@@ -77,15 +77,15 @@ clipman_history_row_activated (GtkTreeView       *treeview,
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
 
-  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-  if (paste_on_activate > 0)
-    {
-      g_warning ("close the window and paste.,..");
-      gtk_window_iconify (GTK_WINDOW (window));
-      g_usleep (100000);
-      cb_paste_on_activate (paste_on_activate);
-      //gtk_window_deiconify (GTK_WINDOW (window));
-    }
+//  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+//  if (paste_on_activate > 0)
+//    {
+//      g_warning ("close the window and paste.,..");
+//      gtk_window_iconify (GTK_WINDOW (window));
+//      g_usleep (1000000);
+//      cb_paste_on_activate (paste_on_activate);
+//      //gtk_window_deiconify (GTK_WINDOW (window));
+//    }
 
   if (GTK_IS_WINDOW (window))
     gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
@@ -290,8 +290,23 @@ clipman_history_dialog_init (MyPlugin *plugin)
 }
 
 static void
-clipman_history_dialog_finalize (MyPlugin *plugin)
+clipman_history_dialog_finalize (MyPlugin  *plugin,
+                                 GtkWidget *window)
 {
+  guint paste_on_activate = 1;
+
+  //g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+  if (paste_on_activate > 0)
+    {
+      g_warning ("close the window and paste... %d", paste_on_activate);
+      if (GTK_IS_WIDGET (window))
+        gtk_widget_hide (window);
+      while (gtk_widget_get_visible (window))
+        g_usleep (1000000);
+      cb_paste_on_activate (paste_on_activate);
+      //gtk_window_deiconify (GTK_WINDOW (window));
+    }
+
   plugin_save (plugin);
   g_application_quit(G_APPLICATION(plugin->app));
 }
@@ -302,7 +317,7 @@ clipman_history_dialog_response (GtkWidget *dialog,
                                  MyPlugin  *plugin)
 {
   if (response_id == GTK_RESPONSE_CLOSE)
-    clipman_history_dialog_finalize (plugin);
+    clipman_history_dialog_finalize (plugin, dialog);
 }
 
 gboolean
@@ -310,7 +325,7 @@ clipman_history_dialog_delete_event (GtkWidget *widget,
                                      GdkEvent  *event,
                                      MyPlugin  *plugin)
 {
-  clipman_history_dialog_finalize (plugin);
+  clipman_history_dialog_finalize (plugin, widget);
 
   return TRUE;
 }
