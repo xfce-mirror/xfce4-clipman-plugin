@@ -408,14 +408,12 @@ main (gint argc, gchar *argv[])
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
 
-
   plugin_load (plugin);
 
   dialog = clipman_history_dialog_init (plugin);
   g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (clipman_history_dialog_delete_event), plugin);
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
-  gtk_window_present (GTK_WINDOW (dialog));
-  gtk_dialog_run(GTK_DIALOG(dialog));
+  gtk_dialog_run (GTK_DIALOG (dialog));
 
   return FALSE;
 }
