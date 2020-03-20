@@ -69,6 +69,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                       COLUMN_TEXT, &text,
                       -1);
 
+  g_warning ("clipbaord text %s", text);
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, text, -1);
 
@@ -80,11 +81,25 @@ clipman_history_row_activated (GtkTreeView       *treeview,
 //  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
 //  if (paste_on_activate > 0)
 //    {
-//      g_warning ("close the window and paste.,..");
-//      gtk_window_iconify (GTK_WINDOW (window));
+//      g_warning ("close the window and paste... %s", text);
+//      if (GTK_IS_WIDGET (window))
+//        gtk_widget_hide (window);
+//
+//      if (gtk_widget_has_grab (window))
+//        g_warning ("crap, still the has focus");
+//      else
+//        g_warning ("nope, no grab");
+
+      //gtk_widget_grab_focus (plugin->entry);
 //      g_usleep (1000000);
-//      cb_paste_on_activate (paste_on_activate);
-//      //gtk_window_deiconify (GTK_WINDOW (window));
+//      while (gtk_widget_get_visible (window))
+//      {
+//        g_warning ("waiting for the window to go away");
+//        g_usleep (1000000);
+//      }
+      g_warning ("paste on activate!");
+      //cb_paste_on_activate (paste_on_activate);
+      //gtk_window_deiconify (GTK_WINDOW (window));
 //    }
 
   if (GTK_IS_WINDOW (window))
@@ -292,20 +307,20 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
 {
   guint paste_on_activate = 1;
 
-  //g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-  if (paste_on_activate > 0)
-    {
-      g_warning ("close the window and paste... %d", paste_on_activate);
-      if (GTK_IS_WIDGET (window))
-        gtk_widget_hide (window);
-      while (gtk_widget_get_visible (window))
-        g_usleep (1000000);
-      cb_paste_on_activate (paste_on_activate);
-      //gtk_window_deiconify (GTK_WINDOW (window));
-    }
+//  //g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+//  if (paste_on_activate > 0)
+//    {
+//      g_warning ("close the window and paste... %d", paste_on_activate);
+//      if (GTK_IS_WIDGET (window))
+//        gtk_widget_hide (window);
+//      while (gtk_widget_get_visible (window))
+//        g_usleep (1000000);
+//      cb_paste_on_activate (paste_on_activate);
+//      //gtk_window_deiconify (GTK_WINDOW (window));
+//    }
 
   plugin_save (plugin);
-  g_application_quit(G_APPLICATION(plugin->app));
+  g_application_quit (G_APPLICATION (plugin->app));
 }
 
 static void
