@@ -150,11 +150,14 @@ clipman_history_treeview_init (MyPlugin *plugin)
   GtkWidget *entry, *scroll, *treeview, *label, *box;
   gboolean reverse_order = FALSE;
 
-  box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+  box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+  gtk_widget_set_margin_start (box, 6);
+  gtk_widget_set_margin_end (box, 6);
+  gtk_widget_set_margin_top (box, 6);
 
   /* create the search entry */
   entry = gtk_entry_new ();
-  gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 6);
+  gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (entry, _("Enter search phrase here"));
   gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_PRIMARY, "edit-find");
   gtk_widget_show (entry);
@@ -163,7 +166,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   scroll = gtk_scrolled_window_new (NULL, NULL);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_widget_set_vexpand (scroll, TRUE);
-  gtk_box_pack_start (GTK_BOX (box), scroll, TRUE, TRUE, 6);
+  gtk_box_pack_start (GTK_BOX (box), scroll, TRUE, TRUE, 0);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll), GTK_SHADOW_IN);
   gtk_widget_show (scroll);
 
