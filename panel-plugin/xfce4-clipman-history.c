@@ -250,6 +250,30 @@ clipman_history_treeview_init (MyPlugin *plugin)
 }
 
 static void
+clipman_history_settings_cb (void)
+{
+  GAppInfo *appinfo;
+  GError *error = NULL;
+
+  appinfo = g_app_info_create_from_commandline ("xfce4-clipman-settings", "Clipman Settings", G_APP_INFO_CREATE_NONE, &error);
+  if (error != NULL)
+    {
+      g_warning ("xfce4-clipman-settings could not be found. %s", error->message);
+      g_error_free (error);
+      return;
+    }
+
+  if (!g_app_info_launch (appinfo, NULL, NULL, &error))
+    {
+      if (error != NULL)
+        {
+          g_warning ("xfce4-clipman-settings could not be launched. %s", error->message);
+          g_error_free (error);
+        }
+    }
+}
+
+static void
 clipman_history_dialog_finalize (MyPlugin  *plugin,
                                  GtkWidget *window)
 {
@@ -278,7 +302,9 @@ clipman_history_dialog_response (GtkWidget *dialog,
                                  MyPlugin  *plugin)
 {
   if (response_id == GTK_RESPONSE_HELP)
-        xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
+    xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
+  else if (response_id == GTK_RESPONSE_OK)
+    clipman_history_settings_cb ();
   else
     clipman_history_dialog_finalize (plugin, dialog);
 }
@@ -310,6 +336,22 @@ clipman_history_dialog_init (MyPlugin *plugin)
 
 #if LIBXFCE4UI_CHECK_VERSION (4,15,0)
   xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
+#else
+  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
+#endif
+  icon = gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON);
+  gtk_button_set_image (GTK_BUTTON (button), icon);
+
+#if LIBXFCE4UI_CHECK_VERSION (4,15,0)
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Settings"), GTK_RESPONSE_OK);
+#else
+  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Settings"), GTK_RESPONSE_OK);
+#endif
+  icon = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
+  gtk_button_set_image (GTK_BUTTON (button), icon);
+
+#if LIBXFCE4UI_CHECK_VERSION (4,15,0)
   button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Close"), GTK_RESPONSE_CLOSE);
   xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_CLOSE);
 #else
@@ -317,14 +359,6 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_CLOSE);
 #endif
   icon = gtk_image_new_from_icon_name ("window-close-symbolic", GTK_ICON_SIZE_BUTTON);
-  gtk_button_set_image (GTK_BUTTON (button), icon);
-
-#if LIBXFCE4UI_CHECK_VERSION (4,15,0)
-  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
-#else
-  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
-#endif
-  icon = gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
   box = clipman_history_treeview_init (plugin);
