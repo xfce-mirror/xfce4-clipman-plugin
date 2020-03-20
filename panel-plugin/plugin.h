@@ -55,6 +55,7 @@ struct _MyPlugin
   GtkWidget            *popup_menu;
   gulong                popup_menu_id;
   GtkApplication       *app;
+  GtkWidget            *dialog;
 };
 
 /*
