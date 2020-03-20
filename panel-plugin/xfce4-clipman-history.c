@@ -240,21 +240,10 @@ clipman_history_treeview_init (MyPlugin *plugin)
                                                  -1);
               break;
 
-            case CLIPMAN_HISTORY_TYPE_IMAGE:
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-    //          mi = gtk_image_menu_item_new ();
-    //          image = gtk_image_new_from_pixbuf (item->preview.image);
-    //          gtk_container_add (GTK_CONTAINER (mi), image);
-    G_GNUC_END_IGNORE_DEPRECATIONS
-              break;
-
             default:
-              DBG("Ignoring unknown history type %d", item->type);
+              DBG("Ignoring non-text history type %d", item->type);
               continue;
             }
-
-    //      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-    //      g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
         }
 
       g_slist_free (list);
