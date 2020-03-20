@@ -329,8 +329,28 @@ clipman_history_dialog_delete_event (GtkWidget *widget,
 
 /* dummy function as we don't want to activate */
 static void
-activate (GApplication *app, gpointer      user_data)
+clipman_history_activate (GApplication *app,
+                          MyPlugin     *plugin)
 {
+}
+
+static gboolean
+clipman_history_clipman_daemon_running (void)
+{
+  GtkApplication *app;
+  GError *error = NULL;
+
+  app = gtk_application_new ("org.xfce.clipman", 0);
+
+  g_application_register (G_APPLICATION (app), NULL, &error);
+  if (error != NULL)
+    {
+      g_warning ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      error = NULL;
+    }
+
+  return g_application_get_is_remote (G_APPLICATION (app));
 }
 
 gint
@@ -341,11 +361,17 @@ main (gint argc, gchar *argv[])
   GtkWidget *dialog;
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
 
+  if (!clipman_history_clipman_daemon_running ())
+    {
+      g_warning ("The clipboard daemon is not running, exiting. You can launch it with 'xfce4-clipman'.");
+      return FALSE;
+    }
+
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_FLAGS_NONE);
-  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+  g_signal_connect (app, "activate", G_CALLBACK (clipman_history_activate), plugin);
   g_application_run (G_APPLICATION (app), argc, argv);
 
   g_application_register (G_APPLICATION (app), NULL, &error);
