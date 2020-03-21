@@ -277,14 +277,9 @@ static void
 clipman_history_dialog_finalize (MyPlugin  *plugin,
                                  GtkWidget *window)
 {
-//  guint paste_on_activate;
-//
-//  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-//  if (paste_on_activate > 0)
-//    {
-//      gtk_widget_hide (window);
-//      cb_paste_on_activate (paste_on_activate);
-//    }
+  guint paste_on_activate;
+
+  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
 
   plugin_save (plugin);
 
@@ -292,6 +287,12 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
   g_object_unref (plugin->channel);
   g_object_unref (plugin->history);
   gtk_widget_destroy (plugin->dialog);
+
+  if (paste_on_activate > 0)
+  {
+    cb_paste_on_activate (paste_on_activate);
+  }
+
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
 }
