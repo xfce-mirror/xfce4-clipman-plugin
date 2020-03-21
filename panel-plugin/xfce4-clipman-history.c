@@ -320,16 +320,6 @@ clipman_history_dialog_response (GtkWidget *dialog,
     clipman_history_dialog_finalize (plugin, dialog);
 }
 
-gboolean
-clipman_history_dialog_delete_event (GtkWidget *widget,
-                                     GdkEvent  *event,
-                                     MyPlugin  *plugin)
-{
-  clipman_history_dialog_finalize (plugin, widget);
-
-  return TRUE;
-}
-
 GtkWidget *
 clipman_history_dialog_init (MyPlugin *plugin)
 {
@@ -376,7 +366,6 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), box);
   gtk_widget_show_all (box);
 
-  g_signal_connect (G_OBJECT (dialog), "delete-event", G_CALLBACK (clipman_history_dialog_delete_event), plugin);
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
 
   return dialog;
