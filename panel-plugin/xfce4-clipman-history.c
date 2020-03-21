@@ -273,6 +273,16 @@ clipman_history_settings_cb (void)
     }
 }
 
+static gboolean
+clipman_history_paste_on_activate (gpointer user_data)
+{
+  guint paste_on_activate = GPOINTER_TO_UINT (user_data);
+
+  cb_paste_on_activate (paste_on_activate);
+
+  return FALSE;
+}
+
 static void
 clipman_history_dialog_finalize (MyPlugin  *plugin,
                                  GtkWidget *window)
@@ -289,9 +299,9 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
   gtk_widget_destroy (plugin->dialog);
 
   if (paste_on_activate > 0)
-  {
-    cb_paste_on_activate (paste_on_activate);
-  }
+    {
+      g_timeout_add (10, G_SOURCE_FUNC (clipman_history_paste_on_activate), GUINT_TO_POINTER (paste_on_activate));
+    }
 
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
