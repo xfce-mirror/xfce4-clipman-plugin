@@ -142,7 +142,8 @@ clipman_history_treeview_init (MyPlugin *plugin)
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
   GtkListStore *liststore;
-  GtkTreeIter  iter;
+  GtkTreeIter iter;
+  GtkTreePath *path;
   GtkWidget *entry, *scroll, *treeview, *box;
   gboolean reverse_order = FALSE;
 
@@ -245,6 +246,9 @@ clipman_history_treeview_init (MyPlugin *plugin)
       g_slist_free (list);
     }
 
+  path = gtk_tree_path_new_from_indices (0, -1);
+  gtk_tree_selection_select_path (gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview)), path);
+  gtk_tree_path_free (path);
 
   return box;
 }
