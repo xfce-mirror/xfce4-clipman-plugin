@@ -349,6 +349,8 @@ clipman_history_dialog_init (MyPlugin *plugin)
   GtkWidget *box;
   GtkWidget *button;
   GtkWidget *icon;
+  const gchar *button_text;
+  guint paste_on_activate;
 
   dialog = xfce_titled_dialog_new ();
   gtk_window_set_application (GTK_WINDOW (dialog), GTK_APPLICATION (plugin->app));
@@ -374,14 +376,24 @@ clipman_history_dialog_init (MyPlugin *plugin)
   icon = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
+  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+  if (paste_on_activate > 0)
+    {
+      icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
+      button_text = g_strdup_printf (_("_Paste"));
+    }
+  else
+    {
+      icon = gtk_image_new_from_icon_name ("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
+      button_text = g_strdup_printf (_("_Copy"));
+    }
 #if LIBXFCE4UI_CHECK_VERSION (4,15,0)
-  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Close"), GTK_RESPONSE_CLOSE);
-  xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_CLOSE);
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), button_text, GTK_RESPONSE_APPLY);
+  xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #else
-  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Close"), GTK_RESPONSE_CLOSE);
-  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_CLOSE);
+  button = gtk_dialog_add_button (GTK_DIALOG (dialog), button_text, GTK_RESPONSE_APPLY);
+  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #endif
-  icon = gtk_image_new_from_icon_name ("window-close-symbolic", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
   box = clipman_history_treeview_init (plugin);
