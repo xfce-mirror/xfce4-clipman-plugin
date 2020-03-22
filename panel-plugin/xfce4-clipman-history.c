@@ -44,9 +44,6 @@ enum
 
 GtkWidget *clipman_history_dialog_init           (MyPlugin  *plugin);
 GtkWidget *clipman_history_treeview_init         (MyPlugin  *plugin);
-gboolean   clipman_history_dialog_delete_event   (GtkWidget *widget,
-                                                  GdkEvent  *event,
-                                                  MyPlugin  *plugin);
 
 
 static void
