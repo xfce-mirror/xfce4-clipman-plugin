@@ -149,6 +149,26 @@ clipman_history_visible_func (GtkTreeModel *model,
   return visible;
 }
 
+static void
+clipman_history_treeview_filter_and_select (MyPlugin *plugin)
+{
+  GtkTreePath *path;
+  GtkTreeSelection *selection;
+  GtkTreeModel *model;
+
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (plugin->treeview));
+  gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (model));
+
+  path = gtk_tree_path_new_from_indices (0, -1);
+  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (plugin->treeview));
+  gtk_tree_selection_select_path (selection, path);
+
+  if (gtk_tree_selection_path_is_selected (selection, path))
+    gtk_tree_view_scroll_to_cell (GTK_TREE_VIEW (plugin->treeview), path, NULL, FALSE, 0.0, 0.0);
+
+  gtk_tree_path_free (path);
+}
+
 GtkWidget *
 clipman_history_treeview_init (MyPlugin *plugin)
 {
@@ -190,7 +210,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   /* create treemodel with filter */
   filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (liststore), NULL);
   gtk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (filter), clipman_history_visible_func, entry, NULL);
-  g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (gtk_tree_model_filter_refilter), filter);
+  g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
   g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
   /* create the treeview */
