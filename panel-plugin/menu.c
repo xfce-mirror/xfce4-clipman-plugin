@@ -174,8 +174,6 @@ cb_paste_on_activate (guint paste_on_activate)
   KeySym key_sym;
   KeyCode key_code;
 
-  g_warning ("paste on activate...");
-
   Display *display = XOpenDisplay (NULL);
   if (display == NULL)
     {
@@ -186,7 +184,6 @@ cb_paste_on_activate (guint paste_on_activate)
       XCloseDisplay (display);
       return;
     }
-  g_warning ("moving on... %d", paste_on_activate);
 
   switch (paste_on_activate)
     {
@@ -194,7 +191,6 @@ cb_paste_on_activate (guint paste_on_activate)
       break;
 
     case PASTE_CTRL_V:
-      g_warning ("ctrl + v");
       key_sym = XK_Control_L;
       key_code = XKeysymToKeycode (display, key_sym);
       XTestFakeKeyEvent (display, key_code, True, CurrentTime);
