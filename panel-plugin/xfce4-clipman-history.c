@@ -322,7 +322,7 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
 
   if (paste_on_activate > 0)
     {
-      g_timeout_add (10, G_SOURCE_FUNC (clipman_history_paste_on_activate), GUINT_TO_POINTER (paste_on_activate));
+      g_timeout_add (10, (GSourceFunc) clipman_history_paste_on_activate, GUINT_TO_POINTER (paste_on_activate));
     }
 
   g_slice_free (MyPlugin, plugin);
