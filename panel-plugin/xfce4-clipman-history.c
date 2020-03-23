@@ -120,9 +120,8 @@ clipman_history_visible_func (GtkTreeModel *model,
 
   /* search string from dialog */
   text = gtk_entry_get_text (entry);
-  // FIXME:
-  //if (G_UNLIKELY (panel_str_is_empty (text)))
-  //    return TRUE;
+  if (text == NULL || text[0] == '\0')
+    return TRUE;
 
   gtk_tree_model_get (model, iter, COLUMN_TEXT, &name, -1);
 
