@@ -29,6 +29,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <x11-clipboard-manager/daemon.h>
 
+#include <collector.h>
 #include <menu.h>
 #include <plugin.h>
 #include <history.h>
@@ -52,6 +53,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                                GtkTreeViewColumn *column,
                                MyPlugin          *plugin)
 {
+  gboolean add_primary_clipboard;
   GtkWidget *window;
   GtkClipboard *clipboard;
   GtkTreeSelection *selection;
@@ -75,8 +77,12 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, text, -1);
 
-  clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-  gtk_clipboard_set_text (clipboard, text, -1);
+  g_object_get (G_OBJECT (plugin->collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
+  if (add_primary_clipboard)
+    {
+      clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+      gtk_clipboard_set_text (clipboard, text, -1);
+    }
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
 
@@ -442,6 +448,10 @@ clipman_history_activate (GtkApplication *app,
                           G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
   xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
                           G_TYPE_BOOLEAN, plugin->history, "reorder-items");
+
+  plugin->collector = clipman_collector_get ();
+  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
+                          G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
 
   plugin->menu = clipman_menu_new ();
   xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",

@@ -133,6 +133,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
   ClipmanHistory *history;
+  gboolean add_primary_clipboard;
 
   switch (item->type)
     {
@@ -140,8 +141,15 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
       gtk_clipboard_set_text (clipboard, item->content.text, -1);
 
-      clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-      gtk_clipboard_set_text (clipboard, item->content.text, -1);
+      collector = clipman_collector_get ();
+      g_object_get (G_OBJECT (collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
+      if (add_primary_clipboard)
+        {
+          g_warning ("sync primary clipboard");
+          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+          gtk_clipboard_set_text (clipboard, item->content.text, -1);
+        }
+      g_object_unref (collector);
       break;
 
     case CLIPMAN_HISTORY_TYPE_IMAGE:
