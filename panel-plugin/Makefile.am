@@ -28,6 +28,7 @@ endif
 
 xfce4_popup_clipman_SOURCES =						\
 	xfce4-popup-clipman.c						\
+	common.c							\
 	common.h							\
 	$(NULL)
 
@@ -36,12 +37,14 @@ xfce4_popup_clipman_CFLAGS =                                            \
 	@LIBX11_CFLAGS@							\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
+	@LIBXFCE4UI_CFLAGS@						\
 	$(NULL)
 
 xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
+	@LIBXFCE4UI_LIBS@						\
 	$(NULL)
 
 #
@@ -51,6 +54,7 @@ xfce4_popup_clipman_LDADD =						\
 xfce4_clipman_history_SOURCES =						\
 	xfce4-clipman-history.c						\
 	actions.c							\
+	common.c							\
 	common.h							\
 	collector.c							\
 	history.c							\
@@ -117,7 +121,7 @@ xfce4_clipman_settings_LDADD =						\
 
 xfce4_clipman_SOURCES =							\
 	main-status-icon.c						\
-	common.h							\
+	common.c			common.h			\
 	plugin.c			plugin.h			\
 	actions.c			actions.h			\
 	collector.c			collector.h			\
@@ -160,7 +164,7 @@ plugin_LTLIBRARIES = libclipman.la
 
 libclipman_la_SOURCES =							\
 	main-panel-plugin.c						\
-	common.h							\
+	common.c			common.h			\
 	plugin.c			plugin.h			\
 	actions.c			actions.h			\
 	collector.c			collector.h			\

@@ -28,6 +28,7 @@
 
 #include <x11-clipboard-manager/daemon.h>
 #include "actions.h"
+#include "common.h"
 #include "collector.h"
 #include "history.h"
 
@@ -63,7 +64,6 @@ struct _MyPlugin
  * Plugin functions
  */
 
-void                    plugin_daemon_show_info_dialog  (void);
 MyPlugin*               plugin_register                 ();
 void                    plugin_load                     (MyPlugin *plugin);
 void                    plugin_save                     (MyPlugin *plugin);

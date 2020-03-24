@@ -55,3 +55,6 @@
 
 #define ACTION_GROUP_SELECTION  0
 #define ACTION_GROUP_MANUAL     1
+
+void                    clipman_common_show_info_dialog    (void);
+void                    clipman_common_show_warning_dialog (void);

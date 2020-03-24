@@ -55,14 +55,6 @@ clipboard_manager_ownership_exists (void)
   return XGetSelectionOwner (display, atom);
 }
 
-void
-plugin_daemon_show_info_dialog (void)
-{
-  xfce_dialog_show_info (NULL,
-                         _("Could not start the Clipboard Manager Daemon because it is already running."),
-                         _("The Xfce Clipboard Manager is already running."));
-}
-
 /*
  * Plugin functions
  */
@@ -95,7 +87,7 @@ plugin_register (void)
   if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
     {
       g_message ("Primary instance org.xfce.clipman already running");
-      plugin_daemon_show_info_dialog ();
+      clipman_common_show_info_dialog ();
       g_object_unref (plugin->app);
       return FALSE;
     }

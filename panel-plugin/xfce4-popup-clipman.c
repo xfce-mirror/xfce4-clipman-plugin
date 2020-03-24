@@ -25,6 +25,8 @@
 
 #include <gtk/gtk.h>
 
+#include <common.h>
+
 
 /* Initial code was taken from xfwm4/src/menu.c:grab_available().
  * TODO replace deprecated GTK/GDK functions.
@@ -92,6 +94,7 @@ main (gint argc, gchar *argv[])
   else
     {
       g_warning ("Unable to find the primary instance org.xfce.clipman");
+      clipman_common_show_warning_dialog ();
     }
 
   return FALSE;
