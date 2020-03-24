@@ -54,6 +54,7 @@ struct _ClipmanMenuPrivate
   gboolean              show_qr_code;
 #endif
   guint                 paste_on_activate;
+  guint                 max_menu_items;
   gboolean              never_confirm_history_clear;
 };
 
@@ -65,6 +66,7 @@ enum
 #endif
   PASTE_ON_ACTIVATE,
   NEVER_CONFIRM_HISTORY_CLEAR,
+  MAX_MENU_ITEMS,
 };
 
 static void             clipman_menu_finalize           (GObject *object);
@@ -303,6 +305,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   const ClipmanHistoryItem *item_to_restore;
   GSList *list, *l;
   gint pos = 0;
+  gint i = 0;
 
   /* Get the most recent item in the history */
   item_to_restore = clipman_history_get_item_to_restore (menu->priv->history);
@@ -317,8 +320,10 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   list = clipman_history_get_list (menu->priv->history);
   if (menu->priv->reverse_order)
     list = g_slist_reverse (list);
-  for (l = list; l != NULL; l = l->next)
+  for (i = 0, l = list; i < menu->priv->max_menu_items; i++, l = l->next)
     {
+      if (l == NULL)
+        break;
       item = l->data;
 
       switch (item->type)
@@ -475,6 +480,13 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "Set to FALSE to clear the history list with confirmation",
                                                          FALSE,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
+  g_object_class_install_property (object_class, MAX_MENU_ITEMS,
+                                   g_param_spec_uint ("max-menu-items",
+                                                      "MaxMenuItems",
+                                                      "Maximum amount of items displayed in the plugin's menu",
+                                                      1, 100, 15,
+                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
 static void
@@ -542,6 +554,10 @@ clipman_menu_set_property (GObject *object,
       priv->never_confirm_history_clear = g_value_get_boolean (value);
       break;
 
+    case MAX_MENU_ITEMS:
+      priv->max_menu_items = g_value_get_uint (value);
+      break;
+
     default:
       break;
     }
@@ -567,6 +583,10 @@ clipman_menu_get_property (GObject *object,
 
     case NEVER_CONFIRM_HISTORY_CLEAR:
       g_value_set_boolean (value, priv->never_confirm_history_clear);
+      break;
+
+    case MAX_MENU_ITEMS:
+      g_value_set_uint (value, priv->max_menu_items);
       break;
 
     default:
