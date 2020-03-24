@@ -183,9 +183,16 @@ cb_button_pressed (GtkButton *button,
                    GdkEventButton *event,
                    MyPlugin *plugin)
 {
-  if (event->button != 1 && !(event->state & GDK_CONTROL_MASK))
+  gboolean inhibit;
+
+  if (event->button != 1 && event->button != 2 && !(event->state & GDK_CONTROL_MASK))
     return FALSE;
-  if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
+  else if (event->button == 2)
+    {
+      inhibit = xfconf_channel_get_bool (plugin->channel, "/tweaks/inhibit", FALSE);
+      xfconf_channel_set_bool (plugin->channel, "/tweaks/inhibit", !inhibit);
+    }
+  else if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
     plugin_popup_menu (plugin);
 
   return TRUE;
