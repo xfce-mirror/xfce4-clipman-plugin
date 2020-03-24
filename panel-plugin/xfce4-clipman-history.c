@@ -296,30 +296,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   return box;
 }
 
-static void
-clipman_history_settings_cb (void)
-{
-  GAppInfo *appinfo;
-  GError *error = NULL;
-
-  appinfo = g_app_info_create_from_commandline ("xfce4-clipman-settings", "Clipman Settings", G_APP_INFO_CREATE_NONE, &error);
-  if (error != NULL)
-    {
-      g_warning ("xfce4-clipman-settings could not be found. %s", error->message);
-      g_error_free (error);
-      return;
-    }
-
-  if (!g_app_info_launch (appinfo, NULL, NULL, &error))
-    {
-      if (error != NULL)
-        {
-          g_warning ("xfce4-clipman-settings could not be launched. %s", error->message);
-          g_error_free (error);
-        }
-    }
-}
-
 static gboolean
 clipman_history_paste_on_activate (gpointer user_data)
 {
@@ -362,7 +338,7 @@ clipman_history_dialog_response (GtkWidget *dialog,
   if (response_id == GTK_RESPONSE_HELP)
     xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
   else if (response_id == GTK_RESPONSE_OK)
-    clipman_history_settings_cb ();
+    plugin_configure (plugin);
   else
     clipman_history_dialog_finalize (plugin, dialog);
 }
