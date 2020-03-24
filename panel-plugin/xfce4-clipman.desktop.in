@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-_Name=Clipman
-_Comment=Clipboard manager
+_Name=Clipboard Manager
+_Comment=Clipboard Manager Autostart File
 TryExec=xfce4-clipman
 Exec=xfce4-clipman
 Icon=xfce4-clipman-plugin
