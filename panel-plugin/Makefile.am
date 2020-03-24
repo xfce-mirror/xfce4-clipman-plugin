@@ -223,7 +223,7 @@ plugins_DATA = $(plugins_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appsdir = $(datadir)/applications
-apps_in_files = xfce4-clipman.desktop.in
+apps_in_files = xfce4-clipman.desktop.in xfce4-clipman-settings.desktop.in
 apps_DATA = $(apps_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
@@ -262,4 +262,3 @@ DISTCLEANFILES =							\
 install-exec-hook:
 	cd $(DESTDIR)$(exec_prefix)/bin && \
 	$(LN_S) -f xfce4-popup-clipman xfce4-popup-clipman-actions
-

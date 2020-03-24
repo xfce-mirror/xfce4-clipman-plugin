@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+_Name=Clipboard Manager Settings
+_Comment=Customize your clipboard
+Exec=xfce4-clipman-settings
+Icon=xfce4-clipman-plugin
+Terminal=false
+StartupNotify=true
+Type=Application
+OnlyShowIn=XFCE;
+Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-PersonalSettings;
+X-XfcePluggable=true
+X-XfceHelpComponent=clipman
+X-XfceHelpPage=start
