@@ -63,6 +63,7 @@ struct _MyPlugin
  * Plugin functions
  */
 
+void                    plugin_daemon_show_info_dialog  (void);
 MyPlugin*               plugin_register                 ();
 void                    plugin_load                     (MyPlugin *plugin);
 void                    plugin_save                     (MyPlugin *plugin);

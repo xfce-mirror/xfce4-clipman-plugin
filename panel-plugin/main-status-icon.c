@@ -73,6 +73,7 @@ main (gint argc,
   if (g_application_get_is_remote (G_APPLICATION (app)))
     {
       g_message ("Primary instance org.xfce.clipman already running");
+      plugin_daemon_show_info_dialog ();
       g_object_unref (app);
       return FALSE;
     }
