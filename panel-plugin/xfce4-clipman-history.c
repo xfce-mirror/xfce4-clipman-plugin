@@ -494,6 +494,10 @@ main (gint argc, gchar *argv[])
   if (!clipman_history_clipman_daemon_running ())
     {
       g_warning ("The clipboard daemon is not running, exiting. You can launch it with 'xfce4-clipman'.");
+      xfce_dialog_show_warning (NULL,
+                                _("You can launch it with 'xfce4-clipman'."),
+                                "%s",
+                                _("The Clipboard Manager Daemon is not running."));
       return FALSE;
     }
 
