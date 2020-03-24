@@ -314,7 +314,7 @@ plugin_free (MyPlugin *plugin)
 void
 plugin_about (MyPlugin *plugin)
 {
-  const gchar *authors[] = { "(c) 2014-2016 Simon Steinbeiss",
+  const gchar *authors[] = { "(c) 2014-2020 Simon Steinbeiss",
                              "(c) 2008-2014 Mike Massonnet",
                              "(c) 2005-2006 Nick Schermer",
                              "(c) 2003 Eduard Roccatello",
