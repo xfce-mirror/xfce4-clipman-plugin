@@ -76,7 +76,7 @@ prop_dialog_run (void)
   /* Dialogs */
   action_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "action-dialog"));
 
-  /* General settings */
+  /* Behavior tab: General */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
 #ifdef HAVE_QRENCODE
@@ -85,35 +85,53 @@ prop_dialog_run (void)
 #else
   gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
 #endif
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "history-ignore-selections")),
-                                DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
-                                DEFAULT_SAVE_ON_QUIT);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
-                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
-  gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-texts-in-history")),
-                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
 
-  xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "add-selections"), "active");
+  /* paste-on-activate combobox */
+  combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("None"));
+  /* TRANSLATORS: Keyboard shortcut */
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Ctrl+V"));
+  /* TRANSLATORS: Keyboard shortcut */
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
+
 #ifdef HAVE_QRENCODE
   xfconf_g_property_bind (xfconf_channel, "/settings/show-qr-code", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "show-qr-code"), "active");
 #endif
-  xfconf_g_property_bind (xfconf_channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "history-ignore-selections"), "active");
-  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "save-on-quit"), "active");
-  xfconf_g_property_bind (xfconf_channel, "/settings/max-images-in-history", G_TYPE_UINT,
-                          gtk_builder_get_object (builder, "store-an-image"), "active");
-  xfconf_g_property_bind (xfconf_channel, "/settings/max-texts-in-history", G_TYPE_UINT,
-                          gtk_builder_get_object (builder, "max-texts-in-history"), "value");
+  xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "add-selections"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
+                          G_TYPE_UINT, G_OBJECT (combobox), "active");
+
+  /* Behavior tab: Menu */
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "popup-at-pointer")),
+                                DEFAULT_POPUP_AT_POINTER);
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-menu-items")),
+                             (gdouble)DEFAULT_MAX_MENU_ITEMS);
+
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/popup-at-pointer", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "popup-at-pointer"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/max-menu-items", G_TYPE_UINT,
+                          gtk_builder_get_object (builder, "max-menu-items"), "value");
 
   /* Actions tab and dialog */
   gtk_switch_set_state (GTK_SWITCH (gtk_builder_get_object (builder, "enable-actions")),
                                 DEFAULT_ENABLE_ACTIONS);
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
+
+  gtk_revealer_set_reveal_child (GTK_REVEALER (gtk_builder_get_object (builder, "action-revealer")),
+                                 DEFAULT_ENABLE_ACTIONS);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
+                                DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
+                                !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+
+  xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "action-revealer"), "reveal-child");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "skip-action-2"), "active");
 
   g_signal_connect (gtk_builder_get_object (builder, "button-add-action"), "clicked", G_CALLBACK (cb_add_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
@@ -150,47 +168,32 @@ prop_dialog_run (void)
   g_signal_connect_swapped (gtk_builder_get_object (builder, "action-dialog-button-cancel"), "clicked",
                              G_CALLBACK (gtk_dialog_response), action_dialog);
 
-  /* Tweaks tab */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "popup-at-pointer")),
-                                DEFAULT_POPUP_AT_POINTER);
+  /* History tab */
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
+                                DEFAULT_SAVE_ON_QUIT);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
+                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reorder-items")),
                                 DEFAULT_REORDER_ITEMS);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reverse-order")),
                                 DEFAULT_REVERSE_ORDER);
-  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "skip-action-1")),
-                            DEFAULT_ENABLE_ACTIONS);
-  gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "skip-action-2")),
-                            DEFAULT_ENABLE_ACTIONS);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
-                                DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
-                                !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "history-ignore-selections")),
+                                DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-texts-in-history")),
+                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
 
-  xfconf_g_property_bind (xfconf_channel, "/tweaks/popup-at-pointer", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "popup-at-pointer"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "save-on-quit"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/settings/max-images-in-history", G_TYPE_UINT,
+                          gtk_builder_get_object (builder, "store-an-image"), "active");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/reorder-items", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "reorder-items"), "active");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/reverse-menu-order", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "reverse-order"), "active");
-  xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-1"), "sensitive");
-  xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-2"), "sensitive");
-  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-2"), "active");
-
-  /* Tweaks tab: paste-on-activate combobox */
-  combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
-  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("None"));
-  /* TRANSLATORS: Keyboard shortcut */
-  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Ctrl+V"));
-  /* TRANSLATORS: Keyboard shortcut */
-  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
-  gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
-
-  xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
-                          G_TYPE_UINT, G_OBJECT (combobox), "active");
-
+  xfconf_g_property_bind (xfconf_channel, "/settings/history-ignore-primary-clipboard", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "history-ignore-selections"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/settings/max-texts-in-history", G_TYPE_UINT,
+                          gtk_builder_get_object (builder, "max-texts-in-history"), "value");
   /* Run the dialog */
   while ((gtk_dialog_run (GTK_DIALOG (settings_dialog))) == 2);
 

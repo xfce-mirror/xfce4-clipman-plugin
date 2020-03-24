@@ -22,7 +22,8 @@
  * Default values
  */
 
-#define DEFAULT_MAX_TEXTS_IN_HISTORY                    10
+#define DEFAULT_MAX_MENU_ITEMS                          15
+#define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
 #define DEFAULT_SAVE_ON_QUIT                            TRUE
 #define DEFAULT_POPUP_AT_POINTER                        FALSE

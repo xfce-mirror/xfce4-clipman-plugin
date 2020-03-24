@@ -52,6 +52,7 @@
                 <property name="expand">False</property>
                 <property name="fill">False</property>
                 <property name="position">0</property>
+                <property name="secondary">True</property>
               </packing>
             </child>
             <child>
@@ -73,7 +74,6 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="pack_type">end</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -109,7 +109,7 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="add-selections">
-                                <property name="label" translatable="yes">Sync _selections</property>
+                                <property name="label" translatable="yes">Sync mouse _selections</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -126,7 +126,7 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="show-qr-code">
-                                <property name="label" translatable="yes">Show _QR-Code</property>
+                                <property name="label" translatable="yes">_QR-Code support</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -141,15 +141,54 @@
                                 <property name="position">1</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkBox" id="hbox1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">Automatically paste a selected item from the history</property>
+                                <property name="spacing">4</property>
+                                <child>
+                                  <object class="GtkLabel" id="label-paste-on-activate">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="label" translatable="yes">_Paste instantly:</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="mnemonic_widget">combobox-paste-on-activate</property>
+                                    <property name="xalign">0</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkComboBoxText" id="combobox-paste-on-activate">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
                           </object>
                         </child>
                       </object>
                     </child>
                     <child type="label">
-                      <object class="GtkLabel" id="label-behavior">
+                      <object class="GtkLabel" id="label-general">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">&lt;b&gt;Behavior&lt;/b&gt;</property>
+                        <property name="label" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
                     </child>
@@ -179,84 +218,47 @@
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
-                              <object class="GtkCheckButton" id="save-on-quit">
-                                <property name="label" translatable="yes">Save on _quit</property>
+                              <object class="GtkCheckButton" id="popup-at-pointer">
+                                <property name="label" translatable="yes">P_osition menu at mouse pointer</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
-                                <property name="tooltip_text" translatable="yes">If checked, this option will restore the history on every new Xfce session</property>
+                                <property name="tooltip_text" translatable="yes">Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">0</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="store-an-image">
-                                <property name="label" translatable="yes">Store last copied _image</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">False</property>
-                                <property name="tooltip_text" translatable="yes">If checked, this option allows to store one image inside the history</property>
-                                <property name="use_underline">True</property>
-                                <property name="draw_indicator">True</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkCheckButton" id="history-ignore-selections">
-                                <property name="label" translatable="yes">Ignore s_elections</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">False</property>
-                                <property name="has_tooltip">True</property>
-                                <property name="tooltip_text" translatable="yes">If checked, the selections won't affect the history except the manual copies</property>
-                                <property name="use_underline">True</property>
-                                <property name="draw_indicator">True</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">2</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="hbox-history-size">
+                              <object class="GtkBox">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">4</property>
                                 <child>
-                                  <object class="GtkLabel" id="label-history-size">
+                                  <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">Size of the _history:</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="mnemonic_widget">max-texts-in-history</property>
+                                    <property name="label" translatable="yes">Maximum items:</property>
                                     <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
-                                    <property name="fill">False</property>
+                                    <property name="fill">True</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkSpinButton" id="max-texts-in-history">
+                                  <object class="GtkSpinButton" id="max-menu-items">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="invisible_char">•</property>
-                                    <property name="adjustment">adjustment1</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
-                                    <property name="fill">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="pack_type">end</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
@@ -264,7 +266,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="position">3</property>
+                                <property name="position">1</property>
                               </packing>
                             </child>
                           </object>
@@ -272,10 +274,10 @@
                       </object>
                     </child>
                     <child type="label">
-                      <object class="GtkLabel" id="label-history">
+                      <object class="GtkLabel" id="label-menu">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">&lt;b&gt;History&lt;/b&gt;</property>
+                        <property name="label" translatable="yes">&lt;b&gt;Menu&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
                     </child>
@@ -289,10 +291,11 @@
               </object>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label-general">
+              <object class="GtkLabel" id="label-behavior">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">General</property>
+                <property name="label" translatable="yes">_Behavior</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="tab_fill">False</property>
@@ -341,6 +344,60 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkRevealer" id="action-revealer">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="reveal_child">True</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_left">6</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkRadioButton" id="skip-action-1">
+                            <property name="label" translatable="yes">_Show actions by holding Control</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be shown</property>
+                            <property name="use_underline">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkRadioButton" id="skip-action-2">
+                            <property name="label" translatable="yes">S_kip actions by holding Control</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped</property>
+                            <property name="use_underline">True</property>
+                            <property name="active">True</property>
+                            <property name="draw_indicator">True</property>
+                            <property name="group">skip-action-1</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
@@ -487,7 +544,8 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
               <object class="GtkLabel" id="label-actions">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Actions</property>
+                <property name="label" translatable="yes">_Actions</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -502,57 +560,34 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
                 <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
-                  <object class="GtkBox" id="hbox1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Automatically paste a selected item from the history</property>
-                    <property name="spacing">4</property>
-                    <child>
-                      <object class="GtkLabel" id="label-paste-on-activate">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">_Paste instantly:</property>
-                        <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">combobox-paste-on-activate</property>
-                        <property name="xalign">0</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="combobox-paste-on-activate">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="popup-at-pointer">
-                    <property name="label" translatable="yes">P_osition menu at mouse pointer</property>
+                  <object class="GtkCheckButton" id="save-on-quit">
+                    <property name="label" translatable="yes">Remember history</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Popup the menu at the mouse pointer position, only for the xfce4-popup-clipman command</property>
+                    <property name="tooltip_text" translatable="yes">If checked, this option will restore the history on every new Xfce session</property>
                     <property name="use_underline">True</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="store-an-image">
+                    <property name="label" translatable="yes">Remember last copied _image</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">If checked, this option allows to store one image inside the history</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -589,35 +624,62 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="skip-action-1">
-                    <property name="label" translatable="yes">_Show actions by holding Control</property>
+                  <object class="GtkCheckButton" id="history-ignore-selections">
+                    <property name="label" translatable="yes">Ignore mouse s_elections</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be shown</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_text" translatable="yes">If checked, the selections won't affect the history except the manual copies</property>
                     <property name="use_underline">True</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
+                    <property name="fill">True</property>
                     <property name="position">4</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="skip-action-2">
-                    <property name="label" translatable="yes">S_kip actions by holding Control</property>
+                  <object class="GtkBox" id="hbox-history-size">
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">When the selection is done (mouse or keyboard) and the Control key is still pressed down, the popup menu for matched actions will be skipped</property>
-                    <property name="use_underline">True</property>
-                    <property name="draw_indicator">True</property>
-                    <property name="group">skip-action-1</property>
+                    <property name="can_focus">False</property>
+                    <property name="spacing">4</property>
+                    <child>
+                      <object class="GtkLabel" id="label-history-size">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Size of the _history:</property>
+                        <property name="use_underline">True</property>
+                        <property name="mnemonic_widget">max-texts-in-history</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkSpinButton" id="max-texts-in-history">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="invisible_char">•</property>
+                        <property name="text" translatable="yes">5</property>
+                        <property name="adjustment">adjustment1</property>
+                        <property name="value">5</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
+                    <property name="fill">True</property>
                     <property name="position">5</property>
                   </packing>
                 </child>
@@ -627,10 +689,11 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
               </packing>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label-tweaks">
+              <object class="GtkLabel" id="label-histor">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Tweaks</property>
+                <property name="label" translatable="yes">H_istory</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="position">2</property>

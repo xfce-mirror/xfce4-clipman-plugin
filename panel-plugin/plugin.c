@@ -132,6 +132,8 @@ plugin_register (void)
   xfconf_g_property_bind (plugin->channel, "/settings/show-qr-code",
                           G_TYPE_BOOLEAN, plugin->menu, "show-qr-code");
 #endif
+  xfconf_g_property_bind (plugin->channel, "/tweaks/max-menu-items",
+                          G_TYPE_UINT, plugin->menu, "max-menu-items");
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
   xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
