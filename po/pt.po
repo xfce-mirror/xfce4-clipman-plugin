@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-04 00:32+0100\n"
-"PO-Revision-Date: 2020-03-05 23:51+0000\n"
+"POT-Creation-Date: 2020-03-27 06:31+0100\n"
+"PO-Revision-Date: 2020-03-27 16:44+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -32,19 +32,12 @@ msgid ""
 msgstr "Gestor da área de transferência fornecido como um plugin para o painel Xfce e como uma aplicação própria inserida na área de notificação. Mantém um histórico de texto e imagens do conteúdo copiado para a área de transferência. Tem também um recurso para executar ações sobre a seleção de texto específico, combinando-as com expressões regulares."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:74
-#: ../panel-plugin/main-status-icon.c:80 ../panel-plugin/plugin.c:94
-#: ../panel-plugin/plugin.c:331
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard Manager"
+msgstr "Gestor de área de transferência"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-msgid "Clipboard manager"
-msgstr "Gestor de área de transferência"
+msgid "Clipboard Manager Autostart File"
+msgstr "Ficheiro de arranque automático do gestor de área de transferência"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -78,25 +71,38 @@ msgstr "URL longa"
 msgid "Shrink the URL"
 msgstr "Encurtar URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:184
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+#: ../panel-plugin/main-panel-plugin.c:77
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:334
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Gestor de área de transferência"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:91
 msgid "None"
 msgstr "Nenhum"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:186
+#: ../panel-plugin/xfce4-clipman-settings.c:93
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:188
+#: ../panel-plugin/xfce4-clipman-settings.c:95
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:511
+#: ../panel-plugin/xfce4-clipman-settings.c:527
 msgid "<b>Reset actions</b>"
 msgstr "<b>Repor ações</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:513
+#: ../panel-plugin/xfce4-clipman-settings.c:529
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Tem a certeza que pretende repor as ações para os valores predefinidos do sistema?"
@@ -110,8 +116,8 @@ msgid "_Close"
 msgstr "_Fechar"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
-msgid "Sync _selections"
-msgstr "Sincronizar _seleções"
+msgid "Sync mouse _selections"
+msgstr "Sincronizar _seleções do rato"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid ""
@@ -120,8 +126,8 @@ msgid ""
 msgstr "Se ativa, as seleções serão sincronizadas com a área de transferência predefinida, por forma a permitir colar a seleção"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Show _QR-Code"
-msgstr "Mostrar código _QR"
+msgid "_QR-Code support"
+msgstr "Suporte ao _QR-Code"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid ""
@@ -130,141 +136,144 @@ msgid ""
 msgstr "Se ativar esta opção, o menu mostra o código QR da entrada de área de transferência selecionada"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
-msgid "<b>Behavior</b>"
-msgstr "<b>Comportamento</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid "Save on _quit"
-msgstr "Gravar ao sai_r"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Se ativa, esta opção irá restaurar o histórico em cada nova sessão do Xfce"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "Store last copied _image"
-msgstr "Guardar última _imagem copiada"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Se ativa, esta opção permite-lhe guardar uma imagem dentro do histórico"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "Ignore s_elections"
-msgstr "Ignorar s_eleções"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Se ativa, as seleções não afetarão o histórico à exceção das cópias manuais "
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "Size of the _history:"
-msgstr "Dimensão do _histórico:"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "<b>History</b>"
-msgstr "<b>Histórico</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "General"
-msgstr "Geral"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "_Enable automatic actions"
-msgstr "Ati_var ações automáticas"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Se ativa, os textos da área de transferência serão comparados com expressões e um menu exibe as ações possíveis automaticamente.\nCaso contrário o menu apenas aparece quando chamado \"xfce4-popup-clipman-actions\" (e uma semelhança foi encontrada)"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Add action"
-msgstr "Adicionar ação"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "Edit action"
-msgstr "Editar ação"
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Delete action"
-msgstr "Apagar ação"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Reset all actions to the system default values"
-msgstr "Restaurar todas as ações para os valores predefinidos"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "Actions"
-msgstr "Ações"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Automatically paste a selected item from the history"
 msgstr "Colocar automaticamente um item do histórico na janela"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_Paste instantly:"
 msgstr "Co_lar imediatamente:"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "<b>General</b>"
+msgstr "<b>Gerais</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "P_osition menu at mouse pointer"
 msgstr "Menu no l_ocal do cursor"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Abrir o menu no local do cursor. Só utilizável com  o comando xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "_Reorder history items"
-msgstr "_Reorganizar itens do histórico"
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid "Maximum items:"
+msgstr "Máximo de itens:"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "<b>Menu</b>"
+msgstr "<b>Menu</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "_Behavior"
+msgstr "_Comportamento"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "_Enable automatic actions"
+msgstr "Ati_var ações automáticas"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Colocar últimos textos copiados no início do histórico. Útil para organizar itens antigos"
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Se ativa, os textos da área de transferência serão comparados com expressões e um menu exibe as ações possíveis automaticamente.\nCaso contrário o menu apenas aparece quando chamado \"xfce4-popup-clipman-actions\" (e uma semelhança foi encontrada)"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Re_verse history order"
-msgstr "In_verter ordem do histórico"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "Reverse order of the history shown in the menu"
-msgstr "Inverter ordem do histórico mostrado no menu"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "_Show actions by holding Control"
 msgstr "Mo_strar ações ao premir Ctrl"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Se efetuar a seleção (com o rato ou teclado) e mantiver a tecla Ctrl premida, será mostrado o menu para as opções disponíveis"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid "S_kip actions by holding Control"
 msgstr "Ignorar ações ao pr_emir Ctrl"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Ao selecionar (com rato ou teclado) e manter a tecla Ctrl premida, o menu das ações coincidentes é ignorado"
 
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid "Add action"
+msgstr "Adicionar ação"
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Edit action"
+msgstr "Editar ação"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Delete action"
+msgstr "Apagar ação"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Reset all actions to the system default values"
+msgstr "Restaurar todas as ações para os valores predefinidos"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "_Actions"
+msgstr "_Ações"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "<b>Remember history</b>"
+msgstr "<b>Lembrar histórico</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "Remember last copied _image"
+msgstr "Lembrar a última _imagem copiada"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "If checked, this option allows to store one image inside the history"
+msgstr "Se ativa, esta opção permite-lhe guardar uma imagem dentro do histórico"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid "_Reorder history items"
+msgstr "_Reorganizar itens do histórico"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Colocar últimos textos copiados no início do histórico. Útil para organizar itens antigos"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid "Re_verse history order"
+msgstr "In_verter ordem do histórico"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Reverse order of the history shown in the menu"
+msgstr "Inverter ordem do histórico mostrado no menu"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Ignore mouse s_elections"
+msgstr "Ignorar s_eleções do rato"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Se ativa, as seleções não afetarão o histórico à exceção das cópias manuais "
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid "Size of the _history:"
+msgstr "Dimensão do _histórico:"
+
 #: ../panel-plugin/settings-dialog.ui.h:37
-msgid "Tweaks"
-msgstr "Ajustes"
+msgid "5"
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
+msgid "H_istory"
+msgstr "H_istórico"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Edit Action"
 msgstr "Editar ação"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -272,50 +281,50 @@ msgid ""
 "has an introdution for them."
 msgstr "Pode usar os parâmetros de substituição \"\\1\", \"\\2\" e seguintes nos comandos. O parâmetro \"\\0\" representa o texto completo. Se não sabe o que são expressões regulares, veja a documentação do Clipman sobre as expressões regulates."
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Nome:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
 msgstr "Padrão:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "O padrão é sempre ancorado entre caracteres especiais ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
 msgstr "Ativar apenas na cópia manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Por predefinição a ação é executada por uma seleção. Ative esta opção para que a ação só seja efetuada quando fizer cópia manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
 msgstr "<b>Ação</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
 msgstr "Comando:"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
 msgstr "<b>Comandos</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Escreva aqui o seu texto personalizado, por exemplo um URL, um nome de ficheiro, etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
 msgstr "Expressão normal"
 
-#: ../panel-plugin/main-panel-plugin.c:108
-#: ../panel-plugin/main-status-icon.c:158
+#: ../panel-plugin/main-panel-plugin.c:111
+#: ../panel-plugin/main-status-icon.c:159
 msgid "_Disable"
 msgstr "_Desativar"
 
@@ -327,39 +336,39 @@ msgid ""
 "%s"
 msgstr "Incapaz de executar o comando \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:234
+#: ../panel-plugin/menu.c:248
 msgid "Are you sure you want to clear the history?"
 msgstr "Tem a certeza de que pretende apagar o histórico?"
 
-#: ../panel-plugin/menu.c:239
+#: ../panel-plugin/menu.c:253
 msgid "Don't ask again"
 msgstr "Não perguntar novamente"
 
-#: ../panel-plugin/menu.c:372
+#: ../panel-plugin/menu.c:389
 msgid "Could not generate QR-Code."
 msgstr "Não foi possível gerar o código QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:386
+#: ../panel-plugin/menu.c:403
 msgid "Clipboard is empty"
 msgstr "A área de transferência está vazia"
 
-#: ../panel-plugin/menu.c:487
+#: ../panel-plugin/menu.c:511
 msgid "_Clear history"
 msgstr "_Apagar histórico"
 
-#: ../panel-plugin/plugin.c:319
+#: ../panel-plugin/plugin.c:322
 msgid "Contributors:"
 msgstr "Contributos:"
 
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/plugin.c:336
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor de área de transferência do Xfce"
 
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:344
 msgid "translator-credits"
 msgstr "Hugo Carvalho <hugokarvalho@gmail.com>\nNuno Miguel <nunomgue@gmail.com>"
 
-#: ../panel-plugin/plugin.c:355
+#: ../panel-plugin/plugin.c:358
 msgid "Unable to open the settings dialog"
 msgstr "Incapaz de abrir a janela de definições"
