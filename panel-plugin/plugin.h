@@ -58,6 +58,8 @@ struct _MyPlugin
   GtkApplication       *app;
   GtkWidget            *dialog;
   GtkWidget            *treeview;
+  GtkWidget            *submit_button;
+  GtkWidget            *entry;
 };
 
 /*

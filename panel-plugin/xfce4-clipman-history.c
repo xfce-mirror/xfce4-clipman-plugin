@@ -23,6 +23,8 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
+#include <gdk/gdkkeysyms.h>
 #include <X11/extensions/XTest.h>
 
 #include <libxfce4ui/libxfce4ui.h>
@@ -42,9 +44,13 @@ enum
   N_COLUMNS
 };
 
+guint initial_paste_on_activate = 0;
 
-GtkWidget *clipman_history_dialog_init           (MyPlugin  *plugin);
-GtkWidget *clipman_history_treeview_init         (MyPlugin  *plugin);
+
+GtkWidget   *clipman_history_dialog_init               (MyPlugin  *plugin);
+GtkWidget   *clipman_history_treeview_init             (MyPlugin  *plugin);
+static void  clipman_history_copy_or_paste_on_activate (MyPlugin  *plugin,
+                                                        guint      paste_on_activate);
 
 
 static void
@@ -174,6 +180,64 @@ clipman_history_treeview_filter_and_select (MyPlugin *plugin)
   gtk_tree_path_free (path);
 }
 
+static void
+clipman_history_control_key_pressed (GdkEvent    *event,
+                                     MyPlugin    *plugin,
+                                     guint        paste_on_activate)
+{
+  GdkModifierType state = 0;
+  gint ctrl_mask = 0;
+  GdkDisplay* display = gdk_display_get_default ();
+#if GTK_CHECK_VERSION (3, 20, 0)
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+  GdkDevice *device = gdk_seat_get_pointer (seat);
+#else
+  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
+  GdkScreen* screen = gdk_screen_get_default ();
+  GdkWindow * root_win = gdk_screen_get_root_window (screen);
+
+  gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
+  ctrl_mask = state & GDK_CONTROL_MASK;
+
+  if (ctrl_mask == GDK_CONTROL_MASK)
+    {
+      if (((GdkEventKey*)event)->keyval == GDK_KEY_Return
+          || ((GdkEventKey*)event)->keyval == GDK_KEY_KP_Enter)
+        clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
+      else
+        clipman_history_copy_or_paste_on_activate (plugin, 0);
+    }
+  else
+    clipman_history_copy_or_paste_on_activate (plugin, initial_paste_on_activate);
+}
+
+static gboolean
+clipman_history_key_release_event (GtkWidget *widget,
+                                   GdkEvent  *event,
+                                   MyPlugin  *plugin)
+{
+  /* Reset the paste_on_activate value */
+  clipman_history_control_key_pressed (event, plugin, initial_paste_on_activate);
+
+  return FALSE;
+}
+
+static gboolean
+clipman_history_key_press_event (GtkWidget *widget,
+                                 GdkEvent  *event,
+                                 MyPlugin  *plugin)
+{
+  guint paste_on_activate;
+  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+
+  if (paste_on_activate > 0)
+    clipman_history_control_key_pressed (event, plugin, paste_on_activate);
+
+  return FALSE;
+}
+
 GtkWidget *
 clipman_history_treeview_init (MyPlugin *plugin)
 {
@@ -195,7 +259,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_widget_set_margin_top (box, 6);
 
   /* create the search entry */
-  entry = gtk_entry_new ();
+  plugin->entry = entry = gtk_entry_new ();
   gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (entry, _("Enter search phrase here"));
   gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_PRIMARY, "edit-find");
@@ -216,6 +280,8 @@ clipman_history_treeview_init (MyPlugin *plugin)
   filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (liststore), NULL);
   gtk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (filter), clipman_history_visible_func, entry, NULL);
   g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
+  g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_press_event), plugin);
+  g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_release_event), plugin);
   g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
   /* create the treeview */
@@ -313,6 +379,8 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
   guint paste_on_activate;
 
   g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+  /* Reset the paste_on_activate value to the initial value when starting the dialog */
+  g_object_set (G_OBJECT (plugin->menu), "paste-on-activate", initial_paste_on_activate, NULL);
 
   plugin_save (plugin);
 
@@ -341,6 +409,31 @@ clipman_history_dialog_response (GtkWidget *dialog,
     plugin_configure (plugin);
   else
     clipman_history_dialog_finalize (plugin, dialog);
+}
+
+static void
+clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
+                                           guint     paste_on_activate)
+{
+  GtkWidget *icon;
+  const gchar *button_text;
+
+  g_return_if_fail (GTK_IS_WIDGET (plugin->submit_button));
+
+  if (paste_on_activate > 0)
+    {
+      icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
+      button_text = g_strdup_printf (_("_Paste"));
+    }
+  else
+    {
+      icon = gtk_image_new_from_icon_name ("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
+      button_text = g_strdup_printf (_("_Copy"));
+    }
+
+  gtk_button_set_image (GTK_BUTTON (plugin->submit_button), icon);
+  gtk_button_set_label (GTK_BUTTON (plugin->submit_button), button_text);
+  g_object_set (G_OBJECT (plugin->menu), "paste-on-activate", paste_on_activate, NULL);
 }
 
 GtkWidget *
@@ -377,26 +470,19 @@ clipman_history_dialog_init (MyPlugin *plugin)
   icon = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
-  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-  if (paste_on_activate > 0)
-    {
-      icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Paste"));
-    }
-  else
-    {
-      icon = gtk_image_new_from_icon_name ("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Copy"));
-    }
 #if LIBXFCE4UI_CHECK_VERSION (4,15,0)
-  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), button_text, GTK_RESPONSE_APPLY);
+  plugin->submit_button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), "label", GTK_RESPONSE_APPLY);
   xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #else
-  button = gtk_dialog_add_button (GTK_DIALOG (dialog), button_text, GTK_RESPONSE_APPLY);
+  plugin->submit_button = gtk_dialog_add_button (GTK_DIALOG (dialog), "label", GTK_RESPONSE_APPLY);
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #endif
-  gtk_style_context_add_class (gtk_widget_get_style_context (button), "suggested-action");
-  gtk_button_set_image (GTK_BUTTON (button), icon);
+  gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
+
+  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
+  /* Remember the initial paste_on_activate value */
+  initial_paste_on_activate = paste_on_activate;
+  clipman_history_copy_or_paste_on_activate (plugin, paste_on_activate);
 
   box = clipman_history_treeview_init (plugin);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), box);
