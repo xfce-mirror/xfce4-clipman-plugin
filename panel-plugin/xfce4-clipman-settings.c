@@ -169,8 +169,8 @@ prop_dialog_run (void)
                              G_CALLBACK (gtk_dialog_response), action_dialog);
 
   /* History tab */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "save-on-quit")),
-                                DEFAULT_SAVE_ON_QUIT);
+  gtk_switch_set_state (GTK_SWITCH (gtk_builder_get_object (builder, "save-on-quit")),
+                        DEFAULT_SAVE_ON_QUIT);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
                                 (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reorder-items")),
@@ -194,6 +194,19 @@ prop_dialog_run (void)
                           gtk_builder_get_object (builder, "history-ignore-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/settings/max-texts-in-history", G_TYPE_UINT,
                           gtk_builder_get_object (builder, "max-texts-in-history"), "value");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "store-an-image"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "reorder-items"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "reverse-order"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "history-ignore-selections"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "max-texts-in-history"), "sensitive");
+  xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "label-history-size"), "sensitive");
+
   /* Run the dialog */
   while ((gtk_dialog_run (GTK_DIALOG (settings_dialog))) == 2);
 
