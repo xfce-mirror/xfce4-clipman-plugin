@@ -1,4 +1,6 @@
+*.patch
 *.gmo
+*.swp
 Makefile.in
 Makefile.in.in
 .deps
@@ -21,4 +23,5 @@ INSTALL
 /libtool
 /ltmain.sh
 /missing
+/panel-plugin/xfce4-clipman-settings.desktop
 xfce4-clipman-plugin*.tar.bz2
