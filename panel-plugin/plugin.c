@@ -192,7 +192,6 @@ plugin_load (MyPlugin *plugin)
       texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
       for (i = 0; texts != NULL && texts[i] != NULL; i++)
         clipman_history_add_text (plugin->history, texts[i]);
-      g_unlink (filename);
     }
 
   g_key_file_free (keyfile);
