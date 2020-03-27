@@ -395,6 +395,7 @@ clipman_history_dialog_init (MyPlugin *plugin)
   button = gtk_dialog_add_button (GTK_DIALOG (dialog), button_text, GTK_RESPONSE_APPLY);
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #endif
+  gtk_style_context_add_class (gtk_widget_get_style_context (button), "suggested-action");
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
   box = clipman_history_treeview_init (plugin);
