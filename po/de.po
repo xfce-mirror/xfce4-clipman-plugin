@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-25 00:32+0100\n"
-"PO-Revision-Date: 2020-03-25 16:18+0000\n"
+"POT-Creation-Date: 2020-03-27 06:31+0100\n"
+"PO-Revision-Date: 2020-03-27 15:19+0000\n"
 "Last-Translator: Andreas Eitel <github-aneitel@online.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -98,11 +98,11 @@ msgstr "Strg+V"
 msgid "Shift+Insert"
 msgstr "Umschalttaste+Einfg"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:514
+#: ../panel-plugin/xfce4-clipman-settings.c:527
 msgid "<b>Reset actions</b>"
 msgstr "<b>Aktionen zurücksetzen</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:516
+#: ../panel-plugin/xfce4-clipman-settings.c:529
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Möchten Sie die Aktionen wirklich auf die Standardeinstellungen zurücksetzen?"
@@ -220,65 +220,60 @@ msgid "_Actions"
 msgstr "_Aktionen"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Remember history"
-msgstr "Geschichte merken"
+msgid "<b>Remember history</b>"
+msgstr "<b>Verlauf merken</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Wenn ausgewählt, wird diese Option den Verlauf, bei jeder neuen Xfce-Sitzung, wiederherzustellen."
-
-#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
 msgstr "Zuletzt kopiertes _Bild merken"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Wenn ausgewählt, wird diese Option es erlauben, ein Bild im Verlauf zu speichern aufzunehmen"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "_Reorder history items"
 msgstr "_Verlauf umgekehrt anordnen"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Zuletzt kopierten Text an die Spitze des Verlaufs verschieben, nützlich zum Umordnen alter Einträge"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Re_verse history order"
 msgstr "_Umgekehrte Reihenfolge des Verlaufs"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Reverse order of the history shown in the menu"
 msgstr "Aktivieren Sie diese Option, um den Verlauf bei jeder neuen Xfce-Sitzung wiederherzustellen."
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Ignore mouse s_elections"
 msgstr "_Mausauswahl ignorieren"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Wenn ausgewählt, werden die Auswahlen den Verlauf nicht betreffen mit Ausnahme der manuellen Kopien."
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "Size of the _history:"
 msgstr "_Größe des Verlaufs:"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "5"
 msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid "H_istory"
 msgstr "Gesch_ichte"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Edit Action"
 msgstr "Aktion bearbeiten"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -286,45 +281,45 @@ msgid ""
 "has an introdution for them."
 msgstr "Sie können die Ersetzungsplatzhalter »\\1«, »\\2« usw. in den Befehlen verwenden. Der Parameter »\\0« stellt den vollständigen Text dar. Wenn Sie keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu Clipman nach, dort ist eine Einführung zu diesen vorhanden."
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Name:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
 msgstr "Muster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« verankert."
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
 msgstr "Nur bei manuellem Kopieren aktivieren"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese Option anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
 msgstr "<b>Aktion</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
 msgstr "Befehl:"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
 msgstr "<b>Befehle</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Geben Sie hier Ihren benutzerdefinierten Text ein, zum Beispiel eine URL, einen Dateinamen, etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:51
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
 msgstr "Regulärer Ausdruck"
 
