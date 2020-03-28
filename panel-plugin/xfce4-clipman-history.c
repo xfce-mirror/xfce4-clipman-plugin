@@ -289,6 +289,8 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
+  g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_press_event), plugin);
+  g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_release_event), plugin);
   g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
