@@ -44,7 +44,7 @@ enum
   N_COLUMNS
 };
 
-guint initial_paste_on_activate = 0;
+guint internal_paste_on_activate = PASTE_INACTIVE;
 
 
 GtkWidget   *clipman_history_dialog_init               (MyPlugin  *plugin);
@@ -82,6 +82,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, text, -1);
+
 
   g_object_get (G_OBJECT (plugin->collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
   if (add_primary_clipboard)
@@ -180,14 +181,15 @@ clipman_history_treeview_filter_and_select (MyPlugin *plugin)
   gtk_tree_path_free (path);
 }
 
-static void
-clipman_history_control_key_pressed (GdkEvent    *event,
-                                     MyPlugin    *plugin,
-                                     guint        paste_on_activate)
+static gboolean
+clipman_history_key_event (GtkWidget *widget,
+                           GdkEvent  *event,
+                           MyPlugin  *plugin)
 {
   GdkModifierType state = 0;
   gint ctrl_mask = 0;
   GdkDisplay* display = gdk_display_get_default ();
+
 #if GTK_CHECK_VERSION (3, 20, 0)
   GdkSeat *seat = gdk_display_get_default_seat (display);
   GdkDevice *device = gdk_seat_get_pointer (seat);
@@ -200,40 +202,22 @@ clipman_history_control_key_pressed (GdkEvent    *event,
 
   gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
   ctrl_mask = state & GDK_CONTROL_MASK;
-
   if (ctrl_mask == GDK_CONTROL_MASK)
     {
-      if (((GdkEventKey*)event)->keyval == GDK_KEY_Return
-          || ((GdkEventKey*)event)->keyval == GDK_KEY_KP_Enter)
-        clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
+      if ((((GdkEventKey*)event)->type == GDK_KEY_RELEASE)
+          && ((((GdkEventKey*)event)->keyval == GDK_KEY_Return
+              || ((GdkEventKey*)event)->keyval == GDK_KEY_KP_Enter)
+             ))
+        {
+          clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
+          return TRUE;
+        }
       else
-        clipman_history_copy_or_paste_on_activate (plugin, 0);
+        clipman_history_copy_or_paste_on_activate (plugin, PASTE_INACTIVE);
     }
   else
-    clipman_history_copy_or_paste_on_activate (plugin, initial_paste_on_activate);
-}
-
-static gboolean
-clipman_history_key_release_event (GtkWidget *widget,
-                                   GdkEvent  *event,
-                                   MyPlugin  *plugin)
-{
-  /* Reset the paste_on_activate value */
-  clipman_history_control_key_pressed (event, plugin, initial_paste_on_activate);
-
-  return FALSE;
-}
-
-static gboolean
-clipman_history_key_press_event (GtkWidget *widget,
-                                 GdkEvent  *event,
-                                 MyPlugin  *plugin)
-{
-  guint paste_on_activate;
-  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-
-  if (paste_on_activate > 0)
-    clipman_history_control_key_pressed (event, plugin, paste_on_activate);
+    /* Anything else than PASTE_INACTIVE is fine here */
+    clipman_history_copy_or_paste_on_activate (plugin, PASTE_CTRL_V);
 
   return FALSE;
 }
@@ -280,8 +264,11 @@ clipman_history_treeview_init (MyPlugin *plugin)
   filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (liststore), NULL);
   gtk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (filter), clipman_history_visible_func, entry, NULL);
   g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
-  g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_press_event), plugin);
-  g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_release_event), plugin);
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    {
+      g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+    }
   g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
   /* create the treeview */
@@ -289,8 +276,11 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
-  g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_press_event), plugin);
-  g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_release_event), plugin);
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    {
+      g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+    }
   g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
@@ -378,11 +368,6 @@ static void
 clipman_history_dialog_finalize (MyPlugin  *plugin,
                                  GtkWidget *window)
 {
-  guint paste_on_activate;
-
-  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-  /* Reset the paste_on_activate value to the initial value when starting the dialog */
-  g_object_set (G_OBJECT (plugin->menu), "paste-on-activate", initial_paste_on_activate, NULL);
 
   plugin_save (plugin);
 
@@ -391,9 +376,10 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
   g_object_unref (plugin->history);
   gtk_widget_destroy (plugin->dialog);
 
-  if (paste_on_activate > 0)
+  /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
+  if (internal_paste_on_activate != PASTE_INACTIVE)
     {
-      g_timeout_add (10, (GSourceFunc) clipman_history_paste_on_activate, GUINT_TO_POINTER (paste_on_activate));
+      g_timeout_add (10, (GSourceFunc) clipman_history_paste_on_activate, GUINT_TO_POINTER (internal_paste_on_activate));
     }
 
   g_slice_free (MyPlugin, plugin);
@@ -422,7 +408,9 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
 
   g_return_if_fail (GTK_IS_WIDGET (plugin->submit_button));
 
-  if (paste_on_activate > 0)
+  internal_paste_on_activate = paste_on_activate;
+
+  if (paste_on_activate != PASTE_INACTIVE)
     {
       icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
       button_text = g_strdup_printf (_("_Paste"));
@@ -435,7 +423,6 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
 
   gtk_button_set_image (GTK_BUTTON (plugin->submit_button), icon);
   gtk_button_set_label (GTK_BUTTON (plugin->submit_button), button_text);
-  g_object_set (G_OBJECT (plugin->menu), "paste-on-activate", paste_on_activate, NULL);
 }
 
 GtkWidget *
@@ -481,10 +468,7 @@ clipman_history_dialog_init (MyPlugin *plugin)
 #endif
   gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
 
-  g_object_get (G_OBJECT (plugin->menu), "paste-on-activate", &paste_on_activate, NULL);
-  /* Remember the initial paste_on_activate value */
-  initial_paste_on_activate = paste_on_activate;
-  clipman_history_copy_or_paste_on_activate (plugin, paste_on_activate);
+  clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
 
   box = clipman_history_treeview_init (plugin);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), box);
@@ -519,8 +503,7 @@ clipman_history_activate (GtkApplication *app,
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
 
   plugin->menu = clipman_menu_new ();
-  xfconf_g_property_bind (plugin->channel, "/tweaks/paste-on-activate",
-                          G_TYPE_UINT, plugin->menu, "paste-on-activate");
+  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
 
