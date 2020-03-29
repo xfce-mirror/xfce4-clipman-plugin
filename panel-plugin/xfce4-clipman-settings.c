@@ -127,15 +127,13 @@ prop_dialog_run (void)
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
 
-  gtk_revealer_set_reveal_child (GTK_REVEALER (gtk_builder_get_object (builder, "action-revealer")),
-                                 DEFAULT_ENABLE_ACTIONS);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
                                 DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
                                 !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
 
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "action-revealer"), "reveal-child");
+                          gtk_builder_get_object (builder, "box-actions"), "sensitive");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "skip-action-2"), "active");
 
