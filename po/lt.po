@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-25 00:32+0100\n"
-"PO-Revision-Date: 2020-03-25 16:42+0000\n"
+"POT-Creation-Date: 2020-03-27 06:31+0100\n"
+"PO-Revision-Date: 2020-03-29 12:06+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -94,11 +94,11 @@ msgstr "Ctrl+V"
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:514
+#: ../panel-plugin/xfce4-clipman-settings.c:527
 msgid "<b>Reset actions</b>"
 msgstr "<b>Atstatyti veiksmus</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:516
+#: ../panel-plugin/xfce4-clipman-settings.c:529
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Ar tikrai norite atstatyti veiksmus į jų numatytąsias reikšmes?"
@@ -216,65 +216,60 @@ msgid "_Actions"
 msgstr "_Veiksmai"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Remember history"
-msgstr "Įsiminti istoriją"
+msgid "<b>Remember history</b>"
+msgstr "<b>Įsiminti istoriją</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Jei pažymėta, istorija bus atstatyta su kiekvienu nauju Xfce seansu"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
 msgstr "Įsiminti paskutinį nukopijuotą paveikslą"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "If checked, this option allows to store one image inside the history"
 msgstr "Jei pažymėta, šis parametras leidžia saugoti paveikslą pačioje istorijoje"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "_Reorder history items"
 msgstr "_Surikiuoti istorijos įrašus"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Perkelti paskutinį kopijuotą tekstą į istorijos viršų, naudinga senų įrašų rūšiavimui"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid "Re_verse history order"
 msgstr "A_tvirkštinė istorijos rikiavimo tvarka"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Reverse order of the history shown in the menu"
 msgstr "Atvirkštinė istorijos, rodomos meniu, tvarka"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Ignore mouse s_elections"
 msgstr "_Nepaisyti žymėjimų pele"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Jei pažymėta, pasirinkimai neįtakos istorijos nebent kopijuosite rankiniu būdu"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "Size of the _history:"
 msgstr "Istorijos _dydis:"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "5"
 msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid "H_istory"
 msgstr "_Istorija"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Edit Action"
 msgstr "Keisti veiksmą"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. If you don't "
@@ -282,45 +277,45 @@ msgid ""
 "has an introdution for them."
 msgstr "Komandose galite naudoti keitimo parametrus „\\1“, „\\2“ ir taip toliau. Parametras „\\0“ atvaizduoja visą tekstą. Jei nesate susipažinę su reguliariaisiais reiškiniais, peržiūrėkite Clipman dokumentaciją, joje yra įžanga į juos."
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Pavadinimas:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
 msgstr "Šablonas:"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "The pattern is always anchored within the special characters ^$"
 msgstr "Šablonas įtvirtinamas su specialiu simboliu ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
 msgstr "Aktyvuoti tik kopijuojant rankiniu būdu"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Pagal nutylėjimą veiksmas yra iššaukiamas pasirinkus, pažymėkite šį parametrą ir veiksmas bus iššaukiamas tik tuomet, kai kopijuosite rankiniu būdu."
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
 msgstr "<b>Veiksmas</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
 msgstr "Komanda:"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
 msgstr "<b>Komandos</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Įrašykite čia savo tinkintą tekstą, pavyzdžiui, URL adresą ar failo pavadinimą ir t.t."
 
-#: ../panel-plugin/settings-dialog.ui.h:51
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
 msgstr "Reguliarieji reiškiniai"
 
