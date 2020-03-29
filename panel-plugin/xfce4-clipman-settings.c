@@ -56,6 +56,12 @@ static void             setup_test_regex_dialog         ();
 static void             cb_test_regex                   (GtkButton *button);
 static void             cb_test_regex_changed           (GtkWidget *widget);
 static gboolean         cb_test_regex_changed_timeout   ();
+static gboolean         cb_regex_focus_in_event         (GtkWidget *widget,
+                                                         GdkEvent  *event,
+                                                         gpointer   user_data);
+static gboolean         cb_regex_focus_out_event        (GtkWidget *widget,
+                                                         GdkEvent  *event,
+                                                         gpointer   user_data);
 static void             update_test_regex_textview_tags ();
 static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 
@@ -157,6 +163,10 @@ prop_dialog_run (void)
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
   g_signal_connect_after (gtk_builder_get_object (builder, "regex"), "changed",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
+  g_signal_connect_after (gtk_builder_get_object (builder, "regex"), "focus-in-event",
+                          G_CALLBACK (cb_regex_focus_in_event), gtk_builder_get_object (builder, "regex-infobar"));
+  g_signal_connect_after (gtk_builder_get_object (builder, "regex"), "focus-out-event",
+                          G_CALLBACK (cb_regex_focus_out_event), gtk_builder_get_object (builder, "regex-infobar"));
   g_signal_connect_after (gtk_builder_get_object (builder, "button-add-command"), "clicked",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
   g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
@@ -762,6 +772,32 @@ cb_test_regex_changed_timeout (void)
 {
   update_test_regex_textview_tags ();
   test_regex_changed_timeout = 0;
+  return FALSE;
+}
+
+static gboolean
+cb_regex_focus_in_event (GtkWidget *widget,
+                         GdkEvent  *event,
+                         gpointer   user_data)
+{
+  GtkWidget *infobar = GTK_WIDGET (user_data);
+
+  gtk_widget_show (infobar);
+  gtk_info_bar_set_revealed (GTK_INFO_BAR (infobar), TRUE);
+
+  return FALSE;
+}
+
+static gboolean
+cb_regex_focus_out_event (GtkWidget *widget,
+                          GdkEvent  *event,
+                          gpointer   user_data)
+{
+  GtkWidget *infobar = GTK_WIDGET (user_data);
+
+  gtk_info_bar_set_revealed (GTK_INFO_BAR (infobar), FALSE);
+  gtk_widget_hide (infobar);
+
   return FALSE;
 }
 
