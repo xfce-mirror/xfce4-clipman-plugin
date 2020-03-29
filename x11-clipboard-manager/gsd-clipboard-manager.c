@@ -31,9 +31,7 @@
 
 #include "gsd-clipboard-manager.h"
 
-#define GSD_CLIPBOARD_MANAGER_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), GSD_TYPE_CLIPBOARD_MANAGER, GsdClipboardManagerPrivate))
 
-G_DEFINE_TYPE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
 
 struct GsdClipboardManagerPrivate
 {
@@ -49,6 +47,8 @@ struct GsdClipboardManagerPrivate
 
         GtkWidget    *window;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
 
 static void     gsd_clipboard_manager_finalize    (GObject                  *object);
 
@@ -382,14 +382,12 @@ gsd_clipboard_manager_class_init (GsdClipboardManagerClass *klass)
 
         object_class->constructor = gsd_clipboard_manager_constructor;
         object_class->finalize = gsd_clipboard_manager_finalize;
-
-        g_type_class_add_private (klass, sizeof (GsdClipboardManagerPrivate));
 }
 
 static void
 gsd_clipboard_manager_init (GsdClipboardManager *manager)
 {
-        manager->priv = GSD_CLIPBOARD_MANAGER_GET_PRIVATE (manager);
+        manager->priv = gsd_clipboard_manager_get_instance_private (manager);
 
         manager->priv->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
         manager->priv->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
