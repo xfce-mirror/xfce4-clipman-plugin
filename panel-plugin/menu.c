@@ -279,12 +279,18 @@ cb_clear_history (ClipmanMenu *menu)
 }
 
 static void
-cb_launch_clipman_history (ClipmanMenu *menu)
+cb_launch_clipman_bin (ClipmanMenu *menu,
+                       gpointer     user_data)
 {
   GError *error = NULL;
   GtkWidget *error_dialog;
+  GtkWidget *mi = GTK_WIDGET (user_data);
 
-  g_spawn_command_line_async ("xfce4-clipman-history", &error);
+  if (g_strcmp0 (gtk_menu_item_get_label (GTK_MENU_ITEM (mi)), "_Show full history...") == 0)
+    g_spawn_command_line_async ("xfce4-clipman-history", &error);
+  else
+    g_spawn_command_line_async ("xfce4-clipman-settings", &error);
+
   if (error != NULL)
   {
     error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
@@ -527,7 +533,7 @@ clipman_menu_init (ClipmanMenu *menu)
     {
       mi = gtk_menu_item_new_with_mnemonic (_("_Show full history..."));
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-      g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_history), menu);
+      g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
     }
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
@@ -537,6 +543,10 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
+
+  mi = gtk_menu_item_new_with_mnemonic (_("_Clipman settings..."));
+  gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+  g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
 
   /* Show all the items */
   gtk_widget_show_all (GTK_WIDGET (menu));
