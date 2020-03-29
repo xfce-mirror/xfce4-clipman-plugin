@@ -278,6 +278,24 @@ cb_clear_history (ClipmanMenu *menu)
   gtk_clipboard_clear (clipboard);
 }
 
+static void
+cb_launch_clipman_history (ClipmanMenu *menu)
+{
+  GError *error = NULL;
+  GtkWidget *error_dialog;
+
+  g_spawn_command_line_async ("xfce4-clipman-history", &error);
+  if (error != NULL)
+  {
+    error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+                                           _("Unable to open the clipman history dialog"));
+    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
+    gtk_dialog_run (GTK_DIALOG (error_dialog));
+    gtk_widget_destroy (error_dialog);
+    g_error_free (error);
+  }
+}
+
 /*
  * Private methods
  */
@@ -490,6 +508,7 @@ clipman_menu_init (ClipmanMenu *menu)
 {
   GtkWidget *mi;
   GtkWidget *image;
+  guint max_texts_in_history;
 
   menu->priv = clipman_menu_get_instance_private (menu);
 
@@ -502,6 +521,14 @@ clipman_menu_init (ClipmanMenu *menu)
   /* Footer items */
   mi = gtk_separator_menu_item_new ();
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+
+  max_texts_in_history = clipman_history_get_max_texts_in_history (menu->priv->history);
+  if (max_texts_in_history > menu->priv->max_menu_items)
+    {
+      mi = gtk_menu_item_new_with_mnemonic (_("_Show full history..."));
+      gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+      g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_history), menu);
+    }
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_with_mnemonic (_("_Clear history"));

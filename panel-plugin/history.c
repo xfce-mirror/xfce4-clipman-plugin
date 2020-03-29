@@ -343,6 +343,20 @@ clipman_history_get_list (ClipmanHistory *history)
 }
 
 /**
+ * clipman_history_get_max_texts_in_history:
+ * @history: a #ClipmanHistory
+ *
+ * Returns the most recent item that has been added to #ClipmanHistory.
+ *
+ * Returns: a #const #ClipmanHistoryItem
+ */
+guint
+clipman_history_get_max_texts_in_history (ClipmanHistory *history)
+{
+  return history->priv->max_texts_in_history;
+}
+
+/**
  * clipman_history_get_item_to_restore:
  * @history: a #ClipmanHistory
  *
