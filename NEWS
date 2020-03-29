@@ -1,3 +1,32 @@
+1.6.0
+======
+- Add standalone dialog to search history: xfce4-clipman-history
+- Don't delete the history on startup
+- plugin: Indicate if clipman is disabled (Bug #11381)
+- plugin: Bind middle-click to toggle "inhibit"
+- plugin: Add "Clipman settings..." menuitem
+- plugin: "Show full history..." menuitem
+- plugin: Wire up max-menu-items setting
+- settings: Make strings translatablei (Bug #16496)
+- settings: Improve responsiveness of actions tab
+- settings: Replace GtkStock icons and tweak actions dialog
+- settings: Revamp UI and add max-menu-items setting
+- settings: Further UI tweaks
+- daemon: Show info dialog if already running
+- Add warning if clipman is not running
+- Show info/warning dialogs if clipman is (not) running
+- Add clipman-settings desktop file
+- Replace deprecated g_type_class_add_private
+- Replace GtkStock items
+- Improve clipman autostart file
+- Update copyright
+- Update gitignore
+- Translation Updates:
+  Albanian, Belarusian, Bulgarian, Catalan, Chinese (China), Chinese
+  (Taiwan), Danish, Dutch, French, Galician, German, Hebrew, Hungarian,
+  Italian, Japanese, Lithuanian, Norwegian Bokmål, Polish, Portuguese,
+  Portuguese (Brazil), Russian, Serbian, Spanish, Turkish
+
 1.4.4
 ======
 - settings: Improve layout
