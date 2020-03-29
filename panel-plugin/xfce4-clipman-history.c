@@ -83,7 +83,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, text, -1);
 
-
+  /* Only update the primary clipboard if the setting "Sync mouse selections" is enabled */
   g_object_get (G_OBJECT (plugin->collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
   if (add_primary_clipboard)
     {
@@ -107,7 +107,7 @@ clipman_history_search_entry_activate (GtkEntry *entry,
   GtkTreeViewColumn *column;
   GtkTreePath *path;
 
-  /* Make sure something is selected in the treeview */
+  /* Make sure something is always selected in the treeview */
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (plugin->treeview));
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
     return;
@@ -200,6 +200,7 @@ clipman_history_key_event (GtkWidget *widget,
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
+  /* Check if the user is holding the Ctrl key and update Copy/Paste button accordingly */
   gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
   ctrl_mask = state & GDK_CONTROL_MASK;
   if (ctrl_mask == GDK_CONTROL_MASK)
@@ -242,14 +243,14 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_widget_set_margin_end (box, 6);
   gtk_widget_set_margin_top (box, 6);
 
-  /* create the search entry */
+  /* Create the search entry */
   plugin->entry = entry = gtk_entry_new ();
   gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (entry, _("Enter search phrase here"));
   gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_PRIMARY, "edit-find");
   gtk_widget_show (entry);
 
-  /* scroller */
+  /* Scrolled Window */
   scroll = gtk_scrolled_window_new (NULL, NULL);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_widget_set_vexpand (scroll, TRUE);
@@ -257,38 +258,41 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll), GTK_SHADOW_IN);
   gtk_widget_show (scroll);
 
-  /* create the store */
+  /* Create the history liststore */
   liststore = gtk_list_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING);
 
-  /* create treemodel with filter */
+  /* Create treemodel with filter */
   filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (liststore), NULL);
   gtk_tree_model_filter_set_visible_func (GTK_TREE_MODEL_FILTER (filter), clipman_history_visible_func, entry, NULL);
   g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
+  g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
+
   if (internal_paste_on_activate != PASTE_INACTIVE)
     {
       g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
       g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
     }
-  g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
-  /* create the treeview */
+  /* Create the treeview */
   plugin->treeview = treeview = gtk_tree_view_new_with_model (filter);
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
+  g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
+
   if (internal_paste_on_activate != PASTE_INACTIVE)
     {
       g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
       g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
     }
-  g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
+
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
 
   g_object_unref (G_OBJECT (filter));
   gtk_list_store_clear (GTK_LIST_STORE (liststore));
 
-  /* text renderer */
+  /* Add text renderer to visible column showing the text preview */
   renderer = gtk_cell_renderer_text_new ();
   column = gtk_tree_view_column_new ();
   gtk_tree_view_column_pack_start (column, renderer, TRUE);
@@ -298,7 +302,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   g_object_set (G_OBJECT (renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
-  /* text renderer */
+  /* Add text renderer to invisible column holding the full text */
   renderer = gtk_cell_renderer_text_new ();
   column = gtk_tree_view_column_new ();
   gtk_tree_view_column_set_visible (column, FALSE);
@@ -309,6 +313,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   g_object_set (G_OBJECT (renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
+  /* Get the history and populate the treeview */
   plugin->history = clipman_history_get ();
   list = clipman_history_get_list (plugin->history);
 
@@ -331,6 +336,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
 
           switch (item->type)
             {
+            /* We ignore everything but text (no images or QR codes) */
             case CLIPMAN_HISTORY_TYPE_TEXT:
               gtk_list_store_insert_with_values (liststore, &iter, i,
                                                  COLUMN_PREVIEW, item->preview.text,
@@ -347,6 +353,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
       g_slist_free (list);
     }
 
+  /* Pre-select the first item in the list */
   path = gtk_tree_path_new_from_indices (0, -1);
   gtk_tree_selection_select_path (gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview)), path);
   gtk_tree_path_free (path);
@@ -429,7 +436,6 @@ GtkWidget *
 clipman_history_dialog_init (MyPlugin *plugin)
 {
   GtkWidget *dialog;
-  GtkWidget *box;
   GtkWidget *button;
   GtkWidget *icon;
 
@@ -468,10 +474,6 @@ clipman_history_dialog_init (MyPlugin *plugin)
 
   clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
 
-  box = clipman_history_treeview_init (plugin);
-  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), box);
-  gtk_widget_show_all (box);
-
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
 
   return dialog;
@@ -482,9 +484,12 @@ clipman_history_activate (GtkApplication *app,
                           gpointer        user_data)
 {
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
+  GtkWidget *box;
 
   plugin->app = app;
   xfconf_init (NULL);
+
+  /* Bind all settings relevant for this application */
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   plugin->history = clipman_history_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/max-texts-in-history",
@@ -505,8 +510,16 @@ clipman_history_activate (GtkApplication *app,
   xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
                           G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
 
+  /* Read the history from the cache file */
   plugin_load (plugin);
+
+  /* Initialize dialog */
   plugin->dialog = clipman_history_dialog_init (plugin);
+
+  /* Initialize and pack history treeview */
+  box = clipman_history_treeview_init (plugin);
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (plugin->dialog))), box);
+  gtk_widget_show_all (box);
 
   gtk_widget_show_all (plugin->dialog);
 }

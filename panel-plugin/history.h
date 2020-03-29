@@ -84,18 +84,18 @@ struct _ClipmanHistory
   ClipmanHistoryPrivate    *priv;
 };
 
-GType                       clipman_history_get_type               ();
+GType                       clipman_history_get_type                 ();
 
-ClipmanHistory *            clipman_history_get                    ();
-void                        clipman_history_add_text               (ClipmanHistory *history,
-                                                                    const gchar *text);
-void                        clipman_history_add_image              (ClipmanHistory *history,
-                                                                    const GdkPixbuf *image);
-GSList *                    clipman_history_get_list               (ClipmanHistory *history);
-guint                       clipman_history_get_max_texts_in_history (ClipmanHistory *history);
-const ClipmanHistoryItem *  clipman_history_get_item_to_restore    (ClipmanHistory *history);
-void                        clipman_history_set_item_to_restore    (ClipmanHistory *history,
-                                                                    const ClipmanHistoryItem *item);
-void                        clipman_history_clear                  (ClipmanHistory *history);
+ClipmanHistory *            clipman_history_get                      ();
+void                        clipman_history_add_text                 (ClipmanHistory           *history,
+                                                                      const gchar              *text);
+void                        clipman_history_add_image                (ClipmanHistory           *history,
+                                                                      const GdkPixbuf          *image);
+GSList *                    clipman_history_get_list                 (ClipmanHistory           *history);
+guint                       clipman_history_get_max_texts_in_history (ClipmanHistory           *history);
+const ClipmanHistoryItem *  clipman_history_get_item_to_restore      (ClipmanHistory           *history);
+void                        clipman_history_set_item_to_restore      (ClipmanHistory           *history,
+                                                                      const ClipmanHistoryItem *item);
+void                        clipman_history_clear                    (ClipmanHistory           *history);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */
