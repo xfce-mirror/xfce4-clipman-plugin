@@ -432,8 +432,6 @@ clipman_history_dialog_init (MyPlugin *plugin)
   GtkWidget *box;
   GtkWidget *button;
   GtkWidget *icon;
-  const gchar *button_text;
-  guint paste_on_activate;
 
   dialog = xfce_titled_dialog_new ();
   gtk_window_set_application (GTK_WINDOW (dialog), GTK_APPLICATION (plugin->app));
