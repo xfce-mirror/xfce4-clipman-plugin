@@ -33,10 +33,6 @@
  * GObject declarations
  */
 
-G_DEFINE_TYPE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
-
-#define GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CLIPMAN_TYPE_COLLECTOR, ClipmanCollectorPrivate))
-
 struct _ClipmanCollectorPrivate
 {
   ClipmanActions       *actions;
@@ -50,6 +46,8 @@ struct _ClipmanCollectorPrivate
   gboolean              enable_actions;
   gboolean              inhibit;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
 
 enum
 {
@@ -295,8 +293,6 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
 {
   GObjectClass *object_class;
 
-  g_type_class_add_private (klass, sizeof (ClipmanCollectorPrivate));
-
   clipman_collector_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
@@ -337,7 +333,7 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
 static void
 clipman_collector_init (ClipmanCollector *collector)
 {
-  collector->priv = GET_PRIVATE (collector);
+  collector->priv = clipman_collector_get_instance_private (collector);
 
   /* This bit is set to TRUE when a clipboard has to be set from within clipman
    * while avoiding to re-add it to the history. */

@@ -33,10 +33,6 @@
  * GObject declarations
  */
 
-G_DEFINE_TYPE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
-
-#define GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CLIPMAN_TYPE_HISTORY, ClipmanHistoryPrivate))
-
 struct _ClipmanHistoryPrivate
 {
   GSList                       *items;
@@ -46,6 +42,8 @@ struct _ClipmanHistoryPrivate
   gboolean                      save_on_quit;
   gboolean                      reorder_items;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
 
 enum
 {
@@ -428,8 +426,6 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
 {
   GObjectClass *object_class;
 
-  g_type_class_add_private (klass, sizeof (ClipmanHistoryPrivate));
-
   clipman_history_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
@@ -485,7 +481,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
 static void
 clipman_history_init (ClipmanHistory *history)
 {
-  history->priv = GET_PRIVATE (history);
+  history->priv = clipman_history_get_instance_private (history);
   history->priv->item_to_restore = NULL;
 }
 

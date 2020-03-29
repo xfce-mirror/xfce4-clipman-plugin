@@ -40,10 +40,6 @@
  * GObject declarations
  */
 
-G_DEFINE_TYPE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
-
-#define GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CLIPMAN_TYPE_MENU, ClipmanMenuPrivate))
-
 struct _ClipmanMenuPrivate
 {
   GtkWidget            *mi_clear_history;
@@ -57,6 +53,8 @@ struct _ClipmanMenuPrivate
   guint                 max_menu_items;
   gboolean              never_confirm_history_clear;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
 
 enum
 {
@@ -442,8 +440,6 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 {
   GObjectClass *object_class;
 
-  g_type_class_add_private (klass, sizeof (ClipmanMenuPrivate));
-
   clipman_menu_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
@@ -495,7 +491,7 @@ clipman_menu_init (ClipmanMenu *menu)
   GtkWidget *mi;
   GtkWidget *image;
 
-  menu->priv = GET_PRIVATE (menu);
+  menu->priv = clipman_menu_get_instance_private (menu);
 
   /* ClipmanHistory */
   menu->priv->history = clipman_history_get ();

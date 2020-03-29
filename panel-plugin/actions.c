@@ -47,10 +47,6 @@
  * GObject declarations
  */
 
-G_DEFINE_TYPE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)
-
-#define GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CLIPMAN_TYPE_ACTIONS, ClipmanActionsPrivate))
-
 struct _ClipmanActionsPrivate
 {
   GFile                *file;
@@ -59,6 +55,8 @@ struct _ClipmanActionsPrivate
   GtkWidget            *menu;
   gboolean              skip_action_on_key_down;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)
 
 enum
 {
@@ -932,8 +930,6 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
 {
   GObjectClass *object_class;
 
-  g_type_class_add_private (klass, sizeof (ClipmanActionsPrivate));
-
   clipman_actions_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
@@ -954,7 +950,7 @@ clipman_actions_init (ClipmanActions *actions)
 {
   gchar *filename;
 
-  actions->priv = GET_PRIVATE (actions);
+  actions->priv = clipman_actions_get_instance_private (actions);
 
   /* Actions file */
   filename = g_strdup_printf ("%s/xfce4/panel/xfce4-clipman-actions.xml", g_get_user_config_dir ());
