@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-27 06:31+0100\n"
-"PO-Revision-Date: 2020-03-27 15:19+0000\n"
+"POT-Creation-Date: 2020-03-30 00:31+0200\n"
+"PO-Revision-Date: 2020-03-30 15:57+0000\n"
 "Last-Translator: Andreas Eitel <github-aneitel@online.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "Netzadresse kürzen"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:77
 #: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:334
+#: ../panel-plugin/plugin.c:333
 msgid "Clipman"
 msgstr "Zwischenablage"
 
@@ -84,25 +84,25 @@ msgstr "Zwischenablage"
 msgid "Clipboard manager"
 msgstr "Zwischenablageverwaltung"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:91
+#: ../panel-plugin/xfce4-clipman-settings.c:97
 msgid "None"
 msgstr "–"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:93
+#: ../panel-plugin/xfce4-clipman-settings.c:99
 msgid "Ctrl+V"
 msgstr "Strg+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:95
+#: ../panel-plugin/xfce4-clipman-settings.c:101
 msgid "Shift+Insert"
 msgstr "Umschalttaste+Einfg"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:527
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid "<b>Reset actions</b>"
 msgstr "<b>Aktionen zurücksetzen</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:529
+#: ../panel-plugin/xfce4-clipman-settings.c:537
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Möchten Sie die Aktionen wirklich auf die Standardeinstellungen zurücksetzen?"
@@ -170,8 +170,8 @@ msgid "_Behavior"
 msgstr "_Verhalten"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
-msgid "_Enable automatic actions"
-msgstr "_Automatische Aktionen aktivieren"
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>_Automatische Aktionen aktivieren</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
@@ -274,52 +274,47 @@ msgid "Edit Action"
 msgstr "Aktion bearbeiten"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr "Sie können die Ersetzungsplatzhalter »\\1«, »\\2« usw. in den Befehlen verwenden. Der Parameter »\\0« stellt den vollständigen Text dar. Wenn Sie keine regulären Ausdrücke kennen, schauen Sie in der Dokumentation zu Clipman nach, dort ist eine Einführung zu diesen vorhanden."
-
-#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Name:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Pattern:"
 msgstr "Muster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr "Das Muster ist immer mit den besonderen Zeichen »^« und »$« verankert."
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr "Sie können die Substitutionsparameter \"\\1\", \"\\2\" usw. in den Befehlen verwenden. Der Parameter \"\\0\" stellt den vollständigen Text dar. Das Muster ist immer in den Sonderzeichen ^$ verankert."
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Activate only on manual copy"
 msgstr "Nur bei manuellem Kopieren aktivieren"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Normalerweise wird die Aktion bei Auswahl ausgelöst. Wenn Sie diese Option anwählen, wird die Aktion nur bei manuellen Kopien ausgelöst."
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
 msgstr "<b>Aktion</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Command:"
 msgstr "Befehl:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "<b>Commands</b>"
 msgstr "<b>Befehle</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Geben Sie hier Ihren benutzerdefinierten Text ein, zum Beispiel eine URL, einen Dateinamen, etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Regular expression"
 msgstr "Regulärer Ausdruck"
 
@@ -328,7 +323,7 @@ msgstr "Regulärer Ausdruck"
 msgid "_Disable"
 msgstr "_Deaktivieren"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:368
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -336,39 +331,51 @@ msgid ""
 "%s"
 msgstr "Konnte Befehl »%s« nicht ausführen.\n\n%s"
 
-#: ../panel-plugin/menu.c:248
+#: ../panel-plugin/menu.c:246
 msgid "Are you sure you want to clear the history?"
 msgstr "Möchten Sie den bisherigen Inhalt der Zwischenablage wirklich löschen?"
 
-#: ../panel-plugin/menu.c:253
+#: ../panel-plugin/menu.c:251
 msgid "Don't ask again"
 msgstr "Nicht erneut nachfragen"
 
-#: ../panel-plugin/menu.c:389
+#: ../panel-plugin/menu.c:297
+msgid "Unable to open the clipman history dialog"
+msgstr "Der Clipman Chronikdialog konnte nicht geöffnet werden"
+
+#: ../panel-plugin/menu.c:411
 msgid "Could not generate QR-Code."
 msgstr "Es konnte kein QR-Code erstellt werden."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:403
+#: ../panel-plugin/menu.c:425
 msgid "Clipboard is empty"
 msgstr "Zwischenablage ist leer"
 
-#: ../panel-plugin/menu.c:511
+#: ../panel-plugin/menu.c:534
+msgid "_Show full history..."
+msgstr "_Zeige die vollständige Chronik..."
+
+#: ../panel-plugin/menu.c:540
 msgid "_Clear history"
 msgstr "_Verlauf leeren"
 
-#: ../panel-plugin/plugin.c:322
+#: ../panel-plugin/menu.c:547
+msgid "_Clipman settings..."
+msgstr "_Clipman Einstellungen..."
+
+#: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
 msgstr "Mitwirkende:"
 
-#: ../panel-plugin/plugin.c:336
+#: ../panel-plugin/plugin.c:335
 msgid "Clipboard Manager for Xfce"
 msgstr "Zwischenablageverwaltung für die Xfce-Arbeitsumgebung"
 
-#: ../panel-plugin/plugin.c:344
+#: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
 msgstr "Enrico Tröger\nFabian Nowak\nSimon Schneider\nTobias Bannert"
 
-#: ../panel-plugin/plugin.c:358
+#: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Einstellungsdialog konnte nicht geöffnet werden"
