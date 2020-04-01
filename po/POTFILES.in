@@ -12,3 +12,6 @@ panel-plugin/collector.c
 panel-plugin/history.c
 panel-plugin/menu.c
 panel-plugin/plugin.c
+panel-plugin/common.c
+panel-plugin/xfce4-clipman-history.c
+panel-plugin/xfce4-clipman-settings.desktop.in
