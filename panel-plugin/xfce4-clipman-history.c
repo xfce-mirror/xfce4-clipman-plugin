@@ -52,6 +52,17 @@ GtkWidget   *clipman_history_treeview_init             (MyPlugin  *plugin);
 static void  clipman_history_copy_or_paste_on_activate (MyPlugin  *plugin,
                                                         guint      paste_on_activate);
 
+typedef struct _ClipmanHistoryShutdownData ClipmanHistoryShutdownData;
+
+struct _ClipmanHistoryShutdownData
+{
+  gchar *text;
+  gboolean add_primary_clipboard;
+  gboolean do_copy;
+};
+
+ClipmanHistoryShutdownData shutdown_data = { NULL, FALSE, FALSE };
+
 
 static void
 clipman_history_row_activated (GtkTreeView       *treeview,
@@ -61,7 +72,6 @@ clipman_history_row_activated (GtkTreeView       *treeview,
 {
   gboolean add_primary_clipboard;
   GtkWidget *window;
-  GtkClipboard *clipboard;
   GtkTreeSelection *selection;
   GtkTreeModel *model;
   GtkTreeIter iter;
@@ -80,18 +90,15 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                       COLUMN_TEXT, &text,
                       -1);
 
-  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-  gtk_clipboard_set_text (clipboard, text, -1);
-
   /* Only update the primary clipboard if the setting "Sync mouse selections" is enabled */
   g_object_get (G_OBJECT (plugin->collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
-  if (add_primary_clipboard)
-    {
-      clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-      gtk_clipboard_set_text (clipboard, text, -1);
-    }
+
+  shutdown_data.do_copy = TRUE;
+  shutdown_data.text = g_strdup (text);
+  shutdown_data.add_primary_clipboard = add_primary_clipboard;
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
+
 
   if (GTK_IS_WINDOW (window))
     gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
@@ -361,16 +368,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   return box;
 }
 
-static gboolean
-clipman_history_paste_on_activate (gpointer user_data)
-{
-  guint paste_on_activate = GPOINTER_TO_UINT (user_data);
-
-  cb_paste_on_activate (paste_on_activate);
-
-  return FALSE;
-}
-
 static void
 clipman_history_dialog_finalize (MyPlugin  *plugin,
                                  GtkWidget *window)
@@ -382,12 +379,6 @@ clipman_history_dialog_finalize (MyPlugin  *plugin,
   g_object_unref (plugin->channel);
   g_object_unref (plugin->history);
   gtk_widget_destroy (plugin->dialog);
-
-  /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
-  if (internal_paste_on_activate != PASTE_INACTIVE)
-    {
-      g_timeout_add (10, (GSourceFunc) clipman_history_paste_on_activate, GUINT_TO_POINTER (internal_paste_on_activate));
-    }
 
   g_slice_free (MyPlugin, plugin);
   xfconf_shutdown ();
@@ -547,6 +538,7 @@ main (gint argc, gchar *argv[])
 {
   GtkApplication *app;
   int status;
+  GtkClipboard *clipboard;
 
   if (!clipman_history_clipman_daemon_running ())
     {
@@ -562,6 +554,39 @@ main (gint argc, gchar *argv[])
 
   g_signal_connect (app, "activate", G_CALLBACK (clipman_history_activate), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
+
+  /* doing copy and paste outside of g_main to assure window being already gone and
+   * as in some occasions the implicit gtk_clipboard_store() lags for 10 seconds
+   */
+  if (shutdown_data.do_copy)
+    {
+      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+      gtk_clipboard_set_text (clipboard, shutdown_data.text, -1);
+
+      if (shutdown_data.add_primary_clipboard)
+        {
+          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+          gtk_clipboard_set_text (clipboard, shutdown_data.text, -1);
+        }
+      g_free (shutdown_data.text);
+
+      /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
+      if (internal_paste_on_activate != PASTE_INACTIVE)
+        {
+          cb_paste_on_activate (internal_paste_on_activate);
+        }
+
+      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+      /* we are out of the g_main - so we have store() on our own */
+      gtk_clipboard_store (clipboard);
+
+      if (shutdown_data.add_primary_clipboard)
+        {
+          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+          /* we are out of the g_main - so we have store() on our own */
+          gtk_clipboard_store (clipboard);
+        }
+    }
 
   return status;
 }
