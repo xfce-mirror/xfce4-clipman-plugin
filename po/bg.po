@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 00:31+0200\n"
-"PO-Revision-Date: 2020-03-30 18:20+0000\n"
+"POT-Creation-Date: 2020-04-02 00:31+0200\n"
+"PO-Revision-Date: 2020-04-02 08:33+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,8 @@ msgid ""
 msgstr "Искате ли да върнете действията към тяхната начална стойност?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:450
+#: ../panel-plugin/xfce4-clipman-history.c:452
 msgid "_Help"
 msgstr "_Помощ"
 
@@ -346,7 +348,7 @@ msgid "Could not generate QR-Code."
 msgstr "Не може да се създаде QR-Code."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425
+#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
 msgid "Clipboard is empty"
 msgstr "Системният буфер е празен"
 
@@ -377,3 +379,51 @@ msgstr "Kiril Kirilov (Cybercop) <cybercop_montana@abv.bg>"
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Неуспех при отварянето на диалога с настройките"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Не можете да стартирате демона на мениджъра на системния буфер, защото той вече е стартиран."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Мениджъра на системния буфер на Xfce вече е стартиран."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Вие можете да го стартирате с 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "Демонът на  мениджъра на системния буфер не е стартиран."
+
+#: ../panel-plugin/xfce4-clipman-history.c:249
+msgid "Enter search phrase here"
+msgstr "Въведете търсеният израз тук"
+
+#: ../panel-plugin/xfce4-clipman-history.c:423
+#, c-format
+msgid "_Paste"
+msgstr "_Поставяне"
+
+#: ../panel-plugin/xfce4-clipman-history.c:428
+#, c-format
+msgid "_Copy"
+msgstr "_Копиране"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+msgid "Clipman History"
+msgstr "История на Clipman"
+
+#: ../panel-plugin/xfce4-clipman-history.c:458
+#: ../panel-plugin/xfce4-clipman-history.c:460
+msgid "_Settings"
+msgstr "_Настройки"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Настройки на мениджъра на системния буфер"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Персонализирайте вашият системен буфер"
