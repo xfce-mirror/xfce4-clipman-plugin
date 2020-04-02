@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 00:31+0200\n"
-"PO-Revision-Date: 2020-03-30 05:09+0000\n"
+"POT-Creation-Date: 2020-04-02 00:31+0200\n"
+"PO-Revision-Date: 2020-04-02 07:00+0000\n"
 "Last-Translator: M\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,8 @@ msgid ""
 msgstr "Przywrócić domyślne czynności?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:450
+#: ../panel-plugin/xfce4-clipman-history.c:452
 msgid "_Help"
 msgstr "_Pomoc"
 
@@ -349,7 +351,7 @@ msgid "Could not generate QR-Code."
 msgstr "Nie można wygenerować kodu QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425
+#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
 msgid "Clipboard is empty"
 msgstr "Schowek jest pusty"
 
@@ -380,3 +382,51 @@ msgstr "Piotr Maliński <admin@rk.edu.pl>, 2006.\nPiotr Sokół <psokol@jabster.
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Nie można otworzyć okna preferencji"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Nie można uruchomić demona Menedżera schowka, ponieważ jest już uruchomiony."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Menedżer schowka Xfce jest już uruchomiony."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Możesz uruchomić go za pomocą 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "Demon Menedżera schowka nie jest uruchomiony."
+
+#: ../panel-plugin/xfce4-clipman-history.c:249
+msgid "Enter search phrase here"
+msgstr "Wpisz szukaną frazę tutaj"
+
+#: ../panel-plugin/xfce4-clipman-history.c:423
+#, c-format
+msgid "_Paste"
+msgstr "_Wklej"
+
+#: ../panel-plugin/xfce4-clipman-history.c:428
+#, c-format
+msgid "_Copy"
+msgstr "_Skopiuj"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+msgid "Clipman History"
+msgstr "Historia Menedżera schowka"
+
+#: ../panel-plugin/xfce4-clipman-history.c:458
+#: ../panel-plugin/xfce4-clipman-history.c:460
+msgid "_Settings"
+msgstr "_Ustawienia"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Ustawienia Menedżera schowka"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Dostosowywanie schowka"
