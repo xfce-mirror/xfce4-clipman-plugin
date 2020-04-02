@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 00:31+0200\n"
-"PO-Revision-Date: 2020-03-31 11:48+0000\n"
+"POT-Creation-Date: 2020-04-02 00:31+0200\n"
+"PO-Revision-Date: 2020-04-02 09:48+0000\n"
 "Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -108,6 +108,8 @@ msgid ""
 msgstr "Tem a certeza que pretende repor as ações para os valores predefinidos do sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:450
+#: ../panel-plugin/xfce4-clipman-history.c:452
 msgid "_Help"
 msgstr "_Ajuda"
 
@@ -348,7 +350,7 @@ msgid "Could not generate QR-Code."
 msgstr "Não foi possível gerar o código QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425
+#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
 msgid "Clipboard is empty"
 msgstr "A área de transferência está vazia"
 
@@ -379,3 +381,51 @@ msgstr "Hugo Carvalho <hugokarvalho@gmail.com>\nNuno Miguel <nunomgue@gmail.com>
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Incapaz de abrir a janela de definições"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Não foi possível iniciar o daemom do gestor de área de transferência porque já está em execução."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "O gestor de área de transferência do Xfce já está em execução."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Pode ser lançado com 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:249
+msgid "Enter search phrase here"
+msgstr "Introduzir aqui a frase a pesquisar"
+
+#: ../panel-plugin/xfce4-clipman-history.c:423
+#, c-format
+msgid "_Paste"
+msgstr "Co_lar"
+
+#: ../panel-plugin/xfce4-clipman-history.c:428
+#, c-format
+msgid "_Copy"
+msgstr "_Copiar"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+msgid "Clipman History"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:458
+#: ../panel-plugin/xfce4-clipman-history.c:460
+msgid "_Settings"
+msgstr "_Definições"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr ""
