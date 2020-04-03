@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:31+0200\n"
-"PO-Revision-Date: 2020-04-02 09:48+0000\n"
-"Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
+"PO-Revision-Date: 2020-04-03 21:23+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -397,7 +397,7 @@ msgstr "Pode ser lançado com 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "O daemon do gestor da área de transferência não está em execução."
 
 #: ../panel-plugin/xfce4-clipman-history.c:249
 msgid "Enter search phrase here"
@@ -415,7 +415,7 @@ msgstr "_Copiar"
 
 #: ../panel-plugin/xfce4-clipman-history.c:444
 msgid "Clipman History"
-msgstr ""
+msgstr "Histórico do Clipman"
 
 #: ../panel-plugin/xfce4-clipman-history.c:458
 #: ../panel-plugin/xfce4-clipman-history.c:460
@@ -424,8 +424,8 @@ msgstr "_Definições"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Definições do gestor de área de transferência"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Personalize a sua área de transferência"
