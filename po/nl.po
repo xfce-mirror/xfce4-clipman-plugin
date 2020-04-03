@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 00:31+0200\n"
-"PO-Revision-Date: 2020-03-30 09:23+0000\n"
+"POT-Creation-Date: 2020-04-02 00:31+0200\n"
+"PO-Revision-Date: 2020-04-03 15:30+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -103,6 +103,8 @@ msgid ""
 msgstr "Weet u zeker dat u de acties wilt terugzetten op de standaardwaarden?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:450
+#: ../panel-plugin/xfce4-clipman-history.c:452
 msgid "_Help"
 msgstr "_Hulp"
 
@@ -343,7 +345,7 @@ msgid "Could not generate QR-Code."
 msgstr "Kon geen QR-code genereren."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425
+#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
 msgid "Clipboard is empty"
 msgstr "Klembord is leeg"
 
@@ -374,3 +376,51 @@ msgstr "Vincent Tunru\nPjotr <pjotrvertaalt@gmail.com>"
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Kan het instellingenvenster niet openen"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Kon de achtergronddienst voor Klembordbeheer niet starten omdat die reeds draait."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Het Klembordbeheer van Xfce draait reeds."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "U kunt het starten met 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "De achtergronddienst voor Klembordbeheer draait niet."
+
+#: ../panel-plugin/xfce4-clipman-history.c:249
+msgid "Enter search phrase here"
+msgstr "Voer zoekterm hier in"
+
+#: ../panel-plugin/xfce4-clipman-history.c:423
+#, c-format
+msgid "_Paste"
+msgstr "_Plakken"
+
+#: ../panel-plugin/xfce4-clipman-history.c:428
+#, c-format
+msgid "_Copy"
+msgstr "_Kopiëren"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+msgid "Clipman History"
+msgstr "Geschiedenis van Klembordbeheer"
+
+#: ../panel-plugin/xfce4-clipman-history.c:458
+#: ../panel-plugin/xfce4-clipman-history.c:460
+msgid "_Settings"
+msgstr "_Instellingen"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Instellingen van Klembordbeheer"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Pas uw klembord aan"
