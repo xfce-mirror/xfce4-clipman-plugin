@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:31+0200\n"
-"PO-Revision-Date: 2020-04-02 14:04+0000\n"
+"PO-Revision-Date: 2020-04-04 09:04+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -286,7 +286,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Du kan bruge erstatningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Mønsteret er altid forankeret i specialtegnet ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Activate only on manual copy"
@@ -341,7 +341,7 @@ msgstr "Spørg ikke igen"
 
 #: ../panel-plugin/menu.c:297
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Kan ikke åbne dialogen clipman-historik"
 
 #: ../panel-plugin/menu.c:411
 msgid "Could not generate QR-Code."
@@ -383,7 +383,7 @@ msgstr "Kan ikke åbne indstillingsdialogen"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Kunne ikke starte udklipsholderhåndteringsdæmonen da den allerede kører."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
@@ -395,11 +395,11 @@ msgstr "Du kan starte den med 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Udklipsholderhåndteringsdæmonen kører ikke."
 
 #: ../panel-plugin/xfce4-clipman-history.c:249
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Indtast søgefrase her"
 
 #: ../panel-plugin/xfce4-clipman-history.c:423
 #, c-format
@@ -413,7 +413,7 @@ msgstr "_Kopiér"
 
 #: ../panel-plugin/xfce4-clipman-history.c:444
 msgid "Clipman History"
-msgstr ""
+msgstr "Clipman-historik"
 
 #: ../panel-plugin/xfce4-clipman-history.c:458
 #: ../panel-plugin/xfce4-clipman-history.c:460
@@ -422,7 +422,7 @@ msgstr "_Indstillinger"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Indstillinger for udklipsholderhåndtering"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
