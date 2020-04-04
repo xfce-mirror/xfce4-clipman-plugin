@@ -1,3 +1,12 @@
+1.6.1
+======
+- Add translateable files to POTFILES (Bug #16608)
+- Bump libxfce4ui ifdef to 4.15.1
+- Translation Updates:
+  Albanian, Bulgarian, Catalan, Chinese (China), Danish, Dutch, French,
+  Galician, German, Italian, Japanese, Lithuanian, Norwegian Bokmål,
+  Polish, Portuguese, Russian, Spanish
+
 1.6.0
 ======
 - Add standalone dialog to search history: xfce4-clipman-history
