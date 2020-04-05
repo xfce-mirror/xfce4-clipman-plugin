@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-27 06:31+0100\n"
-"PO-Revision-Date: 2020-03-28 12:09+0000\n"
+"POT-Creation-Date: 2020-04-02 00:31+0200\n"
+"PO-Revision-Date: 2020-04-05 15:33+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "Скрати адресу"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:77
 #: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:334
+#: ../panel-plugin/plugin.c:333
 msgid "Clipman"
 msgstr "Секач"
 
@@ -80,30 +80,32 @@ msgstr "Секач"
 msgid "Clipboard manager"
 msgstr "Управник исечака"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:91
+#: ../panel-plugin/xfce4-clipman-settings.c:97
 msgid "None"
 msgstr "Ништа"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:93
+#: ../panel-plugin/xfce4-clipman-settings.c:99
 msgid "Ctrl+V"
 msgstr "Ктрл+В"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:95
+#: ../panel-plugin/xfce4-clipman-settings.c:101
 msgid "Shift+Insert"
 msgstr "Шифт+Убаци"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:527
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid "<b>Reset actions</b>"
 msgstr "<b>Врати поставке дејства</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:529
+#: ../panel-plugin/xfce4-clipman-settings.c:537
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Да ли сте сигурни да желите да повратите поставке дејства на подразумеване вредности система?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:450
+#: ../panel-plugin/xfce4-clipman-history.c:452
 msgid "_Help"
 msgstr "_Помоћ"
 
@@ -166,8 +168,8 @@ msgid "_Behavior"
 msgstr "_Понашање"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
-msgid "_Enable automatic actions"
-msgstr "_Омогући самостална дејства"
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>_Омогући самосталне радње</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid ""
@@ -270,52 +272,47 @@ msgid "Edit Action"
 msgstr "Уредите дејство"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr "Можете користити одреднице замене „\\1“, „\\2\", и тако даље, у наредбама. Одредница „\\0“ представља потпун текст. Уколико не знате регуларне изразе, погледајте документацију Секача која има увод о њима."
-
-#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Назив:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Pattern:"
 msgstr "Образац:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr "Образац је увек усидрен између нарочитих знака ^$"
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr "Можете користити заменске одреднице „\\1“, „\\2“ и тако даље у наредбама. Одредница „\\0“ представља цео текст. Образац је увек угњежђен нарочитим знацима ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Activate only on manual copy"
 msgstr "Покрени само ручним умножавањем"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
 "By default the action is triggerred by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Подразумевано дејство се покреће избором, означите ову могућност да покренете дејство само када радите ручно умножавање"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
 msgstr "<b>Дејство</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Command:"
 msgstr "Наредба:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "<b>Commands</b>"
 msgstr "<b>Наредбе</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Укуцајте овде свој произвољни израз, на пример адресу, име датотеке, итд."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Regular expression"
 msgstr "Регуларан израз"
 
@@ -324,7 +321,7 @@ msgstr "Регуларан израз"
 msgid "_Disable"
 msgstr "_Онемогући"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:368
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -332,39 +329,99 @@ msgid ""
 "%s"
 msgstr "Нисам успео да извршим наредбу „%s“\n\n%s"
 
-#: ../panel-plugin/menu.c:248
+#: ../panel-plugin/menu.c:246
 msgid "Are you sure you want to clear the history?"
 msgstr "Да ли сте сигурни да желите избрисати оставу?"
 
-#: ../panel-plugin/menu.c:253
+#: ../panel-plugin/menu.c:251
 msgid "Don't ask again"
 msgstr "Не питај поново"
 
-#: ../panel-plugin/menu.c:389
+#: ../panel-plugin/menu.c:297
+msgid "Unable to open the clipman history dialog"
+msgstr "Нисам успео да отворим прозорче историје Секача"
+
+#: ../panel-plugin/menu.c:411
 msgid "Could not generate QR-Code."
 msgstr "Нисам успео да образујем КуР-код."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:403
+#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
 msgid "Clipboard is empty"
 msgstr "Остава исечака је празна"
 
-#: ../panel-plugin/menu.c:511
+#: ../panel-plugin/menu.c:534
+msgid "_Show full history..."
+msgstr "_Приказуј сву историју..."
+
+#: ../panel-plugin/menu.c:540
 msgid "_Clear history"
 msgstr "_Очисти оставу"
 
-#: ../panel-plugin/plugin.c:322
+#: ../panel-plugin/menu.c:547
+msgid "_Clipman settings..."
+msgstr "Поставке _Секача..."
+
+#: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
 msgstr "Доприносиоци:"
 
-#: ../panel-plugin/plugin.c:336
+#: ../panel-plugin/plugin.c:335
 msgid "Clipboard Manager for Xfce"
 msgstr "Управник исечака ИксФЦЕ-а"
 
-#: ../panel-plugin/plugin.c:344
+#: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
 msgstr "Саша Петровић <salepetronije@gmail.com>"
 
-#: ../panel-plugin/plugin.c:358
+#: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Нисам успео отворим прозорче поставки"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Нисам успео да покренем домара управника исечака јер је већ у погону."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Управник исечака ИксФЦЕ-а је већ покренут."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Можете га покренути помоћу „xfce4-clipman“."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "Домар управника исечака није у погону."
+
+#: ../panel-plugin/xfce4-clipman-history.c:249
+msgid "Enter search phrase here"
+msgstr "Унесите израз претраге овде"
+
+#: ../panel-plugin/xfce4-clipman-history.c:423
+#, c-format
+msgid "_Paste"
+msgstr "_Налепи"
+
+#: ../panel-plugin/xfce4-clipman-history.c:428
+#, c-format
+msgid "_Copy"
+msgstr "_Умножи"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+msgid "Clipman History"
+msgstr "Историја Секача"
+
+#: ../panel-plugin/xfce4-clipman-history.c:458
+#: ../panel-plugin/xfce4-clipman-history.c:460
+msgid "_Settings"
+msgstr "_Поставке"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Поставке управника исечака"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Прилагодите своју оставу исечака"
