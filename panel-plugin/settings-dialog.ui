@@ -609,7 +609,7 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="tooltip_text" translatable="yes">If checked, this option allows to store one image inside the history</property>
+                        <property name="tooltip_text" translatable="yes">If checked, this option allows one to store one image inside the history</property>
                         <property name="use_underline">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
@@ -990,7 +990,7 @@ Otherwise the menu will only appear when calling "xfce4-popup-clipman-actions" (
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">By default the action is triggerred by a selection, check this option to trigger the action only when you make a manual copy</property>
+                            <property name="tooltip_text" translatable="yes">By default the action is triggered by a selection, check this option to trigger the action only when you make a manual copy</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
