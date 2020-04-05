@@ -539,6 +539,7 @@ main (gint argc, gchar *argv[])
   GtkApplication *app;
   int status;
   GtkClipboard *clipboard;
+  GError *error = NULL;
 
   if (!clipman_history_clipman_daemon_running ())
     {
@@ -551,6 +552,20 @@ main (gint argc, gchar *argv[])
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_FLAGS_NONE);
+
+  g_application_register (G_APPLICATION (app), NULL, &error);
+  if (error != NULL)
+    {
+      g_warning ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      error = NULL;
+    }
+
+  if (g_application_get_is_remote (G_APPLICATION (app)))
+    {
+      g_warning ("%s already running", argv[0]);
+      return FALSE;
+    }
 
   g_signal_connect (app, "activate", G_CALLBACK (clipman_history_activate), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
