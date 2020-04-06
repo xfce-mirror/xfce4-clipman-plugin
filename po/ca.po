@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 00:31+0200\n"
-"PO-Revision-Date: 2020-03-30 21:12+0000\n"
+"POT-Creation-Date: 2020-04-06 00:31+0200\n"
+"PO-Revision-Date: 2020-04-06 09:39+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -108,6 +108,8 @@ msgid ""
 msgstr "Esteu segur que voleu restablir les accions als valors predeterminats del sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
 msgstr "_Ajuda"
 
@@ -228,8 +230,9 @@ msgid "Remember last copied _image"
 msgstr "Recorda l'última _imatge copiada"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Si es marca, aquesta opció permet emmagatzemar una imatge dins de l'historial"
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "Si es marca, aquesta opció permet emmagatzemar una una les imatge dins de l'historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "_Reorder history items"
@@ -294,7 +297,7 @@ msgstr "Activa únicament amb la còpia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
+"By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per a executar l'acció només quan es faci una còpia manual."
 
@@ -331,36 +334,36 @@ msgid ""
 "%s"
 msgstr "No es pot executar l'ordre «%s»\n\n%s"
 
-#: ../panel-plugin/menu.c:246
+#: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
 msgstr "Esteu segur que voleu netejar l'historial?"
 
-#: ../panel-plugin/menu.c:251
+#: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
 msgstr "No m'ho tornis a preguntar"
 
-#: ../panel-plugin/menu.c:297
+#: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
 msgstr "No es pot obrir el diàleg de l'historial de clipman"
 
-#: ../panel-plugin/menu.c:411
+#: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
 msgstr "No s'ha pogut generar el codi QR."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
 msgstr "El porta-retalls està buit"
 
-#: ../panel-plugin/menu.c:534
+#: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
 msgstr "Mo_stra l'historial complet..."
 
-#: ../panel-plugin/menu.c:540
+#: ../panel-plugin/menu.c:608
 msgid "_Clear history"
 msgstr "Nete_ja l'historial"
 
-#: ../panel-plugin/menu.c:547
+#: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
 msgstr "Ajusts de _Clipman..."
 
@@ -379,3 +382,51 @@ msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "No es pot obrir el diàleg d'ajusts"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "No s'ha pogut iniciar el dimoni del gestor de porta-retalls perquè ja s'està executant."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Ja s'està executant el gestor del porta-retalls de Xfce."
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Podeu llançar-ho amb 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "No s'està executant el gestor del porta-retalls."
+
+#: ../panel-plugin/xfce4-clipman-history.c:256
+msgid "Enter search phrase here"
+msgstr "Introduïu aquí el terme de cerca"
+
+#: ../panel-plugin/xfce4-clipman-history.c:414
+#, c-format
+msgid "_Paste"
+msgstr "_Enganxa"
+
+#: ../panel-plugin/xfce4-clipman-history.c:419
+#, c-format
+msgid "_Copy"
+msgstr "_Copia"
+
+#: ../panel-plugin/xfce4-clipman-history.c:435
+msgid "Clipman History"
+msgstr "Historial de Clipman"
+
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
+msgid "_Settings"
+msgstr "_Ajusts"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Ajusts del gestor del porta-retalls"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Personalitzeu el vostre porta-retalls"
