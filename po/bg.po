@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 00:31+0200\n"
-"PO-Revision-Date: 2020-04-02 08:33+0000\n"
+"POT-Creation-Date: 2020-04-06 00:31+0200\n"
+"PO-Revision-Date: 2020-04-06 12:40+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -106,8 +106,8 @@ msgid ""
 msgstr "Искате ли да върнете действията към тяхната начална стойност?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-#: ../panel-plugin/xfce4-clipman-history.c:450
-#: ../panel-plugin/xfce4-clipman-history.c:452
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
 msgstr "_Помощ"
 
@@ -228,8 +228,9 @@ msgid "Remember last copied _image"
 msgstr "Запомняне на последното копирано изображение"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Ако е избрана, тази опция ви позволява да съхранявате едно изображение в историята"
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "Ако е отметнато, тази опция позволява да се съхранява едно изображение в историята"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "_Reorder history items"
@@ -294,9 +295,9 @@ msgstr "Активиране само на потребителско копие
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
+"By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "По подразбиране действието e пуснато от селекцията. Маркирайте тази опция, за да предизвика действия само когато правите ръчно копие"
+msgstr "По подразбиране действието се стартира след избиране, отметнете тази опция, за да стартирате действието само когато правите ръчно копие"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
@@ -331,36 +332,36 @@ msgid ""
 "%s"
 msgstr "Неуспешно изпълнение на командата „%s“\n\n%s"
 
-#: ../panel-plugin/menu.c:246
+#: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
 msgstr "Наистина ли желаете да изчистите историята?"
 
-#: ../panel-plugin/menu.c:251
+#: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
 msgstr "Не ме питай повече"
 
-#: ../panel-plugin/menu.c:297
+#: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
 msgstr "Диалогът с историята на Clipman не може да се отвори"
 
-#: ../panel-plugin/menu.c:411
+#: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
 msgstr "Не може да се създаде QR-Code."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
 msgstr "Системният буфер е празен"
 
-#: ../panel-plugin/menu.c:534
+#: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
 msgstr "_Покажи пълната история..."
 
-#: ../panel-plugin/menu.c:540
+#: ../panel-plugin/menu.c:608
 msgid "_Clear history"
 msgstr "_Изчистване на историята"
 
-#: ../panel-plugin/menu.c:547
+#: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
 msgstr "_Настройки на Clipman..."
 
@@ -397,26 +398,26 @@ msgstr "Вие можете да го стартирате с 'xfce4-clipman'."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Демонът на  мениджъра на системния буфер не е стартиран."
 
-#: ../panel-plugin/xfce4-clipman-history.c:249
+#: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
 msgstr "Въведете търсеният израз тук"
 
-#: ../panel-plugin/xfce4-clipman-history.c:423
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
 msgstr "_Поставяне"
 
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
 msgstr "_Копиране"
 
-#: ../panel-plugin/xfce4-clipman-history.c:444
+#: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
 msgstr "История на Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:458
-#: ../panel-plugin/xfce4-clipman-history.c:460
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
 msgstr "_Настройки"
 
