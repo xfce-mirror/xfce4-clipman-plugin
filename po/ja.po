@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 00:31+0200\n"
-"PO-Revision-Date: 2020-04-03 12:29+0000\n"
-"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
+"POT-Creation-Date: 2020-04-06 00:31+0200\n"
+"PO-Revision-Date: 2020-04-07 21:11+0000\n"
+"Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,8 +105,8 @@ msgid ""
 msgstr "アクションをシステムデフォルトにリセットしてもよろしいですか?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-#: ../panel-plugin/xfce4-clipman-history.c:450
-#: ../panel-plugin/xfce4-clipman-history.c:452
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
@@ -227,8 +227,9 @@ msgid "Remember last copied _image"
 msgstr "最後にコピーした画像を記憶する"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "チェックマークをつけると、画像を履歴に格納することができます"
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "このオプションをオンにすると、履歴内に1つの画像を保存できます"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid "_Reorder history items"
@@ -293,9 +294,9 @@ msgstr "手動コピー時のみアクティブにする"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
+"By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "デフォルトでは、アクションは領域を選択したときに開始されますが、このオプションにチェックマークをつけると、手動でコピー操作を行ったときに開始されるようになります"
+msgstr "デフォルトでは選択によってアクションが発生します。このオプションをオンにすると、手動コピーを作成したときのみアクションが発生します"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
@@ -330,36 +331,36 @@ msgid ""
 "%s"
 msgstr "コマンド \"%s\" を実行できません\n\n%s"
 
-#: ../panel-plugin/menu.c:246
+#: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
 msgstr "履歴をクリアしてもよろしいですか?"
 
-#: ../panel-plugin/menu.c:251
+#: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
 msgstr "次回から確認しない"
 
-#: ../panel-plugin/menu.c:297
+#: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
 msgstr "Clipman の履歴ダイアログを開けません"
 
-#: ../panel-plugin/menu.c:411
+#: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
 msgstr "QR-Code を生成できませんでした。"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
 msgstr "クリップボードは空です"
 
-#: ../panel-plugin/menu.c:534
+#: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
 msgstr "完全な履歴を表示(_S)..."
 
-#: ../panel-plugin/menu.c:540
+#: ../panel-plugin/menu.c:608
 msgid "_Clear history"
 msgstr "履歴のクリア(_C)"
 
-#: ../panel-plugin/menu.c:547
+#: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
 msgstr "Clipman の設定(_C)..."
 
@@ -396,26 +397,26 @@ msgstr "'xfce4-clipman' で起動できます。"
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "クリップボードマネージャーデーモンは実行していません。"
 
-#: ../panel-plugin/xfce4-clipman-history.c:249
+#: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
 msgstr "ここに検索フレーズを入力してください"
 
-#: ../panel-plugin/xfce4-clipman-history.c:423
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
 msgstr "ペースト(_P)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
 msgstr "コピー(_C)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:444
+#: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
 msgstr "Clipman の履歴"
 
-#: ../panel-plugin/xfce4-clipman-history.c:458
-#: ../panel-plugin/xfce4-clipman-history.c:460
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
 msgstr "設定(_S)"
 
