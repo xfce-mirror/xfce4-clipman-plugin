@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 00:31+0200\n"
-"PO-Revision-Date: 2020-04-04 09:04+0000\n"
+"POT-Creation-Date: 2020-04-06 00:31+0200\n"
+"PO-Revision-Date: 2020-04-07 11:54+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -106,8 +106,8 @@ msgid ""
 msgstr "Er du sikker på, at du vil nulstille handlingerne til systemets standardværdier?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-#: ../panel-plugin/xfce4-clipman-history.c:450
-#: ../panel-plugin/xfce4-clipman-history.c:452
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
 msgstr "_Hjælp"
 
@@ -228,7 +228,8 @@ msgid "Remember last copied _image"
 msgstr "Husk seneste kopieret _billede"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
-msgid "If checked, this option allows to store one image inside the history"
+msgid ""
+"If checked, this option allows one to store one image inside the history"
 msgstr "Hvis den er afkrydset, så tillader den dig at gemme et billede i historikken"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
@@ -294,9 +295,9 @@ msgstr "Aktivér kun ved manuel kopiering"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
+"By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Som standard er denne handling udløst af en markering. Tilvælg denne valgmulighed, for kun at udløse handlingen, når du laver en manuel kopi"
+msgstr "Som standard udløses handlingen af en markering. Tilvælg valgmuligheden, for kun at udløse handlingen, når du laver en manuel kopi"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid "<b>Action</b>"
@@ -331,36 +332,36 @@ msgid ""
 "%s"
 msgstr "Kan ikke køre kommandoen \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:246
+#: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
 msgstr "Er du sikker på, at du vil rydde historikken?"
 
-#: ../panel-plugin/menu.c:251
+#: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
 msgstr "Spørg ikke igen"
 
-#: ../panel-plugin/menu.c:297
+#: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
 msgstr "Kan ikke åbne dialogen clipman-historik"
 
-#: ../panel-plugin/menu.c:411
+#: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
 msgstr "Kunne ikke genererer QR-kode."
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:425 ../panel-plugin/xfce4-clipman-history.c:327
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
 msgstr "Udklipsholderen er tom"
 
-#: ../panel-plugin/menu.c:534
+#: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
 msgstr "_Vis fuld historik ..."
 
-#: ../panel-plugin/menu.c:540
+#: ../panel-plugin/menu.c:608
 msgid "_Clear history"
 msgstr "Ryd _historik"
 
-#: ../panel-plugin/menu.c:547
+#: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
 msgstr "_Clipman-indstillinger ..."
 
@@ -397,26 +398,26 @@ msgstr "Du kan starte den med 'xfce4-clipman'."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Udklipsholderhåndteringsdæmonen kører ikke."
 
-#: ../panel-plugin/xfce4-clipman-history.c:249
+#: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
 msgstr "Indtast søgefrase her"
 
-#: ../panel-plugin/xfce4-clipman-history.c:423
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
 msgstr "_Indsæt"
 
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
 msgstr "_Kopiér"
 
-#: ../panel-plugin/xfce4-clipman-history.c:444
+#: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
 msgstr "Clipman-historik"
 
-#: ../panel-plugin/xfce4-clipman-history.c:458
-#: ../panel-plugin/xfce4-clipman-history.c:460
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
 msgstr "_Indstillinger"
 
