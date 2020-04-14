@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2019-11-03 18:53+0000\n"
-"Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
+"POT-Creation-Date: 2020-04-09 00:32+0200\n"
+"PO-Revision-Date: 2020-04-08 22:32+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,18 +28,12 @@ msgid ""
 msgstr "Upravljalnik odložišča je na voljo kot vtičnik za Xfce pult ali kot samostojen program, ki  deluje v področju za obvestila. Shranjuje zgodovino tekstovnih in slikovnih vsebin, ki so bile kopirane na odložišče. Ima tudi funkcijo izvajanja dejanj za določen izbor teksta, ob njihovem primerjanju z regularnimi izrazi."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
-msgid "Clipman"
-msgstr "Clipman"
+msgid "Clipboard Manager"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-msgid "Clipboard manager"
-msgstr "Upravljalnik odložišča"
+msgid "Clipboard Manager Autostart File"
+msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -73,236 +67,266 @@ msgstr "Dolg URL"
 msgid "Shrink the URL"
 msgstr "Skrajšaj URL"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:184
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+#: ../panel-plugin/main-panel-plugin.c:77
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:333
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Upravljalnik odložišča"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:97
 msgid "None"
 msgstr "Brez"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:186
+#: ../panel-plugin/xfce4-clipman-settings.c:99
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:188
+#: ../panel-plugin/xfce4-clipman-settings.c:101
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:511
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid "<b>Reset actions</b>"
 msgstr "<b>Ponastavi dejanja</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:513
+#: ../panel-plugin/xfce4-clipman-settings.c:537
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Ali ste prepričani, da želite ponastaviti dejanja na privzeto vrednost?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Edit Action"
-msgstr "Uredi dejanje"
+msgid "Clipman Settings"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:2
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr "V ukazih lahko uporabite nadomestitvene parametre \"\\1\", \"\\2\" itd. Parameter \"\\0\" predstavlja celotno besedilo. V primeru, da ne poznate regularnih izrazov, poglejte v dokumentacijo Clipman, ki vsebuje uvod v njih."
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
+msgid "_Help"
+msgstr "Pomo_č"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
-msgid "Name:"
-msgstr "Naziv:"
+msgid "_Close"
+msgstr "_Zapri"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Pattern:"
-msgstr "Izraz:"
+msgid "Sync mouse _selections"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:5
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr "Izraz se vedno nahaja med posebnima znakoma ^$"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "Aktiviraj samo ob ročnem kopiranju"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "Privzeto je, da se dejanje sproži z izbiro besedila. V primeru, da je ta možnost označena, se dejanje sproži, samo ko ročno kopirate besedilo."
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid "<b>Action</b>"
-msgstr "<b>Dejanje</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "Ukaz:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "<b>Commands</b>"
-msgstr "<b>Ukazi</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Sync _selections"
-msgstr "_Sinhroniziraj izbrano"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr "V primeru, da je označeno, bo izbrano besedilo avtomatsko usklajeno s privzetim odložiščem, tako da lahko prilepite, kar ste izbrali."
 
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Show _QR-Code"
-msgstr "Prikaži _QR-kodo"
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_QR-Code support"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Če je označeno, ta meni prikaže QR kodo trenutno izbranega vnosa odložišča."
 
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "<b>Behavior</b>"
-msgstr "<b>Obnašanje</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Save on _quit"
-msgstr "Shrani ob i_zhodu"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "V primeru, da je označeno, bo zgodovina obnovljena ob vsaki seji."
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Store last copied _image"
-msgstr "Shrani zadnje kopirano sl_iko"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Možnost omogoča hranjenje ene slike v zgodovini."
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Ignore s_elections"
-msgstr "Pr_ezri izbore besedila"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Izbori besedila ne bodo vplivali na zgodovino, razen če jih ročno kopirate."
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "Size of the _history:"
-msgstr "Velikost z_godovine:"
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "<b>History</b>"
-msgstr "<b>Zgodovina</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "General"
-msgstr "Splošno"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable automatic actions"
-msgstr "Vklopi samodejna d_ejanja"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Če je označeno, bo tekst na odložišču primerjan z regularnimi izrazi, meni pa bo samodejno prikazal možna dejanja.\nV nasprotnem primeru se bo meni prikazal le ob klicu \"xfce4-popup-clipman-actions\" (ob predpostavki, da je bil najden tudi zadetek)"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Add action"
-msgstr "Dodaj dejanje"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Edit action"
-msgstr "Uredi dejanje"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Delete action"
-msgstr "Izbriši dejanje"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Reset all actions to the system default values"
-msgstr "Ponastavi vsa dejanja na sistemsko privzete vrednosti"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "Actions"
-msgstr "Dejanja"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
 msgstr "Samodejno prilepi izbiro iz zgodovine"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "_Paste instantly:"
 msgstr "_Prilepi takoj:"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "<b>General</b>"
+msgstr "<b>Splošno</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
 msgstr "P_ostavi meni ob miškin kazalec"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Prikaži meni ob miškinem kazalcu, samo za ukaz xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "Ponovno _razvrsti vsebino zgodovine"
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Maximum items:"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "<b>Menu</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "_Behavior"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "<b>_Enable automatic actions</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Potisni zadnje kopirano besedilo na vrh zgodovine"
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Če je označeno, bo tekst na odložišču primerjan z regularnimi izrazi, meni pa bo samodejno prikazal možna dejanja.\nV nasprotnem primeru se bo meni prikazal le ob klicu \"xfce4-popup-clipman-actions\" (ob predpostavki, da je bil najden tudi zadetek)"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
-msgid "Re_verse history order"
-msgstr "Obrni _vrstni red zgodovine"
-
-#: ../panel-plugin/settings-dialog.ui.h:40
-msgid "Reverse order of the history shown in the menu"
-msgstr "Obratno razvrsti predmete zgodovine v meniju."
-
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
 msgstr "_Prikaži dejanja z držanjem tipke Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Ko označite besedilo (z miško ali tipkovnico) in pritisnete tipko Control, se prikaže pojavni meni za dejanja, ki ustrezajo označenemu besedilu."
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "S_kip actions by holding Control"
 msgstr "Pres_koči dejanja z držanjem tipke Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Ko je označeno besedilo (z miško ali tipkovnico) in je tipka Control še vedno pritisnjena, bo prikazni meni za ujemajoča dejanja preskočen."
 
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Add action"
+msgstr "Dodaj dejanje"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Edit action"
+msgstr "Uredi dejanje"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Delete action"
+msgstr "Izbriši dejanje"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Reset all actions to the system default values"
+msgstr "Ponastavi vsa dejanja na sistemsko privzete vrednosti"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Actions"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "<b>Remember history</b>"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Remember last copied _image"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "_Reorder history items"
+msgstr "Ponovno _razvrsti vsebino zgodovine"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Potisni zadnje kopirano besedilo na vrh zgodovine"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Re_verse history order"
+msgstr "Obrni _vrstni red zgodovine"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Reverse order of the history shown in the menu"
+msgstr "Obratno razvrsti predmete zgodovine v meniju."
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "Ignore mouse s_elections"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Izbori besedila ne bodo vplivali na zgodovino, razen če jih ročno kopirate."
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "Size of the _history:"
+msgstr "Velikost z_godovine:"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "5"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "H_istory"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Edit Action"
+msgstr "Uredi dejanje"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "Name:"
+msgstr "Naziv:"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "Pattern:"
+msgstr "Izraz:"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid "Activate only on manual copy"
+msgstr "Aktiviraj samo ob ročnem kopiranju"
+
 #: ../panel-plugin/settings-dialog.ui.h:45
-msgid "Tweaks"
-msgstr "Prilagoditve"
+msgid ""
+"By default the action is triggered by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:46
+msgid "<b>Action</b>"
+msgstr "<b>Dejanje</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:47
+msgid "Command:"
+msgstr "Ukaz:"
+
+#: ../panel-plugin/settings-dialog.ui.h:48
+msgid "<b>Commands</b>"
+msgstr "<b>Ukazi</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:49
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
 msgstr "Regularni izraz"
 
-#: ../panel-plugin/main-panel-plugin.c:97
-#: ../panel-plugin/main-status-icon.c:137
+#: ../panel-plugin/main-panel-plugin.c:111
+#: ../panel-plugin/main-status-icon.c:159
 msgid "_Disable"
 msgstr "_Onemogoči"
 
-#: ../panel-plugin/actions.c:370
+#: ../panel-plugin/actions.c:368
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -310,39 +334,99 @@ msgid ""
 "%s"
 msgstr "Ni bilo mogoče zagnati ukaza \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:234
+#: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
 msgstr "Ali ste prepričani, da želite počistiti zgodovino odložišča?"
 
-#: ../panel-plugin/menu.c:239
+#: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
 msgstr "Ne sprašuj več"
 
-#: ../panel-plugin/menu.c:362
+#: ../panel-plugin/menu.c:306
+msgid "Unable to open the clipman history dialog"
+msgstr ""
+
+#: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
 msgstr "Ni bilo mogoče ustvariti QR-kode"
 
 #. Insert empty menu item
-#: ../panel-plugin/menu.c:376
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
 msgstr "Odložišče je prazno"
 
-#: ../panel-plugin/menu.c:475
+#: ../panel-plugin/menu.c:602
+msgid "_Show full history..."
+msgstr ""
+
+#: ../panel-plugin/menu.c:608
 msgid "_Clear history"
 msgstr "Pobriši _zgodovino"
 
-#: ../panel-plugin/plugin.c:307
+#: ../panel-plugin/menu.c:615
+msgid "_Clipman settings..."
+msgstr ""
+
+#: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
 msgstr "Prispevali so:"
 
-#: ../panel-plugin/plugin.c:321
+#: ../panel-plugin/plugin.c:335
 msgid "Clipboard Manager for Xfce"
 msgstr "Upravljalnik odložišča za Xfce"
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
 msgstr "Prevod: Kiberpipa"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
 msgstr "Ni mogoče odpreti okna z nastavitvami."
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr ""
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr ""
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr ""
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:256
+msgid "Enter search phrase here"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:414
+#, c-format
+msgid "_Paste"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:419
+#, c-format
+msgid "_Copy"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:435
+msgid "Clipman History"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
+msgid "_Settings"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr ""
