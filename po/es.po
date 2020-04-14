@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-06 00:31+0200\n"
-"PO-Revision-Date: 2020-04-06 18:27+0000\n"
+"POT-Creation-Date: 2020-04-09 00:32+0200\n"
+"PO-Revision-Date: 2020-04-12 07:54+0000\n"
 "Last-Translator: Casper casper\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -112,216 +112,220 @@ msgid ""
 msgstr "¿Está seguro de que quiere restablecer las acciones a los valores predeterminados del sistema?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
+msgid "Clipman Settings"
+msgstr "Ajustes de Clipman"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
 #: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
 msgstr "_Ayuda"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../panel-plugin/settings-dialog.ui.h:3
+#: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
 msgstr "Sincronizar _selecciones del mouse"
 
-#: ../panel-plugin/settings-dialog.ui.h:4
+#: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
 msgstr "Si está activado, se sincronizan las selecciones con el portapapeles de forma predeterminada y así puede pegar lo que seleccione"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
+#: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
 msgstr "Codigo _QR soportado"
 
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Si está marcado, el menú muestra el código QR de la la entrada seleccionada del portapapeles"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
 msgstr "Pegar automáticamente un elemento seleccionado del historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid "_Paste instantly:"
 msgstr "_Pegar instantáneamente:"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
 msgstr "P_osicionar menú junto al cursor del ratón"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Abrir el menú en la posición del cursor del ratón, solamente para la orden «xfce4-popup-clipman»"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
 msgstr "Maximo de elementos:"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
 msgstr "<b>Menu</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
 msgstr "_Comportamiento"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>_Habilitar acciones automáticas</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "Si está activado, los textos del portapapeles se compararán con expresiones regulares y un menú mostrará las posibles acciones automáticamente.\nDe otro modo el menú solo aparecerá cuando se invoque «xfce4-popup-clipman-actions» (y se encuentre una coincidencia)"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
 msgstr "_mostrar acciones al presionar Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Cuando la selección finalice (por ratón o teclado) y la tecla Control permanezca presionada, el menú de diálogo para las acciones coincidentes se mostrará"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "S_kip actions by holding Control"
 msgstr "Salt_ar acciones al mantener pulsado Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Cuando se realice una selección (con el ratón o el teclado) y la tecla Control esté presionada, el menú emergente para las acciones coincidentes se omitirá"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
 msgstr "Añadir acción"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Edit action"
 msgstr "Editar acción"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Delete action"
 msgstr "Eliminar acción"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reset all actions to the system default values"
 msgstr "Restablecer todas las acciones a los valores predeterminados del sistema"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
 msgstr "_Acciones"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
 msgstr "<b>Recordar Historial</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
 msgstr "Recordar la última _imagen copiada"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
 msgstr "Si está marcada, esta opción le permite a uno almacenar una imagen dentro del historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
 msgstr "_Reordenar elementos del historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Poner el último texto copiado arriba del historial, útil para reordenar elementos anteriores"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Re_verse history order"
 msgstr "In_vertir orden del historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Reverse order of the history shown in the menu"
 msgstr "Si está activado, esta opción restablecerá el historial en cada nueva sesión de Xfce"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
 msgstr "Ignorar las s_elecciones del mouse"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Si está activado, la selección no afectará el historial, excepto las copias manuales"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
 msgstr "Tamaño del _historial:"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
 msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
 msgstr "H_istoria"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
 msgstr "Editar acción"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
 msgstr "Nombre:"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
 msgstr "Patrón:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Puede usar los parámetros de sustitución \"\\1\", \"\\2\", etc. en los comandos. El parámetro \"\\0\" representa el texto completo. El patrón siempre está anclado dentro de los caracteres especiales ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
 msgstr "Activar solamente en copia manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "De manera predeterminada, la acción se activa mediante una selección, marque esta opción para activar la acción solo cuando realice una copia manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
 msgstr "<b>Acción</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
 msgstr "Orden:"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
 msgstr "<b>Órdenes</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Escriba aquí su texto personalizado, por ejemplo, una URL, un nombre de archivo, etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
 msgstr "Expresión regular"
 
