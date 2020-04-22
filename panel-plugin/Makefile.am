@@ -19,7 +19,7 @@ bin_PROGRAMS = xfce4-clipman xfce4-popup-clipman xfce4-clipman-settings xfce4-cl
 if MAINTAINER_MODE
 BUILT_SOURCES = settings-dialog_ui.h
 settings-dialog_ui.h: settings-dialog.ui
-	$(AM_V_GEN) exo-csource --static --strip-comments --strip-content --name=settings_dialog_ui $< >$@
+	$(AM_V_GEN) xdt-csource --static --strip-comments --strip-content --name=settings_dialog_ui $< >$@
 endif
 
 #
