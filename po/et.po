@@ -1,0 +1,431 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Priit Jõerüüt <transifex@joeruut.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-09 00:32+0200\n"
+"PO-Revision-Date: 2020-05-23 10:47+0000\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>\n"
+"Language-Team: Estonian (http://www.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
+msgid "Clipboard Manager"
+msgstr "Lõikepuhvri haldur"
+
+#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
+msgid "Clipboard Manager Autostart File"
+msgstr "Lõikepuhvri halduri automaatse käivituse fail"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
+msgid "Image"
+msgstr "Pilt"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
+msgid "Edit with Gimp"
+msgstr "Muuda Gimpiga"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
+msgid "View with Ristretto"
+msgstr "Vaata Ristrettoga"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
+msgid "Bugz"
+msgstr "Bugz"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
+msgid "Xfce Bug"
+msgstr "Xfce Bug"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
+msgid "GNOME Bug"
+msgstr "GNOME Bug"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
+msgid "Long URL"
+msgstr "Täispikk URL"
+
+#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
+msgid "Shrink the URL"
+msgstr "Lühenda URLi"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
+#: ../panel-plugin/main-panel-plugin.c:77
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:333
+msgid "Clipman"
+msgstr "Clipman"
+
+#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
+#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+msgid "Clipboard manager"
+msgstr "Lõikepuhvri haldur"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:97
+msgid "None"
+msgstr "Mitte midagi"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:99
+msgid "Ctrl+V"
+msgstr "Ctrl+V kasutamisel"
+
+#. TRANSLATORS: Keyboard shortcut
+#: ../panel-plugin/xfce4-clipman-settings.c:101
+msgid "Shift+Insert"
+msgstr "Shift+Insert'i kasutamisel"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:535
+msgid "<b>Reset actions</b>"
+msgstr "<b>Lähtesta toimingud</b>"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:537
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "Kas oled kindel, et soovid lähtestada toimingute väärtused vaikimisi väärtustega?"
+
+#: ../panel-plugin/settings-dialog.ui.h:1
+msgid "Clipman Settings"
+msgstr "Clipmani seadistused"
+
+#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/xfce4-clipman-history.c:441
+#: ../panel-plugin/xfce4-clipman-history.c:443
+msgid "_Help"
+msgstr "_Abi"
+
+#: ../panel-plugin/settings-dialog.ui.h:3
+msgid "_Close"
+msgstr "_Sulge"
+
+#: ../panel-plugin/settings-dialog.ui.h:4
+msgid "Sync mouse _selections"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:5
+msgid ""
+"If checked, the selections will be synced with the default clipboard in a "
+"way that you can paste what you select"
+msgstr "Kui see valik on märgitud, siis aktiivsed kirjed sünkroniseeritakse vaikimisi lõikepuhvriga nii, et sa võid neid kirjeid asetada"
+
+#: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_QR-Code support"
+msgstr "_QR-koodi kasutamise tugi"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Kui see valik on märgitud, siis menüüs kuvatakse hetkel aktiivse lõikepuhvri kirje QR-koodi"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
+msgid "Automatically paste a selected item from the history"
+msgstr "Aseta ajaloost valitud kirje automaatselt"
+
+#: ../panel-plugin/settings-dialog.ui.h:9
+msgid "_Paste instantly:"
+msgstr "_Aseta kohe"
+
+#: ../panel-plugin/settings-dialog.ui.h:10
+msgid "<b>General</b>"
+msgstr "<b>Üldine</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:11
+msgid "P_osition menu at mouse pointer"
+msgstr "Aseta menüü hiirekurs_ori juurde"
+
+#: ../panel-plugin/settings-dialog.ui.h:12
+msgid ""
+"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
+"clipman command"
+msgstr "Hüpikmenüü hiirekursori asukohas, aga vaid xfce4-popup-clipman käsu kasutamisel"
+
+#: ../panel-plugin/settings-dialog.ui.h:13
+msgid "Maximum items:"
+msgstr "Maksimaalne kirjete arv:"
+
+#: ../panel-plugin/settings-dialog.ui.h:14
+msgid "<b>Menu</b>"
+msgstr "<b>Menüü</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:15
+msgid "_Behavior"
+msgstr "_Käitumine"
+
+#: ../panel-plugin/settings-dialog.ui.h:16
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>_Luba automaatsed toimingud</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:17
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Kui see valik on märgitud, siis lõikepuhvris olevaid tekstikirjeid kontrollitakse automaatselt regulaaravaldiste suhtes ning menüü kuvab võimalikke tegevusi.\nVastupidisel juhul selline menüü tekib vaid \"xfce4-popup-clipman-actions\" käivitamisel (ja leidub vaste regulaaravaldisele)"
+
+#: ../panel-plugin/settings-dialog.ui.h:19
+msgid "_Show actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:20
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be shown"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:21
+msgid "S_kip actions by holding Control"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:22
+msgid ""
+"When the selection is done (mouse or keyboard) and the Control key is still "
+"pressed down, the popup menu for matched actions will be skipped"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:23
+msgid "Add action"
+msgstr "Lisa toiming"
+
+#: ../panel-plugin/settings-dialog.ui.h:24
+msgid "Edit action"
+msgstr "Muuda toimingut"
+
+#: ../panel-plugin/settings-dialog.ui.h:25
+msgid "Delete action"
+msgstr "Kustuta toiming"
+
+#: ../panel-plugin/settings-dialog.ui.h:26
+msgid "Reset all actions to the system default values"
+msgstr "Asenda kõik toimingud süsteemi vaikeväärtustega"
+
+#: ../panel-plugin/settings-dialog.ui.h:27
+msgid "_Actions"
+msgstr "_Toimingud"
+
+#: ../panel-plugin/settings-dialog.ui.h:28
+msgid "<b>Remember history</b>"
+msgstr "<b>Jäta ajalugu meelde</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:29
+msgid "Remember last copied _image"
+msgstr "Jäta viimati kopeeritud p_ilt meelde"
+
+#: ../panel-plugin/settings-dialog.ui.h:30
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "Kui see valik on märgitud, siis on võimalik ajalukku salvestada ühte pilti"
+
+#: ../panel-plugin/settings-dialog.ui.h:31
+msgid "_Reorder history items"
+msgstr "Jä_rjesta ajalugu ümber"
+
+#: ../panel-plugin/settings-dialog.ui.h:32
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Tõsta viimati kopeeritud tekst ajaloo algusesse, seda saad kasutada vanade kirjete ümber järjestamiseks"
+
+#: ../panel-plugin/settings-dialog.ui.h:33
+msgid "Re_verse history order"
+msgstr "Ajaloo _tagurpidi järjekord"
+
+#: ../panel-plugin/settings-dialog.ui.h:34
+msgid "Reverse order of the history shown in the menu"
+msgstr "Menüüs kuvatavate kirjete tagurpidi järjestamine"
+
+#: ../panel-plugin/settings-dialog.ui.h:35
+msgid "Ignore mouse s_elections"
+msgstr "Eira _hiirega tehtud valikuid"
+
+#: ../panel-plugin/settings-dialog.ui.h:36
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Kui see valik on märgitud, siis valikuga kopeerimised ei lähe arvesse ja kehtivad vaid kopeerimiskäsu kasutamised"
+
+#: ../panel-plugin/settings-dialog.ui.h:37
+msgid "Size of the _history:"
+msgstr "Kirjete arv _ajaloos:"
+
+#: ../panel-plugin/settings-dialog.ui.h:38
+msgid "5"
+msgstr "5"
+
+#: ../panel-plugin/settings-dialog.ui.h:39
+msgid "H_istory"
+msgstr "A_jalugu"
+
+#: ../panel-plugin/settings-dialog.ui.h:40
+msgid "Edit Action"
+msgstr "Muuda toimingut"
+
+#: ../panel-plugin/settings-dialog.ui.h:41
+msgid "Name:"
+msgstr "Nimi:"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "Pattern:"
+msgstr "Muster:"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:44
+msgid "Activate only on manual copy"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:45
+msgid ""
+"By default the action is triggered by a selection, check this option to "
+"trigger the action only when you make a manual copy"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:46
+msgid "<b>Action</b>"
+msgstr "<b>Toiming</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:47
+msgid "Command:"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:48
+msgid "<b>Commands</b>"
+msgstr "<b>Käsud</b>"
+
+#: ../panel-plugin/settings-dialog.ui.h:49
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:50
+msgid "Regular expression"
+msgstr "Regulaaravaldis"
+
+#: ../panel-plugin/main-panel-plugin.c:111
+#: ../panel-plugin/main-status-icon.c:159
+msgid "_Disable"
+msgstr ""
+
+#: ../panel-plugin/actions.c:368
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../panel-plugin/menu.c:255
+msgid "Are you sure you want to clear the history?"
+msgstr "Kas oled kindel, et soovid ajaloo kustutada?"
+
+#: ../panel-plugin/menu.c:260
+msgid "Don't ask again"
+msgstr ""
+
+#: ../panel-plugin/menu.c:306
+msgid "Unable to open the clipman history dialog"
+msgstr "Ei õnnestu avada clipman'i ajaloo akent"
+
+#: ../panel-plugin/menu.c:455
+msgid "Could not generate QR-Code."
+msgstr ""
+
+#. Insert empty menu item
+#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
+msgid "Clipboard is empty"
+msgstr "Lõikepuhver on tühi"
+
+#: ../panel-plugin/menu.c:602
+msgid "_Show full history..."
+msgstr "_Näita kogu ajalugu"
+
+#: ../panel-plugin/menu.c:608
+msgid "_Clear history"
+msgstr ""
+
+#: ../panel-plugin/menu.c:615
+msgid "_Clipman settings..."
+msgstr "_Clipmani seadistused..."
+
+#: ../panel-plugin/plugin.c:321
+msgid "Contributors:"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:335
+msgid "Clipboard Manager for Xfce"
+msgstr "Xfce lõikepuhvri haldur"
+
+#: ../panel-plugin/plugin.c:343
+msgid "translator-credits"
+msgstr "Priit Jõerüüt 2020"
+
+#: ../panel-plugin/plugin.c:357
+msgid "Unable to open the settings dialog"
+msgstr "Seadistuse dialoogi avamine ebaõnnestus"
+
+#: ../panel-plugin/common.c:29
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "Xfce lõikepuhvri halduri käivitamine ebaõnnestus kuna ta juba töötab."
+
+#: ../panel-plugin/common.c:30
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Xfce lõikepuhvri haldur on juba käivitatud"
+
+#: ../panel-plugin/common.c:37
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "Sa võid seda käivitada ka käsuga 'xfce4-clipman'."
+
+#: ../panel-plugin/common.c:39
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "Lõikepuhvri halduri deemon ei tööta"
+
+#: ../panel-plugin/xfce4-clipman-history.c:256
+msgid "Enter search phrase here"
+msgstr "Sisesta otsingufraas siia"
+
+#: ../panel-plugin/xfce4-clipman-history.c:414
+#, c-format
+msgid "_Paste"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:419
+#, c-format
+msgid "_Copy"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:435
+msgid "Clipman History"
+msgstr "Clipman'i ajalugu"
+
+#: ../panel-plugin/xfce4-clipman-history.c:449
+#: ../panel-plugin/xfce4-clipman-history.c:451
+msgid "_Settings"
+msgstr "_Seadistused"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Lõikepuhvri halduri eelistused"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Kohenda oma lõikepuhvrit"
