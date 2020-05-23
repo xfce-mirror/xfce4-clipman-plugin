@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-05-23 10:47+0000\n"
+"PO-Revision-Date: 2020-05-23 22:17+0000\n"
 "Last-Translator: Priit Jõerüüt <transifex@joeruut.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "Lõikepuhvri haldur on olemas nii riba jaoks mõeldud pistikprogrammina, kui eraldi rakendusena, mis töötab teatede ribal. Ta salvestab lõikepuhvrisse kopeeritud teksti ja piltide ajaloo. Lisaks on võimalik valitud teksti võrdlemisel etteantud regulaaravaldisega käivitada soovitud toiminguid."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
@@ -118,7 +118,7 @@ msgstr "_Sulge"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Sünkroniseeri hiirega tehtud _valikud"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -182,23 +182,23 @@ msgstr "Kui see valik on märgitud, siis lõikepuhvris olevaid tekstikirjeid kon
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "Control-klahvi vajutamisel _näita toiminguid"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Kui valik on tehtud (hiire või klaviatuuriga) ja Control-klahv on jätkuvalt alla vajutatud, siis kuvatakse hüpikakent sobivate toimingutega"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "Control-klahvi vajutamisel _jäta toiminguid vahele"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
+msgstr "Kui valik on tehtud (hiire või klaviatuuriga) ja Control-klahv on jätkuvalt alla vajutatud, siis hüpikaken sobivate toimingutega jäetakse kuvamata"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -288,17 +288,17 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Sa võid kasutada käskudes asendusparameetreid  \"\\1\", \"\\2\", jne. Parameeter \"\\0\" tähistab tervet teksti. Regulaaravaldise mustrit saad ankurdada erimärkidega ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
-msgstr ""
+msgstr "Rakenda vaid käsitsi kopeerimisel"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Vaikimisi see toiming käivitub hiirevalikuga kopeerides, lülita see valik sisse, kui soovid toiming käivituks käsitsi kopeerides"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -306,7 +306,7 @@ msgstr "<b>Toiming</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
-msgstr ""
+msgstr "Käsk:"
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
@@ -314,7 +314,7 @@ msgstr "<b>Käsud</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Sisesta siia kohandatud tekst, nagu näiteks URL, failinimi, vmt."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -323,7 +323,7 @@ msgstr "Regulaaravaldis"
 #: ../panel-plugin/main-panel-plugin.c:111
 #: ../panel-plugin/main-status-icon.c:159
 msgid "_Disable"
-msgstr ""
+msgstr "_Lülita välja"
 
 #: ../panel-plugin/actions.c:368
 #, c-format
@@ -331,7 +331,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Käsku \"%s\" ei olnud võimalik käivitada\n\n%s"
 
 #: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
@@ -339,7 +339,7 @@ msgstr "Kas oled kindel, et soovid ajaloo kustutada?"
 
 #: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
-msgstr ""
+msgstr "Ära küsi uuesti"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
@@ -347,7 +347,7 @@ msgstr "Ei õnnestu avada clipman'i ajaloo akent"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "QR-koodi loomine ei õnnestunud."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
@@ -360,7 +360,7 @@ msgstr "_Näita kogu ajalugu"
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
-msgstr ""
+msgstr "_Tühjenda ajalugu"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
@@ -368,7 +368,7 @@ msgstr "_Clipmani seadistused..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
-msgstr ""
+msgstr "Kaastöötajad:"
 
 #: ../panel-plugin/plugin.c:335
 msgid "Clipboard Manager for Xfce"
@@ -406,12 +406,12 @@ msgstr "Sisesta otsingufraas siia"
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Aseta"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopeeri"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
