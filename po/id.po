@@ -5,13 +5,14 @@
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2014
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2009
+# Triyan W. Nugroho <triyan.wn@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-05-28 13:00+0000\n"
+"Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +30,11 @@ msgstr "Manajer Papan Klip disediakan sebagai panel pengaya untuk Xfce dan sebag
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Manajer Papan Klip"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Berkas Mulai Otomatis Manajer Papan Klip"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -105,13 +106,13 @@ msgstr "Anda yakin ingin mengatur ulang aksi ke nilai standar sistem?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Pengaturan Clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
 #: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
-msgstr ""
+msgstr "_Bantuan"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -129,7 +130,7 @@ msgstr "Jika dicentang, pemilihan ini akan disinkronisasi dengan papan klip stan
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "Dukungan kode _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -147,7 +148,7 @@ msgstr "_Tempel secara instan:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>Umum</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
@@ -161,19 +162,19 @@ msgstr "Munculkan menu di posisi penunjuk tetikus, hanya untuk perintah xfce4-po
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Item maksimum:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>Menu</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Perilaku"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Aktifkan aksi otomatis</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -219,20 +220,20 @@ msgstr "Setel ulang semua tindakan ke nilai bawaan sistem"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Aksi"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Ingat riwayat</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Ingat _gambar disalin terakhir"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Jika dicentang, opsi ini mengizinkan untuk menyimpan satu gambar di dalam riwayat"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -253,7 +254,7 @@ msgstr "Jika dicentang, opsi ini akan mengembalikan riwayat pada tiap sesi Xfce 
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Abaikain s_eleksi tetikus"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -266,11 +267,11 @@ msgstr "Ukuran _riwayat:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "R_iwayat"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -289,7 +290,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Anda bisa menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterusnya di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Polanya selalu terkait dengan karakter spesial ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -299,7 +300,7 @@ msgstr "Hanya aktivasi pada papan klip standar"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Secara standar aksi dipanggil dengan pemilihan, centang opsi ini untuk memanggil aksi hanya jika anda membuat salinan manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -315,7 +316,7 @@ msgstr "<b>Perintah</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Ketik teks suai anda di sini, misalnya URL, nama berkas, dan sebagainya."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -344,7 +345,7 @@ msgstr "Jangan tanyakan lagi"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Tak dapat membuka dialog riwayat clipman"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -357,7 +358,7 @@ msgstr "Papan klip kosong"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "Tampilkan _riwayat lengkap..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -365,7 +366,7 @@ msgstr "_bersihkan riwayat"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "Pengaturan _clipman..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -386,23 +387,23 @@ msgstr "Tak dapat membuka dialog pengaturan"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Tak dapat menjalankan Jurik Manajer Papan Klip karena sudah berjalan."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Manajer Papan Klip Xfce sudah berjalan."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Anda dapat menjalankannya dengan 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Jurik Manajer Papan Klip tidak berjalan."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Masukkan frasa pencarian di sini"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
@@ -412,20 +413,20 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Salin"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "Riwayat Clipman"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Pengaturan"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Pengaturan Manajer Papan Klip"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
