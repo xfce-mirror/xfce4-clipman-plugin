@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-05-25 07:36+0000\n"
+"PO-Revision-Date: 2020-06-07 20:26+0000\n"
 "Last-Translator: Arman Harutyunyan <arman.harut468@gmail.com>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:441
 #: ../panel-plugin/xfce4-clipman-history.c:443
 msgid "_Help"
-msgstr ""
+msgstr "_Աւգնութիւն"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
