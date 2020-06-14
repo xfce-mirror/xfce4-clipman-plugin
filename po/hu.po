@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Balázs Meskó <mesko.balazs@fsf.hu>, 2018
+# Balázs Meskó <meskobalazs@mailbox.org>, 2018
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009
 # Gábor P., 2020
 # gyeben <gyonkibendeguz@gmail.com>, 2016
 # gyeben <gyonkibendeguz@gmail.com>, 2014
+# PB, 2020
 # Attila SZERVÁC <sas@321.hu>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-06-14 16:40+0000\n"
+"Last-Translator: PB\n"
 "Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,7 +110,7 @@ msgstr "Biztosan visszaállítja a műveleteket a rendszer alapértelmezett ért
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Clipman beállítások"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -369,7 +370,7 @@ msgstr "Előzmények _törlése"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Clipman beállítások..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -411,12 +412,12 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Beillesztés"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Másolás"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
@@ -425,7 +426,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Beállítások"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
@@ -433,4 +434,4 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Szabd személyre a vágólapot"
