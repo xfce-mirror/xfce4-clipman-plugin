@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Real School <localization@ehayq.am>, 2019
+# Vahe Safaryan <vahe.safaryan@realschool.am>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-06-11 05:58+0000\n"
+"PO-Revision-Date: 2020-06-16 08:20+0000\n"
 "Last-Translator: Vahe Safaryan <vahe.safaryan@realschool.am>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +29,11 @@ msgstr "Սեղմատախտակի կառավարիչը մատակարարուել
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Ստեղնաշարի կառաւարիչ"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Ստեղնաշարի կառաւարչի ինքնամեկնարկ"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -104,7 +105,7 @@ msgstr "Վերադրե՞լ գործողութիւնները համակարգի �
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Clipman-ի Կարգաւորումներ"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -128,7 +129,7 @@ msgstr "Եթե ստուգուում է, ընտրութիւնները համաժ�
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "սպասարկել _QR-կոդը"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -160,19 +161,19 @@ msgstr "Թռուցիկ մկնիկի ցուցիչի դիրքում, միայն xf
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Առաւելագոյն իրերը․"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>ընտրացանկ</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Վարքագիծ"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Թոյլատրել ինքնուրոյն գործել </b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -218,15 +219,15 @@ msgstr "Վերափոխել բոլոր գործողութիւնները համա�
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Գործողութիւն"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Հիշել պատմութիւնը</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Հիշել վերջին պատճենած _նկարը"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
@@ -252,7 +253,7 @@ msgstr "Պատմութեան յետադարձ կարգը կը ցուցադրու
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Անտեսել մկնիկի ը_նտրութիւնները"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -265,11 +266,11 @@ msgstr "_Պատմութեան չափսը․"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "Պա_տմութիւն"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -343,7 +344,7 @@ msgstr "Այլեւս չհարցնել"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Անհնար է բացել clipman-ի  երկխոսութիւնների պատմութիւնը"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -356,7 +357,7 @@ msgstr "Սեղմատախտակը դատարկ է"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "_Ցուցադրել ամբողջ պատմութիւնը․․․"
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -364,7 +365,7 @@ msgstr "_Մաքրել պատմութիւնը"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Clipman-ի կարգաւորումները․․․"
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -393,7 +394,7 @@ msgstr ""
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Դուք կարող եք գործակել դա  'xfce4-clipman'-ով։"
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
@@ -406,26 +407,26 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Դնել"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Պատճենել"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "Clipman-ի պատմութիւնը"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Կարգաւորումներ"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Ստեղնաշարի կառաւարչի կարգաւորումներ"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Յարմարեցնել ձեր ստեղնաշարը"
