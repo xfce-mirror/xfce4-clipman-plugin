@@ -7,6 +7,7 @@
 # Marcin Mikołajczak <me@mkljczk.pl>, 2016
 # No Ne, 2020
 # No Ne, 2020
+# No Ne, 2020
 # Piotr Maliński <admin@rk.edu.pl>, 2006
 # Piotr Sokół <psokol.l10n@gmail.com>, 2009,2011-2012,2015
 # Piotr Strębski <strebski@gmail.com>, 2014,2016
@@ -15,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-09 09:50+0000\n"
+"PO-Revision-Date: 2020-06-26 11:06+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +185,7 @@ msgstr "<b>_Włączenie automatycznych akcji</b>"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Jeśli zaznaczone, dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla automatycznie menu z możliwymi czynnościami.\nW przeciwnym wypadku menu będzie wyświetlane tylko przy wywołaniu \"xfce4-popup-clipman-actions\" (i odnalezienia wyniku)"
+msgstr "Jeśli zaznaczone, dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla automatycznie menu z możliwymi czynnościami.\nW przeciwnym przypadku menu będzie wyświetlane tylko przy wywołaniu \"xfce4-popup-clipman-actions\" (i odnalezieniu wyniku)"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
