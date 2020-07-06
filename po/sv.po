@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2008-2009
+# Luna Jernberg <bittin@cafe8bitar.se>, 2020
 # Påvel Nicklasson <pavel@frimix.se>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-07-06 16:11+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr "Urklippshanteraren tillhandahålls som ett panelinsticksprogram och som 
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Urklippshanterare"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
@@ -105,7 +106,7 @@ msgstr "Är du säker på att du vill återställa åtgärderna till systemets s
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Clipman inställningar"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -119,7 +120,7 @@ msgstr "_Stäng"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Synkronisera mus _markeringar"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -165,7 +166,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b> Meny </b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
@@ -173,7 +174,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Aktivera automatiska åtgärder</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -219,15 +220,15 @@ msgstr "Återställ alla åtgärder till systemets standardvärden"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Åtgärder"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b> Kom ihåg historik</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Kom ihåg senast kopierade _bild"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
@@ -253,7 +254,7 @@ msgstr "Vänd ordning på historiken som visas i menyn"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Ignorera mus m_arkeringar"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -266,11 +267,11 @@ msgstr "Storlek för _historik:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "H_istorik"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -365,7 +366,7 @@ msgstr "_Rensa historik"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Clipman inställningar..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -394,7 +395,7 @@ msgstr ""
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Du kan starta den med 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
@@ -402,30 +403,30 @@ msgstr ""
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Ange sökfras här"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Klistra in"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopiera"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "Clipman Historik"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Inställningar"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Urklippshanterare inställningar"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
