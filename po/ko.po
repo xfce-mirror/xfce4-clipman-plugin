@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-07-13 10:48+0000\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,11 +28,11 @@ msgstr "클립보드 관리자는 Xfce 패널 플러그인이며, 알림 영역�
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "클립보드 관리자"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "클립보드 관리자 자동 시작 파일"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -104,7 +104,7 @@ msgstr "정말로 시스템 기본값으로 동작을 재설정 하시렵니까?
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "클립보드 관리자 설정"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -118,7 +118,7 @@ msgstr "닫기(_C)"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "마우스 선택 동기화(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -128,7 +128,7 @@ msgstr "이 부분을 표시하면 선택한 항목을 선택하여 붙일 수 �
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "QR코드 지원(_Q)"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -160,19 +160,19 @@ msgstr "xfce4-popup-clipman 명령만을 위해, 마우스 포인터 위치에 �
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "최대 항목 수:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>메뉴</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "동작(_B)"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "자동 동작 활성화(_E)"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -218,20 +218,20 @@ msgstr "모든 동작을 시스템 기본값으로 초기화"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "동작(_A)"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>기록 기억</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "마지막에 복사한 그림 기억(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "이 부분을 표시하면, 기록에 이미지 하나를 저장할 수 있게 합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -252,7 +252,7 @@ msgstr "메뉴에 기록상의 역순으로 보입니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "마우스 선택 무시(_E)"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -265,11 +265,11 @@ msgstr "기록 갯수(_H):"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "기록(_I)"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -288,7 +288,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "명령에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 전체 문장을 나타냅니다. 패턴은 늘 ^$ 특수문자 안에 붙입니다."
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -298,7 +298,7 @@ msgstr "직접 복사할 때만 활성화"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "기본적으로 선택 여부에 따라 동작하므로, 직접 복사할 때만 동작을 수행하려면 이 옵션을 표시하십시오"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -314,7 +314,7 @@ msgstr "<b>명령</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "URL, 파일 이름 등을 입력하십시오"
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -343,7 +343,7 @@ msgstr "다시 묻지 않음"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "클립보드 기록 대화 상자를 열 수 없습니다"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -356,7 +356,7 @@ msgstr "클립보드가 비었습니다"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "전체 기록 표시(_S)..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -364,7 +364,7 @@ msgstr "기록 지우기(_C)"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "클립보드 관리자 설정(_C)..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -385,47 +385,47 @@ msgstr "설정 대화 상자를 열 수 없습니다"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "클립보드 관리자 데몬을 이미 실행하고 있어 시작할 수 없습니다."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Xfce 클립보드 관리자가 이미 실행 중입니다."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "'xfce4-clipman'으로 실행할 수 있습니다."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "클립보드 관리자가 실행 중이 아닙니다."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "검색 어구를 여기에 입력하십시오"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "붙여넣기(_P)"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "복사(_C)"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "클립보드 관리자 기록"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "설정(_S)"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "클립보드 관리자 설정"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "클립보드 개별 설정"
