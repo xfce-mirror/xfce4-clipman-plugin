@@ -26,6 +26,7 @@
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
+#include <gdk/gdk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>
 
@@ -234,6 +235,10 @@ my_plugin_position_menu (GtkMenu *menu,
   GtkRequisition minimum_size;
   GtkRequisition natural_size;
   XfceScreenPosition screen_position;
+#if GTK_CHECK_VERSION (3, 22, 0)
+  GdkMonitor  *monitor;
+  GdkRectangle geometry;
+#endif
 
   g_return_if_fail (XFCE_IS_PANEL_PLUGIN (plugin->panel_plugin));
 
@@ -258,6 +263,30 @@ my_plugin_position_menu (GtkMenu *menu,
           /* Show menu below */
           *y += button_height;
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+        monitor = gdk_display_get_monitor (gdk_display_get_default (), 0);
+        gdk_monitor_get_geometry (monitor, &geometry);
+
+        if (*x + minimum_size.width > geometry.width)
+          /* Adjust horizontal position */
+          *x = geometry.width - minimum_size.width;
+
+        break;
+
+      default:
+        if (*x + button_width + minimum_size.width > geometry.width)
+          /* Show menu on the right */
+          *x -= minimum_size.width;
+        else
+          /* Show menu on the left */
+          *x += button_width;
+
+        if (*y + minimum_size.height > geometry.height)
+          /* Adjust vertical position */
+          *y = geometry.height - minimum_size.height;
+
+        break;
+#else
         if (*x + minimum_size.width > gdk_screen_width ())
           /* Adjust horizontal position */
           *x = gdk_screen_width () - minimum_size.width;
@@ -277,5 +306,6 @@ my_plugin_position_menu (GtkMenu *menu,
           *y = gdk_screen_height () - minimum_size.height;
 
         break;
+#endif
     }
 }

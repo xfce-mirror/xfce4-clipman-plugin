@@ -178,6 +178,7 @@ libclipman_la_CFLAGS =							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
+	@GDK_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -200,6 +201,7 @@ libclipman_la_LIBADD =							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
+	@GDK_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
