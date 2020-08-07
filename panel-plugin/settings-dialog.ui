@@ -130,6 +130,23 @@
                               </packing>
                             </child>
                             <child>
+                              <object class="GtkCheckButton" id="persistent-selections">
+                                <property name="label" translatable="yes">_Persist primary selection</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="has_tooltip">True</property>
+                                <property name="tooltip_text" translatable="yes">If checked, the middle-click paste (primary selection) will be persistent if the next selection is empty, i.e. left click anywhere in a text area</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
                               <object class="GtkCheckButton" id="show-qr-code">
                                 <property name="label" translatable="yes">_QR-Code support</property>
                                 <property name="visible">True</property>
@@ -143,7 +160,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="position">1</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                             <child>
@@ -182,7 +199,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
-                                <property name="position">2</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                           </object>
