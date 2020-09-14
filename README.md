@@ -1,8 +1,8 @@
-[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.xfce.org/xfce/xfce4-clipman-plugin/COPYING)
+[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/master/COPYING)
 
 # xfce4-clipman-plugin
 
-Clipman is a plugin for the Xfce Panel and as a standalone application (it is a
+Xfce4-clipman-plugin is a plugin for the Xfce Panel and as a standalone application (it is a
 bundle). It keeps the clipboard contents around (even after an application
 quits). It is able to handle text and images, and has a feature to execute
 actions on specific text selection by matching them against regexes.
@@ -11,7 +11,7 @@ actions on specific text selection by matching them against regexes.
 
 ### Homepage
 
-[xfce4-clipman-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin)
+[Xfce4-clipman-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin)
 
 ### Changelog
 
@@ -34,13 +34,13 @@ See [NEWS](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/mas
 
 ### Source Code Repository
 
-[xfce4-clipman-plugin source code](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin)
+[Xfce4-clipman-plugin source code](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin)
 
-### Download A Release Tarball
+### Download a Release Tarball
 
-[xfce4-clipman-plugin archive](https://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin)
+[Xfce4-clipman-plugin archive](https://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin)
     or
-[xfce4-clipman-plugin tags](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/tags)
+[Xfce4-clipman-plugin tags](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/tags)
 
 ### Installation
 
