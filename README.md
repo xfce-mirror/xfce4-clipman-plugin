@@ -19,18 +19,13 @@ See [NEWS](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/mas
 
 ### Required Packages
 
-* glib-2.0 >=2.32
-* gtk+-3.0 >=3.14
-* libxfce4ui-2 >=4.12
-* libxfce4panel-2.0 >=4.12
-* libxfconf-0 >=4.10
-* xproto >=7.0
-* xtst >=1.0
+  * [GTK](https://www.gtk.org)
+  * [libxfce4ui](https://gitlab.xfce.org/xfce/libxfce4ui)
+  * [libxfce4util](https://gitlab.xfce.org/xfce/libxfce4util)
+  * [xfconf](https://gitlab.xfce.org/xfce/xfconf)
+  * [xfce4-panel](https://gitlab.xfce.org/xfce/xfce4-panel)
 
-## Optional Packages
-
-* unique-3.0 >=3.0
-* libqrencode3 >=3.3
+For concrete information on the minimum required versions, check [[https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/master/configure.ac.in|configure.ac.in]]
 
 ### Source Code Repository
 
