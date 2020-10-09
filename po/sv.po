@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-10-02 16:50+0000\n"
+"PO-Revision-Date: 2020-10-09 10:43+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Urklippshanterare"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Autostartfil för Urklippshanteraren"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -170,7 +170,7 @@ msgstr "<b> Meny </b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Beteende"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
@@ -358,7 +358,7 @@ msgstr "Urklippet är tomt"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "_Visa fullständig historik..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
