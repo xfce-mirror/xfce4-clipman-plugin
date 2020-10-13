@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-10-13 09:47+0000\n"
+"Last-Translator: Zmicer Turok <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +31,11 @@ msgstr "Кіраўнік буфера абмену можа быць як убу
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Кіраўнік буфера абмену"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Файл аўтазапуску кіраўніка буфера абмену"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -107,7 +107,7 @@ msgstr "Сапраўды хочаце скінуць дзеянні да пра�
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Налады Clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -121,7 +121,7 @@ msgstr "_Закрыць"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "_Аўтакапіяванне мышшу"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -131,7 +131,7 @@ msgstr "Калі адзначана, вылучаны тэкст будзе аў
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "Падтрымка _QR-кодаў"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -149,7 +149,7 @@ msgstr "_Хуткая ўстаўка:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>General</b>"
-msgstr "<b>Асноўныя</b>"
+msgstr "<b>Асноўны</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
@@ -163,19 +163,19 @@ msgstr "Выводзіць меню на месцы паказальніка м�
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Максімальная колькасць:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>Меню</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Паводзіны"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Уключыць аўтаматычныя дзеянні</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -217,24 +217,24 @@ msgstr "Выдаліць дзеянне"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reset all actions to the system default values"
-msgstr "Скінуць усе дзеянні да  прадвызначаных значэнняў"
+msgstr "Скінуць усе дзеянні да прадвызначаных значэнняў"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Дзеянні"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Запамінаць дзеянні</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Запамінаць апошнюю скапіяваную _выяву"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Калі адзначана, апошняя скапіяваная выява будзе захоўвацца ў гісторыі"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -255,7 +255,7 @@ msgstr "Паказваць гісторыю ў адваротным парадк
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Не зважаць на _вылучэнне мышшу"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -268,11 +268,11 @@ msgstr "Памер _гісторыі:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "_Гісторыя"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -291,7 +291,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Вы можаце выкарыстоўваць параметры замены \"\\ 1\", \"\\ 2\" у загадах. Параметр \"\\ 0\" - поўны тэкст. Шаблон заўсёды прывязаны да адмысловых сімвалаў ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -301,7 +301,7 @@ msgstr "Толькі падчас капіявання"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Выконваць дзеянне толькі пры непасрэдным капіяванні"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -317,7 +317,7 @@ msgstr "<b>Загады</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Увядзіце сюды ваш тэкст (напрыклад, URL ці назва файла)"
+msgstr "Увядзіце адвольны тэкст. Напрыклад, URL, назва файла і г. д."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -346,7 +346,7 @@ msgstr "Больш н_е пытацца"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Не атрымалася адкрыць гісторыю clipman"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -359,7 +359,7 @@ msgstr "Буфер абмену пусты"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "_Паказаць усю гісторыю..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -367,7 +367,7 @@ msgstr "_Ачысціць гісторыю"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Налады Clipman..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -379,7 +379,7 @@ msgstr "Кіраўнік буфера абмену Xfce"
 
 #: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
-msgstr "Zmicer Turok <zmicerturok@gmail.com>\n "
+msgstr "Zmicer Turok <zmicerturok@gmail.com>"
 
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
@@ -388,47 +388,47 @@ msgstr "Немагчыма адкрыць дыялог налад"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Дэман кіраўніка буфера абмену ўжо запушчаны."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Кіраўнік буфера абмену Xfce ужо запушчаны."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Вы можаце запусціць яго загадам \"xfce4-clipman\"."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Дэман кіраўніка буфера абмену не запушчаны."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Увядзіце фразу для пошуку"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Уставіць"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Капіяваць"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "Гісторыя"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Налады"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Налады кіраўніка буфера абмену"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Наладзьце свой буфер абмену"
