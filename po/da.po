@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-09 11:45+0000\n"
+"PO-Revision-Date: 2020-11-16 23:34+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -55,11 +55,11 @@ msgstr "Fejl"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
-msgstr "Xfce-fejl"
+msgstr "Fejl ved Xfce"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "GNOME Bug"
-msgstr "GNOME-fejl"
+msgstr "Fejl ved GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
@@ -291,7 +291,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "Du kan bruge erstatningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Mønsteret er altid forankeret i specialtegnet ^$"
+msgstr "Du kan bruge erstatningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne. Parameteren \"\\0\" repræsenterer den fulde tekst. Mønsteret er altid forankret i specialtegnet ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
