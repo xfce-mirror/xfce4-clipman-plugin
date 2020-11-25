@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Dušan Kazik <prescott66@gmail.com>, 2016
+# Dušan Kazik <prescott66@gmail.com>, 2016,2020
 # Robert Hartl <hartl.robert@gmail.com>, 2009-2010
 # Slavko <linux@slavino.sk>, 2015
 # 7dcd6f74323fe8d9c477949ff8fcbb1c_c427b63 <3fcd202e3dfab15fda15b8e88e54d449_7173>, 2011
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-11-25 09:24+0000\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +31,11 @@ msgstr "Správca schránky vo forme zásuvného modulu panela XFCE a ako samosta
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Správca schránky"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Súbor automatického spustenia správcu schránky"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -107,7 +107,7 @@ msgstr "Naozaj chcete obnoviť akcie na predvolené systémové hodnoty?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Nastavenia programu Clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -121,7 +121,7 @@ msgstr "_Zatvoriť"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Synchronizovať výbery m_yšou"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -131,13 +131,13 @@ msgstr "Ak je zaškrtnuté, výbery budú synchronizované s predvolenou schrán
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "Podpora _QR kódov"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Ak je zaškrtnuté, v menu sa zobrazí QR-kód aktuálne vybratej položky schránky"
+msgstr "Ak je zaškrtnuté, v ponuke sa zobrazí QR kód aktuálne vybraného záznamu schránky"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
@@ -153,7 +153,7 @@ msgstr "<b>Všeobecné</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
-msgstr "P_ozícia ponuky pri ukazovateli myši"
+msgstr "_Umiestniť ponuku pri ukazovateľ myši"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
@@ -163,19 +163,19 @@ msgstr "Zobraziť vyskakovaciu ponuku pri ukazovateli myši iba pre príkaz xfce
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Maximum položiek:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>Ponuka</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Správanie"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Povoliť automatické akcie</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -221,41 +221,41 @@ msgstr "Obnoviť všetky akcie na hodnoty predvolené systémom"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Akcie"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Zapamätať históriu</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Zapamätať naposledy kopírovaný o_brázok"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Ak je táto voľba zaškrtnutá, bude umožnené uložiť jeden obrázok do histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
-msgstr "Ob_rátiť položky histórie"
+msgstr "Znovu uspo_riadať položky histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Vložiť naposledy kopírovaný text do hornej časti histórie, užitočné pre preusporiadanie starých položiek"
+msgstr "Vložiť naposledy kopírovaný text navrch histórie, čo je užitočné pre opätovné usporiadanie starých položiek"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Re_verse history order"
-msgstr "Ob_rátené poradie histórie"
+msgstr "Ob_rátiť poradie histórie"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Reverse order of the history shown in the menu"
-msgstr "Obrátené poradie histórie sa zobrazí v ponuke"
+msgstr "Obrátiť poradie zobrazenej histórie v ponuke"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Ignorovať výbery _myšou"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -268,11 +268,11 @@ msgstr "Veľkosť _histórie:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "H_istória"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -291,7 +291,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "V príkazoch môžete použiť nahradzujúce parametre „\\1“, „\\2“ atď. Parameter „\\0“ reprezentuje úplný text. Vzorka je vždy zakotvená v špeciálnych znakoch ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -301,7 +301,7 @@ msgstr "Aktivovať len na ručné kopírovanie"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Obvykle je akcia vykonaná výberom. Zaškrtnite túto voľbu, ak sa má akcia vykonať iba pri ručnom kopírovaní."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -317,7 +317,7 @@ msgstr "<b>Príkazy</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Sem zadajte váš vlastný text, napríklad URL, názov súboru, atď."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -346,11 +346,11 @@ msgstr "Nepýtať sa znova"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Nie je možné otvoriť dialógové okno s históriou programu Clipman"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
-msgstr "Negenerovať QR-kód "
+msgstr "Nepodarilo sa vygenerovať QR kód."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
@@ -359,7 +359,7 @@ msgstr "Schránka je prázdna"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "_Zobraziť úplnú históriu..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -367,7 +367,7 @@ msgstr "Vy_mazať históriu"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Nastavenia programu _Clipman..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -388,47 +388,47 @@ msgstr "Nedá sa otvoriť dialóg nastavení"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Nepodarilo sa spustiť démona správcu schránky, pretože už je spustený."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Správca schránky prostredia Xfce je už spustený."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Môžete ho spustiť pomocou príkazu „xfce4-clipman“."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Démon správcu schránky nie je spustený."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Sem zadajte hľadanú frázu"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Vložiť"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopírovať"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "História programu Clipman"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Nastavenia"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Nastavenia správcu schránky"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Prispôsobuje vašu schránku"
