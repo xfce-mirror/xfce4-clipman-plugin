@@ -337,7 +337,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   const ClipmanHistoryItem *item_to_restore;
   GSList *list, *l;
   gint pos = 0;
-  gint i = 0;
+  guint i = 0;
   gchar *selection_primary;
   gchar *selection_clipboard;
   gboolean skip_primary = FALSE;

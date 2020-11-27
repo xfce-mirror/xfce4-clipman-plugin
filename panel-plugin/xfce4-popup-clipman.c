@@ -37,12 +37,7 @@ grab_keyboard ()
   guint32 timestamp = GDK_CURRENT_TIME;
   GdkScreen *screen = gdk_screen_get_default ();
   GdkWindow *win = gdk_screen_get_root_window (screen);
-  GdkEventMask mask =
-    GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
-    GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |
-    GDK_POINTER_MOTION_MASK;
   GdkGrabStatus grab_status;
-  gboolean grab_failed = FALSE;
   gint i = 0;
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
@@ -65,7 +60,10 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gdk_keyboard_ungrab (timestamp);
 G_GNUC_END_IGNORE_DEPRECATIONS
+      return TRUE;
     }
+  else
+    return FALSE;
 }
 
 gint
