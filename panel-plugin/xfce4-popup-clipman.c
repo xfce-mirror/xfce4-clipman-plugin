@@ -31,7 +31,7 @@
 /* Initial code was taken from xfwm4/src/menu.c:grab_available().
  * TODO replace deprecated GTK/GDK functions.
  */
-static gboolean
+static void
 grab_keyboard ()
 {
   guint32 timestamp = GDK_CURRENT_TIME;
