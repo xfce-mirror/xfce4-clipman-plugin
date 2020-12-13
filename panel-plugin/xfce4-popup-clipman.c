@@ -32,7 +32,7 @@
  * TODO replace deprecated GTK/GDK functions.
  */
 static void
-grab_keyboard ()
+grab_keyboard (void)
 {
   guint32 timestamp = GDK_CURRENT_TIME;
   GdkScreen *screen = gdk_screen_get_default ();

@@ -36,15 +36,15 @@
  */
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
-static MyPlugin*        status_icon_register            ();
+static MyPlugin*        status_icon_register            (void);
 static void             cb_status_icon_activate         (MyPlugin *plugin);
 static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint button,
                                                          guint activate_time);
 static void             cb_status_icon_quit             (MyPlugin *plugin);
 static void             cb_status_icon_finalize         (MyPlugin *plugin);
-static void             install_autostart_file          ();
-static void             update_autostart_file           ();
+static void             install_autostart_file          (void);
+static void             update_autostart_file           (gboolean autostart);
 
 /*
  * Plugin Registration

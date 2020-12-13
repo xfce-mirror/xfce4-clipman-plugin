@@ -33,7 +33,6 @@
 #include "settings-dialog_ui.h"
 #include "actions.h"
 
-static void             prop_dialog_run                 ();
 static void             cb_show_help                    (GtkButton *button);
 static void             setup_actions_treeview          (GtkTreeView *treeview);
 static void             refresh_actions_treeview        (GtkTreeView *treeview);
@@ -47,12 +46,12 @@ static void             cb_actions_row_activated        (GtkTreeView *treeview,
 static void             cb_delete_action                (GtkButton *button);
 static void             cb_reset_actions                (GtkButton *button);
 static void             setup_commands_treeview         (GtkTreeView *treeview);
-static void             entry_dialog_cleanup            ();
+static void             entry_dialog_cleanup            (void);
 static void             cb_commands_selection_changed   (GtkTreeSelection *selection);
 static void             cb_add_command                  (GtkButton *button);
 static void             cb_refresh_command              (GtkButton *button);
 static void             cb_delete_command               (GtkButton *button);
-static void             setup_test_regex_dialog         ();
+static void             setup_test_regex_dialog         (void);
 static void             cb_test_regex                   (GtkButton *button);
 static void             cb_test_regex_changed           (GtkWidget *widget);
 static gboolean         cb_regex_focus_in_event         (GtkWidget *widget,
@@ -61,7 +60,7 @@ static gboolean         cb_regex_focus_in_event         (GtkWidget *widget,
 static gboolean         cb_regex_focus_out_event        (GtkWidget *widget,
                                                          GdkEvent  *event,
                                                          gpointer   user_data);
-static void             update_test_regex_textview_tags ();
+static void             update_test_regex_textview_tags (void);
 static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
 
 static XfconfChannel *xfconf_channel = NULL;
