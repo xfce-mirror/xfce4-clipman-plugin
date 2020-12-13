@@ -74,7 +74,6 @@ static void             clipman_collector_get_property      (GObject *object,
 
 static void             cb_clipboard_owner_change           (ClipmanCollector *collector,
                                                              GdkEventOwnerChange *event);
-static gboolean         cb_check_primary_clipboard          (ClipmanCollector *collector);
 static void             cb_request_text                     (GtkClipboard *clipboard,
                                                              const gchar *text,
                                                              ClipmanCollector *collector);
@@ -84,6 +83,37 @@ static void             cb_request_text                     (GtkClipboard *clipb
 /*
  * Callbacks
  */
+static gboolean
+cb_check_primary_clipboard (gpointer user_data)
+{
+  ClipmanCollector *collector = user_data;
+  GdkModifierType state = 0;
+  GdkDisplay* display = gdk_display_get_default ();
+#if GTK_CHECK_VERSION (3, 20, 0)
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+  GdkDevice *device = gdk_seat_get_pointer (seat);
+#else
+  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
+#endif
+  GdkScreen* screen = gdk_screen_get_default ();
+  GdkWindow * root_win = gdk_screen_get_root_window (screen);
+
+  g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
+
+  /* Postpone until the selection is done */
+  gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
+  if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
+    return TRUE;
+
+  gtk_clipboard_request_text (collector->priv->primary_clipboard,
+                              (GtkClipboardTextReceivedFunc)cb_request_text,
+                              collector);
+
+  collector->priv->primary_clipboard_timeout = 0;
+  return FALSE;
+}
+
 
 static void
 cb_clipboard_owner_change (ClipmanCollector *collector,
@@ -135,39 +165,9 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
         {
           if (collector->priv->primary_clipboard_timeout == 0)
             collector->priv->primary_clipboard_timeout =
-              g_timeout_add (250, (GSourceFunc)cb_check_primary_clipboard, collector);
+              g_timeout_add (250, cb_check_primary_clipboard, collector);
         }
     }
-}
-
-static gboolean
-cb_check_primary_clipboard (ClipmanCollector *collector)
-{
-  GdkModifierType state = 0;
-  GdkDisplay* display = gdk_display_get_default ();
-#if GTK_CHECK_VERSION (3, 20, 0)
-  GdkSeat *seat = gdk_display_get_default_seat (display);
-  GdkDevice *device = gdk_seat_get_pointer (seat);
-#else
-  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
-#endif
-  GdkScreen* screen = gdk_screen_get_default ();
-  GdkWindow * root_win = gdk_screen_get_root_window (screen);
-
-  g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
-
-  /* Postpone until the selection is done */
-  gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
-  if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
-    return TRUE;
-
-  gtk_clipboard_request_text (collector->priv->primary_clipboard,
-                              (GtkClipboardTextReceivedFunc)cb_request_text,
-                              collector);
-
-  collector->priv->primary_clipboard_timeout = 0;
-  return FALSE;
 }
 
 static void

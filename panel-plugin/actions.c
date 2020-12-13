@@ -94,8 +94,6 @@ static void             cb_file_changed                     (ClipmanActions *act
                                                              GFile *file,
                                                              GFile *other_file,
                                                              GFileMonitorEvent event_type);
-static gboolean         timeout_file_changed                (ClipmanActions *actions);
-
 /*
  * XML Parser declarations
  */
@@ -371,6 +369,15 @@ cb_entry_activated (GtkMenuItem *mi,
   g_free (real_command);
 }
 
+static gboolean
+timeout_file_changed (gpointer user_data)
+{
+  ClipmanActions *actions = user_data;
+  _clipman_actions_free_list (actions);
+  clipman_actions_load (actions);
+  return FALSE;
+}
+
 static void
 cb_file_changed (ClipmanActions *actions,
                  GFile *file,
@@ -382,16 +389,8 @@ cb_file_changed (ClipmanActions *actions,
     {
       if (timeout > 0)
         g_source_remove (timeout);
-      timeout = g_timeout_add_seconds (1, (GSourceFunc)timeout_file_changed, actions);
+      timeout = g_timeout_add_seconds (1, timeout_file_changed, actions);
     }
-}
-
-static gboolean
-timeout_file_changed (ClipmanActions *actions)
-{
-  _clipman_actions_free_list (actions);
-  clipman_actions_load (actions);
-  return FALSE;
 }
 
 /*

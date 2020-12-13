@@ -55,7 +55,6 @@ static void             cb_delete_command               (GtkButton *button);
 static void             setup_test_regex_dialog         ();
 static void             cb_test_regex                   (GtkButton *button);
 static void             cb_test_regex_changed           (GtkWidget *widget);
-static gboolean         cb_test_regex_changed_timeout   ();
 static gboolean         cb_regex_focus_in_event         (GtkWidget *widget,
                                                          GdkEvent  *event,
                                                          gpointer   user_data);
@@ -752,6 +751,14 @@ cb_test_regex (GtkButton *button)
   gtk_widget_hide (dialog);
 }
 
+static gboolean
+cb_test_regex_changed_timeout (gpointer user_data)
+{
+  update_test_regex_textview_tags ();
+  test_regex_changed_timeout = 0;
+  return FALSE;
+}
+
 static void
 cb_test_regex_changed (GtkWidget *widget)
 {
@@ -762,15 +769,7 @@ cb_test_regex_changed (GtkWidget *widget)
   if (test_regex_changed_timeout > 0)
     g_source_remove (test_regex_changed_timeout);
 
-  test_regex_changed_timeout = g_timeout_add_seconds (1, (GSourceFunc)cb_test_regex_changed_timeout, NULL);
-}
-
-static gboolean
-cb_test_regex_changed_timeout (void)
-{
-  update_test_regex_textview_tags ();
-  test_regex_changed_timeout = 0;
-  return FALSE;
+  test_regex_changed_timeout = g_timeout_add_seconds (1, cb_test_regex_changed_timeout, NULL);
 }
 
 static gboolean
