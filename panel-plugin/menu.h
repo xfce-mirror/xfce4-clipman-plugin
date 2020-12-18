@@ -49,9 +49,9 @@ struct _ClipmanMenu
   ClipmanMenuPrivate    *priv;
 };
 
-GType                   clipman_menu_get_type           ();
+GType                   clipman_menu_get_type           (void);
 
-GtkWidget *             clipman_menu_new                ();
+GtkWidget *             clipman_menu_new                (void);
 
 void                    cb_paste_on_activate            (guint paste_on_activate);
 
