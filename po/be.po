@@ -5,15 +5,15 @@
 # Translators:
 # Andrej Zakharevich <andrej@zahar.ws>, 2011
 # Andrej Zakharevich <andrej@zahar.ws>, 2011
-# Zmicer Turok <nashtlumach@gmail.com>, 2019-2020
-# Zmicer Turok <nashtlumach@gmail.com>, 2019
+# Źmicier Turok <nashtlumach@gmail.com>, 2019-2020
+# Źmicier Turok <nashtlumach@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
 "PO-Revision-Date: 2020-10-13 09:47+0000\n"
-"Last-Translator: Zmicer Turok <nashtlumach@gmail.com>\n"
+"Last-Translator: Źmicier Turok <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
