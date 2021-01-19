@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2013
-# Georgi Georgiev, 2014
+# Georgi Georgiev (Жоро) <g.georgiev.shumen@gmail.com>, 2014
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020
 # Любомир Василев, 2015
 msgid ""
