@@ -250,6 +250,7 @@ my_plugin_position_menu (GtkMenu *menu,
       case XFCE_SCREEN_POSITION_N:
       case XFCE_SCREEN_POSITION_NE_H:
         above = FALSE;
+        G_GNUC_FALLTHROUGH;
       case XFCE_SCREEN_POSITION_SW_H:
       case XFCE_SCREEN_POSITION_S:
       case XFCE_SCREEN_POSITION_SE_H:

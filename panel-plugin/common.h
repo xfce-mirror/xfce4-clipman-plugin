@@ -22,6 +22,9 @@
  * Default values
  */
 
+#ifndef __COMMON_H__
+#define __COMMON_H__
+
 #define DEFAULT_MAX_MENU_ITEMS                          15
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
@@ -59,3 +62,5 @@
 
 void                    clipman_common_show_info_dialog    (void);
 void                    clipman_common_show_warning_dialog (void);
+
+#endif /* !__COMMON_H__ */
