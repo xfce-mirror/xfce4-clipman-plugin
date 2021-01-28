@@ -7,13 +7,14 @@
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # dsafsadf <heneral@gmail.com>, 2016
 # Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016
+# Андрій Мізик <andmizyk@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-06-11 09:59+0000\n"
-"Last-Translator: Andrii Protsun <minamotosoft@gmail.com>\n"
+"PO-Revision-Date: 2021-01-28 21:08+0000\n"
+"Last-Translator: Андрій Мізик <andmizyk@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,15 +28,15 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Менеджер буферу обміну є додатком до панелі Xfce і є також окремою програмою, що вантажиться в область повідомлень панелі. Містить історію набору тексту і малюнків змісту, скопійованих в буфер обміну. Має також можливість запускати дії при специфічному виборі тексту, що відповідає певним критеріям."
+msgstr "Керівник буфера обміну надається як втулка для панелі Xfce і як окрема програма, що запускається в області сповіщень. Тут зберігається історія скопійованого в буфер обміну тексту, зображень  та іншого вмісту. Також має функцію виконання дій для виділення специфічного тексту зіставивши його з певним регулярним виразом."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr "Менеджер буферу обміну"
+msgstr "Керівник буфера обміну"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr "Файл автозапуску Менеджера Буфера обміну"
+msgstr "Файл автозапуску керівника буфера обміну"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -260,7 +261,7 @@ msgstr "Ігнорувати в_иділення мишкою"
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "If checked, the selections won't affect the history except the manual copies"
+msgstr "Якщо відмічено, виділене не буде впливати на історію, окрім скопійованого вручну"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
@@ -284,7 +285,7 @@ msgstr "Назва:"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
-msgstr "Фрагмент:"
+msgstr "Шаблон:"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid ""
@@ -367,7 +368,7 @@ msgstr "_О_чистити історію"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr "_Налаштування менеджера буфера обміну"
+msgstr "_Налаштування буфера обміну..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -375,7 +376,7 @@ msgstr "Помічники:"
 
 #: ../panel-plugin/plugin.c:335
 msgid "Clipboard Manager for Xfce"
-msgstr "Керування буфером обміну для Xfce"
+msgstr "Керівник буфера обміну для Xfce"
 
 #: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
@@ -388,19 +389,19 @@ msgstr "Неможливо відкрити діалог налаштувань"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr "Не можу запустити службу менеджера буферу обміну так як вона вже запущена."
+msgstr "Не можливо запустити фоновий процес керівника буфера обміну, оскільки він вже запущений."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr "Менеджер буферу обміну Xfce вже запущений."
+msgstr "Керівник буфера обміну Xfce вже запущений."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr "Ти можеш запустити це разом з Менеджером буферу обміну 'xfce4-clipman'."
+msgstr "Ти можеш запустити це через 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr "Служба Менеджера буферу обміну не запущена."
+msgstr "Фоновий процес керівника буфера обміну не запущено."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
@@ -418,7 +419,7 @@ msgstr "_Копіювати"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr "Історія Менеджера Буферу обміну"
+msgstr "Історія буфера обміну"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
@@ -427,8 +428,8 @@ msgstr "_Налаштування"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr "Налаштування Менеджера Буферу обміну"
+msgstr "Налаштування керівника буфера обміну"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr "Персоналізація буферу обміну"
+msgstr "Налаштуйте свій буфер обміну"
