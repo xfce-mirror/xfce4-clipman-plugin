@@ -73,6 +73,13 @@ init_atoms (Display *display)
 
 
 static void
+cb_selection_data_free (gpointer data)
+{
+        gtk_selection_data_free ((GtkSelectionData *) data);
+}
+
+
+static void
 default_clipboard_store (GsdClipboardManager *manager)
 {
         GtkSelectionData *selection_data;
@@ -85,8 +92,7 @@ default_clipboard_store (GsdClipboardManager *manager)
         }
 
         if (manager->priv->default_cache != NULL) {
-                g_slist_foreach (manager->priv->default_cache, (GFunc)gtk_selection_data_free, NULL);
-                g_slist_free (manager->priv->default_cache);
+                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
                 manager->priv->default_cache = NULL;
         }
 
@@ -352,8 +358,7 @@ gsd_clipboard_manager_stop (GsdClipboardManager *manager)
         gtk_widget_destroy (manager->priv->window);
 
         if (manager->priv->default_cache != NULL) {
-                g_slist_foreach (manager->priv->default_cache, (GFunc)gtk_selection_data_free, NULL);
-                g_slist_free (manager->priv->default_cache);
+                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
                 manager->priv->default_cache = NULL;
         }
         if (manager->priv->primary_cache != NULL) {

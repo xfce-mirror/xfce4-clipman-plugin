@@ -36,16 +36,17 @@
  */
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
-static MyPlugin*        status_icon_register            ();
+static MyPlugin*        status_icon_register            (void);
 static gboolean         cb_status_icon_is_embedded      (GtkStatusIcon *status_icon);
 static void             cb_status_icon_activate         (MyPlugin *plugin);
 static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint button,
                                                          guint activate_time);
 static void             cb_status_icon_quit             (MyPlugin *plugin);
-static void             cb_status_icon_finalize         (MyPlugin *plugin);
-static void             install_autostart_file          ();
-static void             update_autostart_file           ();
+static void             cb_status_icon_finalize         (gpointer  data,
+                                                         GObject  *where_the_object_was);
+static void             install_autostart_file          (void);
+static void             update_autostart_file           (gboolean autostart);
 
 /*
  * Plugin Registration
@@ -123,7 +124,7 @@ status_icon_register (void)
   plugin->popup_menu_id =
     g_signal_connect_swapped (plugin->status_icon, "popup-menu",
                               G_CALLBACK (cb_status_icon_popup_menu), plugin);
-  g_object_weak_ref (G_OBJECT (plugin->status_icon), (GWeakNotify)cb_status_icon_finalize, plugin);
+  g_object_weak_ref (G_OBJECT (plugin->status_icon), cb_status_icon_finalize, plugin);
 
   return plugin;
 }
@@ -192,8 +193,11 @@ cb_status_icon_quit (MyPlugin *plugin)
 }
 
 static void
-cb_status_icon_finalize (MyPlugin *plugin)
+cb_status_icon_finalize (gpointer  data,
+                         GObject  *where_the_object_was)
 {
+  MyPlugin *plugin = data;
+
   plugin_save (plugin);
   plugin_free (plugin);
 }
