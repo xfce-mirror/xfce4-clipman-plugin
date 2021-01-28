@@ -322,6 +322,7 @@ text_handler (GMarkupParseContext *context,
 
     case GROUP:
       parser->group = (gint)g_strtod (text, NULL);
+      break;
 
     case COMMAND_NAME:
       if (parser->name_use)
