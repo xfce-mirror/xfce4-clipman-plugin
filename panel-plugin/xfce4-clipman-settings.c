@@ -229,13 +229,13 @@ prop_dialog_run (void)
 static void
 cb_show_help (GtkButton *button)
 {
-  gchar *locale = NULL;
-  gchar *offset;
   gchar *docpath = NULL;
   gchar *command = NULL;
 
   /* Find localized documentation path on disk */
 #ifdef ENABLE_NLS
+  gchar *locale = NULL;
+  gchar *offset;
 #ifdef HAVE_LOCALE_H
   locale = g_strdup (setlocale (LC_MESSAGES, ""));
   if (locale != NULL)
