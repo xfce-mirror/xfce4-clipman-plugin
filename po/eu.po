@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# beriain, 2021
 # Piarres Beobide <pi@beobide.net>, 2006,2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-12-15 09:10+0000\n"
+"PO-Revision-Date: 2021-01-29 17:06+0000\n"
 "Last-Translator: beriain\n"
 "Language-Team: Basque (http://www.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -24,15 +25,15 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "Arbel kudeatzailea Xfce paneleko plugin bezala eta aplikazio independente bezala hornituta, Arbelera kopiatutako testu eta irudien edukien historia gordetzen du. Ekintzak exekutatzeko aukera ematen du ere hautatutako testua adierazpen erregularrekin bat datorrenean."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Arbel kudeatzailea"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Clipboard kudeatzailearen auto-abiarazte fitxategia"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -40,15 +41,15 @@ msgstr "Irudia"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
 msgid "Edit with Gimp"
-msgstr "Editatu Gimp-rekin"
+msgstr "Gimpekin editatu"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
 msgid "View with Ristretto"
-msgstr "Ikusi Ristretto-rekin"
+msgstr "Ristrettorekin ikusi"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
 msgid "Bugz"
-msgstr "Bugz"
+msgstr "Erroreak"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
 msgid "Xfce Bug"
@@ -64,7 +65,7 @@ msgstr "URL luzea"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
-msgstr "LAburtu URLa"
+msgstr "URLa laburtu"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
@@ -81,7 +82,7 @@ msgstr "Arbel kudeatzailea"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:97
 msgid "None"
-msgstr "Batez"
+msgstr "Bat ere ez"
 
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:99
@@ -91,7 +92,7 @@ msgstr "Ktrl+V"
 #. TRANSLATORS: Keyboard shortcut
 #: ../panel-plugin/xfce4-clipman-settings.c:101
 msgid "Shift+Insert"
-msgstr "Shuft+Txert"
+msgstr "Shift+Txert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid "<b>Reset actions</b>"
@@ -104,7 +105,7 @@ msgstr "Ziur ekintzak berrezarri eta sistema lehenespenetara itzuli nahi duzula?
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Clipman ezarpenak"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -118,7 +119,7 @@ msgstr "_Itxi"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "_Saguaren hautapenak sinkronizatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
@@ -128,13 +129,13 @@ msgstr "Hautatuaz hautapena lehenetsitako arbelarekin sinkronizatuko da hautatut
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "_QR-kode funtzionalitatea"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr ""
+msgstr "Aktibatzen bada, menuak unean hautatutako arbeleko sarreraren QR-kode bat erakusten du"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
@@ -142,7 +143,7 @@ msgstr "Automatikoki itsatsi historiatik hautatutako elementua"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid "_Paste instantly:"
-msgstr "I_tsatsi berehala"
+msgstr "I_tsatsi berehala:"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>General</b>"
@@ -160,39 +161,39 @@ msgstr "Menu leihoa sagu markatzaile kokalekuan ireki, xfce4-popup-clipman koman
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Gehienezko elementuak:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>Menua</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "Portaera"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Ekintza automatikoak gaitu</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+msgstr "Gaitzen bada, arbeleko testua adierazpen erregularretan bilatuko da eta ekintza posibleak automatikoki menu batean bistaraziko dira.\nBestela menua \"xfce4-popup-clipman-actions\" deitzerakoan erakutsiko da soilik (eta bat etortze bat gertatu bada)"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
-msgstr ""
+msgstr "Ekintzak erakut_si kontrol tekla sakatuta mantenduz"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr ""
+msgstr "Hautapena eginda dagoenean (sagu edo teklatuaz) eta Kontrol tekla sakatua mantentzen bada egindako ekintzen leihoa erakutsiko da"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "S_kip actions by holding Control"
-msgstr ""
+msgstr "Ekintzak saltatu _kontrol tekla sakatuta mantenduz"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
@@ -202,40 +203,40 @@ msgstr "Hautapena eginda dagoenean (sagu edo teklatuaz) eta Kontrol tekla sakatu
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
-msgstr ""
+msgstr "Ekintza gehitu"
 
 #: ../panel-plugin/settings-dialog.ui.h:24
 msgid "Edit action"
-msgstr ""
+msgstr "Ekintza editatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Delete action"
-msgstr ""
+msgstr "Ekintza ezabatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reset all actions to the system default values"
-msgstr ""
+msgstr "Ekintza guztiak sistemaren lehenetsietara berrezarri"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "Ekintz_ak"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Historia gogoratu</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Kopiatutako azken irudia gogoratu"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Gaitzen bada, aukera honek irudi bat historiaren barne gordetzea baimentzen du"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
-msgstr "Be_rrordenatu  historia elementuak:"
+msgstr "Be_rrantolatu historia elementuak"
 
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
@@ -248,11 +249,11 @@ msgstr "Ald_erantzizko historia ordena"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Reverse order of the history shown in the menu"
-msgstr "Hautatuaz historia garbitu egingo da xfce saioa abiarazten den bakoitzean"
+msgstr "Menuan erakusten den historiaren ordena alderantzikatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Saguaren hautapenak baztertu"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -265,15 +266,15 @@ msgstr "_Historiaren tamaina:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "H_istoria"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
-msgstr "Editatu ekintza"
+msgstr "Ekintza editatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
@@ -288,7 +289,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Komandoetan \"\\1\", \"\\2\" eta hurrengo ordezte parametroak erabili ditzakezu. \"\\0\" parametroak testu osoa ordezkatzen du. Patroia beti ^$ karaktere berezien barruan ainguratzen da beti"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -298,7 +299,7 @@ msgstr "Eskuzko kopian bakarrik gaitu"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Lehenespenez ekintza hautapenean abiarazten da, hautatu aukera hau eskuzko kopia bat egiten duzunean bakarrik abiarazteko."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -306,7 +307,7 @@ msgstr "<b>Ekintza</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid "Command:"
-msgstr "Komandoa"
+msgstr "Komandoa:"
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Commands</b>"
@@ -314,7 +315,7 @@ msgstr "<b>Komandoak</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Idatzi hemen zure testu pertsonalizatua, adibidez URL bat, fitxategi-izen bat, etab."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -323,7 +324,7 @@ msgstr "Espresio erregularra"
 #: ../panel-plugin/main-panel-plugin.c:111
 #: ../panel-plugin/main-status-icon.c:159
 msgid "_Disable"
-msgstr "_Desgaitu"
+msgstr "_Ezgaitu"
 
 #: ../panel-plugin/actions.c:368
 #, c-format
@@ -331,7 +332,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Ezin da \"%s\"\n\n%s komandoa exekutatu"
+msgstr "Ezin izan da \"%s\" komando exekutatu\n\n%s"
 
 #: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
@@ -343,28 +344,28 @@ msgstr "Ez galdetu berriz"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Ezin izan da clipmanen historia leihoa ireki"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "Ezin izan da QR-kodea sortu."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
 msgid "Clipboard is empty"
-msgstr "Arbela hutsa dago"
+msgstr "Arbela hutsik dago"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "Historia osoa erakut_si..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
-msgstr ""
+msgstr "Historia garbitu"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Clipman ezarpenak..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -385,47 +386,47 @@ msgstr "Ezin da ezarpen leihoa ireki"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Ezin izan da arbel kudeatzaile deabrua hasi dagoeneko martxan dagoelako."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Xfce arbel kudeatzailea dagoeneko martxan dago."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "'xfce4-clipman'-ekin abiarazi dezakezu."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Arbel kudeatzaile deabrua ez dago martxan."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Idatzi bilaketa esaldia hemen"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "Itsatsi"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "Kopiatu"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "Clipman historia"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "Ezarpenak"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Arbel kudeatzailearen ezarpenak"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Zure arbela pertsonalizatu"
