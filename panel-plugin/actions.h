@@ -66,9 +66,9 @@ struct _ClipmanActions
   ClipmanActionsPrivate    *priv;
 };
 
-GType                   clipman_actions_get_type               ();
+GType                   clipman_actions_get_type               (void);
 
-ClipmanActions *      	clipman_actions_get                    ();
+ClipmanActions *      	clipman_actions_get                    (void);
 gboolean                clipman_actions_add                    (ClipmanActions *actions,
                                                                 const gchar *action_name,
                                                                 const gchar *regex,

@@ -37,7 +37,6 @@
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
 static MyPlugin*        status_icon_register            (void);
-static gboolean         cb_status_icon_is_embedded      (GtkStatusIcon *status_icon);
 static void             cb_status_icon_activate         (MyPlugin *plugin);
 static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
                                                          guint button,
@@ -97,6 +96,19 @@ main (gint argc,
  * Status Icon
  */
 
+static gboolean
+cb_status_icon_is_embedded (gpointer user_data)
+{
+  GtkStatusIcon *status_icon = user_data;
+
+  if (!gtk_status_icon_is_embedded (status_icon))
+    {
+      g_warning ("Status Icon is not embedded");
+      gtk_main_quit ();
+    }
+  return FALSE;
+}
+
 static MyPlugin *
 status_icon_register (void)
 {
@@ -116,7 +128,7 @@ status_icon_register (void)
       plugin->status_icon = gtk_status_icon_new_from_icon_name ("edit-paste");
     }
   //gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
-  g_timeout_add_seconds (60, (GSourceFunc)cb_status_icon_is_embedded, plugin->status_icon);
+  g_timeout_add_seconds (60, cb_status_icon_is_embedded, plugin->status_icon);
 
   /* Signals */
   g_signal_connect_swapped (plugin->status_icon, "activate",
@@ -127,17 +139,6 @@ status_icon_register (void)
   g_object_weak_ref (G_OBJECT (plugin->status_icon), cb_status_icon_finalize, plugin);
 
   return plugin;
-}
-
-static gboolean
-cb_status_icon_is_embedded (GtkStatusIcon *status_icon)
-{
-  if (!gtk_status_icon_is_embedded (status_icon))
-    {
-      g_warning ("Status Icon is not embedded");
-      gtk_main_quit ();
-    }
-  return FALSE;
 }
 
 static void

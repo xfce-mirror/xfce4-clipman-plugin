@@ -94,8 +94,6 @@ static void             cb_file_changed                     (ClipmanActions *act
                                                              GFile *file,
                                                              GFile *other_file,
                                                              GFileMonitorEvent event_type);
-static gboolean         timeout_file_changed                (ClipmanActions *actions);
-
 /*
  * XML Parser declarations
  */
@@ -372,6 +370,15 @@ cb_entry_activated (GtkMenuItem *mi,
   g_free (real_command);
 }
 
+static gboolean
+timeout_file_changed (gpointer user_data)
+{
+  ClipmanActions *actions = user_data;
+  _clipman_actions_free_list (actions);
+  clipman_actions_load (actions);
+  return FALSE;
+}
+
 static void
 cb_file_changed (ClipmanActions *actions,
                  GFile *file,
@@ -383,16 +390,8 @@ cb_file_changed (ClipmanActions *actions,
     {
       if (timeout > 0)
         g_source_remove (timeout);
-      timeout = g_timeout_add_seconds (1, (GSourceFunc)timeout_file_changed, actions);
+      timeout = g_timeout_add_seconds (1, timeout_file_changed, actions);
     }
-}
-
-static gboolean
-timeout_file_changed (ClipmanActions *actions)
-{
-  _clipman_actions_free_list (actions);
-  clipman_actions_load (actions);
-  return FALSE;
 }
 
 /*
@@ -688,13 +687,8 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   GSList *l, *entries;
   GdkModifierType state = 0;
   GdkDisplay* display = gdk_display_get_default ();
-#if GTK_CHECK_VERSION (3, 20, 0)
   GdkSeat *seat = gdk_display_get_default_seat (display);
   GdkDevice *device = gdk_seat_get_pointer (seat);
-#else
-  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
-#endif
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
