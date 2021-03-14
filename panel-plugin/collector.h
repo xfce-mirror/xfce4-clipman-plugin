@@ -48,11 +48,11 @@ struct _ClipmanCollector
   ClipmanCollectorPrivate  *priv;
 };
 
-GType                   clipman_collector_get_type              ();
+GType                   clipman_collector_get_type              (void);
 
-ClipmanCollector *      clipman_collector_get                   ();
+ClipmanCollector *      clipman_collector_get                   (void);
 void                    clipman_collector_set_is_restoring      (ClipmanCollector *collector);
-void                    clipman_collector_show_actions          ();
+void                    clipman_collector_show_actions          (void);
 
 #endif /* !__CLIPMAN_COLLECTOR_H__ */
 
