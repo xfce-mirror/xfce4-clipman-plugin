@@ -328,7 +328,6 @@ _clipman_menu_adjust_geometry (ClipmanMenu *menu)
 static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
-  GtkClipboard *clipboard;
   GtkWidget *mi, *image;
 #ifdef HAVE_QRENCODE
   GdkPixbuf *pixbuf;
@@ -338,9 +337,13 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   GSList *list, *l;
   gint pos = 0;
   guint i = 0;
-  gchar *selection_primary;
-  gchar *selection_clipboard;
+  const gchar *selection_primary;
+  const gchar *selection_clipboard;
   gboolean skip_primary = FALSE;
+
+  /* retrieve clipboard and primary selections */
+  selection_clipboard = g_object_get_data (G_OBJECT (menu), "selection-clipboard");
+  selection_primary = g_object_get_data (G_OBJECT (menu), "selection-primary");
 
   /* Get the most recent item in the history */
   item_to_restore = clipman_history_get_item_to_restore (menu->priv->history);
@@ -355,12 +358,6 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   list = clipman_history_get_list (menu->priv->history);
   if (menu->priv->reverse_order)
     list = g_slist_reverse (list);
-
-  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-  selection_clipboard = gtk_clipboard_wait_for_text (clipboard);
-
-  clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-  selection_primary = gtk_clipboard_wait_for_text (clipboard);
 
   for (i = 0, l = list; i < menu->priv->max_menu_items; i++, l = l->next)
     {
@@ -496,9 +493,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
           g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), NULL);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
         }
-      g_free (selection_primary);
     }
-  g_free (selection_clipboard);
 
   _clipman_menu_adjust_geometry(menu);
 }
