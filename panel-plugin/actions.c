@@ -385,12 +385,26 @@ cb_file_changed (ClipmanActions *actions,
                  GFile *other_file,
                  GFileMonitorEvent event_type)
 {
-  static guint timeout = 0;
+  static GSource *source = NULL;
+  guint           source_id;
+
   if (event_type == G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT)
     {
-      if (timeout > 0)
-        g_source_remove (timeout);
-      timeout = g_timeout_add_seconds (1, timeout_file_changed, actions);
+      /* drop the previous timer source */
+      if (source != NULL)
+        {
+          if (! g_source_is_destroyed (source))
+            g_source_destroy (source);
+
+          g_source_unref (source);
+          source = NULL;
+        }
+
+      source_id = g_timeout_add_seconds (1, (GSourceFunc)timeout_file_changed, actions);
+
+      /* retrieve the timer source and increase its ref count to test its destruction next time */
+      source = g_main_context_find_source_by_id (NULL, source_id);
+      g_source_ref (source);
     }
 }
 
