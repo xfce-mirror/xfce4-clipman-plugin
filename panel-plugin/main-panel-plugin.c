@@ -37,7 +37,8 @@
  */
 
 static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
-XFCE_PANEL_PLUGIN_REGISTER (panel_plugin_register);
+static gboolean         panel_plugin_register_check     (GdkScreen *screen);
+XFCE_PANEL_PLUGIN_REGISTER_WITH_CHECK (panel_plugin_register, panel_plugin_register_check);
 
 static gboolean         plugin_set_size                 (MyPlugin *plugin,
                                                          gint size);
@@ -56,44 +57,49 @@ static void             my_plugin_position_menu         (GtkMenu *menu,
 
 
 
-/*
- * Panel Plugin
- */
+static MyPlugin *my_plugin;
+
+static gboolean
+panel_plugin_register_check (GdkScreen *screen)
+{
+  my_plugin = plugin_register (TRUE);
+
+  return my_plugin != NULL;
+}
 
 static void
 panel_plugin_register (XfcePanelPlugin *panel_plugin)
 {
-  MyPlugin *plugin = plugin_register (TRUE);
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GtkWidget *mi = NULL;
   GtkCssProvider *css_provider;
   GtkStyleContext *context;
 
   /* Menu Position Func */
-  plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
+  my_plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
 
   /* Panel Plugin */
-  plugin->panel_plugin = panel_plugin;
+  my_plugin->panel_plugin = panel_plugin;
   gtk_widget_set_tooltip_text (GTK_WIDGET (panel_plugin), _("Clipman"));
 
   /* Panel Button */
-  plugin->button = xfce_panel_create_toggle_button ();
+  my_plugin->button = xfce_panel_create_toggle_button ();
   if (gtk_icon_theme_has_icon (icon_theme, "clipman-symbolic"))
-      plugin->image = gtk_image_new_from_icon_name ("clipman-symbolic", GTK_ICON_SIZE_MENU);
+      my_plugin->image = gtk_image_new_from_icon_name ("clipman-symbolic", GTK_ICON_SIZE_MENU);
   else if (gtk_icon_theme_has_icon (icon_theme, "edit-paste-symbolic"))
-      plugin->image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
+      my_plugin->image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
   else
-      plugin->image = gtk_image_new_from_icon_name ("edit-paste", GTK_ICON_SIZE_MENU);
-  gtk_container_add (GTK_CONTAINER (plugin->button), plugin->image);
-  gtk_container_add (GTK_CONTAINER (panel_plugin), plugin->button);
-  gtk_widget_set_name (GTK_WIDGET (plugin->button), "xfce4-clipman-plugin");
+      my_plugin->image = gtk_image_new_from_icon_name ("edit-paste", GTK_ICON_SIZE_MENU);
+  gtk_container_add (GTK_CONTAINER (my_plugin->button), my_plugin->image);
+  gtk_container_add (GTK_CONTAINER (panel_plugin), my_plugin->button);
+  gtk_widget_set_name (GTK_WIDGET (my_plugin->button), "xfce4-clipman-plugin");
 
   /* Sane default Gtk style */
   css_provider = gtk_css_provider_new ();
   gtk_css_provider_load_from_data (css_provider,
                                    ".inhibited { opacity: 0.5; }",
                                    -1, NULL);
-  context = GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (plugin->image)));
+  context = GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (my_plugin->image)));
   gtk_style_context_add_provider (context,
                                   GTK_STYLE_PROVIDER (css_provider),
                                   GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -101,9 +107,9 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
 
   xfce_panel_plugin_set_small (panel_plugin, TRUE);
 
-  xfce_panel_plugin_add_action_widget (panel_plugin, plugin->button);
-  g_signal_connect (plugin->button, "button-press-event",
-                    G_CALLBACK (cb_button_pressed), plugin);
+  xfce_panel_plugin_add_action_widget (panel_plugin, my_plugin->button);
+  g_signal_connect (my_plugin->button, "button-press-event",
+                    G_CALLBACK (cb_button_pressed), my_plugin);
 
   /* Context menu */
   xfce_panel_plugin_menu_show_about (panel_plugin);
@@ -112,23 +118,23 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   gtk_widget_show (mi);
   xfce_panel_plugin_menu_insert_item (panel_plugin, GTK_MENU_ITEM (mi));
   g_signal_connect (G_OBJECT (mi), "toggled",
-                    G_CALLBACK (cb_inhibit_toggled), plugin->image);
-  xfconf_g_property_bind (plugin->channel, "/tweaks/inhibit",
+                    G_CALLBACK (cb_inhibit_toggled), my_plugin->image);
+  xfconf_g_property_bind (my_plugin->channel, "/tweaks/inhibit",
                           G_TYPE_BOOLEAN, mi, "active");
 
   /* Signals */
   g_signal_connect_swapped (panel_plugin, "about",
-                            G_CALLBACK (plugin_about), plugin);
+                            G_CALLBACK (plugin_about), my_plugin);
   g_signal_connect_swapped (panel_plugin, "configure-plugin",
-                            G_CALLBACK (plugin_configure), plugin);
+                            G_CALLBACK (plugin_configure), my_plugin);
   g_signal_connect_swapped (panel_plugin, "save",
-                            G_CALLBACK (plugin_save), plugin);
+                            G_CALLBACK (plugin_save), my_plugin);
   g_signal_connect_swapped (panel_plugin, "free-data",
-                            G_CALLBACK (plugin_free), plugin);
+                            G_CALLBACK (plugin_free), my_plugin);
   g_signal_connect_swapped (panel_plugin, "size-changed",
-                            G_CALLBACK (plugin_set_size), plugin);
-  g_signal_connect (plugin->menu, "deactivate",
-                    G_CALLBACK (cb_menu_deactivate), plugin);
+                            G_CALLBACK (plugin_set_size), my_plugin);
+  g_signal_connect (my_plugin->menu, "deactivate",
+                    G_CALLBACK (cb_menu_deactivate), my_plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
 }
