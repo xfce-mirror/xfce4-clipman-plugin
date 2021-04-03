@@ -60,7 +60,7 @@ clipboard_manager_ownership_exists (void)
  */
 
 MyPlugin *
-plugin_register (void)
+plugin_register (gboolean panel_plugin)
 {
   MyPlugin *plugin = g_slice_new0 (MyPlugin);
   GError *error = NULL;
@@ -76,23 +76,29 @@ plugin_register (void)
     }
 
   plugin->app = gtk_application_new ("org.xfce.clipman", 0);
-  g_application_register (G_APPLICATION (plugin->app), NULL, &error);
-  if (error != NULL)
+
+  /* all this has already been done in main-status-icon.c in the case of a status icon */
+  if (panel_plugin)
     {
-      g_warning ("Unable to register GApplication: %s", error->message);
-      g_error_free (error);
-      error = NULL;
+      g_application_register (G_APPLICATION (plugin->app), NULL, &error);
+      if (error != NULL)
+        {
+          g_warning ("Unable to register GApplication: %s", error->message);
+          g_error_free (error);
+          error = NULL;
+        }
+
+      if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
+        {
+          g_message ("Primary instance org.xfce.clipman already running");
+          clipman_common_show_info_dialog ();
+          g_object_unref (plugin->app);
+          return FALSE;
+        }
+
+      g_set_application_name (_("Clipman"));
     }
 
-  if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
-    {
-      g_message ("Primary instance org.xfce.clipman already running");
-      clipman_common_show_info_dialog ();
-      g_object_unref (plugin->app);
-      return FALSE;
-    }
-
-  g_set_application_name (_("Clipman"));
   g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
 
   /* Xfconf */
