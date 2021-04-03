@@ -66,7 +66,7 @@ struct _MyPlugin
  * Plugin functions
  */
 
-MyPlugin*               plugin_register                 (void);
+MyPlugin*               plugin_register                 (gboolean  panel_plugin);
 void                    plugin_load                     (MyPlugin *plugin);
 void                    plugin_save                     (MyPlugin *plugin);
 void                    plugin_free                     (MyPlugin *plugin);
