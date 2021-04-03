@@ -63,7 +63,7 @@ static void             my_plugin_position_menu         (GtkMenu *menu,
 static void
 panel_plugin_register (XfcePanelPlugin *panel_plugin)
 {
-  MyPlugin *plugin = plugin_register ();
+  MyPlugin *plugin = plugin_register (TRUE);
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
   GtkWidget *mi = NULL;
   GtkCssProvider *css_provider;
