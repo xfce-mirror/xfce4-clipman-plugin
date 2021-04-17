@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2008-2009
-# Luna Jernberg <bittin@cafe8bitar.se>, 2020
+# Luna Jernberg <bittin@cafe8bitar.se>, 2020-2021
 # Påvel Nicklasson <pavel@frimix.se>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-12-13 03:55+0000\n"
+"PO-Revision-Date: 2021-04-17 06:06+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -233,7 +233,7 @@ msgstr "Kom ihåg senast kopierade _bild"
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Om förbockad, detta alternativ tillåter att en bild lagras i historiken"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -300,7 +300,7 @@ msgstr "Aktivera endast vid manuell kopiering"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Som standard utlöses åtgärden av en markering, bocka för detta alternativ för att utlösa åtgärden bara då du gör en manuell kopia"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
