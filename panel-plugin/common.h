@@ -25,6 +25,17 @@
 #ifndef __CLIPMAN_COMMON_H__
 #define __CLIPMAN_COMMON_H__
 
+/* G_GNUC_FALLTHROUGH definition, from GLib 2.68.0 */
+#if ! GLIB_CHECK_VERSION (2, 60, 0)
+#if __GNUC__ > 6
+#define G_GNUC_FALLTHROUGH __attribute__((fallthrough))
+#elif g_macro__has_attribute (fallthrough)
+#define G_GNUC_FALLTHROUGH __attribute__((fallthrough))
+#else
+#define G_GNUC_FALLTHROUGH
+#endif
+#endif
+
 #define DEFAULT_MAX_MENU_ITEMS                          15
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
