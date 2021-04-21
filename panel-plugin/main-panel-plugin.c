@@ -234,6 +234,7 @@ my_plugin_position_menu (GtkMenu *menu,
   GtkRequisition minimum_size;
   GtkRequisition natural_size;
   XfceScreenPosition screen_position;
+  GdkRectangle *geometry;
 
   g_return_if_fail (XFCE_IS_PANEL_PLUGIN (plugin->panel_plugin));
 
@@ -241,6 +242,7 @@ my_plugin_position_menu (GtkMenu *menu,
   gtk_widget_get_size_request (plugin->button, &button_width, &button_height);
   gtk_widget_get_preferred_size (GTK_WIDGET (menu), &minimum_size, &natural_size);
   gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (plugin->panel_plugin)), x, y);
+  geometry = xfce_gdk_screen_get_geometry ();
 
   switch (screen_position)
     {
@@ -248,6 +250,7 @@ my_plugin_position_menu (GtkMenu *menu,
       case XFCE_SCREEN_POSITION_N:
       case XFCE_SCREEN_POSITION_NE_H:
         above = FALSE;
+        G_GNUC_FALLTHROUGH;
       case XFCE_SCREEN_POSITION_SW_H:
       case XFCE_SCREEN_POSITION_S:
       case XFCE_SCREEN_POSITION_SE_H:
@@ -258,23 +261,23 @@ my_plugin_position_menu (GtkMenu *menu,
           /* Show menu below */
           *y += button_height;
 
-        if (*x + minimum_size.width > gdk_screen_width ())
+        if (*x + minimum_size.width > geometry->width)
           /* Adjust horizontal position */
-          *x = gdk_screen_width () - minimum_size.width;
+          *x = geometry->width - minimum_size.width;
 
         break;
 
       default:
-        if (*x + button_width + minimum_size.width > gdk_screen_width ())
+        if (*x + button_width + minimum_size.width > geometry->width)
           /* Show menu on the right */
           *x -= minimum_size.width;
         else
           /* Show menu on the left */
           *x += button_width;
 
-        if (*y + minimum_size.height > gdk_screen_height ())
+        if (*y + minimum_size.height > geometry->height)
           /* Adjust vertical position */
-          *y = gdk_screen_height () - minimum_size.height;
+          *y = geometry->height - minimum_size.height;
 
         break;
     }

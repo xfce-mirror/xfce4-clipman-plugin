@@ -17,9 +17,8 @@ EXTRA_DIST =								\
 	AUTHORS								\
 	ChangeLog							\
 	COPYING								\
-	INSTALL								\
 	NEWS								\
-	README								\
+	README.md								\
 	intltool-extract.in						\
 	intltool-merge.in						\
 	intltool-update.in						\

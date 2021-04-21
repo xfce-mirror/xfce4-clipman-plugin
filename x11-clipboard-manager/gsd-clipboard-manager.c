@@ -73,6 +73,13 @@ init_atoms (Display *display)
 
 
 static void
+cb_selection_data_free (gpointer data)
+{
+        gtk_selection_data_free ((GtkSelectionData *) data);
+}
+
+
+static void
 default_clipboard_store (GsdClipboardManager *manager)
 {
         GtkSelectionData *selection_data;
@@ -85,8 +92,7 @@ default_clipboard_store (GsdClipboardManager *manager)
         }
 
         if (manager->priv->default_cache != NULL) {
-                g_slist_foreach (manager->priv->default_cache, (GFunc)gtk_selection_data_free, NULL);
-                g_slist_free (manager->priv->default_cache);
+                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
                 manager->priv->default_cache = NULL;
         }
 
@@ -210,18 +216,14 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
 }
 
 static gboolean
-primary_clipboard_store (GsdClipboardManager *manager)
+primary_clipboard_store (gpointer user_data)
 {
+        GsdClipboardManager *manager = user_data;
         GdkModifierType state = 0;
         gchar *text;
         GdkDisplay* display = gdk_display_get_default ();
-#if GTK_CHECK_VERSION (3, 20, 0)
         GdkSeat *seat = gdk_display_get_default_seat (display);
         GdkDevice *device = gdk_seat_get_pointer (seat);
-#else
-        GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-        GdkDevice *device = gdk_device_manager_get_client_pointer (device_manager);
-#endif
         GdkScreen* screen = gdk_screen_get_default ();
         GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
@@ -242,8 +244,9 @@ primary_clipboard_store (GsdClipboardManager *manager)
 }
 
 static gboolean
-primary_clipboard_restore (GsdClipboardManager *manager)
+primary_clipboard_restore (gpointer user_data)
 {
+        GsdClipboardManager *manager = user_data;
         if (manager->priv->primary_cache != NULL) {
                 gtk_clipboard_set_text (manager->priv->primary_clipboard,
                                         manager->priv->primary_cache,
@@ -271,16 +274,17 @@ primary_clipboard_owner_change (GsdClipboardManager *manager,
                         manager->priv->primary_internal_change = FALSE;
                         return;
                 }
-                manager->priv->primary_timeout = g_timeout_add (250, (GSourceFunc)primary_clipboard_store, manager);
+                manager->priv->primary_timeout = g_timeout_add (250, primary_clipboard_store, manager);
         }
         else if (gtk_clipboard_wait_is_text_available (manager->priv->primary_clipboard) == FALSE) {
-                manager->priv->primary_timeout = g_timeout_add (250, (GSourceFunc)primary_clipboard_restore, manager);
+                manager->priv->primary_timeout = g_timeout_add (250, primary_clipboard_restore, manager);
         }
 }
 
 static gboolean
-start_clipboard_idle_cb (GsdClipboardManager *manager)
+start_clipboard_idle_cb (gpointer user_data)
 {
+        GsdClipboardManager *manager = user_data;
         XClientMessageEvent     xev;
         Display                *display;
         Window                  window;
@@ -336,7 +340,7 @@ gboolean
 gsd_clipboard_manager_start (GsdClipboardManager *manager,
                              GError             **error)
 {
-        g_idle_add ((GSourceFunc) start_clipboard_idle_cb, manager);
+        g_idle_add (start_clipboard_idle_cb, manager);
         return TRUE;
 }
 
@@ -352,8 +356,7 @@ gsd_clipboard_manager_stop (GsdClipboardManager *manager)
         gtk_widget_destroy (manager->priv->window);
 
         if (manager->priv->default_cache != NULL) {
-                g_slist_foreach (manager->priv->default_cache, (GFunc)gtk_selection_data_free, NULL);
-                g_slist_free (manager->priv->default_cache);
+                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
                 manager->priv->default_cache = NULL;
         }
         if (manager->priv->primary_cache != NULL) {

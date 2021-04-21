@@ -84,9 +84,9 @@ struct _ClipmanHistory
   ClipmanHistoryPrivate    *priv;
 };
 
-GType                       clipman_history_get_type                 ();
+GType                       clipman_history_get_type                 (void);
 
-ClipmanHistory *            clipman_history_get                      ();
+ClipmanHistory *            clipman_history_get                      (void);
 void                        clipman_history_add_text                 (ClipmanHistory           *history,
                                                                       const gchar              *text);
 void                        clipman_history_add_image                (ClipmanHistory           *history,
