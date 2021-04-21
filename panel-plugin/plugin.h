@@ -66,7 +66,7 @@ struct _MyPlugin
  * Plugin functions
  */
 
-MyPlugin*               plugin_register                 ();
+MyPlugin*               plugin_register                 (void);
 void                    plugin_load                     (MyPlugin *plugin);
 void                    plugin_save                     (MyPlugin *plugin);
 void                    plugin_free                     (MyPlugin *plugin);
