@@ -112,7 +112,7 @@ cb_status_icon_is_embedded (gpointer user_data)
 static MyPlugin *
 status_icon_register (void)
 {
-  MyPlugin *plugin = plugin_register ();
+  MyPlugin *plugin = plugin_register (FALSE);
   GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
 
   /* Menu Position Func */
