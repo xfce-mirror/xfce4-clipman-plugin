@@ -1,3 +1,38 @@
+1.6.2
+======
+- Add G_GNUC_FALLTHROUGH definition if GLib < 2.60
+- Remove obsolete GTK_CHECK_VERSION checks
+- Fix function prototypes
+- Remove GSourceFunc casts
+- Fix compilation warnings
+- automake: Enable subdir-objects
+- autoconf: Some updates
+- Check for `locale.h` required in release mode
+- Update `.gitignore`
+- Require gtk 3.22.29
+- Fix GCC warnings
+- Fix return type of grab_keyboard
+- Add README.md
+- Avoid deprecated warnings with Gdk >= 3.22
+- Add basic GitLab pipeline
+- Bug #16717: Move from exo-csource to xdt-csource
+- Make settings window title translateable (Bug #16625)
+- history: Re-enable singleton
+- menu: Indicate primary and clipboard content
+- menu: Indicate the primary clipboard item
+- Speed up shutdown and paste
+- Correct location of appstream info
+- Fix a couple of grammatical errors
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hungarian, Icelandic, Indonesian,
+  Interlingue, Italian, Japanese, Kazakh, Korean, Lithuanian, Malay,
+  Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese,
+  Portuguese (Brazil), Russian, Serbian, Slovak, Slovenian, Spanish,
+  Swedish, Thai, Turkish, Ukrainian
+
 1.6.1
 ======
 - Add translateable files to POTFILES (Bug #16608)
