@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-04-17 06:06+0000\n"
+"PO-Revision-Date: 2021-05-03 06:33+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Du kan använda substitutionsparametrarna \"\\1\", \"\\2\" och så vidare i kommandona. Parametern \"\\0\" representerar hela texten. Mönstret är alltid förankrat i specialtecken ^ $"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -345,7 +345,7 @@ msgstr "Fråga inte igen"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "Det går inte att öppna dialogrutan för clipman-historik"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -387,7 +387,7 @@ msgstr "Det gick inte att öppna inställningsdialogen"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Det gick inte att starta Urklippshanterare daemon eftersom den redan körs."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
@@ -399,7 +399,7 @@ msgstr "Du kan starta den med 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Urklippshanteringsdaemon körs inte."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
