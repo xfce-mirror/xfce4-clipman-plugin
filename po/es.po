@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-05-05 21:38+0000\n"
+"PO-Revision-Date: 2021-05-06 22:34+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "El gestor del portapapeles se ofrece como un complemento para panel de Xfce y como una aplicación independiente que se ejecuta en el área de notificación. Mantiene un historial de los textos y las imágenes copiados en el portapapeles. También tiene una función para ejecutar acciones en una selección específica de texto mediante la comparación con expresiones regulares."
+msgstr "El gestor del portapapeles se proporciona como un complemento para panel de Xfce y como una aplicación independiente que se ejecuta en el área de notificación. Mantiene un historial de los textos y las imágenes copiados en el portapapeles. También tiene una función para ejecutar acciones en una selección específica de texto mediante la comparación con expresiones regulares."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
@@ -135,7 +135,7 @@ msgstr "_Sincronizar las selecciones del ratón"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si se activa, las selecciones se sincronizarán con el portapapeles predeterminado de manera que pueda pegar lo que seleccione"
+msgstr "Si se marca, las selecciones se sincronizarán con el portapapeles predeterminado de manera que se pueda pegar lo que se seleccione"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
@@ -145,7 +145,7 @@ msgstr "Compatibilidad con códigos _QR"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Si se activa, el menú muestra un código QR de la entrada del portapapeles seleccionada"
+msgstr "Si se marca, el menú mostrará un código QR de la entrada del portapapeles seleccionada"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
@@ -189,7 +189,7 @@ msgstr "<b>_Activar las acciones automáticas</b>"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Si se activa, los textos del portapapeles se compararán con expresiones regulares y un menú mostrará las posibles acciones automáticamente.\nSi no, el menú solo aparecerá cuando se ejecute a «xfce4-popup-clipman-actions» (y se encuentre una coincidencia)"
+msgstr "Si se marca, los textos del portapapeles se compararán con las expresiones regulares y un menú mostrará las acciones posibles automáticamente.\nSi no, el menú solo aparecerá cuando se ejecute a «xfce4-popup-clipman-actions» (y se encuentre una coincidencia)"
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
@@ -199,7 +199,7 @@ msgstr "_Mostrar las acciones al mantener pulsada la tecla Control"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
-msgstr "Al realizar la selección (con el ratón o con el teclado) y mantener pulsada la tecla Control, se mostrará el menú emergente de acciones coincidentes"
+msgstr "Al hacer una selección (con el ratón o con el teclado) y mantener pulsada la tecla Control, se mostrará el menú emergente de acciones coincidentes"
 
 #: ../panel-plugin/settings-dialog.ui.h:21
 msgid "S_kip actions by holding Control"
@@ -209,7 +209,7 @@ msgstr "_Omitir las acciones al mantener pulsada la tecla Control"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Al realizar la selección (con el ratón o con el teclado) y mantener pulsada la tecla Control, se omitirá el menú emergente de acciones coincidentes"
+msgstr "Al hacer una selección (con el ratón o con el teclado) y mantener pulsada la tecla Control, se omitirá el menú emergente de las acciones correspondientes"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -242,7 +242,7 @@ msgstr "Recordar la última _imagen copiada"
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr "Si se activa, esta opción permite almacenar una imagen en el historial"
+msgstr "Si se marca, se permite almacenar una imagen en el historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -251,7 +251,7 @@ msgstr "_Reordenar los elementos del historial"
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Desplazar el último texto copiado al principio del historial, útil para reordenar los elementos anteriores"
+msgstr "Desplazar el último texto copiado al principio del historial. Opción útil para reordenar los elementos anteriores"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Re_verse history order"
@@ -268,7 +268,7 @@ msgstr "Ignorar las s_elecciones del ratón"
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Si está activado, la selección no afectará el historial, excepto las copias manuales"
+msgstr "Si se marca, las selecciones no afectarán al historial, excepto las copias manuales"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
@@ -280,11 +280,11 @@ msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr "H_istoria"
+msgstr "H_istorial"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
-msgstr "Editar acción"
+msgstr "Editar la acción"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
@@ -299,17 +299,17 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "Puede usar los parámetros de sustitución \"\\1\", \"\\2\", etc. en los comandos. El parámetro \"\\0\" representa el texto completo. El patrón siempre está anclado dentro de los caracteres especiales ^$"
+msgstr "Puede usar los parámetros de sustitución «\\1», «\\2» y siguientes en las órdenes. El parámetro «\\0» representa el texto completo. El patrón se sitúa siempre entre los caracteres especiales ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
-msgstr "Activar solamente en copia manual"
+msgstr "Activar solo en la copia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Por defecto, la acción se activa mediante una selección, marque esta opción para activar la acción solo cuando realice una copia manual"
+msgstr "Por defecto, la acción se activa al hacer una selección. Marque esta opción para desencadenar la acción solo al hacer una copia manual"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -325,7 +325,7 @@ msgstr "<b>Órdenes</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Escriba aquí su texto personalizado, por ejemplo, una URL, un nombre de archivo, etc."
+msgstr "Escriba aquí el texto personalizado, por ejemplo, un URL, un nombre de archivo, etc."
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -346,7 +346,7 @@ msgstr "No se puede ejecutar la orden «%s»\n\n%s"
 
 #: ../panel-plugin/menu.c:255
 msgid "Are you sure you want to clear the history?"
-msgstr "¿Está seguro que quiere vaciar el historial?"
+msgstr "¿Seguro que quiere borrar el historial?"
 
 #: ../panel-plugin/menu.c:260
 msgid "Don't ask again"
@@ -354,11 +354,11 @@ msgstr "No preguntar de nuevo"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr "No se puede abrir el cuadro de diálogo del historial de clipman"
+msgstr "No se puede abrir el diálogo del historial de Clipman"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
-msgstr "No se ha podido generar el código QR"
+msgstr "No se ha podido generar el código QR."
 
 #. Insert empty menu item
 #: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
@@ -367,15 +367,15 @@ msgstr "El portapapeles está vacío"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr "_Mostrar historia completa..."
+msgstr "_Mostrar el historial completo..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
-msgstr "_Limpiar historial"
+msgstr "_Borrar el historial"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr "_Ajustes de Clipman ..."
+msgstr "_Configuración de Clipman..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -387,7 +387,7 @@ msgstr "Gestor del portapapeles para Xfce"
 
 #: ../panel-plugin/plugin.c:343
 msgid "translator-credits"
-msgstr "Roberto <roberdmd@gmail.com>, 2008\nAbel Martín <abel.martin.ruiz@gmail.com>, 2009\nElega <elega@elega.com.ar>\nSergio <oigres200@gmail.com>, 2012\nPablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2015\nAdolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014"
+msgstr "Toni Estevez <toni.estevez@gmail.com>, 2021\nAdolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014\nPablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2015\nSergio <oigres200@gmail.com>, 2012\nElega <elega@elega.com.ar>, 2009\nAbel Martín <abel.martin.ruiz@gmail.com>, 2009\nRoberto <roberdmd@gmail.com>, 2008"
 
 #: ../panel-plugin/plugin.c:357
 msgid "Unable to open the settings dialog"
@@ -396,23 +396,23 @@ msgstr "No se puede abrir el diálogo de configuración"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr "No se ha podido iniciar el demonio del Administrador de portapapeles porque ya se está ejecutando."
+msgstr "No se ha podido iniciar el servicio del gestor del portapapeles porque ya está en ejecución."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr "El administrador del portapapeles de Xfce ya se esta ejecutando."
+msgstr "El gestor del portapapeles de Xfce ya está en ejecución."
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr "Puede iniciarlo con 'xfce4-clipman'."
+msgstr "Puede iniciarlo con «xfce4-clipman»."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr "El demonio del administrador del portapapeles no está funcionando."
+msgstr "El servicio del gestor del portapapeles no está en ejecución."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr "Ingrese la frase de búsqueda aquí"
+msgstr "Escriba aquí el término de búsqueda"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
@@ -431,11 +431,11 @@ msgstr "Historial de Clipman"
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr "_Ajustes"
+msgstr "_Configuración"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr "Ajustes del administrador del portapapeles"
+msgstr "Configuración del gestor del portapapeles"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
