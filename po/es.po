@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-05-06 22:34+0000\n"
+"PO-Revision-Date: 2021-05-18 18:12+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "_Sincronizar las selecciones del ratón"
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "Si se marca, las selecciones se sincronizarán con el portapapeles predeterminado de manera que se pueda pegar lo que se seleccione"
+msgstr "Si se marca, las selecciones se sincronizarán con el portapapeles predeterminado de modo que se pueda pegar lo que se seleccione"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
@@ -334,7 +334,7 @@ msgstr "Expresión regular"
 #: ../panel-plugin/main-panel-plugin.c:111
 #: ../panel-plugin/main-status-icon.c:159
 msgid "_Disable"
-msgstr "_Desactivar"
+msgstr "De_sactivar"
 
 #: ../panel-plugin/actions.c:368
 #, c-format
