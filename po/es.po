@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-05-18 18:12+0000\n"
+"PO-Revision-Date: 2021-05-19 22:20+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr "Si se marca, las selecciones se sincronizarán con el portapapeles prede
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr "Compatibilidad con códigos _QR"
+msgstr "_Mostrar códigos QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -161,7 +161,7 @@ msgstr "<b>General</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
-msgstr "Menú en la p_osición del puntero del ratón"
+msgstr "_Menú en la posición del puntero del ratón"
 
 #: ../panel-plugin/settings-dialog.ui.h:12
 msgid ""
@@ -179,11 +179,11 @@ msgstr "<b>Menú</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr "_Comportamiento"
+msgstr "Compo_rtamiento"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr "<b>_Activar las acciones automáticas</b>"
+msgstr "<b>Acti_var las acciones automáticas</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -193,7 +193,7 @@ msgstr "Si se marca, los textos del portapapeles se compararán con las expresio
 
 #: ../panel-plugin/settings-dialog.ui.h:19
 msgid "_Show actions by holding Control"
-msgstr "_Mostrar las acciones al mantener pulsada la tecla Control"
+msgstr "Mostrar las acciones al mantener pulsada la _tecla Control"
 
 #: ../panel-plugin/settings-dialog.ui.h:20
 msgid ""
@@ -255,7 +255,7 @@ msgstr "Desplazar el último texto copiado al principio del historial. Opción �
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Re_verse history order"
-msgstr "Invertir el orden del historial"
+msgstr "_Invertir el orden del historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:34
 msgid "Reverse order of the history shown in the menu"
@@ -263,7 +263,7 @@ msgstr "Invertir el orden del historial que se muestra en el menú"
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr "Ignorar las s_elecciones del ratón"
+msgstr "_Ignorar las selecciones del ratón"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -272,7 +272,7 @@ msgstr "Si se marca, las selecciones no afectarán al historial, excepto las cop
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
-msgstr "Tamaño del _historial:"
+msgstr "_Tamaño del historial:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
@@ -280,7 +280,7 @@ msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr "H_istorial"
+msgstr "_Historial"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -431,7 +431,7 @@ msgstr "Historial de Clipman"
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr "_Configuración"
+msgstr "Con_figuración"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
