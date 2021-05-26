@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Arnold Marko <arnold.marko@gmail.com>, 2019-2020
+# Arnold Marko <arnold.marko@gmail.com>, 2019-2021
 # Kernc, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-10-29 14:53+0000\n"
+"PO-Revision-Date: 2021-05-26 09:12+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Upravljalnik odložišča Clipman je na voljo kot vtičnik za Xfce pult ali kot samostojen program, ki  deluje v področju za obvestila. Shranjuje zgodovino tekstovnih in slikovnih vsebin, ki so bile kopirane na odložišče. Ima tudi funkcijo izvajanja dejanj za določen izbor teksta, ob njihovem primerjanju z regularnimi izrazi."
+msgstr "Upravljalnik odložišča Clipman je na voljo kot vtičnik za Xfce pano ali kot samostojen program, ki  deluje v področju za obvestila. Shranjuje zgodovino tekstovnih in slikovnih vsebin, ki so bile kopirane na odložišče. Ima tudi funkcijo izvajanja dejanj za določen izbor teksta, ki jih primerja z regularnimi izrazi."
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
@@ -407,7 +407,7 @@ msgstr "Tukaj vnesite svoj iskalni pogoj"
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr "_Vstavi"
+msgstr "_Prilepi"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
