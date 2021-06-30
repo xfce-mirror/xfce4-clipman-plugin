@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2014
-# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014,2016
+# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014,2016,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-08 22:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2021-06-30 09:40+0000\n"
+"Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,15 +25,15 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "โปรแกรมจัดการคลิปบอร์ด มีทั้งในรูปปลั๊กอินสำหรับพาเนลของ Xfce และในรูปโปรแกรมโดดที่ทำงานในพื้นที่แจ้งเหตุ โปรแกรมนี้จะเก็บประวัติของเนื้อหาข้อความและรูปภาพที่มีการคัดลอกลงในคลิปบอร์ด นอกจากนี้ ยังสามารถเรียกการกระทำกับข้อความบางรูปแบบที่เลือกได้ โดยตรวจสอบรูปแบบด้วยนิพจน์เรกิวลาร์"
+msgstr "เครื่องมือจัดการคลิปบอร์ด มีทั้งในรูปปลั๊กอินสำหรับพาเนลของ Xfce และในรูปโปรแกรมโดดที่ทำงานในพื้นที่แจ้งเหตุ โปรแกรมนี้จะเก็บประวัติของเนื้อหาข้อความและรูปภาพที่มีการคัดลอกลงในคลิปบอร์ด นอกจากนี้ ยังสามารถเรียกการกระทำกับข้อความบางรูปแบบที่เลือกได้ โดยตรวจสอบรูปแบบด้วยนิพจน์เรกิวลาร์"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "เครื่องมือจัดการคลิปบอร์ด"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "แฟ้มเริ่มทำงานอัตโนมัติของเครื่องมือจัดการคลิปบอร์ด"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -105,7 +105,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "ตั้งค่า Clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -119,17 +119,17 @@ msgstr "ปิ_ด"
 
 #: ../panel-plugin/settings-dialog.ui.h:4
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "ปรับตามการเ_ลือกด้วยเมาส์"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
 "If checked, the selections will be synced with the default clipboard in a "
 "way that you can paste what you select"
-msgstr "ถ้าเลือก จะปรับการป้ายเลือกไปที่คลิปบอร์ดปริยาย ซึ่งจะทำให้คุณสามารถแปะสิ่งที่คุณเลือกได้"
+msgstr "ถ้าเลือก จะปรับคลิปบอร์ดปริยายตามการป้ายเลือก ซึ่งจะทำให้คุณสามารถแปะสิ่งที่คุณเลือกได้"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "รองรับรหัส _QR"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -161,19 +161,19 @@ msgstr "ผุดเมนูที่ตำแหน่งตัวชี้เ
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "จำนวนรายการสูงสุด:"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>เมนู</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_พฤติกรรม"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_เปิดใช้การกระทำอัตโนมัติ</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -219,20 +219,20 @@ msgstr "ล้างค่าการกระทำทั้งหมดกล
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "การ_กระทำ"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>จำประวัติ</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "จำรูป_ภาพล่าสุดที่คัดลอก"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "ถ้าเลือก ก็จะสามารถเก็บรูปภาพล่าสุดไว้ในประวัติได้หนึ่งรูป"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -253,7 +253,7 @@ msgstr "กลับลำดับของประวัติที่แส
 
 #: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "ไม่สนใจการเ_ลือกด้วยเมาส์"
 
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
@@ -266,11 +266,11 @@ msgstr "ขนาดของ_ประวัติ:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
-msgstr ""
+msgstr "_ประวัติ"
 
 #: ../panel-plugin/settings-dialog.ui.h:40
 msgid "Edit Action"
@@ -289,7 +289,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "คุณสามารถใช้พารามิเตอร์สำหรับแทนค่า เช่น \"\\1\", \"\\2\" ฯลฯ ในคำสั่งได้ โดยพารามิเตอร์ \"\\0\" จะแทนข้อความทั้งข้อความ และแพตเทิร์นจะถูกตรึงหัวท้ายด้วยอักขระพิเศษ ^$ เสมอ"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -299,7 +299,7 @@ msgstr "เรียกใช้เฉพาะเมื่อสั่งคั
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "โดยปกติ การกระทำจะถูกสะกิดทันทีเมื่อมีการเลือก เลือกตัวเลือกนี้หากต้องการให้สะกิดเฉพาะเมื่อคุณสั่งคัดลอกโดยตรงเท่านั้น"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -315,7 +315,7 @@ msgstr "<b>คำสั่ง</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "พิมพ์ข้อความที่คุณกำหนดเองที่นี่ ตัวอย่างเช่น URL, ชื่อแฟ้ม ฯลฯ"
 
 #: ../panel-plugin/settings-dialog.ui.h:50
 msgid "Regular expression"
@@ -344,7 +344,7 @@ msgstr "ไม่ต้องถามอีก"
 
 #: ../panel-plugin/menu.c:306
 msgid "Unable to open the clipman history dialog"
-msgstr ""
+msgstr "ไม่สามารถเปิดกล่องโต้ตอบประวัติของ clipman"
 
 #: ../panel-plugin/menu.c:455
 msgid "Could not generate QR-Code."
@@ -357,7 +357,7 @@ msgstr "คลิปบอร์ดว่างเปล่า"
 
 #: ../panel-plugin/menu.c:602
 msgid "_Show full history..."
-msgstr ""
+msgstr "แ_สดงประวัติเต็ม..."
 
 #: ../panel-plugin/menu.c:608
 msgid "_Clear history"
@@ -365,7 +365,7 @@ msgstr "_ล้างประวัติ"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_ตั้งค่า Clipman..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -386,47 +386,47 @@ msgstr "ไม่สามารถเปิดกล่องโต้ตอบ
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "ไม่สามารถเริ่มทำงานดีมอนจัดการคลิปบอร์ด เพราะดีมอนได้ทำงานอยู่แล้ว"
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "เครื่องมือจัดการคลิปบอร์ดของ Xfce ได้ทำงานอยู่แล้ว"
 
 #: ../panel-plugin/common.c:37
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "คุณสามารถเรียกทำงานดีมอนได้ด้วยคำสั่ง 'xfce4-clipman'"
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "ดีมอนจัดการคลิปบอร์ดไม่ได้ทำงานอยู่"
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "ป้อนคำค้นที่นี่"
 
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "แ_ปะ"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_คัดลอก"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr ""
+msgstr "ประวัติของ Clipman"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_ตั้งค่า"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "ตั้งค่าเครื่องมือจัดการคลิปบอร์ด"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "ปรับแต่งคลิปบอร์ดของคุณ"
