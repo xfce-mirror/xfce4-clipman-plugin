@@ -4,19 +4,23 @@
 # 
 # Translators:
 # Dawid Job <hoek@tuta.io>, 2014
+# Dawid Job <hoek@tuta.io>, 2014
+# Marcin Mikołajczak <me@mkljczk.pl>, 2016
 # Marcin Mikołajczak <me@mkljczk.pl>, 2016
 # No Ne, 2020
 # No Ne, 2020
 # No Ne, 2020
+# No Ne, 2020-2021
 # Piotr Maliński <admin@rk.edu.pl>, 2006
 # Piotr Sokół <psokol.l10n@gmail.com>, 2009,2011-2012,2015
+# Piotr Strębski <strebski@gmail.com>, 2014,2016
 # Piotr Strębski <strebski@gmail.com>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-06-26 11:06+0000\n"
+"PO-Revision-Date: 2021-08-08 16:24+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +43,7 @@ msgstr "Menedżer schowka"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:2
 msgid "Clipboard Manager Autostart File"
-msgstr "Plik autostartu Menedżera schowka"
+msgstr "Plik autostartu menedżera schowka"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
 msgid "Image"
@@ -111,7 +115,7 @@ msgstr "Przywrócić domyślne czynności?"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr "Ustawienia Menedżera schowka"
+msgstr "Ustawienia menedżera schowka"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -141,7 +145,7 @@ msgstr "Obsługa kodów _QR"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Jeśli zaznaczono, menu pokazuje QR-Code obecnie zaznaczonego wpisu schowka"
+msgstr "Jeśli zaznaczono, menu pokazuje kod QR obecnie zaznaczonego wpisu schowka"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "Automatically paste a selected item from the history"
@@ -179,7 +183,7 @@ msgstr "_Zachowanie"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
-msgstr "<b>_Włączenie automatycznych akcji</b>"
+msgstr "<b>_Włączenie automatycznych czynności</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:17
 msgid ""
@@ -205,7 +209,7 @@ msgstr "_Pomijanie czynności przytrzymując klawisz Ctrl"
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
-msgstr "Pomija wyświetlanie menu podręcznego dopasowanych czynności po przytrzymaniu klawisza Ctrl w trakcie zaznaczania "
+msgstr "Pomija wyświetlanie menu podręcznego dopasowanych czynności po przytrzymaniu klawisza Ctrl w trakcie zaznaczania"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -225,7 +229,7 @@ msgstr "Przywrócić wszystkie czynności do domyślnych wartości systemu"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr "_Akcje"
+msgstr "_Czynności"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
@@ -284,7 +288,7 @@ msgstr "Edycja czynności"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "Name:"
-msgstr "Nazwa: "
+msgstr "Nazwa:"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Pattern:"
@@ -305,7 +309,7 @@ msgstr "Aktywowanie tylko po ręcznym skopiowaniu"
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr "Domyślnie akcja jest wyzwalana przez zaznaczenie, zaznacz tę opcję, aby aktywować akcję tylko podczas ręcznego kopiowania"
+msgstr "Domyślnie czynność jest wyzwalana przez zaznaczenie, zaznacz tę opcję, aby aktywować czynność tylko podczas ręcznego kopiowania"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -371,7 +375,7 @@ msgstr "_Wyczyść historię"
 
 #: ../panel-plugin/menu.c:615
 msgid "_Clipman settings..."
-msgstr "Ustawienia _Menedżera schowka..."
+msgstr "Ustawienia _menedżera schowka..."
 
 #: ../panel-plugin/plugin.c:321
 msgid "Contributors:"
@@ -392,7 +396,7 @@ msgstr "Nie można otworzyć okna preferencji"
 #: ../panel-plugin/common.c:29
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr "Nie można uruchomić demona Menedżera schowka, ponieważ jest już uruchomiony."
+msgstr "Nie można uruchomić demona menedżera schowka, ponieważ jest już uruchomiony."
 
 #: ../panel-plugin/common.c:30
 msgid "The Xfce Clipboard Manager is already running."
@@ -404,7 +408,7 @@ msgstr "Możesz uruchomić go za pomocą 'xfce4-clipman'."
 
 #: ../panel-plugin/common.c:39
 msgid "The Clipboard Manager Daemon is not running."
-msgstr "Demon Menedżera schowka nie jest uruchomiony."
+msgstr "Demon menedżera schowka nie jest uruchomiony."
 
 #: ../panel-plugin/xfce4-clipman-history.c:256
 msgid "Enter search phrase here"
@@ -422,7 +426,7 @@ msgstr "_Skopiuj"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
-msgstr "Historia Menedżera schowka"
+msgstr "Historia menedżera schowka"
 
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
@@ -431,7 +435,7 @@ msgstr "_Ustawienia"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
-msgstr "Ustawienia Menedżera schowka"
+msgstr "Ustawienia menedżera schowka"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
 msgid "Customize your clipboard"
