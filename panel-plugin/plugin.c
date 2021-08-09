@@ -178,13 +178,13 @@ plugin_load (MyPlugin *plugin)
   while (TRUE)
     {
       filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), i++);
+      DBG ("Loading image from cache file %s", filename);
       image = gdk_pixbuf_new_from_file (filename, NULL);
       g_unlink (filename);
       g_free (filename);
       if (image == NULL)
         break;
 
-      DBG ("Loading image from cache file %s", filename);
       clipman_history_add_image (plugin->history, image);
       g_object_unref (image);
     }
