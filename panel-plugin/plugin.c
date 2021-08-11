@@ -247,7 +247,7 @@ plugin_save (MyPlugin *plugin)
   list = g_slist_reverse (list);
   if (list != NULL)
     {
-      texts = g_malloc0 (g_slist_length (list) * sizeof (gchar *));
+      texts = g_new0 (const gchar *, g_slist_length (list));
       for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
         {
           item = l->data;
