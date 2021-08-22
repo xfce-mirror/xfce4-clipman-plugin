@@ -120,13 +120,14 @@ xfce4_clipman_settings_LDADD =						\
 #
 
 xfce4_clipman_SOURCES =							\
-	main-status-icon.c						\
-	common.c			common.h			\
-	plugin.c			plugin.h			\
-	actions.c			actions.h			\
-	collector.c			collector.h			\
-	history.c			history.h			\
-	menu.c				menu.h				\
+	main-status-icon.c      \
+	common.c                common.h                \
+	plugin.c                plugin.h                \
+	actions.c               actions.h               \
+	collector.c             collector.h             \
+	history.c               history.h               \
+	menu.c                  menu.h                  \
+	dbus-clipman-service.c  dbus-clipman-service.h  \
 	$(NULL)
 
 xfce4_clipman_CFLAGS =							\

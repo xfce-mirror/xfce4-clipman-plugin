@@ -30,6 +30,7 @@
 
 #include "common.h"
 #include "plugin.h"
+#include "dbus-clipman-service.h"
 
 /*
  * Status Icon
@@ -78,12 +79,15 @@ main (gint argc,
       return FALSE;
     }
 
+  DBG("before g_set_application_name");
   g_set_application_name (_("Clipman"));
   plugin = status_icon_register ();
   install_autostart_file ();
 
   g_signal_connect_swapped (app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
 
+  DBG("call clipman_dbus_service_init");
+  clipman_dbus_service_init ();
   gtk_main ();
 
   g_object_unref (plugin->status_icon);

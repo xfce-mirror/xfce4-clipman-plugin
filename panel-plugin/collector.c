@@ -94,6 +94,7 @@ cb_check_primary_clipboard (gpointer user_data)
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
 
+  DBG("cb_check_primary_clipboard");
   g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
 
   /* Postpone until the selection is done */
@@ -116,13 +117,15 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
 {
   GdkPixbuf *image;
 
+  DBG("cb_clipboard_owner_change here");
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
   /* Jump over if collector is inhibited */
-  if (collector->priv->inhibit)
-    {
-      return;
-    }
+  //if (collector->priv->inhibit)
+  //  {
+  //    DBG("cb_clipboard_owner_change collector inhibited");
+  //    return;
+  //  }
 
   /* Jump over if the content is set from within clipman */
   if (collector->priv->internal_change)
@@ -249,6 +252,7 @@ clipman_collector_show_actions (void)
   const ClipmanHistoryItem *item;
   ClipmanHistory     *history;
   GSList *entries;
+
   gint group;
 
   history = clipman_history_get();
@@ -288,6 +292,7 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
 {
   GObjectClass *object_class;
 
+  DBG("clipman_collector_class_init");
   clipman_collector_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
@@ -342,6 +347,7 @@ clipman_collector_init (ClipmanCollector *collector)
 
   /* Clipboards */
   collector->priv->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  DBG("default_clipboard %ld", (long) collector->priv->default_clipboard);
   collector->priv->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 }
 
@@ -349,6 +355,8 @@ static void
 clipman_collector_constructed (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
+
+  DBG("clipman_collector_constructed OK");
 
   g_signal_connect_swapped (collector->priv->default_clipboard, "owner-change",
                             G_CALLBACK (cb_clipboard_owner_change), collector);
@@ -386,7 +394,8 @@ clipman_collector_set_property (GObject *object,
       break;
 
     case INHIBIT:
-      priv->inhibit = g_value_get_boolean (value);
+      // priv->inhibit = g_value_get_boolean (value);
+      priv->inhibit = 1;
       break;
 
     default:

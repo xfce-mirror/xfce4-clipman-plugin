@@ -137,6 +137,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
                     G_CALLBACK (cb_menu_deactivate), my_plugin);
 
   gtk_widget_show_all (GTK_WIDGET (panel_plugin));
+
 }
 
 static gboolean
