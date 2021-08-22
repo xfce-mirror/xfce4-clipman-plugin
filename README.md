@@ -100,3 +100,14 @@ This is just some suggestion, I don't know the project enough for now to be accu
 * find a way how to delete a given entry in clipman
 * find way to store a new `secure_item` in clipman (type: secure + text value)
 * gui change: obfuscate  `secure_item` in popup history
+
+
+## How to build
+
+```
+sudo apt install xfce4-dev-tools libgtk-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev
+./autogen.sh --enable-debug
+make
+# prefix in /usr/local by default, so it may require sudo to work
+make install
+```
