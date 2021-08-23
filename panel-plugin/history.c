@@ -271,14 +271,18 @@ clipman_history_add_text (ClipmanHistory *history,
   item->content.text = g_strdup (text);
 
   /* Strip white spaces for preview */
-  tmp1 = g_strchomp (g_strdup (text));
+  tmp2 = tmp1 = g_strdup (text);
 
-  tmp2 = tmp1;
-  while (tmp2)
+  do
     {
-      tmp2 = g_strchug(++tmp2);
-      tmp2 = g_strstr_len (tmp1, preview_length, "  ");
-    }
+      g_strchug (tmp2);
+
+      /* We've already parsed `tmp2 - tmp1` chars */
+      tmp2 = g_strstr_len (tmp2, preview_length - (tmp2 - tmp1), "  ");
+
+      /* The purpose of `++tmp2` is just to increment tmp2 since it is always
+       * true if tmp2 is not NULL */
+    } while (tmp2 && ++tmp2);
 
   /* Shorten preview */
   if (g_utf8_strlen (tmp1, -1) > preview_length)
@@ -286,12 +290,16 @@ clipman_history_add_text (ClipmanHistory *history,
       offset = g_utf8_offset_to_pointer (tmp1, preview_length);
       tmp2 = g_strndup (tmp1, offset - tmp1);
       g_free (tmp1);
+      g_strchomp (tmp2);
+
       tmp1 = g_strconcat (tmp2, "...", NULL);
       g_free (tmp2);
     }
+  else
+    g_strchomp (tmp1);
 
   /* Cleanup special characters from preview */
-  tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
+  g_strdelimit (tmp1, "\n\r\t", ' ');
 
   /* Set preview */
   item->preview.text = tmp1;
