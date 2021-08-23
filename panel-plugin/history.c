@@ -41,6 +41,8 @@ struct _ClipmanHistoryPrivate
   guint                         max_images_in_history;
   gboolean                      save_on_quit;
   gboolean                      reorder_items;
+  ClipmanHistoryId              current_id;
+  ClipmanHistoryId              max_id_value;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
@@ -223,6 +225,23 @@ __g_slist_compare_texts (gconstpointer a,
   return g_ascii_strcasecmp (item->content.text, text);
 }
 
+static ClipmanHistoryId
+_clipman_history_get_next_id(ClipmanHistory *history)
+{
+  ClipmanHistoryId next_id;
+  if (history->priv->current_id < history->priv->max_id_value)
+    {
+      next_id = history->priv->current_id + 1;
+    }
+  else
+    {
+      // loop id counter
+      next_id = 1;
+    }
+  history->priv->current_id = next_id;
+  return next_id;
+}
+
 /*
  * Public methods
  */
@@ -269,6 +288,7 @@ clipman_history_add_text (ClipmanHistory *history,
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_TEXT;
   item->content.text = g_strdup (text);
+  item->id = _clipman_history_get_next_id(history);
 
   /* Strip white spaces for preview */
   tmp1 = g_strchomp (g_strdup (text));
@@ -490,6 +510,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                          "Always push last clipboard content to the top of the history",
                                                          DEFAULT_REORDER_ITEMS,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+  // TODO: g_object_class_install_property with max_id_value ==> Sed clipman_history_init()
 }
 
 static void
@@ -497,6 +518,10 @@ clipman_history_init (ClipmanHistory *history)
 {
   history->priv = clipman_history_get_instance_private (history);
   history->priv->item_to_restore = NULL;
+  // start at 0, will get 1 on first call of _clipman_history_get_next_id()
+  history->priv->current_id = 0;
+  // TODO: forced value here, could be an property see g_object_class_install_property()
+  history->priv->max_id_value = 55;
 }
 
 static void

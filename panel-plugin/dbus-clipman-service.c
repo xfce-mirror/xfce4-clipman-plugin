@@ -71,6 +71,7 @@ clipman_dbus_handle_method_call (GDBusConnection       *connection,
       history = clipman_history_get ();
 
       list = clipman_history_get_list (history);
+      list = g_slist_reverse (list);
       if (list == NULL)
         {
           // empty
@@ -82,8 +83,7 @@ clipman_dbus_handle_method_call (GDBusConnection       *connection,
           char **split;
           gchar *text;
 
-          int i = 0;
-          for (l = list, i = 0; l != NULL; l = l->next, i++)
+          for (l = list; l != NULL; l = l->next)
             {
               item = l->data;
 
@@ -91,19 +91,18 @@ clipman_dbus_handle_method_call (GDBusConnection       *connection,
                 {
                 /* We ignore everything but text (no images or QR codes) */
                 case CLIPMAN_HISTORY_TYPE_TEXT:
-                  i++;
                   // we currently andle new lines in clipboard content as ==> \n
                   // which is not revertable change, but enough for the poc.
                   split  = g_strsplit(item->content.text, "\n", -1);
                   text   = g_strjoinv("\\n", split);
                   g_strfreev(split);
-                  if(i == 1)
+                  if(response == NULL)
                     {
-                      response = g_strdup_printf ("%d %s", i, text);
+                      response = g_strdup_printf ("%d %s", item->id, text);
                     }
                   else
                     {
-                      tmp = g_strdup_printf ("%s\n%d %s", response, i, text);
+                      tmp = g_strdup_printf ("%s\n%d %s", response, item->id, text);
                       g_free (response);
                       response = tmp;
                     }

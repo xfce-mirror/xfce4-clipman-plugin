@@ -13,7 +13,7 @@ actions on specific text selection by matching them against regexes.
 
 [Xfce4-clipman-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin)
 
-## Secure Item
+## This version try to implement: Secure Item
 
 This version of clipman is a PoC to experiment how to handle `secure_item` that can be deleted or obfuscated in visual
 GUI or via cli.
@@ -21,19 +21,19 @@ GUI or via cli.
 This code come from an idea discussion on the follow [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
 
 
-## secure item disussion
+## Secure item disussion
 
 We are interested in the feature that would handle password copied to the clipman clipboard history in a secure maner.
 Those item should not be exposed, or should be deleted automatically after a short period (30s for example).
 
-### my context
+### My context
 For now I'm using `pass` too + my own variant of dmenu shell script (was [https://git.zx2c4.com/password-store/tree/contrib/dmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu))
 
 But now, I use [rofi](https://github.com/davatorium/rofi) instead of `dmenu`, and I put multiple entries in the clipboard.
 
 > rofi is a dmenu drop in replacement tool also available in package distrib.
 
-### secure clipboard manager
+### Secure clipboard manager
 
 Now, I'm also facing ISO 27001 certification, and I would like a more secure clipboard. And I would love to continue using clipman, too.
 
@@ -61,7 +61,7 @@ masked) in the history display on gui. May be on list too `xfce4-clipman-cli lis
 or could be shown with an extra switch
 `xfce4-clipman-cli list --show-secure-item`.
 
-## Some fake usage examples
+## Usage examples
 
 With a dummy shell script simulating what the real code could be:
 
@@ -96,7 +96,7 @@ With a dummy shell script simulating what the real code could be:
 This is just some suggestion, I don't know the project enough for now to be accurate:
 
 * ~~add remote call behavior to clipman~~ done with dbus on this PoC
-* ensure all the entries have permanent auto incremented ids (even when sorted or deleted)
+* ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
 * find a way how to delete a given entry in clipman
 * find way to store a new `secure_item` in clipman (type: secure + text value)
 * gui change: obfuscate  `secure_item` in popup history

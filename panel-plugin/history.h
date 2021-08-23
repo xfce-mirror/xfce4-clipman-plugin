@@ -28,10 +28,12 @@
 
 typedef enum
 {
-  CLIPMAN_HISTORY_TYPE_TEXT,
+  CLIPMAN_HISTORY_TYPE_TEXT = 1,
   CLIPMAN_HISTORY_TYPE_IMAGE,
+  CLIPMAN_HISTORY_TYPE_SECURE_TEXT,
 } ClipmanHistoryType;
 
+typedef gushort ClipmanHistoryId;
 typedef struct _ClipmanHistoryItem ClipmanHistoryItem;
 struct _ClipmanHistoryItem
 {
@@ -46,6 +48,7 @@ struct _ClipmanHistoryItem
       gchar                *text;
       GdkPixbuf            *image;
     } preview;
+  ClipmanHistoryId          id;
 };
 
 /*
