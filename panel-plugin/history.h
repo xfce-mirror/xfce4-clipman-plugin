@@ -100,5 +100,6 @@ const ClipmanHistoryItem *  clipman_history_get_item_to_restore      (ClipmanHis
 void                        clipman_history_set_item_to_restore      (ClipmanHistory           *history,
                                                                       const ClipmanHistoryItem *item);
 void                        clipman_history_clear                    (ClipmanHistory           *history);
+ClipmanHistoryItem *        clipman_history_find_item_by_id          (ClipmanHistory *history, ClipmanHistoryId searched_id);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */

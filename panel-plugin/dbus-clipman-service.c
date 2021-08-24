@@ -17,6 +17,11 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
   "      <arg type='s' name='history_list_as_string' direction='out'/>"
   "    </method>"
+  "    <method name='get_item_by_id'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='u' name='searched_id' direction='in'/>"
+  "      <arg type='s' name='text_item_value' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -49,6 +54,105 @@ clipman_dbus_handle_set_property (GDBusConnection  *connection,
   return FALSE;
 }
 
+static gboolean
+clipman_dbus_method_list_history (GDBusMethodInvocation *invocation)
+{
+  ClipmanHistory *history;
+  GSList *list, *l;
+  ClipmanHistoryItem *item;
+
+  history = clipman_history_get ();
+
+  list = clipman_history_get_list (history);
+  list = g_slist_reverse (list);
+  if (list == NULL)
+    {
+      // empty
+      g_dbus_method_invocation_return_value (invocation, NULL);
+      return FALSE;
+    }
+  else
+    {
+      gchar *response = NULL, *tmp;
+      char **split;
+      gchar *text;
+
+      for (l = list; l != NULL; l = l->next)
+        {
+          item = l->data;
+
+          switch (item->type)
+            {
+            /* We ignore everything but text (no images or QR codes) */
+            case CLIPMAN_HISTORY_TYPE_TEXT:
+              // we currently andle new lines in clipboard content as ==> \n
+              // which is not revertable change, but enough for the poc.
+              split  = g_strsplit(item->content.text, "\n", -1);
+              text   = g_strjoinv("\\n", split);
+              g_strfreev(split);
+              if(response == NULL)
+                {
+                  response = g_strdup_printf ("%d %s", item->id, text);
+                }
+              else
+                {
+                  tmp = g_strdup_printf ("%s\n%d %s", response, item->id, text);
+                  g_free (response);
+                  response = tmp;
+                }
+              g_free(text);
+              break;
+
+            default:
+              DBG("Ignoring non-text history type %d", item->type);
+              continue;
+            }
+        }
+
+      g_slist_free (list);
+      g_dbus_method_invocation_return_value (invocation,
+                                             g_variant_new ("(s)", response));
+      g_free (response);
+      return TRUE;
+    }
+}
+
+static gboolean
+clipman_dbus_method_get_item_by_id(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  guint searched_id;
+  gchar *response;
+  ClipmanHistoryItem *_item;
+  ClipmanHistory *history;
+
+
+  g_variant_get (parameters, "(u)", &searched_id);
+
+
+  history = clipman_history_get ();
+  _item = clipman_history_find_item_by_id(history, searched_id);
+
+  if(_item == NULL)
+    {
+      g_dbus_method_invocation_return_dbus_error (invocation,
+                                                  "org.gtk.GDBus.Failed",
+                                                  "item not found");
+      return FALSE;
+    }
+  else
+    {
+      response = g_strdup_printf ("%s", _item->content.text);
+      g_dbus_method_invocation_return_value (invocation,
+                                             g_variant_new ("(s)", response));
+      g_free (response);
+    }
+
+
+  return TRUE;
+}
+
 static void
 clipman_dbus_handle_method_call (GDBusConnection       *connection,
                     const gchar           *sender,
@@ -60,66 +164,21 @@ clipman_dbus_handle_method_call (GDBusConnection       *connection,
                     gpointer               user_data)
 {
 
-  g_print("method_name: %s", method_name);
+  DBG("method_name: %s", method_name);
 
   if (g_strcmp0 (method_name, "list_history") == 0)
     {
-      ClipmanHistory *history;
-      GSList *list, *l;
-      ClipmanHistoryItem *item;
-
-      history = clipman_history_get ();
-
-      list = clipman_history_get_list (history);
-      list = g_slist_reverse (list);
-      if (list == NULL)
-        {
-          // empty
-          g_dbus_method_invocation_return_value (invocation, NULL);
-        }
-      else
-        {
-          gchar *response = NULL, *tmp;
-          char **split;
-          gchar *text;
-
-          for (l = list; l != NULL; l = l->next)
-            {
-              item = l->data;
-
-              switch (item->type)
-                {
-                /* We ignore everything but text (no images or QR codes) */
-                case CLIPMAN_HISTORY_TYPE_TEXT:
-                  // we currently andle new lines in clipboard content as ==> \n
-                  // which is not revertable change, but enough for the poc.
-                  split  = g_strsplit(item->content.text, "\n", -1);
-                  text   = g_strjoinv("\\n", split);
-                  g_strfreev(split);
-                  if(response == NULL)
-                    {
-                      response = g_strdup_printf ("%d %s", item->id, text);
-                    }
-                  else
-                    {
-                      tmp = g_strdup_printf ("%s\n%d %s", response, item->id, text);
-                      g_free (response);
-                      response = tmp;
-                    }
-                  g_free(text);
-                  break;
-
-                default:
-                  DBG("Ignoring non-text history type %d", item->type);
-                  continue;
-                }
-            }
-
-          g_slist_free (list);
-          g_dbus_method_invocation_return_value (invocation,
-                                                 g_variant_new ("(s)", response));
-          g_free (response);
-        }
+      clipman_dbus_method_list_history(invocation);
+    }
+  else if (g_strcmp0 (method_name, "get_item_by_id") == 0)
+    {
+      clipman_dbus_method_get_item_by_id(parameters, invocation);
+    }
+  else
+    {
+      g_dbus_method_invocation_return_dbus_error (invocation,
+                                                  "org.gtk.GDBus.Failed",
+                                                  "method_name not supported");
     }
 }
 

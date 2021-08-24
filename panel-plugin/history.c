@@ -451,6 +451,30 @@ clipman_history_get (void)
   return singleton;
 }
 
+
+/*
+ * Returns: a pointer the the real ClipmanHistoryItem in the list
+ */
+ClipmanHistoryItem *
+clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId searched_id)
+{
+  GSList *list;
+  ClipmanHistoryItem *_item;
+
+  /* Count initial items */
+  for (list = history->priv->items; list != NULL; list = list->next)
+    {
+      _item = list->data;
+      if (_item->id == searched_id)
+        {
+          return _item;
+        }
+    }
+
+  // not found
+  return NULL;
+}
+
 /*
  * GObject
  */
