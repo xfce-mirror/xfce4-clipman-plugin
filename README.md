@@ -103,44 +103,48 @@ DBus shell wrapper. Prototype disposable script for testing the PoC
 ### read the clipman history through DBus call
 
 ```
-./read_dbus_history.sh
+./clipman-cli.sh list
 ```
 
 ### read a single item by id from the clipman history through DBus call
 
 ```
-./clipman_history_get_value.sh 123
+./clipman-cli.sh get 123
 ```
 
+### delete a single item by id from the clipman history through DBus call
+
+```
+./clipman-cli.sh del 123
+```
 
 ### fake usage
 
-With a dummy shell script simulating what the real code could be:
+some output cautgh from `clipman_cli.sh` a prototype shell dbus wrapper
+
+actually we don't support `secure_item` yet, but it could looks like:
 
 ```
-./xfce4-clipman-cli.sh -l
-58 xfce4-clipman-cli
-59 delete an entry
-60 ~/.cache/xfce4/clipman
-61 1.6.1git-c71f6f7
-62 C: #no just kiding
-63 https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25
-64 IMAGE
-65 LONG_TEXT(598) via the command line helper to manage cl ...
-66 SECURE ***********
+./clipman_cli.sh list
+1 /usr/bin/install
+2 LD_RUN_PATH
+3 documentation
+4 make[2]: Leaving directory '/home/sylvain/code/package-source/xfce4-clipman-plugin/panel-plugin'\n
+8 metro=indian7omen\n
+9 Pulsar&beer&Cave\n
+10 SECURE ***********
 ```
 
+
 ```
-./xfce4-clipman-cli.sh -l --show-secure-item
-58 xfce4-clipman-cli
-59 delete an entry
-60 ~/.cache/xfce4/clipman
-61 1.6.1git-c71f6f7
-62 C: #no just kiding
-63 https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25
-64 IMAGE
-65 LONG_TEXT(598) via the command line helper to manage cl ...
-66 weapon5Riot2Cold
+./clipman_cli.sh list
+1 /usr/bin/install
+2 LD_RUN_PATH
+3 documentation
+4 make[2]: Leaving directory '/home/sylvain/code/package-source/xfce4-clipman-plugin/panel-plugin'\n
+8 metro=indian7omen\n
+9 Pulsar&beer&Cave\n
+10 weapon5Riot2Cold
 ```
 
 ## Roadmap in clipman modification
@@ -150,7 +154,8 @@ This is just some suggestion, I don't know the project enough for now to be accu
 * ~~add remote call behavior to clipman~~ done with dbus on this PoC
 * ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
 * ~~retrieve an item in the clipman history by id~~ done with dbus on this PoC
-* find a way how to delete a given entry in clipman
+* ~~find a way how to delete a given entry in clipman~~ done with dbus on this PoC
+* add a method to add item in history through DBus
 * find way to store a new `secure_item` in clipman (type: secure + text value)
 * gui change: obfuscate  `secure_item` in popup history
 
@@ -164,3 +169,9 @@ make
 # prefix in /usr/local by default, so it may require sudo to work
 make install
 ```
+
+
+## Xfce dev question
+
+* Changing GSList by GList (double linked list) for simpler removal of item?
+* emmiting signal when item are removed?

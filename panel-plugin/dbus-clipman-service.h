@@ -3,6 +3,15 @@
 
 #include <gtk/gtk.h>
 
+typedef
+gboolean (*ClipmanDbusMethodPointer) (GVariant  *parameters, GDBusMethodInvocation *invocation);
+
+typedef struct
+{
+  gchar                     *name;
+  ClipmanDbusMethodPointer   call;
+} ClipmanDbusMethod;
+
 guint
 clipman_dbus_service_init(void)
 ;

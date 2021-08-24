@@ -242,6 +242,7 @@ _clipman_history_get_next_id(ClipmanHistory *history)
   return next_id;
 }
 
+
 /*
  * Public methods
  */
@@ -451,9 +452,10 @@ clipman_history_get (void)
   return singleton;
 }
 
+// Sylvain added public method
 
 /*
- * Returns: a pointer the the real ClipmanHistoryItem in the list
+ * Returns: a pointer to the real ClipmanHistoryItem in the list (not a copy, so it can be deleted)
  */
 ClipmanHistoryItem *
 clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId searched_id)
@@ -461,7 +463,7 @@ clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId search
   GSList *list;
   ClipmanHistoryItem *_item;
 
-  /* Count initial items */
+  /* search the item by its id in the list */
   for (list = history->priv->items; list != NULL; list = list->next)
     {
       _item = list->data;
@@ -473,6 +475,31 @@ clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId search
 
   // not found
   return NULL;
+}
+
+gboolean
+clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
+{
+  ClipmanHistoryItem *item = clipman_history_find_item_by_id(history, id);
+  if (item != NULL)
+    {
+      clipman_history_delete_item_by_content(history, item);
+      return TRUE;
+    }
+  else
+    {
+      return FALSE;
+    }
+}
+
+void
+clipman_history_delete_item_by_content(ClipmanHistory *history, ClipmanHistoryItem *item)
+{
+  // remove a single element from a linked list given its data pointer in the list
+  __clipman_history_item_free (item);
+  history->priv->items = g_slist_remove (history->priv->items, item);
+  /* Emit signal for redraw menu */
+  g_signal_emit (history, signals[ITEM_ADDED], 0);
 }
 
 /*

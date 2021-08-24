@@ -22,6 +22,11 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <arg type='u' name='searched_id' direction='in'/>"
   "      <arg type='s' name='text_item_value' direction='out'/>"
   "    </method>"
+  "    <method name='delete_item_by_id'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='u' name='item_id' direction='in'/>"
+  "      <arg type='b' name='result' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -55,7 +60,9 @@ clipman_dbus_handle_set_property (GDBusConnection  *connection,
 }
 
 static gboolean
-clipman_dbus_method_list_history (GDBusMethodInvocation *invocation)
+clipman_dbus_method_list_history (
+                                  GVariant              *parameters,
+                                  GDBusMethodInvocation *invocation)
 {
   ClipmanHistory *history;
   GSList *list, *l;
@@ -68,7 +75,8 @@ clipman_dbus_method_list_history (GDBusMethodInvocation *invocation)
   if (list == NULL)
     {
       // empty
-      g_dbus_method_invocation_return_value (invocation, NULL);
+      g_dbus_method_invocation_return_value (invocation,
+                                             g_variant_new ("(s)", ""));
       return FALSE;
     }
   else
@@ -124,17 +132,15 @@ clipman_dbus_method_get_item_by_id(
 {
   guint searched_id;
   gchar *response;
-  ClipmanHistoryItem *_item;
+  ClipmanHistoryItem *item;
   ClipmanHistory *history;
 
 
   g_variant_get (parameters, "(u)", &searched_id);
-
-
   history = clipman_history_get ();
-  _item = clipman_history_find_item_by_id(history, searched_id);
+  item = clipman_history_find_item_by_id(history, searched_id);
 
-  if(_item == NULL)
+  if(item == NULL)
     {
       g_dbus_method_invocation_return_dbus_error (invocation,
                                                   "org.gtk.GDBus.Failed",
@@ -143,15 +149,42 @@ clipman_dbus_method_get_item_by_id(
     }
   else
     {
-      response = g_strdup_printf ("%s", _item->content.text);
+      response = g_strdup_printf ("%s", item->content.text);
       g_dbus_method_invocation_return_value (invocation,
                                              g_variant_new ("(s)", response));
       g_free (response);
     }
 
-
   return TRUE;
 }
+
+static gboolean
+clipman_dbus_method_delete_item_by_id(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  guint searched_id;
+  gboolean result;
+  ClipmanHistory *history;
+
+  g_variant_get (parameters, "(u)", &searched_id);
+
+  history = clipman_history_get ();
+  result = clipman_history_delete_item_by_id(history, searched_id);
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(b)", result));
+  return result;
+}
+
+// map DBus method_name from xml to funtion pointer
+ClipmanDbusMethod clipman_dbus_methods[] =
+{
+  { .name  =  "get_item_by_id",     .call  =  clipman_dbus_method_get_item_by_id     },
+  { .name  =  "delete_item_by_id",  .call  =  clipman_dbus_method_delete_item_by_id  },
+  { .name  =  "list_history",       .call  =  clipman_dbus_method_list_history       },
+  { .name  =  NULL,                 .call  =  NULL                                   }
+};
 
 static void
 clipman_dbus_handle_method_call (GDBusConnection       *connection,
@@ -163,18 +196,23 @@ clipman_dbus_handle_method_call (GDBusConnection       *connection,
                     GDBusMethodInvocation *invocation,
                     gpointer               user_data)
 {
+  gboolean method_found;
+  ClipmanDbusMethod *method;
 
-  DBG("method_name: %s", method_name);
+  g_print("method_name: %s\n", method_name);
 
-  if (g_strcmp0 (method_name, "list_history") == 0)
-    {
-      clipman_dbus_method_list_history(invocation);
-    }
-  else if (g_strcmp0 (method_name, "get_item_by_id") == 0)
-    {
-      clipman_dbus_method_get_item_by_id(parameters, invocation);
-    }
-  else
+  method_found = FALSE;
+  for (method = clipman_dbus_methods; method->name != NULL; method++)
+  {
+    if (g_strcmp0 (method_name, method->name) == 0)
+      {
+        method->call(parameters, invocation);
+        method_found = TRUE;
+        break;
+      }
+  }
+
+  if (!method_found)
     {
       g_dbus_method_invocation_return_dbus_error (invocation,
                                                   "org.gtk.GDBus.Failed",
