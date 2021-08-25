@@ -182,7 +182,7 @@ cb_request_text (GtkClipboard *clipboard,
 
   if (clipboard == collector->priv->default_clipboard)
     {
-      clipman_history_add_text (collector->priv->history, text);
+      clipman_history_add_text (collector->priv->history, FALSE, text);
       if (collector->priv->enable_actions)
         clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_MANUAL, text);
     }
@@ -192,7 +192,7 @@ cb_request_text (GtkClipboard *clipboard,
       if (collector->priv->add_primary_clipboard && collector->priv->history_ignore_primary_clipboard)
         collector->priv->internal_change = TRUE;
       else if (!collector->priv->history_ignore_primary_clipboard)
-        clipman_history_add_text (collector->priv->history, text);
+        clipman_history_add_text (collector->priv->history, FALSE, text);
 
       /* Make a copy inside the default clipboard */
       if (collector->priv->add_primary_clipboard)

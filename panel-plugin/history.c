@@ -255,8 +255,9 @@ _clipman_history_get_next_id(ClipmanHistory *history)
  * Stores a text inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest text.
  */
-void
+ClipmanHistoryId
 clipman_history_add_text (ClipmanHistory *history,
+                          gboolean is_secure,
                           const gchar *text)
 {
   ClipmanHistoryItem *item;
@@ -279,7 +280,7 @@ clipman_history_add_text (ClipmanHistory *history,
       else
         {
           history->priv->item_to_restore = item;
-          return;
+          return item->id;
         }
     }
 
@@ -287,37 +288,47 @@ clipman_history_add_text (ClipmanHistory *history,
   DBG ("Store text `%s')", text);
 
   item = g_slice_new0 (ClipmanHistoryItem);
-  item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+  if(is_secure)
+  {
+    item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+    // utf-8 symbol: 0x26d4 ⛔
+    tmp1 = g_strdup_printf ("⛔ SECURE ***********");
+  }
+  else
+  {
+    item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+    /* Strip white spaces for preview */
+    tmp1 = g_strchomp (g_strdup (text));
+
+    tmp2 = tmp1;
+    while (tmp2)
+      {
+        tmp2 = g_strchug(++tmp2);
+        tmp2 = g_strstr_len (tmp1, preview_length, "  ");
+      }
+
+    /* Shorten preview */
+    if (g_utf8_strlen (tmp1, -1) > preview_length)
+      {
+        offset = g_utf8_offset_to_pointer (tmp1, preview_length);
+        tmp2 = g_strndup (tmp1, offset - tmp1);
+        g_free (tmp1);
+        tmp1 = g_strconcat (tmp2, "...", NULL);
+        g_free (tmp2);
+      }
+
+    /* Cleanup special characters from preview */
+    tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
+  }
+
   item->content.text = g_strdup (text);
   item->id = _clipman_history_get_next_id(history);
-
-  /* Strip white spaces for preview */
-  tmp1 = g_strchomp (g_strdup (text));
-
-  tmp2 = tmp1;
-  while (tmp2)
-    {
-      tmp2 = g_strchug(++tmp2);
-      tmp2 = g_strstr_len (tmp1, preview_length, "  ");
-    }
-
-  /* Shorten preview */
-  if (g_utf8_strlen (tmp1, -1) > preview_length)
-    {
-      offset = g_utf8_offset_to_pointer (tmp1, preview_length);
-      tmp2 = g_strndup (tmp1, offset - tmp1);
-      g_free (tmp1);
-      tmp1 = g_strconcat (tmp2, "...", NULL);
-      g_free (tmp2);
-    }
-
-  /* Cleanup special characters from preview */
-  tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
-
   /* Set preview */
   item->preview.text = tmp1;
 
   _clipman_history_add_item (history, item);
+
+  return item->id;
 }
 
 /**

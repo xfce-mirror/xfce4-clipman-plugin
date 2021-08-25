@@ -90,8 +90,9 @@ struct _ClipmanHistory
 GType                       clipman_history_get_type                 (void);
 
 ClipmanHistory *            clipman_history_get                      (void);
-void                        clipman_history_add_text                 (ClipmanHistory           *history,
-                                                                      const gchar              *text);
+ClipmanHistoryId            clipman_history_add_text                 (ClipmanHistory *history,
+                                                                      gboolean is_secure,
+                                                                      const gchar *text);
 void                        clipman_history_add_image                (ClipmanHistory           *history,
                                                                       const GdkPixbuf          *image);
 GSList *                    clipman_history_get_list                 (ClipmanHistory           *history);

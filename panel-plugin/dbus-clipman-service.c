@@ -27,6 +27,12 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <arg type='u' name='item_id' direction='in'/>"
   "      <arg type='b' name='result' direction='out'/>"
   "    </method>"
+  "    <method name='add_item'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='b' name='secure' direction='in'/>"
+  "      <arg type='s' name='value' direction='in'/>"
+  "      <arg type='q' name='new_id' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -93,7 +99,7 @@ clipman_dbus_method_list_history (
             {
             /* We ignore everything but text (no images or QR codes) */
             case CLIPMAN_HISTORY_TYPE_TEXT:
-              // we currently andle new lines in clipboard content as ==> \n
+              // we currently handle new lines in clipboard content as ==> \n
               // which is not revertable change, but enough for the poc.
               split  = g_strsplit(item->content.text, "\n", -1);
               text   = g_strjoinv("\\n", split);
@@ -109,6 +115,18 @@ clipman_dbus_method_list_history (
                   response = tmp;
                 }
               g_free(text);
+              break;
+            case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
+              if(response == NULL)
+                {
+                  response = g_strdup_printf ("%d %s", item->id, item->preview.text);
+                }
+              else
+                {
+                  tmp = g_strdup_printf ("%s\n%d %s", response, item->id, item->preview.text);
+                  g_free (response);
+                  response = tmp;
+                }
               break;
 
             default:
@@ -177,12 +195,33 @@ clipman_dbus_method_delete_item_by_id(
   return result;
 }
 
-// map DBus method_name from xml to funtion pointer
+static gboolean
+clipman_dbus_method_add_item(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  const gchar *new_item_value;
+  gboolean is_secure_item;
+  ClipmanHistory *history;
+  ClipmanHistoryId new_id;
+
+  g_variant_get (parameters, "(bs)", &is_secure_item, &new_item_value);
+
+  history = clipman_history_get ();
+  new_id = clipman_history_add_text (history, is_secure_item, new_item_value);
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(q)", new_id));
+  return TRUE;
+}
+
+// mappping table: map DBus method_name from xml to function pointer
 ClipmanDbusMethod clipman_dbus_methods[] =
 {
   { .name  =  "get_item_by_id",     .call  =  clipman_dbus_method_get_item_by_id     },
   { .name  =  "delete_item_by_id",  .call  =  clipman_dbus_method_delete_item_by_id  },
   { .name  =  "list_history",       .call  =  clipman_dbus_method_list_history       },
+  { .name  =  "add_item",           .call  =  clipman_dbus_method_add_item           },
   { .name  =  NULL,                 .call  =  NULL                                   }
 };
 

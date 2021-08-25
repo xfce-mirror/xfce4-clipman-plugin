@@ -17,7 +17,7 @@ call_dbus()
     --print-reply               \
     /org/xfce/clipman/GDBus/service       \
     org.xfce.clipman.GDBus.service.$method_name \
-    $*)
+    "$@")
 
   # format dbus-send output to remove some extrat stuff
   sed -e '/method return/ d' -e 's/ \+string "//' -e '$ s/"$//' <<< "$out"
@@ -32,6 +32,15 @@ case $action in
     ;;
   del)
     call_dbus delete_item_by_id uint32:$1
+    ;;
+  add)
+    secure=false
+    if [[ $1 == '-s' ]]
+    then
+      secure=true
+      shift
+    fi
+    call_dbus add_item boolean:$secure string:"$1"
     ;;
   *)
     >&2 echo "unknown method: $action"

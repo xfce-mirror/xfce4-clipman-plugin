@@ -368,6 +368,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
+        case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new_with_label (item->preview.text);
 G_GNUC_END_IGNORE_DEPRECATIONS

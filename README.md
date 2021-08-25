@@ -18,13 +18,13 @@ actions on specific text selection by matching them against regexes.
 This version of clipman is a PoC to experiment how to handle `secure_item` that can be deleted or obfuscated in visual
 GUI or via cli.
 
-This code come from an idea discussion on the follow [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
+This code come from an idea discussion on the following [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
 
 ## DBus method API
 
 ### `list_history`
 
-Retrieve all item in clipman history.
+Retrieve all items in clipman history.
 
 Actually return a string. (will be a more complex DBus format)
 Format mutiple row separated be newline `\n`:
@@ -35,20 +35,28 @@ ID TEXT
 
 ### `get_item_by_id`
 
-Get one item, by its id in history. Id will be obtained by `list_history` or result of `add_item`
+Get one item, by its ID in clipman history. ID will be obtained by `list_history` or result of `add_item`
 
 Argument:
- * uint16 id of an item in the history
+ * uint32 id of an item in the history
+
+Returns: string
 
 ### `add_item`
-
-*NOT IMPLEMENTED*
 
 Add text item to clipman history
 
 Argument:
  * secure: boolean
  * value: string
+
+Returns: unit16 the new ID of the instered item.
+
+### `delete_item_by_id`
+
+Remove an item from the clipman history if the ID exists.
+
+Returns: boolean
 
 ## Secure item disussion
 
@@ -103,61 +111,45 @@ DBus shell wrapper. Prototype disposable script for testing the PoC
 ### read the clipman history through DBus call
 
 ```
-./clipman-cli.sh list
+./clipman_cli.sh list
 ```
 
 ### read a single item by id from the clipman history through DBus call
 
 ```
-./clipman-cli.sh get 123
+./clipman_cli.sh get 123
 ```
 
 ### delete a single item by id from the clipman history through DBus call
 
 ```
-./clipman-cli.sh del 123
+./clipman_cli.sh del 123
 ```
 
-### fake usage
-
-some output cautgh from `clipman_cli.sh` a prototype shell dbus wrapper
-
-actually we don't support `secure_item` yet, but it could looks like:
+### add a single item into the clipman history through DBus call
 
 ```
-./clipman_cli.sh list
-1 /usr/bin/install
-2 LD_RUN_PATH
-3 documentation
-4 make[2]: Leaving directory '/home/sylvain/code/package-source/xfce4-clipman-plugin/panel-plugin'\n
-8 metro=indian7omen\n
-9 Pulsar&beer&Cave\n
-10 SECURE ***********
+./clipman_cli.sh add "my content here"
 ```
 
+`secure_item`
 
 ```
-./clipman_cli.sh list
-1 /usr/bin/install
-2 LD_RUN_PATH
-3 documentation
-4 make[2]: Leaving directory '/home/sylvain/code/package-source/xfce4-clipman-plugin/panel-plugin'\n
-8 metro=indian7omen\n
-9 Pulsar&beer&Cave\n
-10 weapon5Riot2Cold
+./clipman_cli.sh add -s "my secure_item content here"
 ```
 
 ## Roadmap in clipman modification
 
 This is just some suggestion, I don't know the project enough for now to be accurate:
 
-* ~~add remote call behavior to clipman~~ done with dbus on this PoC
+* ~~add remote call behavior IPC to clipman~~ done with dbus in this PoC
 * ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
-* ~~retrieve an item in the clipman history by id~~ done with dbus on this PoC
-* ~~find a way how to delete a given entry in clipman~~ done with dbus on this PoC
-* add a method to add item in history through DBus
+* ~~retrieve an item in the clipman history by id~~ done with dbus in this PoC
+* ~~find a way how to delete a given entry in clipman~~ done with dbus in this PoC
+* add a DBus method to add item in history through DBus
 * find way to store a new `secure_item` in clipman (type: secure + text value)
 * gui change: obfuscate  `secure_item` in popup history
+* add a DBus method to clear all history
 
 
 ## How to build
@@ -175,3 +167,4 @@ make install
 
 * Changing GSList by GList (double linked list) for simpler removal of item?
 * emmiting signal when item are removed?
+
