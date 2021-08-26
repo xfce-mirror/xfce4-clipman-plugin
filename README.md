@@ -4,18 +4,26 @@
 
 Protoype disposable code, don't expect a fully running code.
 
-## This version try to implement: Secure Item
+![image.png](./image.png)
 
-This version of clipman is a PoC to experiment how to handle `secure_item` that can be deleted or obfuscated in visual
+Example of cli session
+
+![image-1.png](./image-1.png)
+
+## This version implements the concept of: Secure Item
+
+This version of clipman is a PoC (Proof of Concept) to experiment how we could handle `secure_item`. Item that can be deleted or obfuscated in visual
 GUI or via cli.
 
 This code come from an idea discussion on the following [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
 
 ## DBus method API
 
+I order to modify clipboard history, in memory, an API (IPC Interprocess Communication) has been implemented.
+
 ### `list_history`
 
-Retrieve all items in clipman history.
+Retrieve all items in clipman history (Secure Item are hidden).
 
 Actually return a string. (will be a more complex DBus format)
 Format mutiple row separated be newline `\n`:
@@ -26,7 +34,7 @@ ID TEXT
 
 ### `get_item_by_id`
 
-Get one item, by its ID in clipman history. ID will be obtained by `list_history` or result of `add_item`
+Get one item, by its ID in clipman history. ID will be obtained by `list_history` or result of `add_item`. You can read the Secure Item value via a`get_item_by_id` call.
 
 Argument:
  * uint32 id of an item in the history
@@ -48,6 +56,10 @@ Returns: unit16 the new ID of the instered item.
 Remove an item from the clipman history if the ID exists.
 
 Returns: boolean
+
+### `clear_history`
+
+Remove all data in clipman history.
 
 ## Secure item disussion
 
@@ -140,9 +152,10 @@ This is just some suggestion, I don't know the project enough for now to be accu
 * ~~add a DBus method to add item in history through DBus~~ done with dbus in this PoC
 * ~~find way to store a new `secure_item` in clipman (type: secure + text value)~~ done with dbus in this PoC
 * ~~gui change: obfuscate  `secure_item` in popup history~~ done with dbus in this PoC
-* add a DBus method to clear all history or clear all `secure_item`
-* delete an Item from the menu
-* toggle an Item is the menu as Secure
+* ~~add a DBus method to clear all history~~  done with dbus in this PoC
+* add a DBus parameter to clear all `secure_item` only.
+* delete an Item from the GUI menu
+* toggle an Item in the GUI menu as Secure
 
 
 ## How to build
