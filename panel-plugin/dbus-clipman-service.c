@@ -33,6 +33,10 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <arg type='s' name='value' direction='in'/>"
   "      <arg type='q' name='new_id' direction='out'/>"
   "    </method>"
+  "    <method name='clear_history'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='b' name='result' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -215,6 +219,19 @@ clipman_dbus_method_add_item(
   return TRUE;
 }
 
+static gboolean
+clipman_dbus_method_clear_history(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  ClipmanHistory *history;
+  history = clipman_history_get ();
+  clipman_history_clear(history);
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(b)", TRUE));
+  return TRUE;
+}
 // mappping table: map DBus method_name from xml to function pointer
 ClipmanDbusMethod clipman_dbus_methods[] =
 {
@@ -222,6 +239,7 @@ ClipmanDbusMethod clipman_dbus_methods[] =
   { .name  =  "delete_item_by_id",  .call  =  clipman_dbus_method_delete_item_by_id  },
   { .name  =  "list_history",       .call  =  clipman_dbus_method_list_history       },
   { .name  =  "add_item",           .call  =  clipman_dbus_method_add_item           },
+  { .name  =  "clear_history",      .call  =  clipman_dbus_method_clear_history      },
   { .name  =  NULL,                 .call  =  NULL                                   }
 };
 

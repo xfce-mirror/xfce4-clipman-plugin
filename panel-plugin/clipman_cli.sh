@@ -42,6 +42,9 @@ case $action in
     fi
     call_dbus add_item boolean:$secure string:"$1"
     ;;
+  clear)
+    call_dbus clear_history
+    ;;
   *)
     >&2 echo "unknown method: $action"
     ;;
