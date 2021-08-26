@@ -267,6 +267,10 @@ plugin_save (MyPlugin *plugin)
               g_free (filename);
               break;
 
+            case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
+              /* never save SECURE_TEXT item */
+              break;
+
             default:
               g_assert_not_reached ();
             }

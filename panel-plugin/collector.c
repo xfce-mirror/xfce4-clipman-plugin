@@ -263,6 +263,7 @@ clipman_collector_show_actions (void)
   if (item == NULL)
     return;
 
+  /* no action performed on CLIPMAN_HISTORY_TYPE_SECURE_TEXT for now */
   if (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
     {
       entries = clipman_actions_match (collector->priv->actions, ACTION_GROUP_MANUAL, item->content.text);

@@ -1,17 +1,8 @@
 [![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/master/COPYING)
 
-# xfce4-clipman-plugin
+# xfce4-clipman-plugin fork
 
-Xfce4-clipman-plugin is a plugin for the Xfce Panel and as a standalone application (it is a
-bundle). It keeps the clipboard contents around (even after an application
-quits). It is able to handle text and images, and has a feature to execute
-actions on specific text selection by matching them against regexes.
-
-----
-
-### Homepage
-
-[Xfce4-clipman-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin)
+Protoype disposable code, don't expect a fully running code.
 
 ## This version try to implement: Secure Item
 
@@ -146,10 +137,12 @@ This is just some suggestion, I don't know the project enough for now to be accu
 * ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
 * ~~retrieve an item in the clipman history by id~~ done with dbus in this PoC
 * ~~find a way how to delete a given entry in clipman~~ done with dbus in this PoC
-* add a DBus method to add item in history through DBus
-* find way to store a new `secure_item` in clipman (type: secure + text value)
-* gui change: obfuscate  `secure_item` in popup history
-* add a DBus method to clear all history
+* ~~add a DBus method to add item in history through DBus~~ done with dbus in this PoC
+* ~~find way to store a new `secure_item` in clipman (type: secure + text value)~~ done with dbus in this PoC
+* ~~gui change: obfuscate  `secure_item` in popup history~~ done with dbus in this PoC
+* add a DBus method to clear all history or clear all `secure_item`
+* delete an Item from the menu
+* toggle an Item is the menu as Secure
 
 
 ## How to build
@@ -166,5 +159,6 @@ make install
 ## Xfce dev question
 
 * Changing GSList by GList (double linked list) for simpler removal of item?
-* emmiting signal when item are removed?
+* What signal to emmit when item are removed?
+* How to map delete key, so we can delete an Item from the menu
 

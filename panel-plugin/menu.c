@@ -147,6 +147,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:
+    case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
       gtk_clipboard_set_text (clipboard, item->content.text, -1);
 
@@ -390,7 +391,10 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
 
-      if (selection_clipboard && (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+      if (selection_clipboard && (
+                 item->type == CLIPMAN_HISTORY_TYPE_TEXT
+              || item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT
+            )
           && (g_strcmp0 (selection_clipboard, item->content.text) == 0))
         {
           image = gtk_image_new_from_icon_name ("edit-paste-symbolic",
@@ -400,7 +404,10 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 G_GNUC_END_IGNORE_DEPRECATIONS
         }
       else
-        if (selection_primary && (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+        if (selection_primary && (
+                   item->type == CLIPMAN_HISTORY_TYPE_TEXT
+                || item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT
+              )
             && (g_strcmp0 (selection_primary, item->content.text) == 0))
           {
             image = gtk_image_new_from_icon_name ("input-mouse-symbolic",
@@ -429,6 +436,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
 #ifdef HAVE_QRENCODE
   /* Draw QR Code if clipboard content is text */
+  // no QR Code fro CLIPMAN_HISTORY_TYPE_SECURE_TEXT obviously
   if (menu->priv->show_qr_code && item_to_restore && item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT)
     {
       mi = gtk_separator_menu_item_new ();
@@ -480,7 +488,11 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   if (selection_primary)
     {
       skip_primary = (g_strcmp0 (selection_primary, selection_clipboard) == 0) ||
-      (item_to_restore && (item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT) && g_strcmp0 (selection_primary, item_to_restore->content.text) == 0);
+      (item_to_restore && (
+               item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT
+            || item_to_restore->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT
+          )
+        && g_strcmp0 (selection_primary, item_to_restore->content.text) == 0);
 
       if (skip_primary == FALSE)
         {

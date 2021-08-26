@@ -108,7 +108,7 @@ _clipman_history_add_item (ClipmanHistory *history,
   for (list = history->priv->items; list != NULL; list = list->next)
     {
       _item = list->data;
-      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT || _item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
         {
           n_texts++;
         }
@@ -127,7 +127,7 @@ _clipman_history_add_item (ClipmanHistory *history,
       list = g_slist_last (history->priv->items);
       _item = list->data;
 
-      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT || _item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
         {
           n_texts--;
         }
@@ -197,6 +197,7 @@ __clipman_history_item_free (ClipmanHistoryItem *item)
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:
+    case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
       DBG ("Delete text `%s'", item->content.text);
       g_free (item->content.text);
       g_free (item->preview.text);
@@ -220,9 +221,20 @@ __g_slist_compare_texts (gconstpointer a,
 {
   const ClipmanHistoryItem *item = a;
   const gchar *text = b;
-  if (item->type != CLIPMAN_HISTORY_TYPE_TEXT)
-    return -1;
-  return g_ascii_strcasecmp (item->content.text, text);
+  switch (item->type)
+    {
+    case CLIPMAN_HISTORY_TYPE_IMAGE:
+      return -1;
+      break;
+
+    case CLIPMAN_HISTORY_TYPE_TEXT:
+    case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
+      return g_ascii_strcasecmp (item->content.text, text);
+      break;
+
+    default:
+      g_assert_not_reached ();
+    }
 }
 
 static ClipmanHistoryId
@@ -270,8 +282,9 @@ clipman_history_add_text (ClipmanHistory *history,
   list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
   if (list != NULL)
     {
-      DBG ("Found a previous occurence for text `%s'", text);
       item = list->data;
+      is_secure = item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+      DBG ("Found a previous occurence for text `%s' is_secure: %s", text, is_secure ? "YES" : "NO");
       if (history->priv->reorder_items)
         {
           __clipman_history_item_free (item);
@@ -291,8 +304,8 @@ clipman_history_add_text (ClipmanHistory *history,
   if(is_secure)
   {
     item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
-    // utf-8 symbol: 0x26d4 ⛔
-    tmp1 = g_strdup_printf ("⛔ SECURE ***********");
+    // utf-8 symbol: 0x26d4 ⛔  0x0001f510 🔐
+    tmp1 = g_strdup_printf ("🔐 SECURE ***********");
   }
   else
   {

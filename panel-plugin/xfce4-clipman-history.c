@@ -345,7 +345,9 @@ clipman_history_treeview_init (MyPlugin *plugin)
                                                  COLUMN_TEXT, item->content.text,
                                                  -1);
               break;
-
+            /* CLIPMAN_HISTORY_TYPE_SECURE_TEXT are actually also ignored, but should not be saved too.
+             * So they should not be present in the restored list actually.
+             * */
             default:
               DBG("Ignoring non-text history type %d", item->type);
               continue;
