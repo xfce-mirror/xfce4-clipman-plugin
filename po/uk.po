@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Andrii Protsun <minamotosoft@gmail.com>, 2020
+# Andrij Mizyk <andmizyk@gmail.com>, 2021
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # dsafsadf <heneral@gmail.com>, 2016
 # Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016
@@ -13,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-01-28 21:08+0000\n"
+"PO-Revision-Date: 2021-08-26 08:10+0000\n"
 "Last-Translator: Andrij Mizyk <andmizyk@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +61,7 @@ msgstr "Помилка Xfce"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
 msgid "GNOME Bug"
-msgstr "Помилка ҐНОМА"
+msgstr "Вада GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
