@@ -304,7 +304,9 @@ clipman_history_add_text (ClipmanHistory *history,
   if(is_secure)
   {
     item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+    // vim: i_CTRL-v + u + 4 digit or i_CTRL-v + U + 8 digit 😀
     // utf-8 symbol: 0x26d4 ⛔  0x0001f510 🔐
+    // require font with emoji: sudo apt install fonts-emojione
     tmp1 = g_strdup_printf ("🔐 SECURE ***********");
   }
   else

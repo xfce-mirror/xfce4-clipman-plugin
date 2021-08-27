@@ -160,8 +160,10 @@ This is just some suggestion, I don't know the project enough for now to be accu
 
 ## How to build
 
+Dont forget to install the lovely colored emoji font!  😀
+
 ```
-sudo apt install xfce4-dev-tools libgtk-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev
+sudo apt install xfce4-dev-tools libgtk-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev fonts-emojione
 ./autogen.sh --enable-debug
 make
 # prefix in /usr/local by default, so it may require sudo to work
@@ -174,4 +176,4 @@ make install
 * Changing GSList by GList (double linked list) for simpler removal of item?
 * What signal to emmit when item are removed?
 * How to map delete key, so we can delete an Item from the menu
-
+* What is the dbus: session bus: org.xfce.clipman?
