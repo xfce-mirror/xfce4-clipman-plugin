@@ -195,6 +195,31 @@ clipman_dbus_method_get_item_by_id(
   return TRUE;
 }
 
+// delete item helpers
+
+// used to store our user argument
+typedef struct
+{
+  ClipmanCollector *collector;
+  gchar *decoded_secure_text;
+} ClipmanCallbackClearClipboard;
+
+static void
+clipman_dbus_callback_clipboard_request_text (
+                         GtkClipboard *clipboard,
+                         const gchar *text,
+                         ClipmanCallbackClearClipboard *args)
+{
+  if (text == NULL || text[0] == '\0')
+    return;
+
+  if(g_strcmp0(text, args->decoded_secure_text) == 0)
+  {
+    clipman_collector_set_is_restoring(args->collector);
+    gtk_clipboard_set_text (clipboard, "", 1);
+  }
+}
+
 static gboolean
 clipman_dbus_method_delete_item_by_id(
                     GVariant              *parameters,
@@ -203,11 +228,46 @@ clipman_dbus_method_delete_item_by_id(
   guint searched_id;
   gboolean result;
   ClipmanHistory *history;
+  GList *_link;
 
   g_variant_get (parameters, "(u)", &searched_id);
 
   history = clipman_history_get ();
-  result = clipman_history_delete_item_by_id(history, searched_id);
+  _link = clipman_history_find_item_by_id(history, searched_id);
+  if (_link == NULL)
+    {
+      result = FALSE;
+    }
+  else
+    {
+      ClipmanHistoryItem *item;
+      item = _link->data;
+
+      if (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+        {
+          // ensure clearing clipboard(s), if it was the same value
+          ClipmanCallbackClearClipboard args;
+          GtkClipboard *clipboard;
+
+          args.collector = clipman_collector_get();
+          args.decoded_secure_text = clipman_secure_text_decode(item->content.text);
+
+          clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+          gtk_clipboard_request_text (
+              clipboard,
+              (GtkClipboardTextReceivedFunc)clipman_dbus_callback_clipboard_request_text,
+              &args);
+
+          // also check primary
+          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+          gtk_clipboard_request_text (
+              clipboard,
+              (GtkClipboardTextReceivedFunc)clipman_dbus_callback_clipboard_request_text,
+              &args);
+        }
+      clipman_history_delete_item_by_pointer(history, _link);
+      result = TRUE;
+    }
 
   g_dbus_method_invocation_return_value (invocation,
                                          g_variant_new ("(b)", result));

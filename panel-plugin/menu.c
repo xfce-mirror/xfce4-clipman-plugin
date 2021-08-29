@@ -141,7 +141,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
   ClipmanHistory *history;
-  gboolean add_primary_clipboard;
+  gboolean add_primary_clipboard, item_is_secure;
   gchar *text_content;
   gchar text_secure_item_content[CLIPMAN_SECURE_TEXT_MAX_LEN];
 
@@ -151,34 +151,47 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
     case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
       text_content = item->content.text;
+      item_is_secure = item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
 
-      if(item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
-      {
-        gchar *text_new_allocated;
-        text_new_allocated = clipman_secure_text_decode(text_content);
+      if (item_is_secure)
+        {
+          gchar *text_new_allocated;
+          text_new_allocated = clipman_secure_text_decode(text_content);
 
-        if (text_new_allocated == NULL)
-          {
-            g_snprintf(text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
-                    "⚠️ error: secure text decoding failed for entry: %d", item->id);
-          }
-        else
-          {
-            g_snprintf (text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
-                    "%s", text_new_allocated);
-            g_free(text_new_allocated);
-          }
-        text_content = text_secure_item_content;
-      }
+          if (text_new_allocated == NULL)
+            {
+              g_snprintf(text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
+                      "⚠️ error: secure text decoding failed for entry: %d", item->id);
+            }
+          else
+            {
+              g_snprintf (text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
+                      "%s", text_new_allocated);
+              g_free(text_new_allocated);
+            }
 
-      gtk_clipboard_set_text (clipboard, text_content, -1);
+          text_content = text_secure_item_content;
+        }
 
       collector = clipman_collector_get ();
+
+      if (item_is_secure)
+      {
+        // dont read clipboard with secure item
+        clipman_collector_set_is_restoring(collector);
+      }
+      gtk_clipboard_set_text (clipboard, text_content, -1);
+
       g_object_get (G_OBJECT (collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
       if (add_primary_clipboard)
         {
           g_warning ("sync primary clipboard");
           clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+          if (item_is_secure)
+          {
+            // dont read clipboard with secure item
+            clipman_collector_set_is_restoring(collector);
+          }
           gtk_clipboard_set_text (clipboard, text_content, -1);
         }
       g_object_unref (collector);

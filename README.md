@@ -80,7 +80,7 @@ Here is my contribution to handle secure clipboard. Not so secure, but with some
   * insert a secure item directly: `xfce4-clipman-cli add --secure "$password"` (output the new id inserted item)
 
 History deletion could be managed outside clipman by secure storage manager,
-like `pass` extension, or shell wrapper helpert. So clipman don't have to handle
+like `pass` extension, or shell wrapper helper. So clipman don't have to handle
 timestamping and timer auto deletition item itself.
 
 At the time I started reading clipman code, there was a `xfce4-clipman-history` but
@@ -164,7 +164,7 @@ Here is my own roadmap for this PoC
 * ~~replace history GSList by GList (double linked list)~~ done in this PoC
 * ~~add a DBus parameter to clear all `secure_item` only~~ done with dbus in this PoC
 * ~~encode secure item in memory on DBus client side, so secure item is less exposed~~ done this PoC
-* ensure item is removed from real clipboard when deleted via DBus API
+* ~~ensure item is removed from real clipboard when deleted via DBus API~~ done in this PoC
 * delete an Item from the GUI menu hitting delete key
 * toggle an Item in the GUI menu as Secure hitting 's' key
 
