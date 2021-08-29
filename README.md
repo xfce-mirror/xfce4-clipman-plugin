@@ -181,6 +181,64 @@ make
 make install
 ```
 
+## Test the PoC from `xfce-test`
+
+```
+cd to/cloned/xfce4-clipman-plugin
+xfce-test start
+```
+
+You can compile the code with the instruction above, from outside or from inside the docker container.
+
+The following step are done within xfce-test session:
+
+Install required package inside docker instance (will be lost on exit)
+
+```
+sudo apt update -y
+sudo apt install -y xfce4-dev-tools libgtk-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev fonts-emojione passwdqc pass
+```
+
+setup a GPG key for passwordstore
+
+```
+gpg --quick-generate-key text@xfce.org
+# answer question and set a passphrase
+# grab the generated key ID
+
+# initialize passwordstore with the gpg key ID
+pass init $gpg_generated_key_above
+```
+
+add some entries into passwordstore
+```
+pass generate example1
+pass generate example2
+```
+
+run clipman
+```
+./panel-plugin/xfce4-clipman
+```
+
+Open another terminal to interract with cli.
+
+get a passwordstore entry via a small shell demo wrapper:
+
+```
+./pass_clip.sh example2
+```
+
+play with DBus clipman shell wrapper
+
+```
+cd ./panel-plugin/
+./demo.sh
+```
+
+etc.
+
+
 ## Xfce dev question
 
 * What signal to emmit when item are removed?
