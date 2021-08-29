@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# shell script helper to have a copy paste output to share about this PoC.
+#
+# Warning: it clears the clipman history
+#
+# Usage: ./demo.sh
 
 clipman_cli()
 {
@@ -27,5 +33,6 @@ clipman_cli list
 
 id=$(./clipman_cli.sh list | awk '/SECURE/ { print $1; exit;}')
 clipman_cli get $id
+clipman_cli get_secure $id
 clipman_cli del $id
 clipman_cli list

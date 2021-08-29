@@ -4,6 +4,9 @@
 
 #include "history.h"
 #include "dbus-clipman-service.h"
+#include "secure_text.h"
+#include "menu.h"
+#include "collector.h"
 
 static GDBusNodeInfo *clipman_dbus_introspection_data = NULL;
 
@@ -19,6 +22,7 @@ static const gchar clipman_dbus_introspection_xml[] =
   "    </method>"
   "    <method name='get_item_by_id'>"
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='b' name='decode_secure_text' direction='in'/>"
   "      <arg type='u' name='searched_id' direction='in'/>"
   "      <arg type='s' name='text_item_value' direction='out'/>"
   "    </method>"
@@ -35,7 +39,8 @@ static const gchar clipman_dbus_introspection_xml[] =
   "    </method>"
   "    <method name='clear_history'>"
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
-  "      <arg type='b' name='result' direction='out'/>"
+  "      <arg type='b' name='clear_only_secure_text' direction='in'/>"
+  "      <arg type='u' name='nb_element_cleared' direction='out'/>"
   "    </method>"
   "  </interface>"
   "</node>";
@@ -75,13 +80,13 @@ clipman_dbus_method_list_history (
                                   GDBusMethodInvocation *invocation)
 {
   ClipmanHistory *history;
-  GSList *list, *l;
+  GList *list, *l;
   ClipmanHistoryItem *item;
 
   history = clipman_history_get ();
 
   list = clipman_history_get_list (history);
-  list = g_slist_reverse (list);
+  list = g_list_reverse (list);
   if (list == NULL)
     {
       // empty
@@ -93,7 +98,7 @@ clipman_dbus_method_list_history (
     {
       gchar *response = NULL, *tmp;
       char **split;
-      gchar *text;
+      gchar *text_content;
 
       for (l = list; l != NULL; l = l->next)
         {
@@ -103,34 +108,33 @@ clipman_dbus_method_list_history (
             {
             /* We ignore everything but text (no images or QR codes) */
             case CLIPMAN_HISTORY_TYPE_TEXT:
-              // we currently handle new lines in clipboard content as ==> \n
-              // which is not revertable change, but enough for the poc.
-              split  = g_strsplit(item->content.text, "\n", -1);
-              text   = g_strjoinv("\\n", split);
-              g_strfreev(split);
-              if(response == NULL)
-                {
-                  response = g_strdup_printf ("%d %s", item->id, text);
-                }
-              else
-                {
-                  tmp = g_strdup_printf ("%s\n%d %s", response, item->id, text);
-                  g_free (response);
-                  response = tmp;
-                }
-              g_free(text);
-              break;
             case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
-              if(response == NULL)
+              if (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
                 {
-                  response = g_strdup_printf ("%d %s", item->id, item->preview.text);
+                  // we currently handle newlines in clipboard content as ==> \n
+                  // which is not revertable change, but enough for the PoC.
+                  split          = g_strsplit(item->content.text, "\n", -1);
+                  text_content   = g_strjoinv("\\n", split);
+                  g_strfreev(split);
                 }
               else
                 {
-                  tmp = g_strdup_printf ("%s\n%d %s", response, item->id, item->preview.text);
+                  // CLIPMAN_HISTORY_TYPE_SECURE_TEXT, don't disclose content send preview
+                  text_content = g_strdup(item->preview.text);
+                }
+
+              if(response == NULL)
+                {
+                  response = g_strdup_printf ("%2d %s", item->id, text_content);
+                }
+              else
+                {
+                  tmp = g_strdup_printf ("%s\n%2d %s", response, item->id, text_content);
                   g_free (response);
                   response = tmp;
                 }
+
+              g_free(text_content);
               break;
 
             default:
@@ -139,7 +143,7 @@ clipman_dbus_method_list_history (
             }
         }
 
-      g_slist_free (list);
+      g_list_free (list);
       g_dbus_method_invocation_return_value (invocation,
                                              g_variant_new ("(s)", response));
       g_free (response);
@@ -155,14 +159,16 @@ clipman_dbus_method_get_item_by_id(
   guint searched_id;
   gchar *response;
   ClipmanHistoryItem *item;
+  GList *_link;
   ClipmanHistory *history;
+  gboolean decode_secure_text;
 
+  g_variant_get (parameters, "(bu)", &decode_secure_text, &searched_id);
 
-  g_variant_get (parameters, "(u)", &searched_id);
   history = clipman_history_get ();
-  item = clipman_history_find_item_by_id(history, searched_id);
+  _link  = clipman_history_find_item_by_id(history, searched_id);
 
-  if(item == NULL)
+  if(_link == NULL)
     {
       g_dbus_method_invocation_return_dbus_error (invocation,
                                                   "org.gtk.GDBus.Failed",
@@ -171,7 +177,16 @@ clipman_dbus_method_get_item_by_id(
     }
   else
     {
-      response = g_strdup_printf ("%s", item->content.text);
+      item = _link->data;
+      if (decode_secure_text)
+        {
+          response = clipman_secure_text_decode(item->content.text);
+          DBG("value: %s decoded utf-8: %f", item->content.text, response);
+        }
+      else
+        {
+          response = g_strdup_printf ("%s", item->content.text);
+        }
       g_dbus_method_invocation_return_value (invocation,
                                              g_variant_new ("(s)", response));
       g_free (response);
@@ -208,11 +223,20 @@ clipman_dbus_method_add_item(
   gboolean is_secure_item;
   ClipmanHistory *history;
   ClipmanHistoryId new_id;
+  ClipmanCollector *collector;
+  GList *new_item;
 
   g_variant_get (parameters, "(bs)", &is_secure_item, &new_item_value);
 
   history = clipman_history_get ();
   new_id = clipman_history_add_text (history, is_secure_item, new_item_value);
+
+  // add newly created item to clipboard
+  new_item = clipman_history_find_item_by_id(history, new_id);
+  // prevent the new secure_text to be copied twice as disclosed item, because of encoding
+  collector = clipman_collector_get();
+  clipman_collector_set_is_restoring(collector);
+  cb_set_clipboard(NULL, new_item->data);
 
   g_dbus_method_invocation_return_value (invocation,
                                          g_variant_new ("(q)", new_id));
@@ -225,11 +249,16 @@ clipman_dbus_method_clear_history(
                     GDBusMethodInvocation *invocation)
 {
   ClipmanHistory *history;
+  gboolean clear_only_secure_text;
+  guint nb_element_cleared;
+
+  g_variant_get (parameters, "(b)", &clear_only_secure_text);
   history = clipman_history_get ();
-  clipman_history_clear(history);
+
+  nb_element_cleared = clipman_history_clear(history, clear_only_secure_text);
 
   g_dbus_method_invocation_return_value (invocation,
-                                         g_variant_new ("(b)", TRUE));
+                                         g_variant_new ("(u)", nb_element_cleared));
   return TRUE;
 }
 // mappping table: map DBus method_name from xml to function pointer

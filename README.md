@@ -2,7 +2,17 @@
 
 # xfce4-clipman-plugin fork
 
-Protoype disposable code, don't expect a fully running code.
+⚠️ Protoype disposable code, don't expect a fully running code.
+
+This fork implements the concept of: Secure Item
+
+This version of clipman is a PoC (Proof of Concept) to experiment how we could handle `secure_item`.
+Secure Item are special text clipboard Item that can be deleted or obfuscated in visual GUI or via cli.
+
+This code come from an idea discussion on the following [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
+
+We are interested in a clipman feature that would handle password copied to the clipman history in a secure maner.
+Those Secure Item should not be exposed, and could be deleted automatically after a short period (30s for example).
 
 ![image.png](./image.png)
 
@@ -10,23 +20,86 @@ Example of cli session
 
 ![image-1.png](./image-1.png)
 
-## This version implements the concept of: Secure Item
+## Demo text session output
 
-This version of clipman is a PoC (Proof of Concept) to experiment how we could handle `secure_item`. Item that can be deleted or obfuscated in visual
-GUI or via cli.
+```
+$ ./clipman_cli.sh list
+ 9 This version of clipman is a PoC
+10 DBus method API
+11 xfce4-clipman-plugin fork
+12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
 
-This code come from an idea discussion on the following [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
+$ ./clipman_cli.sh add 'mylogin@xfce.org'
+   uint16 13
+
+$ ./clipman_cli.sh add -s "$(pwqgen)"
+   uint16 14
+
+$ ./clipman_cli.sh list
+ 9 This version of clipman is a PoC
+10 DBus method API
+11 xfce4-clipman-plugin fork
+12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
+13 mylogin@xfce.org
+14 🔐 SECURE ***********
+
+$ ./clipman_cli.sh get 14
+⛔dmVudDViZWdnYXIrQWZnaGFu
+
+$ ./clipman_cli.sh get_secure 14
+vent5beggar+Afghan
+
+$ ./clipman_cli.sh del 14
+   boolean true
+
+$ ./clipman_cli.sh list
+ 9 This version of clipman is a PoC
+10 DBus method API
+11 xfce4-clipman-plugin fork
+12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
+13 mylogin@xfce.org
+```
+
+## Some context and how came the Secure Item idea
+
+For now I'm using `pass` password manager + my own variant of dmenu shell script (was [https://git.zx2c4.com/password-store/tree/contrib/dmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu)).
+
+But now, I use [rofi](https://github.com/davatorium/rofi) instead of `dmenu`, and I put multiple entries in the
+clipboard, which is possible with a clipboard manager. But this disable the autoremoval delay in the clipboard.
+
+Now, I'm also facing ISO 27001 certification, and I would like a more secure clipboard. And I would love to continue using clipman, too.
+
+Here is my contribution to handle secure clipboard. Not so secure, but with some features that avoid simple disclosure.
+
+* add a new `secure_item` type in clipman, in addition of the existing image and text item storage
+* via a new command line interface, we manage the clipboard history:
+  * delete an entry by ID: `xfce4-clipman-cli delete 12` (delete entry numbered 12 from history)
+  * delete an entry by content: `xfce4-clipman-cli delete -c "$password_value"`
+  * list entries: `xfce4-clipman-cli list` (output all text entries with id as prefix)
+  * set an item of the clipman history as `secure`: `xfce4-clipman-cli secure 123` (make item number 123 as secure)
+  * insert a secure item directly: `xfce4-clipman-cli add --secure "$password"` (output the new id inserted item)
+
+History deletion could be managed outside clipman by secure storage manager,
+like `pass` extension, or shell wrapper helpert. So clipman don't have to handle
+timestamping and timer auto deletition item itself.
+
+At the time I started reading clipman code, there was a `xfce4-clipman-history` but
+this code cannot communicate with the clipman daemon/plugin data in memory.
+That was fixed by introducing a DBus API.
 
 ## DBus method API
 
-I order to modify clipboard history, in memory, an API (IPC Interprocess Communication) has been implemented.
+In order to modify the clipman history, in memory, an API (IPC Interprocess Communication) has been implemented via DBus
+call.
+
+Full xml spec is in the code: [dbus-clipman-service.c](./panel-plugin/dbus-clipman-service.c)
 
 ### `list_history`
 
 Retrieve all items in clipman history (Secure Item are hidden).
 
-Actually return a string. (will be a more complex DBus format)
-Format mutiple row separated be newline `\n`:
+Actually returns a string. (could be a more complex DBus format, list of ClipmanHistoryItem, etc.)
+Sting format is mutiple row separated be newline `\n`:
 
 ```
 ID TEXT
@@ -34,9 +107,11 @@ ID TEXT
 
 ### `get_item_by_id`
 
-Get one item, by its ID in clipman history. ID will be obtained by `list_history` or result of `add_item`. You can read the Secure Item value via a`get_item_by_id` call.
+Get one item by its ID in clipman history. ID will be obtained by `list_history` or result of `add_item`.
+You can read the Secure Item value via a`get_item_by_id` call.
 
 Argument:
+ * bool `decode_secure_text` if true, the item is revealed, else you got the encoded value
  * uint32 id of an item in the history
 
 Returns: string
@@ -49,101 +124,34 @@ Argument:
  * secure: boolean
  * value: string
 
+`CLIPMAN_SECURE_TEXT_MARKER`: utf-8 symbols  Wrong way sign:  0x26d4 ⛔
+
+If secure is true, the `value` must be encoded: "⛔" + `base64_encode(value)`
+
 Returns: unit16 the new ID of the instered item.
 
 ### `delete_item_by_id`
 
 Remove an item from the clipman history if the ID exists.
 
+Argument:
+ * uint32 id of an item in the history
+
 Returns: boolean
 
 ### `clear_history`
 
-Remove all data in clipman history.
+Remove data in clipman history. All if `clear_only_secure_text` is fasle, and only Secure Item, else.
 
-## Secure item disussion
+Argument:
+ * `clear_only_secure_text` : boolean
 
-We are interested in the feature that would handle password copied to the clipman clipboard history in a secure maner.
-Those secure item should not be exposed, or should be deleted automatically after a short period (30s for example).
+Returns: uint32 number of deleted elements
 
-### My context
-
-For now I'm using `pass` too + my own variant of dmenu shell script (was [https://git.zx2c4.com/password-store/tree/contrib/dmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu))
-
-But now, I use [rofi](https://github.com/davatorium/rofi) instead of `dmenu`, and I put multiple entries in the
-clipboard, which is possible with a clipboard manager. But this disable the autoremoval delay in the clipboard.
-
-> rofi is a dmenu drop in replacement tool also available in package distrib.
-
-### Secure clipboard manager
-
-Now, I'm also facing ISO 27001 certification, and I would like a more secure clipboard. And I would love to continue using clipman, too.
-
-Here is my propositions to handle secure clipboard (not so secure, but with some extended support to make it more safe).
-
-
-* add a new `secure_item` type in clipman (in plus of image and text item storage)
-* via a new command line interface we manage the clipboard history:
-  * delete an entry by ID: `xfce4-clipman-cli delete 123` (delete entry numbered 123 from history)
-  * delete an entry by content: `xfce4-clipman-cli delete -c "$password_value"`
-  * list entries: `xfce4-clipman-cli list` (output text entry with id as prefix)
-  * set an item of the clipman history as `secure`: `xfce4-clipman-cli secure 123` (make item number 123 as secure)
-  * insert a secure item directly: `xfce4-clipman-cli add --secure "$password"` (output the new id inserted item)
-
-
-History deletion could be managed outside clipman by secure storage manager,
-like `pass` or wrapper helper script. So clipman don't have to handle
-timestamping and to delete item itself. It's less invasive in the climan code
-and let user to configure their own script.
-
-Actually the last sentence is fasle. At the time I started reading climap code, there was a `xfce4-clipman-history` but
-this code cannot communicate with the clipman data in memory. That was fixed by introducing DBus API.
-
-### `secure_item`
-
-`secure_item` is a text item inserted in clipman history, but hidden (or
-masked) in the history display on gui. May be on list too `xfce4-clipman-cli list`
-or could be shown with an extra switch
-`xfce4-clipman-cli list --show-secure-item`.
-
-## Usage examples
-
-DBus shell wrapper. Prototype disposable script for testing the PoC
-
-
-### read the clipman history through DBus call
-
-```
-./clipman_cli.sh list
-```
-
-### read a single item by id from the clipman history through DBus call
-
-```
-./clipman_cli.sh get 123
-```
-
-### delete a single item by id from the clipman history through DBus call
-
-```
-./clipman_cli.sh del 123
-```
-
-### add a single item into the clipman history through DBus call
-
-```
-./clipman_cli.sh add "my content here"
-```
-
-`secure_item`
-
-```
-./clipman_cli.sh add -s "my secure_item content here"
-```
 
 ## Roadmap in clipman modification
 
-This is just some suggestion, I don't know the project enough for now to be accurate:
+Here is my own roadmap for this PoC
 
 * ~~add remote call behavior IPC to clipman~~ done with dbus in this PoC
 * ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
@@ -153,9 +161,12 @@ This is just some suggestion, I don't know the project enough for now to be accu
 * ~~find way to store a new `secure_item` in clipman (type: secure + text value)~~ done with dbus in this PoC
 * ~~gui change: obfuscate  `secure_item` in popup history~~ done with dbus in this PoC
 * ~~add a DBus method to clear all history~~  done with dbus in this PoC
-* add a DBus parameter to clear all `secure_item` only.
-* delete an Item from the GUI menu
-* toggle an Item in the GUI menu as Secure
+* ~~replace history GSList by GList (double linked list)~~ done in this PoC
+* ~~add a DBus parameter to clear all `secure_item` only~~ done with dbus in this PoC
+* ~~encode secure item in memory on DBus client side, so secure item is less exposed~~ done this PoC
+* ensure item is removed from real clipboard when deleted via DBus API
+* delete an Item from the GUI menu hitting delete key
+* toggle an Item in the GUI menu as Secure hitting 's' key
 
 
 ## How to build
@@ -170,10 +181,8 @@ make
 make install
 ```
 
-
 ## Xfce dev question
 
-* Changing GSList by GList (double linked list) for simpler removal of item?
 * What signal to emmit when item are removed?
 * How to map delete key, so we can delete an Item from the menu
 * What is the dbus: session bus: org.xfce.clipman?

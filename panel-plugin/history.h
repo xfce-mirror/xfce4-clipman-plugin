@@ -95,14 +95,14 @@ ClipmanHistoryId            clipman_history_add_text                 (ClipmanHis
                                                                       const gchar *text);
 void                        clipman_history_add_image                (ClipmanHistory           *history,
                                                                       const GdkPixbuf          *image);
-GSList *                    clipman_history_get_list                 (ClipmanHistory           *history);
+GList *                     clipman_history_get_list                 (ClipmanHistory           *history);
 guint                       clipman_history_get_max_texts_in_history (ClipmanHistory           *history);
 const ClipmanHistoryItem *  clipman_history_get_item_to_restore      (ClipmanHistory           *history);
 void                        clipman_history_set_item_to_restore      (ClipmanHistory           *history,
                                                                       const ClipmanHistoryItem *item);
-void                        clipman_history_clear                    (ClipmanHistory           *history);
-ClipmanHistoryItem *        clipman_history_find_item_by_id          (ClipmanHistory *history, ClipmanHistoryId searched_id);
+guint                       clipman_history_clear                    (ClipmanHistory *history, gboolean clear_only_secure_text);
+GList *                     clipman_history_find_item_by_id          (ClipmanHistory *history, ClipmanHistoryId searched_id);
 gboolean                    clipman_history_delete_item_by_id        (ClipmanHistory *history, ClipmanHistoryId id);
-void                        clipman_history_delete_item_by_content   (ClipmanHistory *history, ClipmanHistoryItem *item);
+void                        clipman_history_delete_item_by_pointer   (ClipmanHistory *history, GList *_link);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */

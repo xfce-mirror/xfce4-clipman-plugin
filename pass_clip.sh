@@ -3,6 +3,7 @@
 #
 
 DELETE_DELAY=30
+SCRIPT_DIR=$(dirname $0)
 
 keep_password=0
 if [[ $1 == '-k' ]]
@@ -11,7 +12,7 @@ then
   shift
 fi
 
-clipman_cli=~/code/xfce4-clipman-plugin/panel-plugin/clipman_cli.sh
+clipman_cli=$SCRIPT_DIR/panel-plugin/clipman_cli.sh
 content=$(pass show "$1")
 if [[ -n $content ]]
 then

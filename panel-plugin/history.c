@@ -26,7 +26,6 @@
 #include <libxfce4util/libxfce4util.h>
 
 #include "common.h"
-
 #include "history.h"
 
 /*
@@ -35,7 +34,7 @@
 
 struct _ClipmanHistoryPrivate
 {
-  GSList                       *items;
+  GList                        *items;
   const ClipmanHistoryItem     *item_to_restore;
   guint                         max_texts_in_history;
   guint                         max_images_in_history;
@@ -85,7 +84,7 @@ static void            _clipman_history_add_item           (ClipmanHistory *hist
  */
 
 static void           __clipman_history_item_free          (ClipmanHistoryItem *item);
-static gint           __g_slist_compare_texts              (gconstpointer a,
+static gint           __g_list_compare_texts               (gconstpointer a,
                                                             gconstpointer b);
 
 
@@ -98,7 +97,7 @@ static void
 _clipman_history_add_item (ClipmanHistory *history,
                            ClipmanHistoryItem *item)
 {
-  GSList *list;
+  GList *list;
   ClipmanHistoryItem *_item;
   guint list_length;
   guint n_texts = 0;
@@ -124,7 +123,7 @@ _clipman_history_add_item (ClipmanHistory *history,
   while (list_length > history->priv->max_texts_in_history)
     {
       DBG ("Delete oldest content from the history");
-      list = g_slist_last (history->priv->items);
+      list = g_list_last (history->priv->items);
       _item = list->data;
 
       if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT || _item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
@@ -138,7 +137,7 @@ _clipman_history_add_item (ClipmanHistory *history,
       list_length--;
 
       __clipman_history_item_free (_item);
-      history->priv->items = g_slist_remove (history->priv->items, _item);
+      history->priv->items = g_list_remove (history->priv->items, _item);
     }
 
   /* Free last image from history if max_images is reached, otherwise last item from history */
@@ -163,7 +162,7 @@ _clipman_history_add_item (ClipmanHistory *history,
               if (n_images >= history->priv->max_images_in_history)
                 {
                   __clipman_history_item_free (_item);
-                  history->priv->items = g_slist_remove (history->priv->items, _item);
+                  history->priv->items = g_list_remove (history->priv->items, _item);
                 }
               n_images--;
 
@@ -173,14 +172,14 @@ _clipman_history_add_item (ClipmanHistory *history,
     }
   else if (list_length == history->priv->max_texts_in_history)
     {
-      list = g_slist_last (history->priv->items);
+      list = g_list_last (history->priv->items);
       _item = list->data;
       __clipman_history_item_free (_item);
-      history->priv->items = g_slist_remove (history->priv->items, _item);
+      history->priv->items = g_list_remove (history->priv->items, _item);
     }
 
   /* Prepend item to start of the history */
-  history->priv->items = g_slist_prepend (history->priv->items, item);
+  history->priv->items = g_list_prepend (history->priv->items, item);
   history->priv->item_to_restore = item;
 
   /* Emit signal */
@@ -216,7 +215,7 @@ __clipman_history_item_free (ClipmanHistoryItem *item)
 }
 
 static gint
-__g_slist_compare_texts (gconstpointer a,
+__g_list_compare_texts (gconstpointer a,
                          gconstpointer b)
 {
   const ClipmanHistoryItem *item = a;
@@ -276,19 +275,21 @@ clipman_history_add_text (ClipmanHistory *history,
   gchar *tmp1, *tmp2;
   const gchar *offset;
   gint preview_length = 48;
-  GSList *list;
+  GList *list;
 
   /* Search for a previously existing content */
-  list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
+  list = g_list_find_custom (history->priv->items, text, (GCompareFunc)__g_list_compare_texts);
   if (list != NULL)
     {
       item = list->data;
-      is_secure = item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
-      DBG ("Found a previous occurence for text `%s' is_secure: %s", text, is_secure ? "YES" : "NO");
+      DBG ("Found a previous occurence for text `%s' is_secure: %s", text,
+          (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT) ? "YES" : "NO");
+      // we force is_secure: if the found item was secure or if the new item is secure
+      is_secure = (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT) || is_secure;
       if (history->priv->reorder_items)
         {
           __clipman_history_item_free (item);
-          history->priv->items = g_slist_remove (history->priv->items, list->data);
+          history->priv->items = g_list_remove (history->priv->items, list->data);
         }
       else
         {
@@ -305,13 +306,16 @@ clipman_history_add_text (ClipmanHistory *history,
   {
     item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
     // vim: i_CTRL-v + u + 4 digit or i_CTRL-v + U + 8 digit 😀
-    // utf-8 symbol: 0x26d4 ⛔  0x0001f510 🔐
+    // utf-8 symbol:
+    //  Wrong way sign:  0x26d4 ⛔
+    //  Locker with key: 0x0001f510 🔐
     // require font with emoji: sudo apt install fonts-emojione
     tmp1 = g_strdup_printf ("🔐 SECURE ***********");
   }
   else
   {
     item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+
     /* Strip white spaces for preview */
     tmp1 = g_strchomp (g_strdup (text));
 
@@ -381,12 +385,12 @@ clipman_history_add_image (ClipmanHistory *history,
  *
  * Returns a unique list of the images and texts.
  *
- * Returns: a newly allocated #GSList that must be freed with g_slist_free()
+ * Returns: a newly allocated #GList that must be freed with g_list_free()
  */
-GSList *
+GList *
 clipman_history_get_list (ClipmanHistory *history)
 {
-  return g_slist_copy (history->priv->items);
+  return g_list_copy (history->priv->items);
 }
 
 /**
@@ -445,21 +449,48 @@ clipman_history_set_item_to_restore (ClipmanHistory *history,
  *
  * Clears the lists containing the history of the texts and the images.
  */
-void
-clipman_history_clear (ClipmanHistory *history)
+guint
+clipman_history_clear (ClipmanHistory *history, gboolean clear_only_secure_text)
 {
-  GSList *list;
+  GList *list, *next;
+  guint nb_element_cleared = 0;
 
-  DBG ("Clear the history");
+  if (clear_only_secure_text)
+    {
+      ClipmanHistoryItem *item;
+      DBG ("Clear the history: only_secure_text");
 
-  for (list = history->priv->items; list != NULL; list = list->next)
-    __clipman_history_item_free (list->data);
+      for (list = history->priv->items; list != NULL; list = next)
+      {
+        item = list->data;
+        next = list->next;
+        if (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+          {
+            // clipman_history_delete_item_by_pointer() also free the item
+            // NOTE, this also changes the list we are looping.
+            clipman_history_delete_item_by_pointer (history, list);
+            nb_element_cleared ++;
+          }
+      }
+      // signals are emited at each delete call
+    }
+  else
+    {
+      DBG ("Clear the history: all items");
 
-  g_slist_free (history->priv->items);
-  history->priv->items = NULL;
-  history->priv->item_to_restore = NULL;
+      for (list = history->priv->items; list != NULL; list = list->next)
+        {
+          __clipman_history_item_free (list->data);
+          nb_element_cleared ++;
+        }
 
-  g_signal_emit (history, signals[CLEAR], 0);
+      g_list_free (history->priv->items);
+      history->priv->items = NULL;
+      history->priv->item_to_restore = NULL;
+      g_signal_emit (history, signals[CLEAR], 0);
+    }
+
+  return nb_element_cleared;
 }
 
 ClipmanHistory *
@@ -481,21 +512,21 @@ clipman_history_get (void)
 // Sylvain added public method
 
 /*
- * Returns: a pointer to the real ClipmanHistoryItem in the list (not a copy, so it can be deleted)
+ * Returns: a pointer to the real GList link element in the list (not a copy, so it can be deleted)
  */
-ClipmanHistoryItem *
+GList *
 clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId searched_id)
 {
-  GSList *list;
+  GList *current;
   ClipmanHistoryItem *_item;
 
   /* search the item by its id in the list */
-  for (list = history->priv->items; list != NULL; list = list->next)
+  for (current = history->priv->items; current != NULL; current = current->next)
     {
-      _item = list->data;
+      _item = current->data;
       if (_item->id == searched_id)
         {
-          return _item;
+          return current;
         }
     }
 
@@ -506,10 +537,10 @@ clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId search
 gboolean
 clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
 {
-  ClipmanHistoryItem *item = clipman_history_find_item_by_id(history, id);
-  if (item != NULL)
+  GList *_link = clipman_history_find_item_by_id(history, id);
+  if (_link != NULL)
     {
-      clipman_history_delete_item_by_content(history, item);
+      clipman_history_delete_item_by_pointer (history, _link);
       return TRUE;
     }
   else
@@ -519,11 +550,13 @@ clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
 }
 
 void
-clipman_history_delete_item_by_content(ClipmanHistory *history, ClipmanHistoryItem *item)
+clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *_link)
 {
-  // remove a single element from a linked list given its data pointer in the list
-  __clipman_history_item_free (item);
-  history->priv->items = g_slist_remove (history->priv->items, item);
+  // free memory used by the element pointed in the list
+  __clipman_history_item_free ((ClipmanHistoryItem *)_link->data);
+  // this will eventually update the list first item pointer
+  history->priv->items = g_list_delete_link (history->priv->items, _link);
+
   /* Emit signal for redraw menu */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
 }
@@ -604,7 +637,7 @@ clipman_history_init (ClipmanHistory *history)
 static void
 clipman_history_finalize (GObject *object)
 {
-  clipman_history_clear (CLIPMAN_HISTORY (object));
+  clipman_history_clear (CLIPMAN_HISTORY (object), FALSE);
   G_OBJECT_CLASS (clipman_history_parent_class)->finalize (object);
 }
 

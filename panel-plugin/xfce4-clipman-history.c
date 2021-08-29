@@ -230,7 +230,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
 {
   ClipmanHistoryItem *item;
   gint i;
-  GSList *list, *l;
+  GList *list, *l;
   GtkTreeModel *filter;
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
@@ -321,7 +321,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
 
   g_object_get (G_OBJECT (plugin->menu), "reverse-order", &reverse_order, NULL);
   if (reverse_order)
-    list = g_slist_reverse (list);
+    list = g_list_reverse (list);
 
   if (list == NULL)
     {
@@ -346,15 +346,15 @@ clipman_history_treeview_init (MyPlugin *plugin)
                                                  -1);
               break;
             /* CLIPMAN_HISTORY_TYPE_SECURE_TEXT are actually also ignored, but should not be saved too.
-             * So they should not be present in the restored list actually.
-             * */
+             * So they should never be present in the restored list actually.
+             */
             default:
               DBG("Ignoring non-text history type %d", item->type);
               continue;
             }
         }
 
-      g_slist_free (list);
+      g_list_free (list);
     }
 
   /* Pre-select the first item in the list */

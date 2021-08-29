@@ -21,6 +21,7 @@
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
+#include "history.h"
 
 #define CLIPMAN_TYPE_MENU                  (clipman_menu_get_type())
 
@@ -55,4 +56,6 @@ GtkWidget *             clipman_menu_new                (void);
 
 void                    cb_paste_on_activate            (guint paste_on_activate);
 
+void                    cb_set_clipboard                (GtkMenuItem *mi,
+                                                         const ClipmanHistoryItem *item);
 #endif /* !__CLIPMAN_MENU_H__ */

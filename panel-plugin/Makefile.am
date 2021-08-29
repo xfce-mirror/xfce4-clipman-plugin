@@ -59,6 +59,7 @@ xfce4_clipman_history_SOURCES =						\
 	collector.c							\
 	history.c							\
 	menu.c							\
+	secure_text.c       \
 	plugin.c							\
 	$(NULL)
 
@@ -128,6 +129,7 @@ xfce4_clipman_SOURCES =							\
 	history.c               history.h               \
 	menu.c                  menu.h                  \
 	dbus-clipman-service.c  dbus-clipman-service.h  \
+	secure_text.c           secure_text.h           \
 	$(NULL)
 
 xfce4_clipman_CFLAGS =							\

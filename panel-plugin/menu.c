@@ -35,6 +35,7 @@
 #include "history.h"
 
 #include "menu.h"
+#include "secure_text.h"
 
 /*
  * GObject declarations
@@ -95,8 +96,6 @@ static void            _clipman_menu_free_list          (ClipmanMenu *menu);
 static void		cb_set_qrcode                   (GtkMenuItem *mi,
                                                          const GdkPixbuf *pixbuf);
 #endif
-static void             cb_set_clipboard                (GtkMenuItem *mi,
-                                                         const ClipmanHistoryItem *item);
 static void             cb_clear_history                (ClipmanMenu *menu);
 
 
@@ -136,20 +135,43 @@ cb_set_clipboard_from_primary (GtkMenuItem *mi)
   gtk_clipboard_set_text (clipboard, gtk_menu_item_get_label (mi), -1);
 }
 
-static void
+void
 cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 {
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
   ClipmanHistory *history;
   gboolean add_primary_clipboard;
+  gchar *text_content;
+  gchar text_secure_item_content[CLIPMAN_SECURE_TEXT_MAX_LEN];
 
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:
     case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-      gtk_clipboard_set_text (clipboard, item->content.text, -1);
+      text_content = item->content.text;
+
+      if(item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+      {
+        gchar *text_new_allocated;
+        text_new_allocated = clipman_secure_text_decode(text_content);
+
+        if (text_new_allocated == NULL)
+          {
+            g_snprintf(text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
+                    "⚠️ error: secure text decoding failed for entry: %d", item->id);
+          }
+        else
+          {
+            g_snprintf (text_secure_item_content, CLIPMAN_SECURE_TEXT_MAX_LEN,
+                    "%s", text_new_allocated);
+            g_free(text_new_allocated);
+          }
+        text_content = text_secure_item_content;
+      }
+
+      gtk_clipboard_set_text (clipboard, text_content, -1);
 
       collector = clipman_collector_get ();
       g_object_get (G_OBJECT (collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
@@ -157,7 +179,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
         {
           g_warning ("sync primary clipboard");
           clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-          gtk_clipboard_set_text (clipboard, item->content.text, -1);
+          gtk_clipboard_set_text (clipboard, text_content, -1);
         }
       g_object_unref (collector);
       break;
@@ -182,7 +204,11 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       return;
     }
 
-  cb_paste_on_activate (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")));
+  // PoC secure_text: we reuse this method call without passing mi pointer.
+  if (mi != NULL)
+    {
+      cb_paste_on_activate (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")));
+    }
 }
 
 void
@@ -277,7 +303,7 @@ cb_clear_history (ClipmanMenu *menu)
 
     }
 
-  clipman_history_clear (menu->priv->history);
+  clipman_history_clear (menu->priv->history, FALSE);
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, "", 1);
@@ -335,7 +361,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 #endif
   ClipmanHistoryItem *item;
   const ClipmanHistoryItem *item_to_restore;
-  GSList *list, *l;
+  GList *list, *l;
   gint pos = 0;
   guint i = 0;
   const gchar *selection_primary;
@@ -358,7 +384,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   /* Insert an updated list of menu items */
   list = clipman_history_get_list (menu->priv->history);
   if (menu->priv->reverse_order)
-    list = g_slist_reverse (list);
+    list = g_list_reverse (list);
 
   for (i = 0, l = list; i < menu->priv->max_menu_items; i++, l = l->next)
     {
@@ -433,10 +459,12 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
       gtk_widget_show_all (mi);
     }
+  // end looping on history list
+  g_list_free (list);
 
 #ifdef HAVE_QRENCODE
   /* Draw QR Code if clipboard content is text */
-  // no QR Code fro CLIPMAN_HISTORY_TYPE_SECURE_TEXT obviously
+  // no QR Code for CLIPMAN_HISTORY_TYPE_SECURE_TEXT obviously
   if (menu->priv->show_qr_code && item_to_restore && item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT)
     {
       mi = gtk_separator_menu_item_new ();
@@ -466,8 +494,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         }
     }
 #endif
-
-  g_slist_free (list);
 
   if (pos == 0)
     {

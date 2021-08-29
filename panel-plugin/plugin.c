@@ -211,7 +211,7 @@ plugin_load (MyPlugin *plugin)
 void
 plugin_save (MyPlugin *plugin)
 {
-  GSList *list, *l;
+  GList *list, *l;
   const ClipmanHistoryItem *item;
   GKeyFile *keyfile;
   const gchar **texts;
@@ -244,10 +244,10 @@ plugin_save (MyPlugin *plugin)
 
   /* Save the history */
   list = clipman_history_get_list (plugin->history);
-  list = g_slist_reverse (list);
+  list = g_list_reverse (list);
   if (list != NULL)
     {
-      texts = g_malloc0 (g_slist_length (list) * sizeof (gchar *));
+      texts = g_malloc0 (g_list_length (list) * sizeof (gchar *));
       for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
         {
           item = l->data;
@@ -291,7 +291,7 @@ plugin_save (MyPlugin *plugin)
         }
 
       g_free (texts);
-      g_slist_free (list);
+      g_list_free (list);
     }
 }
 
