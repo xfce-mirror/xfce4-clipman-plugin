@@ -8,5 +8,6 @@
 #define CLIPMAN_SECURE_TEXT_MAX_LEN 1024
 
 gchar * clipman_secure_text_decode(const gchar *secure_text);
+gchar * clipman_secure_text_encode(const gchar *clear_text);
 
 #endif /* __CLIPMAN_SECURE_TEXT_H */

@@ -42,6 +42,12 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <arg type='b' name='clear_only_secure_text' direction='in'/>"
   "      <arg type='q' name='nb_element_cleared' direction='out'/>"
   "    </method>"
+  "    <method name='set_secure_by_id'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <arg type='b' name='secure' direction='in'/>"
+  "      <arg type='q' name='item_id' direction='in'/>"
+  "      <arg type='b' name='result' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -321,6 +327,88 @@ clipman_dbus_method_clear_history(
                                          g_variant_new ("(q)", nb_element_cleared));
   return TRUE;
 }
+
+static gboolean
+clipman_dbus_method_set_secure_by_id(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  ClipmanHistory *history;
+  guint searched_id;
+  gboolean secure, result;
+  GList *_link;
+
+  g_variant_get (parameters, "(bq)", &secure, &searched_id);
+  history = clipman_history_get ();
+  _link  = clipman_history_find_item_by_id(history, searched_id);
+
+  result = FALSE;
+
+  if(_link == NULL)
+    {
+      g_dbus_method_invocation_return_dbus_error (invocation,
+                                                  "org.gtk.GDBus.Failed",
+                                                  "item not found");
+      return FALSE;
+    }
+  else
+    {
+      gchar *old;
+      ClipmanHistoryItem *item;
+
+      item = _link->data;
+
+      switch (item->type)
+      {
+        case CLIPMAN_HISTORY_TYPE_TEXT:
+        case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
+          if (    (  secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT )
+               || ( !secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+             )
+          {
+            // nothing to do, already in the good state
+            result = TRUE;
+          }
+          // decode
+          else if (secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+          {
+            old = item->content.text;
+            item->content.text = clipman_secure_text_decode(old);
+            item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+            g_free(old);
+            result = TRUE;
+          }
+          // encode
+          else if (!secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+          {
+            old = item->content.text;
+            item->content.text = clipman_secure_text_encode(old);
+            item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+            g_free(old);
+            result = TRUE;
+          }
+          else
+          {
+            g_dbus_method_invocation_return_dbus_error (invocation,
+                                                        "org.gtk.GDBus.Failed",
+                                                        "wrong combinaison, secure and type");
+          }
+        break;
+        default:
+          // not applicable to non text item
+          g_dbus_method_invocation_return_dbus_error (invocation,
+                                                      "org.gtk.GDBus.Failed",
+                                                      "item not a text item, cannont be secured");
+        break;
+        }
+    }
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(b)", result));
+
+  return result;
+}
+
 // mappping table: map DBus method_name from xml to function pointer
 ClipmanDbusMethod clipman_dbus_methods[] =
 {
@@ -329,6 +417,7 @@ ClipmanDbusMethod clipman_dbus_methods[] =
   { .name  =  "list_history",       .call  =  clipman_dbus_method_list_history       },
   { .name  =  "add_item",           .call  =  clipman_dbus_method_add_item           },
   { .name  =  "clear_history",      .call  =  clipman_dbus_method_clear_history      },
+  { .name  =  "set_secure_by_id",   .call  =  clipman_dbus_method_set_secure_by_id   },
   { .name  =  NULL,                 .call  =  NULL                                   }
 };
 
