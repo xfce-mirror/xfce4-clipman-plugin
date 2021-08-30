@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-08-16 21:16+0000\n"
+"PO-Revision-Date: 2021-08-30 16:05+0000\n"
 "Last-Translator: Στέργιος Γέμελας <sgemelas@protonmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -270,7 +270,7 @@ msgstr "Μέγεθος του _ιστορικού:"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
@@ -293,7 +293,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Μπορείτε να χρησιμοποιήσετε παραμέτρους αντικατάστασης \"\\1\", \"\\2\" κλπ. στις εντολές. Η παράμετρος \"\\0\" αναπαριστά ολόκληρο το κείμενο. Το μοτίβο πάντα βρίσκεται ανάμεσα στους ειδικούς χαρακτήρες ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate only on manual copy"
@@ -303,7 +303,7 @@ msgstr "Ενεργοποίηση μόνο στο χειροποίητο πρόχ
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
-msgstr ""
+msgstr "Εξ ορισμού η ενέργεια ενεργοποιείται κατά την επιλογή, επιλέξτε αυτή την επιλογή για να ενεργοποιήσετε την ενέργεια μόνο όταν δημιουργείται ένα αντίγραφο με το χέρι"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
