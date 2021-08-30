@@ -23,12 +23,12 @@ static const gchar clipman_dbus_introspection_xml[] =
   "    <method name='get_item_by_id'>"
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
   "      <arg type='b' name='decode_secure_text' direction='in'/>"
-  "      <arg type='u' name='searched_id' direction='in'/>"
+  "      <arg type='q' name='searched_id' direction='in'/>"
   "      <arg type='s' name='text_item_value' direction='out'/>"
   "    </method>"
   "    <method name='delete_item_by_id'>"
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
-  "      <arg type='u' name='item_id' direction='in'/>"
+  "      <arg type='q' name='item_id' direction='in'/>"
   "      <arg type='b' name='result' direction='out'/>"
   "    </method>"
   "    <method name='add_item'>"
@@ -40,7 +40,7 @@ static const gchar clipman_dbus_introspection_xml[] =
   "    <method name='clear_history'>"
   "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
   "      <arg type='b' name='clear_only_secure_text' direction='in'/>"
-  "      <arg type='u' name='nb_element_cleared' direction='out'/>"
+  "      <arg type='q' name='nb_element_cleared' direction='out'/>"
   "    </method>"
   "  </interface>"
   "</node>";
@@ -318,7 +318,7 @@ clipman_dbus_method_clear_history(
   nb_element_cleared = clipman_history_clear(history, clear_only_secure_text);
 
   g_dbus_method_invocation_return_value (invocation,
-                                         g_variant_new ("(u)", nb_element_cleared));
+                                         g_variant_new ("(q)", nb_element_cleared));
   return TRUE;
 }
 // mappping table: map DBus method_name from xml to function pointer

@@ -112,7 +112,7 @@ You can read the Secure Item value via a`get_item_by_id` call.
 
 Argument:
  * bool `decode_secure_text` if true, the item is revealed, else you got the encoded value
- * uint32 id of an item in the history
+ * uint16 id of an item in the history
 
 Returns: string
 
@@ -135,7 +135,7 @@ Returns: unit16 the new ID of the instered item.
 Remove an item from the clipman history if the ID exists.
 
 Argument:
- * uint32 id of an item in the history
+ * uint16 id of an item in the history
 
 Returns: boolean
 
@@ -146,7 +146,7 @@ Remove data in clipman history. All if `clear_only_secure_text` is fasle, and on
 Argument:
  * `clear_only_secure_text` : boolean
 
-Returns: uint32 number of deleted elements
+Returns: uint16 number of deleted elements
 
 
 ## Roadmap in clipman modification
