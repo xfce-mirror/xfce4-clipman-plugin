@@ -3,7 +3,7 @@
 #
 
 DELETE_DELAY=30
-SCRIPT_DIR=$(dirname $0)
+SCRIPT_DIR=$(dirname $(realpath $0))
 
 keep_password=0
 if [[ $1 == '-k' ]]
@@ -13,7 +13,21 @@ then
 fi
 
 clipman_cli=$SCRIPT_DIR/panel-plugin/clipman_cli.sh
-content=$(pass show "$1")
+
+if [[ ! -x $clipman_cli ]]
+then
+  >&2 echo "error: clipman_cli not found: '$clipman_cli'"
+  exit 1
+fi
+
+input="$1"
+if [[ -z $input ]]
+then
+  >&2 echo "error: input is empty"
+  exit 1
+fi
+
+content=$(pass show "$input")
 if [[ -n $content ]]
 then
   id=$($clipman_cli add -s "$(head -1 <<< "$content")" | awk '{print $2}')
