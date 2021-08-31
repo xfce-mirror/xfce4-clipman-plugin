@@ -169,7 +169,7 @@ clipman_dbus_method_get_item_by_id(
   ClipmanHistory *history;
   gboolean decode_secure_text;
 
-  g_variant_get (parameters, "(bu)", &decode_secure_text, &searched_id);
+  g_variant_get (parameters, "(bq)", &decode_secure_text, &searched_id);
 
   history = clipman_history_get ();
   _link  = clipman_history_find_item_by_id(history, searched_id);
@@ -231,12 +231,12 @@ clipman_dbus_method_delete_item_by_id(
                     GVariant              *parameters,
                     GDBusMethodInvocation *invocation)
 {
-  guint searched_id;
+  guint16 searched_id;
   gboolean result;
   ClipmanHistory *history;
   GList *_link;
 
-  g_variant_get (parameters, "(u)", &searched_id);
+  g_variant_get (parameters, "(q)", &searched_id);
 
   history = clipman_history_get ();
   _link = clipman_history_find_item_by_id(history, searched_id);
@@ -334,7 +334,7 @@ clipman_dbus_method_set_secure_by_id(
                     GDBusMethodInvocation *invocation)
 {
   ClipmanHistory *history;
-  guint searched_id;
+  guint16 searched_id;
   gboolean secure, result;
   GList *_link;
 
@@ -353,47 +353,16 @@ clipman_dbus_method_set_secure_by_id(
     }
   else
     {
-      gchar *old;
       ClipmanHistoryItem *item;
 
       item = _link->data;
-
+      g_print("set_secure_by_id: item found: %d, %s\n", item->id, item->content.text);
       switch (item->type)
-      {
+        {
         case CLIPMAN_HISTORY_TYPE_TEXT:
         case CLIPMAN_HISTORY_TYPE_SECURE_TEXT:
-          if (    (  secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT )
-               || ( !secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
-             )
-          {
-            // nothing to do, already in the good state
-            result = TRUE;
-          }
-          // decode
-          else if (secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
-          {
-            old = item->content.text;
-            item->content.text = clipman_secure_text_decode(old);
-            item->type = CLIPMAN_HISTORY_TYPE_TEXT;
-            g_free(old);
-            result = TRUE;
-          }
-          // encode
-          else if (!secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
-          {
-            old = item->content.text;
-            item->content.text = clipman_secure_text_encode(old);
-            item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
-            g_free(old);
-            result = TRUE;
-          }
-          else
-          {
-            g_dbus_method_invocation_return_dbus_error (invocation,
-                                                        "org.gtk.GDBus.Failed",
-                                                        "wrong combinaison, secure and type");
-          }
-        break;
+          result = clipman_history_change_secure_text_state(history, secure, item);
+          break;
         default:
           // not applicable to non text item
           g_dbus_method_invocation_return_dbus_error (invocation,

@@ -27,6 +27,9 @@
 
 #include "common.h"
 #include "history.h"
+#include "secure_text.h"
+
+#define  CLIPMAN_HISTORY_PREVIEW_LEN 48
 
 /*
  * GObject declarations
@@ -190,6 +193,13 @@ _clipman_history_add_item (ClipmanHistory *history,
  * Misc functions
  */
 
+static gboolean
+_clipman_history_is_text_item(ClipmanHistoryItem *item)
+{
+  return     item->type == CLIPMAN_HISTORY_TYPE_TEXT
+         ||  item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+}
+
 static void
 __clipman_history_item_free (ClipmanHistoryItem *item)
 {
@@ -253,6 +263,56 @@ _clipman_history_get_next_id(ClipmanHistory *history)
   return next_id;
 }
 
+static void
+_clipman_history_set_preview_text(ClipmanHistoryItem *item)
+{
+  gchar *tmp1;
+
+  if (! _clipman_history_is_text_item(item))
+    return;
+
+  if(item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+  {
+    // vim: i_CTRL-v + u + 4 digit or i_CTRL-v + U + 8 digit 😀
+    // utf-8 symbol:
+    //  Wrong way sign:  0x26d4 ⛔
+    //  Locker with key: 0x0001f510 🔐
+    // require font with emoji: sudo apt install fonts-emojione
+    tmp1 = g_strdup_printf ("🔐 SECURE ***********");
+  }
+  else
+  {
+    const gchar *offset;
+    gchar *tmp2;
+
+    /* Strip white spaces for preview */
+    tmp1 = g_strchomp (g_strdup (item->content.text));
+
+    tmp2 = tmp1;
+    while (tmp2)
+      {
+        tmp2 = g_strchug(++tmp2);
+        tmp2 = g_strstr_len (tmp1, CLIPMAN_HISTORY_PREVIEW_LEN, "  ");
+      }
+
+    /* Shorten preview */
+    if (g_utf8_strlen (tmp1, -1) > CLIPMAN_HISTORY_PREVIEW_LEN)
+      {
+        offset = g_utf8_offset_to_pointer (tmp1, CLIPMAN_HISTORY_PREVIEW_LEN);
+        tmp2 = g_strndup (tmp1, offset - tmp1);
+        g_free (tmp1);
+        tmp1 = g_strconcat (tmp2, "...", NULL);
+        g_free (tmp2);
+      }
+
+    /* Cleanup special characters from preview */
+    tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
+  }
+
+  if (item->preview.text != NULL)
+    g_free (item->preview.text);
+  item->preview.text = tmp1;
+}
 
 /*
  * Public methods
@@ -262,6 +322,7 @@ _clipman_history_get_next_id(ClipmanHistory *history)
  * clipman_history_add_text:
  * @history:    a #ClipmanHistory
  * @text:       the text to add to the history
+ * @is_secure:  a #Boolean to indicate if the new text item is a SECURE_TEXT
  *
  * Stores a text inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest text.
@@ -272,9 +333,6 @@ clipman_history_add_text (ClipmanHistory *history,
                           const gchar *text)
 {
   ClipmanHistoryItem *item;
-  gchar *tmp1, *tmp2;
-  const gchar *offset;
-  gint preview_length = 48;
   GList *list;
 
   /* Search for a previously existing content */
@@ -302,48 +360,12 @@ clipman_history_add_text (ClipmanHistory *history,
   DBG ("Store text `%s')", text);
 
   item = g_slice_new0 (ClipmanHistoryItem);
-  if(is_secure)
-  {
-    item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
-    // vim: i_CTRL-v + u + 4 digit or i_CTRL-v + U + 8 digit 😀
-    // utf-8 symbol:
-    //  Wrong way sign:  0x26d4 ⛔
-    //  Locker with key: 0x0001f510 🔐
-    // require font with emoji: sudo apt install fonts-emojione
-    tmp1 = g_strdup_printf ("🔐 SECURE ***********");
-  }
-  else
-  {
-    item->type = CLIPMAN_HISTORY_TYPE_TEXT;
-
-    /* Strip white spaces for preview */
-    tmp1 = g_strchomp (g_strdup (text));
-
-    tmp2 = tmp1;
-    while (tmp2)
-      {
-        tmp2 = g_strchug(++tmp2);
-        tmp2 = g_strstr_len (tmp1, preview_length, "  ");
-      }
-
-    /* Shorten preview */
-    if (g_utf8_strlen (tmp1, -1) > preview_length)
-      {
-        offset = g_utf8_offset_to_pointer (tmp1, preview_length);
-        tmp2 = g_strndup (tmp1, offset - tmp1);
-        g_free (tmp1);
-        tmp1 = g_strconcat (tmp2, "...", NULL);
-        g_free (tmp2);
-      }
-
-    /* Cleanup special characters from preview */
-    tmp1 = g_strdelimit (tmp1, "\n\r\t", ' ');
-  }
-
-  item->content.text = g_strdup (text);
+  item->content.text = g_strdup(text);
+  item->preview.text = NULL;
+  item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+  // will also set the preview accordingly
+  clipman_history_change_secure_text_state(history, is_secure, item);
   item->id = _clipman_history_get_next_id(history);
-  /* Set preview */
-  item->preview.text = tmp1;
 
   _clipman_history_add_item (history, item);
 
@@ -446,6 +468,7 @@ clipman_history_set_item_to_restore (ClipmanHistory *history,
 /**
  * clipman_history_clear:
  * @history: a #ClipmanHistory
+ * @clear_only_secure_text: a #Boolean to limit clearing to only SECURE_TEXT item
  *
  * Clears the lists containing the history of the texts and the images.
  */
@@ -559,6 +582,40 @@ clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *_link)
 
   /* Emit signal for redraw menu */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
+}
+
+gboolean
+clipman_history_change_secure_text_state(ClipmanHistory * history,
+                                         gboolean secure,
+                                         ClipmanHistoryItem *item)
+{
+  gchar *old_text;
+  gboolean result;
+
+  result = FALSE;
+  old_text = item->content.text;
+
+  if (secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+  {
+    item->content.text = clipman_secure_text_encode(old_text);
+    item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+    result = TRUE;
+  }
+  else if (!secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+  {
+    item->content.text = clipman_secure_text_decode(old_text);
+    item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+    result = TRUE;
+  }
+
+  if (result)
+  {
+    _clipman_history_set_preview_text(item);
+    g_free(old_text);
+    g_signal_emit (history, signals[ITEM_ADDED], 0);
+  }
+
+  return result;
 }
 
 /*

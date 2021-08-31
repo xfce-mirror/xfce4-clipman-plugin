@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 #
-# bash wrapper to simulate dbus call
+# bash wrapper to perform simple dbus call on clipman DBus API
+# This code will be next written in C with all needed controls and argument parsing.
+# This code Usage is a draft and can be changed
 #
+# Usage: ./clipman_cli.sh add [-s] TEXT_ITEM_VALUE
+#        ./clipman_cli.sh list
+#        ./clipman_cli.sh del ITEM_ID
+#        ./clipman_cli.sh get ITEM_ID
+#        ./clipman_cli.sh get_secure ITEM_ID
+#        ./clipman_cli.sh clear
+#        ./clipman_cli.sh clear_secure
 
 action=$1
 shift
@@ -19,7 +28,7 @@ call_dbus()
     org.xfce.clipman.GDBus.service.$method_name \
     "$@")
 
-  # format dbus-send output to remove some extrat stuff
+  # format dbus-send output to remove some extra stuff
   echo "$out" | sed -e '/method return/ d' \
       -e 's/ \+string "//' \
       -e '$ s/"$//'
@@ -30,13 +39,13 @@ case $action in
     call_dbus list_history
     ;;
   get)
-    call_dbus get_item_by_id boolean:false uint32:$1
+    call_dbus get_item_by_id boolean:false uint16:$1
     ;;
   get_secure)
-    call_dbus get_item_by_id boolean:true uint32:$1
+    call_dbus get_item_by_id boolean:true uint16:$1
     ;;
   del)
-    call_dbus delete_item_by_id uint32:$1
+    call_dbus delete_item_by_id uint16:$1
     ;;
   add)
     secure=false
@@ -56,6 +65,12 @@ case $action in
     ;;
   clear_secure)
     call_dbus clear_history boolean:true
+    ;;
+  set_secure)
+    call_dbus set_secure_by_id boolean:true uint16:$1
+    ;;
+  set_unsecure)
+    call_dbus set_secure_by_id boolean:false uint16:$1
     ;;
   *)
     >&2 echo "unknown method: $action"

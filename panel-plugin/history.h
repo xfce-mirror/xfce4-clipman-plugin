@@ -100,9 +100,13 @@ guint                       clipman_history_get_max_texts_in_history (ClipmanHis
 const ClipmanHistoryItem *  clipman_history_get_item_to_restore      (ClipmanHistory           *history);
 void                        clipman_history_set_item_to_restore      (ClipmanHistory           *history,
                                                                       const ClipmanHistoryItem *item);
-guint                       clipman_history_clear                    (ClipmanHistory *history, gboolean clear_only_secure_text);
-GList *                     clipman_history_find_item_by_id          (ClipmanHistory *history, ClipmanHistoryId searched_id);
+guint                       clipman_history_clear                    (ClipmanHistory *history,
+                                                                      gboolean clear_only_secure_text);
+GList *                     clipman_history_find_item_by_id          (ClipmanHistory *history,
+                                                                      ClipmanHistoryId searched_id);
 gboolean                    clipman_history_delete_item_by_id        (ClipmanHistory *history, ClipmanHistoryId id);
 void                        clipman_history_delete_item_by_pointer   (ClipmanHistory *history, GList *_link);
+gboolean                    clipman_history_change_secure_text_state (ClipmanHistory * history,
+                                                                      gboolean secure, ClipmanHistoryItem *item);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */

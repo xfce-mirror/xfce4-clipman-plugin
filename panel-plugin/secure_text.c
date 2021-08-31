@@ -28,12 +28,12 @@ gchar * clipman_secure_text_encode(const gchar *clear_text)
 
   if (g_utf8_validate (clear_text, -1, NULL))
     {
-      gsize out_len;
-      guchar *tmp;
+      gchar *tmp;
 
       // don't use utf8 method we want full size of the string
-      tmp = g_base64_encode ((guchar*) clear_text, g_strv_length(clear_text));
-      encoded_content = g_strdup_printf ("%c%s", CLIPMAN_SECURE_TEXT_MARKER, tmp);
+      tmp = g_base64_encode ((guchar*) clear_text, strlen(clear_text));
+      // don't know how to printf %c an utf-8 symbol CLIPMAN_SECURE_TEXT_MARKER
+      encoded_content = g_strdup_printf ("⛔%s", tmp);
       g_free(tmp);
     }
   else
