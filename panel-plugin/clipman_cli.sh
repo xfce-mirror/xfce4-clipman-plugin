@@ -74,7 +74,7 @@ case $action in
   set_clear_text)
     call_dbus set_secure_by_id boolean:false uint16:$1
     ;;
-  secure_collect)
+  secure_collect|collect_secure)
     nb_next_item_secured=1
     if [[ -n $1 ]]
     then

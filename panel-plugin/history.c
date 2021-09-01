@@ -89,6 +89,7 @@ static void            _clipman_history_add_item           (ClipmanHistory *hist
 static void           __clipman_history_item_free          (ClipmanHistoryItem *item);
 static gint           __g_list_compare_texts               (gconstpointer a,
                                                             gconstpointer b);
+static gboolean       _clipman_history_is_text_item        (ClipmanHistoryItem *item);
 
 
 
@@ -129,7 +130,7 @@ _clipman_history_add_item (ClipmanHistory *history,
       list = g_list_last (history->priv->items);
       _item = list->data;
 
-      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT || _item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
+      if (_clipman_history_is_text_item (_item))
         {
           n_texts--;
         }
@@ -365,11 +366,19 @@ clipman_history_add_text (ClipmanHistory *history,
   // setting preview at NULL ensure that it will be set by clipman_history_change_secure_text_state()
   // g_slice_new0 should set it, but it's good to have it explicitly set for human memory
   item->preview.text = NULL;
-  item->type = CLIPMAN_HISTORY_TYPE_TEXT;
-  // will also set the preview accordingly
-  clipman_history_change_secure_text_state(history, is_secure, item);
+  if(is_secure)
+  {
+    // text should be already encoded if is_secure == TRUE
+    item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
+  }
+  else
+  {
+    item->type = CLIPMAN_HISTORY_TYPE_TEXT;
+  }
   item->id = _clipman_history_get_next_id(history);
+  _clipman_history_set_preview_text(item);
 
+  // this last method will emit the changed signal for GUI
   _clipman_history_add_item (history, item);
 
   return item->id;

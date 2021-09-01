@@ -28,6 +28,7 @@
 #include <libxfce4util/libxfce4util.h>
 
 #include "collector.h"
+#include "secure_text.h"
 
 /*
  * GObject declarations
@@ -89,7 +90,7 @@ _clipman_collector_add_item_text(ClipmanCollector *collector, const gchar *text)
   if(collector->priv->nb_next_item_secured > 0)
   {
     collector->priv->nb_next_item_secured--;
-    clipman_history_add_text (collector->priv->history, TRUE, text);
+    clipman_history_add_text (collector->priv->history, TRUE, clipman_secure_text_encode(text));
   }
   else
   {
