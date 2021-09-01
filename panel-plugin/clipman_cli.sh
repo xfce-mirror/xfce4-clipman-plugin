@@ -11,6 +11,8 @@
 #        ./clipman_cli.sh get_secure ITEM_ID
 #        ./clipman_cli.sh clear
 #        ./clipman_cli.sh clear_secure
+#
+# See also case bellow, usage may be no updated.
 
 action=$1
 shift
