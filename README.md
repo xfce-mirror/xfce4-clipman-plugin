@@ -177,6 +177,13 @@ Extra modification that I meet during daily usage
 * delete an Item from the GUI menu hitting delete key
 * toggle an Item in the GUI menu as Secure hitting 's' key
 * replace `clipman_cli` with c code and decode `secure_text` only on client side
+* handle error connecting to x11 in clipman cli or external helper? :
+```
+Error org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible
+causes include: the remote application did not send a reply, the message bus
+security policy blocked the reply, the reply timeout expired, or the network
+connection was broken.
+```
 
 
 ## How to build
