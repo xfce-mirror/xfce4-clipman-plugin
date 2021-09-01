@@ -6,7 +6,7 @@
 
 This fork implements the concept of: Secure Item
 
-This version of clipman is a PoC (Proof of Concept) to experiment how we could handle `secure_item`.
+This branch of clipman is a PoC (Proof of Concept) to experiment how we could handle `secure_item`.
 Secure Item are special text clipboard Item that can be deleted or obfuscated in visual GUI or via cli.
 
 This code come from an idea discussion on the following [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
@@ -172,13 +172,28 @@ What have been done within this PoC
 
 Extra modification that I meet during daily usage
 
-* add `set_secure_by_id` to change state secure of a text item
+* ~~add `set_secure_by_id` to change state secure of a text item~~
 * add `secure_collect`: next item(s) copied into the clipbaord are secured by the collector
 * delete an Item from the GUI menu hitting delete key
 * toggle an Item in the GUI menu as Secure hitting 's' key
+* replace `clipman_cli` with c code and decode `secure_text` only on client side
 
 
 ## How to build
+
+### Secure Item PoC tag
+
+The PoC was finished at some point, Code enough to experiment and share.
+
+Use git tag `poc_finished` to fetch the initial finished working PoC to test and experiment.
+
+### Status code is this branch
+
+I will continue to commit in this branch. Even draft not fully wokring code.
+So use it in conscience.
+
+
+### Common build instructions
 
 Dont forget to install the lovely colored emoji font!  😀
 
@@ -251,5 +266,6 @@ etc.
 ## Xfce dev question
 
 * What signal to emmit when item are removed?
-* How to map delete key, so we can delete an Item from the menu
+* How to map delete key, so we can delete an Item from the menu?
+* How to map another key **s** (for Secure or Swap), so we can swap Secure Item directly from the menu list?
 * What is the dbus: session bus: org.xfce.clipman?

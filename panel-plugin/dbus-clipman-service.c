@@ -14,38 +14,43 @@ static GDBusNodeInfo *clipman_dbus_introspection_data = NULL;
 static const gchar clipman_dbus_introspection_xml[] =
   "<node>"
   "  <interface name='org.xfce.clipman.GDBus.service'>"
-  "    <annotation name='org.gtk.GDBus.Annotation' value='OnInterface'/>"
-  "    <annotation name='org.gtk.GDBus.Annotation' value='AlsoOnInterface'/>"
+  "    <annotation name='org.gtk.GDBus.Annotation' value='This DBus Service is IPC control for clipman menu'/>"
+  "    <annotation name='org.gtk.GDBus.Annotation' value='Status Draft'/>"
   "    <method name='list_history'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='return clipman history with ID'/>"
   "      <arg type='s' name='history_list_as_string' direction='out'/>"
   "    </method>"
   "    <method name='get_item_by_id'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='get an item from clipman history, will be decoded based on boolean value'/>"
   "      <arg type='b' name='decode_secure_text' direction='in'/>"
   "      <arg type='q' name='searched_id' direction='in'/>"
   "      <arg type='s' name='text_item_value' direction='out'/>"
   "    </method>"
   "    <method name='delete_item_by_id'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='delete an item from clipman history, from clipboard too'/>"
   "      <arg type='q' name='item_id' direction='in'/>"
   "      <arg type='b' name='result' direction='out'/>"
   "    </method>"
   "    <method name='add_item'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='add an new text item in clipman history, can be secured'/>"
   "      <arg type='b' name='secure' direction='in'/>"
   "      <arg type='s' name='value' direction='in'/>"
   "      <arg type='q' name='new_id' direction='out'/>"
   "    </method>"
   "    <method name='clear_history'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='clear clipman history, full or only secure text'/>"
   "      <arg type='b' name='clear_only_secure_text' direction='in'/>"
   "      <arg type='q' name='nb_element_cleared' direction='out'/>"
   "    </method>"
   "    <method name='set_secure_by_id'>"
-  "      <annotation name='org.gtk.GDBus.Annotation' value='OnMethod'/>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='change secure text state based on boolean value'/>"
   "      <arg type='b' name='secure' direction='in'/>"
   "      <arg type='q' name='item_id' direction='in'/>"
+  "      <arg type='b' name='result' direction='out'/>"
+  "    </method>"
+  "    <method name='collect_next_item_secure'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='clipman collector will set the next item(s) secure'/>"
+  "      <arg type='q' name='nb_next_item_secured' direction='in'/>"
   "      <arg type='b' name='result' direction='out'/>"
   "    </method>"
   "  </interface>"
@@ -378,16 +383,34 @@ clipman_dbus_method_set_secure_by_id(
   return result;
 }
 
-// mappping table: map DBus method_name from xml to function pointer
+static gboolean
+clipman_dbus_method_collect_next_item_secure(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  guint16 nb_next_item_secured;
+  ClipmanCollector *collector;
+
+  g_variant_get (parameters, "(q)", &nb_next_item_secured);
+  collector = clipman_collector_get();
+  clipman_collector_set_nb_next_item_secured(collector, nb_next_item_secured);
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(b)", TRUE));
+
+  return TRUE;
+}
+// mapping table: map DBus method_name from xml to function pointer
 ClipmanDbusMethod clipman_dbus_methods[] =
 {
-  { .name  =  "get_item_by_id",     .call  =  clipman_dbus_method_get_item_by_id     },
-  { .name  =  "delete_item_by_id",  .call  =  clipman_dbus_method_delete_item_by_id  },
-  { .name  =  "list_history",       .call  =  clipman_dbus_method_list_history       },
-  { .name  =  "add_item",           .call  =  clipman_dbus_method_add_item           },
-  { .name  =  "clear_history",      .call  =  clipman_dbus_method_clear_history      },
-  { .name  =  "set_secure_by_id",   .call  =  clipman_dbus_method_set_secure_by_id   },
-  { .name  =  NULL,                 .call  =  NULL                                   }
+  { .name  =  "get_item_by_id",            .call  =  clipman_dbus_method_get_item_by_id           },
+  { .name  =  "delete_item_by_id",         .call  =  clipman_dbus_method_delete_item_by_id        },
+  { .name  =  "list_history",              .call  =  clipman_dbus_method_list_history             },
+  { .name  =  "add_item",                  .call  =  clipman_dbus_method_add_item                 },
+  { .name  =  "clear_history",             .call  =  clipman_dbus_method_clear_history            },
+  { .name  =  "set_secure_by_id",          .call  =  clipman_dbus_method_set_secure_by_id         },
+  { .name  =  "collect_next_item_secure",  .call  =  clipman_dbus_method_collect_next_item_secure },
+  { .name  =  NULL,                        .call  =  NULL }
 };
 
 static void
@@ -469,6 +492,12 @@ clipman_dbus_service_init(void)
   guint owner_id;
   // set out global variable
   clipman_dbus_introspection_data = g_dbus_node_info_new_for_xml (clipman_dbus_introspection_xml, NULL);
+  if (clipman_dbus_introspection_data == NULL)
+  {
+    g_warning ("Error parsing the XML clipman_dbus_introspection_xml for DBus, DBus not started");
+    return 0;
+  }
+
   owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
                              "org.xfce.clipman.GDBus.service",
                              G_BUS_NAME_OWNER_FLAGS_NONE,

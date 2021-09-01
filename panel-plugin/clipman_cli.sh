@@ -69,8 +69,16 @@ case $action in
   set_secure)
     call_dbus set_secure_by_id boolean:true uint16:$1
     ;;
-  set_unsecure)
+  set_clear_text)
     call_dbus set_secure_by_id boolean:false uint16:$1
+    ;;
+  secure_collect)
+    nb_next_item_secured=1
+    if [[ -n $1 ]]
+    then
+      nb_next_item_secured=$1
+    fi
+    call_dbus collect_next_item_secure uint16:$nb_next_item_secured
     ;;
   *)
     >&2 echo "unknown method: $action"

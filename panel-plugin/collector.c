@@ -45,6 +45,7 @@ struct _ClipmanCollectorPrivate
   gboolean              history_ignore_primary_clipboard;
   gboolean              enable_actions;
   gboolean              inhibit;
+  guint16               nb_next_item_secured;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
@@ -78,6 +79,23 @@ static void             cb_request_text                     (GtkClipboard *clipb
                                                              const gchar *text,
                                                              ClipmanCollector *collector);
 
+/*
+ * Private method to maintain nb_next_item_secured and auto secure item collected from clipboard
+ */
+static void
+_clipman_collector_add_item_text(ClipmanCollector *collector, const gchar *text)
+{
+
+  if(collector->priv->nb_next_item_secured > 0)
+  {
+    collector->priv->nb_next_item_secured--;
+    clipman_history_add_text (collector->priv->history, TRUE, text);
+  }
+  else
+  {
+    clipman_history_add_text (collector->priv->history, FALSE, text);
+  }
+}
 
 
 /*
@@ -182,7 +200,7 @@ cb_request_text (GtkClipboard *clipboard,
 
   if (clipboard == collector->priv->default_clipboard)
     {
-      clipman_history_add_text (collector->priv->history, FALSE, text);
+      _clipman_collector_add_item_text (collector, text);
       if (collector->priv->enable_actions)
         clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_MANUAL, text);
     }
@@ -192,7 +210,7 @@ cb_request_text (GtkClipboard *clipboard,
       if (collector->priv->add_primary_clipboard && collector->priv->history_ignore_primary_clipboard)
         collector->priv->internal_change = TRUE;
       else if (!collector->priv->history_ignore_primary_clipboard)
-        clipman_history_add_text (collector->priv->history, FALSE, text);
+        _clipman_collector_add_item_text (collector, text);
 
       /* Make a copy inside the default clipboard */
       if (collector->priv->add_primary_clipboard)
@@ -207,6 +225,7 @@ cb_request_text (GtkClipboard *clipboard,
         }
     }
 }
+
 
 /*
  * Public methods
@@ -227,6 +246,21 @@ void
 clipman_collector_set_is_restoring (ClipmanCollector *collector)
 {
   collector->priv->internal_change = TRUE;
+}
+
+/**
+ * clipman_collector_set_nb_next_item_secured:
+ * @collector: a #ClipmanCollector
+ * @nb_next_item_secured: a #guint16
+ *
+ * Call this function to set the counter of next collected text item as secure.
+ *
+ * See also clipman_history_add_text(), _clipman_collector_add_item_text().
+ */
+void
+clipman_collector_set_nb_next_item_secured (ClipmanCollector *collector, guint nb_next_item_secured)
+{
+  collector->priv->nb_next_item_secured = nb_next_item_secured;
 }
 
 ClipmanCollector *
@@ -350,6 +384,9 @@ clipman_collector_init (ClipmanCollector *collector)
   collector->priv->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   DBG("default_clipboard %ld", (long) collector->priv->default_clipboard);
   collector->priv->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+
+  /* don't collect item as secure by default */
+  collector->priv->nb_next_item_secured = 0;
 }
 
 static void

@@ -360,7 +360,10 @@ clipman_history_add_text (ClipmanHistory *history,
   DBG ("Store text `%s')", text);
 
   item = g_slice_new0 (ClipmanHistoryItem);
+
   item->content.text = g_strdup(text);
+  // setting preview at NULL ensure that it will be set by clipman_history_change_secure_text_state()
+  // g_slice_new0 should set it, but it's good to have it explicitly set for human memory
   item->preview.text = NULL;
   item->type = CLIPMAN_HISTORY_TYPE_TEXT;
   // will also set the preview accordingly
@@ -590,32 +593,36 @@ clipman_history_change_secure_text_state(ClipmanHistory * history,
                                          ClipmanHistoryItem *item)
 {
   gchar *old_text;
-  gboolean result;
+  gboolean changed;
 
-  result = FALSE;
+  changed = FALSE;
   old_text = item->content.text;
 
   if (secure && item->type == CLIPMAN_HISTORY_TYPE_TEXT)
   {
     item->content.text = clipman_secure_text_encode(old_text);
     item->type = CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
-    result = TRUE;
+    changed = TRUE;
   }
   else if (!secure && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
   {
     item->content.text = clipman_secure_text_decode(old_text);
     item->type = CLIPMAN_HISTORY_TYPE_TEXT;
-    result = TRUE;
+    changed = TRUE;
   }
 
-  if (result)
+  if (changed)
+  {
+    g_free(old_text);
+  }
+
+  if (changed || item->preview.text == NULL)
   {
     _clipman_history_set_preview_text(item);
-    g_free(old_text);
     g_signal_emit (history, signals[ITEM_ADDED], 0);
   }
 
-  return result;
+  return changed;
 }
 
 /*

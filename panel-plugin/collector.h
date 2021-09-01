@@ -48,11 +48,12 @@ struct _ClipmanCollector
   ClipmanCollectorPrivate  *priv;
 };
 
-GType                   clipman_collector_get_type              (void);
+GType                   clipman_collector_get_type                  (void);
 
-ClipmanCollector *      clipman_collector_get                   (void);
-void                    clipman_collector_set_is_restoring      (ClipmanCollector *collector);
-void                    clipman_collector_show_actions          (void);
+ClipmanCollector *      clipman_collector_get                       (void);
+void                    clipman_collector_set_is_restoring          (ClipmanCollector *collector);
+void                    clipman_collector_show_actions              (void);
+void                    clipman_collector_set_nb_next_item_secured  (ClipmanCollector *collector, guint nb_next_item_secured);
 
 #endif /* !__CLIPMAN_COLLECTOR_H__ */
 
