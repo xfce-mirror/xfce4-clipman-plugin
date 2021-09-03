@@ -89,9 +89,6 @@ static void            _clipman_history_add_item           (ClipmanHistory *hist
 static void           __clipman_history_item_free          (ClipmanHistoryItem *item);
 static gint           __g_list_compare_texts               (gconstpointer a,
                                                             gconstpointer b);
-static gboolean       _clipman_history_is_text_item        (ClipmanHistoryItem *item);
-
-
 
 /*
  * Private methods
@@ -130,7 +127,7 @@ _clipman_history_add_item (ClipmanHistory *history,
       list = g_list_last (history->priv->items);
       _item = list->data;
 
-      if (_clipman_history_is_text_item (_item))
+      if (clipman_history_is_text_item (_item))
         {
           n_texts--;
         }
@@ -194,8 +191,8 @@ _clipman_history_add_item (ClipmanHistory *history,
  * Misc functions
  */
 
-static gboolean
-_clipman_history_is_text_item(ClipmanHistoryItem *item)
+gboolean
+clipman_history_is_text_item(ClipmanHistoryItem *item)
 {
   return     item->type == CLIPMAN_HISTORY_TYPE_TEXT
          ||  item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT;
@@ -269,7 +266,7 @@ _clipman_history_set_preview_text(ClipmanHistoryItem *item)
 {
   gchar *tmp1;
 
-  if (! _clipman_history_is_text_item(item))
+  if (! clipman_history_is_text_item(item))
     return;
 
   if(item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)

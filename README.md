@@ -166,14 +166,14 @@ What have been done within this PoC
 * ~~replace history GSList by GList (double linked list)~~
 * ~~add a DBus parameter to clear all `secure_item` only~~
 * ~~encode secure item in memory on DBus client side, so secure item is less exposed~~
-* ~~ensure item is removed from real clipboard when deleted via DBus API~~
+* ~~ensure item is removed from real clipboard when deleted via DBus API~~ (only for Secure Item, though)
 
 ### More than the PoC Roadmap
 
 Extra modification that I meet during daily usage
 
 * ~~add `set_secure_by_id` to change state secure of a text item~~
-* add `secure_collect`: next item(s) copied into the clipbaord are secured by the collector
+* ~~add `secure_collect`: next item(s) copied into the clipbaord are secured by the collector~~
 * delete an Item from the GUI menu hitting delete key
 * toggle an Item in the GUI menu as Secure hitting 's' key
 * replace `clipman_cli` with c code and decode `secure_text` only on client side

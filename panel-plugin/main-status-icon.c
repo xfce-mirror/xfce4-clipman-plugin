@@ -63,6 +63,9 @@ main (gint argc,
   gtk_init (&argc, &argv);
   app = gtk_application_new ("org.xfce.clipman", 0);
 
+	g_print("%d.%d.%d", gtk_get_major_version (), gtk_get_minor_version (), gtk_get_micro_version ());
+
+
   g_application_register (G_APPLICATION (app), NULL, &error);
   if (error != NULL)
     {

@@ -108,5 +108,6 @@ gboolean                    clipman_history_delete_item_by_id        (ClipmanHis
 void                        clipman_history_delete_item_by_pointer   (ClipmanHistory *history, GList *_link);
 gboolean                    clipman_history_change_secure_text_state (ClipmanHistory * history,
                                                                       gboolean secure, ClipmanHistoryItem *item);
+gboolean                    clipman_history_is_text_item             (ClipmanHistoryItem *item);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */

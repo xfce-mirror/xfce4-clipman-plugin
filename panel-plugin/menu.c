@@ -97,7 +97,7 @@ static void		cb_set_qrcode                   (GtkMenuItem *mi,
                                                          const GdkPixbuf *pixbuf);
 #endif
 static void             cb_clear_history                (ClipmanMenu *menu);
-
+//static void             cb_history_delete_item          (GtkMenuItem *mi, ClipmanHistoryItem *item);
 
 
 /*
@@ -351,6 +351,13 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
   }
 }
 
+//static void
+//cb_history_delete_item (GtkMenuItem *mi, ClipmanHistoryItem *item)
+//{
+//  if(clipman_history_is_text_item(item))
+//    g_print("cb_history_delete_item: %d %s", item->id, item->content.text);
+//}
+
 /*
  * Private methods
  */
@@ -428,6 +435,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         }
 
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
+      // gtk_binding_entry_add_signal
+      // g_signal_connect (mi, "delete-from-cursor", G_CALLBACK (cb_history_delete_item), item);
+
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
 
       if (selection_clipboard && (
@@ -624,6 +634,24 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
+static gboolean
+_clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
+{
+  if (event->keyval == GDK_KEY_space)
+  {
+    printf("SPACE KEY PRESSED!");
+    return TRUE;
+  }
+  return FALSE;
+}
+
+static void
+_clipman_unset_keyboard_handler (GtkWidget *widget, GdkEventKey *event, gpointer data)
+{
+  ClipmanMenu *menu = data;
+  g_signal_handlers_disconnect_by_func(menu, G_CALLBACK (_clipman_menu_keyboard_event), NULL);
+}
+
 static void
 clipman_menu_init (ClipmanMenu *menu)
 {
@@ -638,6 +666,9 @@ clipman_menu_init (ClipmanMenu *menu)
 
   /* Connect signal on show to update the items */
   g_signal_connect_swapped (menu, "show", G_CALLBACK (_clipman_menu_update_list), menu);
+  g_signal_connect (menu, "show", G_CALLBACK (_clipman_menu_keyboard_event), menu);
+  g_signal_connect (menu, "hide", G_CALLBACK (_clipman_unset_keyboard_handler), menu);
+
 
   /* Footer items */
   mi = gtk_separator_menu_item_new ();
@@ -662,6 +693,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   mi = gtk_menu_item_new_with_mnemonic (_("_Clipman settings..."));
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
+
 
   /* Show all the items */
   gtk_widget_show_all (GTK_WIDGET (menu));
