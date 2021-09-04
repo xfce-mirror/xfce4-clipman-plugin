@@ -623,36 +623,67 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
+static GList *
+_clipman_menu_search_active_item_in_history(ClipmanMenu *menu)
+{
+  const gchar *label;
+  GtkMenuItem *mi;
+
+  // retrieve actual selected (hilighted) item
+  mi = GTK_MENU_ITEM( gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(menu)) );
+
+  // MenuItem only store ClipmanHistoryItem preview
+  label = gtk_menu_item_get_label (mi);
+
+  // search in clipman history by the label, should be unique
+  return clipman_history_find_item_by_preview(menu->priv->history, label);
+}
+
 static gboolean
 _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
-  GtkMenuItem *mi;
   ClipmanMenu *menu;
+  GList *link;
+
+  // widget or data point to the GtkMenu
   menu = data;
 
-  //g_print("menu ? widget pointer: %s\n", ((gpointer) widget) == data ? "SAME" : "DIFFERENT");
   if (event->keyval == GDK_KEY_Delete)
-  {
-    const gchar *label;
-    GList *link;
-
-    // retreive actual selected item
-    //mi = gtk_menu_get_active(GTK_MENU(menu));
-    mi = GTK_MENU_ITEM( gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(widget)) );
-    label = gtk_menu_item_get_label (mi);
-    g_print("DEL KEY PRESSED on item: %lu '%s'!\n", (unsigned long) mi, label);
-
-    // search in clipman history by the label, should be unique
-    link = clipman_history_find_item_by_preview(menu->priv->history, label);
-    if (link != NULL)
     {
-      clipman_history_delete_item_by_pointer(menu->priv->history, link);
-      g_print("item found and deleted %lu\n", (unsigned long) link);
-      _clipman_menu_update_list (menu);
+      link = _clipman_menu_search_active_item_in_history(menu);
+      if (link != NULL)
+      {
+        clipman_history_delete_item_by_pointer(menu->priv->history, link);
+        DBG("item found and deleted %lu\n", (unsigned long) link);
+        _clipman_menu_update_list (menu);
+      }
+      return TRUE;
     }
 
-    return TRUE;
-  }
+  // swap / secure :  Change item SECURE_TEXT <=> CLEAR_TEXT
+  if (event->keyval == GDK_KEY_s)
+    {
+      link = _clipman_menu_search_active_item_in_history (menu);
+      if (link != NULL)
+      {
+        ClipmanHistoryItem *item;
+        gboolean new_state;
+
+        item  = link->data;
+        if(clipman_history_is_text_item(item))
+        {
+          new_state = ! (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT);
+          clipman_history_change_secure_text_state(
+              menu->priv->history,
+              new_state,
+              item);
+          DBG("Item %d is now %s\n", item->id, new_state ? "SECURE_TEXT" : "CLEAR_TEXT");
+          _clipman_menu_update_list (menu);
+        }
+      }
+      return TRUE;
+    }
+  // key not handled by this function
   return FALSE;
 }
 
@@ -695,7 +726,7 @@ clipman_menu_init (ClipmanMenu *menu)
   max_texts_in_history = clipman_history_get_max_texts_in_history (menu->priv->history);
   if (max_texts_in_history > menu->priv->max_menu_items)
     {
-      mi = gtk_menu_item_new_with_mnemonic (_("_Show full history..."));
+      mi = gtk_menu_item_new_with_mnemonic (_("Show full _history..."));
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
       g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
     }
