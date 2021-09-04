@@ -97,7 +97,6 @@ static void		cb_set_qrcode                   (GtkMenuItem *mi,
                                                          const GdkPixbuf *pixbuf);
 #endif
 static void             cb_clear_history                (ClipmanMenu *menu);
-//static void             cb_history_delete_item          (GtkMenuItem *mi, ClipmanHistoryItem *item);
 
 
 /*
@@ -351,13 +350,6 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
   }
 }
 
-//static void
-//cb_history_delete_item (GtkMenuItem *mi, ClipmanHistoryItem *item)
-//{
-//  if(clipman_history_is_text_item(item))
-//    g_print("cb_history_delete_item: %d %s", item->id, item->content.text);
-//}
-
 /*
  * Private methods
  */
@@ -435,9 +427,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         }
 
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
-      // gtk_binding_entry_add_signal
-      // g_signal_connect (mi, "delete-from-cursor", G_CALLBACK (cb_history_delete_item), item);
-
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
 
       if (selection_clipboard && (
