@@ -104,6 +104,8 @@ guint                       clipman_history_clear                    (ClipmanHis
                                                                       gboolean clear_only_secure_text);
 GList *                     clipman_history_find_item_by_id          (ClipmanHistory *history,
                                                                       ClipmanHistoryId searched_id);
+GList *                     clipman_history_find_item_by_preview     (ClipmanHistory *history,
+                                                                      const gchar* preview_searched);
 gboolean                    clipman_history_delete_item_by_id        (ClipmanHistory *history, ClipmanHistoryId id);
 void                        clipman_history_delete_item_by_pointer   (ClipmanHistory *history, GList *_link);
 gboolean                    clipman_history_change_secure_text_state (ClipmanHistory * history,

@@ -544,6 +544,30 @@ clipman_history_get (void)
 // Sylvain added public method
 
 /*
+ * clipman_history_find_item_by_preview:
+ * Returns: a pointer to the real GList link element in the list (not a copy, so it can be deleted)
+ */
+GList *
+clipman_history_find_item_by_preview(ClipmanHistory *history, const gchar* preview_searched)
+{
+  GList *current;
+  ClipmanHistoryItem *_item;
+
+  /* search the item by its id in the list */
+  for (current = history->priv->items; current != NULL; current = current->next)
+    {
+      _item = current->data;
+      if (clipman_history_is_text_item(_item) &&
+          g_strcmp0(_item->preview.text, preview_searched) == 0)
+        {
+          return current;
+        }
+    }
+
+  // not found
+  return NULL;
+}
+/*
  * Returns: a pointer to the real GList link element in the list (not a copy, so it can be deleted)
  */
 GList *

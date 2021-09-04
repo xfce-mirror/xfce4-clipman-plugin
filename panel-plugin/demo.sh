@@ -36,3 +36,4 @@ clipman_cli get $id
 clipman_cli get_secure $id
 clipman_cli del $id
 clipman_cli list
+clipman_cli add -s '"$(pwqgen)"'

@@ -637,18 +637,30 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 static gboolean
 _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
-  GtkWidget *mi;
-  //ClipmanMenu *menu;
-  //menu = data;
+  GtkMenuItem *mi;
+  ClipmanMenu *menu;
+  menu = data;
 
-  g_print("menu ? widget pointer: %s\n", ((gpointer) widget) == data ? "SAME" : "DIFFERENT");
+  //g_print("menu ? widget pointer: %s\n", ((gpointer) widget) == data ? "SAME" : "DIFFERENT");
   if (event->keyval == GDK_KEY_Delete)
   {
+    const gchar *label;
+    GList *link;
+
     // retreive actual selected item
     //mi = gtk_menu_get_active(GTK_MENU(menu));
-    mi = gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(widget));
-    //    gtk_menu_item_get_label (GTK_IMAGE_MENU_ITEM (mi)));
-    g_print("DEL KEY PRESSED on item: '%lu'!\n", (unsigned long) mi);
+    mi = GTK_MENU_ITEM( gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(widget)) );
+    label = gtk_menu_item_get_label (mi);
+    g_print("DEL KEY PRESSED on item: %lu '%s'!\n", (unsigned long) mi, label);
+
+    // search in clipman history by the label, should be unique
+    link = clipman_history_find_item_by_preview(menu->priv->history, label);
+    if (link != NULL)
+    {
+      clipman_history_delete_item_by_pointer(menu->priv->history, link);
+      g_print("item found and deleted %lu\n", (unsigned long) link);
+      _clipman_menu_update_list (menu);
+    }
 
     return TRUE;
   }
