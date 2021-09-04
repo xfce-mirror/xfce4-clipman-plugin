@@ -153,7 +153,7 @@ Returns: uint16 number of deleted elements
 
 ### Roadmap for this PoC
 
-What have been done within this PoC
+What have been done within this PoC (git tag `poc_finished`)
 
 * ~~add remote call behavior IPC to clipman~~
 * ~~ensure all the entries have permanent auto incremented ids (even when sorted or deleted)~~ draft done in the PoC
@@ -174,8 +174,8 @@ Extra modification that I meet during daily usage
 
 * ~~add `set_secure_by_id` to change state secure of a text item~~
 * ~~add `secure_collect`: next item(s) copied into the clipbaord are secured by the collector~~
-* delete an Item from the GUI menu hitting delete key
-* toggle an Item in the GUI menu as Secure hitting 's' key
+* ~~delete an Item from the GUI menu hitting delete key~~
+* ~~toggle an Item in the GUI menu as Secure hitting 's' key~~ `S` key was bound to popup xfce4-clipman-history which is now `H`
 * replace `clipman_cli` with c code and decode `secure_text` only on client side
 * handle error connecting to x11 in clipman cli or external helper? :
 ```
@@ -184,6 +184,7 @@ causes include: the remote application did not send a reply, the message bus
 security policy blocked the reply, the reply timeout expired, or the network
 connection was broken.
 ```
+* discuss about stronger encryption for Secure Text
 
 
 ## How to build
@@ -212,7 +213,17 @@ make
 make install
 ```
 
+
+### Run
+
+Uninstall original clipman plugin.
+Run manually in a spear terminal window: `xfce4-clipman`
+
+Only one clipman daemon can be running, and xfce4-pannel don't have to try to restard original clipman.
+
 ## Test the PoC from `xfce-test`
+
+`xfce-test` is an software to start xfce graphical interface into a fresh docker container.
 
 ```
 cd to/cloned/xfce4-clipman-plugin
@@ -273,6 +284,4 @@ etc.
 ## Xfce dev question
 
 * What signal to emmit when item are removed?
-* How to map delete key, so we can delete an Item from the menu?
-* How to map another key **s** (for Secure or Swap), so we can swap Secure Item directly from the menu list?
 * What is the dbus: session bus: org.xfce.clipman?

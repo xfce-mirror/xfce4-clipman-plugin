@@ -624,7 +624,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 }
 
 static GList *
-_clipman_menu_search_active_item_in_history(ClipmanMenu *menu)
+_clipman_menu_search_active_item_in_history (ClipmanMenu *menu)
 {
   const gchar *label;
   GtkMenuItem *mi;
@@ -632,7 +632,7 @@ _clipman_menu_search_active_item_in_history(ClipmanMenu *menu)
   // retrieve actual selected (hilighted) item
   mi = GTK_MENU_ITEM( gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(menu)) );
 
-  // MenuItem only store ClipmanHistoryItem preview
+  // MenuItem only stores ClipmanHistoryItem preview
   label = gtk_menu_item_get_label (mi);
 
   // search in clipman history by the label, should be unique
@@ -645,12 +645,12 @@ _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer da
   ClipmanMenu *menu;
   GList *link;
 
-  // widget or data point to the GtkMenu
+  // widget or data point to the GtkMenu aka our ClipmanMenu
   menu = data;
 
   if (event->keyval == GDK_KEY_Delete)
     {
-      link = _clipman_menu_search_active_item_in_history(menu);
+      link = _clipman_menu_search_active_item_in_history (menu);
       if (link != NULL)
       {
         clipman_history_delete_item_by_pointer(menu->priv->history, link);
@@ -660,8 +660,8 @@ _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer da
       return TRUE;
     }
 
-  // swap / secure :  Change item SECURE_TEXT <=> CLEAR_TEXT
-  if (event->keyval == GDK_KEY_s)
+  // Swap / Secure :  Change item SECURE_TEXT <=> CLEAR_TEXT
+  if (event->keyval == GDK_KEY_s || event->keyval == GDK_KEY_S)
     {
       link = _clipman_menu_search_active_item_in_history (menu);
       if (link != NULL)
@@ -698,6 +698,7 @@ _clipman_unset_keyboard_handler (GtkWidget *widget, GdkEventKey *event, gpointer
 static void
 _clipman_menu_show_hanlder (ClipmanMenu *menu)
 {
+  // install our keyboard handler so we can add new key binding on selected item, without "activate" it.
   g_signal_connect (menu, "key-press-event", G_CALLBACK(_clipman_menu_keyboard_event), menu);
 }
 
@@ -715,6 +716,8 @@ clipman_menu_init (ClipmanMenu *menu)
 
   /* Connect signal on show to update the items */
   g_signal_connect_swapped (menu, "show", G_CALLBACK (_clipman_menu_update_list), menu);
+
+  // handle new keyboard shortcut
   g_signal_connect (menu, "show", G_CALLBACK (_clipman_menu_show_hanlder), menu);
   g_signal_connect (menu, "hide", G_CALLBACK (_clipman_unset_keyboard_handler), menu);
 
