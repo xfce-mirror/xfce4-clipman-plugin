@@ -646,9 +646,9 @@ _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer da
   {
     // retreive actual selected item
     //mi = gtk_menu_get_active(GTK_MENU(menu));
-    mi = gtk_menu_get_active(GTK_MENU(widget));
+    mi = gtk_menu_shell_get_selected_item (GTK_MENU_SHELL(widget));
     //    gtk_menu_item_get_label (GTK_IMAGE_MENU_ITEM (mi)));
-    g_print("DEL KEY PRESSED on item: '%d'!\n", (int) mi);
+    g_print("DEL KEY PRESSED on item: '%lu'!\n", (unsigned long) mi);
 
     return TRUE;
   }
