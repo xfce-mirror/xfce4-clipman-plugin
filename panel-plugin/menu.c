@@ -637,9 +637,19 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 static gboolean
 _clipman_menu_keyboard_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+  GtkWidget *mi;
+  //ClipmanMenu *menu;
+  //menu = data;
+
+  g_print("menu ? widget pointer: %s\n", ((gpointer) widget) == data ? "SAME" : "DIFFERENT");
   if (event->keyval == GDK_KEY_Delete)
   {
-    g_print("DEL KEY PRESSED!\n");
+    // retreive actual selected item
+    //mi = gtk_menu_get_active(GTK_MENU(menu));
+    mi = gtk_menu_get_active(GTK_MENU(widget));
+    //    gtk_menu_item_get_label (GTK_IMAGE_MENU_ITEM (mi)));
+    g_print("DEL KEY PRESSED on item: '%d'!\n", (int) mi);
+
     return TRUE;
   }
   return FALSE;
@@ -650,6 +660,7 @@ _clipman_unset_keyboard_handler (GtkWidget *widget, GdkEventKey *event, gpointer
 {
   ClipmanMenu *menu = data;
   g_signal_handlers_disconnect_by_func(widget, G_CALLBACK (_clipman_menu_keyboard_event), menu);
+  DBG("keyboard handler disconnected\n");
 }
 
 static void
