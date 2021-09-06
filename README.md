@@ -27,7 +27,7 @@ Sample code in [panel-plugin/demo.sh](panel-plugin/demo.sh).
 ```
 $ ./clipman_cli.sh list
  9 This version of clipman is a PoC
-10 D-Bus method API
+10 DBus method API
 11 xfce4-clipman-plugin fork
 12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
 
@@ -39,7 +39,7 @@ $ ./clipman_cli.sh add -s "$(pwqgen)"
 
 $ ./clipman_cli.sh list
  9 This version of clipman is a PoC
-10 D-Bus method API
+10 DBus method API
 11 xfce4-clipman-plugin fork
 12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
 13 mylogin@xfce.org
@@ -56,10 +56,25 @@ $ ./clipman_cli.sh del 14
 
 $ ./clipman_cli.sh list
  9 This version of clipman is a PoC
-10 D-Bus method API
+10 DBus method API
 11 xfce4-clipman-plugin fork
 12 'https://gitlab.xfce.org/Sylvain/xfce4-clipman-plugin'
 13 mylogin@xfce.org
+```
+
+## Sample code for autoremoving secure item after 30s
+
+More complete passwordstore bash sample can be found here: [pass_clip.sh](pass_clip.sh)
+
+```bash
+DELETE_DELAY=30
+# add a new Secure Item and grab the new inserted ID
+id=$($clipman_cli add -s "$clear_content" | awk '{print $2}')
+unset clear_content
+# start a backgroung task, that will delete the ID after the sleep
+( sleep $DELETE_DELAY && $clipman_cli del $id; ) &
+# disown let the parent shell instance to continue without waiting to its child
+disown $!
 ```
 
 ## Some context and how came the Secure Text idea
