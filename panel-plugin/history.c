@@ -276,7 +276,7 @@ _clipman_history_set_preview_text(ClipmanHistoryItem *item)
     //  Wrong way sign:  0x26d4 ⛔
     //  Locker with key: 0x0001f510 🔐
     // require font with emoji: sudo apt install fonts-emojione
-    tmp1 = g_strdup_printf ("🔐 SECURE ***********");
+    tmp1 = g_strdup_printf ("🔐 SECURE %2d *********", item->id);
   }
   else
   {
