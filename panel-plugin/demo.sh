@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# shell script helper to have a copy paste output to share about this PoC.
+# shell script helper to have samples of clipman_cli.sh output to share about this PoC.
 #
-# Warning: it clears the clipman history
+# Warning: it clears the clipman history on startup.
 #
 # Usage: ./demo.sh
 
@@ -11,6 +11,7 @@ clipman_cli()
   local cmd=$*
   echo "$ ./clipman_cli.sh $cmd"
   eval "./clipman_cli.sh $@"
+  # extra empy line for readability
   echo
 }
 
