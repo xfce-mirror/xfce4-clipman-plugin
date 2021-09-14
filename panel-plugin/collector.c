@@ -91,6 +91,9 @@ _clipman_collector_add_item_text(ClipmanCollector *collector, const gchar *text)
   {
     collector->priv->nb_next_item_secured--;
     clipman_history_add_text (collector->priv->history, TRUE, clipman_secure_text_encode(text));
+    // TODO: should we remove the CLEAR_TEXT version of text if it exists in clipman_history?
+    //       that's what will do clipman_history_add_text() if the it was CLEAR_TEXT
+    //       when history->priv->reorder_items is set
   }
   else
   {
