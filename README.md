@@ -160,6 +160,8 @@ Some Idea that could be implemented to enforce clipman / clipbaord security
 * Secure Text are not kept more than a short amount of time (30s) in the clipboard(s) as clear text, but are kept
   secured in history.
 * use mime type to set text item as Secure Text in the clipboard
+* look for APM / secure memory?
+
 
 
 

@@ -5,6 +5,15 @@
 DELETE_DELAY=30
 SCRIPT_DIR=$(dirname $(realpath $0))
 
+visual_notify()
+{
+  local msg=$1
+  if [[ -x $(which notify-send) ]]
+  then
+    notify-send -u normal -i "gcr-key" 'pass_clip.sh' "$msg"
+  fi
+}
+
 keep_password=0
 if [[ $1 == '-k' ]]
 then
@@ -37,7 +46,12 @@ then
     echo -n "entry copied: $id"
     if [[ $keep_password -eq 0 ]]
     then
-      ( sleep $DELETE_DELAY && $clipman_cli del $id; ) &
+      # start a backgroup sub-shell process with the code in parentheses
+      (
+        sleep $DELETE_DELAY \
+          && $clipman_cli del $id > /dev/null 2>&1 \
+          && visual_notify "item $id removed from clipman"
+      ) &
       disown $!
       echo ", will be deleted in ${DELETE_DELAY}s"
     else
