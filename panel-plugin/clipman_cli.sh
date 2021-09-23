@@ -11,6 +11,18 @@
 #        ./clipman_cli.sh get_secure ITEM_ID
 #        ./clipman_cli.sh clear
 #        ./clipman_cli.sh clear_secure
+#        ./clipman_cli.sh set_secure  ITEM_ID
+#        ./clipman_cli.sh set_clear_text ITEM_ID
+#        ./clipman_cli.sh collect_secure [NUM_COLLECTED_ITEM_TO_SECURE]
+#
+# Arguments:
+#   TEXT_ITEM_VALUE               string to add to history.
+#   ITEM_ID                       uint16 a clipman history ID (use list or add
+#                                 to retreive it).
+#   NUM_COLLECTED_ITEM_TO_SECURE  uint16 the next collected item from clipboard
+#                                 will be set secured by clipman automatically.
+#                                 Useful for keyboard shortcut before copying
+#                                 [default: 1]
 #
 # See also case bellow, usage may be no updated.
 
