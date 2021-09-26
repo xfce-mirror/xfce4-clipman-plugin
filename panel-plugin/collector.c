@@ -81,7 +81,8 @@ static void             cb_request_text                     (GtkClipboard *clipb
                                                              ClipmanCollector *collector);
 
 /*
- * Private method to maintain nb_next_item_secured and auto secure item collected from clipboard
+ * Private method to maintain nb_next_item_secured and auto secure item
+ * collected from clipboard.
  */
 static void
 _clipman_collector_add_item_text(ClipmanCollector *collector, const gchar *text)
@@ -190,6 +191,22 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
     }
 }
 
+
+ /**
+  * cb_request_text:
+  * @clipboard: a #GtkClipboard
+  * @text: a #gchar
+  * @collector: a #ClipmanCollector
+  *
+  * This is a callback function passed to #GtkClipboard that will be called
+  * when the clipboard text content is requested for reading. The current
+  * clipboard text value will be passed into @text by #GtkClipboard.
+  * The new @text will be added to history and actions will be triggered
+  * if enable_actions is TRUE.
+  *
+  * Internal prev_text stores the value to avoid multiple actions triggered
+  * between default_clipboard and primary_clipboard?
+  */
 static void
 cb_request_text (GtkClipboard *clipboard,
                  const gchar *text,
