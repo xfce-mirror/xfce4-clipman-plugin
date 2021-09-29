@@ -49,7 +49,7 @@ struct _ClipmanHistoryPrivate
   gboolean                      reorder_items;
   // handling index in a circular buffer of pointer to GList item
   GList                       **indexes;
-  GList                        *next_free_index;
+  GList                       **next_free_index;
   ClipmanHistoryId              max_id_value;
 };
 
@@ -110,7 +110,8 @@ _clipman_history_indexes_reset_array (ClipmanHistory *history, gboolean set_null
 
   if (set_null)
   {
-    for(int i = 0; i < history->priv->max_id_value; i++)
+    int i;
+    for(i = 0; i < history->priv->max_id_value; i++)
       {
         history->priv->indexes[i] = NULL;
       }
@@ -125,16 +126,78 @@ _clipman_history_indexes_init_array (ClipmanHistory *history)
 
   // init with NULL pointers
   history->priv->indexes = g_slice_alloc0 (sizeof(GList*) * history->priv->max_id_value);
-  _clipman_history_indexes_init_array (history, FALSE);
+  _clipman_history_indexes_reset_array (history, FALSE);
 }
+
+static void
+_clipman_history_resize_history(ClipmanHistory *history, guint new_history_size)
+{
+  if (new_history_size == history->priv->max_texts_in_history)
+    return;
+
+  if (new_history_size > history->priv->max_texts_in_history)
+  {
+    // enlarge history
+    guint i;
+    guint next_free_index_id = history->priv->next_free_index - history->priv->indexes;
+
+    // copy indexes to a new larger array
+    history->priv->indexes = g_realloc (history->priv->indexes,
+                                        sizeof(GList*) * new_history_size);
+    // fatal error cannot realloac indexes
+    if (history->priv->indexes == NULL)
+      g_assert_not_reached ();
+
+    // init to NULL enlarged history indexes
+    for (i = history->priv->max_id_value; i < new_history_size; i++)
+      {
+        history->priv->indexes[i] = NULL;
+      }
+
+    history->priv->next_free_index = history->priv->indexes + next_free_index_id;
+    history->priv->max_id_value = new_history_size;
+    history->priv->max_texts_in_history = new_history_size;
+  }
+  else
+  {
+    // shrink history
+    GList *link, *prev;
+    guint nb_item_to_delete = history->priv->max_texts_in_history - new_history_size;
+
+    // free all items from the end of the list
+    for (link = history->priv->last_item; link != NULL; link = prev)
+      {
+        // saving prev as the element will be deleted
+        prev = link->prev;
+        // history->priv->next_free_index is updated by the deletion
+        clipman_history_delete_item_by_pointer(history, link);
+        nb_item_to_delete--;
+
+        if (nb_item_to_delete == 0)
+          break;
+      }
+
+
+    // We keep indexes at the same memory as some recent element of the history
+    // may have higher index values. Was: max_id_value > new_history_size
+    // There's some few wasted memory here, which could be realloaced on later
+    // larger resizing. See non-reallocation of higher index ID in
+    // clipman_history_delete_item_by_pointer().
+    history->priv->max_id_value = new_history_size;
+    history->priv->max_texts_in_history = new_history_size;
+  }
+
+}
+
 
 static void
 _clipman_history_ensure_free_place_for_type(ClipmanHistory *history,
                                             ClipmanHistoryType type,
                                             guint nb_free_place_request)
 {
-  int nb_free_place;
+  guint nb_free_place;
 
+  // max_texts_in_history stands for max items in history
   nb_free_place =   history->priv->max_texts_in_history
                   - history->priv->nb_items;
 
@@ -169,7 +232,10 @@ _clipman_history_ensure_free_place_for_type(ClipmanHistory *history,
                  && item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT )
              )
           {
-            DBG ("Delete oldest content from the history");
+            DBG ("Delete oldest content from the history, of type: %s, requested: %s",
+                 clipman_history_is_text_item(item) ? "TEXT" : "IMAGE",
+                 type == CLIPMAN_HISTORY_TYPE_TEXT ? "TEXT" : "IMAGE"
+                );
             clipman_history_delete_item_by_pointer (history, link);
             nb_free_place++;
           }
@@ -184,9 +250,6 @@ static void
 _clipman_history_add_item (ClipmanHistory *history,
                            ClipmanHistoryItem *item)
 {
-  GList *link;
-  ClipmanHistoryItem *_item;
-
   /* Prepend item to start of the history */
   history->priv->items = g_list_prepend (history->priv->items, item);
   // chain the indexes pointer to the new item in the GList
@@ -194,6 +257,10 @@ _clipman_history_add_item (ClipmanHistory *history,
   history->priv->item_to_restore = item;
 
   history->priv->nb_items++;
+  if (clipman_history_is_text_item(item))
+      history->priv->nb_texts++;
+  else if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+      history->priv->nb_images++;
 
   /* Emit signal */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
@@ -258,36 +325,66 @@ __g_list_compare_texts (gconstpointer a,
 
 /**
  * = Private method =
- * _clipman_history_id_find_next
+ * _clipman_history_indexes_find_next:
  * @history:    a #ClipmanHistory
+ * @skip_index: a #GList pointer pointer to skip (current next_free_index not yet
+ *              allocated). @skip_index can be NULL, no index will be skipped it
+ *              becomes a forced search from the beginning.
  *
- * Returns: a #GList
+ * Returns: a #GList pointer pointer
  *
  * Loop into history->priv->indexes circular buffer starting at current
  * next_free_index for a free cell (content pointing to NULL). Return the pointer
- * to the first found or NULL in no place is left. history->priv->next_free_index
+ * to the first found or NULL if no place is left. history->priv->next_free_index
  * is left unchanged.
  */
-static GList*
-_clipman_history_id_find_next(ClipmanHistory *history)
+static GList**
+_clipman_history_indexes_find_next(ClipmanHistory *history, GList **skip_index)
 {
-  GList *next_free_index, *last_index;
+  GList **next_free_index, **last_index;
 
-  if (   history->priv->max_id_value - history->priv->nb_free_index == 0
-      || history->priv->next_free_index == NULL)
+  // no place left in the indexes
+  if (   skip_index != NULL
+      && ( history->priv->max_id_value - history->priv->nb_items == 0
+      ||   history->priv->next_free_index == NULL )
+     )
     {
       return NULL;
     }
 
-  // there is some free cell so we shouldn't loop for ever.
-  next_free_index = history->priv->next_free_index;
   last_index = history->priv->indexes + (history->priv->max_id_value - 1);
-  while (*nb_free_index != NULL)
+  if (skip_index == NULL)
+  {
+    // search is forced from the beginning
+    next_free_index = history->priv->indexes;
+  }
+  else
+  {
+    next_free_index = history->priv->next_free_index;
+    if (next_free_index == skip_index)
+      {
+        if (next_free_index == last_index)
+            next_free_index = history->priv->indexes;
+        else
+            next_free_index ++;
+      }
+  }
+
+  // there should be some free cell so we shouldn't loop for ever.
+  while (*next_free_index != NULL)
     {
       if (next_free_index == last_index)
         {
-          // loop start at the beginning of our circular buffer
-          next_free_index = history->priv->indexes;
+          if (skip_index == NULL)
+            {
+              // we finished the scan from the beginning
+              break;
+            }
+          else
+            {
+              // loop start at the beginning of our circular buffer
+              next_free_index = history->priv->indexes;
+            }
         }
       else
         {
@@ -295,7 +392,10 @@ _clipman_history_id_find_next(ClipmanHistory *history)
         }
     }
 
-  return next_free_index;
+  // next_free_index shouldn't never be pointing to a non free cell
+  // but in case of skip_index == NULL the loop exit condition on last_item
+  // could be reached. This case is an error.
+  return *next_free_index == NULL ? next_free_index : NULL;
 }
 
 /**
@@ -317,13 +417,14 @@ _clipman_history_get_next_id(ClipmanHistory *history)
 {
   ClipmanHistoryId next_id;
   int nb_free_index;
-  GList *next_free_index;
+  GList **next_free_index;
 
   next_free_index = history->priv->next_free_index;
   nb_free_index = history->priv->max_id_value - history->priv->nb_items;
   if (nb_free_index <= 0 || next_free_index == NULL)
     {
       // error
+      DBG("_clipman_history_get_next_id() error: no free index");
       return 0;
     }
 
@@ -333,7 +434,10 @@ _clipman_history_get_next_id(ClipmanHistory *history)
   // move to the next free indexes in the buffer.
   if (nb_free_index > 0)
     {
-      history->priv->next_free_index = _clipman_history_id_find_next(history);
+      history->priv->next_free_index = _clipman_history_indexes_find_next(
+                                              history,
+                                              next_free_index
+                                              );
     }
   else
     {
@@ -419,7 +523,6 @@ clipman_history_add_text (ClipmanHistory *history,
   link = g_list_find_custom (history->priv->items, text, (GCompareFunc)__g_list_compare_texts);
   if (link != NULL)
     {
-      gboolean changed = FALSE;
       item = link->data;
       DBG ("Found a previous occurence for text: `%s' id: %d is_secure: %s",
           text,
@@ -430,7 +533,7 @@ clipman_history_add_text (ClipmanHistory *history,
         {
           // move the item in the first position of the GList
           history->priv->items = g_list_remove_link (history->priv->items, link);
-          history->priv->items = g_list_insert_before_link (history->priv->items, link);
+          history->priv->items = g_list_concat (link, history->priv->items);
         }
 
       // we force is_secure, if SECURE_TEXT is present on the new or the old
@@ -471,7 +574,6 @@ clipman_history_add_text (ClipmanHistory *history,
 
   // this last method will emit the changed signal for GUI
   _clipman_history_add_item (history, item);
-  history->priv->nb_texts++;
 
   return item->id;
 }
@@ -483,7 +585,7 @@ clipman_history_add_text (ClipmanHistory *history,
  *
  * Stores an image inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest image, if no image, then
- * the any oldest item.
+ * the any oldest item. It ensures that there's at most max_images_in_history.
  */
 void
 clipman_history_add_image (ClipmanHistory *history,
@@ -503,10 +605,18 @@ clipman_history_add_image (ClipmanHistory *history,
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
-  _clipman_history_ensure_free_place_for_type(history, CLIPMAN_HISTORY_TYPE_IMAGE, 1);
+  if (history->priv->nb_images >= history->priv->max_images_in_history)
+    {
+      _clipman_history_ensure_free_place_for_type(history, CLIPMAN_HISTORY_TYPE_IMAGE, 1);
+    }
+  else
+    {
+      // we can put more image in the history so we remove text item, if needed
+      _clipman_history_ensure_free_place_for_type(history, CLIPMAN_HISTORY_TYPE_TEXT, 1);
+    }
+
   item->id = _clipman_history_get_next_id(history);
   _clipman_history_add_item (history, item);
-  history->priv->nb_images++;
 }
 
 /**
@@ -618,7 +728,7 @@ clipman_history_clear (ClipmanHistory *history, gboolean clear_only_secure_text)
       g_list_free (history->priv->items);
       history->priv->items = NULL;
       history->priv->item_to_restore = NULL;
-      _clipman_history_indexes_reset_array (history, TRUE):
+      _clipman_history_indexes_reset_array (history, TRUE);
 
       g_signal_emit (history, signals[CLEAR], 0);
     }
@@ -642,10 +752,11 @@ clipman_history_get (void)
   return singleton;
 }
 
-// Sylvain added public method
-
-/*
+/**
  * clipman_history_find_item_by_preview:
+ * @history: a #ClipmanHistory
+ * @preview_searched: a @gchar* the text of the preview we are looking for
+ *
  * Returns: a pointer to the real GList link element in the list (not a copy, so it can be deleted)
  */
 GList *
@@ -668,36 +779,31 @@ clipman_history_find_item_by_preview(ClipmanHistory *history, const gchar* previ
   // not found
   return NULL;
 }
-/*
+/**
+ * clipman_history_find_item_by_id:
+ * @history: a #ClipmanHistory
+ * @searched_id: a #ClipmanHistoryId in the indexes
+ *
  * Returns: a pointer to the real GList link element in the list (not a copy, so it can be deleted)
  */
 GList *
 clipman_history_find_item_by_id(ClipmanHistory *history, ClipmanHistoryId searched_id)
 {
-  GList *current;
-  ClipmanHistoryItem *_item;
+  // searched_id must be in the range of our circular buffer
+  if (searched_id < 1 || searched_id > history->priv->max_id_value)
+    return NULL;
 
-  /* search the item by its id in the list */
-  for (current = history->priv->items; current != NULL; current = current->next)
-    {
-      _item = current->data;
-      if (_item->id == searched_id)
-        {
-          return current;
-        }
-    }
-
-  // not found
-  return NULL;
+  // returns the element at position searched_id that can be NULL too.
+  return history->priv->indexes[searched_id-1];
 }
 
 gboolean
 clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
 {
-  GList *_link = clipman_history_find_item_by_id(history, id);
-  if (_link != NULL)
+  GList *link = clipman_history_find_item_by_id(history, id);
+  if (link != NULL)
     {
-      clipman_history_delete_item_by_pointer (history, _link);
+      clipman_history_delete_item_by_pointer (history, link);
       return TRUE;
     }
   else
@@ -707,36 +813,58 @@ clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
 }
 
 void
-clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *_link)
+clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *link)
 {
   ClipmanHistoryItem *item;
+  GList **free_index;
 
-  item = _link->data;
+  item = link->data;
 
-  // make the item_id available in the circular buffer
-  history->priv->next_free_index = history->priv->indexes + (item->id-1);
-  *(history->priv->next_free_index) = NULL;
+  // make the index at position item->id available in the circular buffer
+  free_index = history->priv->indexes + (item->id-1);
+  *free_index = NULL;
+  if (history->priv->next_free_index == NULL)
+    {
+      // we freeed the last element, so it becomes the new next_free_index
+      // or we look for lower indexes at the beginning of the circular buffer.
+
+      if (item->id > history->priv->max_id_value)
+      {
+        // Dont reallocate such higher ID, they have been kept by convinience
+        // but are now larger than the history size. As we are at history full
+        // but with higher ID it should have some free ID left at lower value.
+        history->priv->next_free_index = _clipman_history_indexes_find_next(history, NULL);
+
+        // fatal error
+        if (history->priv->next_free_index == NULL)
+          g_assert_not_reached ();
+      }
+      else
+      {
+        history->priv->next_free_index = free_index;
+      }
+    }
 
   if (clipman_history_is_text_item (item))
     {
       history->priv->nb_texts--;
     }
-  else if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+  else if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
     {
       history->priv->nb_images--;
     }
 
-  // free memory used by the element pointed in the list
+  // free memory used by the item pointed in the list
   __clipman_history_item_free (item);
 
   // update our last_item pointer
-  if (_link == history->priv->last_item)
+  if (link == history->priv->last_item)
     {
-      history->priv->last_item = _link->prev;
+      history->priv->last_item = link->prev;
     }
 
   // this will eventually update the list first item pointer
-  history->priv->items = g_list_delete_link (history->priv->items, _link);
+  history->priv->items = g_list_delete_link (history->priv->items, link);
   history->priv->nb_items--;
 
   /* Emit signal for redraw menu */
@@ -840,15 +968,16 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                          "Always push last clipboard content to the top of the history",
                                                          DEFAULT_REORDER_ITEMS,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
-  // TODO: g_object_class_install_property with max_id_value ==> Sed clipman_history_init()
+  // TODO: g_object_class_install_property with max_id_value ==> Set in clipman_history_init()
 }
 
+// clipman_history_init() is called automatically by clipman_history_class_init
+// but the value are not set yet
 static void
 clipman_history_init (ClipmanHistory *history)
 {
   history->priv = clipman_history_get_instance_private (history);
   history->priv->item_to_restore = NULL;
-  _clipman_history_indexes_init_array (history);
 }
 
 static void
@@ -869,7 +998,23 @@ clipman_history_set_property (GObject *object,
   switch (property_id)
     {
     case MAX_TEXTS_IN_HISTORY:
-      priv->max_texts_in_history = g_value_get_uint (value);
+      {
+        guint new_history_size = g_value_get_uint (value);
+        ClipmanHistory *history = CLIPMAN_HISTORY (object);
+
+        if ( priv->next_free_index == NULL)
+          {
+            // first time creating the index
+            priv->max_texts_in_history = new_history_size;
+            priv->max_id_value = new_history_size;
+            _clipman_history_indexes_init_array(history);
+          }
+        else
+          {
+            // history changed, we adapt to the new size
+            _clipman_history_resize_history(history, new_history_size);
+          }
+      }
       break;
 
     case MAX_IMAGES_IN_HISTORY:

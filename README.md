@@ -185,7 +185,9 @@ Don't forget to install the lovely colored emoji font!  😀
 
 ```
 sudo apt install xfce4-dev-tools libgtk-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev fonts-emojione
-./autogen.sh --enable-debug
+# enagle debug for compilling
+export CFLAGS=""
+./autogen.sh --enable-debug=full
 make
 # prefix in /usr/local by default, so it may require sudo to work
 make install
@@ -263,6 +265,7 @@ etc.
 
 * What signal to emmit when a single item is removed?
 * What is the dbus: session bus: org.xfce.clipman?
+* were to put `_clipman_history_indexes_init_array()`?
 
 ## D-Bus method API
 

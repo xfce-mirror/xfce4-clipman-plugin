@@ -33,7 +33,7 @@ typedef enum
   CLIPMAN_HISTORY_TYPE_SECURE_TEXT,
 } ClipmanHistoryType;
 
-typedef gushort ClipmanHistoryId;
+typedef guint16 ClipmanHistoryId;
 typedef struct _ClipmanHistoryItem ClipmanHistoryItem;
 struct _ClipmanHistoryItem
 {
