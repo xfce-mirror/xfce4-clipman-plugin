@@ -295,7 +295,7 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
   GtkWidget *error_dialog;
   GtkWidget *mi = GTK_WIDGET (user_data);
 
-  if (g_strcmp0 (gtk_menu_item_get_label (GTK_MENU_ITEM (mi)), "_Show full history...") == 0)
+  if (g_strcmp0 (gtk_menu_item_get_label (GTK_MENU_ITEM (mi)), _("_Show full history...")) == 0)
     g_spawn_command_line_async ("xfce4-clipman-history", &error);
   else
     g_spawn_command_line_async ("xfce4-clipman-settings", &error);
