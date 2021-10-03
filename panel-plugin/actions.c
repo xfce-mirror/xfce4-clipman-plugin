@@ -487,9 +487,9 @@ clipman_actions_add (ClipmanActions *actions,
   GRegex *_regex;
   gchar *regex_anchored;
 
-  g_return_val_if_fail (G_LIKELY (action_name != NULL), FALSE);
-  g_return_val_if_fail (G_LIKELY (command_name != NULL), FALSE);
-  g_return_val_if_fail (G_LIKELY (command != NULL), FALSE);
+  g_return_val_if_fail (action_name != NULL, FALSE);
+  g_return_val_if_fail (command_name != NULL, FALSE);
+  g_return_val_if_fail (command != NULL, FALSE);
 
   l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
 

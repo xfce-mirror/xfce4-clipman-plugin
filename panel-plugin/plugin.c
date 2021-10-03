@@ -340,7 +340,7 @@ plugin_about (MyPlugin *plugin)
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
-                         "copyright", "Copyright © 2003-2016 The Xfce development team",
+                         "copyright", "Copyright © 2003-2021 The Xfce development team",
                          "license", license,
                          "website", "https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin",
                          "website-label", "docs.xfce.org",
