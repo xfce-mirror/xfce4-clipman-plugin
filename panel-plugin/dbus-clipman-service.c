@@ -53,6 +53,11 @@ static const gchar clipman_dbus_introspection_xml[] =
   "      <arg type='q' name='nb_next_item_secured' direction='in'/>"
   "      <arg type='b' name='result' direction='out'/>"
   "    </method>"
+  "    <method name='resize_history'>"
+  "      <annotation name='org.gtk.GDBus.Annotation' value='change the size of the actual history in memory'/>"
+  "      <arg type='q' name='new_size' direction='in'/>"
+  "      <arg type='s' name='result' direction='out'/>"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -206,31 +211,6 @@ clipman_dbus_method_get_item_by_id(
   return TRUE;
 }
 
-// delete item helpers
-
-// used to store our user argument
-typedef struct
-{
-  ClipmanCollector *collector;
-  gchar *decoded_secure_text;
-} ClipmanCallbackClearClipboard;
-
-static void
-clipman_dbus_callback_clipboard_request_text (
-                         GtkClipboard *clipboard,
-                         const gchar *text,
-                         ClipmanCallbackClearClipboard *args)
-{
-  if (text == NULL || text[0] == '\0')
-    return;
-
-  if(g_strcmp0(text, args->decoded_secure_text) == 0)
-  {
-    clipman_collector_set_is_restoring(args->collector);
-    gtk_clipboard_set_text (clipboard, "", 1);
-  }
-}
-
 static gboolean
 clipman_dbus_method_delete_item_by_id(
                     GVariant              *parameters,
@@ -257,24 +237,29 @@ clipman_dbus_method_delete_item_by_id(
       if (item->type == CLIPMAN_HISTORY_TYPE_SECURE_TEXT)
         {
           // ensure clearing clipboard(s), if it was the same value
-          ClipmanCallbackClearClipboard args;
           GtkClipboard *clipboard;
+          gchar *text, *decoded_secure_text;
+          int i;
+          GdkAtom selection[] = { GDK_SELECTION_CLIPBOARD, GDK_SELECTION_PRIMARY };
+          ClipmanCollector *collector;
 
-          args.collector = clipman_collector_get();
-          args.decoded_secure_text = clipman_secure_text_decode(item->content.text);
+          collector = clipman_collector_get();
+          decoded_secure_text = clipman_secure_text_decode(item->content.text);
 
-          clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-          gtk_clipboard_request_text (
-              clipboard,
-              (GtkClipboardTextReceivedFunc)clipman_dbus_callback_clipboard_request_text,
-              &args);
-
-          // also check primary
-          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-          gtk_clipboard_request_text (
-              clipboard,
-              (GtkClipboardTextReceivedFunc)clipman_dbus_callback_clipboard_request_text,
-              &args);
+          for (i = 0; i < 2; i++)
+          {
+            clipboard = gtk_clipboard_get (selection[i]);
+            text = gtk_clipboard_wait_for_text (clipboard);
+            if (text != NULL)
+            {
+              if(text[0] != '\0' && g_strcmp0(text, decoded_secure_text) == 0)
+              {
+                clipman_collector_set_is_restoring (collector);
+                gtk_clipboard_set_text (clipboard, "", 1);
+                g_free (text);
+              }
+            }
+          }
         }
       clipman_history_delete_item_by_pointer(history, _link);
       result = TRUE;
@@ -400,6 +385,47 @@ clipman_dbus_method_collect_next_item_secure(
 
   return TRUE;
 }
+
+static gboolean
+clipman_dbus_method_resize_history(
+                    GVariant              *parameters,
+                    GDBusMethodInvocation *invocation)
+{
+  guint16 new_history_size;
+  ClipmanHistory *history;
+  ClipmanHistoryResizeResult r;
+  gchar *response;
+
+  g_variant_get (parameters, "(q)", &new_history_size);
+  history = clipman_history_get();
+  r = clipman_history_set_history_size(history, new_history_size);
+
+  switch(r.resize_status)
+    {
+    case CLIPMAN_HISTORY_SIZE_SHRINK:
+      response = "shrinked";
+      break;
+    case CLIPMAN_HISTORY_SIZE_ENLARGE:
+      response = "enlarged";
+      break;
+    case CLIPMAN_HISTORY_SIZE_UNCHANGED:
+      response = "unchanged";
+      break;
+    default:
+      response = "error";
+      break;
+    }
+
+  response = g_strdup_printf ("%s history_size %d => %d",
+                              response,
+                              r.old_history_size,
+                              r.max_texts_in_history);
+
+  g_dbus_method_invocation_return_value (invocation,
+                                         g_variant_new ("(s)", response));
+
+  return TRUE;
+}
 // mapping table: map DBus method_name from xml to function pointer
 ClipmanDbusMethod clipman_dbus_methods[] =
 {
@@ -410,6 +436,7 @@ ClipmanDbusMethod clipman_dbus_methods[] =
   { .name  =  "clear_history",             .call  =  clipman_dbus_method_clear_history            },
   { .name  =  "set_secure_by_id",          .call  =  clipman_dbus_method_set_secure_by_id         },
   { .name  =  "collect_next_item_secure",  .call  =  clipman_dbus_method_collect_next_item_secure },
+  { .name  =  "resize_history",            .call  =  clipman_dbus_method_resize_history           },
   { .name  =  NULL,                        .call  =  NULL }
 };
 

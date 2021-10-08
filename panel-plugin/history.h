@@ -51,6 +51,21 @@ struct _ClipmanHistoryItem
   ClipmanHistoryId          id;
 };
 
+typedef enum
+{
+  CLIPMAN_HISTORY_SIZE_CREATE = 1,
+  CLIPMAN_HISTORY_SIZE_SHRINK,
+  CLIPMAN_HISTORY_SIZE_ENLARGE,
+  CLIPMAN_HISTORY_SIZE_UNCHANGED
+} ClipmanHistoryResizeStatus;
+
+typedef struct
+{
+  ClipmanHistoryResizeStatus resize_status;
+  guint old_history_size;
+  guint max_texts_in_history;
+} ClipmanHistoryResizeResult;
+
 /*
  * ClipmanHistory
  */
@@ -111,5 +126,6 @@ void                        clipman_history_delete_item_by_pointer   (ClipmanHis
 gboolean                    clipman_history_change_secure_text_state (ClipmanHistory * history,
                                                                       gboolean secure, ClipmanHistoryItem *item);
 gboolean                    clipman_history_is_text_item             (ClipmanHistoryItem *item);
-
+ClipmanHistoryResizeResult  clipman_history_set_history_size         (ClipmanHistory *history,
+                                                                      guint size);
 #endif /* !__CLIPMAN_HISTORY_H__ */

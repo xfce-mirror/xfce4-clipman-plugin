@@ -14,6 +14,7 @@
 #        ./clipman_cli.sh set_secure  ITEM_ID
 #        ./clipman_cli.sh set_clear_text ITEM_ID
 #        ./clipman_cli.sh collect_secure [NUM_COLLECTED_ITEM_TO_SECURE]
+#        ./clipman_cli.sh set_history_size [SIZE]
 #
 # Arguments:
 #   TEXT_ITEM_VALUE               string to add to history.
@@ -23,6 +24,7 @@
 #                                 will be set secured by clipman automatically.
 #                                 Useful for keyboard shortcut before copying
 #                                 [default: 1]
+#   SIZE                          unit16 the new size between 5 and 5000.
 #
 # See also case bellow, usage may be no updated.
 
@@ -93,6 +95,9 @@ case $action in
       nb_next_item_secured=$1
     fi
     call_dbus collect_next_item_secure uint16:$nb_next_item_secured
+    ;;
+  set_history_size|resize_history)
+    call_dbus resize_history uint16:$1
     ;;
   *)
     >&2 echo "unknown method: $action"
