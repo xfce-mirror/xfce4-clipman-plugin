@@ -293,12 +293,9 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
 {
   GError *error = NULL;
   GtkWidget *error_dialog;
-  GtkWidget *mi = GTK_WIDGET (user_data);
+  gchar *command = user_data;
 
-  if (g_strcmp0 (gtk_menu_item_get_label (GTK_MENU_ITEM (mi)), "_Show full history...") == 0)
-    g_spawn_command_line_async ("xfce4-clipman-history", &error);
-  else
-    g_spawn_command_line_async ("xfce4-clipman-settings", &error);
+  g_spawn_command_line_async (command, &error);
 
   if (error != NULL)
   {
@@ -596,7 +593,7 @@ clipman_menu_init (ClipmanMenu *menu)
     {
       mi = gtk_menu_item_new_with_mnemonic (_("_Show full history..."));
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-      g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
+      g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-history");
     }
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
@@ -609,7 +606,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
   mi = gtk_menu_item_new_with_mnemonic (_("_Clipman settings..."));
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-  g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), mi);
+  g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-settings");
 
   /* Show all the items */
   gtk_widget_show_all (GTK_WIDGET (menu));
