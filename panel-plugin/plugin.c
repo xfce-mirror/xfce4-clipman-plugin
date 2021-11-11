@@ -125,6 +125,8 @@ plugin_register (gboolean panel_plugin)
   plugin->collector = clipman_collector_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
+  xfconf_g_property_bind (plugin->channel, "/settings/persistent-primary-clipboard",
+                          G_TYPE_BOOLEAN, plugin->collector, "persistent-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/history-ignore-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "history-ignore-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
