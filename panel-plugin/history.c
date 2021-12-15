@@ -881,36 +881,52 @@ clipman_history_delete_item_by_id(ClipmanHistory *history, ClipmanHistoryId id)
     }
 }
 
+/**
+ * clipman_history_delete_item_by_pointer:
+ * This is the mail deleting item entry point. Everything must be maintained by
+ * this function when deleting an item in the list:
+ *   items the GList head
+ *   counters: nb_items, nb_texts, nb_images, etc.
+ *   last_item the GList queue
+ *   item_to_restore
+ *   indexes[] pointers
+ *   next_free_index
+ *
+ * @history a #ClipmanHistory
+ * @link    the @GList pointer that going to be removed (must exists)
+ */
 void
 clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *link)
 {
   ClipmanHistoryItem *item;
   GList **free_index;
+  ClipmanHistoryPrivate *priv;
 
+  priv = history->priv;
   item = link->data;
 
   // make the index at position item->id available in the circular buffer
-  free_index = history->priv->indexes + (item->id-1);
+  free_index = priv->indexes + (item->id-1);
   *free_index = NULL;
-  if (history->priv->next_free_index == NULL)
+  if (priv->next_free_index == NULL)
     {
       // we freeed the last element, so it becomes the new next_free_index
       // or we look for lower indexes at the beginning of the circular buffer.
 
-      if (item->id > history->priv->max_texts_in_history)
+      if (item->id > priv->max_texts_in_history)
       {
         // Dont reallocate such higher ID, they have been kept by convinience
         // but are now larger than the history size.
-        if (history->priv->nb_items <= history->priv->max_texts_in_history)
+        if (priv->nb_items <= priv->max_texts_in_history)
           {
             // If the history is not full there should have some free lower ID
             // left at the begining of the history.
-            history->priv->next_free_index = _clipman_history_indexes_find_next(
+            priv->next_free_index = _clipman_history_indexes_find_next(
                                                     history,
                                                     TRUE,
                                                     NULL);
             // fatal error
-            if (history->priv->next_free_index == NULL)
+            if (priv->next_free_index == NULL)
               g_assert_not_reached ();
           }
         // else
@@ -921,32 +937,46 @@ clipman_history_delete_item_by_pointer(ClipmanHistory *history, GList *link)
       {
         // when called from _clipman_history_resize_history() during the deletion
         // next_free_index may stay NULL until some free place becomes  available
-        if (history->priv->nb_items <= history->priv->max_texts_in_history)
-          history->priv->next_free_index = free_index;
+        if (priv->nb_items <= priv->max_texts_in_history)
+          priv->next_free_index = free_index;
       }
+    }
+
+  if (priv->nb_items > 1 && priv->item_to_restore == item)
+    {
+      if (link != priv->items)
+        priv->item_to_restore = priv->items->data;
+      else
+        // as we have nb_items > 1, there should be a next
+        priv->item_to_restore = priv->items->next->data;
+    }
+  else
+    {
+      // GList will become empty
+      priv->item_to_restore = NULL;
     }
 
   if (clipman_history_is_text_item (item))
     {
-      history->priv->nb_texts--;
+      priv->nb_texts--;
     }
   else if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
     {
-      history->priv->nb_images--;
+      priv->nb_images--;
     }
 
   // free memory used by the item pointed in the list
   __clipman_history_item_free (item);
 
   // update our last_item pointer
-  if (link == history->priv->last_item)
+  if (link == priv->last_item)
     {
-      history->priv->last_item = link->prev;
+      priv->last_item = link->prev;
     }
 
   // this will eventually update the list first item pointer
-  history->priv->items = g_list_delete_link (history->priv->items, link);
-  history->priv->nb_items--;
+  priv->items = g_list_delete_link (priv->items, link);
+  priv->nb_items--;
 
   /* Emit signal for redraw menu */
   g_signal_emit (history, signals[ITEM_ADDED], 0);

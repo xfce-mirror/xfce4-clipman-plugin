@@ -331,3 +331,4 @@ Argument:
 
 Returns: uint16 number of deleted elements
 
+## remote debug gui and keyboard handler with xfce-test and gdb

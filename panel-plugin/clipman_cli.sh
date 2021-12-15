@@ -15,6 +15,8 @@
 #        ./clipman_cli.sh set_clear_text ITEM_ID
 #        ./clipman_cli.sh collect_secure [NUM_COLLECTED_ITEM_TO_SECURE]
 #        ./clipman_cli.sh set_history_size [SIZE]
+#        ./clipman_cli.sh get_last_item_id
+#        ./clipman_cli.sh check_new_secure_item_collected [DURATION_SECOND]
 #
 # Arguments:
 #   TEXT_ITEM_VALUE               string to add to history.
@@ -50,15 +52,31 @@ call_dbus()
       -e '$ s/"$//'
 }
 
+get_last_item_id()
+{
+  call_dbus list_history | tail -1 | awk '{print $1}'
+}
+
+get_item()
+{
+  local secure=false
+  if [[ $1 == '-s' ]]
+  then
+    secure=true
+    shift
+  fi
+  call_dbus get_item_by_id boolean:$secure uint16:$1
+}
+
 case $action in
   list)
     call_dbus list_history
     ;;
   get)
-    call_dbus get_item_by_id boolean:false uint16:$1
+    get_item "$1"
     ;;
   get_secure)
-    call_dbus get_item_by_id boolean:true uint16:$1
+    get_item -s "$1"
     ;;
   del)
     call_dbus delete_item_by_id uint16:$1
@@ -98,6 +116,40 @@ case $action in
     ;;
   set_history_size|resize_history)
     call_dbus resize_history uint16:$1
+    ;;
+  get_last_item_id)
+    get_last_item_id
+    ;;
+  check_new_secure_item_collected)
+    DURATION_SECOND=10
+		if [[ -n $1 ]]
+    then
+      DURATION_SECOND=$1
+    fi
+    last_id=$(get_last_item_id)
+    found=0
+		for i in $(seq $DURATION_SECOND)
+    do
+      new_id=$(get_last_item_id)
+      if [[ $last_id != $new_id ]]
+      then
+        found=1
+        break
+      fi
+      sleep .8
+    done
+    if [[ $found -eq 1 ]]
+    then
+      v=$(get_item "$new_id")
+      #echo "found: $new_id: $v"
+      if [[ ${v:0:1} == "⛔" ]]
+      then
+        # new secured item found
+        echo "$new_id"
+        exit 0
+      fi
+    fi
+    exit 1
     ;;
   *)
     >&2 echo "unknown method: $action"

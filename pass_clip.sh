@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#
+# PoC read password store to clipman secure
 
 DELETE_DELAY=30
 SCRIPT_DIR=$(dirname $(realpath $0))
