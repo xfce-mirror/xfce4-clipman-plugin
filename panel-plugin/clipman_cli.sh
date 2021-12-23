@@ -68,6 +68,29 @@ get_item()
   call_dbus get_item_by_id boolean:$secure uint16:$1
 }
 
+wait_for_new_item()
+{
+  # default duration is 10 sec
+  local duration_second=${1:-10}
+  local last_id=$(get_last_item_id)
+  local i new_id
+  local found=1
+  for i in $(seq $duration_second)
+  do
+    new_id=$(get_last_item_id)
+    if [[ $last_id != $new_id ]]
+    then
+      found=0
+      break
+    fi
+    new_id=""
+    sleep .8
+  done
+  echo "$new_id"
+  return $found
+}
+
+
 case $action in
   list)
     call_dbus list_history
@@ -78,7 +101,7 @@ case $action in
   get_secure)
     get_item -s "$1"
     ;;
-  del)
+  del|delete)
     call_dbus delete_item_by_id uint16:$1
     ;;
   add)
@@ -121,24 +144,8 @@ case $action in
     get_last_item_id
     ;;
   check_new_secure_item_collected)
-    DURATION_SECOND=10
-		if [[ -n $1 ]]
-    then
-      DURATION_SECOND=$1
-    fi
-    last_id=$(get_last_item_id)
-    found=0
-		for i in $(seq $DURATION_SECOND)
-    do
-      new_id=$(get_last_item_id)
-      if [[ $last_id != $new_id ]]
-      then
-        found=1
-        break
-      fi
-      sleep .8
-    done
-    if [[ $found -eq 1 ]]
+    new_id=$(wait_for_new_item "$1")
+    if [[ $? -eq 0 ]]
     then
       v=$(get_item "$new_id")
       #echo "found: $new_id: $v"
@@ -150,6 +157,9 @@ case $action in
       fi
     fi
     exit 1
+    ;;
+  wait_for_new_item)
+    wait_for_new_item "$1"
     ;;
   *)
     >&2 echo "unknown method: $action"
