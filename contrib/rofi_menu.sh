@@ -25,7 +25,8 @@ visual_notify()
 }
 
 SCRIPT_DIR=$(dirname $(realpath $0))
-clipman_cli=$SCRIPT_DIR/clipman_cli.sh
+clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
+transform_clipboard=$SCRIPT_DIR/transform_clipboard.py
 
 # filter options removing empty lines
 filtered_options=$(echo "$options" | sed -n -e '/^./p')
@@ -52,7 +53,7 @@ case $r in
     item_id=$($clipman_cli wait_for_new_item)
     if [[ $? -eq 0 ]]
     then
-      html_content=$($clipman_cli get $item_id | python3 ~/code/python/copy_paste_code/transform_clipboard.py)
+      html_content=$($clipman_cli get $item_id | python3 $transform_clipboard)
       $clipman_cli del $item_id
       echo "$html_content" | myclip
       visual_notify "new html content formated: $($clipman_cli get_last_item_id)"
