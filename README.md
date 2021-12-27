@@ -143,6 +143,8 @@ connection was broken.
 * discuss about stronger encryption for Secure Text
 * add deny list signature. We could avoid some signature (checksum) to be collected at all, or only as Secure Text.
 * Search clipman history by content, `clipman_cli search_id` `clipman_cli del -c "clear_text"`
+* ~~add demo/PoC `clipman_cli` (using rofi) for managing clipman remotely with keyboard shortcut (`secure_collect`,
+  notify, pass trough html formater, etc.)~~
 
 
 ### Security concern
