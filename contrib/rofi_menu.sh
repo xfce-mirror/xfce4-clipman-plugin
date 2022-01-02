@@ -24,6 +24,11 @@ visual_notify()
   fi
 }
 
+myclip()
+{
+  xclip -i -selection clipboard
+}
+
 SCRIPT_DIR=$(dirname $(realpath $0))
 clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
 transform_clipboard=$SCRIPT_DIR/transform_clipboard.py

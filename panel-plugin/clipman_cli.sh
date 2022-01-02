@@ -14,7 +14,7 @@
 #        ./clipman_cli.sh set_secure  ITEM_ID
 #        ./clipman_cli.sh set_clear_text ITEM_ID
 #        ./clipman_cli.sh collect_secure [NUM_COLLECTED_ITEM_TO_SECURE]
-#        ./clipman_cli.sh set_history_size [SIZE]
+#        ./clipman_cli.sh set_history_size SIZE
 #        ./clipman_cli.sh get_last_item_id
 #        ./clipman_cli.sh check_new_secure_item_collected [DURATION_SECOND]
 #

@@ -11,14 +11,16 @@ This fork implements the concept of: **Secure Text**
 
 This branch of clipman is a PoC (Proof of Concept) to experiment how we could handle `SECURE_TEXT`.
 Secure Text are special text clipboard Item that can be deleted or obfuscated in visual GUI or via
-Command Line Interface (cli).
+Command Line Interface (cli). The `clipman_cli` introduces IPC (InterProcess Communication) to talk
+to Clipman daemon/panel-plugin.
 
-This code come from an idea, from the following discussion on [xfce issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
+This code come from an idea, from the following discussion on
+[Clipman issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
 
-We are interested in a clipman feature that would handle password copied to the clipman history in a secure maner.
+We are interested in a Clipman feature that would handle password copied to the Clipman's history in a secure maner.
 Those Secure Text should not be exposed, and could be deleted automatically after a short period (30s for example).
 
-![image.png](./image.png)
+![clipman GUI history with Secure Text](./image.png)
 
 ## Demo text session output
 
@@ -62,13 +64,13 @@ $ ./clipman_cli.sh list
 13 mylogin@xfce.org
 ```
 
-## Sample code for autoremoving secure item after 30s
+## Sample code for autoremoving `SECURE_TEXT` after 30s
 
-More complete passwordstore bash sample can be found here: [pass_clip.sh](pass_clip.sh)
+More complete [passwordstore](https://www.passwordstore.org/) bash sample can be found here: [pass_clip.sh](contrib/ass_clip.sh)
 
 ```bash
 DELETE_DELAY=30
-# add a new Secure Item and grab the new inserted ID
+# add a new secure_text and grab the new inserted ID
 id=$($clipman_cli add -s "$clear_content" | awk '{print $2}')
 unset clear_content
 # start a backgroung task, that will delete the ID after the sleep
@@ -79,17 +81,18 @@ disown $!
 
 ## Some context and how came the Secure Text idea
 
-For now I'm using `pass` password manager + my own variant of dmenu shell script (was [https://github.com/Sylvain303/find_pass/blob/master/dmenupass_dual_clipboard.sh](https://github.com/Sylvain303/find_pass/blob/master/dmenupass_dual_clipboard.sh)).
+For now I'm using `pass` (aka [passwordstore](https://www.passwordstore.org/)), a password manager + my own variant of
+dmenu shell script ([https://github.com/Sylvain303/find_pass/blob/master/dmenupass_dual_clipboard.sh](https://github.com/Sylvain303/find_pass/blob/master/dmenupass_dual_clipboard.sh)).
 
 The script above also uses [rofi](https://github.com/davatorium/rofi) instead of `dmenu`, and it puts multiple entries in the
-clipboard, which is possible with a clipboard manager. But this disable the `pass` autoremoval delay of in the clipboard.
+clipboard, which is possible with a clipboard manager :wink:. But this disable the `pass` autoremoval delay of in the clipboard.
 
 Now, I'm also facing ISO 27001 certification, and I would like a more secure clipboard. And I would love to continue using clipman, too.
 
 Here is my contribution to handle secure clipboard. Not so secure, but with some features that avoid simple disclosure.
 
 * add a new `SECURE_TEXT` type in clipman, in addition of the existing image and text item storage
-* via a new command line interface, we manage the clipboard history:
+* via a new command line interface, we could manage the clipboard history:
   * delete an entry by ID: `xfce4-clipman-cli delete 12` (delete entry numbered 12 from history)
   * delete an entry by content: `xfce4-clipman-cli delete -c "$password_value"`
   * list entries: `xfce4-clipman-cli list` (output all text entries with ID as prefix)
@@ -102,8 +105,120 @@ timestamping and timer auto deletition item itself.
 
 At the time I started reading clipman code, there was a `xfce4-clipman-history` but
 this code cannot communicate with the clipman daemon/plugin data in memory.
-That was fixed by introducing a D-Bus API.
+That was fixed by introducing a D-Bus API that allows IPC.
 
+
+## Clipman cli use-cases
+
+This section describes some use case that are handled by introducing IPC/DBus + `clipman_cli` or using `secure_text`.
+
+### use-case: `secure_text` non disclosure during remote screen sharing session
+
+During screen sharing in a remote session, no new or previous password nor any
+sensitive data, should never be available on the screen. Though, you may have
+URL or some useful information in Clipman for the screen sharing meeting,
+and don't want to wipe the full history.
+
+So, sensitive information should be removed, either before entering the remote
+session, wiping screens and/or clipboard history.
+
+Or you could wish to have keystroke shortcut to do that too during the
+screen-share. Of course stop sharing screen doing your sensitive tasks and
+re-share is a good alternative too. Most of the time you will forgot and you
+could expose sensitive data, even without noticing it. Screen recording and
+screen picture will always betray your sensitive information, so information
+must not be show at all cost by any tools that is historying your actions.
+
+If you can instruct yourself to never use password on command line (which have
+history), it tends to be difficult to stop using clipboard manager, when you
+used too. Especially when you do a lot a sysadmin tasks, involving manipulating
+dozen of credentials each day.
+
+This also apply to direct screen viewing, above your shoulder.
+
+### use-case: password manager security chain
+
+Most password manager, if not all, uses clipboard to transmit and *hide*
+password. Clipboard manager breaks that chain because of the item are now in
+history. So we should evolve the clipboard manager to know about secure content
+and not to reveal by default. As password field in browser for example.
+
+Clipboard manager are external to clipboard programs/feature in OS/GUI
+environment. Here Clipman, is continuously watching (spying) the clipboard
+content. When new content arrives in the clipboard it is copied in Clipman's
+history. This history has a size and item are hold in FIFO style queue. Though
+reused history item can be kept in the history longer than others.
+
+The way an item enters in Clipman was only from watching clipboard content.
+There's no way to make distinction on the common text and sensitive text
+entering the clipboard. Item in clipboard has mime type though.
+
+One way to achieve the chain to be maintained, from Password manager to Clipman
+is to produce a way to feed Clipman directly with the sensible information. So
+Clipman will take care of hiding it and much more.
+
+IPC from Password manager to Clipman could be achieved in many way. One way is to provide cli helper on Clipman side, so
+the Password manager can change his path for pushing the password in to clipboard to push it to Clipman directly.
+
+IPC is achieved within Climap code, the external programs such as Password manager don't have to implement more than
+calling cli code.
+
+Example of using passwordstore Password manager are provided in [`pass_clip.sh`](contrib//pass_clip.sh)
+and see also [xfce-test tasting session section below](README_secure_item_dbus.md#test-the-poc-from-xfce-test)
+
+### use-case: secure collect
+
+A password could be pushed into the clipboard from a web interface (via your web browser) that you can't control. A cloud
+provider for example, generating credential. In that case, path of using `clipman_cli add -a "sensitive data"` isn't
+possible. Becase the data as already enterd into the clipboard as clear text, and consequenltly in Clipman's too.
+
+But as Clipman is watching our clipboard, a single key stroke could inform Clipman that the next item that
+will enter the clipboard must be secured.
+
+* `clipman_cli collect_secure` instructs Clipman to transform one next item into `secure_text`
+* external programm push its content to clipboard
+* Clipman detect the change in clipboard and secure the item immediately into its history (plus some safe cleanup
+  arround like remove selection clipboard or such)
+
+Other probable input could be a manual copy from: a teminal, log file, private messaging, burn after reading message, etc.
+
+We made a raw example using a [`rofi_menu.sh`](contrib/rofi_menu.sh) See `use-case: hacking clipboard history`
+
+### use-case: hacking clipboard history
+
+The benefit of having a Clipman cli cloud also brings more interesting feature, beyond or related to `secure_text`.
+
+For example, if you bind `F9` a new keyboard shortcut for changing clipman behavior, on the fly, to [`rofi_menu.sh`](contrib/rofi_menu.sh).
+You could run it from command line directly too.
+
+`rofi` is Quick and dirty way, to have a custom graphical menu on a single keystroke, for those who don't do GUI programming. :wink:
+
+This script give 3 choices:
+
+```shell
+🔐 secure next copy
+⚙️ html black box
+🗑️ clear secure items
+```
+
+The purpose of this script is just to show some sample on how to hack into clipman with IPC support via `clipman_cli`.
+
+An example has been produced too: "wrapping a HTML content into a HTML <table>". [transform_clipboard](contrib/transform_clipboard.py)
+
+This use-case happen to me: `xfce-terminal` as a right-click feature which is `Copy as HTML`. Which nicely transforms the
+selection into somewhat reproducing the actual coloring displayed on the terminal. But the generted HTML text is not
+suitable for direct paste to a mail client such Thunderbird for example.
+
+Though, Clipman have action, they are triggered by regular expression matching. Here the HTML text could by anything so
+can't be applyed to all HTML like clipboard content. It permits external script to manipulate Clipman history on single key
+prior to the copy.
+
+* hit `F9` run `rofi_menu.sh`
+* select `html black box` + enter
+* `rofi_menu.sh` continues watching clipboard though `clipman_cli` and will change it on the fly
+  * transform last entry and replace (delete + add) a new content
+
+etc.
 
 ## Roadmap in clipman modification
 
