@@ -365,7 +365,7 @@ Open another terminal to interract with cli.
 get a passwordstore entry via a small shell demo wrapper:
 
 ```
-./pass_clip.sh example2
+./contrib/pass_clip.sh example2
 ```
 
 play with D-Bus clipman shell wrapper

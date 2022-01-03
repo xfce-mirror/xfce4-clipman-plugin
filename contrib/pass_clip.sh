@@ -21,7 +21,7 @@ then
   shift
 fi
 
-clipman_cli=$SCRIPT_DIR/panel-plugin/clipman_cli.sh
+clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
 
 if [[ ! -x $clipman_cli ]]
 then
