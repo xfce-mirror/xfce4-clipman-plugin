@@ -2,11 +2,14 @@
 #
 # rofi menu for clipman_cli actions
 #
+# GUI interface for pre-defined action orchestrated via clipman_cli
+#
 
 options="
 🔐 secure next copy
-⚙️ html black box
+🔳 html black box
 🗑️ clear secure items
+⚙️ columnize last clipboard entry
 "
 
 visual_notify()
@@ -27,6 +30,11 @@ visual_notify()
 myclip()
 {
   xclip -i -selection clipboard
+}
+
+columnize_stdin_with_datatime()
+{
+  timeout 1s sed -e 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\)/\1_\2/g' | column -t
 }
 
 SCRIPT_DIR=$(dirname $(realpath $0))
@@ -74,6 +82,19 @@ case $r in
     fi
 
     visual_notify -s "$msg"
+    ;;
+  columnize)
+    item_id=$($clipman_cli get_last_item_id)
+    if [[ -n $item_id ]]
+    then
+      new_content=$($clipman_cli get $item_id | columnize_stdin_with_datatime)
+      if [[ $? -eq 0 ]]
+      then
+        $clipman_cli del $item_id
+        echo "$new_content" | myclip
+        visual_notify "last_item column formated: $($clipman_cli get_last_item_id)"
+      fi
+    fi
     ;;
   *)
     echo "nothing"
