@@ -9,14 +9,15 @@
 # gyeben <gyonkibendeguz@gmail.com>, 2016
 # gyeben <gyonkibendeguz@gmail.com>, 2014
 # PB, 2020
+# Robert Huszar, 2022
 # Attila SZERVÁC <sas@321.hu>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-07-06 05:27+0000\n"
-"Last-Translator: Gábor P.\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Robert Huszar, 2022\n"
 "Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -134,7 +135,7 @@ msgstr "A kiválasztások szinkronizálva lesznek az alapértelmezett vágólapp
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_QR-Code support"
-msgstr ""
+msgstr "_QR-Kód támogatás"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
