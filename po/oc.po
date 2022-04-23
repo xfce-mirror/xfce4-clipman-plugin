@@ -5,13 +5,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2014,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-12-29 06:49+0000\n"
-"Last-Translator: Quentin PAGÈS\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Quentin PAGÈS, 2022\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,7 +106,7 @@ msgstr "Sètz segur que volètz reïnicializar las accions a las valors per defa
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr ""
+msgstr "Paramètres de Clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:2
 #: ../panel-plugin/xfce4-clipman-history.c:441
@@ -407,7 +408,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:414
 #, c-format
 msgid "_Paste"
-msgstr ""
+msgstr "_Pegar"
 
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
