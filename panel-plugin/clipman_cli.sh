@@ -17,6 +17,7 @@
 #        ./clipman_cli.sh set_history_size SIZE
 #        ./clipman_cli.sh get_last_item_id
 #        ./clipman_cli.sh check_new_secure_item_collected [DURATION_SECOND]
+#        ./clipman_cli.sh generate_password
 #
 # Arguments:
 #   TEXT_ITEM_VALUE               string to add to history.
@@ -90,6 +91,74 @@ wait_for_new_item()
   return $found
 }
 
+# enforce silly rules for strong password
+# must have a digit
+# must have a Capital letter
+# must have a special char
+generate_password()
+{
+  local p=$(pwqgen)
+  local special='!@#$%*=+&_'
+  local re_special="[$special]"
+  local nb=${#special}
+  local attempt=0
+  local max_loop=3
+
+  while true
+  do
+    let attempt+=1
+    if [[ $attempt -gt $max_loop ]]
+    then
+      return 1
+    fi
+
+    if [[ ! $p =~ [A-Z] ]]
+    then
+      # Capitalize first letter
+      local first=${p:0:1}
+      p="${first^^}${p:1}"
+      continue
+    fi
+
+    if [[ ! $p =~ [0-9] ]]
+    then
+      # append digit
+      local rand_digit=$((($RANDOM * $RANDOM) % 10))
+      p="$p$rand_digit"
+      continue
+    fi
+
+    if [[ ! $p =~ $re_special ]]
+    then
+      # append
+      local rand_index=$((($RANDOM * $RANDOM) % $nb))
+      p="$p${special:$rand_index:1}"
+      continue
+    fi
+
+    break
+  done
+
+  echo $p
+  return 0
+}
+
+add_clip()
+{
+    local secure=false
+    local input_text
+    if [[ $1 == '-s' ]]
+    then
+      secure=true
+      shift
+      # encode secure_text
+      input_text="⛔$(echo -n "$1" | base64)"
+    else
+      input_text="$1"
+    fi
+    call_dbus add_item boolean:$secure string:"$input_text"
+}
+
 
 case $action in
   list)
@@ -105,17 +174,7 @@ case $action in
     call_dbus delete_item_by_id uint16:$1
     ;;
   add)
-    secure=false
-    if [[ $1 == '-s' ]]
-    then
-      secure=true
-      shift
-      # encode secure_text
-      input_text="⛔$(echo -n "$1" | base64)"
-    else
-      input_text="$1"
-    fi
-    call_dbus add_item boolean:$secure string:"$input_text"
+    add_clip "$@"
     ;;
   clear)
     call_dbus clear_history boolean:false
@@ -160,6 +219,9 @@ case $action in
     ;;
   wait_for_new_item)
     wait_for_new_item "$1"
+    ;;
+  generate_password)
+    add_clip -s "$(generate_password)"
     ;;
   *)
     >&2 echo "unknown method: $action"

@@ -10,21 +10,24 @@ The purpose is only to demonstrate some possible usage.
 This fork implements the concept of: **Secure Text**
 
 This branch of clipman is a PoC (Proof of Concept) to experiment how we could handle `SECURE_TEXT`.
-Secure Text are special text clipboard Item that can be deleted or obfuscated in visual GUI or via
+
+Secure Text are special text clipboard Item that can be deleted or obfuscated by using visual GUI or via
 Command Line Interface (cli). The `clipman_cli` introduces IPC (InterProcess Communication) to talk
 to Clipman daemon/panel-plugin.
 
 This code come from an idea, from the following discussion on
 [Clipman issue #25](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/25)
 
-We are interested in a Clipman feature that would handle password copied to the Clipman's history in a secure maner.
-Those Secure Text should not be exposed, and could be deleted automatically after a short period (30s for example).
+We are presenting a new Clipman feature that would handle password copied to the Clipman's history in a secure maner.
+Those Secure Text should never be exposed, and could be deleted automatically after a short period (30s for example).
 
 ![clipman GUI history with Secure Text](./image.png)
 
 ## Demo text session output
 
 Sample code in [panel-plugin/demo.sh](panel-plugin/demo.sh).
+
+This demo interracts with Clipman via `clipman_cli`.
 
 ```
 $ ./clipman_cli.sh list
@@ -66,7 +69,7 @@ $ ./clipman_cli.sh list
 
 ## Sample code for autoremoving `SECURE_TEXT` after 30s
 
-More complete [passwordstore](https://www.passwordstore.org/) bash sample can be found here: [pass_clip.sh](contrib/ass_clip.sh)
+More complete [passwordstore](https://www.passwordstore.org/) bash sample can be found here: [pass_clip.sh](contrib/pass_clip.sh)
 
 ```bash
 DELETE_DELAY=30
@@ -89,9 +92,10 @@ clipboard, which is possible with a clipboard manager :wink:. But this disable t
 
 Now, I'm also facing ISO 27001 certification, and I would like a more secure clipboard. And I would love to continue using clipman, too.
 
-Here is my contribution to handle secure clipboard. Not so secure, but with some features that avoid simple disclosure.
+Here is my initial idea in ordre to contribute, and so having introduced a more secure Clipman. Not so secure, but with
+some features that avoid simple disclosure.
 
-* add a new `SECURE_TEXT` type in clipman, in addition of the existing image and text item storage
+* add a new `SECURE_TEXT` type in Clipman, in addition of the existing IMAGE and TEXT item storage
 * via a new command line interface, we could manage the clipboard history:
   * delete an entry by ID: `xfce4-clipman-cli delete 12` (delete entry numbered 12 from history)
   * delete an entry by content: `xfce4-clipman-cli delete -c "$password_value"`
@@ -99,9 +103,9 @@ Here is my contribution to handle secure clipboard. Not so secure, but with some
   * set an item of the clipman history as `secure`: `xfce4-clipman-cli secure 123` (make item number 123 as secure)
   * insert a Secure Text directly: `xfce4-clipman-cli add --secure "$password"` (output the new ID inserted item)
 
-History deletion could be managed outside clipman by secure storage manager,
-like `pass` extension, or shell wrapper helper. So clipman don't have to handle
-timestamping and timer auto deletition item itself.
+This way, the Clipman's history deletion could be managed outside clipman by secure storage manager,
+like a `pass` extension, or shell wrapper helper (See [pass_clip.sh](contrib/pass_clip.sh) for an example).
+So clipman don't have to handle timestamping and timer auto deletition item itself.
 
 At the time I started reading clipman code, there was a `xfce4-clipman-history` but
 this code cannot communicate with the clipman daemon/plugin data in memory.
@@ -169,14 +173,14 @@ and see also [xfce-test tasting session section below](README_secure_item_dbus.m
 ### use-case: secure collect
 
 A password could be pushed into the clipboard from a web interface (via your web browser) that you can't control. A cloud
-provider for example, generating credential. In that case, path of using `clipman_cli add -a "sensitive data"` isn't
-possible. Becase the data as already enterd into the clipboard as clear text, and consequenltly in Clipman's too.
+provider for example, generating credential. In that case, path of using `clipman_cli add -s "sensitive data"` isn't
+possible. Because the data as already entered into the clipboard as clear text, and consequenltly in Clipman's too.
 
-But as Clipman is watching our clipboard, a single key stroke could inform Clipman that the next item that
+But as Clipman is watching our clipboard, a single key stroke befoce the copy, could inform Clipman that the next item that
 will enter the clipboard must be secured.
 
 * `clipman_cli collect_secure` instructs Clipman to transform one next item into `secure_text`
-* external programm push its content to clipboard
+* external programm push its content to clipboard or CTRL-C
 * Clipman detect the change in clipboard and secure the item immediately into its history (plus some safe cleanup
   arround like remove selection clipboard or such)
 
@@ -186,12 +190,12 @@ We made a raw example using a [`rofi_menu.sh`](contrib/rofi_menu.sh) See `use-ca
 
 ### use-case: hacking clipboard history
 
-The benefit of having a Clipman cli cloud also brings more interesting feature, beyond or related to `secure_text`.
+The benefit of having a Clipman cli cloud also brings more extended feature, beyond or related to `secure_text`.
 
 For example, if you bind `F9` a new keyboard shortcut for changing clipman behavior, on the fly, to [`rofi_menu.sh`](contrib/rofi_menu.sh).
-You could run it from command line directly too.
+Of course, you could run `rofi_menu.sh` from command line directly too.
 
-`rofi` is Quick and dirty way, to have a custom graphical menu on a single keystroke, for those who don't do GUI programming. :wink:
+`rofi` is Quick draft to show how to have a custom graphical menu on a single keystroke, for those who don't do GUI programming. :wink:
 
 This script give 3 choices:
 
@@ -209,14 +213,15 @@ This use-case happen to me: `xfce-terminal` as a right-click feature which is `C
 selection into somewhat reproducing the actual coloring displayed on the terminal. But the generted HTML text is not
 suitable for direct paste to a mail client such Thunderbird for example.
 
-Though, Clipman have action, they are triggered by regular expression matching. Here the HTML text could by anything so
-can't be applyed to all HTML like clipboard content. It permits external script to manipulate Clipman history on single key
-prior to the copy.
+Though, Clipman have actions, they are triggered by regular expression matching. Here the HTML text could by anything so
+can't be applyed to all HTML like clipboard content. Our IPC managed via script permits to manipulate Clipman history on single key
+prior to the copy, could also be coded to be after the copy of course.
 
 * hit `F9` run `rofi_menu.sh`
 * select `html black box` + enter
 * `rofi_menu.sh` continues watching clipboard though `clipman_cli` and will change it on the fly
   * transform last entry and replace (delete + add) a new content
+  * then uses `notify-send` on succes, so used get visual feedback
 
 etc.
 
