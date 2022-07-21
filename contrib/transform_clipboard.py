@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+#
+# this script is an stdin filter to stdout
+# it simply write the stdin content wrapper into an HTML
+# table in order to make the input looks like a dark terminal window.
+#
 
 import sys
 

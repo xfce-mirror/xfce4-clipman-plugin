@@ -5,8 +5,10 @@
 # GUI interface for pre-defined action orchestrated via clipman_cli
 #
 
+# actions code will be based on the first word of the following menu
 options="
 🔐 secure next copy
+  clean fancy UTF-8
 🔳 html black box
 🗑️ clear secure items
 ⚙️ columnize last clipboard entry
@@ -27,19 +29,43 @@ visual_notify()
   fi
 }
 
-myclip()
-{
-  xclip -i -selection clipboard
-}
-
 columnize_stdin_with_datatime()
 {
   timeout 1s sed -e 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\)/\1_\2/g' | column -t
 }
 
+replace_last_clipboard()
+{
+  local content="$1"
+  local msg="$2"
+  if [[ -z $msg ]]
+  then
+    msg="clipboard updated"
+  fi
+
+  local last_item=$($clipman_cli get_last_item_id)
+  local old_content=$($clipman_cli get $last_item)
+
+  if [[ $old_content != $content ]]
+  then
+    # cannot catch $? on local definition must be two line call
+    local new_id
+    new_id=$($clipman_cli add "$content" | awk '{print $2}')
+
+    if [[ $? -eq 0 ]]
+    then
+      $clipman_cli del $last_item
+      visual_notify "$msg: $new_id"
+    fi
+  else
+    visual_notify "unchanged"
+  fi
+}
+
 SCRIPT_DIR=$(dirname $(realpath $0))
 clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
 transform_clipboard=$SCRIPT_DIR/transform_clipboard.py
+remove_fancy_utf_8_char=$SCRIPT_DIR/remove_fancy_utf-8_char.py
 
 # filter options removing empty lines
 filtered_options=$(echo "$options" | sed -n -e '/^./p')
@@ -67,8 +93,7 @@ case $r in
     if [[ $? -eq 0 ]]
     then
       html_content=$($clipman_cli get $item_id | python3 $transform_clipboard)
-      $clipman_cli del $item_id
-      echo "$html_content" | myclip
+      replace_last_clipboard "$html_content"
       visual_notify "new html content formated: $($clipman_cli get_last_item_id)"
     fi
     ;;
@@ -83,17 +108,15 @@ case $r in
 
     visual_notify -s "$msg"
     ;;
+  clean)
+    replace_last_clipboard "$($clipman_cli get_clipboard | python3 $remove_fancy_utf_8_char)"
+    ;;
   columnize)
     item_id=$($clipman_cli get_last_item_id)
     if [[ -n $item_id ]]
     then
       new_content=$($clipman_cli get $item_id | columnize_stdin_with_datatime)
-      if [[ $? -eq 0 ]]
-      then
-        $clipman_cli del $item_id
-        echo "$new_content" | myclip
-        visual_notify "last_item column formated: $($clipman_cli get_last_item_id)"
-      fi
+      replace_last_clipboard "$new_content" "last_item column formated"
     fi
     ;;
   *)

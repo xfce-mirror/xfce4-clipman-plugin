@@ -159,6 +159,11 @@ add_clip()
     call_dbus add_item boolean:$secure string:"$input_text"
 }
 
+get_last_item_content()
+{
+  local last_id=$(get_last_item_id)
+  get_item $last_id
+}
 
 case $action in
   list)
@@ -222,6 +227,9 @@ case $action in
     ;;
   generate_password)
     add_clip -s "$(generate_password)"
+    ;;
+  get_last_item_content|get_clip|get_clipboard)
+    get_last_item_content
     ;;
   *)
     >&2 echo "unknown method: $action"
