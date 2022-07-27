@@ -8,7 +8,8 @@
 # actions code will be based on the first word of the following menu
 options="
 🔐 secure next copy
-  clean fancy UTF-8
+🚿 clean fancy UTF-8
+🔗 merge two entries
 🔳 html black box
 🗑️ clear secure items
 ⚙️ columnize last clipboard entry
@@ -118,6 +119,19 @@ case $r in
       new_content=$($clipman_cli get $item_id | columnize_stdin_with_datatime)
       replace_last_clipboard "$new_content" "last_item column formated"
     fi
+    ;;
+  merge)
+    last_item_id=$($clipman_cli get_last_item_id)
+    prev_last_item_id=$($clipman_cli get_last_item_id 1)
+    last_item=$($clipman_cli get $last_item_id)
+    prev_last_item=$($clipman_cli get $prev_last_item_id)
+    if [[ $prev_last_item  == http* ]]
+    then
+        new_value="$last_item $prev_last_item"
+    else
+        new_value="$prev_last_item $last_item"
+    fi
+    replace_last_clipboard "$new_value" "last two item merged"
     ;;
   *)
     echo "nothing"

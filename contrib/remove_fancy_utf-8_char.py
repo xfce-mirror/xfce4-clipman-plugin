@@ -9,7 +9,7 @@ import sys
 myinput = sys.stdin.read().strip()
 
 unwanted_chars = "☸ﴃ✖"
-replace_chars  = ">   x"
+replace_chars  = "»   x"
 
 out = myinput.translate(str.maketrans(unwanted_chars, replace_chars))
 print(out)

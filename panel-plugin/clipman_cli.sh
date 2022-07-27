@@ -15,7 +15,7 @@
 #        ./clipman_cli.sh set_clear_text ITEM_ID
 #        ./clipman_cli.sh collect_secure [NUM_COLLECTED_ITEM_TO_SECURE]
 #        ./clipman_cli.sh set_history_size SIZE
-#        ./clipman_cli.sh get_last_item_id
+#        ./clipman_cli.sh get_last_item_id [PREVIOUS_LAST]
 #        ./clipman_cli.sh check_new_secure_item_collected [DURATION_SECOND]
 #        ./clipman_cli.sh generate_password
 #
@@ -28,11 +28,10 @@
 #                                 Useful for keyboard shortcut before copying
 #                                 [default: 1]
 #   SIZE                          unit16 the new size between 5 and 5000.
+#   PREVIOUS_LAST                 unit8 0 means last item, 1 the previous one, etc.
+#                                 It cycles through max
 #
 # See also case bellow, usage may be no updated.
-
-action=$1
-shift
 
 call_dbus()
 {
@@ -53,9 +52,14 @@ call_dbus()
       -e '$ s/"$//'
 }
 
+# retrieve the last item_id or previous one counting from the END if PREVIOUS_LAST > 0
 get_last_item_id()
 {
-  call_dbus list_history | tail -1 | awk '{print $1}'
+  local last_position=${1:-0}
+  local all_entries=$(call_dbus list_history)
+  local nb=$(echo "$all_entries" | wc -l)
+  # >&2 echo "nb: $nb, last_position: $last_position, wanted: $((nb - last_position))"
+  awk "NR == $((nb - last_position)) { print \$1}" <<< "$all_entries"
 }
 
 get_item()
@@ -165,6 +169,11 @@ get_last_item_content()
   get_item $last_id
 }
 
+#================================================================================ main
+
+action=$1
+shift
+
 case $action in
   list)
     call_dbus list_history
@@ -205,7 +214,12 @@ case $action in
     call_dbus resize_history uint16:$1
     ;;
   get_last_item_id)
-    get_last_item_id
+    PREVIOUS_LAST=0
+    if [[ $# -ge 1 ]]
+    then
+      PREVIOUS_LAST=$1
+    fi
+    get_last_item_id $PREVIOUS_LAST
     ;;
   check_new_secure_item_collected)
     new_id=$(wait_for_new_item "$1")
