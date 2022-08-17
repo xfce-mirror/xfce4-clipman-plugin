@@ -42,6 +42,7 @@ struct _ClipmanCollectorPrivate
   guint                 primary_clipboard_timeout;
   gboolean              internal_change;
   gboolean              add_primary_clipboard;
+  gboolean              persistent_primary_clipboard;
   gboolean              history_ignore_primary_clipboard;
   gboolean              enable_actions;
   gboolean              inhibit;
@@ -52,6 +53,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
 enum
 {
   ADD_PRIMARY_CLIPBOARD = 1,
+  PERSISTENT_PRIMARY_CLIPBOARD,
   HISTORY_IGNORE_PRIMARY_CLIPBOARD,
   ENABLE_ACTIONS,
   INHIBIT,
@@ -155,6 +157,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
        * or if the shift key is hold down, and once both are released the
        * content will go to the history. */
       if (collector->priv->add_primary_clipboard
+          || collector->priv->persistent_primary_clipboard
           || !collector->priv->history_ignore_primary_clipboard
           || collector->priv->enable_actions)
         {
@@ -175,7 +178,14 @@ cb_request_text (GtkClipboard *clipboard,
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
   if (text == NULL || text[0] == '\0')
-    return;
+    {
+      /* Restore primary clipboard on deselection */
+      if (clipboard == collector->priv->primary_clipboard
+          && collector->priv->persistent_primary_clipboard)
+        gtk_clipboard_set_text (collector->priv->primary_clipboard, prev_text, -1);
+
+      return;
+    }
 
   if (clipboard == collector->priv->default_clipboard)
     {
@@ -194,6 +204,13 @@ cb_request_text (GtkClipboard *clipboard,
       /* Make a copy inside the default clipboard */
       if (collector->priv->add_primary_clipboard)
         gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+
+      /* Store selection for later use */
+      if (collector->priv->persistent_primary_clipboard)
+        {
+          g_free (prev_text);
+          prev_text = g_strdup (text);
+        }
 
       /* Match for actions */
       if (collector->priv->enable_actions && g_strcmp0 (text, prev_text))
@@ -303,6 +320,13 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          DEFAULT_ADD_PRIMARY_CLIPBOARD,
                                                          G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 
+  g_object_class_install_property (object_class, PERSISTENT_PRIMARY_CLIPBOARD,
+                                   g_param_spec_boolean ("persistent-primary-clipboard",
+                                                         "PersistentPrimaryClipboard",
+                                                         "Make the primary clipboard persistent over deselection",
+                                                         DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD,
+                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+
   g_object_class_install_property (object_class, HISTORY_IGNORE_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("history-ignore-primary-clipboard",
                                                          "HistoryIgnorePrimaryClipboard",
@@ -377,6 +401,10 @@ clipman_collector_set_property (GObject *object,
       priv->add_primary_clipboard = g_value_get_boolean (value);
       break;
 
+    case PERSISTENT_PRIMARY_CLIPBOARD:
+      priv->persistent_primary_clipboard = g_value_get_boolean (value);
+      break;
+
     case HISTORY_IGNORE_PRIMARY_CLIPBOARD:
       priv->history_ignore_primary_clipboard = g_value_get_boolean (value);
       break;
@@ -406,6 +434,10 @@ clipman_collector_get_property (GObject *object,
     {
     case ADD_PRIMARY_CLIPBOARD:
       g_value_set_boolean (value, priv->add_primary_clipboard);
+      break;
+
+    case PERSISTENT_PRIMARY_CLIPBOARD:
+      g_value_set_boolean (value, priv->persistent_primary_clipboard);
       break;
 
     case HISTORY_IGNORE_PRIMARY_CLIPBOARD:
