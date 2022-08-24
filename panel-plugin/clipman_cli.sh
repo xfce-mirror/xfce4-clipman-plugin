@@ -4,7 +4,7 @@
 # This code will be next written in C with all needed controls and argument parsing.
 # This code Usage is a draft and can be changed
 #
-# Usage: ./clipman_cli.sh add [-s] TEXT_ITEM_VALUE
+# Usage: ./clipman_cli.sh add [-s|--html] TEXT_ITEM_VALUE
 #        ./clipman_cli.sh list
 #        ./clipman_cli.sh del ITEM_ID
 #        ./clipman_cli.sh get ITEM_ID
@@ -17,7 +17,7 @@
 #        ./clipman_cli.sh set_history_size SIZE
 #        ./clipman_cli.sh get_last_item_id [PREVIOUS_LAST]
 #        ./clipman_cli.sh check_new_secure_item_collected [DURATION_SECOND]
-#        ./clipman_cli.sh generate_password
+#        ./clipman_cli.sh generate_password [--pin NUN_DIGIT]
 #
 # Arguments:
 #   TEXT_ITEM_VALUE               string to add to history.
@@ -147,20 +147,53 @@ generate_password()
   return 0
 }
 
+generate_pin()
+{
+  local nb_digit=${1:-6}
+  local pin=$((RANDOM % 10))
+  local i
+  for i in $(seq 2 $nb_digit)
+  do
+    pin+="$((RANDOM % 10))"
+  done
+  echo $pin
+}
+
 add_clip()
 {
+    # secure is the DBus boolean value
     local secure=false
+    local html=0
     local input_text
+
     if [[ $1 == '-s' ]]
     then
       secure=true
       shift
+    fi
+
+    if [[ $secure == 'false' && $1 == '--html' ]]
+    then
+      # exclusive must not be secure
+      html=1
+      shift
+    fi
+
+    if [[ $secure == 'true' ]]
+    then
       # encode secure_text
       input_text="⛔$(echo -n "$1" | base64)"
     else
       input_text="$1"
     fi
-    call_dbus add_item boolean:$secure string:"$input_text"
+
+    if [[ $html -eq 1 ]]
+    then
+      echo "$input_text" | xclip -selection clipboard -i -t 'text/html'
+      echo "xclip_id $(get_last_item_id)"
+    else
+      call_dbus add_item boolean:$secure string:"$input_text"
+    fi
 }
 
 get_last_item_content()
@@ -240,7 +273,15 @@ case $action in
     wait_for_new_item "$1"
     ;;
   generate_password)
-    add_clip -s "$(generate_password)"
+    if [[ $# -ge 1 && $1 == '--pin' ]]
+    then
+      shift
+      NUN_DIGIT=$1
+      # pass number of digit if any 6 by default
+      add_clip -s "$(generate_pin "$NUN_DIGIT")"
+    else
+      add_clip -s "$(generate_password)"
+    fi
     ;;
   get_last_item_content|get_clip|get_clipboard)
     get_last_item_content

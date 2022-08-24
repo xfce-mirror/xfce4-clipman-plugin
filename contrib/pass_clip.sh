@@ -39,8 +39,11 @@ fi
 content=$(pass show "$input")
 if [[ -n $content ]]
 then
-  id=$($clipman_cli add -s "$(head -1 <<< "$content")" | awk '{print $2}')
+  mypass=$(head -1 <<< "$content")
+  two_factor=$(awk '/^oathtool:/ { sub("oathtool: ", "", $0); print }' <<< "$content")
   unset content
+  id=$($clipman_cli add -s "$mypass" | awk '{print $2}')
+  unset pass
   if [[ -n $id ]]
   then
     echo -n "entry copied: $id"
@@ -56,6 +59,11 @@ then
       echo ", will be deleted in ${DELETE_DELAY}s"
     else
       echo ", will be kept"
+    fi
+    if [[ -n $two_factor ]]
+    then
+      echo "this account has two_factor"
+      #echo "$(oathtool --totp --base32 "$two_factor")"
     fi
     exit 0
   fi

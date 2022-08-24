@@ -37,6 +37,12 @@ columnize_stdin_with_datatime()
 
 replace_last_clipboard()
 {
+  local html=""
+  if [[ $# -ge 3 && $1 == '--html' ]]
+  then
+    html='--html'
+    shift
+  fi
   local content="$1"
   local msg="$2"
   if [[ -z $msg ]]
@@ -51,7 +57,7 @@ replace_last_clipboard()
   then
     # cannot catch $? on local definition must be two line call
     local new_id
-    new_id=$($clipman_cli add "$content" | awk '{print $2}')
+    new_id=$($clipman_cli add $html "$content" | awk '{print $2}')
 
     if [[ $? -eq 0 ]]
     then
@@ -61,6 +67,14 @@ replace_last_clipboard()
   else
     visual_notify "unchanged"
   fi
+}
+
+make_link()
+{
+  local text="$1"
+  local url="$2"
+
+  echo "<a href=\"$url\">$text</a>"
 }
 
 SCRIPT_DIR=$(dirname $(realpath $0))
@@ -127,11 +141,11 @@ case $r in
     prev_last_item=$($clipman_cli get $prev_last_item_id)
     if [[ $prev_last_item  == http* ]]
     then
-        new_value="$last_item $prev_last_item"
+      new_value=$(make_link "$last_item" "$prev_last_item")
     else
-        new_value="$prev_last_item $last_item"
+      new_value=$(make_link "$prev_last_item" "$last_item")
     fi
-    replace_last_clipboard "$new_value" "last two item merged"
+    replace_last_clipboard --html "$new_value" "last two item merged"
     ;;
   *)
     echo "nothing"

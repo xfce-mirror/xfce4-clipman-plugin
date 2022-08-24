@@ -5,11 +5,15 @@
 #
 
 import sys
+import re
 
 myinput = sys.stdin.read().strip()
 
-unwanted_chars = "☸ﴃ✖"
-replace_chars  = "»   x"
+unwanted_chars = "☸ﴃ✖"
+replace_chars  = "»   x "
 
 out = myinput.translate(str.maketrans(unwanted_chars, replace_chars))
+
+# extra reformat for ms breadcrum
+out = re.sub(r'\n+\s*[]\n*\s*', ' > ', out)
 print(out)
