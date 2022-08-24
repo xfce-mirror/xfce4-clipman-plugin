@@ -37,12 +37,23 @@ columnize_stdin_with_datatime()
 
 replace_last_clipboard()
 {
+  local last_id=$(add_clipboard "$@")
+  if [[ -n $last_id ]]
+  then
+    $clipman_cli del $last_id
+  fi
+}
+
+# call: add_clipboard [--html] content [msg]
+add_clipboard()
+{
   local html=""
-  if [[ $# -ge 3 && $1 == '--html' ]]
+  if [[ $# -ge 2 && $1 == '--html' ]]
   then
     html='--html'
     shift
   fi
+
   local content="$1"
   local msg="$2"
   if [[ -z $msg ]]
@@ -50,19 +61,22 @@ replace_last_clipboard()
     msg="clipboard updated"
   fi
 
-  local last_item=$($clipman_cli get_last_item_id)
-  local old_content=$($clipman_cli get $last_item)
+  # same content detection
+  local last_id=$($clipman_cli get_last_item_id)
+  local old_content=$($clipman_cli get $last_id)
 
   if [[ $old_content != $content ]]
   then
     # cannot catch $? on local definition must be two line call
     local new_id
-    new_id=$($clipman_cli add $html "$content" | awk '{print $2}')
+    new_id=$($clipman_cli add $html "$content")
 
     if [[ $? -eq 0 ]]
     then
-      $clipman_cli del $last_item
+      echo "$last_id" | awk '{print $2}'
       visual_notify "$msg: $new_id"
+    else
+      visual_notify "😞clipman_cli add error"
     fi
   else
     visual_notify "unchanged"
@@ -73,6 +87,11 @@ make_link()
 {
   local text="$1"
   local url="$2"
+
+  if [[ $url =~ /([0-9+])$ ]]
+  then
+    text="$text (#${BASH_REMATCH[1]})"
+  fi
 
   echo "<a href=\"$url\">$text</a>"
 }
@@ -145,7 +164,7 @@ case $r in
     else
       new_value=$(make_link "$prev_last_item" "$last_item")
     fi
-    replace_last_clipboard --html "$new_value" "last two item merged"
+    add_clipboard --html "$new_value" "last two item merged"
     ;;
   *)
     echo "nothing"

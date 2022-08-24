@@ -189,7 +189,9 @@ add_clip()
 
     if [[ $html -eq 1 ]]
     then
-      echo "$input_text" | xclip -selection clipboard -i -t 'text/html'
+      # https://github.com/kovidgoyal/kitty/issues/828 xclip hang in sub process
+      # force stdout to /dev/null
+      echo "$input_text" | xclip -selection clipboard -i -t 'text/html' > /dev/null
       echo "xclip_id $(get_last_item_id)"
     else
       call_dbus add_item boolean:$secure string:"$input_text"
