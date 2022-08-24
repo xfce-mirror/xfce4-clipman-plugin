@@ -88,7 +88,8 @@ make_link()
   local text="$1"
   local url="$2"
 
-  if [[ $url =~ /([0-9+])$ ]]
+  regexp='/([0-9]+)$'
+  if [[ $url =~ $regexp ]]
   then
     text="$text (#${BASH_REMATCH[1]})"
   fi
