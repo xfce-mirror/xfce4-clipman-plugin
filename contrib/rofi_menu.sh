@@ -10,6 +10,7 @@ options="
 🔐 secure next copy
 🚿 clean fancy UTF-8
 🔗 merge two entries
+📎 markdown merge two entries
 🔳 html black box
 🗑️ clear secure items
 ⚙️ columnize last clipboard entry
@@ -85,16 +86,25 @@ add_clipboard()
 
 make_link()
 {
-  local text="$1"
-  local url="$2"
+  local mode=$1
+  local text="$2"
+  local url="$3"
 
-  regexp='/([0-9]+)$'
+  local regexp='/([0-9]+)$'
   if [[ $url =~ $regexp ]]
   then
     text="$text (#${BASH_REMATCH[1]})"
   fi
 
-  echo "<a href=\"$url\">$text</a>"
+  local out
+  case $mode in
+    markdown)
+      out="[$text]($url)"
+      ;;
+    *)
+      out="<a href=\"$url\">$text</a>"
+  esac
+  echo "$out"
 }
 
 SCRIPT_DIR=$(dirname $(realpath $0))
@@ -107,13 +117,13 @@ filtered_options=$(echo "$options" | sed -n -e '/^./p')
 nb=$(echo "$filtered_options" | wc -l)
 rofi_theme=Paper
 IFS=$'\n'
-r=$(echo "$filtered_options" \
+action=$(echo "$filtered_options" \
   | rofi -lines $nb -dmenu -p "custom clipman behavior" -theme $rofi_theme \
   | awk '{print $2}'
 )
 
 # action is based on the first word of the menu
-case $r in
+case $action in
   secure)
     $clipman_cli collect_secure 1
     id=$($clipman_cli check_new_secure_item_collected 20)
@@ -154,18 +164,23 @@ case $r in
       replace_last_clipboard "$new_content" "last_item column formated"
     fi
     ;;
-  merge)
+  merge|markdown)
     last_item_id=$($clipman_cli get_last_item_id)
     prev_last_item_id=$($clipman_cli get_last_item_id 1)
     last_item=$($clipman_cli get $last_item_id)
     prev_last_item=$($clipman_cli get $prev_last_item_id)
+    out_clipboard='--html'
     if [[ $prev_last_item  == http* ]]
     then
-      new_value=$(make_link "$last_item" "$prev_last_item")
+      new_value=$(make_link $action "$last_item" "$prev_last_item")
     else
-      new_value=$(make_link "$prev_last_item" "$last_item")
+      new_value=$(make_link $action "$prev_last_item" "$last_item")
     fi
-    add_clipboard --html "$new_value" "last two item merged"
+    if [[ $action == 'markdown' ]]
+    then
+      out_clipboard=""
+    fi
+    add_clipboard $out_clipboard "$new_value" "last two item merged"
     ;;
   *)
     echo "nothing"
