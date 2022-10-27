@@ -148,7 +148,7 @@ msgstr "_Pegar instantanèament :"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>General</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:11
 msgid "P_osition menu at mouse pointer"
@@ -162,15 +162,15 @@ msgstr "Posiciona lo menú amb lo puntador de la mirga, unicament per la comanda
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "Maximum items:"
-msgstr ""
+msgstr "Elements maximum :"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid "<b>Menu</b>"
-msgstr ""
+msgstr "<b>Menut</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "_Behavior"
-msgstr ""
+msgstr "_Compòrtament"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>_Enable automatic actions</b>"
@@ -220,7 +220,7 @@ msgstr "Reïnicializar totas las accions a las valors per defaut del sistèma"
 
 #: ../panel-plugin/settings-dialog.ui.h:27
 msgid "_Actions"
-msgstr ""
+msgstr "_Accions"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
@@ -267,7 +267,7 @@ msgstr "Talha de l'_istoric :"
 
 #: ../panel-plugin/settings-dialog.ui.h:38
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: ../panel-plugin/settings-dialog.ui.h:39
 msgid "H_istory"
@@ -413,7 +413,7 @@ msgstr "_Pegar"
 #: ../panel-plugin/xfce4-clipman-history.c:419
 #, c-format
 msgid "_Copy"
-msgstr ""
+msgstr "_Copiar"
 
 #: ../panel-plugin/xfce4-clipman-history.c:435
 msgid "Clipman History"
@@ -422,7 +422,7 @@ msgstr ""
 #: ../panel-plugin/xfce4-clipman-history.c:449
 #: ../panel-plugin/xfce4-clipman-history.c:451
 msgid "_Settings"
-msgstr ""
+msgstr "_Paramètres"
 
 #: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
 msgid "Clipboard Manager Settings"
