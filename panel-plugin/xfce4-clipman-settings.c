@@ -83,6 +83,8 @@ prop_dialog_run (void)
   /* Behavior tab: General */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "persistent-selections")),
+                                DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD);
 #ifdef HAVE_QRENCODE
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "show-qr-code")),
                                 DEFAULT_SHOW_QR_CODE);
@@ -105,6 +107,8 @@ prop_dialog_run (void)
 #endif
   xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "add-selections"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/settings/persistent-primary-clipboard", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "persistent-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
                           G_TYPE_UINT, G_OBJECT (combobox), "active");
 
