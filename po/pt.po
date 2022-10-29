@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Alexandre Fidalgo <alexandremagnos15@gmail.com>, 2014
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022
 # José Vieira <jvieira33@sapo.pt>, 2020
 # Nuno Miguel <nunis@netcabo.pt>, 2007-2009
 # Nuno Miguel <nunomgue@gmail.com>, 2014,2016
@@ -14,14 +14,14 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-14 22:25+0000\n"
-"Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
 msgid ""
@@ -262,7 +262,7 @@ msgstr "Ignorar s_eleções do rato"
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Se ativa, as seleções não afetarão o histórico à exceção das cópias manuais "
+msgstr "Se ativa, as seleções não afetarão o histórico à exceção das cópias manuais"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
