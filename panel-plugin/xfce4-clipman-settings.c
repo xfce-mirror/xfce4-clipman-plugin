@@ -233,11 +233,10 @@ cb_show_help (GtkButton *button)
 {
   gchar *docpath = NULL;
   gchar *command = NULL;
-
-  /* Find localized documentation path on disk */
-#ifdef ENABLE_NLS
   gchar *locale = NULL;
   gchar *offset;
+
+  /* Find localized documentation path on disk */
 #ifdef HAVE_LOCALE_H
   locale = g_strdup (setlocale (LC_MESSAGES, ""));
   if (locale != NULL)
@@ -275,9 +274,6 @@ cb_show_help (GtkButton *button)
     }
 
   g_free (locale);
-#else
-  docpath = g_strdup (DOCDIR"/html/C/index.html");
-#endif
 
   /* Revert to online documentation if not available on disk */
   if (g_file_test (docpath, G_FILE_TEST_EXISTS))

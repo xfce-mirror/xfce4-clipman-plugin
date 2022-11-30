@@ -24,6 +24,7 @@ INSTALL
 /ltmain.sh
 /missing
 /panel-plugin/xfce4-clipman-settings.desktop
+/po/.intltool-merge-cache.lock
 xfce4-clipman-plugin*.tar.bz2
 m4
 stamp-h1
