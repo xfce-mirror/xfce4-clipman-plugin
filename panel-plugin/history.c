@@ -41,6 +41,7 @@ struct _ClipmanHistoryPrivate
   guint                         max_images_in_history;
   gboolean                      save_on_quit;
   gboolean                      reorder_items;
+  gint                          scale_factor;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
@@ -183,6 +184,21 @@ _clipman_history_add_item (ClipmanHistory *history,
 
   /* Emit signal */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
+}
+
+static void
+_clipman_history_image_set_preview (ClipmanHistory *history,
+                                    ClipmanHistoryItem *item)
+{
+  gint size;
+
+  g_return_if_fail (item->type == CLIPMAN_HISTORY_TYPE_IMAGE);
+
+  if (item->preview.image != NULL)
+    g_object_unref (item->preview.image);
+
+  size = 128 * history->priv->scale_factor;
+  item->preview.image = gdk_pixbuf_scale_simple (item->content.image, size, size, GDK_INTERP_BILINEAR);
 }
 
 /*
@@ -328,7 +344,7 @@ clipman_history_add_image (ClipmanHistory *history,
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
-  item->preview.image = gdk_pixbuf_scale_simple (GDK_PIXBUF (image), 128, 128, GDK_INTERP_BILINEAR);
+  _clipman_history_image_set_preview (history, item);
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
@@ -422,6 +438,28 @@ clipman_history_clear (ClipmanHistory *history)
   g_signal_emit (history, signals[CLEAR], 0);
 }
 
+void
+clipman_history_set_scale_factor (ClipmanHistory *history,
+                                  GParamSpec *pspec,
+                                  GtkWidget *widget)
+{
+  gint scale_factor;
+
+  g_return_if_fail (GTK_IS_WIDGET (widget));
+
+  scale_factor = gtk_widget_get_scale_factor (widget);
+  if (scale_factor == history->priv->scale_factor)
+    return;
+
+  history->priv->scale_factor = scale_factor;
+  for (GSList *lp = history->priv->items; lp != NULL; lp = lp->next)
+    {
+      ClipmanHistoryItem *item = lp->data;
+      if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+        _clipman_history_image_set_preview (history, item);
+    }
+}
+
 ClipmanHistory *
 clipman_history_get (void)
 {
@@ -504,6 +542,7 @@ clipman_history_init (ClipmanHistory *history)
 {
   history->priv = clipman_history_get_instance_private (history);
   history->priv->item_to_restore = NULL;
+  history->priv->scale_factor = 1;
 }
 
 static void
