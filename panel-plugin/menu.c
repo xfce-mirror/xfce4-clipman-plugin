@@ -77,7 +77,8 @@ static void             clipman_menu_get_property       (GObject *object,
                                                          GValue *value,
                                                          GParamSpec *pspec);
 #ifdef HAVE_QRENCODE
-GdkPixbuf *             clipman_menu_qrcode             (char *text);
+GdkPixbuf *             clipman_menu_qrcode             (char *text,
+                                                         gint scale_factor);
 #endif
 
 
@@ -337,6 +338,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   const gchar *selection_primary;
   const gchar *selection_clipboard;
   gboolean skip_primary = FALSE;
+  cairo_surface_t *surface;
+  gint scale_factor = gtk_widget_get_scale_factor (GTK_WIDGET (menu));
 
   /* retrieve clipboard and primary selections */
   selection_clipboard = g_object_get_data (G_OBJECT (menu), "selection-clipboard");
@@ -373,7 +376,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         case CLIPMAN_HISTORY_TYPE_IMAGE:
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
-          image = gtk_image_new_from_pixbuf (item->preview.image);
+          surface = gdk_cairo_surface_create_from_pixbuf (item->preview.image, scale_factor, NULL);
+          image = gtk_image_new_from_surface (surface);
+          cairo_surface_destroy (surface);
           gtk_container_add (GTK_CONTAINER (mi), image);
 G_GNUC_END_IGNORE_DEPRECATIONS
           break;
@@ -432,12 +437,14 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
       gtk_widget_show_all (mi);
 
-      if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text)) != NULL)
+      if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text, scale_factor)) != NULL)
         {
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
 G_GNUC_END_IGNORE_DEPRECATIONS
-          gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_pixbuf (pixbuf));
+          surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale_factor, NULL);
+          gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_surface (surface));
+          cairo_surface_destroy (surface);
           g_signal_connect (mi, "activate", G_CALLBACK (cb_set_qrcode), pixbuf);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
           gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
@@ -580,6 +587,10 @@ clipman_menu_init (ClipmanMenu *menu)
 
   /* ClipmanHistory */
   menu->priv->history = clipman_history_get ();
+  clipman_history_set_scale_factor (menu->priv->history, NULL, GTK_WIDGET (menu));
+  g_signal_connect_object (menu, "notify::scale-factor",
+                           G_CALLBACK (clipman_history_set_scale_factor),
+                           menu->priv->history, G_CONNECT_SWAPPED);
 
   /* Connect signal on show to update the items */
   g_signal_connect_swapped (menu, "show", G_CALLBACK (_clipman_menu_update_list), menu);
@@ -689,11 +700,12 @@ clipman_menu_get_property (GObject *object,
 
 #ifdef HAVE_QRENCODE
 GdkPixbuf *
-clipman_menu_qrcode (char *text)
+clipman_menu_qrcode (char *text,
+                     gint scale_factor)
 {
 	QRcode *qrcode;
 	GdkPixbuf *pixbuf, *pixbuf_scaled;
-	int i, j, k, rowstride, channels;
+	int i, j, k, rowstride, channels, size;
 	guchar *pixel;
 	unsigned char *data;
 
@@ -718,7 +730,8 @@ clipman_menu_qrcode (char *text)
 			data++;
 		}
 
-	pixbuf_scaled = gdk_pixbuf_scale_simple (pixbuf, (qrcode->width + 2) * 3, (qrcode->width + 2) * 3, GDK_INTERP_NEAREST);
+	size = (qrcode->width + 2) * 3 * scale_factor;
+	pixbuf_scaled = gdk_pixbuf_scale_simple (pixbuf, size, size, GDK_INTERP_NEAREST);
 
 	QRcode_free(qrcode);
 	g_object_unref(pixbuf);

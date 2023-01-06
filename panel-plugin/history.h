@@ -97,5 +97,8 @@ const ClipmanHistoryItem *  clipman_history_get_item_to_restore      (ClipmanHis
 void                        clipman_history_set_item_to_restore      (ClipmanHistory           *history,
                                                                       const ClipmanHistoryItem *item);
 void                        clipman_history_clear                    (ClipmanHistory           *history);
+void                        clipman_history_set_scale_factor         (ClipmanHistory           *history,
+                                                                      GParamSpec               *pspec,
+                                                                      GtkWidget                *widget);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */
