@@ -131,10 +131,10 @@ remove_fancy_utf_8_char=$SCRIPT_DIR/remove_fancy_utf-8_char.py
 
 if [[ $# -ge 1 ]]
 then
-  r=$1
+  action=$1
 else
   # no argument default behavbior
-  r=$(open_rofi_menu)
+  action=$(open_rofi_menu)
 fi
 
 # action is based on the first word of the menu
@@ -201,6 +201,7 @@ case $action in
     add_clipboard $out_clipboard "$new_value" "last two item merged"
     ;;
   *)
-    echo "nothing"
+    echo "unkwon action: '$action' Done nothing"
+    exit 1
     ;;
 esac
