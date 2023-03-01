@@ -90,7 +90,8 @@ make_link()
   local text="$2"
   local url="$3"
 
-  local regexp='/([0-9]+)$'
+  # transform some based on URL termination match
+  regexp='/(([0-9]+)|(CWIT-[0-9]+))$'
   if [[ $url =~ $regexp ]]
   then
     text="$text (#${BASH_REMATCH[1]})"
@@ -107,20 +108,34 @@ make_link()
   echo "$out"
 }
 
+open_rofi_menu()
+{
+  # filter options removing empty lines
+  local filtered_options=$(echo "$options" | sed -n -e '/^./p')
+  local nb=$(echo "$filtered_options" | wc -l)
+  local rofi_theme=Paper
+  local old_IFS=$IFS
+  IFS=$'\n'
+  local r=$(echo "$filtered_options" \
+    | rofi -lines $nb -dmenu -p "custom clipman behavior" -theme $rofi_theme \
+    | awk '{print $2}'
+  )
+  IFS=$old_IFS
+  echo "$r"
+}
+
 SCRIPT_DIR=$(dirname $(realpath $0))
 clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
 transform_clipboard=$SCRIPT_DIR/transform_clipboard.py
 remove_fancy_utf_8_char=$SCRIPT_DIR/remove_fancy_utf-8_char.py
 
-# filter options removing empty lines
-filtered_options=$(echo "$options" | sed -n -e '/^./p')
-nb=$(echo "$filtered_options" | wc -l)
-rofi_theme=Paper
-IFS=$'\n'
-action=$(echo "$filtered_options" \
-  | rofi -lines $nb -dmenu -p "custom clipman behavior" -theme $rofi_theme \
-  | awk '{print $2}'
-)
+if [[ $# -ge 1 ]]
+then
+  r=$1
+else
+  # no argument default behavbior
+  r=$(open_rofi_menu)
+fi
 
 # action is based on the first word of the menu
 case $action in
@@ -154,7 +169,10 @@ case $action in
     visual_notify -s "$msg"
     ;;
   clean)
-    replace_last_clipboard "$($clipman_cli get_clipboard | python3 $remove_fancy_utf_8_char)"
+    cleaned="$($clipman_cli get_clipboard | python3 $remove_fancy_utf_8_char)"
+    # one argument
+    # also prefix with timestamp
+    replace_last_clipboard "$(date "+%Y-%m-%d %H:%M:%S")"$'\n'"$cleaned"
     ;;
   columnize)
     item_id=$($clipman_cli get_last_item_id)
