@@ -496,6 +496,12 @@ G_GNUC_END_IGNORE_DEPRECATIONS
           gtk_widget_show_all (mi);
           g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), NULL);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+
+          if (pos == 0)
+            {
+              /* Set the clear history item sensitive */
+              gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
+            }
         }
     }
 
