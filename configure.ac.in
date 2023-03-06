@@ -47,7 +47,6 @@ dnl *** Check for basic programs ***
 dnl ********************************
 AC_PROG_CC()
 AM_PROG_CC_C_O()
-AC_PROG_LD()
 AC_PROG_INSTALL()
 AC_PROG_LN_S()
 IT_PROG_INTLTOOL([0.35.0])
