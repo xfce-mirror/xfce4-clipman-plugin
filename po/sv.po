@@ -172,7 +172,7 @@ msgstr "_Behåll primärval"
 msgid ""
 "If checked, the middle-click paste (primary selection) will be persistent if"
 " the next selection is empty, i.e. left click anywhere in a text area"
-msgstr ""
+msgstr "Om markerad, kommer mitten-klicks klistra in (primärt val) att vara beständig om nästa val är tomt, dvs vänsterklicka var som helst i ett textområde"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
