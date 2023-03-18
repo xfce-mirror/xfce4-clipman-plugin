@@ -256,9 +256,6 @@ clipman_history_add_text (ClipmanHistory *history,
                           const gchar *text)
 {
   ClipmanHistoryItem *item;
-  gchar *tmp1, *tmp2;
-  const gchar *offset;
-  gint preview_length = 48;
   GSList *list;
 
   /* Search for a previously existing content */
@@ -286,38 +283,8 @@ clipman_history_add_text (ClipmanHistory *history,
   item->type = CLIPMAN_HISTORY_TYPE_TEXT;
   item->content.text = g_strdup (text);
 
-  /* Strip white spaces for preview */
-  tmp2 = tmp1 = g_strdup (text);
-
-  g_strchug (tmp2);
-
-  tmp2 = g_strstr_len (tmp2, preview_length, "  ");
-  while (tmp2)
-    {
-      g_strchug (++tmp2);
-      /* We've already parsed `tmp2 - tmp1` chars */
-      tmp2 = g_strstr_len (tmp2, preview_length - (tmp2 - tmp1), "  ");
-    }
-
-  /* Shorten preview */
-  if (g_utf8_strlen (tmp1, -1) > preview_length)
-    {
-      offset = g_utf8_offset_to_pointer (tmp1, preview_length);
-      tmp2 = g_strndup (tmp1, offset - tmp1);
-      g_free (tmp1);
-      g_strchomp (tmp2);
-
-      tmp1 = g_strconcat (tmp2, "...", NULL);
-      g_free (tmp2);
-    }
-  else
-    g_strchomp (tmp1);
-
-  /* Cleanup special characters from preview */
-  g_strdelimit (tmp1, "\n\r\t", ' ');
-
   /* Set preview */
-  item->preview.text = tmp1;
+  item->preview.text = clipman_common_shorten_preview (text);
 
   _clipman_history_add_item (history, item);
 }
