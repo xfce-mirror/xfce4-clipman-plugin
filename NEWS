@@ -1,3 +1,38 @@
+1.6.3 (2023-03-20)
+=====
+- Update copyright year and bug report address
+- history: Fix inactive copy button (Fixes #54)
+- Shorten the selection text in menu
+- Move text shorten code to common function
+- build: Fix autotools warnings
+- Allow to clear history when only selection is visible
+- Fix blurry images in plugin menu when UI scale > 1
+- Fix link in README
+- Remove ENABLE_NLS ifdefs
+- Update `.gitignore`
+- Add primary clipboard persistence
+- [PATCH] build: Fix intltool lock file problem during make distcheck
+- Fix text preview
+- Replace `g_malloc0()` with safer alternative `g_new0()`
+- Use `filename` before freeing it
+- Fix invalid "Show full history..." menu item behavior (#29)
+- Fix GLib macro expansion compiler warnings
+- Update copyright year
+- Check if already running before adding as panel plugin
+- Do not try to register application twice
+- Correctly handle a timeout source life cycle within a function
+- Fix Gtk-CRITICAL when showing main menu
+- Require glib 2.60
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hungarian, Icelandic, Indonesian,
+  Interlingue, Italian, Japanese, Kazakh, Korean, Lithuanian, Malay,
+  Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese,
+  Portuguese (Brazil), Russian, Serbian, Slovak, Slovenian, Spanish,
+  Swedish, Thai, Turkish, Ukrainian
+
 1.6.1
 ======
 - Add translateable files to POTFILES (Bug #16608)
