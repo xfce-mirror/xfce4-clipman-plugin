@@ -388,6 +388,8 @@ clipman_history_dialog_response (GtkWidget *dialog,
     xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
   else if (response_id == GTK_RESPONSE_OK)
     plugin_configure (plugin);
+  else if (response_id == GTK_RESPONSE_APPLY)
+    clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
   else
     clipman_history_dialog_finalize (plugin, dialog);
 }
