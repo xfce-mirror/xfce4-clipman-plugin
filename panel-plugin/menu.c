@@ -129,12 +129,12 @@ cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
 #endif
 
 static void
-cb_set_clipboard_from_primary (GtkMenuItem *mi)
+cb_set_clipboard_from_primary (GtkMenuItem *mi, GObject *menu)
 {
   GtkClipboard *clipboard;
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-  gtk_clipboard_set_text (clipboard, gtk_menu_item_get_label (mi), -1);
+  gtk_clipboard_set_text (clipboard, g_object_get_data (menu, "selection-primary"), -1);
 }
 
 static void
@@ -337,6 +337,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   guint i = 0;
   const gchar *selection_primary;
   const gchar *selection_clipboard;
+  gchar *selection_primary_short;
   gboolean skip_primary = FALSE;
   cairo_surface_t *surface;
   gint scale_factor = gtk_widget_get_scale_factor (GTK_WIDGET (menu));
@@ -487,14 +488,16 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
       if (skip_primary == FALSE)
         {
+          selection_primary_short = clipman_common_shorten_preview (selection_primary);
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          mi = gtk_image_menu_item_new_with_label (selection_primary);
+          mi = gtk_image_menu_item_new_with_label (selection_primary_short);
           image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
           gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
 G_GNUC_END_IGNORE_DEPRECATIONS
+          g_free (selection_primary_short);
           gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
           gtk_widget_show_all (mi);
-          g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), NULL);
+          g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), menu);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
 
           if (pos == 0)
