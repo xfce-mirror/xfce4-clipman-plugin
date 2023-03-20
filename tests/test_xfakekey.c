@@ -5,7 +5,7 @@
 #include <X11/keysym.h>
 #include <stdio.h>
 
-int main () {
+int main (void) {
         Display *display = XOpenDisplay (NULL);
         int dummyi;
         if (display == NULL)
@@ -70,7 +70,7 @@ int main () {
 }
 #else
 #include <stdio.h>
-int main() {
+int main(void) {
         printf ("No XTEST support.\n");
         return 0;
 }
