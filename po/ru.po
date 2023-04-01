@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andrei Stepanov, 2023
 # Igor <f2404@yandex.ru>, 2016,2020
 # Igor Vornovskii, 2022
 # Sergey Alyoshin <alyoshin.s@gmail.com>, 2014,2016
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-30 00:56+0100\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Igor Vornovskii, 2022\n"
+"Last-Translator: Andrei Stepanov, 2023\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,7 +210,7 @@ msgstr "Выводит меню в позиции указателя мыши (�
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
-msgstr "Максимальное кол-во элементов:"
+msgstr "Максимум элементов:"
 
 #: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
