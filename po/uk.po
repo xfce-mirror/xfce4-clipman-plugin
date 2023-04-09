@@ -4,19 +4,20 @@
 # 
 # Translators:
 # Andrii Protsun <minamotosoft@gmail.com>, 2020
-# Andrij Mizyk <andmizyk@gmail.com>, 2021
+# f977cb811fcf66493f48eac227fd7473_b98aa5d <2419f1d8d12d92441152e78ae3e3bde0_722180>, 2021
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # dsafsadf <heneral@gmail.com>, 2016
+# Gordon Freeman, 2023
 # Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016
-# Andrij Mizyk <andmizyk@gmail.com>, 2021
+# f977cb811fcf66493f48eac227fd7473_b98aa5d <2419f1d8d12d92441152e78ae3e3bde0_722180>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2021-08-26 08:10+0000\n"
-"Last-Translator: Andrij Mizyk <andmizyk@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
+"POT-Creation-Date: 2022-11-30 00:56+0100\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Gordon Freeman, 2023\n"
+"Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,9 +74,9 @@ msgstr "Вкоротити URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:77
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Буфер обміну"
 
@@ -98,24 +99,60 @@ msgstr "Ctrl+V"
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:537
 msgid "<b>Reset actions</b>"
 msgstr "<b>Скинути дії</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:537
+#: ../panel-plugin/xfce4-clipman-settings.c:539
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Ви впевнені, що хочете скинути налаштовані дії на типові системні значення?"
 
+#: ../panel-plugin/xfce4-clipman-history.c:251
+msgid "Enter search phrase here"
+msgstr "Введіть сюди пошукову фразу"
+
+#. Insert empty menu item
+#: ../panel-plugin/xfce4-clipman-history.c:329 ../panel-plugin/menu.c:463
+msgid "Clipboard is empty"
+msgstr "Буфер обміну порожній"
+
+#: ../panel-plugin/xfce4-clipman-history.c:409
+#, c-format
+msgid "_Paste"
+msgstr "_Вставити"
+
+#: ../panel-plugin/xfce4-clipman-history.c:414
+#, c-format
+msgid "_Copy"
+msgstr "_Копіювати"
+
+#: ../panel-plugin/xfce4-clipman-history.c:430
+msgid "Clipman History"
+msgstr "Історія буфера обміну"
+
+#: ../panel-plugin/xfce4-clipman-history.c:436
+#: ../panel-plugin/xfce4-clipman-history.c:438
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Help"
+msgstr "_Допомога"
+
+#: ../panel-plugin/xfce4-clipman-history.c:444
+#: ../panel-plugin/xfce4-clipman-history.c:446
+msgid "_Settings"
+msgstr "_Налаштування"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Налаштування керівника буфера обміну"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Налаштуйте свій буфер обміну"
+
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
 msgstr "Налаштування"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-#: ../panel-plugin/xfce4-clipman-history.c:441
-#: ../panel-plugin/xfce4-clipman-history.c:443
-msgid "_Help"
-msgstr "_Допомога"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -132,260 +169,221 @@ msgid ""
 msgstr "Якщо відмічено, виділене буде синхронізовано з типовим буфером обміну таким чином, що ви зможете вставити те, що виділено"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_Persist primary selection"
+msgstr "_Зберігати основне виділення"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the middle-click paste (primary selection) will be persistent if"
+" the next selection is empty, i.e. left click anywhere in a text area"
+msgstr "Якщо позначено, вставлення середньою кнопкою миші (основне виділення) буде постійним, якщо наступне виділення порожнє, тобто клацання лівою кнопкою миші будь-де в текстовій області"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
 msgstr "Підтримка _QR-код"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Якщо відмічено, тоді меню показує QR-код вибраного елемента буфера обміну "
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
 msgstr "Автоматично вставляти вибраний елемент з історії"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "_Paste instantly:"
 msgstr "_Вставити миттєво:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "<b>General</b>"
 msgstr "<b>Загальне</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
 msgstr "П_оказувати меню при покажчику миші"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Спливаючі меню в позиції курсора миші, тільки для команд xfce4-popup-clipman"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
 msgstr "Макс. кількість елементів"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
 msgstr "<b>Меню</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "_Behavior"
 msgstr "_Оформлення"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>_Вкл автоматичні дії</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "Якщо відмічено, текст в буфері обміну буде зіставлятися з регулярними виразами і меню буде відображати можливі дії автоматично.\nВ противному випадку меню буде появлятися при виклику \"xfce4-popup-clipman-actions\" (і знайдений вираз)"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "_Show actions by holding Control"
 msgstr "_Показати дію, тримаючи клавішу Контроль"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Коли закінчено вибір (мишка або клавіатура) і кнопка Контроль все ще натиснута, тоді покажеться вигулькне меню для вибраної дії "
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "S_kip actions by holding Control"
 msgstr "П_ропустити дію, тримаючи кнопку Контроль"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Коли виділення зроблено (мишею або клавіатурою) і клавішою Control все ще натиснута, тоді контекстне меню для відповідних дій буде пропущено"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Add action"
 msgstr "Додати дію"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Edit action"
 msgstr "Редагувати дію"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Delete action"
 msgstr "Вилучити дію"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Reset all actions to the system default values"
 msgstr "Скинути всі дії до типових системних"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "_Actions"
 msgstr "_Дії"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "<b>Remember history</b>"
 msgstr "<b>Історія</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Remember last copied _image"
 msgstr "Останнє _зображення"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "If checked, this option allows one to store one image inside the history"
 msgstr "якщо встановлено прапорець, цей параметр дозволяє один раз зберігати зображення всередині історії"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "_Reorder history items"
 msgstr "_Поміняти порядок елементів історії"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Переносить останньо скопійований текст на початок історії, корисно для зміни порядок старих елементів"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Re_verse history order"
 msgstr "_Обернений порядок історії"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "Reverse order of the history shown in the menu"
 msgstr "IЯкщо відмічено, ця опція буде відновлювати історію на кожний новий сеанс Xfce"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Ignore mouse s_elections"
 msgstr "Ігнорувати в_иділення мишкою"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Якщо відмічено, виділене не буде впливати на історію, окрім скопійованого вручну"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Size of the _history:"
 msgstr "Розмір істо_рії:"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "5"
 msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "H_istory"
 msgstr "І_сторія"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Edit Action"
 msgstr "Редагувати дію"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Назва:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Шаблон:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "У командах можна використовувати параметри підстановки \"\\1\", \"\\2\" тощо. Параметр \"\\0\" являє собою повний текст. Шаблон завжди закріплюється в межах спеціальних символів ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate only on manual copy"
 msgstr "Активувати тільки для копіювання вручну"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "За замовчуванням дію викликає виділення, позначте цю опцію, щоб запустити дію лише тоді, коли ви зробите копію вручну"
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Дія</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Команда:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Команди</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Введіть тут свій текст, наприклад URL-адресу, ім’я файлу тощо."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Регулярний вираз"
 
-#: ../panel-plugin/main-panel-plugin.c:111
-#: ../panel-plugin/main-status-icon.c:159
+#: ../panel-plugin/main-panel-plugin.c:117
+#: ../panel-plugin/main-status-icon.c:161
 msgid "_Disable"
 msgstr "_Відключити"
 
-#: ../panel-plugin/actions.c:368
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr "Неможливо виконати команду \"%s\"\n\n%s"
-
-#: ../panel-plugin/menu.c:255
-msgid "Are you sure you want to clear the history?"
-msgstr "Ви впевнені, що хочете очистити історію?"
-
-#: ../panel-plugin/menu.c:260
-msgid "Don't ask again"
-msgstr "Не запитувати знову"
-
-#: ../panel-plugin/menu.c:306
-msgid "Unable to open the clipman history dialog"
-msgstr "Не можу відкрити вікно історії"
-
-#: ../panel-plugin/menu.c:455
-msgid "Could not generate QR-Code."
-msgstr "Не можу згенерувати QR-код"
-
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
-msgid "Clipboard is empty"
-msgstr "Буфер обміну порожній"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "_Показати всю історію"
-
-#: ../panel-plugin/menu.c:608
-msgid "_Clear history"
-msgstr "_О_чистити історію"
-
-#: ../panel-plugin/menu.c:615
-msgid "_Clipman settings..."
-msgstr "_Налаштування буфера обміну..."
-
-#: ../panel-plugin/plugin.c:321
-msgid "Contributors:"
-msgstr "Помічники:"
-
-#: ../panel-plugin/plugin.c:335
-msgid "Clipboard Manager for Xfce"
-msgstr "Керівник буфера обміну для Xfce"
-
-#: ../panel-plugin/plugin.c:343
-msgid "translator-credits"
-msgstr "Dmitry Nikitin"
-
-#: ../panel-plugin/plugin.c:357
-msgid "Unable to open the settings dialog"
-msgstr "Неможливо відкрити діалог налаштувань"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -404,33 +402,46 @@ msgstr "Ти можеш запустити це через 'xfce4-clipman'."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Фоновий процес керівника буфера обміну не запущено."
 
-#: ../panel-plugin/xfce4-clipman-history.c:256
-msgid "Enter search phrase here"
-msgstr "Введіть сюди пошукову фразу"
+#: ../panel-plugin/menu.c:255
+msgid "Are you sure you want to clear the history?"
+msgstr "Ви впевнені, що хочете очистити історію?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:414
-#, c-format
-msgid "_Paste"
-msgstr "_Вставити"
+#: ../panel-plugin/menu.c:260
+msgid "Don't ask again"
+msgstr "Не запитувати знову"
 
-#: ../panel-plugin/xfce4-clipman-history.c:419
-#, c-format
-msgid "_Copy"
-msgstr "_Копіювати"
+#: ../panel-plugin/menu.c:303
+msgid "Unable to open the clipman history dialog"
+msgstr "Не можу відкрити вікно історії"
 
-#: ../panel-plugin/xfce4-clipman-history.c:435
-msgid "Clipman History"
-msgstr "Історія буфера обміну"
+#: ../panel-plugin/menu.c:449
+msgid "Could not generate QR-Code."
+msgstr "Не можу згенерувати QR-код"
 
-#: ../panel-plugin/xfce4-clipman-history.c:449
-#: ../panel-plugin/xfce4-clipman-history.c:451
-msgid "_Settings"
-msgstr "_Налаштування"
+#: ../panel-plugin/menu.c:594
+msgid "_Show full history..."
+msgstr "_Показати всю історію"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "Налаштування керівника буфера обміну"
+#: ../panel-plugin/menu.c:600
+msgid "_Clear history"
+msgstr "_О_чистити історію"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "Налаштуйте свій буфер обміну"
+#: ../panel-plugin/menu.c:607
+msgid "_Clipman settings..."
+msgstr "_Налаштування буфера обміну..."
+
+#: ../panel-plugin/plugin.c:329
+msgid "Contributors:"
+msgstr "Помічники:"
+
+#: ../panel-plugin/plugin.c:343
+msgid "Clipboard Manager for Xfce"
+msgstr "Керівник буфера обміну для Xfce"
+
+#: ../panel-plugin/plugin.c:351
+msgid "translator-credits"
+msgstr "Dmitry Nikitin"
+
+#: ../panel-plugin/plugin.c:365
+msgid "Unable to open the settings dialog"
+msgstr "Неможливо відкрити діалог налаштувань"
