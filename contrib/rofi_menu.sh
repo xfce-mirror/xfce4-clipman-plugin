@@ -91,7 +91,7 @@ make_link()
   local url="$3"
 
   # transform some based on URL termination match
-  regexp='/(([0-9]+)|(CWIT-[0-9]+))$'
+  regexp='/(([0-9]+)|((CWIT|PO)-[0-9]+))$'
   if [[ $url =~ $regexp ]]
   then
     text="$text (#${BASH_REMATCH[1]})"
