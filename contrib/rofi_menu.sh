@@ -14,6 +14,7 @@ options="
 🔳 html black box
 🗑️ clear secure items
 ⚙️ columnize last clipboard entry
+📺 Yewtu.be link
 "
 
 visual_notify()
@@ -199,6 +200,12 @@ case $action in
       out_clipboard=""
     fi
     add_clipboard $out_clipboard "$new_value" "last two item merged"
+    ;;
+  Yewtu.be)
+    last_item_id=$($clipman_cli get_last_item_id)
+    last_item=$($clipman_cli get $last_item_id)
+    new_value=$(echo "$last_item" | sed -e 's/\(youtu\.be\|youtube\.com\)/yewtu.be/')
+    add_clipboard "$new_value" "Yewtu.be created from $last_item"
     ;;
   *)
     echo "unkwon action: '$action' Done nothing"
