@@ -446,11 +446,11 @@ G_GNUC_END_IGNORE_DEPRECATIONS
           surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale_factor, NULL);
           gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_surface (surface));
           cairo_surface_destroy (surface);
+          g_object_set_data_full (G_OBJECT (mi), "pixbuf", pixbuf, g_object_unref);
           g_signal_connect (mi, "activate", G_CALLBACK (cb_set_qrcode), pixbuf);
           menu->priv->list = g_slist_prepend (menu->priv->list, mi);
           gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
           gtk_widget_show_all (mi);
-	  g_object_unref(pixbuf);
         }
       else
         {
