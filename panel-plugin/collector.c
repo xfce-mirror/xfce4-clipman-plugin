@@ -385,6 +385,7 @@ static void
 clipman_collector_finalize (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
+  g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
 }
 
