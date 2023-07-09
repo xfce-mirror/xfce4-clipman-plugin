@@ -375,10 +375,10 @@ clipman_collector_constructed (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
 
-  g_signal_connect_swapped (collector->priv->default_clipboard, "owner-change",
-                            G_CALLBACK (cb_clipboard_owner_change), collector);
-  g_signal_connect_swapped (collector->priv->primary_clipboard, "owner-change",
-                            G_CALLBACK (cb_clipboard_owner_change), collector);
+  g_signal_connect_object (collector->priv->default_clipboard, "owner-change",
+                           G_CALLBACK (cb_clipboard_owner_change), collector, G_CONNECT_SWAPPED);
+  g_signal_connect_object (collector->priv->primary_clipboard, "owner-change",
+                           G_CALLBACK (cb_clipboard_owner_change), collector, G_CONNECT_SWAPPED);
 }
 
 static void
