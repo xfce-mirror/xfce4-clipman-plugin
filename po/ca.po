@@ -6,6 +6,7 @@
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007,2009,2012
 # Harald Servat <redcrash@gmail.com>, 2009
 # Davidmp <medipas@gmail.com>, 2016,2019
+# Oscar Perez <oscarpc@gmail.com>, 2023
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016-2020
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
@@ -13,10 +14,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-09 18:39+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
+"POT-Creation-Date: 2023-05-30 00:52+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
+"Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,9 +74,9 @@ msgstr "Escurça l'URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:77
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -98,24 +99,60 @@ msgstr "Ctrl+V"
 msgid "Shift+Insert"
 msgstr "Maj+Inser"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
 msgstr "<b>Restableix les accions</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:537
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Esteu segur que voleu restablir les accions als valors predeterminats del sistema?"
 
+#: ../panel-plugin/xfce4-clipman-history.c:251
+msgid "Enter search phrase here"
+msgstr "Introduïu aquí el terme de cerca"
+
+#. Insert empty menu item
+#: ../panel-plugin/xfce4-clipman-history.c:329 ../panel-plugin/menu.c:471
+msgid "Clipboard is empty"
+msgstr "El porta-retalls està buit"
+
+#: ../panel-plugin/xfce4-clipman-history.c:411
+#, c-format
+msgid "_Paste"
+msgstr "_Enganxa"
+
+#: ../panel-plugin/xfce4-clipman-history.c:416
+#, c-format
+msgid "_Copy"
+msgstr "_Copia"
+
+#: ../panel-plugin/xfce4-clipman-history.c:432
+msgid "Clipman History"
+msgstr "Historial de Clipman"
+
+#: ../panel-plugin/xfce4-clipman-history.c:438
+#: ../panel-plugin/xfce4-clipman-history.c:440
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Help"
+msgstr "_Ajuda"
+
+#: ../panel-plugin/xfce4-clipman-history.c:446
+#: ../panel-plugin/xfce4-clipman-history.c:448
+msgid "_Settings"
+msgstr "_Ajusts"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Ajusts del gestor del porta-retalls"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Personalitzeu el vostre porta-retalls"
+
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
 msgstr "Ajusts de Clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-#: ../panel-plugin/xfce4-clipman-history.c:441
-#: ../panel-plugin/xfce4-clipman-history.c:443
-msgid "_Help"
-msgstr "_Ajuda"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -132,260 +169,221 @@ msgid ""
 msgstr "Si es marca, les seleccions se sincronitzaran amb el porta-retalls predeterminat per tal que pugueu enganxar allò que seleccioneu"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_Persist primary selection"
+msgstr "_Persisteix la selecció primària"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the middle-click paste (primary selection) will be persistent if"
+" the next selection is empty, i.e. left click anywhere in a text area"
+msgstr "Si està activat, la selecció primària (enganxable en prémer el botó del mig) serà persistent en cas que la següent selecció estigui buida, per exemple, si es prem el botó esquerre a qualsevol lloc d'una caixa de text"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
 msgstr "Admet codis _QR"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Si es marca, el menú mostra un codi QR de l'entrada seleccionada en aquest moment al porta-retalls"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
 msgstr "Enganxa automàticament un element seleccionat de l'historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "_Paste instantly:"
 msgstr "_Enganxa instantàniament:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
 msgstr "_Posiciona el menú al punter del ratolí"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Mostra el menú emergent en la posició del punter del ratolí, només per a l'ordre «xfce4-popup-clipman»"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
 msgstr "Nombre màxim d'elements:"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
 msgstr "<b>Menú</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "_Behavior"
 msgstr "_Comportament"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>Habilita l_es accions automàtiques</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "Si es marca, el text del porta-retalls es farà coincidir amb expressions regulars i apareixerà automàticament un menú amb les accions disponibles.\nAltrament, el menú només apareixerà quan es cridi «xfce4-popup-clipman-actions» (i s'hagi trobat una coincidència)"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
+#: ../panel-plugin/settings-dialog.ui.h:21
 msgid "_Show actions by holding Control"
 msgstr "Mo_stra les accions en mantenir premuda la tecla Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
+#: ../panel-plugin/settings-dialog.ui.h:22
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be shown"
 msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, es mostrarà el menú emergent d'accions coincidents"
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: ../panel-plugin/settings-dialog.ui.h:23
 msgid "S_kip actions by holding Control"
 msgstr "Ome_t les accions en mantenir premuda la tecla Control"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: ../panel-plugin/settings-dialog.ui.h:24
 msgid ""
 "When the selection is done (mouse or keyboard) and the Control key is still "
 "pressed down, the popup menu for matched actions will be skipped"
 msgstr "Quan es fa la selecció (ratolí o teclat) i la tecla de control encara està pitjada, s'ometrà el menú emergent d'accions"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
+#: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Add action"
 msgstr "Afegeix una acció"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
+#: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Edit action"
 msgstr "Edita l'acció"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
+#: ../panel-plugin/settings-dialog.ui.h:27
 msgid "Delete action"
 msgstr "Suprimeix l'acció"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: ../panel-plugin/settings-dialog.ui.h:28
 msgid "Reset all actions to the system default values"
 msgstr "Restableix totes les accions als valors predeterminats del sistema"
 
-#: ../panel-plugin/settings-dialog.ui.h:27
+#: ../panel-plugin/settings-dialog.ui.h:29
 msgid "_Actions"
 msgstr "_Accions"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: ../panel-plugin/settings-dialog.ui.h:30
 msgid "<b>Remember history</b>"
 msgstr "<b>Recorda l'historial</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
+#: ../panel-plugin/settings-dialog.ui.h:31
 msgid "Remember last copied _image"
 msgstr "Recorda l'última _imatge copiada"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "If checked, this option allows one to store one image inside the history"
 msgstr "Si es marca, aquesta opció permet emmagatzemar una una les imatge dins de l'historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: ../panel-plugin/settings-dialog.ui.h:33
 msgid "_Reorder history items"
 msgstr "_Reordena els elements de l'historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
+#: ../panel-plugin/settings-dialog.ui.h:34
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
 msgstr "Empeny l'últim text copiat a la part superior de l'historial, útil per tornar a ordenar els elements antics"
 
-#: ../panel-plugin/settings-dialog.ui.h:33
+#: ../panel-plugin/settings-dialog.ui.h:35
 msgid "Re_verse history order"
 msgstr "Ordre in_vers de l'historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: ../panel-plugin/settings-dialog.ui.h:36
 msgid "Reverse order of the history shown in the menu"
 msgstr "Es mostra al menú l'ordre invers de l'historial"
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Ignore mouse s_elections"
 msgstr "Ignora les s_eleccions del ratolí"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: ../panel-plugin/settings-dialog.ui.h:38
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Si es marca, les seleccions, llevat de les còpies manuals, no afectaran l'historial."
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: ../panel-plugin/settings-dialog.ui.h:39
 msgid "Size of the _history:"
 msgstr "Mida de l'_historial:"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: ../panel-plugin/settings-dialog.ui.h:40
 msgid "5"
 msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
+#: ../panel-plugin/settings-dialog.ui.h:41
 msgid "H_istory"
 msgstr "H_istorial"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
+#: ../panel-plugin/settings-dialog.ui.h:42
 msgid "Edit Action"
 msgstr "Edita l'acció"
 
-#: ../panel-plugin/settings-dialog.ui.h:41
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Nom:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Patró:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Els paràmetres de substitució \"\\1\", \"\\2\", i els successius es poden utilitzar en les ordres. El paràmetre \"\\0\" representa el text complet. El patró sempre està ancorat entre els caràcters especials ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate only on manual copy"
 msgstr "Activa únicament amb la còpia manual"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection, check this option to "
 "trigger the action only when you make a manual copy"
 msgstr "Per defecte l'acció s'executa per a una selecció. Marqueu aquesta opció per a executar l'acció només quan es faci una còpia manual."
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Acció</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Ordre:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Ordres</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Teclegeu aquí el text personalitzat, per exemple un URL, un nom de fitxer, etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Expressió regular"
 
-#: ../panel-plugin/main-panel-plugin.c:111
-#: ../panel-plugin/main-status-icon.c:159
+#: ../panel-plugin/main-panel-plugin.c:117
+#: ../panel-plugin/main-status-icon.c:161
 msgid "_Disable"
 msgstr "_Inhabilita"
 
-#: ../panel-plugin/actions.c:368
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr "No es pot executar l'ordre «%s»\n\n%s"
-
-#: ../panel-plugin/menu.c:255
-msgid "Are you sure you want to clear the history?"
-msgstr "Esteu segur que voleu netejar l'historial?"
-
-#: ../panel-plugin/menu.c:260
-msgid "Don't ask again"
-msgstr "No m'ho tornis a preguntar"
-
-#: ../panel-plugin/menu.c:306
-msgid "Unable to open the clipman history dialog"
-msgstr "No es pot obrir el diàleg de l'historial de clipman"
-
-#: ../panel-plugin/menu.c:455
-msgid "Could not generate QR-Code."
-msgstr "No s'ha pogut generar el codi QR."
-
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
-msgid "Clipboard is empty"
-msgstr "El porta-retalls està buit"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "Mo_stra l'historial complet..."
-
-#: ../panel-plugin/menu.c:608
-msgid "_Clear history"
-msgstr "Nete_ja l'historial"
-
-#: ../panel-plugin/menu.c:615
-msgid "_Clipman settings..."
-msgstr "Ajusts de _Clipman..."
-
-#: ../panel-plugin/plugin.c:321
-msgid "Contributors:"
-msgstr "Contribuïdors:"
-
-#: ../panel-plugin/plugin.c:335
-msgid "Clipboard Manager for Xfce"
-msgstr "Gestor de porta-retalls per a l'escriptori Xfce"
-
-#: ../panel-plugin/plugin.c:343
-msgid "translator-credits"
-msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\nHarald Servat Gelabert <redcrash@gmail.com>, 2009.\nRobert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2018."
-
-#: ../panel-plugin/plugin.c:357
-msgid "Unable to open the settings dialog"
-msgstr "No es pot obrir el diàleg d'ajusts"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -404,33 +402,46 @@ msgstr "Podeu llançar-ho amb 'xfce4-clipman'."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "No s'està executant el gestor del porta-retalls."
 
-#: ../panel-plugin/xfce4-clipman-history.c:256
-msgid "Enter search phrase here"
-msgstr "Introduïu aquí el terme de cerca"
+#: ../panel-plugin/menu.c:256
+msgid "Are you sure you want to clear the history?"
+msgstr "Esteu segur que voleu netejar l'historial?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:414
-#, c-format
-msgid "_Paste"
-msgstr "_Enganxa"
+#: ../panel-plugin/menu.c:261
+msgid "Don't ask again"
+msgstr "No m'ho tornis a preguntar"
 
-#: ../panel-plugin/xfce4-clipman-history.c:419
-#, c-format
-msgid "_Copy"
-msgstr "_Copia"
+#: ../panel-plugin/menu.c:304
+msgid "Unable to open the clipman history dialog"
+msgstr "No es pot obrir el diàleg de l'historial de clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:435
-msgid "Clipman History"
-msgstr "Historial de Clipman"
+#: ../panel-plugin/menu.c:457
+msgid "Could not generate QR-Code."
+msgstr "No s'ha pogut generar el codi QR."
 
-#: ../panel-plugin/xfce4-clipman-history.c:449
-#: ../panel-plugin/xfce4-clipman-history.c:451
-msgid "_Settings"
-msgstr "_Ajusts"
+#: ../panel-plugin/menu.c:614
+msgid "_Show full history..."
+msgstr "Mo_stra l'historial complet..."
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "Ajusts del gestor del porta-retalls"
+#: ../panel-plugin/menu.c:620
+msgid "_Clear history"
+msgstr "Nete_ja l'historial"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "Personalitzeu el vostre porta-retalls"
+#: ../panel-plugin/menu.c:627
+msgid "_Clipman settings..."
+msgstr "Ajusts de _Clipman..."
+
+#: ../panel-plugin/plugin.c:329
+msgid "Contributors:"
+msgstr "Contribuïdors:"
+
+#: ../panel-plugin/plugin.c:343
+msgid "Clipboard Manager for Xfce"
+msgstr "Gestor de porta-retalls per a l'escriptori Xfce"
+
+#: ../panel-plugin/plugin.c:351
+msgid "translator-credits"
+msgstr "Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.\nCarles Muñoz Gorriz <carlesmu@internautas.org>, 2007, 2009, 2012.\nHarald Servat Gelabert <redcrash@gmail.com>, 2009.\nRobert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2018."
+
+#: ../panel-plugin/plugin.c:365
+msgid "Unable to open the settings dialog"
+msgstr "No es pot obrir el diàleg d'ajusts"
