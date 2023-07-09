@@ -254,6 +254,8 @@ primary_clipboard_restore (gpointer user_data)
                 manager->priv->primary_internal_change = TRUE;
         }
 
+        manager->priv->primary_timeout = 0;
+
         return FALSE;
 }
 
