@@ -206,17 +206,16 @@ cb_request_text (GtkClipboard *clipboard,
       if (collector->priv->add_primary_clipboard)
         gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
 
-      /* Store selection for later use */
-      if (collector->priv->persistent_primary_clipboard)
+      /* Match for actions */
+      if (collector->priv->enable_actions && g_strcmp0 (text, prev_text) != 0)
         {
+          clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_SELECTION, text);
           g_free (prev_text);
           prev_text = g_strdup (text);
         }
-
-      /* Match for actions */
-      if (collector->priv->enable_actions && g_strcmp0 (text, prev_text))
+      /* Store selection for later use */
+      else if (collector->priv->persistent_primary_clipboard)
         {
-          clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_SELECTION, text);
           g_free (prev_text);
           prev_text = g_strdup (text);
         }
