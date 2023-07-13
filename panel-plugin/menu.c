@@ -114,17 +114,16 @@ cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
   ClipmanCollector *collector;
   ClipmanHistory *history;
 
-  collector = clipman_collector_get ();
-  clipman_collector_set_is_restoring (collector);
-  g_object_unref (collector);
-
   history = clipman_history_get ();
   clipman_history_add_image (history, pixbuf);
-
-  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-  gtk_clipboard_set_image (clipboard, GDK_PIXBUF (pixbuf));
-
   g_object_unref (history);
+
+  collector = clipman_collector_get ();
+  clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+  clipman_collector_set_is_restoring (collector, clipboard);
+  g_object_unref (collector);
+
+  gtk_clipboard_set_image (clipboard, GDK_PIXBUF (pixbuf));
 }
 #endif
 
@@ -143,37 +142,26 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
   ClipmanHistory *history;
-  gboolean add_primary_clipboard;
 
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
       gtk_clipboard_set_text (clipboard, item->content.text, -1);
-
-      collector = clipman_collector_get ();
-      g_object_get (G_OBJECT (collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
-      if (add_primary_clipboard)
-        {
-          g_warning ("sync primary clipboard");
-          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-          gtk_clipboard_set_text (clipboard, item->content.text, -1);
-        }
-      g_object_unref (collector);
       break;
 
     case CLIPMAN_HISTORY_TYPE_IMAGE:
       DBG ("Copy image (%p) to default clipboard", item->content.image);
 
-      collector = clipman_collector_get ();
-      clipman_collector_set_is_restoring (collector);
-      g_object_unref (collector);
-
       history = clipman_history_get ();
       clipman_history_set_item_to_restore (history, item);
       g_object_unref (history);
 
+      collector = clipman_collector_get ();
       clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+      clipman_collector_set_is_restoring (collector, clipboard);
+      g_object_unref (collector);
+
       gtk_clipboard_set_image (clipboard, GDK_PIXBUF (item->content.image));
       break;
 
