@@ -119,7 +119,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="has_tooltip">True</property>
-                                <property name="tooltip_text" translatable="yes">If checked, the selections will be synced with the default clipboard in a way that you can paste what you select</property>
+                                <property name="tooltip_text" translatable="yes">If checked, selections will be synced with the default clipboard, so you can paste what you select with Ctrl-V. Conversely, manual copies will be synced with the primary clipboard, so you can paste what you copy with a middle-click.</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
@@ -131,12 +131,12 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="persistent-selections">
-                                <property name="label" translatable="yes">_Persist primary selection</property>
-                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">_Persist mouse selections</property>
+                                <property name="visible" bind-source="add-selections" bind-property="active" bind-flags="G_BINDING_INVERT_BOOLEAN | G_BINDING_SYNC_CREATE"/>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="has_tooltip">True</property>
-                                <property name="tooltip_text" translatable="yes">If checked, the middle-click paste (primary selection) will be persistent if the next selection is empty, i.e. left click anywhere in a text area</property>
+                                <property name="tooltip_text" translatable="yes">If checked, the primary clipboard (middle-click paste) will persist until next selection if current selection is lost (e.g. by left-clicking anywhere in a text area)</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
                               </object>
