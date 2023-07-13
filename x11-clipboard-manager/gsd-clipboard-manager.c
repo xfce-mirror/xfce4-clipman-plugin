@@ -312,8 +312,16 @@ start_clipboard_idle_cb (gpointer user_data)
 
         g_signal_connect_swapped (manager->priv->default_clipboard, "owner-change",
                                   G_CALLBACK (default_clipboard_owner_change), manager);
+        /*
+         * This duplicates and may conflict with the persistent-primary-clipboard option
+         * implemented in ClipmanCollector since 1.6.3, but the logic here is a little
+         * different and could be useful in the future, so let's just disable this code
+         * for now rather than delete it.
+         */
+#if 0
         g_signal_connect_swapped (manager->priv->primary_clipboard, "owner-change",
                                   G_CALLBACK (primary_clipboard_owner_change), manager);
+#endif
 
         /* Check to see if we managed to claim the selection. If not,
          * we treat it as if we got it then immediately lost it
