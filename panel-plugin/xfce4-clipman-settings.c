@@ -129,15 +129,15 @@ prop_dialog_run (void)
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
 
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
-                                DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
-                                !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+  combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-skip-action"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("shows actions"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("hides actions"));
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
 
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "box-actions"), "sensitive");
-  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-2"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down",
+                          G_TYPE_BOOLEAN, G_OBJECT (combobox), "active");
 
   g_signal_connect (gtk_builder_get_object (builder, "button-add-action"), "clicked", G_CALLBACK (cb_add_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
