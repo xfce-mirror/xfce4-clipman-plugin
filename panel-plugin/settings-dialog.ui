@@ -132,7 +132,7 @@
                             <child>
                               <object class="GtkCheckButton" id="persistent-selections">
                                 <property name="label" translatable="yes">_Persist primary selection</property>
-                                <property name="visible">True</property>
+                                <property name="visible" bind-source="add-selections" bind-property="active" bind-flags="G_BINDING_INVERT_BOOLEAN | G_BINDING_SYNC_CREATE"/>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="has_tooltip">True</property>
