@@ -125,6 +125,21 @@ open_rofi_menu()
   echo "$r"
 }
 
+yewtu_be_rewrite()
+{
+  local url="$1"
+  # https://youtu.be/7fIR55kkTwc
+  # https://yewtu.be/watch?v=Dn800rlPIho
+  local regexp_nowatch='/([^/=&?]+)$'
+  if [[ $url =~ $regexp_nowatch ]]
+  then
+    video_id=${BASH_REMATCH[1]}
+    url=$(echo "$url" | sed -e "s/$video_id/watch?v=$video_id/")
+  fi
+
+  echo "$url" | sed -e 's/\(youtu\.be\|youtube\.com\)/yewtu.be/'
+}
+
 SCRIPT_DIR=$(dirname $(realpath $0))
 clipman_cli=$SCRIPT_DIR/../panel-plugin/clipman_cli.sh
 transform_clipboard=$SCRIPT_DIR/transform_clipboard.py
@@ -204,7 +219,7 @@ case $action in
   Yewtu.be)
     last_item_id=$($clipman_cli get_last_item_id)
     last_item=$($clipman_cli get $last_item_id)
-    new_value=$(echo "$last_item" | sed -e 's/\(youtu\.be\|youtube\.com\)/yewtu.be/')
+    new_value=$(yewtu_be_rewrite "$last_item")
     add_clipboard "$new_value" "Yewtu.be created from $last_item"
     ;;
   *)
