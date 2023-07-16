@@ -280,43 +280,6 @@ clipman_collector_get (void)
   return singleton;
 }
 
-void
-clipman_collector_show_actions (void)
-{
-  ClipmanCollector   *collector;
-  const ClipmanHistoryItem *item;
-  ClipmanHistory     *history;
-  GSList *entries;
-  gint group;
-
-  history = clipman_history_get();
-  collector = clipman_collector_get();
-
-  item = clipman_history_get_item_to_restore(history);
-
-  if (item == NULL)
-    return;
-
-  if (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
-    {
-      entries = clipman_actions_match (collector->priv->actions, ACTION_GROUP_MANUAL, item->content.text);
-      if (entries == NULL)
-        {
-          group = ACTION_GROUP_SELECTION;
-        }
-      else
-        {
-          group = ACTION_GROUP_MANUAL;
-        }
-      g_slist_free (entries);
-      clipman_actions_match_with_menu (collector->priv->actions, group, item->content.text);
-    }
-  else
-    {
-      DBG("I can't show actions on item type %d", item->type);
-    }
-}
-
 /*
  * GObject
  */
