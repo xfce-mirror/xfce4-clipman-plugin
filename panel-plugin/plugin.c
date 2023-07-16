@@ -205,9 +205,6 @@ plugin_load (MyPlugin *plugin)
   g_key_file_free (keyfile);
   g_strfreev (texts);
   g_free (filename);
-
-  /* Set no current item */
-  clipman_history_set_item_to_restore (plugin->history, NULL);
 }
 
 void
