@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-10-13 09:47+0000\n"
-"Last-Translator: Źmicier Turok <nashtlumach@gmail.com>\n"
-"Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
+"POT-Creation-Date: 2023-07-16 12:50+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Źmicier Turok <nashtlumach@gmail.com>, 2019-2020\n"
+"Language-Team: Belarusian (http://app.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,9 +71,9 @@ msgstr "Скараціць URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:77
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -96,24 +96,68 @@ msgstr "Ctrl+V"
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:133
+msgid "shows actions"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:134
+msgid "hides actions"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
 msgstr "<b>Скінуць дзеянні</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:537
+#: ../panel-plugin/xfce4-clipman-settings.c:535
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Сапраўды хочаце скінуць дзеянні да прадвызначаных значэнняў?"
 
+#: ../panel-plugin/xfce4-clipman-history.c:231
+msgid "Enter search phrase here"
+msgstr "Увядзіце фразу для пошуку"
+
+#. Insert empty menu item
+#: ../panel-plugin/xfce4-clipman-history.c:309 ../panel-plugin/menu.c:459
+msgid "Clipboard is empty"
+msgstr "Буфер абмену пусты"
+
+#: ../panel-plugin/xfce4-clipman-history.c:391
+#, c-format
+msgid "_Paste"
+msgstr "_Уставіць"
+
+#: ../panel-plugin/xfce4-clipman-history.c:396
+#, c-format
+msgid "_Copy"
+msgstr "_Капіяваць"
+
+#: ../panel-plugin/xfce4-clipman-history.c:412
+msgid "Clipman History"
+msgstr "Гісторыя"
+
+#: ../panel-plugin/xfce4-clipman-history.c:418
+#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Help"
+msgstr "_Даведка"
+
+#: ../panel-plugin/xfce4-clipman-history.c:426
+#: ../panel-plugin/xfce4-clipman-history.c:428
+msgid "_Settings"
+msgstr "_Налады"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Налады кіраўніка буфера абмену"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Наладзьце свой буфер абмену"
+
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
 msgstr "Налады Clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-#: ../panel-plugin/xfce4-clipman-history.c:441
-#: ../panel-plugin/xfce4-clipman-history.c:443
-msgid "_Help"
-msgstr "_Даведка"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -125,83 +169,86 @@ msgstr "_Аўтакапіяванне мышшу"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Калі адзначана, вылучаны тэкст будзе аўтаматычна капіявацца"
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_Persist mouse selections"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
 msgstr "Падтрымка _QR-кодаў"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Калі адзначана, у меню будзе паказвацца QR-код для абранага элемента"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
 msgstr "Аўтаматычная ўстаўка абранага элемента з гісторыі"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "_Paste instantly:"
 msgstr "_Хуткая ўстаўка:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "<b>General</b>"
 msgstr "<b>Асноўны</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
 msgstr "Ме_ню на месцы паказальніка мышы"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "Popup the menu at the mouse pointer position, only for the xfce4-popup-"
 "clipman command"
 msgstr "Выводзіць меню на месцы паказальніка мышы (толькі для загада xfce4-popup-clipman)"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
 msgstr "Максімальная колькасць:"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
 msgstr "<b>Меню</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "_Behavior"
 msgstr "_Паводзіны"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>_Уключыць аўтаматычныя дзеянні</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "Калі адзначана, тэксты з буфера абмену будуць параўноўвацца з рэгулярнымі выразамі і ў меню будуць паказвацца магчымыя дзеянні.\nІнакш, меню будзе з'яўляцца пры выкліку «xfce4-popup-clipman-actions» (калі супадзенняў не знойдзена)"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "_Show actions by holding Control"
-msgstr "_Паказваць дзеянні клавішай Ctrl"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Пасля завяршэння вылучэння (мышшу альбо клавіятурай) і ўтрымліванні Ctrl, з'явіцца выплыўное меню з адпаведнымі дзеяннямі"
-
 #: ../panel-plugin/settings-dialog.ui.h:21
-msgid "S_kip actions by holding Control"
-msgstr "Вык_лючаць дзеянні клавішай Control"
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Пасля завяршэння вылучэння (мышшу альбо клавіятурай) і ўтрымліванні Ctrl, выплыўное меню з адпаведнымі дзеяннямі не з'явіцца"
+msgid "_Pressing Ctrl during selection:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -294,14 +341,15 @@ msgid ""
 msgstr "Вы можаце выкарыстоўваць параметры замены \"\\ 1\", \"\\ 2\" у загадах. Параметр \"\\ 0\" - поўны тэкст. Шаблон заўсёды прывязаны да адмысловых сімвалаў ^$"
 
 #: ../panel-plugin/settings-dialog.ui.h:44
-msgid "Activate only on manual copy"
-msgstr "Толькі падчас капіявання"
+msgid "Activate on manual copy instead of selection"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
-"By default the action is triggered by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "Выконваць дзеянне толькі пры непасрэдным капіяванні"
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -323,67 +371,18 @@ msgstr "Увядзіце адвольны тэкст. Напрыклад, URL, �
 msgid "Regular expression"
 msgstr "Рэгулярны выраз"
 
-#: ../panel-plugin/main-panel-plugin.c:111
-#: ../panel-plugin/main-status-icon.c:159
+#: ../panel-plugin/main-panel-plugin.c:117
+#: ../panel-plugin/main-status-icon.c:161
 msgid "_Disable"
 msgstr "_Выключыць"
 
-#: ../panel-plugin/actions.c:368
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr "Не атрымалася запусціць загад \"%s\"\n\n%s"
-
-#: ../panel-plugin/menu.c:255
-msgid "Are you sure you want to clear the history?"
-msgstr "Сапраўды хочаце ачысціць гісторыю?"
-
-#: ../panel-plugin/menu.c:260
-msgid "Don't ask again"
-msgstr "Больш н_е пытацца"
-
-#: ../panel-plugin/menu.c:306
-msgid "Unable to open the clipman history dialog"
-msgstr "Не атрымалася адкрыць гісторыю clipman"
-
-#: ../panel-plugin/menu.c:455
-msgid "Could not generate QR-Code."
-msgstr "Не атрымалася стварыць QR-код."
-
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
-msgid "Clipboard is empty"
-msgstr "Буфер абмену пусты"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "_Паказаць усю гісторыю..."
-
-#: ../panel-plugin/menu.c:608
-msgid "_Clear history"
-msgstr "_Ачысціць гісторыю"
-
-#: ../panel-plugin/menu.c:615
-msgid "_Clipman settings..."
-msgstr "_Налады Clipman..."
-
-#: ../panel-plugin/plugin.c:321
-msgid "Contributors:"
-msgstr "Удзельнікі:"
-
-#: ../panel-plugin/plugin.c:335
-msgid "Clipboard Manager for Xfce"
-msgstr "Кіраўнік буфера абмену Xfce"
-
-#: ../panel-plugin/plugin.c:343
-msgid "translator-credits"
-msgstr "Zmicer Turok <zmicerturok@gmail.com>"
-
-#: ../panel-plugin/plugin.c:357
-msgid "Unable to open the settings dialog"
-msgstr "Немагчыма адкрыць дыялог налад"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -402,33 +401,46 @@ msgstr "Вы можаце запусціць яго загадам \"xfce4-clipm
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Дэман кіраўніка буфера абмену не запушчаны."
 
-#: ../panel-plugin/xfce4-clipman-history.c:256
-msgid "Enter search phrase here"
-msgstr "Увядзіце фразу для пошуку"
+#: ../panel-plugin/menu.c:244
+msgid "Are you sure you want to clear the history?"
+msgstr "Сапраўды хочаце ачысціць гісторыю?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:414
-#, c-format
-msgid "_Paste"
-msgstr "_Уставіць"
+#: ../panel-plugin/menu.c:249
+msgid "Don't ask again"
+msgstr "Больш н_е пытацца"
 
-#: ../panel-plugin/xfce4-clipman-history.c:419
-#, c-format
-msgid "_Copy"
-msgstr "_Капіяваць"
+#: ../panel-plugin/menu.c:292
+msgid "Unable to open the clipman history dialog"
+msgstr "Не атрымалася адкрыць гісторыю clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:435
-msgid "Clipman History"
-msgstr "Гісторыя"
+#: ../panel-plugin/menu.c:445
+msgid "Could not generate QR-Code."
+msgstr "Не атрымалася стварыць QR-код."
 
-#: ../panel-plugin/xfce4-clipman-history.c:449
-#: ../panel-plugin/xfce4-clipman-history.c:451
-msgid "_Settings"
-msgstr "_Налады"
+#: ../panel-plugin/menu.c:602
+msgid "_Show full history..."
+msgstr "_Паказаць усю гісторыю..."
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "Налады кіраўніка буфера абмену"
+#: ../panel-plugin/menu.c:608
+msgid "_Clear history"
+msgstr "_Ачысціць гісторыю"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "Наладзьце свой буфер абмену"
+#: ../panel-plugin/menu.c:615
+msgid "_Clipman settings..."
+msgstr "_Налады Clipman..."
+
+#: ../panel-plugin/plugin.c:329
+msgid "Contributors:"
+msgstr "Удзельнікі:"
+
+#: ../panel-plugin/plugin.c:343
+msgid "Clipboard Manager for Xfce"
+msgstr "Кіраўнік буфера абмену Xfce"
+
+#: ../panel-plugin/plugin.c:351
+msgid "translator-credits"
+msgstr "Zmicer Turok <zmicerturok@gmail.com>"
+
+#: ../panel-plugin/plugin.c:365
+msgid "Unable to open the settings dialog"
+msgstr "Немагчыма адкрыць дыялог налад"
