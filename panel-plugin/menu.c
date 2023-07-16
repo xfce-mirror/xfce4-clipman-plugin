@@ -154,7 +154,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       DBG ("Copy image (%p) to default clipboard", item->content.image);
 
       history = clipman_history_get ();
-      clipman_history_set_item_to_restore (history, item);
+      clipman_history_set_image_to_restore (history, item);
       g_object_unref (history);
 
       collector = clipman_collector_get ();
@@ -334,8 +334,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   selection_clipboard = g_object_get_data (G_OBJECT (menu), "selection-clipboard");
   selection_primary = g_object_get_data (G_OBJECT (menu), "selection-primary");
 
-  /* Get the most recent item in the history */
-  item_to_restore = clipman_history_get_item_to_restore (menu->priv->history);
+  /* Get the image to restore from the history, if any */
+  item_to_restore = clipman_history_get_image_to_restore (menu->priv->history);
 
   /* Clear the previous menu items */
   _clipman_menu_free_list (menu);
@@ -380,9 +380,12 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
 
-      if (selection_clipboard && (item->type == CLIPMAN_HISTORY_TYPE_TEXT)
-          && (g_strcmp0 (selection_clipboard, item->content.text) == 0))
+      if (item == item_to_restore || (
+            item->type == CLIPMAN_HISTORY_TYPE_TEXT
+            && g_strcmp0 (selection_clipboard, item->content.text) == 0
+          ))
         {
+          item_to_restore = item;
           image = gtk_image_new_from_icon_name ("edit-paste-symbolic",
                                                 GTK_ICON_SIZE_MENU);
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
@@ -399,18 +402,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
             gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM(mi), image);
   G_GNUC_END_IGNORE_DEPRECATIONS
           }
-        else
-          /* not sure if "item_to_restore" can be neither primary nor clipboard...
-           * but let's leave this as fallback
-           */
-          if (item == item_to_restore)
-            {
-              image = gtk_image_new_from_icon_name ("go-next-symbolic",
-                                            GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM(mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
-            }
 
       menu->priv->list = g_slist_prepend (menu->priv->list, mi);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
