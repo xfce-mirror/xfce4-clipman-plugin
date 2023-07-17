@@ -190,15 +190,26 @@ cb_request_text (GtkClipboard *clipboard,
 
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
-  if (text == NULL || text[0] == '\0')
+  if (text == NULL)
     {
       /* Restore primary clipboard on deselection */
-      if (clipboard == collector->priv->primary_clipboard
-          && (collector->priv->persistent_primary_clipboard || collector->priv->add_primary_clipboard)
-          && prev_text != NULL)
+      if (clipboard == collector->priv->primary_clipboard && prev_text != NULL && (
+            (collector->priv->persistent_primary_clipboard && !collector->priv->add_primary_clipboard)
+            || (collector->priv->add_primary_clipboard
+                && gtk_clipboard_wait_is_text_available (collector->priv->default_clipboard))
+         ))
         {
           collector->priv->primary_internal_change = TRUE;
           gtk_clipboard_set_text (collector->priv->primary_clipboard, prev_text, -1);
+        }
+
+      /* Clear primary clipboard if default clipboard was cleared */
+      if (clipboard == collector->priv->default_clipboard
+          && collector->priv->add_primary_clipboard)
+        {
+          collector->priv->primary_internal_change = TRUE;
+          gtk_clipboard_set_text (collector->priv->primary_clipboard, "", -1);
+          gtk_clipboard_clear (collector->priv->primary_clipboard);
         }
 
       return;
