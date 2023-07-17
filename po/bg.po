@@ -5,7 +5,7 @@
 # Translators:
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2013
 # Georgi Georgiev (Жоро) <g.georgiev.shumen@gmail.com>, 2014
-# Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020,2022
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020,2022-2023
 # Любомир Василев, 2015
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-16 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020,2022\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020,2022-2023\n"
 "Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,11 +98,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "показване на действия"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "скриване на действия"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -173,18 +173,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Ако е отметнато, селекциите ще бъдат синхронизирани с клипборда по подразбиране, така че можете да поставите избраното с Ctrl-V. Обратно, ръчно направените копия ще бъдат синхронизирани с основния клипборд, така че можете да поставите това, което копирате, със средно щракване."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Запазване на селекцията на мишката"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Ако е отметнато, основният клипборд (поставяне със средно кликване) ще се запази до следващата селекция, ако текущата селекция бъде загубена (напр. чрез щракване с левия бутон навсякъде в текстова област)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -244,11 +244,11 @@ msgstr "Ако е избрано, текстовете от системния �
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Когато изборът е направен и клавишът Control все още е натиснат, изскачащото меню за съответстващи действия ще бъде показано или скрито"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Натискане на Ctrl по време на избор:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -342,14 +342,14 @@ msgstr "Вие можете да използвате параметрите н�
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Активиране на ръчно копиране вместо от селекцията"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "По подразбиране действието се задейства от селекция: отметнете тази опция, за да задействате действието, когато вместо това правите ръчно копие. Имайте предвид, че в този случай клавишът Control вече няма ефект."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
