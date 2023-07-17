@@ -218,7 +218,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   GtkTreeIter iter;
   GtkTreePath *path;
   GtkWidget *entry, *scroll, *treeview, *box;
-  gboolean reverse_order = FALSE;
 
   box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_widget_set_margin_start (box, 6);
@@ -298,11 +297,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   /* Get the history and populate the treeview */
   plugin->history = clipman_history_get ();
   list = clipman_history_get_list (plugin->history);
-
-  g_object_get (G_OBJECT (plugin->menu), "reverse-order", &reverse_order, NULL);
-  if (reverse_order)
-    list = g_slist_reverse (list);
-
   if (list == NULL)
     {
       gtk_list_store_insert_with_values (liststore, &iter, 0,
@@ -470,8 +464,6 @@ clipman_history_activate (GtkApplication *app,
 
   plugin->menu = clipman_menu_new ();
   internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
-  xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
-                          G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
 
   /* Read the history from the cache file */
   plugin_load (plugin);
