@@ -236,6 +236,7 @@ cb_clear_history (ClipmanMenu *menu)
   gint res;
   GtkWidget *dialog;
   GtkClipboard *clipboard;
+  ClipmanCollector *collector;
 
   if (!menu->priv->never_confirm_history_clear)
     {
@@ -268,11 +269,16 @@ cb_clear_history (ClipmanMenu *menu)
   clipman_history_clear (menu->priv->history);
 
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-  gtk_clipboard_set_text (clipboard, "", 1);
+  gtk_clipboard_set_text (clipboard, "", -1);
   gtk_clipboard_clear (clipboard);
 
+  /* prevent persistent-primary-clipboard from restoring the selection */
+  collector = clipman_collector_get ();
   clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-  gtk_clipboard_set_text (clipboard, "", 1);
+  clipman_collector_set_is_restoring (collector, clipboard);
+  g_object_unref (collector);
+
+  gtk_clipboard_set_text (clipboard, "", -1);
   gtk_clipboard_clear (clipboard);
 }
 
@@ -344,6 +350,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
   /* Set the clear history item sensitive */
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
+  gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear history"));
 
   /* Insert an updated list of menu items */
   list = clipman_history_get_list (menu->priv->history);
@@ -452,7 +459,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   if (pos == 0)
     {
       /* Insert empty menu item */
-      mi = gtk_menu_item_new_with_label (_("Clipboard is empty"));
+      mi = gtk_menu_item_new_with_label (_("History is empty"));
       menu->priv->list = g_slist_prepend (menu->priv->list, mi);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
       gtk_widget_set_sensitive (mi, FALSE);
@@ -488,6 +495,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         {
           /* Set the clear history item sensitive */
           gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
+          gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear clipboard"));
         }
     }
 
