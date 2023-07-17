@@ -101,11 +101,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "показує дії"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "приховує дії"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -176,7 +176,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Якщо відмічено, виділене буде синхронізовано з буфером обміну за замовчуванням, тож ви можете вставити те, що ви виділили, за допомогою Ctrl-V. І навпаки, копії, створені вручну, синхронізуватимуться з основним буфером обміну, тож ви можете вставляти те, що копіюєте, клацаючи середньою кнопкою миші."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
@@ -247,11 +247,11 @@ msgstr "Якщо відмічено, текст в буфері обміну б�
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Коли виділення зроблено, а клавіша Ctrl все ще натиснута, спливаюче меню для відповідних дій буде показано або приховано"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Натискання Ctrl під час виділення:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -345,14 +345,14 @@ msgstr "У командах можна використовувати парам
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Активувати при копіюванні вручну замість виділення"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "За замовчуванням дія ініціюється вибором: відмітьте цей параметр, щоб ініціювати дію, коли ви натомість робите копію вручну. Зауважте, що в цьому випадку клавіша Control більше не має жодного ефекту."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
