@@ -258,6 +258,9 @@ clipman_history_add_text (ClipmanHistory *history,
   ClipmanHistoryItem *item;
   GSList *list;
 
+  if (text == NULL || *text == '\0')
+    return;
+
   /* Search for a previously existing content */
   list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
   if (list != NULL)
