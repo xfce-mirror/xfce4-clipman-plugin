@@ -6,7 +6,7 @@
 # Cristian Marchi <cri.penta@gmail.com>, 2014
 # Dmytro Tokayev, 2023
 # Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2018
-# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2020-2021
+# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2020-2021,2023
 # Enrico B. <enricobe@hotmail.com>, 2016
 # Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009
 # Vincenzo Reale <vinx.reale@gmail.com>, 2020
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-16 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Dmytro Tokayev, 2023\n"
+"Last-Translator: Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2020-2021,2023\n"
 "Language-Team: Italian (http://app.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,11 +101,11 @@ msgstr "Shift+Ins"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "mostra azioni"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "nascondi azioni"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -176,18 +176,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Se selezionato, le selezioni saranno sincronizzate con gli appunti predefiniti, per cui si può copiare quello che si seleziona con Ctrl-V. Al contrario, le copie manuali saranno sincronizzate con gli appunti primari, per cui si può copiare quello che si seleziona con il tasto centrale del mouse."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Persisti le selezioni del mouse"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Se selezionato, gli appunti primari (si incolla con il tasto centrale del mouse) saranno persistiti fino alla successiva selezione se l'attuale selezione viene persa (per esempio cliccando con il tasto sinistro in un qualsiasi punto in un'area di testo)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -247,11 +247,11 @@ msgstr "Se abilitata, i testi degli appunti saranno confrontati con le espressio
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Quando la selezione viene fatta e il tasto Control è ancora premuto, un menù a comparsa per le azioni per le azioni corrispondenti sarà mostrato o nascosto"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Premendo Ctrl durante la selezione:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -345,14 +345,14 @@ msgstr "Si possono utilizzare nei comandi i parametri di sostituzione \"\\1\", \
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Attiva durante la copia manuale invece che durante la selezione"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "In modo predefinito l'azione è avviata da una selezione: selezionare questa opzione per avviare l'azione quando si effettua invece una copia manuale. Notare che in questo caso il tasto Control non ha più effetto."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
