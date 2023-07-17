@@ -99,6 +99,14 @@ cb_check_primary_clipboard (gpointer user_data)
 
   g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
 
+  /* Jump over if the content is set from within clipman */
+  if (collector->priv->primary_internal_change)
+    {
+      collector->priv->primary_internal_change = FALSE;
+      collector->priv->primary_clipboard_timeout = 0;
+      return FALSE;
+    }
+
   /* Postpone until the selection is done */
   gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
   if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
@@ -153,13 +161,6 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
     }
   else if (event->selection == GDK_SELECTION_PRIMARY)
     {
-      /* Jump over if the content is set from within clipman */
-      if (collector->priv->primary_internal_change)
-        {
-          collector->priv->primary_internal_change = FALSE;
-          return;
-        }
-
       /* This clipboard is due to many changes while selecting, therefore we
        * actually check inside a delayed timeout if the mouse is still pressed
        * or if the shift key is hold down, and once both are released the
@@ -169,9 +170,13 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           || !collector->priv->history_ignore_primary_clipboard
           || collector->priv->enable_actions)
         {
-          if (collector->priv->primary_clipboard_timeout == 0)
-            collector->priv->primary_clipboard_timeout =
-              g_timeout_add (250, cb_check_primary_clipboard, collector);
+          if (collector->priv->primary_clipboard_timeout != 0)
+            {
+              g_source_remove (collector->priv->primary_clipboard_timeout);
+              collector->priv->primary_clipboard_timeout = 0;
+            }
+          collector->priv->primary_clipboard_timeout =
+            g_timeout_add (250, cb_check_primary_clipboard, collector);
         }
     }
 }
@@ -369,6 +374,12 @@ static void
 clipman_collector_finalize (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
+
+  if (collector->priv->primary_clipboard_timeout != 0)
+    {
+      g_source_remove (collector->priv->primary_clipboard_timeout);
+      collector->priv->primary_clipboard_timeout = 0;
+    }
   g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
 }
