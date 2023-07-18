@@ -544,6 +544,8 @@ clipman_history_set_property (GObject *object,
 
     case SAVE_ON_QUIT:
       priv->save_on_quit = g_value_get_boolean (value);
+      if (!priv->save_on_quit)
+        clipman_history_clear (CLIPMAN_HISTORY (object));
       break;
 
     case REORDER_ITEMS:
