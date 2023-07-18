@@ -328,7 +328,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   const ClipmanHistoryItem *item_to_restore;
   GSList *list, *l;
   gint pos = 0;
-  guint i = 0;
+  guint i = 0, offset = 0;
   const gchar *selection_primary;
   const gchar *selection_clipboard;
   gchar *selection_primary_short;
@@ -355,9 +355,12 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   /* Insert an updated list of menu items */
   list = clipman_history_get_list (menu->priv->history);
   if (menu->priv->reverse_order)
-    list = g_slist_reverse (list);
+    {
+      list = g_slist_reverse (list);
+      offset = MAX (0, (gint) (g_slist_length (list) - menu->priv->max_menu_items));
+    }
 
-  for (i = 0, l = list; i < menu->priv->max_menu_items; i++, l = l->next)
+  for (i = 0, l = g_slist_nth (list, offset); i < menu->priv->max_menu_items; i++, l = l->next)
     {
       if (l == NULL)
         break;
@@ -420,6 +423,54 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_widget_show_all (mi);
     }
 
+  g_slist_free (list);
+
+  if (pos == 0)
+    {
+      /* Insert empty menu item */
+      mi = gtk_menu_item_new_with_label (_("History is empty"));
+      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
+      gtk_widget_set_sensitive (mi, FALSE);
+      gtk_widget_show (mi);
+
+      /* Set the clear history item insensitive */
+      gtk_widget_set_sensitive (menu->priv->mi_clear_history, FALSE);
+    }
+
+  /* Show the primary clipboard item so it can be selected for keyboard pasting
+   * even if history-ignore-primary-clipboard is enabled: the separator below should
+   * make it clear that it is not a history entry */
+  if (!skip_primary)
+    {
+      gboolean reverse_order = menu->priv->reverse_order;
+      if (!gtk_widget_get_sensitive (menu->priv->mi_clear_history))
+        {
+          reverse_order = FALSE;
+
+          /* Set the clear history item sensitive */
+          gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
+          gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear clipboard"));
+        }
+
+      mi = gtk_separator_menu_item_new ();
+      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
+      gtk_widget_show_all (mi);
+
+      selection_primary_short = clipman_common_shorten_preview (selection_primary);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      mi = gtk_image_menu_item_new_with_label (selection_primary_short);
+      image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
+      gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
+      g_free (selection_primary_short);
+      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
+      gtk_widget_show_all (mi);
+      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), menu);
+      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
+    }
+
 #ifdef HAVE_QRENCODE
   /* Draw QR Code if clipboard content is text */
   if (menu->priv->show_qr_code && item_to_restore && item_to_restore->type == CLIPMAN_HISTORY_TYPE_TEXT)
@@ -453,51 +504,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         }
     }
 #endif
-
-  g_slist_free (list);
-
-  if (pos == 0)
-    {
-      /* Insert empty menu item */
-      mi = gtk_menu_item_new_with_label (_("History is empty"));
-      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
-      gtk_widget_set_sensitive (mi, FALSE);
-      gtk_widget_show (mi);
-
-      /* Set the clear history item insensitive */
-      gtk_widget_set_sensitive (menu->priv->mi_clear_history, FALSE);
-    }
-
-  /* Show the primary clipboard item so it can be selected for keyboard pasting
-   * even if history-ignore-primary-clipboard is enabled: the separator below should
-   * make it clear that it is not a history entry */
-  if (!skip_primary)
-    {
-      mi = gtk_separator_menu_item_new ();
-      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
-      gtk_widget_show_all (mi);
-
-      selection_primary_short = clipman_common_shorten_preview (selection_primary);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      mi = gtk_image_menu_item_new_with_label (selection_primary_short);
-      image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
-      gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
-      g_free (selection_primary_short);
-      gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, 0);
-      gtk_widget_show_all (mi);
-      g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard_from_primary), menu);
-      menu->priv->list = g_slist_prepend (menu->priv->list, mi);
-
-      if (pos == 0)
-        {
-          /* Set the clear history item sensitive */
-          gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
-          gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear clipboard"));
-        }
-    }
 
   _clipman_menu_adjust_geometry(menu);
 }
