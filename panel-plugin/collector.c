@@ -154,6 +154,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
         }
       else
         {
+          clipman_history_set_image_to_restore (collector->priv->history, NULL);
           gtk_clipboard_request_text (collector->priv->default_clipboard,
                                       (GtkClipboardTextReceivedFunc)cb_request_text,
                                       collector);
@@ -268,7 +269,7 @@ cb_request_text (GtkClipboard *clipboard,
  * Call this function before modifying the content of a #GtkClipboard so that
  * the new content won't be looked by #ClipmanCollector.  Useful to prevent an
  * image from being saved twice.
- * See also clipman_history_set_item_to_restore().
+ * See also clipman_history_set_image_to_restore().
  */
 void
 clipman_collector_set_is_restoring (ClipmanCollector *collector,
