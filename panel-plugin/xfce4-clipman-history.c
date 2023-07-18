@@ -306,7 +306,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
   if (list == NULL)
     {
       gtk_list_store_insert_with_values (liststore, &iter, 0,
-                                         COLUMN_PREVIEW, _("Clipboard is empty"),
+                                         COLUMN_PREVIEW, _("History is empty"),
                                          COLUMN_TEXT, "",
                                          -1);
     }
