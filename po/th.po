@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-16 12:50+0200\n"
+"POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014,2016,2021\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -71,7 +71,7 @@ msgstr "ย่อ URL"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:83
 #: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:338
 msgid "Clipman"
 msgstr "คลิปแมน"
 
@@ -111,37 +111,37 @@ msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการล้างการกระทำคืนกลับเป็นค่าปริยายของระบบ?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:231
+#: ../panel-plugin/xfce4-clipman-history.c:230
 msgid "Enter search phrase here"
 msgstr "ป้อนคำค้นที่นี่"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:309 ../panel-plugin/menu.c:459
-msgid "Clipboard is empty"
-msgstr "คลิปบอร์ดว่างเปล่า"
+#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+msgid "History is empty"
+msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:391
+#: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
 msgid "_Paste"
 msgstr "แ_ปะ"
 
-#: ../panel-plugin/xfce4-clipman-history.c:396
+#: ../panel-plugin/xfce4-clipman-history.c:390
 #, c-format
 msgid "_Copy"
 msgstr "_คัดลอก"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:406
 msgid "Clipman History"
 msgstr "ประวัติของ Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:418
-#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_วิธีใช้"
 
-#: ../panel-plugin/xfce4-clipman-history.c:426
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:422
 msgid "_Settings"
 msgstr "_ตั้งค่า"
 
@@ -399,46 +399,50 @@ msgstr "คุณสามารถเรียกทำงานดีมอน
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "ดีมอนจัดการคลิปบอร์ดไม่ได้ทำงานอยู่"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:245
 msgid "Are you sure you want to clear the history?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติ?"
 
-#: ../panel-plugin/menu.c:249
+#: ../panel-plugin/menu.c:250
 msgid "Don't ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: ../panel-plugin/menu.c:292
+#: ../panel-plugin/menu.c:298
 msgid "Unable to open the clipman history dialog"
 msgstr "ไม่สามารถเปิดกล่องโต้ตอบประวัติของ clipman"
 
-#: ../panel-plugin/menu.c:445
-msgid "Could not generate QR-Code."
-msgstr "ไม่สามารถสร้างรหัส QR"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "แ_สดงประวัติเต็ม..."
-
-#: ../panel-plugin/menu.c:608
+#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
 msgid "_Clear history"
 msgstr "_ล้างประวัติ"
 
-#: ../panel-plugin/menu.c:615
+#: ../panel-plugin/menu.c:453
+msgid "_Clear clipboard"
+msgstr ""
+
+#: ../panel-plugin/menu.c:499
+msgid "Could not generate QR-Code."
+msgstr "ไม่สามารถสร้างรหัส QR"
+
+#: ../panel-plugin/menu.c:612
+msgid "_Show full history..."
+msgstr "แ_สดงประวัติเต็ม..."
+
+#: ../panel-plugin/menu.c:629
 msgid "_Clipman settings..."
 msgstr "_ตั้งค่า Clipman..."
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "ผู้ร่วมสมทบงาน:"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:340
 msgid "Clipboard Manager for Xfce"
 msgstr "เครื่องมือจัดการคลิปบอร์ดสำหรับ Xfce"
 
-#: ../panel-plugin/plugin.c:351
+#: ../panel-plugin/plugin.c:348
 msgid "translator-credits"
 msgstr "Theppitak Karoonboonyanan"
 
-#: ../panel-plugin/plugin.c:365
+#: ../panel-plugin/plugin.c:362
 msgid "Unable to open the settings dialog"
 msgstr "ไม่สามารถเปิดกล่องโต้ตอบตั้งค่า"
