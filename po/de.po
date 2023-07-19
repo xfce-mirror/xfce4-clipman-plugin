@@ -122,7 +122,7 @@ msgstr "Suchbegriff hier eingeben"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "Historie ist leer"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -421,7 +421,7 @@ msgstr "_Verlauf leeren"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Zwischenablage löschen"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
