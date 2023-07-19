@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-16 12:50+0200\n"
+"POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2013-2014,2016,2020,2022-2023\n"
 "Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
@@ -73,7 +73,7 @@ msgstr "Съкращаване на адреса"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:83
 #: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:338
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -113,37 +113,37 @@ msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Искате ли да върнете действията към тяхната начална стойност?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:231
+#: ../panel-plugin/xfce4-clipman-history.c:230
 msgid "Enter search phrase here"
 msgstr "Въведете търсеният израз тук"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:309 ../panel-plugin/menu.c:459
-msgid "Clipboard is empty"
-msgstr "Системният буфер е празен"
+#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+msgid "History is empty"
+msgstr "Историята е празна"
 
-#: ../panel-plugin/xfce4-clipman-history.c:391
+#: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
 msgid "_Paste"
 msgstr "_Поставяне"
 
-#: ../panel-plugin/xfce4-clipman-history.c:396
+#: ../panel-plugin/xfce4-clipman-history.c:390
 #, c-format
 msgid "_Copy"
 msgstr "_Копиране"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:406
 msgid "Clipman History"
 msgstr "История на Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:418
-#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Помощ"
 
-#: ../panel-plugin/xfce4-clipman-history.c:426
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:422
 msgid "_Settings"
 msgstr "_Настройки"
 
@@ -401,46 +401,50 @@ msgstr "Вие можете да го стартирате с 'xfce4-clipman'."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Демонът на  мениджъра на системния буфер не е стартиран."
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:245
 msgid "Are you sure you want to clear the history?"
 msgstr "Наистина ли желаете да изчистите историята?"
 
-#: ../panel-plugin/menu.c:249
+#: ../panel-plugin/menu.c:250
 msgid "Don't ask again"
 msgstr "Не ме питай повече"
 
-#: ../panel-plugin/menu.c:292
+#: ../panel-plugin/menu.c:298
 msgid "Unable to open the clipman history dialog"
 msgstr "Диалогът с историята на Clipman не може да се отвори"
 
-#: ../panel-plugin/menu.c:445
-msgid "Could not generate QR-Code."
-msgstr "Не може да се създаде QR-Code."
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "_Покажи пълната история..."
-
-#: ../panel-plugin/menu.c:608
+#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
 msgid "_Clear history"
 msgstr "_Изчистване на историята"
 
-#: ../panel-plugin/menu.c:615
+#: ../panel-plugin/menu.c:453
+msgid "_Clear clipboard"
+msgstr "_Изчистване на клипборда"
+
+#: ../panel-plugin/menu.c:499
+msgid "Could not generate QR-Code."
+msgstr "Не може да се създаде QR-Code."
+
+#: ../panel-plugin/menu.c:612
+msgid "_Show full history..."
+msgstr "_Покажи пълната история..."
+
+#: ../panel-plugin/menu.c:629
 msgid "_Clipman settings..."
 msgstr "_Настройки на Clipman..."
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "Сътрудници:"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:340
 msgid "Clipboard Manager for Xfce"
 msgstr "Клипборд мениджър за Xfce"
 
-#: ../panel-plugin/plugin.c:351
+#: ../panel-plugin/plugin.c:348
 msgid "translator-credits"
 msgstr "Kiril Kirilov (Cybercop) <cybercop_montana@abv.bg>"
 
-#: ../panel-plugin/plugin.c:365
+#: ../panel-plugin/plugin.c:362
 msgid "Unable to open the settings dialog"
 msgstr "Неуспех при отварянето на диалога с настройките"
