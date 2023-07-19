@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-16 12:50+0200\n"
+"POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: No Body, 2022\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
@@ -78,7 +78,7 @@ msgstr "短 URL"
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:83
 #: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:341
+#: ../panel-plugin/plugin.c:338
 msgid "Clipman"
 msgstr "Clipman 剪贴板管理器"
 
@@ -118,37 +118,37 @@ msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "您确定要重置此动作为系统默认值吗？"
 
-#: ../panel-plugin/xfce4-clipman-history.c:231
+#: ../panel-plugin/xfce4-clipman-history.c:230
 msgid "Enter search phrase here"
 msgstr "在此处输入搜索词组"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:309 ../panel-plugin/menu.c:459
-msgid "Clipboard is empty"
-msgstr "剪贴板是空的"
+#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+msgid "History is empty"
+msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:391
+#: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
 msgid "_Paste"
 msgstr "粘贴(_P)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:396
+#: ../panel-plugin/xfce4-clipman-history.c:390
 #, c-format
 msgid "_Copy"
 msgstr "复制(_C)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:406
 msgid "Clipman History"
 msgstr "Clipman 历史"
 
-#: ../panel-plugin/xfce4-clipman-history.c:418
-#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:412
+#: ../panel-plugin/xfce4-clipman-history.c:414
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:426
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:420
+#: ../panel-plugin/xfce4-clipman-history.c:422
 msgid "_Settings"
 msgstr "设置(_S)"
 
@@ -406,46 +406,50 @@ msgstr "您可以使用“ xfce4-clipman”启动它。"
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "剪贴板管理器守护程序未运行。"
 
-#: ../panel-plugin/menu.c:244
+#: ../panel-plugin/menu.c:245
 msgid "Are you sure you want to clear the history?"
 msgstr "您确定要清除历史吗？"
 
-#: ../panel-plugin/menu.c:249
+#: ../panel-plugin/menu.c:250
 msgid "Don't ask again"
 msgstr "不再询问"
 
-#: ../panel-plugin/menu.c:292
+#: ../panel-plugin/menu.c:298
 msgid "Unable to open the clipman history dialog"
 msgstr "无法打开 Clipman 历史记录对话框"
 
-#: ../panel-plugin/menu.c:445
-msgid "Could not generate QR-Code."
-msgstr "无法生成二维码。"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "显示完整的历史记录(_S)..."
-
-#: ../panel-plugin/menu.c:608
+#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
 msgid "_Clear history"
 msgstr "清除历史(_C)"
 
-#: ../panel-plugin/menu.c:615
+#: ../panel-plugin/menu.c:453
+msgid "_Clear clipboard"
+msgstr ""
+
+#: ../panel-plugin/menu.c:499
+msgid "Could not generate QR-Code."
+msgstr "无法生成二维码。"
+
+#: ../panel-plugin/menu.c:612
+msgid "_Show full history..."
+msgstr "显示完整的历史记录(_S)..."
+
+#: ../panel-plugin/menu.c:629
 msgid "_Clipman settings..."
 msgstr "Clipman 设置(_C)..."
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
 msgstr "贡献者："
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:340
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 剪贴板管理器"
 
-#: ../panel-plugin/plugin.c:351
+#: ../panel-plugin/plugin.c:348
 msgid "translator-credits"
 msgstr "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\nHunt Xu <huntxu@live.cn>, 2009.\nChipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
 
-#: ../panel-plugin/plugin.c:365
+#: ../panel-plugin/plugin.c:362
 msgid "Unable to open the settings dialog"
 msgstr "未能打开设置对话框"
