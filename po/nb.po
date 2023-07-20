@@ -5,7 +5,7 @@
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2014-2015
 # Allan Nordhøy <epost@anotheragency.no>, 2016
-# heskjestad <cato@heskjestad.xyz>, 2022
+# heskjestad <cato@heskjestad.xyz>, 2022-2023
 # Harald H. <haarektrans@gmail.com>, 2014
 # heskjestad <cato@heskjestad.xyz>, 2019-2020
 # Terje Uriansrud <ter@operamail.com>, 2007
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: heskjestad <cato@heskjestad.xyz>, 2022\n"
+"Last-Translator: heskjestad <cato@heskjestad.xyz>, 2022-2023\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,11 +100,11 @@ msgstr "Shift + Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "viser handlinger"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "skjuler handlinger"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -122,7 +122,7 @@ msgstr "Skriv inn søketekst her"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "Historikken er tom"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -175,18 +175,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Hvis huket av så vil utvalget synkroniseres med standard utklippstavle for innliming med Ctrl + V. Ellers vil manuell kopiering synkroniseres med primær utklippstavle for innliming med middelklikk."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Ta vare på museutvalg"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Hvis huket av så vil primær utklippstavle (innliming med middelklikk) bevares fram til neste utvalg hvis gjeldende utvalg forsvinner (f.eks. ved venstreklikking i et tekstfelt)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -196,7 +196,7 @@ msgstr "Støtte for _QR-kode"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Hvis avhuket, vil menyen vise en QR-kode for valgt utklipp"
+msgstr "Hvis huket av så vil menyen vise en QR-kode for valgt utklipp"
 
 #: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
@@ -246,11 +246,11 @@ msgstr "Hvis huket av så vil tekst i utklippstavlen bli jamført med regulære 
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Når et utvalg er gjort og Ctrl-tasten fremdeles er nede, vil oppsprettsmenyen for jamførte handlinger bli vist eller skjult"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Trykk Ctrl ved utvalg:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -344,14 +344,14 @@ msgstr "Man kan bruke alternative parametere «\\1», «\\2» osv. i kommandoene
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktiver ved manuell kopiering i stedet for å velge"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Vanligvis aktiveres handlingen ved å velge noe. Huk av dette alternativet for å aktivere handlingen ved manuell kopiering i stedet for. I så fall vil Ctrl-knappen ikke ha noen effekt."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -421,7 +421,7 @@ msgstr "_Tøm historikk"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Tøm utklippstavle"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
