@@ -7,14 +7,14 @@
 # 黃柏諺 <s8321414@gmail.com>, 2014,2016
 # Walter Cheuk <wwycheuk@gmail.com>, 2014
 # 黃柏諺 <s8321414@gmail.com>, 2014
-# 黃柏諺 <s8321414@gmail.com>, 2020,2022
+# 黃柏諺 <s8321414@gmail.com>, 2020,2022-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2020,2022\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2020,2022-2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "剪貼簿管理員提供一個 Xfce 的面板插件與在通知區域中單獨執行的應用程式。它保留了文字及圖片被複製到剪貼簿的歷史。它也有被選擇的文字符合正則表達式時可執行的功能。"
+msgstr "剪貼簿管理員提供一個 Xfce 的面板外掛程式與在通知區域中單獨執行的應用程式。它保留了文字及圖片被複製到剪貼簿的歷史。它也有被選擇的文字符合正則表達式時可執行的功能。"
 
 #: ../panel-plugin/xfce4-clipman.desktop.in.h:1
 msgid "Clipboard Manager"
@@ -99,11 +99,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "顯示動作"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "隱藏動作"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -121,7 +121,7 @@ msgstr "在此輸入搜尋詞語"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "歷史紀錄為空"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -174,18 +174,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "若勾選，選取內容將與預設剪貼簿同步，因此您可以使用 Ctrl-V 貼上選取的內容，相反地，手動複製將會與主要剪貼簿同步，因此您可以點擊滑鼠中鍵貼上。"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "保留滑鼠選取(_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "若勾選，若目前選取遺失（例如透過左鍵點擊文字區域中的任意位置），主要剪貼簿（中鍵點擊貼上）將會持續到下一次選取"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -245,11 +245,11 @@ msgstr "若勾選，將會找尋剪貼簿中符合正規表達式的文字，其
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "當選取完成，且 Ctrl 鍵仍被按住時，將會顯示相符動作的彈出式選單。"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "在選取時按下 Ctrl 鍵：(_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -343,14 +343,14 @@ msgstr "你可以在指令中使用替換參數 \"\\1\", \"\\2\"。參數 \"\\0\
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "在手動複製而非選取上啟用"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "預設情況下，該動作由選取觸發：勾選此選項可在您進行手動複製時觸發該動作。請注意，在這種情況下，Ctrl 鍵不再有任何作用。"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -420,7 +420,7 @@ msgstr "清除歷史(_C)"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "清除剪貼簿(_C)"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
