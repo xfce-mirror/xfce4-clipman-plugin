@@ -118,7 +118,7 @@ msgstr "Унесите израз претраге овде"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "Остава је празна"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -270,7 +270,7 @@ msgstr "_Дејства"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr "<b>Памти историју</b>"
+msgstr "<b>Памти у остави</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
@@ -279,7 +279,7 @@ msgstr "Запамти последње умножену _слику"
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr "Ако је означено, ова могућност омогућава складиштење једне слике унутар историје"
+msgstr "Ако ли је означено, ова могућност омогућава складиштење једне слике унутар оставе"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -288,7 +288,7 @@ msgstr "_Промени распоред ставки оставе"
 #: ../panel-plugin/settings-dialog.ui.h:32
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Гура последњи умножени текст на врх оставе, корисно за премештање старих ставки"
+msgstr "Гура последњи умножено писмо на врх оставе, корисно за премештање старих ставки"
 
 #: ../panel-plugin/settings-dialog.ui.h:33
 msgid "Re_verse history order"
@@ -409,7 +409,7 @@ msgstr "Не питај поново"
 
 #: ../panel-plugin/menu.c:298
 msgid "Unable to open the clipman history dialog"
-msgstr "Нисам успео да отворим прозорче историје Секача"
+msgstr "Нисам успео да отворим прозорче оставе Секача"
 
 #: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
 msgid "_Clear history"
@@ -417,7 +417,7 @@ msgstr "_Очисти оставу"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Очисти оставу исечака"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
@@ -425,7 +425,7 @@ msgstr "Нисам успео да образујем КуР-код."
 
 #: ../panel-plugin/menu.c:612
 msgid "_Show full history..."
-msgstr "_Приказуј сву историју..."
+msgstr "_Приказуј сву оставу..."
 
 #: ../panel-plugin/menu.c:629
 msgid "_Clipman settings..."
