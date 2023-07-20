@@ -99,11 +99,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "показывает действия"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "скрывает действия"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -174,11 +174,11 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Если включено, то выделенные объекты будут синхронизированы с буфером обмена по умолчанию, что позволит вставлять выделенные объекты с помощью Ctrl+V. И наоборот, ручные копии будут синхронизированы с основным буфером обмена, что позволит вставлять скопированное с помощью среднего щелчка мыши."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Сохранять выбранное мышью"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
