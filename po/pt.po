@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Alexandre Fidalgo <alexandremagnos15@gmail.com>, 2014
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022-2023
 # José Vieira <jvieira33@sapo.pt>, 2020
 # Nuno Miguel <nunis@netcabo.pt>, 2007-2009
 # Nuno Miguel <nunomgue@gmail.com>, 2014,2016
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022-2023\n"
 "Language-Team: Portuguese (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,11 +100,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "mostra ações"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "oculta ações"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -122,7 +122,7 @@ msgstr "Introduzir aqui a frase a pesquisar"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "O histórico está vazio"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -175,18 +175,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Se estiver selecionado, as selecções serão sincronizadas com a área de transferência predefinida, para que possa colar o que selecionar com Ctrl-V. Por outro lado, as cópias manuais serão sincronizadas com a área de transferência principal, para que possa colar o que copia com o clique do meio."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Persistir seleções do rato"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Se estiver selecionado, a área de transferência principal (colar com o botão do meio) persistirá até à próxima seleção se a seleção atual se perder (por exemplo, clicando com o botão esquerdo do rato em qualquer parte de uma área de texto)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -246,11 +246,11 @@ msgstr "Se ativa, os textos da área de transferência serão comparados com exp
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Quando a seleção estiver concluída e a tecla Crtl ainda estiver premida, o menu pop-up para as ações correspondentes será apresentado ou ocultado"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Premir a tecla Ctrl durante a seleção:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -344,14 +344,14 @@ msgstr "Nos comandos, podem ser usados os parâmetros de substituição \"\\1\",
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Ativar na cópia manual em vez da seleção"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Por predefinição, a ação é desencadeada por uma seleção: selecione esta opção para desencadear a ação quando fizer uma cópia manual. Note que, neste caso, a tecla Crtl deixa de ter qualquer efeito."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -421,7 +421,7 @@ msgstr "_Apagar histórico"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Limpar área de transferência"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
