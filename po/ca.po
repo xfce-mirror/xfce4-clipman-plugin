@@ -101,11 +101,11 @@ msgstr "Maj+Inser"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "mostra les accions"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "oculta les accions"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -123,7 +123,7 @@ msgstr "Introduïu aquí el terme de cerca"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "L'historial és buit"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -176,18 +176,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Si està marcat les seleccions es sincronitzaran amb el porta-retalls per defecte, de manera que podreu enganxar el que seleccioneu amb Ctrl+V. De la mateixa manera, les operacions de copiat manuals es sincronitzaran amb el porta-retalls primari, de manera que podreu enganxar el que copieu prement el botó del mig."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Persisteix les seleccions del ratolí"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Si està marcat, el porta-retalls primari (el que s'enganxa prement el botó del mig) serà persistent fins que es realitzi una nova selecció encara que es perdi la selecció actual (per exemple, prement el botó esquerra a qualsevol lloc d'una caixa de text)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -247,11 +247,11 @@ msgstr "Si es marca, el text del porta-retalls es farà coincidir amb expression
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Es mostrarà o amagarà el menú emergent amb les accions coincidents en realitzar una selecció amb la tecla Control premuda"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Prémer Ctrl durant la selecció:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -345,14 +345,14 @@ msgstr "Els paràmetres de substitució \"\\1\", \"\\2\", i els successius es po
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Activar en fer còpia manual enlloc de en seleccionar"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Per defecte l'acció es dispara per una selecció: marqueu aquesta opció per a disparar l'acció en fer un copiat manual. Tingueu en compte que en aquest cas la tecla Control no tindrà cap efecte."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -422,7 +422,7 @@ msgstr "Nete_ja l'historial"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Neteja el porta-retalls"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
