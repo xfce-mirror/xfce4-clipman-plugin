@@ -143,42 +143,11 @@ static gboolean
 plugin_set_size (MyPlugin *plugin,
                  gint size)
 {
-#if !LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
-  GtkStyleContext *context;
-  GtkBorder padding, border;
-  gint width;
-  gint xthickness;
-  gint ythickness;
-#endif
   gint icon_size;
 
   size /= xfce_panel_plugin_get_nrows (plugin->panel_plugin);
   gtk_widget_set_size_request (GTK_WIDGET (plugin->button), size, size);
-#if LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
   icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (plugin->panel_plugin));
-#else
-  /* Calculate the size of the widget because the theme can override it */
-  context = gtk_widget_get_style_context (GTK_WIDGET (plugin->button));
-  gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (plugin->button)), &padding);
-  gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (plugin->button)), &border);
-  xthickness = padding.left + padding.right + border.left + border.right;
-  ythickness = padding.top + padding.bottom + border.top + border.bottom;
-
-  /* Calculate the size of the space left for the icon */
-  width = size - 2 * MAX (xthickness, ythickness);
-
-  /* Since symbolic icons are usually only provided in 16px we
-   * try to be clever and use size steps */
-  if (width <= 21)
-    icon_size = 16;
-  else if (width >=22 && width <= 29)
-    icon_size = 24;
-  else if (width >= 30 && width <= 40)
-    icon_size = 32;
-  else
-    icon_size = width;
-#endif
-
   gtk_image_set_pixel_size (GTK_IMAGE (plugin->image), icon_size);
 
   return TRUE;
