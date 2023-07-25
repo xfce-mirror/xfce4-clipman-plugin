@@ -123,7 +123,7 @@ msgstr "Введіть сюди пошукову фразу"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "Історія порожня"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -180,18 +180,18 @@ msgstr "Якщо відмічено, виділене буде синхроні�
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "Зберігати виділення _миші"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Якщо увімкнено, основний буфер обміну (вставлення середньою кнопкою миші) зберігатиметься до наступного виділення, якщо поточне виділення втрачено (наприклад, клацнувши лівою кнопкою миші в будь-якому місці текстової області)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
-msgstr "Підтримка _QR-код"
+msgstr "Підтримка QR-_коду"
 
 #: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
@@ -418,11 +418,11 @@ msgstr "Не можу відкрити вікно історії"
 
 #: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
 msgid "_Clear history"
-msgstr "_О_чистити історію"
+msgstr "О_чистити історію"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Очистити буфер обміну"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
