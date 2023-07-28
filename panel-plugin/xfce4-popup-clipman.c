@@ -63,34 +63,46 @@ G_GNUC_END_IGNORE_DEPRECATIONS
     }
 }
 
+static gint
+handle_local_options (GApplication *app,
+                      GVariantDict *options,
+                      gpointer user_data)
+{
+  GError *error = NULL;
+
+  if (!g_application_register (app, NULL, &error))
+    {
+      g_warning ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      return EXIT_FAILURE;
+    }
+
+  if (!g_application_get_is_remote (app))
+    {
+      g_warning ("Unable to find the primary instance org.xfce.clipman");
+      clipman_common_show_warning_dialog ();
+      return EXIT_FAILURE;
+    }
+
+  /* ensure grab is available when popup command is activated via keyboard shortcut */
+  grab_keyboard ();
+
+  /* activate primary instance */
+  return -1;
+}
+
 gint
 main (gint argc, gchar *argv[])
 {
   GtkApplication *app;
-  GError *error = NULL;
+  gint ret;
 
   gtk_init (&argc, &argv);
-  app = gtk_application_new ("org.xfce.clipman", 0);
 
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
-    {
-      g_warning ("Unable to register GApplication: %s", error->message);
-      g_error_free (error);
-      error = NULL;
-    }
+  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "handle-local-options", G_CALLBACK (handle_local_options), NULL);
+  ret = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
 
-  if (g_application_get_is_remote (G_APPLICATION (app)))
-    {
-      grab_keyboard ();
-      g_application_activate (G_APPLICATION (app));
-      g_object_unref (app);
-    }
-  else
-    {
-      g_warning ("Unable to find the primary instance org.xfce.clipman");
-      clipman_common_show_warning_dialog ();
-    }
-
-  return FALSE;
+  return ret;
 }
