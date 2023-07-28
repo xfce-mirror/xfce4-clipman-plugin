@@ -95,11 +95,11 @@ msgstr "Shift+Insert'i kasutamisel"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "näitab toiminguid"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "peidab toiminguid"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:533
 msgid "<b>Reset actions</b>"
@@ -117,7 +117,7 @@ msgstr "Sisesta otsingufraas siia"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
 msgid "History is empty"
-msgstr ""
+msgstr "Ajalugu on tühi"
 
 #: ../panel-plugin/xfce4-clipman-history.c:385
 #, c-format
@@ -170,18 +170,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Kui see eelistus on kasutusel, siis valikud sünkroniseeritakse vaikimisi lõikelauga ning sa saad tehtud valikud Ctrl+V abil asetada. Ning vastupidi, käsitsi kopeerimine sünkroniseeritakse esmase lõikelauaga ja sa saad kopeeritu asetada keskmise hiireklõpsuga."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Jäta hiirevalikud püsivaks"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Kui see eelistus on kasutusel, siis esmane lõikelaud (asetamine keskmise klõpsuga) jääb püsima kuni järgmise valikuni kui praegune valik kaob (näiteks vasak hiireklõps tekstis)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -241,11 +241,11 @@ msgstr "Kui see valik on märgitud, siis lõikepuhvris olevaid tekstikirjeid kon
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Kui valik on tehtud ja Control-klahv on jätkuvalt alla vajutatud, siis kuvatakse või peidetakse hüpikaken sobivate toimingutega"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Ctrl nupu vajutamisel valimise ajal:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -339,14 +339,14 @@ msgstr "Sa võid kasutada käskudes asendusparameetreid  \"\\1\", \"\\2\", jne. 
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Valimise asemel käivita käsitsi kopeerimisel"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Vaikimisi toiming käivitud valimisel. Selle eelistusega saad toimingu käivitada käsitsi kopeerimisel. Palun arvesta, et sel juhul Control-nupu vajutus enam arvesse ei lähe."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
@@ -379,7 +379,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "Käsku \"%s\" ei olnud võimalik käivitada\n\n%s"
+msgstr "Käsku „%s“ ei ole võimalik käivitada\n\n%s"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -416,7 +416,7 @@ msgstr "_Tühjenda ajalugu"
 
 #: ../panel-plugin/menu.c:453
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Tühjenda lõikelaud"
 
 #: ../panel-plugin/menu.c:499
 msgid "Could not generate QR-Code."
@@ -432,7 +432,7 @@ msgstr "_Clipmani seadistused..."
 
 #: ../panel-plugin/plugin.c:326
 msgid "Contributors:"
-msgstr "Kaastöötajad:"
+msgstr "Kaasautorid:"
 
 #: ../panel-plugin/plugin.c:340
 msgid "Clipboard Manager for Xfce"
@@ -440,8 +440,8 @@ msgstr "Xfce lõikepuhvri haldur"
 
 #: ../panel-plugin/plugin.c:348
 msgid "translator-credits"
-msgstr "Priit Jõerüüt 2020"
+msgstr "Priit Jõerüüt 2020-2023"
 
 #: ../panel-plugin/plugin.c:362
 msgid "Unable to open the settings dialog"
-msgstr "Seadistuse dialoogi avamine ebaõnnestus"
+msgstr "Seadistuse vaate avamine ei õnnestunud"
