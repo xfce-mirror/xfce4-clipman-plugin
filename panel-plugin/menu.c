@@ -268,16 +268,17 @@ cb_clear_history (ClipmanMenu *menu)
 
   clipman_history_clear (menu->priv->history);
 
+  /* prevent persistent-primary-clipboard from restoring the selection and do not
+   * restore default clipboard either */
+  collector = clipman_collector_get ();
+  clipman_collector_clear_cache (collector);
+  g_object_unref (collector);
+
   clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
   gtk_clipboard_set_text (clipboard, "", -1);
   gtk_clipboard_clear (clipboard);
 
-  /* prevent persistent-primary-clipboard from restoring the selection */
-  collector = clipman_collector_get ();
   clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-  clipman_collector_set_is_restoring (collector, clipboard);
-  g_object_unref (collector);
-
   gtk_clipboard_set_text (clipboard, "", -1);
   gtk_clipboard_clear (clipboard);
 }

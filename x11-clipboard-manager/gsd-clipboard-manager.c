@@ -310,8 +310,17 @@ start_clipboard_idle_cb (gpointer user_data)
         XSelectInput (display, window, PropertyChangeMask);
         XSetSelectionOwner (display, XA_CLIPBOARD_MANAGER, window, timestamp);
 
+        /*
+         * A weaker version of this (text-only restore) has been added to ClipmanCollector
+         * instead, as of 1.6.4. In this way, all restore operations are grouped together
+         * in the same place in the code, and Clipman's behavior should no longer depend
+         * on the clipboard manager used (this one or the xfsettingsd one).
+         * For the same reason as below, this code is currently disabled rather than deleted.
+         */
+#if 0
         g_signal_connect_swapped (manager->priv->default_clipboard, "owner-change",
                                   G_CALLBACK (default_clipboard_owner_change), manager);
+#endif
         /*
          * This duplicates and may conflict with the persistent-primary-clipboard option
          * implemented in ClipmanCollector since 1.6.3, but the logic here is a little

@@ -39,6 +39,8 @@ struct _ClipmanCollectorPrivate
   ClipmanHistory       *history;
   GtkClipboard         *default_clipboard;
   GtkClipboard         *primary_clipboard;
+  gchar                *default_cache;
+  gchar                *primary_cache;
   guint                 primary_clipboard_timeout;
   gboolean              default_internal_change;
   gboolean              primary_internal_change;
@@ -187,30 +189,27 @@ cb_request_text (GtkClipboard *clipboard,
                  const gchar *text,
                  ClipmanCollector *collector)
 {
-  static gchar *prev_text = NULL;
-
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
   if (text == NULL)
     {
       /* Restore primary clipboard on deselection */
-      if (clipboard == collector->priv->primary_clipboard && prev_text != NULL && (
+      if (clipboard == collector->priv->primary_clipboard && collector->priv->primary_cache != NULL && (
             (collector->priv->persistent_primary_clipboard && !collector->priv->add_primary_clipboard)
             || (collector->priv->add_primary_clipboard
                 && gtk_clipboard_wait_is_text_available (collector->priv->default_clipboard))
          ))
         {
           collector->priv->primary_internal_change = TRUE;
-          gtk_clipboard_set_text (collector->priv->primary_clipboard, prev_text, -1);
+          gtk_clipboard_set_text (collector->priv->primary_clipboard, collector->priv->primary_cache, -1);
         }
 
-      /* Clear primary clipboard if default clipboard was cleared */
-      if (clipboard == collector->priv->default_clipboard
-          && collector->priv->add_primary_clipboard)
+      /* Restore default clipboard when cleared unintentionally (if this was intentional,
+       * 'default_cache' should have been cleared before) */
+      if (clipboard == collector->priv->default_clipboard && collector->priv->default_cache != NULL)
         {
-          collector->priv->primary_internal_change = TRUE;
-          gtk_clipboard_set_text (collector->priv->primary_clipboard, "", -1);
-          gtk_clipboard_clear (collector->priv->primary_clipboard);
+          collector->priv->default_internal_change = TRUE;
+          gtk_clipboard_set_text (collector->priv->default_clipboard, collector->priv->default_cache, -1);
         }
 
       return;
@@ -222,15 +221,20 @@ cb_request_text (GtkClipboard *clipboard,
       clipman_history_add_text (collector->priv->history, text);
 
       /* Make a copy inside the primary clipboard */
-      if (collector->priv->add_primary_clipboard && g_strcmp0 (text, prev_text) != 0)
+      if (collector->priv->add_primary_clipboard && g_strcmp0 (text, collector->priv->primary_cache) != 0)
         {
           collector->priv->primary_internal_change = TRUE;
           gtk_clipboard_set_text (collector->priv->primary_clipboard, text, -1);
+          g_free (collector->priv->primary_cache);
+          collector->priv->primary_cache = g_strdup (text);
         }
 
       /* Match for actions */
       if (collector->priv->enable_actions)
         clipman_actions_match_with_menu (collector->priv->actions, ACTION_GROUP_MANUAL, text);
+
+      g_free (collector->priv->default_cache);
+      collector->priv->default_cache = g_strdup (text);
     }
   else if (clipboard == collector->priv->primary_clipboard)
     {
@@ -239,10 +243,12 @@ cb_request_text (GtkClipboard *clipboard,
         clipman_history_add_text (collector->priv->history, text);
 
       /* Make a copy inside the default clipboard */
-      if (collector->priv->add_primary_clipboard)
+      if (collector->priv->add_primary_clipboard && g_strcmp0 (text, collector->priv->default_cache) != 0)
         {
           collector->priv->default_internal_change = TRUE;
           gtk_clipboard_set_text (collector->priv->default_clipboard, text, -1);
+          g_free (collector->priv->default_cache);
+          collector->priv->default_cache = g_strdup (text);
         }
 
       /* Match for actions */
@@ -252,8 +258,8 @@ cb_request_text (GtkClipboard *clipboard,
       /* Store selection for later use */
       if (collector->priv->persistent_primary_clipboard || collector->priv->add_primary_clipboard)
         {
-          g_free (prev_text);
-          prev_text = g_strdup (text);
+          g_free (collector->priv->primary_cache);
+          collector->priv->primary_cache = g_strdup (text);
         }
     }
 }
@@ -279,6 +285,15 @@ clipman_collector_set_is_restoring (ClipmanCollector *collector,
     collector->priv->default_internal_change = TRUE;
   else if (clipboard == collector->priv->primary_clipboard)
     collector->priv->primary_internal_change = TRUE;
+}
+
+void
+clipman_collector_clear_cache (ClipmanCollector *collector)
+{
+  g_free (collector->priv->default_cache);
+  g_free (collector->priv->primary_cache);
+  collector->priv->default_cache = NULL;
+  collector->priv->primary_cache = NULL;
 }
 
 ClipmanCollector *
@@ -394,6 +409,7 @@ clipman_collector_finalize (GObject *object)
     }
   g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
+  clipman_collector_clear_cache (collector);
 }
 
 static void
