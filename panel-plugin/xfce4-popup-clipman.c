@@ -24,6 +24,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
 
 #include <common.h>
 
@@ -96,6 +97,8 @@ main (gint argc, gchar *argv[])
 {
   GtkApplication *app;
   gint ret;
+
+  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   gtk_init (&argc, &argv);
 
