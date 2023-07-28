@@ -363,8 +363,10 @@ gsd_clipboard_manager_stop (GsdClipboardManager *manager)
                                               default_clipboard_owner_change, manager);
         g_signal_handlers_disconnect_by_func (manager->priv->primary_clipboard,
                                               primary_clipboard_owner_change, manager);
-        gtk_widget_destroy (manager->priv->window);
 
+        if (manager->priv->window != NULL) {
+                gtk_widget_destroy (manager->priv->window);
+        }
         if (manager->priv->default_cache != NULL) {
                 g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
                 manager->priv->default_cache = NULL;
