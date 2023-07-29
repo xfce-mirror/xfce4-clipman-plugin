@@ -295,7 +295,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
   /* Get the history and populate the treeview */
-  plugin->history = clipman_history_get ();
   list = clipman_history_get_list (plugin->history);
   if (list == NULL)
     {
