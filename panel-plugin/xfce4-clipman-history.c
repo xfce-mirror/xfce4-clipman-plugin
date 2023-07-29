@@ -432,7 +432,6 @@ clipman_history_shutdown (GApplication *app,
 
   plugin_save (plugin);
 
-  gtk_widget_destroy (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->history);
   g_slice_free (MyPlugin, plugin);
@@ -477,7 +476,6 @@ clipman_history_command_line (GApplication *app,
   xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
                           G_TYPE_BOOLEAN, plugin->history, "reorder-items");
 
-  plugin->menu = clipman_menu_new ();
   internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
 
   /* Read the history from the cache file */
