@@ -172,9 +172,6 @@ prop_dialog_init (void)
   g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
 
-  g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
-                          G_CALLBACK (gtk_dialog_response), NULL);
-
   g_signal_connect_swapped (gtk_builder_get_object (builder, "action-dialog-button-cancel"), "clicked",
                              G_CALLBACK (gtk_dialog_response), action_dialog);
 
