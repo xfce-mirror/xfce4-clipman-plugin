@@ -56,40 +56,20 @@ main (gint argc,
       gchar *argv[])
 {
   MyPlugin *plugin;
-  GtkApplication *app;
-  GError *error = NULL;
 
   gtk_init (&argc, &argv);
-  app = gtk_application_new ("org.xfce.clipman", 0);
 
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
-    {
-      g_warning ("Unable to register GApplication: %s", error->message);
-      g_error_free (error);
-      error = NULL;
-    }
-
-  if (g_application_get_is_remote (G_APPLICATION (app)))
-    {
-      g_message ("Primary instance org.xfce.clipman already running");
-      clipman_common_show_info_dialog ();
-      g_object_unref (app);
-      return FALSE;
-    }
-
-  g_set_application_name (_("Clipman"));
   plugin = status_icon_register ();
-  install_autostart_file ();
+  if (plugin == NULL)
+    return EXIT_FAILURE;
 
-  g_signal_connect_swapped (app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+  install_autostart_file ();
 
   gtk_main ();
 
   g_object_unref (plugin->status_icon);
-  g_object_unref (app);
 
-  return FALSE;
+  return EXIT_SUCCESS;
 }
 
 /*
@@ -112,14 +92,15 @@ cb_status_icon_is_embedded (gpointer user_data)
 static MyPlugin *
 status_icon_register (void)
 {
-  MyPlugin *plugin = plugin_register (FALSE);
-  GtkIconTheme *icon_theme = gtk_icon_theme_get_default ();
+  MyPlugin *plugin = plugin_register ();
+  if (plugin == NULL)
+    return NULL;
 
   /* Menu Position Func */
   plugin->menu_position_func = (GtkMenuPositionFunc)gtk_status_icon_position_menu;
 
   /* Status Icon */
-  if (gtk_icon_theme_has_icon (icon_theme, "clipman"))
+  if (gtk_icon_theme_has_icon (gtk_icon_theme_get_default (), "clipman"))
     {
       plugin->status_icon = gtk_status_icon_new_from_icon_name ("clipman");
     }

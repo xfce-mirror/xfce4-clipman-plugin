@@ -60,13 +60,45 @@ clipboard_manager_ownership_exists (void)
  */
 
 MyPlugin *
-plugin_register (gboolean panel_plugin)
+plugin_register (void)
 {
-  MyPlugin *plugin = g_slice_new0 (MyPlugin);
+  MyPlugin *plugin;
+  GtkApplication *app;
   GError *error = NULL;
 
   /* Locale */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
+
+  /* Xfconf */
+  if (!xfconf_init (&error))
+    {
+      g_critical ("Xfconf initialization failed: %s", error->message);
+      g_error_free (error);
+      return NULL;
+    }
+
+  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  if (!g_application_register (G_APPLICATION (app), NULL, &error))
+    {
+      g_critical ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      g_object_unref (app);
+      return NULL;
+    }
+
+  if (g_application_get_is_remote (G_APPLICATION (app)))
+    {
+      g_message ("Primary instance org.xfce.clipman already running");
+      clipman_common_show_info_dialog ();
+      g_object_unref (app);
+      return NULL;
+    }
+
+  g_set_application_name (_("Clipman"));
+  plugin = g_slice_new0 (MyPlugin);
+  plugin->app = app;
+  g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+  plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
   /* Daemon */
   if (!clipboard_manager_ownership_exists ())
@@ -74,36 +106,6 @@ plugin_register (gboolean panel_plugin)
       plugin->daemon = gsd_clipboard_manager_new ();
       gsd_clipboard_manager_start (plugin->daemon, NULL);
     }
-
-  plugin->app = gtk_application_new ("org.xfce.clipman", 0);
-
-  /* all this has already been done in main-status-icon.c in the case of a status icon */
-  if (panel_plugin)
-    {
-      g_application_register (G_APPLICATION (plugin->app), NULL, &error);
-      if (error != NULL)
-        {
-          g_warning ("Unable to register GApplication: %s", error->message);
-          g_error_free (error);
-          error = NULL;
-        }
-
-      if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
-        {
-          g_message ("Primary instance org.xfce.clipman already running");
-          clipman_common_show_info_dialog ();
-          g_object_unref (plugin->app);
-          return NULL;
-        }
-
-      g_set_application_name (_("Clipman"));
-    }
-
-  g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
-
-  /* Xfconf */
-  xfconf_init (NULL);
-  plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
   /* ClipmanActions */
   plugin->actions = clipman_actions_get ();

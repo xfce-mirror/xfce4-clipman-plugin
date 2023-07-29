@@ -62,7 +62,7 @@ static MyPlugin *my_plugin;
 static gboolean
 panel_plugin_register_check (GdkScreen *screen)
 {
-  my_plugin = plugin_register (TRUE);
+  my_plugin = plugin_register ();
 
   return my_plugin != NULL;
 }
