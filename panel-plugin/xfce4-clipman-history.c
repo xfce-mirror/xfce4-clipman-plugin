@@ -378,6 +378,13 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
   gtk_button_set_label (GTK_BUTTON (plugin->submit_button), button_text);
 }
 
+static void
+clipman_history_paste_on_activate_changed (MyPlugin *plugin)
+{
+  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
+  clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
+}
+
 GtkWidget *
 clipman_history_dialog_init (MyPlugin *plugin)
 {
@@ -416,8 +423,7 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #endif
   gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
-
-  clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
+  clipman_history_paste_on_activate_changed (plugin);
 
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
 
@@ -475,8 +481,8 @@ clipman_history_command_line (GApplication *app,
                           G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
   xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
                           G_TYPE_BOOLEAN, plugin->history, "reorder-items");
-
-  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
+  g_signal_connect_swapped (plugin->channel, "property-changed::/tweaks/paste-on-activate",
+                            G_CALLBACK (clipman_history_paste_on_activate_changed), plugin);
 
   /* Read the history from the cache file */
   plugin_load (plugin);
