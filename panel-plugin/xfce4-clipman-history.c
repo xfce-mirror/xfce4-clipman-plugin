@@ -338,22 +338,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
 }
 
 static void
-clipman_history_dialog_finalize (MyPlugin  *plugin,
-                                 GtkWidget *window)
-{
-
-  plugin_save (plugin);
-
-  gtk_widget_destroy (plugin->menu);
-  g_object_unref (plugin->channel);
-  g_object_unref (plugin->history);
-  gtk_widget_destroy (plugin->dialog);
-
-  g_slice_free (MyPlugin, plugin);
-  xfconf_shutdown ();
-}
-
-static void
 clipman_history_dialog_response (GtkWidget *dialog,
                                  gint       response_id,
                                  MyPlugin  *plugin)
@@ -365,7 +349,7 @@ clipman_history_dialog_response (GtkWidget *dialog,
   else if (response_id == GTK_RESPONSE_APPLY)
     clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
   else
-    clipman_history_dialog_finalize (plugin, dialog);
+    gtk_widget_destroy (plugin->dialog);
 }
 
 static void
@@ -441,14 +425,45 @@ clipman_history_dialog_init (MyPlugin *plugin)
 }
 
 static void
-clipman_history_activate (GtkApplication *app,
-                          gpointer        user_data)
+clipman_history_shutdown (GApplication *app,
+                          gpointer user_data)
 {
-  MyPlugin *plugin = g_slice_new0 (MyPlugin);
-  GtkWidget *box;
+  MyPlugin *plugin = user_data;
 
-  plugin->app = app;
-  xfconf_init (NULL);
+  plugin_save (plugin);
+
+  gtk_widget_destroy (plugin->menu);
+  g_object_unref (plugin->channel);
+  g_object_unref (plugin->history);
+  g_slice_free (MyPlugin, plugin);
+
+  xfconf_shutdown ();
+}
+
+static gint
+clipman_history_command_line (GApplication *app,
+                              GApplicationCommandLine *command_line,
+                              gpointer user_data)
+{
+  MyPlugin *plugin;
+  GtkWidget *box;
+  GError *error = NULL;
+
+  if (g_application_command_line_get_is_remote (command_line))
+    {
+      g_application_activate (app);
+      return EXIT_SUCCESS;
+    }
+
+  if (!xfconf_init (&error))
+    {
+      g_critical ("Xfconf initialization failed: %s", error->message);
+      g_error_free (error);
+      return EXIT_FAILURE;
+    }
+
+  plugin = g_slice_new0 (MyPlugin);
+  plugin->app = GTK_APPLICATION (app);
 
   /* Bind all settings relevant for this application */
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
@@ -470,6 +485,8 @@ clipman_history_activate (GtkApplication *app,
 
   /* Initialize dialog */
   plugin->dialog = clipman_history_dialog_init (plugin);
+  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), plugin->dialog);
+  g_signal_connect (app, "shutdown", G_CALLBACK (clipman_history_shutdown), plugin);
 
   /* Initialize and pack history treeview */
   box = clipman_history_treeview_init (plugin);
@@ -477,25 +494,32 @@ clipman_history_activate (GtkApplication *app,
   gtk_widget_show_all (box);
 
   gtk_widget_show_all (plugin->dialog);
+
+  return EXIT_SUCCESS;
 }
 
-static gboolean
-clipman_history_clipman_daemon_running (void)
+static gint
+clipman_history_clipman_daemon_running (GApplication *app,
+                                        GVariantDict *options,
+                                        gpointer user_data)
 {
-  GtkApplication *app;
   GError *error = NULL;
 
-  app = gtk_application_new ("org.xfce.clipman", 0);
-
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
+  if (!g_application_register (app, NULL, &error))
     {
       g_warning ("Unable to register GApplication: %s", error->message);
       g_error_free (error);
-      error = NULL;
+      return EXIT_FAILURE;
     }
 
-  return g_application_get_is_remote (G_APPLICATION (app));
+  if (!g_application_get_is_remote (app))
+    {
+      g_warning ("Unable to find the primary instance org.xfce.clipman");
+      clipman_common_show_warning_dialog ();
+      return EXIT_FAILURE;
+    }
+
+  return EXIT_SUCCESS;
 }
 
 gint
@@ -504,36 +528,22 @@ main (gint argc, gchar *argv[])
   GtkApplication *app;
   int status;
   GtkClipboard *clipboard;
-  GError *error = NULL;
   const gchar *text;
-
-  if (!clipman_history_clipman_daemon_running ())
-    {
-      g_warning ("The clipboard daemon is not running, exiting. You can launch it with 'xfce4-clipman'.");
-      clipman_common_show_warning_dialog ();
-      return FALSE;
-    }
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-  app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_FLAGS_NONE);
+  /* check if clipman daemon is running */
+  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "handle-local-options", G_CALLBACK (clipman_history_clipman_daemon_running), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+  if (status != EXIT_SUCCESS)
+    return EXIT_FAILURE;
 
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
-    {
-      g_warning ("Unable to register GApplication: %s", error->message);
-      g_error_free (error);
-      error = NULL;
-    }
-
-  if (g_application_get_is_remote (G_APPLICATION (app)))
-    {
-      g_warning ("%s already running", argv[0]);
-      return FALSE;
-    }
-
-  g_signal_connect (app, "activate", G_CALLBACK (clipman_history_activate), NULL);
+  /* run clipman-history app */
+  app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_HANDLES_COMMAND_LINE);
+  g_signal_connect (app, "command-line", G_CALLBACK (clipman_history_command_line), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
   text = g_object_get_data (G_OBJECT (app), "text");
 
