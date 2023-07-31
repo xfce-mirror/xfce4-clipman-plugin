@@ -18,13 +18,13 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>http://docs.xfce.org/_media/extra/clipman/clipman-menu.png</image>
+      <image>https://docs.xfce.org/_media/panel-plugins/clipman/clipman-menu.png</image>
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin</url>
-  <url type="bugtracker">https://bugzilla.xfce.org/</url>
-  <url type="help">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin</url>
+  <url type="homepage">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin/start</url>
+  <url type="bugtracker">https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin</url>
+  <url type="help">https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin/start</url>
 
   <updatecontact>xfce4-dev@xfce.org</updatecontact>
 

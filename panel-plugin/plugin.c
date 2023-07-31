@@ -343,7 +343,7 @@ plugin_about (MyPlugin *plugin)
                          "version", PACKAGE_VERSION,
                          "copyright", "Copyright © 2003-2023 The Xfce development team",
                          "license", license,
-                         "website", "https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin",
+                         "website", PACKAGE_URL,
                          "website-label", "docs.xfce.org",
                          "authors", authors,
                          "documenters", documenters,

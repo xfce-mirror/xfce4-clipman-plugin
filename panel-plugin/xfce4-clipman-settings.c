@@ -272,7 +272,7 @@ cb_show_help (GtkButton *button)
   else
     {
       g_free (docpath);
-      docpath = g_strdup ("http://docs.xfce.org/panel-plugins/clipman/start");
+      docpath = g_strdup (PACKAGE_URL);
     }
 
   /* Open documentation in webbrowser */
