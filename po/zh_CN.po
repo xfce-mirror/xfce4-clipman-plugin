@@ -8,7 +8,7 @@
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
 # Levi Zhou <congzhou821@gmail.com>, 2016
 # Mingcong Bai <jeffbai@aosc.xyz>, 2016
-# No Body, 2022
+# No Body, 2022-2023
 # 玉堂白鹤 <yjwork@qq.com>, 2014
 # Cally Mal <zhouxiaobo.500@gmail.com>, 2014
 # 玉堂白鹤 <yjwork@qq.com>, 2015,2020,2023
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-19 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2015,2020,2023\n"
+"Last-Translator: No Body, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -182,14 +182,14 @@ msgstr "如果选中，所选内容将与默认剪贴板同步，因此您可以
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "保留鼠标选项(_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "如果选中，主剪贴板（中键粘贴）将在当前选择丢失时（例如，在文本区域的任何地方单击左键）持续到下一次选择"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -249,11 +249,11 @@ msgstr "如果选中，将尝试使用正则表达式匹配剪贴板文本并在
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "当选择完成且 Ctrl 键仍然被按下时，将显示或隐藏匹配操作的弹出式菜单"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "在选取时按下 Ctrl 键: (_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -347,14 +347,14 @@ msgstr "您可以在命令中使用 “\\1”、“\\2” 等替换参数。参�
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "启用手动复制而非选择"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "默认情况下，该操作是由选取触发的：若想改成在您进行手动复制时触发该操作，请选中此选项。请注意，在这种情况下，Ctrl 键不再起作用。"
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
