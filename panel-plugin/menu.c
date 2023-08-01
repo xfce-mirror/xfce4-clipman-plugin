@@ -296,7 +296,7 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
   if (error != NULL)
   {
     error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-                                           _("Unable to open the clipman history dialog"));
+                                           _("Unable to open the Clipman history dialog"));
     gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
     gtk_dialog_run (GTK_DIALOG (error_dialog));
     gtk_widget_destroy (error_dialog);
