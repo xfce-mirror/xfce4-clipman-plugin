@@ -118,7 +118,7 @@ msgstr "Čia įveskite ieškomą frazę"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
 msgid "History is empty"
-msgstr ""
+msgstr "Istorija yra tuščia"
 
 #: ../panel-plugin/xfce4-clipman-history.c:368
 #, c-format
@@ -340,7 +340,7 @@ msgstr "Komandose galite naudoti pakaitos parametrus „\\1“, „\\2“ ir t.t
 
 #: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktyvuoti, kai kopijuojama rankiniu būdu, o ne kai žymima"
 
 #: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
@@ -409,7 +409,7 @@ msgstr "Daugiau neklausti"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Nepavyko atverti Clipman istorijos dialogo"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
@@ -417,7 +417,7 @@ msgstr "_Išvalyti istoriją"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Išvalyti iškarpinę"
 
 #: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
