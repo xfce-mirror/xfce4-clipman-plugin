@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-02 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Arman Harutyunyan <arman.harut468@gmail.com>, 2020\n"
 "Language-Team: Eastern Armenian (http://app.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
@@ -70,9 +70,8 @@ msgstr "Սեղմել URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:340
 msgid "Clipman"
 msgstr "Սեղմամարդ"
 
@@ -103,11 +102,11 @@ msgstr ""
 msgid "hides actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Վերադրել գործողութիւններ</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Վերադրե՞լ գործողութիւնները համակարգի լռելեայն արժեքներով։"
@@ -117,32 +116,32 @@ msgid "Enter search phrase here"
 msgstr "Մուտքագրէք որոնման արտայայտութիւնն այստէղ"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:368
 #, c-format
 msgid "_Paste"
 msgstr "_Դնել"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:373
 #, c-format
 msgid "_Copy"
 msgstr "_Պատճենել"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:396
 msgid "Clipman History"
 msgstr "Clipman-ի պատմութիւնը"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Աւգնութիւն"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:410
+#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "_Կարգաւորումներ"
 
@@ -371,7 +370,7 @@ msgid "Regular expression"
 msgstr "Սովորական արտայայտութիւն"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "_Անջատել"
 
@@ -408,42 +407,42 @@ msgstr "Ջնջե՞լ պատմութիւնը։"
 msgid "Don't ask again"
 msgstr "Այլեւս չհարցնել"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
-msgstr "Անհնար է բացել clipman-ի  երկխոսութիւնների պատմութիւնը"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "_Մաքրել պատմութիւնը"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr ""
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "Չյաջողուեց ստեղծել  QR-Code։"
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr "_Ցուցադրել ամբողջ պատմութիւնը․․․"
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr "_Clipman-ի կարգաւորումները․․․"
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:328
 msgid "Contributors:"
 msgstr "Աջակցողներ՝"
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:342
 msgid "Clipboard Manager for Xfce"
 msgstr "Սեղմատախտակի կառավարիչ Xfce֊ի համար"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:350
 msgid "translator-credits"
 msgstr "թարգմանչական֊վարկեր"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:364
 msgid "Unable to open the settings dialog"
 msgstr "Չյաջողուեց բացել կարգաւորումների երկխաւսութիւնը"
