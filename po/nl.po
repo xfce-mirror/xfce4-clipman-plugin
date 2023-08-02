@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-02 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2014,2016-2017,2020,2022-2023\n"
 "Language-Team: Dutch (http://app.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
@@ -68,9 +68,8 @@ msgstr "Webadres inkrimpen"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:340
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -101,11 +100,11 @@ msgstr "toont acties"
 msgid "hides actions"
 msgstr "verbergt acties"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Acties op beginwaarden instellen</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Weet u zeker dat u de acties wilt terugzetten op de standaardwaarden?"
@@ -115,32 +114,32 @@ msgid "Enter search phrase here"
 msgstr "Voer zoekterm hier in"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr "Geschiedenis is leeg"
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:368
 #, c-format
 msgid "_Paste"
 msgstr "_Plakken"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:373
 #, c-format
 msgid "_Copy"
 msgstr "_Kopiëren"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:396
 msgid "Clipman History"
 msgstr "Geschiedenis van Klembordbeheer"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Hulp"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:410
+#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "_Instellingen"
 
@@ -369,7 +368,7 @@ msgid "Regular expression"
 msgstr "Reguliere uitdrukking"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "Uitschakelen"
 
@@ -406,42 +405,42 @@ msgstr "Weet u zeker dat u de geschiedenis wil wissen?"
 msgid "Don't ask again"
 msgstr "Vraag dit niet opnieuw"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
-msgstr "Kan het dialoogvenster voor de geschiedenis van Klembordbeheer niet openen"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "Geschiedenis _wissen"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr "Klembord _wissen"
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "Kon geen QR-code genereren."
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr "Toon volledige geschiedenis..."
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr "Instellingen van Klembordbeheer..."
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:328
 msgid "Contributors:"
 msgstr "Bijdragers:"
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:342
 msgid "Clipboard Manager for Xfce"
 msgstr "Klembordbeheer voor Xfce"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:350
 msgid "translator-credits"
 msgstr "Vincent Tunru\nPjotr <pjotrvertaalt@gmail.com>"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:364
 msgid "Unable to open the settings dialog"
 msgstr "Kan het instellingenvenster niet openen"
