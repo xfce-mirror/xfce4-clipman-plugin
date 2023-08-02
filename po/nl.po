@@ -71,7 +71,7 @@ msgstr "Webadres inkrimpen"
 #: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
 #: ../panel-plugin/plugin.c:340
 msgid "Clipman"
-msgstr "Clipman"
+msgstr "Klembordbeheer"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
@@ -153,7 +153,7 @@ msgstr "Pas uw klembord aan"
 
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
-msgstr "Instellingen van Clipman (Klembordbeheer)"
+msgstr "Instellingen van Klembordbeheer"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -407,7 +407,7 @@ msgstr "Vraag dit niet opnieuw"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Kon het dialoogscherm met de geschiedenis van Klembordbeheer niet openen"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
