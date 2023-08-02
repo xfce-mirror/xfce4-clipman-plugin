@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-02 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>, 2014,2016,2021\n"
 "Language-Team: Malay (http://app.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
@@ -68,9 +68,8 @@ msgstr "Pendekkan URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:340
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -101,11 +100,11 @@ msgstr ""
 msgid "hides actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Tetap semula tindakan</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Anda pasti ingin menetap semula tindakan ke nilai lalai sistem?"
@@ -115,32 +114,32 @@ msgid "Enter search phrase here"
 msgstr "Masukkan frasa gelintar di sini"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:368
 #, c-format
 msgid "_Paste"
 msgstr "_Tampal"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:373
 #, c-format
 msgid "_Copy"
 msgstr "_Salin"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:396
 msgid "Clipman History"
 msgstr "Sejarah Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:410
+#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "T_etapan"
 
@@ -369,7 +368,7 @@ msgid "Regular expression"
 msgstr "Ungkapan nalar"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "_Dilumpuhkan"
 
@@ -406,42 +405,42 @@ msgstr "Anda pasti mahu kosongkan sejarah?"
 msgid "Don't ask again"
 msgstr "Jangan tanya lagi"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
-msgstr "Gagal membuka dialog sejarah clipman"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "_Kosongkan sejarah"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr ""
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "Tidak dapat jana Kod-QR."
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr "_Tunjuk sejarah penuh..."
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr "Tetapan _Clipman..."
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:328
 msgid "Contributors:"
 msgstr "Penyumbang:"
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:342
 msgid "Clipboard Manager for Xfce"
 msgstr "Pengurus Papan Keratan untuk Xfce"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:350
 msgid "translator-credits"
 msgstr "abuyop <abuyop@gmail.com>"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:364
 msgid "Unable to open the settings dialog"
 msgstr "Tidak boleh buka dialog tetapan"
