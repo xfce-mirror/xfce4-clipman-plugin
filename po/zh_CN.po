@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-02 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: No Body, 2022-2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
@@ -76,9 +76,8 @@ msgstr "短 URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:340
 msgid "Clipman"
 msgstr "Clipman 剪贴板管理器"
 
@@ -109,11 +108,11 @@ msgstr "显示动作"
 msgid "hides actions"
 msgstr "隐藏动作"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>重置动作</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "您确定要重置此动作为系统默认值吗？"
@@ -123,32 +122,32 @@ msgid "Enter search phrase here"
 msgstr "在此处输入搜索词组"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr "历史记录为空"
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:368
 #, c-format
 msgid "_Paste"
 msgstr "粘贴(_P)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:373
 #, c-format
 msgid "_Copy"
 msgstr "复制(_C)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:396
 msgid "Clipman History"
 msgstr "Clipman 历史"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:410
+#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "设置(_S)"
 
@@ -377,7 +376,7 @@ msgid "Regular expression"
 msgstr "正则表达"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "禁用(_D)"
 
@@ -414,42 +413,42 @@ msgstr "您确定要清除历史吗？"
 msgid "Don't ask again"
 msgstr "不再询问"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
-msgstr "无法打开 Clipman 历史记录对话框"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "清除历史(_C)"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr "清空剪贴板(_C)"
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "无法生成二维码。"
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr "显示完整的历史记录(_S)..."
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr "Clipman 设置(_C)..."
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:328
 msgid "Contributors:"
 msgstr "贡献者："
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:342
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 剪贴板管理器"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:350
 msgid "translator-credits"
 msgstr "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\nHunt Xu <huntxu@live.cn>, 2009.\nChipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:364
 msgid "Unable to open the settings dialog"
 msgstr "未能打开设置对话框"
