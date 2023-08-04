@@ -65,7 +65,7 @@ msgstr "Erro GNOME"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
 msgid "Long URL"
-msgstr "URL longa"
+msgstr "URL longo"
 
 #: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
 msgid "Shrink the URL"
@@ -261,7 +261,7 @@ msgstr "Editar ação"
 
 #: ../panel-plugin/settings-dialog.ui.h:25
 msgid "Delete action"
-msgstr "Apagar ação"
+msgstr "Eliminar ação"
 
 #: ../panel-plugin/settings-dialog.ui.h:26
 msgid "Reset all actions to the system default values"
@@ -273,16 +273,16 @@ msgstr "_Ações"
 
 #: ../panel-plugin/settings-dialog.ui.h:28
 msgid "<b>Remember history</b>"
-msgstr "<b>Lembrar histórico</b>"
+msgstr "<b>Memorizar histórico</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:29
 msgid "Remember last copied _image"
-msgstr "Lembrar a última _imagem copiada"
+msgstr "Memorizar a última _imagem copiada"
 
 #: ../panel-plugin/settings-dialog.ui.h:30
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr "Se ativa, esta opção permite colocar uma imagem no histórico"
+msgstr "Se estiver selecionada, esta opção permite colocar uma imagem no histórico"
 
 #: ../panel-plugin/settings-dialog.ui.h:31
 msgid "_Reorder history items"
@@ -308,7 +308,7 @@ msgstr "Ignorar s_eleções do rato"
 #: ../panel-plugin/settings-dialog.ui.h:36
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Se ativa, as seleções não afetarão o histórico à exceção das cópias manuais"
+msgstr "Se estiver selecionada, as seleções não afetarão o histórico à exceção das cópias manuais"
 
 #: ../panel-plugin/settings-dialog.ui.h:37
 msgid "Size of the _history:"
@@ -404,7 +404,7 @@ msgstr "O daemon do gestor da área de transferência não está em execução."
 
 #: ../panel-plugin/menu.c:245
 msgid "Are you sure you want to clear the history?"
-msgstr "Tem a certeza de que pretende apagar o histórico?"
+msgstr "Tem a certeza de que pretende limpar o histórico?"
 
 #: ../panel-plugin/menu.c:250
 msgid "Don't ask again"
@@ -412,11 +412,11 @@ msgstr "Não perguntar novamente"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Não foi possível abrir a janela de histórico do Clipman"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
-msgstr "_Apagar histórico"
+msgstr "_Limpar histórico"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
@@ -444,8 +444,8 @@ msgstr "Gestor de área de transferência do Xfce"
 
 #: ../panel-plugin/plugin.c:350
 msgid "translator-credits"
-msgstr "Hugo Carvalho <hugokarvalho@gmail.com>\nNuno Miguel <nunomgue@gmail.com>"
+msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>\nNuno Miguel <nunomgue@gmail.com>"
 
 #: ../panel-plugin/plugin.c:364
 msgid "Unable to open the settings dialog"
-msgstr "Incapaz de abrir a janela de definições"
+msgstr "Não foi possível abrir a janela de definições"
