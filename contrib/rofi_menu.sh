@@ -130,11 +130,24 @@ yewtu_be_rewrite()
   local url="$1"
   # https://youtu.be/7fIR55kkTwc
   # https://yewtu.be/watch?v=Dn800rlPIho
-  local regexp_nowatch='/([^/=&?]+)$'
-  if [[ $url =~ $regexp_nowatch ]]
+  # https://youtu.be/ik8AXTjUbS4?t=423
+  # https://www.youtube.com/watch?v=-xCS4ICQh9A#
+  # WRONG ==> https://www.yewtu.be/watch?v=watch&v=-xCS4ICQh9A
+  local regexp_watch_present='/watch'
+  # The regexp is used to ensure there's nowatch in the input
+  local regexp_nowatch='^https?://[^/]+/([^/=&?]+)(\?.+)?$'
+  if [[ ! $url =~ $regexp_watch_present && $url =~ $regexp_nowatch ]]
   then
-    video_id=${BASH_REMATCH[1]}
+    local video_id=${BASH_REMATCH[1]}
+    local query_string=${BASH_REMATCH[2]}
+    # create a new URL with watch inserted
     url=$(echo "$url" | sed -e "s/$video_id/watch?v=$video_id/")
+    if [[ -n $query_string ]]
+    then
+      local n=${#query_string}
+      # search & replace $query_string ? with &
+      url="${url/$query_string/&${query_string:1:$n}}"
+    fi
   fi
 
   echo "$url" | sed -e 's/\(youtu\.be\|youtube\.com\)/yewtu.be/'
