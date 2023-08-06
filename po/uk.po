@@ -413,7 +413,7 @@ msgstr "Не запитувати знову"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Не вдається відкрити діалогове вікно історії буферу обміну"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
