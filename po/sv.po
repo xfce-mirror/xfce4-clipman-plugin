@@ -409,7 +409,7 @@ msgstr "Fråga inte igen"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Det går inte att öppna Clipman historikdialogrutan"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
