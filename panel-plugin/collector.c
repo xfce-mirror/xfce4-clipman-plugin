@@ -208,8 +208,19 @@ cb_request_text (GtkClipboard *clipboard,
        * 'default_cache' should have been cleared before) */
       if (clipboard == collector->priv->default_clipboard && collector->priv->default_cache != NULL)
         {
-          collector->priv->default_internal_change = TRUE;
-          gtk_clipboard_set_text (collector->priv->default_clipboard, collector->priv->default_cache, -1);
+          GdkAtom *targets;
+          gint n_targets;
+          if (!gtk_clipboard_wait_for_targets (collector->priv->default_clipboard, &targets, &n_targets))
+            {
+              collector->priv->default_internal_change = TRUE;
+              gtk_clipboard_set_text (collector->priv->default_clipboard, collector->priv->default_cache, -1);
+            }
+          else
+            {
+              /* text was reset but clipboard contains some data (e.g. objects in FreeCAD,
+               * see https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/85) */
+              g_free (targets);
+            }
         }
 
       return;
