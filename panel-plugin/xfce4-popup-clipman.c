@@ -29,39 +29,26 @@
 #include <common.h>
 
 
-/* Initial code was taken from xfwm4/src/menu.c:grab_available().
- * TODO replace deprecated GTK/GDK functions.
- */
+
 static void
 grab_keyboard (void)
 {
-  guint32 timestamp = GDK_CURRENT_TIME;
-  GdkScreen *screen = gdk_screen_get_default ();
-  GdkWindow *win = gdk_screen_get_root_window (screen);
-  GdkGrabStatus grab_status;
-  gint i = 0;
+  GtkWidget *invisible = gtk_invisible_new ();
+  GdkSeat *seat = gdk_display_get_default_seat (gdk_display_get_default ());
+  GdkGrabStatus grab_status = GDK_GRAB_FAILED;
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  grab_status = gdk_keyboard_grab (win, TRUE, timestamp);
-G_GNUC_END_IGNORE_DEPRECATIONS
-
-  while ((i++ < 2500) && (grab_status != GDK_GRAB_SUCCESS))
+  gtk_widget_show (invisible);
+  for (gint i = 0; i < 2500 && grab_status != GDK_GRAB_SUCCESS; i++)
     {
+      grab_status = gdk_seat_grab (seat, gtk_widget_get_window (invisible),
+                                   GDK_SEAT_CAPABILITY_KEYBOARD, TRUE,
+                                   NULL, NULL, NULL, NULL);
       g_usleep (1000);
-      if (grab_status != GDK_GRAB_SUCCESS)
-        {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          grab_status = gdk_keyboard_grab (win, TRUE, timestamp);
-G_GNUC_END_IGNORE_DEPRECATIONS
-        }
     }
+  gtk_widget_destroy (invisible);
 
   if (grab_status == GDK_GRAB_SUCCESS)
-    {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gdk_keyboard_ungrab (timestamp);
-G_GNUC_END_IGNORE_DEPRECATIONS
-    }
+    gdk_seat_ungrab (seat);
 }
 
 static gint
