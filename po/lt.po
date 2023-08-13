@@ -171,18 +171,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Jei pažymėta, žymėjimai bus sinchronizuojami su numatytąja iškarpine, taigi, naudodami Ctrl-V, galėsite įdėti tai, ką esate nukopijavę. Kopijavimai rankiniu būdu, priešingai, bus sinchronizuojami su pirmine iškarpine, taigi, įdėti tai, ką esate nukopijavę, galėsite naudodami vidurinįjį pelės mygtuką."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Išliekantys žymėjimai pele"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Jei pažymėta, pirminė iškarpinė (įdėjimas viduriniuoju pelės mygtuku) išliks iki kito žymėjimo tuo atveju, jei dabartinis žymėjimas buvo prarastas (pvz., kur nors teksto srityje buvo spustelėta kairiuoju pelės mygtuku)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -242,11 +242,11 @@ msgstr "Jei pažymėta, iškarpinės tekstas bus palygintas su reguliariaisiais 
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Kai yra atliktas žymėjimas ir vis dar nuspaustas Control (Vald) klavišas, bus rodomas arba slepiamas iškylantysis visų atitinkančių veiksmų meniu"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Nuspaudus Ctrl klavišą žymėjimo metu:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -347,7 +347,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Pagal numatymą, šį veiksmą sukelia žymėjimas: pažymėkite šią parinktį, kad vietoj to, veiksmą sukeltų kopijavimas rankiniu būdu. Turėkite omenyje, kad šiuo atveju, Control (Vald) klavišas neturės jokios įtakos."
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "<b>Action</b>"
