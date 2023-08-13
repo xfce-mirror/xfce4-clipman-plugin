@@ -248,24 +248,12 @@ clipman_history_treeview_init (MyPlugin *plugin)
   g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
   g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
-  if (internal_paste_on_activate != PASTE_INACTIVE)
-    {
-      g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
-      g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
-    }
-
   /* Create the treeview */
   plugin->treeview = treeview = gtk_tree_view_new_with_model (filter);
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
   g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
-
-  if (internal_paste_on_activate != PASTE_INACTIVE)
-    {
-      g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
-      g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
-    }
 
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
@@ -382,6 +370,16 @@ clipman_history_paste_on_activate_changed (MyPlugin *plugin)
 {
   internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
   clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
+
+  g_signal_handlers_disconnect_by_func (plugin->entry, clipman_history_key_event, plugin);
+  g_signal_handlers_disconnect_by_func (plugin->treeview, clipman_history_key_event, plugin);
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    {
+      g_signal_connect (G_OBJECT (plugin->entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+    }
 }
 
 GtkWidget *
@@ -422,7 +420,6 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #endif
   gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
-  clipman_history_paste_on_activate_changed (plugin);
 
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
 
@@ -495,6 +492,9 @@ clipman_history_command_line (GApplication *app,
   box = clipman_history_treeview_init (plugin);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (plugin->dialog))), box);
   gtk_widget_show_all (box);
+
+  /* setup paste-on-activate */
+  clipman_history_paste_on_activate_changed (plugin);
 
   gtk_widget_show_all (plugin->dialog);
 
