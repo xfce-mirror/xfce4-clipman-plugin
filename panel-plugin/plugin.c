@@ -369,37 +369,56 @@ plugin_configure (MyPlugin *plugin)
   }
 }
 
-static void
-plugin_popup_menu_real (GtkClipboard *clipboard,
-                        const gchar  *text,
-                        gpointer      data)
+void
+plugin_popup_menu (MyPlugin *plugin)
 {
-  MyPlugin *plugin = data;
+  GdkEvent *event = gtk_get_current_event ();
+  gboolean popup_command = (event == NULL);
 
-  /* store primary selection for later use */
+  if (popup_command)
+    {
+      GdkSeat *seat = gdk_display_get_default_seat (gdk_display_get_default ());
+      event = gdk_event_new (GDK_BUTTON_PRESS);
+      event->button.window = g_object_ref (gdk_get_default_root_window ());
+      gdk_event_set_device (event, gdk_seat_get_pointer (seat));
+    }
+
+  /* store clipboard contents for later use when the menu is shown: we can't do this
+   * at that time as it iterates the main loop and it causes critical warnings */
+  g_object_set_data_full (G_OBJECT (plugin->menu), "selection-clipboard",
+                          gtk_clipboard_wait_for_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD)), g_free);
   g_object_set_data_full (G_OBJECT (plugin->menu), "selection-primary",
-                          g_strdup (text), g_free);
+                          gtk_clipboard_wait_for_text (gtk_clipboard_get (GDK_SELECTION_PRIMARY)), g_free);
 
   if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
     {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                      NULL, NULL,
-                      0, gtk_get_current_event_time ());
-G_GNUC_END_IGNORE_DEPRECATIONS
+#ifdef PANEL_PLUGIN
+      if (!popup_command)
+        {
+          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+          xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+        }
+#endif
+      gtk_menu_popup_at_pointer (GTK_MENU (plugin->menu), event);
     }
   else
     {
 #ifdef PANEL_PLUGIN
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+#if LIBXFCE4PANEL_CHECK_VERSION (4, 17, 2)
+      xfce_panel_plugin_popup_menu (plugin->panel_plugin, GTK_MENU (plugin->menu), plugin->button, event);
+#else
+      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
       gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                       plugin->menu_position_func, plugin,
                       0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
-      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+#endif
+
 #elif defined (STATUS_ICON)
+
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_set_screen (GTK_MENU (plugin->menu),
                            gtk_status_icon_get_screen (plugin->status_icon));
@@ -408,30 +427,7 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
                       0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
-  }
-}
+    }
 
-static void
-plugin_popup_menu_primary (GtkClipboard *clipboard,
-                           const gchar  *text,
-                           gpointer      data)
-{
-  MyPlugin *plugin = data;
-
-  /* store clipboard selection for later use */
-  g_object_set_data_full (G_OBJECT (plugin->menu), "selection-clipboard",
-                          g_strdup (text), g_free);
-
-  /* request primary selection */
-  gtk_clipboard_request_text (gtk_clipboard_get (GDK_SELECTION_PRIMARY),
-                              plugin_popup_menu_real, plugin);
-}
-
-void
-plugin_popup_menu (MyPlugin *plugin)
-{
-  /* first, request text of each clipboard asynchronously, to not dispatch
-   * current event associated to menu popup */
-  gtk_clipboard_request_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD),
-                              plugin_popup_menu_primary, plugin);
+  gdk_event_free (event);
 }

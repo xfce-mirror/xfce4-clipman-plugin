@@ -705,6 +705,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   GdkDevice *device = gdk_seat_get_pointer (seat);
   GdkScreen* screen = gdk_screen_get_default ();
   GdkWindow * root_win = gdk_screen_get_root_window (screen);
+  GdkEvent *event;
 
   if (group == ACTION_GROUP_SELECTION)
     {
@@ -778,10 +779,12 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
     gtk_grab_add(actions->priv->menu);
   }
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  gtk_menu_popup (GTK_MENU (actions->priv->menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time ());
-G_GNUC_END_IGNORE_DEPRECATIONS
+  event = gdk_event_new (GDK_BUTTON_PRESS);
+  event->button.window = g_object_ref (root_win);
+  gdk_event_set_device (event, device);
+  gtk_menu_popup_at_pointer (GTK_MENU (actions->priv->menu), event);
 
+  gdk_event_free (event);
   g_slist_free (entries);
 }
 
