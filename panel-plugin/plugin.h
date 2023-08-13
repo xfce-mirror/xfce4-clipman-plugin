@@ -26,9 +26,10 @@
 #include <libxfce4panel/libxfce4panel.h>
 #endif
 
+#ifdef HAVE_LIBX11
 #include <x11-clipboard-manager/daemon.h>
+#endif
 #include "actions.h"
-#include "common.h"
 #include "collector.h"
 #include "history.h"
 
@@ -46,7 +47,9 @@ struct _MyPlugin
 #elif defined (STATUS_ICON)
   GtkStatusIcon        *status_icon;
 #endif
+#ifdef HAVE_LIBX11
   GsdClipboardManager  *daemon;
+#endif
   XfconfChannel        *channel;
   ClipmanActions       *actions;
   ClipmanCollector     *collector;
