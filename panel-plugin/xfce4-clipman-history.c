@@ -23,14 +23,12 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gdk/gdkx.h>
 #include <gdk/gdkkeysyms.h>
-#include <X11/extensions/XTest.h>
 
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
-#include <x11-clipboard-manager/daemon.h>
 
+#include "common.h"
 #include <menu.h>
 #include <plugin.h>
 #include <history.h>
@@ -368,7 +366,8 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
 static void
 clipman_history_paste_on_activate_changed (MyPlugin *plugin)
 {
-  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
+  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE)
+                               && GDK_IS_X11_DISPLAY (gdk_display_get_default ());
   clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
 
   g_signal_handlers_disconnect_by_func (plugin->entry, clipman_history_key_event, plugin);

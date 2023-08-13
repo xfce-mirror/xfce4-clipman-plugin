@@ -22,9 +22,11 @@
 
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
+#ifdef HAVE_LIBXTST
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
+#endif
 
 #ifdef HAVE_QRENCODE
 #include <qrencode.h>
@@ -176,6 +178,10 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 void
 cb_paste_on_activate (guint paste_on_activate)
 {
+  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+    return;
+
+#ifdef HAVE_LIBXTST
   int dummyi;
   KeySym key_sym;
   KeyCode key_code;
@@ -228,6 +234,7 @@ cb_paste_on_activate (guint paste_on_activate)
     }
 
   XCloseDisplay (display);
+#endif
 }
 
 static void
