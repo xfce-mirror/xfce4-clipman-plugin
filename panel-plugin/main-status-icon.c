@@ -108,7 +108,7 @@ status_icon_register (void)
     {
       plugin->status_icon = gtk_status_icon_new_from_icon_name ("edit-paste");
     }
-  //gtk_status_icon_set_tooltip (plugin->status_icon, _("Clipman"));
+  gtk_status_icon_set_tooltip_text (plugin->status_icon, _("Clipman"));
   g_timeout_add_seconds (60, cb_status_icon_is_embedded, plugin->status_icon);
 
   /* Signals */
