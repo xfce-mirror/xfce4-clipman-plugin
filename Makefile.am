@@ -2,9 +2,14 @@ ACLOCAL_AMFLAGS = -I m4  ${ACLOCAL_FLAGS}
 
 NULL = 
 
-SUBDIRS =								\
+SUBDIRS =
+
+if HAVE_LIBX11
+SUBDIRS += x11-clipboard-manager
+endif
+
+SUBDIRS +=								\
 	data								\
-	x11-clipboard-manager						\
 	panel-plugin							\
 	tests								\
 	po								\
