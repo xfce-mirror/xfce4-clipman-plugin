@@ -309,7 +309,8 @@ plugin_free (MyPlugin *plugin)
 #ifdef PANEL_PLUGIN
   gtk_widget_destroy (plugin->button);
 #elif defined (STATUS_ICON)
-  gtk_widget_destroy (plugin->popup_menu);
+  if (plugin->popup_menu != NULL)
+    gtk_widget_destroy (plugin->popup_menu);
 #endif
 
   g_object_unref (plugin->app);
