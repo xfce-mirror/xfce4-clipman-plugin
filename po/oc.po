@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-14 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Quentin PAGÈS, 2022\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
@@ -71,8 +71,8 @@ msgstr "Acorchir l'URL"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -103,11 +103,11 @@ msgstr ""
 msgid "hides actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Reïnicializar las accions</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Sètz segur que volètz reïnicializar las accions a las valors per defaut del sistèma ?"
@@ -117,32 +117,32 @@ msgid "Enter search phrase here"
 msgstr ""
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
 msgid "_Paste"
 msgstr "_Pegar"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:361
 #, c-format
 msgid "_Copy"
 msgstr "_Copiar"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "Clipman History"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:400
+#: ../panel-plugin/xfce4-clipman-history.c:402
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:408
+#: ../panel-plugin/xfce4-clipman-history.c:410
 msgid "_Settings"
 msgstr "_Paramètres"
 
@@ -213,9 +213,9 @@ msgstr "P_osicionar lo menú amb lo puntador de la mirga"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Posiciona lo menú amb lo puntador de la mirga, unicament per la comanda xfce4-popup-clipman"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -371,7 +371,7 @@ msgid "Regular expression"
 msgstr "Expression regulara"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "_Desactivar"
 
@@ -408,42 +408,42 @@ msgstr "Sètz segur que volètz escafar l'istoric ?"
 msgid "Don't ask again"
 msgstr "Demandar pas mai"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "Es_cafar l''istoric"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr ""
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "Fracàs de generacion del còde QR"
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr ""
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr ""
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:329
 msgid "Contributors:"
 msgstr "Contributors :"
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:343
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionari de quichapapièrs per Xfce"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:351
 msgid "translator-credits"
 msgstr "Cédric Valmary (totenoc.org)"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:365
 msgid "Unable to open the settings dialog"
 msgstr "Fracàs a la dobertura de la fenèstra de paramètres"
