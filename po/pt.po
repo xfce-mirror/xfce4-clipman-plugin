@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-02 00:50+0200\n"
+"POT-Creation-Date: 2023-08-14 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2019-2020,2022-2023\n"
 "Language-Team: Portuguese (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
@@ -73,8 +73,9 @@ msgstr "Encurtar o URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -119,32 +120,32 @@ msgid "Enter search phrase here"
 msgstr "Introduzir aqui a frase a pesquisar"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr "O histórico está vazio"
 
-#: ../panel-plugin/xfce4-clipman-history.c:368
+#: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
 msgid "_Paste"
 msgstr "Co_lar"
 
-#: ../panel-plugin/xfce4-clipman-history.c:373
+#: ../panel-plugin/xfce4-clipman-history.c:361
 #, c-format
 msgid "_Copy"
 msgstr "_Copiar"
 
-#: ../panel-plugin/xfce4-clipman-history.c:396
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "Clipman History"
 msgstr "Histórico do Clipman"
 
+#: ../panel-plugin/xfce4-clipman-history.c:400
 #: ../panel-plugin/xfce4-clipman-history.c:402
-#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "_Ajuda"
 
+#: ../panel-plugin/xfce4-clipman-history.c:408
 #: ../panel-plugin/xfce4-clipman-history.c:410
-#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "_Definições"
 
@@ -215,9 +216,9 @@ msgstr "Menu no l_ocal do cursor"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Abrir o menu no local do cursor. Só utilizável com  o comando xfce4-popup-clipman"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -434,18 +435,18 @@ msgstr "_Mostrar o histórico completo..."
 msgid "_Clipman settings..."
 msgstr "_Definições do Clipman..."
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "Contributors:"
 msgstr "Contributos:"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestor de área de transferência do Xfce"
 
-#: ../panel-plugin/plugin.c:350
+#: ../panel-plugin/plugin.c:351
 msgid "translator-credits"
 msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>\nNuno Miguel <nunomgue@gmail.com>"
 
-#: ../panel-plugin/plugin.c:364
+#: ../panel-plugin/plugin.c:365
 msgid "Unable to open the settings dialog"
 msgstr "Não foi possível abrir a janela de definições"
