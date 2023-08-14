@@ -218,7 +218,7 @@ msgstr "_Menü beim Mauszeiger positionieren"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Das Menü an der Position des Mauszeigers öffnen: Besonders nützlich für den Befehl xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
