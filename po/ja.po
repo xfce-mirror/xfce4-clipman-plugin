@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-02 00:50+0200\n"
+"POT-Creation-Date: 2023-08-14 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016,2020,2023\n"
 "Language-Team: Japanese (http://app.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
@@ -70,8 +70,9 @@ msgstr "URL を短縮"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83 ../panel-plugin/plugin.c:97
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -116,32 +117,32 @@ msgid "Enter search phrase here"
 msgstr "ここに検索フレーズを入力してください"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:302 ../panel-plugin/menu.c:432
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr "履歴は空です"
 
-#: ../panel-plugin/xfce4-clipman-history.c:368
+#: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
 msgid "_Paste"
 msgstr "ペースト(_P)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:373
+#: ../panel-plugin/xfce4-clipman-history.c:361
 #, c-format
 msgid "_Copy"
 msgstr "コピー(_C)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:396
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "Clipman History"
 msgstr "Clipman の履歴"
 
+#: ../panel-plugin/xfce4-clipman-history.c:400
 #: ../panel-plugin/xfce4-clipman-history.c:402
-#: ../panel-plugin/xfce4-clipman-history.c:404
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
+#: ../panel-plugin/xfce4-clipman-history.c:408
 #: ../panel-plugin/xfce4-clipman-history.c:410
-#: ../panel-plugin/xfce4-clipman-history.c:412
 msgid "_Settings"
 msgstr "設定(_S)"
 
@@ -212,9 +213,9 @@ msgstr "マウスポインターの位置にメニューを表示する(_O)"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "xfce4-popup-clipman コマンドを実行した時メニューをマウスポインターの位置にポップアップ表示します"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -431,18 +432,18 @@ msgstr "完全な履歴を表示(_S)..."
 msgid "_Clipman settings..."
 msgstr "Clipman の設定(_C)..."
 
-#: ../panel-plugin/plugin.c:328
+#: ../panel-plugin/plugin.c:329
 msgid "Contributors:"
 msgstr "貢献者:"
 
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/plugin.c:343
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce 用クリップボードマネージャー"
 
-#: ../panel-plugin/plugin.c:350
+#: ../panel-plugin/plugin.c:351
 msgid "translator-credits"
 msgstr "Daichi Kawahata\nNobuhiro Iwamatsu\nMasato Hashimoto"
 
-#: ../panel-plugin/plugin.c:364
+#: ../panel-plugin/plugin.c:365
 msgid "Unable to open the settings dialog"
 msgstr "設定ダイアログを開けません"
