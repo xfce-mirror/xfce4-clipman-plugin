@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 00:50+0200\n"
+"POT-Creation-Date: 2023-08-14 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010,2016,2022\n"
 "Language-Team: Kazakh (http://app.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
@@ -69,8 +69,8 @@ msgstr "URL-ды қысқарту"
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
 #: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:99
-#: ../panel-plugin/plugin.c:338
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -101,11 +101,11 @@ msgstr ""
 msgid "hides actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:533
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Әрекеттерді тастау</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Әрекеттерді бастапқы мәндерге тастауды шынымен қалайсыз ба?"
@@ -115,32 +115,32 @@ msgid "Enter search phrase here"
 msgstr "Осында іздеу сөзін енгізіңіз"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:303 ../panel-plugin/menu.c:431
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:385
+#: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
 msgid "_Paste"
 msgstr "Кі_рістіру"
 
-#: ../panel-plugin/xfce4-clipman-history.c:390
+#: ../panel-plugin/xfce4-clipman-history.c:361
 #, c-format
 msgid "_Copy"
 msgstr "_Көшіріп алу"
 
-#: ../panel-plugin/xfce4-clipman-history.c:406
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "Clipman History"
 msgstr "Clipman тарихы"
 
-#: ../panel-plugin/xfce4-clipman-history.c:412
-#: ../panel-plugin/xfce4-clipman-history.c:414
+#: ../panel-plugin/xfce4-clipman-history.c:400
+#: ../panel-plugin/xfce4-clipman-history.c:402
 #: ../panel-plugin/settings-dialog.ui.h:2
 msgid "_Help"
 msgstr "Кө_мек"
 
-#: ../panel-plugin/xfce4-clipman-history.c:420
-#: ../panel-plugin/xfce4-clipman-history.c:422
+#: ../panel-plugin/xfce4-clipman-history.c:408
+#: ../panel-plugin/xfce4-clipman-history.c:410
 msgid "_Settings"
 msgstr "Ба_птаулар"
 
@@ -211,9 +211,9 @@ msgstr "Мәзірді тышқан курс_оры қасында көрсет�
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "xfce4-popup-clipman командасы үшін мәзірді тышқан курсоры тұрған жерінен көрсету"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -369,7 +369,7 @@ msgid "Regular expression"
 msgstr "Тұрақты өрнек"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:161
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "Сө_ндіру"
 
@@ -406,42 +406,42 @@ msgstr "Тарихты өшіруді шынымен қалайсыз ба?"
 msgid "Don't ask again"
 msgstr "Келесі рет сұрамау"
 
-#: ../panel-plugin/menu.c:298
-msgid "Unable to open the clipman history dialog"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: ../panel-plugin/menu.c:353 ../panel-plugin/menu.c:621
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
 msgstr "Тарихты та_зарту"
 
-#: ../panel-plugin/menu.c:453
+#: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
 msgstr ""
 
-#: ../panel-plugin/menu.c:499
+#: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
 msgstr "QR-кодын генерациялау мүмкін емес."
 
-#: ../panel-plugin/menu.c:612
+#: ../panel-plugin/menu.c:613
 msgid "_Show full history..."
 msgstr ""
 
-#: ../panel-plugin/menu.c:629
+#: ../panel-plugin/menu.c:630
 msgid "_Clipman settings..."
 msgstr ""
 
-#: ../panel-plugin/plugin.c:326
+#: ../panel-plugin/plugin.c:329
 msgid "Contributors:"
 msgstr "Үлесін қосқандар:"
 
-#: ../panel-plugin/plugin.c:340
+#: ../panel-plugin/plugin.c:343
 msgid "Clipboard Manager for Xfce"
 msgstr "Xfce үшін алмасу буфері басқарушысы"
 
-#: ../panel-plugin/plugin.c:348
+#: ../panel-plugin/plugin.c:351
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010"
 
-#: ../panel-plugin/plugin.c:362
+#: ../panel-plugin/plugin.c:365
 msgid "Unable to open the settings dialog"
 msgstr "Баптаулар сұхбат терезесін ашу сәтсіз"
