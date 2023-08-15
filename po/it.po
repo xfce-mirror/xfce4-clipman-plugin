@@ -219,7 +219,7 @@ msgstr "_Posiziona il menu al puntatore del mouse"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Fa comparire il menu nella posizione del puntatore del mouse: utile soprattutto per il comando xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
