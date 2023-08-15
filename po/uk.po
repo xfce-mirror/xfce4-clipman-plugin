@@ -213,13 +213,13 @@ msgstr "<b>Загальне</b>"
 
 #: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
-msgstr "П_оказувати меню при покажчику миші"
+msgstr "П_озиціонування меню на вказівнику миші"
 
 #: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Спливаюче меню на позиції вказівника миші: особливо корисно для команди xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
