@@ -218,7 +218,7 @@ msgstr "P_osisjoner meny på peker"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Oppsprettsmeny på pekerposisjonen: Spesielt nyttig for kommandoen xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -413,7 +413,7 @@ msgstr "Ikke spør igjen"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Klarte ikke åpne historikkvinduet"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
