@@ -221,7 +221,7 @@ msgstr "在鼠标光标处放置菜单"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "在鼠标指针位置弹出菜单：对于 xfce4-popup-clipman 命令特别有用"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
