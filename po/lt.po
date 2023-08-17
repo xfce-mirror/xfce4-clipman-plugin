@@ -215,7 +215,7 @@ msgstr "_Pelės žymeklio vieta"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Parodyti iškylantįjį meniu pelės rodyklės vietoje: ypatingai naudinga naudojant su xfce4-popup-clipman komanda"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
