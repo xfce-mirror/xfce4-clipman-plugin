@@ -218,7 +218,7 @@ msgstr "Menu no l_ocal do cursor"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Abrir o menu na posição do ponteiro do rato: especialmente útil para o comando xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
