@@ -420,7 +420,7 @@ msgstr "О_чистить журнал"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Очистить буфер обмена"
 
 #: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
