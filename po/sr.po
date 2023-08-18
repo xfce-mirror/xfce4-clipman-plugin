@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 00:50+0200\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2012,2014,2016-2017\n"
 "Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
@@ -324,48 +324,56 @@ msgid "Edit Action"
 msgstr "Уредите дејство"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "_Откажи"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "_У реду"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Назив:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Образац:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Можете користити заменске одреднице „\\1“, „\\2“ и тако даље у наредбама. Одредница „\\0“ представља цео текст. Образац је увек угњежђен нарочитим знацима ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
 msgstr "Покреће ручно умножавање уместо избора"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
 msgstr "Подразумевано се дејство окида избором; означите ово ради окидања дејства када ручно правите умножак. У овом случају, дугме контроле нема никакво дејство."
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Дејство</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Наредба:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Наредбе</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Укуцајте овде свој произвољни израз, на пример адресу, име датотеке, итд."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Регуларан израз"
 
