@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 00:50+0200\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2020-2021,2023\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
@@ -325,48 +325,56 @@ msgid "Edit Action"
 msgstr "Redigera åtgärd"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "_OK"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Namn:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Mönster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Du kan använda substitutionsparametrarna \"\\1\", \"\\2\" och så vidare i kommandona. Parametern \"\\0\" representerar hela texten. Mönstret är alltid förankrat i specialtecken ^ $"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
 msgstr "Aktivera på manuell kopiering istället för val"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
 msgstr "Som standard triggas åtgärden av ett val: markera det här alternativet för att trigga åtgärden när du gör en manuell kopia istället. Observera att i detta fall har kontrolltangenten inte längre någon effekt."
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Åtgärd</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Kommando:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Kommandon</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Skriv här din anpassade text, till exempel en URL, ett filnamn etc."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Reguljärt uttryck"
 
