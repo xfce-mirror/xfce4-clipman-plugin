@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 00:50+0200\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020,2023\n"
 "Language-Team: Estonian (http://app.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
@@ -323,48 +323,56 @@ msgid "Edit Action"
 msgstr "Muuda toimingut"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "_Tühista"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Nimi:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Muster:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Sa võid kasutada käskudes asendusparameetreid  \"\\1\", \"\\2\", jne. Parameeter \"\\0\" tähistab tervet teksti. Regulaaravaldise mustrit saad ankurdada erimärkidega ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
 msgstr "Valimise asemel käivita käsitsi kopeerimisel"
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
 msgstr "Vaikimisi toiming käivitud valimisel. Selle eelistusega saad toimingu käivitada käsitsi kopeerimisel. Palun arvesta, et sel juhul Control-nupu vajutus enam arvesse ei lähe."
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Toiming</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Käsk:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Käsud</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Sisesta siia kohandatud tekst, nagu näiteks URL, failinimi, vmt."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Regulaaravaldis"
 
