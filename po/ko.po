@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 00:50+0200\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020,2022\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
@@ -323,48 +323,56 @@ msgid "Edit Action"
 msgstr "동작 편집"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "취소(_C)"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "확인(_O)"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "이름:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "패턴:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "명령에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니다. 인자 \"\\0\"은 전체 문장을 나타냅니다. 패턴은 늘 ^$ 특수문자 안에 붙입니다."
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>동작</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "명령:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>명령</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "URL, 파일 이름 등을 입력하십시오"
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "정규 표현식"
 
