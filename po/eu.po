@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 00:50+0200\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: beriain, 2021\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
@@ -324,48 +324,56 @@ msgid "Edit Action"
 msgstr "Ekintza editatu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "_Utzi"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "_Ados"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Izena:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Patroia:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "Komandoetan \"\\1\", \"\\2\" eta hurrengo ordezte parametroak erabili ditzakezu. \"\\0\" parametroak testu osoa ordezkatzen du. Patroia beti ^$ karaktere berezien barruan ainguratzen da beti"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
+#: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:45
+#: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Ekintza</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Komandoa:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Komandoak</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Idatzi hemen zure testu pertsonalizatua, adibidez URL bat, fitxategi-izen bat, etab."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Espresio erregularra"
 
