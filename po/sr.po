@@ -214,7 +214,7 @@ msgstr "П_остави изборник на показивач миша"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Искачући изборник на положају показивача миша: нарочито корисно за наредбу xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
