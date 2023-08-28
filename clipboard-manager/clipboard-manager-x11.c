@@ -29,7 +29,7 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-#include "gsd-clipboard-manager.h"
+#include "clipboard-manager-x11.h"
 
 
 

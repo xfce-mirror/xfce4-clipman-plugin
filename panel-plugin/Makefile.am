@@ -14,7 +14,7 @@ bin_PROGRAMS = xfce4-popup-clipman xfce4-clipman-settings xfce4-clipman-history
 
 if HAVE_LIBX11
 bin_PROGRAMS += xfce4-clipman
-LIBDAEMON_LIBS = $(top_builddir)/x11-clipboard-manager/libdaemon.la
+LIBDAEMON_LIBS = $(top_builddir)/clipboard-manager/libdaemon.la
 endif
 
 #

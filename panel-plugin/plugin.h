@@ -27,7 +27,7 @@
 #endif
 
 #ifdef HAVE_LIBX11
-#include <x11-clipboard-manager/daemon.h>
+#include <clipboard-manager/daemon.h>
 #endif
 #include "actions.h"
 #include "collector.h"
