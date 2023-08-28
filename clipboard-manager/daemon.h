@@ -19,7 +19,7 @@
 #ifndef __DAEMON_H__
 #define __DAEMON_H__
 
-#include "clipboard-manager-x11.h"
+#include "clipboard-manager.h"
 
 #endif /* !__DAEMON_H__ */
 
