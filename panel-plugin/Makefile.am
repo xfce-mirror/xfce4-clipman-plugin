@@ -14,7 +14,6 @@ bin_PROGRAMS = xfce4-popup-clipman xfce4-clipman-settings xfce4-clipman-history
 
 if HAVE_LIBX11
 bin_PROGRAMS += xfce4-clipman
-LIBDAEMON_LIBS = $(top_builddir)/clipboard-manager/libdaemon.la
 endif
 
 #
@@ -82,7 +81,7 @@ xfce4_clipman_history_CFLAGS =                                            \
 	$(NULL)
 
 xfce4_clipman_history_LDADD =						\
-	$(LIBDAEMON_LIBS)							\
+	$(top_builddir)/clipboard-manager/libdaemon.la							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
 	@GIO_LIBS@							\
@@ -152,7 +151,7 @@ xfce4_clipman_CFLAGS =							\
 	$(NULL)
 
 xfce4_clipman_LDADD =							\
-	$(LIBDAEMON_LIBS)							\
+	$(top_builddir)/clipboard-manager/libdaemon.la							\
 	@GIO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
@@ -206,7 +205,7 @@ libclipman_la_LDFLAGS =							\
 	$(NULL)
 
 libclipman_la_LIBADD =							\
-	$(LIBDAEMON_LIBS)							\
+	$(top_builddir)/clipboard-manager/libdaemon.la							\
 	@GIO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
