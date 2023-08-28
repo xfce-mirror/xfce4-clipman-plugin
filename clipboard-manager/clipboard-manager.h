@@ -1,6 +1,5 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
- * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
+/*
+ * Copyright (C) 2023 Gaël Bonithon <gael@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,19 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- *
  */
 
-#ifndef __XCP_CLIPBOARD_MANAGER_X11_H__
-#define __XCP_CLIPBOARD_MANAGER_X11_H__
+#ifndef __XCP_CLIPBOARD_MANAGER_H__
+#define __XCP_CLIPBOARD_MANAGER_H__
 
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define XCP_TYPE_CLIPBOARD_MANAGER_X11 (xcp_clipboard_manager_x11_get_type ())
-G_DECLARE_FINAL_TYPE (XcpClipboardManagerX11, xcp_clipboard_manager_x11, XCP, CLIPBOARD_MANAGER_X11, GObject)
+#define XCP_TYPE_CLIPBOARD_MANAGER (xcp_clipboard_manager_get_type ())
+G_DECLARE_INTERFACE (XcpClipboardManager, xcp_clipboard_manager, XCP, CLIPBOARD_MANAGER, GObject)
+
+struct _XcpClipboardManagerInterface
+{
+  GTypeInterface g_iface;
+};
+
+XcpClipboardManager *xcp_clipboard_manager_get (void);
 
 G_END_DECLS
 
-#endif /* !__XCP_CLIPBOARD_MANAGER_X11_H__ */
+#endif /* !__XCP_CLIPBOARD_MANAGER_H__ */
