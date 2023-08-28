@@ -31,6 +31,11 @@
 #else
 #define GDK_IS_X11_DISPLAY(display) FALSE
 #endif
+#ifdef GDK_WINDOWING_WAYLAND
+#include <gdk/gdkwayland.h>
+#else
+#define GDK_IS_WAYLAND_DISPLAY(display) FALSE
+#endif
 
 #define DEFAULT_MAX_MENU_ITEMS                          15
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
