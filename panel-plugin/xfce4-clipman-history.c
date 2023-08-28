@@ -61,6 +61,8 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   GtkTreeSelection *selection;
   GtkTreeModel *model;
   GtkTreeIter iter;
+  GDBusProxy *proxy;
+  GError *error = NULL;
   gboolean ret;
   gchar *text;
 
@@ -75,11 +77,45 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   gtk_tree_model_get (model, &iter,
                       COLUMN_TEXT, &text,
                       -1);
-  g_object_set_data_full (G_OBJECT (plugin->app), "text", text, g_free);
+
+  /* set clipboard text from the daemon instance */
+  proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
+                                         G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES
+                                         | G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS,
+                                         NULL, "org.xfce.clipman", "/org/xfce/clipman",
+                                         "org.gtk.Actions", NULL, &error);
+  if (proxy != NULL)
+    {
+      GVariantBuilder *builder1 = g_variant_builder_new (G_VARIANT_TYPE ("av"));
+      GVariantBuilder *builder2 = g_variant_builder_new (G_VARIANT_TYPE ("a{sv}"));
+      GVariant *value;
+
+      g_variant_builder_add (builder1, "v", g_variant_new_string (text));
+      value = g_dbus_proxy_call_sync (proxy, "org.gtk.Actions.Activate",
+                                      g_variant_new ("(sava{sv})", "set-text", builder1, builder2),
+                                      G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
+      g_variant_builder_unref (builder1);
+      g_variant_builder_unref (builder2);
+
+      if (value != NULL)
+        g_variant_unref (value);
+      else
+        {
+          g_warning ("Failed to activate set-text action on org.xfce.clipman: %s", error->message);
+          g_error_free (error);
+        }
+    }
+  else
+    {
+      g_warning ("Failed to get D-Bus proxy for org.xfce.clipman: %s", error->message);
+      g_error_free (error);
+    }
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
   if (GTK_IS_WINDOW (window))
     gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
+
+  g_free (text);
 }
 
 static void
@@ -529,8 +565,6 @@ main (gint argc, gchar *argv[])
 {
   GtkApplication *app;
   int status;
-  GtkClipboard *clipboard;
-  const gchar *text;
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
@@ -547,27 +581,11 @@ main (gint argc, gchar *argv[])
   app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_HANDLES_COMMAND_LINE);
   g_signal_connect (app, "command-line", G_CALLBACK (clipman_history_command_line), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
-  text = g_object_get_data (G_OBJECT (app), "text");
-
-  /* doing copy and paste outside of g_main to assure window being already gone and
-   * as in some occasions the implicit gtk_clipboard_store() lags for 10 seconds
-   */
-  if (text != NULL)
-    {
-      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-      gtk_clipboard_set_text (clipboard, text, -1);
-
-      /* we are out of the g_main - so we have store() on our own */
-      gtk_clipboard_store (clipboard);
-
-      /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
-      if (internal_paste_on_activate != PASTE_INACTIVE)
-        {
-          cb_paste_on_activate (internal_paste_on_activate);
-        }
-    }
-
   g_object_unref (app);
+
+  /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    cb_paste_on_activate (internal_paste_on_activate);
 
   return status;
 }
