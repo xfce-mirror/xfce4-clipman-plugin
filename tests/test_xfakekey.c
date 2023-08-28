@@ -4,6 +4,7 @@
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int main (void) {
         Display *display = XOpenDisplay (NULL);
