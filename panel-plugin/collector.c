@@ -78,7 +78,8 @@ static void             clipman_collector_get_property      (GObject *object,
  */
 
 static void             cb_clipboard_owner_change           (ClipmanCollector *collector,
-                                                             GdkEventOwnerChange *event);
+                                                             GdkEventOwnerChange *event,
+                                                             GtkClipboard *clipboard);
 static void             cb_request_text                     (GtkClipboard *clipboard,
                                                              const gchar *text,
                                                              ClipmanCollector *collector);
@@ -125,7 +126,8 @@ cb_check_primary_clipboard (gpointer user_data)
 
 static void
 cb_clipboard_owner_change (ClipmanCollector *collector,
-                           GdkEventOwnerChange *event)
+                           GdkEventOwnerChange *event,
+                           GtkClipboard *clipboard)
 {
   GdkPixbuf *image;
 
@@ -137,8 +139,16 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
       return;
     }
 
+  /* We're only interested in the signals we send ourselves from the clipboard manager on Wayland.
+   * GTK signals are duplicative and can cause an infinite loop when showing the action menu
+   * (by losing then regaining focus). */
+  if (event != NULL && GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ()))
+    {
+      return;
+    }
+
   /* Save the clipboard content to ClipmanHistory */
-  if (event->selection == GDK_SELECTION_CLIPBOARD)
+  if (clipboard == collector->priv->default_clipboard)
     {
       /* Jump over if the content is set from within clipman */
       if (collector->priv->default_internal_change)
@@ -162,7 +172,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
                                       collector);
         }
     }
-  else if (event->selection == GDK_SELECTION_PRIMARY)
+  else if (clipboard == collector->priv->primary_clipboard)
     {
       /* This clipboard is due to many changes while selecting, therefore we
        * actually check inside a delayed timeout if the mouse is still pressed
