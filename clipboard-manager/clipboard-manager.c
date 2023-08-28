@@ -24,6 +24,10 @@
 #include <gdk/gdkx.h>
 #include <clipboard-manager/clipboard-manager-x11.h>
 #endif
+#ifdef HAVE_WAYLAND
+#include <gdk/gdkwayland.h>
+#include <clipboard-manager/clipboard-manager-wayland.h>
+#endif
 
 #include <clipboard-manager/clipboard-manager.h>
 
@@ -51,6 +55,10 @@ xcp_clipboard_manager_get (void)
 #ifdef HAVE_LIBX11
   if (GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
     manager = g_object_new (XCP_TYPE_CLIPBOARD_MANAGER_X11, NULL);
+#endif
+#ifdef HAVE_WAYLAND
+  if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ()))
+    manager = g_object_new (XCP_TYPE_CLIPBOARD_MANAGER_WAYLAND, NULL);
 #endif
 
   if (manager != NULL)
