@@ -21,7 +21,7 @@ if HAVE_LIBX11
 check_PROGRAMS += test-daemon
 test_daemon_SOURCES = test_daemon.c
 test_daemon_CFLAGS = @GTK_CFLAGS@
-test_daemon_LDADD = $(top_builddir)/x11-clipboard-manager/libdaemon.la @GTK_LIBS@
+test_daemon_LDADD = $(top_builddir)/clipboard-manager/libdaemon.la @GTK_LIBS@
 endif
 
 if HAVE_LIBXTST

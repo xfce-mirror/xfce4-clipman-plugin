@@ -5,7 +5,7 @@ NULL =
 SUBDIRS =
 
 if HAVE_LIBX11
-SUBDIRS += x11-clipboard-manager
+SUBDIRS += clipboard-manager
 endif
 
 SUBDIRS +=								\
