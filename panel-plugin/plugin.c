@@ -39,6 +39,25 @@
 
 
 /*
+ * Plugin actions
+ */
+
+static void
+plugin_action_set_text (GSimpleAction *action,
+                        GVariant *value,
+                        gpointer data)
+{
+  gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), g_variant_get_string (value, NULL), -1);
+}
+
+static const GActionEntry plugin_actions[] =
+{
+  { "set-text", plugin_action_set_text, "s", NULL, NULL },
+};
+
+
+
+/*
  * Plugin functions
  */
 
@@ -81,6 +100,7 @@ plugin_register (void)
   plugin = g_slice_new0 (MyPlugin);
   plugin->app = app;
   g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+  g_action_map_add_action_entries (G_ACTION_MAP (app), plugin_actions, G_N_ELEMENTS (plugin_actions), plugin);
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
   /* Daemon */
