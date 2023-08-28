@@ -10,8 +10,15 @@ noinst_LTLIBRARIES = libdaemon.la
 
 libdaemon_la_SOURCES =							\
 	daemon.h							\
-	clipboard-manager-x11.c		clipboard-manager-x11.h		\
+	clipboard-manager.c		clipboard-manager.h		\
 	$(NULL)
+
+if HAVE_LIBX11
+libdaemon_la_SOURCES += \
+	clipboard-manager-x11.c \
+	clipboard-manager-x11.h \
+	$(NULL)
+endif
 
 libdaemon_la_CFLAGS =							\
 	@LIBX11_CFLAGS@							\
