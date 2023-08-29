@@ -21,8 +21,6 @@
 #endif
 
 #include <glib/gstdio.h>
-#include <X11/Xlib.h>
-#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
 #include <libxfce4util/libxfce4util.h>
@@ -41,19 +39,23 @@
 
 
 /*
- * Private functions
+ * Plugin actions
  */
 
-static gboolean
-clipboard_manager_ownership_exists (void)
+static void
+plugin_action_set_text (GSimpleAction *action,
+                        GVariant *value,
+                        gpointer data)
 {
-  Display *display;
-  Atom atom;
-
-  display = gdk_x11_get_default_xdisplay ();
-  atom = XInternAtom (display, "CLIPBOARD_MANAGER", FALSE);
-  return XGetSelectionOwner (display, atom);
+  gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), g_variant_get_string (value, NULL), -1);
 }
+
+static const GActionEntry plugin_actions[] =
+{
+  { "set-text", plugin_action_set_text, "s", NULL, NULL },
+};
+
+
 
 /*
  * Plugin functions
@@ -98,14 +100,11 @@ plugin_register (void)
   plugin = g_slice_new0 (MyPlugin);
   plugin->app = app;
   g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+  g_action_map_add_action_entries (G_ACTION_MAP (app), plugin_actions, G_N_ELEMENTS (plugin_actions), plugin);
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
 
   /* Daemon */
-  if (!clipboard_manager_ownership_exists ())
-    {
-      plugin->daemon = gsd_clipboard_manager_new ();
-      gsd_clipboard_manager_start (plugin->daemon, NULL);
-    }
+  plugin->daemon = xcp_clipboard_manager_get ();
 
   /* ClipmanActions */
   plugin->actions = clipman_actions_get ();
@@ -295,11 +294,7 @@ plugin_save (MyPlugin *plugin)
 void
 plugin_free (MyPlugin *plugin)
 {
-  if (plugin->daemon != NULL)
-    {
-      gsd_clipboard_manager_stop (plugin->daemon);
-      g_object_unref (plugin->daemon);
-    }
+  g_object_unref (plugin->daemon);
   gtk_widget_destroy (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);
