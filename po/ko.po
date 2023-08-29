@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020,2022
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020,2022-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020,2022\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014,2016,2020,2022-2023\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,11 +95,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "동작 표시"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "동작 숨김"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
@@ -117,7 +117,7 @@ msgstr "검색 어구를 여기에 입력하십시오"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
-msgstr ""
+msgstr "기록이 없습니다"
 
 #: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
@@ -170,18 +170,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "이 항목을 표시하면, 기본 클립보드에 선택 항목을 동기화하여 Ctrl-V 키로 선택한 항목을 바로 붙여넣을 수 있습니다. 반대로, 직접 복사 방식을 취하는 경우 기본 클립보드와 동기화하여 가운데 단추로 복사한 항목을 붙여넣을 수 있습니다."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "마우스 선택 유지(_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "이 항목을 표시하면, 현재 선택 항목을 취소했을 경우 다음 항목을 선택하기 전(예: 텍스트 영역 어디든 왼쪽 단추를 누를 경우)까지 기본 클립보드(가운데 단추 붙여넣기)의 내용을 그대로 가집니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -213,7 +213,7 @@ msgstr "마우스 포인터에 메뉴 위치(_O)"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "마우스 포인터 위치에 메뉴 표시: xfce4-popup-clipman 명령 실행시 요긴합니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -241,11 +241,11 @@ msgstr "이 부분을 표시하면, 정규 표현식과 클립보드의 텍스�
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "선택이 끝난 상황에서도 Ctrl 키를 누르고 있으면 적절한 동작에 대한 단축 메뉴를 나타내거나 숨깁니다"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "선택하는 동안 Ctrl 누름(_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -347,14 +347,14 @@ msgstr "명령에 대체 인자 \"\\1\", \"\\2\" 등을 사용할 수 있습니�
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "선택 대신 직접 복사 활성"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "기본적으로 선택 행위로 동작을 수행합니다: 대신 직접 복사 방식을 수행하려면 이 옵션을 선택하십시오. 이 경우 Ctrl 키는 더이상 제 역할을 수행하지 않음을 참고하십시오."
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
@@ -416,7 +416,7 @@ msgstr "다시 묻지 않음"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "클립보드 관리자 기록 대화상자를 열 수 없습니다"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
@@ -424,7 +424,7 @@ msgstr "기록 지우기(_C)"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "클립보드 지우기(_C)"
 
 #: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
