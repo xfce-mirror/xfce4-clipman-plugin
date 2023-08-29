@@ -91,6 +91,8 @@ prop_dialog_init (void)
 #else
   gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
 #endif
+  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+    gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "persistent-selections")));
 
   /* paste-on-activate combobox */
   combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
