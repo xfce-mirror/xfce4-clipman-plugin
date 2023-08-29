@@ -1,9 +1,9 @@
 #include <config.h>
-#ifdef HAVE_LIBXTST
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int main (void) {
         Display *display = XOpenDisplay (NULL);
@@ -68,10 +68,3 @@ int main (void) {
 
         return 0;
 }
-#else
-#include <stdio.h>
-int main(void) {
-        printf ("No XTEST support.\n");
-        return 0;
-}
-#endif
