@@ -137,6 +137,8 @@ prop_dialog_init (void)
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("shows actions"));
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("hides actions"));
   gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
+  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+    gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "hbox-skip-action")));
 
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "box-actions"), "sensitive");
