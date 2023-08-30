@@ -457,8 +457,6 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
 {
   GObjectClass *object_class;
 
-  clipman_history_parent_class = g_type_class_peek_parent (klass);
-
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_history_finalize;
   object_class->set_property = clipman_history_set_property;
