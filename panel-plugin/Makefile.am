@@ -40,6 +40,7 @@ xfce4_popup_clipman_SOURCES =						\
 xfce4_popup_clipman_CFLAGS =                                            \
 	-DGSEAL_ENABLE							\
 	@LIBX11_CFLAGS@							\
+	@LIBXTST_CFLAGS@						\
 	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -47,6 +48,7 @@ xfce4_popup_clipman_CFLAGS =                                            \
 
 xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LIBS@							\
+	@LIBXTST_LIBS@							\
 	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\

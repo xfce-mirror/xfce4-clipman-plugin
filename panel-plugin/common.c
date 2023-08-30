@@ -16,7 +16,16 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <gtk/gtk.h>
+#ifdef HAVE_LIBXTST
+#include <X11/Xlib.h>
+#include <X11/extensions/XTest.h>
+#include <X11/keysym.h>
+#endif
 
 #include <libxfce4ui/libxfce4ui.h>
 
@@ -77,4 +86,66 @@ clipman_common_shorten_preview (const gchar *text)
   g_strdelimit (tmp1, "\n\r\t", ' ');
 
   return tmp1;
+}
+
+void
+clipman_common_paste_on_activate (guint paste_on_activate)
+{
+  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+    return;
+
+#ifdef HAVE_LIBXTST
+  int dummyi;
+  KeySym key_sym;
+  KeyCode key_code;
+
+  Display *display = XOpenDisplay (NULL);
+  if (display == NULL)
+    {
+      return;
+    }
+  else if (!XQueryExtension (display, "XTEST", &dummyi, &dummyi, &dummyi))
+    {
+      XCloseDisplay (display);
+      return;
+    }
+
+  switch (paste_on_activate)
+    {
+    case PASTE_INACTIVE:
+      break;
+
+    case PASTE_CTRL_V:
+      key_sym = XK_Control_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_v;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_v;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      key_sym = XK_Control_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      break;
+
+    case PASTE_SHIFT_INS:
+      key_sym = XK_Shift_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_Insert;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+      key_sym = XK_Insert;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      key_sym = XK_Shift_L;
+      key_code = XKeysymToKeycode (display, key_sym);
+      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+      break;
+    }
+
+  XCloseDisplay (display);
+#endif
 }
