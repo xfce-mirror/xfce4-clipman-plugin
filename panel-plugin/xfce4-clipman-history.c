@@ -563,7 +563,7 @@ main (gint argc, gchar *argv[])
       /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
       if (internal_paste_on_activate != PASTE_INACTIVE)
         {
-          cb_paste_on_activate (internal_paste_on_activate);
+          clipman_common_paste_on_activate (internal_paste_on_activate);
         }
     }
 

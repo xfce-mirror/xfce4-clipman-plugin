@@ -71,5 +71,6 @@
 void                    clipman_common_show_info_dialog    (void);
 void                    clipman_common_show_warning_dialog (void);
 gchar *                 clipman_common_shorten_preview     (const gchar *text);
+void                    clipman_common_paste_on_activate   (guint        paste_on_activate);
 
 #endif /* !__CLIPMAN_COMMON_H__ */
