@@ -538,8 +538,6 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
 {
   GObjectClass *object_class;
 
-  clipman_menu_parent_class = g_type_class_peek_parent (klass);
-
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_menu_finalize;
   object_class->set_property = clipman_menu_set_property;

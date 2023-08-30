@@ -942,8 +942,6 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
 {
   GObjectClass *object_class;
 
-  clipman_actions_parent_class = g_type_class_peek_parent (klass);
-
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_actions_finalize;
   object_class->set_property = clipman_actions_set_property;

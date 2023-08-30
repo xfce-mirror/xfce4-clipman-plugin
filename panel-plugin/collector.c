@@ -332,8 +332,6 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
 {
   GObjectClass *object_class;
 
-  clipman_collector_parent_class = g_type_class_peek_parent (klass);
-
   object_class = G_OBJECT_CLASS (klass);
   object_class->constructed = clipman_collector_constructed;
   object_class->finalize = clipman_collector_finalize;
