@@ -25,6 +25,18 @@
 #ifndef __CLIPMAN_COMMON_H__
 #define __CLIPMAN_COMMON_H__
 
+#include <gdk/gdk.h>
+#ifdef GDK_WINDOWING_X11
+#include <gdk/gdkx.h>
+#else
+#define GDK_IS_X11_DISPLAY(display) FALSE
+#endif
+#ifdef GDK_WINDOWING_WAYLAND
+#include <gdk/gdkwayland.h>
+#else
+#define GDK_IS_WAYLAND_DISPLAY(display) FALSE
+#endif
+
 #define DEFAULT_MAX_MENU_ITEMS                          15
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
@@ -64,5 +76,6 @@
 void                    clipman_common_show_info_dialog    (void);
 void                    clipman_common_show_warning_dialog (void);
 gchar *                 clipman_common_shorten_preview     (const gchar *text);
+void                    clipman_common_paste_on_activate   (guint        paste_on_activate);
 
 #endif /* !__CLIPMAN_COMMON_H__ */

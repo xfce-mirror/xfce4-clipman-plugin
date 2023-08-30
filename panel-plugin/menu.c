@@ -22,9 +22,6 @@
 
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
-#include <X11/Xlib.h>
-#include <X11/extensions/XTest.h>
-#include <X11/keysym.h>
 
 #ifdef HAVE_QRENCODE
 #include <qrencode.h>
@@ -170,64 +167,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       return;
     }
 
-  cb_paste_on_activate (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")));
-}
-
-void
-cb_paste_on_activate (guint paste_on_activate)
-{
-  int dummyi;
-  KeySym key_sym;
-  KeyCode key_code;
-
-  Display *display = XOpenDisplay (NULL);
-  if (display == NULL)
-    {
-      return;
-    }
-  else if (!XQueryExtension (display, "XTEST", &dummyi, &dummyi, &dummyi))
-    {
-      XCloseDisplay (display);
-      return;
-    }
-
-  switch (paste_on_activate)
-    {
-    case PASTE_INACTIVE:
-      break;
-
-    case PASTE_CTRL_V:
-      key_sym = XK_Control_L;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-      key_sym = XK_v;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-      key_sym = XK_v;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-      key_sym = XK_Control_L;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-      break;
-
-    case PASTE_SHIFT_INS:
-      key_sym = XK_Shift_L;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-      key_sym = XK_Insert;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, True, CurrentTime);
-      key_sym = XK_Insert;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-      key_sym = XK_Shift_L;
-      key_code = XKeysymToKeycode (display, key_sym);
-      XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-      break;
-    }
-
-  XCloseDisplay (display);
+  clipman_common_paste_on_activate (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (mi), "paste-on-activate")));
 }
 
 static void

@@ -29,12 +29,14 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-#include "gsd-clipboard-manager.h"
+#include "clipboard-manager-x11.h"
 
 
 
-struct GsdClipboardManagerPrivate
+struct _XcpClipboardManagerX11
 {
+        GObject parent;
+
         GtkClipboard *default_clipboard;
         GtkClipboard *primary_clipboard;
 
@@ -48,9 +50,9 @@ struct GsdClipboardManagerPrivate
         GtkWidget    *window;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE (XcpClipboardManagerX11, xcp_clipboard_manager_x11, G_TYPE_OBJECT)
 
-static void     gsd_clipboard_manager_finalize    (GObject                  *object);
+static void     xcp_clipboard_manager_x11_finalize    (GObject                  *object);
 
 
 Atom XA_CLIPBOARD_MANAGER;
@@ -80,20 +82,20 @@ cb_selection_data_free (gpointer data)
 
 
 static void
-default_clipboard_store (GsdClipboardManager *manager)
+default_clipboard_store (XcpClipboardManagerX11 *manager)
 {
         GtkSelectionData *selection_data;
         GdkAtom          *atoms;
         gint              n_atoms;
         gint              i;
 
-        if (!gtk_clipboard_wait_for_targets (manager->priv->default_clipboard, &atoms, &n_atoms)) {
+        if (!gtk_clipboard_wait_for_targets (manager->default_clipboard, &atoms, &n_atoms)) {
                 return;
         }
 
-        if (manager->priv->default_cache != NULL) {
-                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
-                manager->priv->default_cache = NULL;
+        if (manager->default_cache != NULL) {
+                g_slist_free_full (manager->default_cache, cb_selection_data_free);
+                manager->default_cache = NULL;
         }
 
         for (i = 0; i < n_atoms; i++) {
@@ -106,12 +108,12 @@ default_clipboard_store (GsdClipboardManager *manager)
                         continue;
                 }
 
-                selection_data = gtk_clipboard_wait_for_contents (manager->priv->default_clipboard, atoms[i]);
+                selection_data = gtk_clipboard_wait_for_contents (manager->default_clipboard, atoms[i]);
                 if (selection_data == NULL) {
                         continue;
                 }
 
-                manager->priv->default_cache = g_slist_prepend (manager->priv->default_cache, selection_data);
+                manager->default_cache = g_slist_prepend (manager->default_cache, selection_data);
         }
 }
 
@@ -119,12 +121,12 @@ static void
 default_clipboard_get_func (GtkClipboard *clipboard,
                             GtkSelectionData *selection_data,
                             guint info,
-                            GsdClipboardManager *manager)
+                            XcpClipboardManagerX11 *manager)
 {
         GSList           *list;
         GtkSelectionData *selection_data_cache = NULL;
 
-        list = manager->priv->default_cache;
+        list = manager->default_cache;
         for (; list != NULL && list->next != NULL; list = list->next) {
                 selection_data_cache = list->data;
                 if (gtk_selection_data_get_target (selection_data) ==
@@ -146,13 +148,13 @@ default_clipboard_get_func (GtkClipboard *clipboard,
 
 static void
 default_clipboard_clear_func (GtkClipboard *clipboard,
-                              GsdClipboardManager *manager)
+                              XcpClipboardManagerX11 *manager)
 {
         return;
 }
 
 static void
-default_clipboard_restore (GsdClipboardManager *manager)
+default_clipboard_restore (XcpClipboardManagerX11 *manager)
 {
         GtkTargetList    *target_list;
         GtkTargetEntry   *targets;
@@ -160,7 +162,7 @@ default_clipboard_restore (GsdClipboardManager *manager)
         GtkSelectionData *sdata;
         GSList           *list;
 
-        list = manager->priv->default_cache;
+        list = manager->default_cache;
         if (list == NULL) {
                 return;
         }
@@ -174,7 +176,7 @@ default_clipboard_restore (GsdClipboardManager *manager)
         targets = gtk_target_table_new_from_list (target_list, &n_targets);
         gtk_target_list_unref (target_list);
 
-        gtk_clipboard_set_with_data (manager->priv->default_clipboard,
+        gtk_clipboard_set_with_data (manager->default_clipboard,
                                      targets, n_targets,
                                      (GtkClipboardGetFunc)default_clipboard_get_func,
                                      (GtkClipboardClearFunc)default_clipboard_clear_func,
@@ -182,7 +184,7 @@ default_clipboard_restore (GsdClipboardManager *manager)
 }
 
 static void
-default_clipboard_owner_change (GsdClipboardManager *manager,
+default_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
         if (event->send_event == TRUE) {
@@ -190,8 +192,8 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
         }
 
         if (event->owner != 0) {
-                if (manager->priv->default_internal_change) {
-                        manager->priv->default_internal_change = FALSE;
+                if (manager->default_internal_change) {
+                        manager->default_internal_change = FALSE;
                         return;
                 }
                 default_clipboard_store (manager);
@@ -206,11 +208,11 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
                  * e.g. owner is not 0). By the second time we would store
                  * ourself back with an empty clipboard... solution is to jump
                  * over the first time and don't try to restore empty data. */
-                if (manager->priv->default_internal_change) {
+                if (manager->default_internal_change) {
                         return;
                 }
 
-                manager->priv->default_internal_change = TRUE;
+                manager->default_internal_change = TRUE;
                 default_clipboard_restore (manager);
         }
 }
@@ -218,7 +220,7 @@ default_clipboard_owner_change (GsdClipboardManager *manager,
 static gboolean
 primary_clipboard_store (gpointer user_data)
 {
-        GsdClipboardManager *manager = user_data;
+        XcpClipboardManagerX11 *manager = user_data;
         GdkModifierType state = 0;
         gchar *text;
         GdkDisplay* display = gdk_display_get_default ();
@@ -232,13 +234,13 @@ primary_clipboard_store (gpointer user_data)
                 return TRUE;
         }
 
-        text = gtk_clipboard_wait_for_text (manager->priv->primary_clipboard);
+        text = gtk_clipboard_wait_for_text (manager->primary_clipboard);
         if (text != NULL) {
-                g_free (manager->priv->primary_cache);
-                manager->priv->primary_cache = text;
+                g_free (manager->primary_cache);
+                manager->primary_cache = text;
         }
 
-        manager->priv->primary_timeout = 0;
+        manager->primary_timeout = 0;
 
         return FALSE;
 }
@@ -246,47 +248,67 @@ primary_clipboard_store (gpointer user_data)
 static gboolean
 primary_clipboard_restore (gpointer user_data)
 {
-        GsdClipboardManager *manager = user_data;
-        if (manager->priv->primary_cache != NULL) {
-                gtk_clipboard_set_text (manager->priv->primary_clipboard,
-                                        manager->priv->primary_cache,
+        XcpClipboardManagerX11 *manager = user_data;
+        if (manager->primary_cache != NULL) {
+                gtk_clipboard_set_text (manager->primary_clipboard,
+                                        manager->primary_cache,
                                         -1);
-                manager->priv->primary_internal_change = TRUE;
+                manager->primary_internal_change = TRUE;
         }
 
-        manager->priv->primary_timeout = 0;
+        manager->primary_timeout = 0;
 
         return FALSE;
 }
 
 static void
-primary_clipboard_owner_change (GsdClipboardManager *manager,
+primary_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
         if (event->send_event == TRUE) {
                 return;
         }
-        if (manager->priv->primary_timeout != 0) {
-                g_source_remove (manager->priv->primary_timeout);
-                manager->priv->primary_timeout = 0;
+        if (manager->primary_timeout != 0) {
+                g_source_remove (manager->primary_timeout);
+                manager->primary_timeout = 0;
         }
 
         if (event->owner != 0) {
-                if (manager->priv->primary_internal_change == TRUE) {
-                        manager->priv->primary_internal_change = FALSE;
+                if (manager->primary_internal_change == TRUE) {
+                        manager->primary_internal_change = FALSE;
                         return;
                 }
-                manager->priv->primary_timeout = g_timeout_add (250, primary_clipboard_store, manager);
+                manager->primary_timeout = g_timeout_add (250, primary_clipboard_store, manager);
         }
-        else if (gtk_clipboard_wait_is_text_available (manager->priv->primary_clipboard) == FALSE) {
-                manager->priv->primary_timeout = g_timeout_add (250, primary_clipboard_restore, manager);
+        else if (gtk_clipboard_wait_is_text_available (manager->primary_clipboard) == FALSE) {
+                manager->primary_timeout = g_timeout_add (250, primary_clipboard_restore, manager);
+        }
+}
+
+static void
+xcp_clipboard_manager_x11_stop (XcpClipboardManagerX11 *manager)
+{
+        g_signal_handlers_disconnect_by_func (manager->default_clipboard,
+                                              default_clipboard_owner_change, manager);
+        g_signal_handlers_disconnect_by_func (manager->primary_clipboard,
+                                              primary_clipboard_owner_change, manager);
+
+        if (manager->window != NULL) {
+                gtk_widget_destroy (manager->window);
+        }
+        if (manager->default_cache != NULL) {
+                g_slist_free_full (manager->default_cache, cb_selection_data_free);
+                manager->default_cache = NULL;
+        }
+        if (manager->primary_cache != NULL) {
+                g_free (manager->primary_cache);
         }
 }
 
 static gboolean
 start_clipboard_idle_cb (gpointer user_data)
 {
-        GsdClipboardManager *manager = user_data;
+        XcpClipboardManagerX11 *manager = user_data;
         XClientMessageEvent     xev;
         Display                *display;
         Window                  window;
@@ -297,14 +319,13 @@ start_clipboard_idle_cb (gpointer user_data)
 
         /* Check if there is a clipboard manager running */
         if (gdk_display_supports_clipboard_persistence (gdk_display_get_default ())) {
-                g_warning ("Clipboard manager is already running.");
                 return FALSE;
         }
 
-        manager->priv->window = gtk_invisible_new ();
-        gtk_widget_realize (manager->priv->window);
+        manager->window = gtk_invisible_new ();
+        gtk_widget_realize (manager->window);
 
-        window = GDK_WINDOW_XID (gtk_widget_get_window (manager->priv->window));
+        window = GDK_WINDOW_XID (gtk_widget_get_window (manager->window));
         timestamp = GDK_CURRENT_TIME;
 
         XSelectInput (display, window, PropertyChangeMask);
@@ -318,7 +339,7 @@ start_clipboard_idle_cb (gpointer user_data)
          * For the same reason as below, this code is currently disabled rather than deleted.
          */
 #if 0
-        g_signal_connect_swapped (manager->priv->default_clipboard, "owner-change",
+        g_signal_connect_swapped (manager->default_clipboard, "owner-change",
                                   G_CALLBACK (default_clipboard_owner_change), manager);
 #endif
         /*
@@ -328,7 +349,7 @@ start_clipboard_idle_cb (gpointer user_data)
          * for now rather than delete it.
          */
 #if 0
-        g_signal_connect_swapped (manager->priv->primary_clipboard, "owner-change",
+        g_signal_connect_swapped (manager->primary_clipboard, "owner-change",
                                   G_CALLBACK (primary_clipboard_owner_change), manager);
 #endif
 
@@ -349,50 +370,20 @@ start_clipboard_idle_cb (gpointer user_data)
                 XSendEvent (display, DefaultRootWindow (display), False,
                             StructureNotifyMask, (XEvent *)&xev);
         } else {
-                gsd_clipboard_manager_stop (manager);
+                xcp_clipboard_manager_x11_stop (manager);
         }
 
         return FALSE;
 }
 
-gboolean
-gsd_clipboard_manager_start (GsdClipboardManager *manager,
-                             GError             **error)
-{
-        g_idle_add (start_clipboard_idle_cb, manager);
-        return TRUE;
-}
-
-void
-gsd_clipboard_manager_stop (GsdClipboardManager *manager)
-{
-        g_debug ("Stopping clipboard manager");
-
-        g_signal_handlers_disconnect_by_func (manager->priv->default_clipboard,
-                                              default_clipboard_owner_change, manager);
-        g_signal_handlers_disconnect_by_func (manager->priv->primary_clipboard,
-                                              primary_clipboard_owner_change, manager);
-
-        if (manager->priv->window != NULL) {
-                gtk_widget_destroy (manager->priv->window);
-        }
-        if (manager->priv->default_cache != NULL) {
-                g_slist_free_full (manager->priv->default_cache, cb_selection_data_free);
-                manager->priv->default_cache = NULL;
-        }
-        if (manager->priv->primary_cache != NULL) {
-                g_free (manager->priv->primary_cache);
-        }
-}
-
 static GObject *
-gsd_clipboard_manager_constructor (GType                  type,
+xcp_clipboard_manager_x11_constructor (GType                  type,
                                    guint                  n_construct_properties,
                                    GObjectConstructParam *construct_properties)
 {
-        GsdClipboardManager      *clipboard_manager;
+        XcpClipboardManagerX11      *clipboard_manager;
 
-        clipboard_manager = GSD_CLIPBOARD_MANAGER (G_OBJECT_CLASS (gsd_clipboard_manager_parent_class)->constructor (type,
+        clipboard_manager = XCP_CLIPBOARD_MANAGER_X11 (G_OBJECT_CLASS (xcp_clipboard_manager_x11_parent_class)->constructor (type,
                                                                                                       n_construct_properties,
                                                                                                       construct_properties));
 
@@ -400,52 +391,38 @@ gsd_clipboard_manager_constructor (GType                  type,
 }
 
 static void
-gsd_clipboard_manager_class_init (GsdClipboardManagerClass *klass)
+xcp_clipboard_manager_x11_class_init (XcpClipboardManagerX11Class *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->constructor = gsd_clipboard_manager_constructor;
-        object_class->finalize = gsd_clipboard_manager_finalize;
+        object_class->constructor = xcp_clipboard_manager_x11_constructor;
+        object_class->finalize = xcp_clipboard_manager_x11_finalize;
 }
 
 static void
-gsd_clipboard_manager_init (GsdClipboardManager *manager)
+xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
 {
-        manager->priv = gsd_clipboard_manager_get_instance_private (manager);
+        manager->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+        manager->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
-        manager->priv->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-        manager->priv->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
+        manager->default_cache = NULL;
+        manager->primary_cache = NULL;
 
-        manager->priv->default_cache = NULL;
-        manager->priv->primary_cache = NULL;
+        g_idle_add (start_clipboard_idle_cb, manager);
 }
 
 static void
-gsd_clipboard_manager_finalize (GObject *object)
+xcp_clipboard_manager_x11_finalize (GObject *object)
 {
-        GsdClipboardManager *clipboard_manager;
+        XcpClipboardManagerX11 *clipboard_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (GSD_IS_CLIPBOARD_MANAGER (object));
+        g_return_if_fail (XCP_IS_CLIPBOARD_MANAGER_X11 (object));
 
-        clipboard_manager = GSD_CLIPBOARD_MANAGER (object);
+        clipboard_manager = XCP_CLIPBOARD_MANAGER_X11 (object);
 
-        g_return_if_fail (clipboard_manager->priv != NULL);
+        g_return_if_fail (clipboard_manager != NULL);
+        xcp_clipboard_manager_x11_stop (clipboard_manager);
 
-        G_OBJECT_CLASS (gsd_clipboard_manager_parent_class)->finalize (object);
-}
-
-GsdClipboardManager *
-gsd_clipboard_manager_new (void)
-{
-        static gpointer singleton = NULL;
-
-        if (singleton != NULL) {
-                g_object_ref (singleton);
-        } else {
-                singleton = g_object_new (GSD_TYPE_CLIPBOARD_MANAGER, NULL);
-                g_object_add_weak_pointer (singleton, (gpointer *) &singleton);
-        }
-
-        return GSD_CLIPBOARD_MANAGER (singleton);
+        G_OBJECT_CLASS (xcp_clipboard_manager_x11_parent_class)->finalize (object);
 }
