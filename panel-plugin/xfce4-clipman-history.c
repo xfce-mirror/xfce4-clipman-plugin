@@ -353,12 +353,12 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
   if (paste_on_activate != PASTE_INACTIVE)
     {
       icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Paste"));
+      button_text = _("_Paste");
     }
   else
     {
       icon = gtk_image_new_from_icon_name ("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Copy"));
+      button_text = _("_Copy");
     }
 
   gtk_button_set_image (GTK_BUTTON (plugin->submit_button), icon);
