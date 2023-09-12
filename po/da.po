@@ -177,7 +177,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Behold musemarkeringer"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
@@ -216,7 +216,7 @@ msgstr "_Placer menu ved musemarkør"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Lad menuen poppe op ved musemarkørens placering: særlig nyttig til kommandoen xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -244,11 +244,11 @@ msgstr "Hvis den er afkrydset, så vil tekster i udklipsholderen blive matchet m
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Når valget er foretaget og Control-tasten stadig er holdt nede, så vises eller skjules pop op-menuen for matchende handlinger"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "Ved _tryk på Ctrl under valg:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -350,7 +350,7 @@ msgstr "Du kan bruge erstatningsparametrene \"\\1\", \"\\2\" osv. i kommandoerne
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktiv ved manuel kopiering i stedet for markering"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
@@ -419,7 +419,7 @@ msgstr "Spørg ikke igen"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Kan ikke åbne dialogen Clipman-historik"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
