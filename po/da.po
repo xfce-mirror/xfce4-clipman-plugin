@@ -173,7 +173,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Hvis den er tilvalgt, så synkroniseres markeringer med standardudklipsholderen, så du med Ctrl-V kan indsætte det du markere. Omvendt synkroniseres manuelle kopieringer med den primære udklipsholder, så du med midterklik kan indsætte det du kopiere."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
@@ -184,7 +184,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Hvis den er tilvalgt, så beholdes den primære udklipsholder (indsættelse med midterklik) indtil næste markering hvis den nuværende markering mistes (f.eks. ved at venstreklikke i et tekstområde)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -357,7 +357,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Som standard udløses handlingen af en markering: tilvælg valgmuligheden for i stedet at udløse handlingen når du foretager en manuel kopiering. Bemærk at Control-tasten i dette tilfælde ikke længere har nogen indvirkning."
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
