@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-18 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Igor Vornovskii, 2022-2023\n"
+"Last-Translator: Andrei Stepanov, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -249,7 +249,7 @@ msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "На_жатие Ctrl при выделении:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -351,7 +351,7 @@ msgstr "В командах можно использовать параметр
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Активировать при ручном копировании вместо выделения"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
@@ -420,7 +420,7 @@ msgstr "Больше не задавать этот вопрос"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Невозможно открыть диалоговое окно истории Clipman"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
