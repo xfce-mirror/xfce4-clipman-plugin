@@ -96,11 +96,11 @@ msgstr "Shift+Insert"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "prikaže dejanja"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "skrije dejanja"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
@@ -118,7 +118,7 @@ msgstr "Tukaj vnesite svoj iskalni pogoj"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
-msgstr ""
+msgstr "Zgodovina je prazna"
 
 #: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
@@ -171,18 +171,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Če je izbrano, bo označeno sinhornizirano s privzetim odložiščem, tako da lahko izbor prilepite s CTRL+V. Kot alternativa bodo ročne kopije sinhronizirane s primarnim odložiščem, tako da lahko skopirano prilepite s srednjim klikom."
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Obstojno označevanje z miško"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Če je izbarno, bo primarno odložišče (lepljenje s srednjim klikom) ohranjen do naslednjeha označevanja, tudi po tem, ko se sedanji izbor izgubi (ko se npr. nekam levo klikne)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -214,7 +214,7 @@ msgstr "P_ostavi meni ob miškin kazalec"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Prikaži meni na položaju kurozorja miške: še posebej primerno za ukaz xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -242,11 +242,11 @@ msgstr "Če je označeno, bo tekst na odložišču primerjan z regularnimi izraz
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Ko je označevanje opravljena in je tipka Ctrl še vedno pritisnjena, bo meni za pripadajoča dejanja prikazan ali skrit"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Pritisnjen Ctrl med označevanjem"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -348,14 +348,14 @@ msgstr "V ukazih lahko uporabite nadomestne parametre \"\\1¸\", \"\\2\" in tako
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktiviraj z ročnim kopiranjem, namesto označevanjem"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Privzeto je, da se dejanje izvede z označevanjem: izberite to opcijo za izvedbo dejanja ob ročnem kopiranju. V tem primeru tipka Ctrl nima več nobene funkcije."
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
@@ -417,7 +417,7 @@ msgstr "Ne sprašuj več"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Ne morem odpreti dialoga z zgodovino Clipman-a"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
@@ -425,7 +425,7 @@ msgstr "Pobriši _zgodovino"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Počisti odložišče"
 
 #: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
