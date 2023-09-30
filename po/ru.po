@@ -185,7 +185,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Если включено, то при потере текущего выделения (например, при щелчке левой кнопкой мыши в любом месте текстовой области) первичный буфер обмена (вставка по среднему щелчку) будет сохраняться до следующего выделения."
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -217,7 +217,7 @@ msgstr "Меню у указателя _мыши"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Всплывающее меню в позиции указателя мыши: особенно полезно для команды xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -245,7 +245,7 @@ msgstr "Если отмечено, тексты из Буфера обмена �
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Когда выделение завершено, и клавиша Control всё ещё нажата, всплывающее меню для соответствующих действий будет показано или скрыто"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
@@ -358,7 +358,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "По умолчанию действие запускается при выделении: отметьте этот параметр, чтобы действие запускалось при ручном копировании. Обратите внимание, что в этом случае клавиша Control больше не действует."
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
