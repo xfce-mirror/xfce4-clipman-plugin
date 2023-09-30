@@ -91,11 +91,12 @@ dnl Wayland support
 dnl wayland-scanner >= 1.15 is for private-code option to be present
 XDT_CHECK_OPTIONAL_PACKAGE([WAYLAND_SCANNER], [wayland-scanner], [wayland_min_version], [wayland-scanner], [Wayland scanner support])
 XDT_CHECK_OPTIONAL_PACKAGE([WAYLAND_CLIENT], [wayland-client], [wayland_min_version], [wayland-client], [Wayland client support])
-if test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes"; then
+XDT_CHECK_OPTIONAL_PACKAGE([GDKW], [gdk-wayland-3.0], [gtk_min_version], [gdk-wayland], [GDK Wayland support])
+if test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes" && test x"$GDKW_FOUND" = x"yes"; then
   WAYLAND_FOUND="yes"
   AC_DEFINE([HAVE_WAYLAND], [1], [Wayland support])
 fi
-AM_CONDITIONAL([HAVE_WAYLAND], [test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes"])
+AM_CONDITIONAL([HAVE_WAYLAND], [test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes" && test x"$GDKW_FOUND" = x"yes"])
 
 dnl *****************************
 dnl *** Check for libqrencode ***
