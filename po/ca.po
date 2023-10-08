@@ -219,7 +219,7 @@ msgstr "_Posiciona el menú al punter del ratolí"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Mostra el menú emergent a la posició del punter del ratolí: especialment útil per a la comanda xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -422,7 +422,7 @@ msgstr "No m'ho tornis a preguntar"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "No es pot obrir el diàleg de l'historial del Clipman"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
