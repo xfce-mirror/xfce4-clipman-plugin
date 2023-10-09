@@ -91,7 +91,7 @@ clipman_common_shorten_preview (const gchar *text)
 void
 clipman_common_paste_on_activate (guint paste_on_activate)
 {
-  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+  if (!WINDOWING_IS_X11 ())
     return;
 
 #ifdef HAVE_LIBXTST

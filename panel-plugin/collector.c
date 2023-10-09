@@ -142,7 +142,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
   /* We're only interested in the signals we send ourselves from the clipboard manager on Wayland.
    * GTK signals are duplicative and can cause an infinite loop when showing the action menu
    * (by losing then regaining focus). */
-  if (event != NULL && GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ()))
+  if (event != NULL && WINDOWING_IS_WAYLAND ())
     {
       return;
     }

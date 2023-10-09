@@ -402,7 +402,7 @@ static void
 clipman_history_paste_on_activate_changed (MyPlugin *plugin)
 {
   internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE)
-                               && GDK_IS_X11_DISPLAY (gdk_display_get_default ());
+                               && WINDOWING_IS_X11 ();
   clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
 
   g_signal_handlers_disconnect_by_func (plugin->entry, clipman_history_key_event, plugin);

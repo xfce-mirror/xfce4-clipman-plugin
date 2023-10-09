@@ -59,7 +59,7 @@ main (gint argc,
 
   gtk_init (&argc, &argv);
 
-  if (!GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
+  if (!WINDOWING_IS_X11 ())
     {
       g_message ("Systray icon is currently only supported on X11. Use the panel plugin instead.");
       return EXIT_FAILURE;
