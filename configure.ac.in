@@ -81,26 +81,34 @@ XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [libxfce4util_min_version]
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [libxfce4panel_min_version])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [xfconf_min_version])
 
-dnl X11 support
-XDT_CHECK_OPTIONAL_PACKAGE([LIBX11], [x11], [libx11_min_version], [libx11], [Libx11 support])
-XDT_CHECK_OPTIONAL_PACKAGE([GDKX], [gdk-x11-3.0], [gtk_min_version], [gdk-x11], [GDK X11 support])
-XDT_CHECK_OPTIONAL_PACKAGE([LIBXPROTO], [xproto], [libxproto_min_version], [libxproto], [Libxproto support])
+dnl ***********************************
+dnl *** Check for optional packages ***
+dnl ***********************************
+XDT_CHECK_OPTIONAL_FEATURE([X11],
+                           [x11],
+                           [
+                             XDT_FEATURE_DEPENDENCY([LIBX11], [x11], [libx11_min_version])
+                             XDT_FEATURE_DEPENDENCY([GDK_X11], [gdk-x11-3.0], [gtk_min_version])
+                             XDT_FEATURE_DEPENDENCY([LIBXPROTO], [xproto], [libxproto_min_version])
+                           ],
+                           [the X11 windowing system])
+XDT_CHECK_OPTIONAL_FEATURE([WAYLAND],
+                           [wayland],
+                           [
+                             XDT_FEATURE_DEPENDENCY([GDK_WAYLAND], [gdk-wayland-3.0], [gtk_min_version])
+                             XDT_FEATURE_DEPENDENCY([WAYLAND_SCANNER], [wayland-scanner], [wayland_min_version])
+                             XDT_FEATURE_DEPENDENCY([WAYLAND_CLIENT], [wayland-client], [wayland_min_version])
+                           ],
+                           [the Wayland windowing system])
+if test x"$ENABLE_X11" != x"yes" -a x"$ENABLE_WAYLAND" != x"yes"; then
+  AC_MSG_ERROR([Either both X11 and Wayland support was disabled, or required dependencies are missing. One of the two must be enabled.])
+fi
+if test x"$ENABLE_X11" != x"yes"; then
+  dnl Do not check for optional X11 packages if X11 is disabled
+  enable_libxtst=no
+fi
 XDT_CHECK_OPTIONAL_PACKAGE([LIBXTST], [xtst], [libxtst_min_version], [libxtst], [Libxtst support])
 
-dnl Wayland support
-dnl wayland-scanner >= 1.15 is for private-code option to be present
-XDT_CHECK_OPTIONAL_PACKAGE([WAYLAND_SCANNER], [wayland-scanner], [wayland_min_version], [wayland-scanner], [Wayland scanner support])
-XDT_CHECK_OPTIONAL_PACKAGE([WAYLAND_CLIENT], [wayland-client], [wayland_min_version], [wayland-client], [Wayland client support])
-XDT_CHECK_OPTIONAL_PACKAGE([GDKW], [gdk-wayland-3.0], [gtk_min_version], [gdk-wayland], [GDK Wayland support])
-if test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes" && test x"$GDKW_FOUND" = x"yes"; then
-  WAYLAND_FOUND="yes"
-  AC_DEFINE([HAVE_WAYLAND], [1], [Wayland support])
-fi
-AM_CONDITIONAL([HAVE_WAYLAND], [test x"$WAYLAND_SCANNER_FOUND" = x"yes" && test x"$WAYLAND_CLIENT_FOUND" = x"yes" && test x"$GDKW_FOUND" = x"yes"])
-
-dnl *****************************
-dnl *** Check for libqrencode ***
-dnl *****************************
 XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [libqrencode_min_version], libqrencode, [QR Code support])
 
 dnl ******************************
@@ -141,9 +149,11 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-echo "    * Debug Support:    $enable_debug"
-echo "    * X11 Support:      ${LIBX11_FOUND:-no}"
-echo "    * Libxtst Support:  ${LIBXTST_FOUND:-no}"
-echo "    * Wayland Support:  ${WAYLAND_FOUND:-no}"
-echo "    * QR Code Support:  ${QRENCODE_FOUND:-no}"
+echo "* Debug Support:      $enable_debug"
+echo "* X11 Support:        ${ENABLE_X11:-no}"
+if test x"$ENABLE_X11" = x"yes"; then
+echo "  * Libxtst Support:  ${LIBXTST_FOUND:-no}"
+fi
+echo "* Wayland Support:    ${ENABLE_WAYLAND:-no}"
+echo "* QR Code Support:    ${QRENCODE_FOUND:-no}"
 echo

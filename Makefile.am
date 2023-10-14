@@ -4,7 +4,7 @@ NULL =
 
 SUBDIRS =
 
-if HAVE_WAYLAND
+if ENABLE_WAYLAND
 SUBDIRS += protocols
 endif
 

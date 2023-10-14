@@ -13,14 +13,14 @@ libdaemon_la_SOURCES =							\
 	clipboard-manager.c		clipboard-manager.h		\
 	$(NULL)
 
-if HAVE_LIBX11
+if ENABLE_X11
 libdaemon_la_SOURCES += \
 	clipboard-manager-x11.c \
 	clipboard-manager-x11.h \
 	$(NULL)
 endif
 
-if HAVE_WAYLAND
+if ENABLE_WAYLAND
 libdaemon_la_SOURCES += \
 	clipboard-manager-wayland.c \
 	clipboard-manager-wayland.h \
@@ -36,7 +36,7 @@ libdaemon_la_CFLAGS =							\
 
 libdaemon_la_LIBADD =
 
-if HAVE_WAYLAND
+if ENABLE_WAYLAND
 libdaemon_la_LIBADD += \
 	$(top_builddir)/protocols/libprotocols.la
 endif

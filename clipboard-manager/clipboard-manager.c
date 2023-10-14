@@ -20,11 +20,11 @@
 #include <config.h>
 #endif
 
-#ifdef HAVE_LIBX11
+#ifdef ENABLE_X11
 #include <gdk/gdkx.h>
 #include <clipboard-manager/clipboard-manager-x11.h>
 #endif
-#ifdef HAVE_WAYLAND
+#ifdef ENABLE_WAYLAND
 #include <gdk/gdkwayland.h>
 #include <clipboard-manager/clipboard-manager-wayland.h>
 #endif
@@ -52,11 +52,11 @@ xcp_clipboard_manager_get (void)
   if (manager != NULL)
     return g_object_ref (manager);
 
-#ifdef HAVE_LIBX11
+#ifdef ENABLE_X11
   if (GDK_IS_X11_DISPLAY (gdk_display_get_default ()))
     manager = g_object_new (XCP_TYPE_CLIPBOARD_MANAGER_X11, NULL);
 #endif
-#ifdef HAVE_WAYLAND
+#ifdef ENABLE_WAYLAND
   if (GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ()))
     manager = g_object_new (XCP_TYPE_CLIPBOARD_MANAGER_WAYLAND, NULL);
 #endif

@@ -12,7 +12,7 @@ AM_CPPFLAGS =								\
 
 bin_PROGRAMS = xfce4-popup-clipman xfce4-clipman-settings xfce4-clipman-history
 
-if HAVE_LIBX11
+if ENABLE_X11
 bin_PROGRAMS += xfce4-clipman
 endif
 
@@ -40,7 +40,6 @@ xfce4_popup_clipman_CFLAGS =                                            \
 	-DGSEAL_ENABLE							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
-	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UI_CFLAGS@						\
 	$(NULL)
@@ -48,7 +47,6 @@ xfce4_popup_clipman_CFLAGS =                                            \
 xfce4_popup_clipman_LDADD =						\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
-	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\
 	$(NULL)
@@ -73,7 +71,6 @@ xfce4_clipman_history_CFLAGS =                                            \
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
 	@GIO_CFLAGS@							\
-	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -85,7 +82,6 @@ xfce4_clipman_history_LDADD =						\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
 	@GIO_LIBS@							\
-	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
@@ -125,7 +121,7 @@ xfce4_clipman_settings_LDADD =						\
 # Status Icon
 #
 
-if HAVE_LIBX11
+if ENABLE_X11
 
 xfce4_clipman_SOURCES =							\
 	main-status-icon.c						\
@@ -143,7 +139,6 @@ xfce4_clipman_CFLAGS =							\
 	@GIO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
-	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -155,7 +150,6 @@ xfce4_clipman_LDADD =							\
 	@GIO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
-	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
@@ -187,7 +181,6 @@ libclipman_la_CFLAGS =							\
 	@GIO_CFLAGS@							\
 	@LIBX11_CFLAGS@							\
 	@LIBXTST_CFLAGS@						\
-	@GDKX_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UTIL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@						\
@@ -209,7 +202,6 @@ libclipman_la_LIBADD =							\
 	@GIO_LIBS@							\
 	@LIBX11_LIBS@							\
 	@LIBXTST_LIBS@							\
-	@GDKX_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
@@ -238,7 +230,7 @@ plugins_DATA = $(plugins_in_files:.desktop.in=.desktop)
 
 appsdir = $(datadir)/applications
 apps_in_files = xfce4-clipman-settings.desktop.in
-if HAVE_LIBX11
+if ENABLE_X11
 apps_in_files += xfce4-clipman.desktop.in
 endif
 apps_DATA = $(apps_in_files:.desktop.in=.desktop)
@@ -248,7 +240,7 @@ apps_DATA = $(apps_in_files:.desktop.in=.desktop)
 # Autostart File
 #
 
-if HAVE_LIBX11
+if ENABLE_X11
 
 autostartdir = $(sysconfdir)/xdg/autostart
 autostart_in_files = xfce4-clipman-plugin-autostart.desktop.in
