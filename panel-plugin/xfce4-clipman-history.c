@@ -430,7 +430,9 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_window_set_default_size (GTK_WINDOW (dialog), 350, 450);
 
 #if LIBXFCE4UI_CHECK_VERSION (4,15,1)
+#if !LIBXFCE4UI_CHECK_VERSION (4,19,3)
   xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
+#endif
   button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
 #else
   button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
