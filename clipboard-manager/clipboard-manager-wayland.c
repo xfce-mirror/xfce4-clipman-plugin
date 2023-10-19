@@ -85,13 +85,13 @@ typedef struct _XcpLoadData
   gchar *text;
 } XcpLoadData;
 
-const struct wl_registry_listener registry_listener =
+static const struct wl_registry_listener registry_listener =
 {
   .global = registry_global,
   .global_remove = registry_global_remove,
 };
 
-const struct zwlr_data_control_device_v1_listener device_listener =
+static const struct zwlr_data_control_device_v1_listener device_listener =
 {
   .data_offer = device_data_offer,
   .selection = device_selection,
@@ -99,7 +99,7 @@ const struct zwlr_data_control_device_v1_listener device_listener =
   .primary_selection = device_primary_selection,
 };
 
-const struct zwlr_data_control_offer_v1_listener offer_listener =
+static const struct zwlr_data_control_offer_v1_listener offer_listener =
 {
   .offer = offer_offer,
 };
