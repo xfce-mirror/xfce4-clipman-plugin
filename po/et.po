@@ -213,7 +213,7 @@ msgstr "Aseta menüü hiirekurs_ori juurde"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Hüpikmenüü hiirekursori asukohas: eriti kasulik xfce4-popup-clipman käsu jaoks"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -328,7 +328,7 @@ msgstr "_Tühista"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid "_OK"
-msgstr ""
+msgstr "_Sobib"
 
 #: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
@@ -416,7 +416,7 @@ msgstr "Ära küsi uuesti"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Ei õnnestu avada clipman'i ajaloo vaadet"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
