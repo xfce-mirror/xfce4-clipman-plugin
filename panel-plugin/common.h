@@ -25,6 +25,20 @@
 #ifndef __CLIPMAN_COMMON_H__
 #define __CLIPMAN_COMMON_H__
 
+#include <gdk/gdk.h>
+#ifdef ENABLE_X11
+#include <gdk/gdkx.h>
+#define WINDOWING_IS_X11() GDK_IS_X11_DISPLAY (gdk_display_get_default ())
+#else
+#define WINDOWING_IS_X11() FALSE
+#endif
+#ifdef ENABLE_WAYLAND
+#include <gdk/gdkwayland.h>
+#define WINDOWING_IS_WAYLAND() GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ())
+#else
+#define WINDOWING_IS_WAYLAND() FALSE
+#endif
+
 #define DEFAULT_MAX_MENU_ITEMS                          15
 #define DEFAULT_MAX_TEXTS_IN_HISTORY                    100
 #define DEFAULT_MAX_IMAGES_IN_HISTORY                   1
@@ -34,6 +48,7 @@
 #define DEFAULT_REORDER_ITEMS                           TRUE
 #define DEFAULT_SKIP_ACTION_ON_KEY_DOWN                 FALSE
 #define DEFAULT_ADD_PRIMARY_CLIPBOARD                   FALSE
+#define DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD            FALSE
 #define DEFAULT_SHOW_QR_CODE                            FALSE
 #define DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD        TRUE
 #define DEFAULT_ENABLE_ACTIONS                          FALSE
@@ -62,5 +77,7 @@
 
 void                    clipman_common_show_info_dialog    (void);
 void                    clipman_common_show_warning_dialog (void);
+gchar *                 clipman_common_shorten_preview     (const gchar *text);
+void                    clipman_common_paste_on_activate   (guint        paste_on_activate);
 
 #endif /* !__CLIPMAN_COMMON_H__ */

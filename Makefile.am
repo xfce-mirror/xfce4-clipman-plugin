@@ -2,9 +2,15 @@ ACLOCAL_AMFLAGS = -I m4  ${ACLOCAL_FLAGS}
 
 NULL = 
 
-SUBDIRS =								\
+SUBDIRS =
+
+if ENABLE_WAYLAND
+SUBDIRS += protocols
+endif
+
+SUBDIRS +=								\
 	data								\
-	x11-clipboard-manager						\
+	clipboard-manager								\
 	panel-plugin							\
 	tests								\
 	po								\
@@ -15,7 +21,6 @@ distclean-local:
 
 EXTRA_DIST =								\
 	AUTHORS								\
-	ChangeLog							\
 	COPYING								\
 	NEWS								\
 	README.md								\
@@ -28,21 +33,10 @@ CLEANFILES =								\
 	$(NULL)
 
 DISTCLEANFILES =							\
-	aclocal.m4							\
-	compile								\
-	config.guess							\
-	config.h.in							\
-	config.sub							\
-	configure							\
-	configure.ac							\
-	depcomp								\
-	install-sh							\
-	ltmain.sh							\
-	missing								\
-	mkinstalldirs							\
 	intltool-extract						\
 	intltool-merge							\
 	intltool-update							\
+	po/.intltool-merge-cache.lock			\
 	$(NULL)
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

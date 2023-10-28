@@ -23,16 +23,12 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gdk/gdkx.h>
 #include <gdk/gdkkeysyms.h>
-#include <X11/extensions/XTest.h>
 
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
-#include <x11-clipboard-manager/daemon.h>
 
-#include <collector.h>
-#include <menu.h>
+#include "common.h"
 #include <plugin.h>
 #include <history.h>
 
@@ -52,16 +48,6 @@ GtkWidget   *clipman_history_treeview_init             (MyPlugin  *plugin);
 static void  clipman_history_copy_or_paste_on_activate (MyPlugin  *plugin,
                                                         guint      paste_on_activate);
 
-typedef struct _ClipmanHistoryShutdownData ClipmanHistoryShutdownData;
-
-struct _ClipmanHistoryShutdownData
-{
-  gchar *text;
-  gboolean add_primary_clipboard;
-  gboolean do_copy;
-};
-
-ClipmanHistoryShutdownData shutdown_data = { NULL, FALSE, FALSE };
 
 
 static void
@@ -70,11 +56,12 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                                GtkTreeViewColumn *column,
                                MyPlugin          *plugin)
 {
-  gboolean add_primary_clipboard;
   GtkWidget *window;
   GtkTreeSelection *selection;
   GtkTreeModel *model;
   GtkTreeIter iter;
+  GDBusProxy *proxy;
+  GError *error = NULL;
   gboolean ret;
   gchar *text;
 
@@ -90,18 +77,44 @@ clipman_history_row_activated (GtkTreeView       *treeview,
                       COLUMN_TEXT, &text,
                       -1);
 
-  /* Only update the primary clipboard if the setting "Sync mouse selections" is enabled */
-  g_object_get (G_OBJECT (plugin->collector), "add-primary-clipboard", &add_primary_clipboard, NULL);
+  /* set clipboard text from the daemon instance */
+  proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
+                                         G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES
+                                         | G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS,
+                                         NULL, "org.xfce.clipman", "/org/xfce/clipman",
+                                         "org.gtk.Actions", NULL, &error);
+  if (proxy != NULL)
+    {
+      GVariantBuilder *builder1 = g_variant_builder_new (G_VARIANT_TYPE ("av"));
+      GVariantBuilder *builder2 = g_variant_builder_new (G_VARIANT_TYPE ("a{sv}"));
+      GVariant *value;
 
-  shutdown_data.do_copy = TRUE;
-  shutdown_data.text = g_strdup (text);
-  shutdown_data.add_primary_clipboard = add_primary_clipboard;
+      g_variant_builder_add (builder1, "v", g_variant_new_string (text));
+      value = g_dbus_proxy_call_sync (proxy, "org.gtk.Actions.Activate",
+                                      g_variant_new ("(sava{sv})", "set-text", builder1, builder2),
+                                      G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
+      g_variant_builder_unref (builder1);
+      g_variant_builder_unref (builder2);
+
+      if (value != NULL)
+        g_variant_unref (value);
+      else
+        {
+          g_warning ("Failed to activate set-text action on org.xfce.clipman: %s", error->message);
+          g_error_free (error);
+        }
+    }
+  else
+    {
+      g_warning ("Failed to get D-Bus proxy for org.xfce.clipman: %s", error->message);
+      g_error_free (error);
+    }
 
   window = gtk_widget_get_toplevel (GTK_WIDGET (treeview));
-
-
   if (GTK_IS_WINDOW (window))
     gtk_dialog_response (GTK_DIALOG (window), GTK_RESPONSE_CLOSE);
+
+  g_free (text);
 }
 
 static void
@@ -238,7 +251,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
   GtkTreeIter iter;
   GtkTreePath *path;
   GtkWidget *entry, *scroll, *treeview, *box;
-  gboolean reverse_order = FALSE;
 
   box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_widget_set_margin_start (box, 6);
@@ -269,24 +281,12 @@ clipman_history_treeview_init (MyPlugin *plugin)
   g_signal_connect_swapped (G_OBJECT (entry), "changed", G_CALLBACK (clipman_history_treeview_filter_and_select), plugin);
   g_signal_connect (G_OBJECT (entry), "activate", G_CALLBACK (clipman_history_search_entry_activate), plugin);
 
-  if (internal_paste_on_activate != PASTE_INACTIVE)
-    {
-      g_signal_connect (G_OBJECT (entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
-      g_signal_connect (G_OBJECT (entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
-    }
-
   /* Create the treeview */
   plugin->treeview = treeview = gtk_tree_view_new_with_model (filter);
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
   g_signal_connect_swapped (G_OBJECT (treeview), "start-interactive-search", G_CALLBACK (gtk_widget_grab_focus), entry);
   g_signal_connect (G_OBJECT (treeview), "row-activated", G_CALLBACK (clipman_history_row_activated), plugin);
-
-  if (internal_paste_on_activate != PASTE_INACTIVE)
-    {
-      g_signal_connect (G_OBJECT (treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
-      g_signal_connect (G_OBJECT (treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
-    }
 
   gtk_container_add (GTK_CONTAINER (scroll), treeview);
   gtk_widget_show (treeview);
@@ -316,17 +316,11 @@ clipman_history_treeview_init (MyPlugin *plugin)
   gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
   /* Get the history and populate the treeview */
-  plugin->history = clipman_history_get ();
   list = clipman_history_get_list (plugin->history);
-
-  g_object_get (G_OBJECT (plugin->menu), "reverse-order", &reverse_order, NULL);
-  if (reverse_order)
-    list = g_slist_reverse (list);
-
   if (list == NULL)
     {
       gtk_list_store_insert_with_values (liststore, &iter, 0,
-                                         COLUMN_PREVIEW, _("Clipboard is empty"),
+                                         COLUMN_PREVIEW, _("History is empty"),
                                          COLUMN_TEXT, "",
                                          -1);
     }
@@ -364,22 +358,6 @@ clipman_history_treeview_init (MyPlugin *plugin)
 }
 
 static void
-clipman_history_dialog_finalize (MyPlugin  *plugin,
-                                 GtkWidget *window)
-{
-
-  plugin_save (plugin);
-
-  gtk_widget_destroy (plugin->menu);
-  g_object_unref (plugin->channel);
-  g_object_unref (plugin->history);
-  gtk_widget_destroy (plugin->dialog);
-
-  g_slice_free (MyPlugin, plugin);
-  xfconf_shutdown ();
-}
-
-static void
 clipman_history_dialog_response (GtkWidget *dialog,
                                  gint       response_id,
                                  MyPlugin  *plugin)
@@ -388,8 +366,10 @@ clipman_history_dialog_response (GtkWidget *dialog,
     xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
   else if (response_id == GTK_RESPONSE_OK)
     plugin_configure (plugin);
+  else if (response_id == GTK_RESPONSE_APPLY)
+    clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
   else
-    clipman_history_dialog_finalize (plugin, dialog);
+    gtk_widget_destroy (plugin->dialog);
 }
 
 static void
@@ -406,16 +386,34 @@ clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
   if (paste_on_activate != PASTE_INACTIVE)
     {
       icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Paste"));
+      button_text = _("_Paste");
     }
   else
     {
       icon = gtk_image_new_from_icon_name ("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
-      button_text = g_strdup_printf (_("_Copy"));
+      button_text = _("_Copy");
     }
 
   gtk_button_set_image (GTK_BUTTON (plugin->submit_button), icon);
   gtk_button_set_label (GTK_BUTTON (plugin->submit_button), button_text);
+}
+
+static void
+clipman_history_paste_on_activate_changed (MyPlugin *plugin)
+{
+  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE)
+                               && WINDOWING_IS_X11 ();
+  clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
+
+  g_signal_handlers_disconnect_by_func (plugin->entry, clipman_history_key_event, plugin);
+  g_signal_handlers_disconnect_by_func (plugin->treeview, clipman_history_key_event, plugin);
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    {
+      g_signal_connect (G_OBJECT (plugin->entry), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->entry), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->treeview), "key-press-event", G_CALLBACK (clipman_history_key_event), plugin);
+      g_signal_connect (G_OBJECT (plugin->treeview), "key-release-event", G_CALLBACK (clipman_history_key_event), plugin);
+    }
 }
 
 GtkWidget *
@@ -432,7 +430,9 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_window_set_default_size (GTK_WINDOW (dialog), 350, 450);
 
 #if LIBXFCE4UI_CHECK_VERSION (4,15,1)
+#if !LIBXFCE4UI_CHECK_VERSION (4,19,3)
   xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
+#endif
   button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
 #else
   button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
@@ -457,22 +457,50 @@ clipman_history_dialog_init (MyPlugin *plugin)
 #endif
   gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
 
-  clipman_history_copy_or_paste_on_activate (plugin, internal_paste_on_activate);
-
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
 
   return dialog;
 }
 
 static void
-clipman_history_activate (GtkApplication *app,
-                          gpointer        user_data)
+clipman_history_shutdown (GApplication *app,
+                          gpointer user_data)
 {
-  MyPlugin *plugin = g_slice_new0 (MyPlugin);
-  GtkWidget *box;
+  MyPlugin *plugin = user_data;
 
-  plugin->app = app;
-  xfconf_init (NULL);
+  plugin_save (plugin);
+
+  g_object_unref (plugin->channel);
+  g_object_unref (plugin->history);
+  g_slice_free (MyPlugin, plugin);
+
+  xfconf_shutdown ();
+}
+
+static gint
+clipman_history_command_line (GApplication *app,
+                              GApplicationCommandLine *command_line,
+                              gpointer user_data)
+{
+  MyPlugin *plugin;
+  GtkWidget *box;
+  GError *error = NULL;
+
+  if (g_application_command_line_get_is_remote (command_line))
+    {
+      g_application_activate (app);
+      return EXIT_SUCCESS;
+    }
+
+  if (!xfconf_init (&error))
+    {
+      g_critical ("Xfconf initialization failed: %s", error->message);
+      g_error_free (error);
+      return EXIT_FAILURE;
+    }
+
+  plugin = g_slice_new0 (MyPlugin);
+  plugin->app = GTK_APPLICATION (app);
 
   /* Bind all settings relevant for this application */
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
@@ -485,47 +513,52 @@ clipman_history_activate (GtkApplication *app,
                           G_TYPE_BOOLEAN, plugin->history, "save-on-quit");
   xfconf_g_property_bind (plugin->channel, "/tweaks/reorder-items",
                           G_TYPE_BOOLEAN, plugin->history, "reorder-items");
-
-  plugin->collector = clipman_collector_get ();
-  xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
-                          G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
-
-  plugin->menu = clipman_menu_new ();
-  internal_paste_on_activate = xfconf_channel_get_uint (plugin->channel, "/tweaks/paste-on-activate", PASTE_INACTIVE);
-  xfconf_g_property_bind (plugin->channel, "/tweaks/reverse-menu-order",
-                          G_TYPE_BOOLEAN, plugin->menu, "reverse-order");
+  g_signal_connect_swapped (plugin->channel, "property-changed::/tweaks/paste-on-activate",
+                            G_CALLBACK (clipman_history_paste_on_activate_changed), plugin);
 
   /* Read the history from the cache file */
   plugin_load (plugin);
 
   /* Initialize dialog */
   plugin->dialog = clipman_history_dialog_init (plugin);
+  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), plugin->dialog);
+  g_signal_connect (app, "shutdown", G_CALLBACK (clipman_history_shutdown), plugin);
 
   /* Initialize and pack history treeview */
   box = clipman_history_treeview_init (plugin);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (plugin->dialog))), box);
   gtk_widget_show_all (box);
 
+  /* setup paste-on-activate */
+  clipman_history_paste_on_activate_changed (plugin);
+
   gtk_widget_show_all (plugin->dialog);
+
+  return EXIT_SUCCESS;
 }
 
-static gboolean
-clipman_history_clipman_daemon_running (void)
+static gint
+clipman_history_clipman_daemon_running (GApplication *app,
+                                        GVariantDict *options,
+                                        gpointer user_data)
 {
-  GtkApplication *app;
   GError *error = NULL;
 
-  app = gtk_application_new ("org.xfce.clipman", 0);
-
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
+  if (!g_application_register (app, NULL, &error))
     {
       g_warning ("Unable to register GApplication: %s", error->message);
       g_error_free (error);
-      error = NULL;
+      return EXIT_FAILURE;
     }
 
-  return g_application_get_is_remote (G_APPLICATION (app));
+  if (!g_application_get_is_remote (app))
+    {
+      g_warning ("Unable to find the primary instance org.xfce.clipman");
+      clipman_common_show_warning_dialog ();
+      return EXIT_FAILURE;
+    }
+
+  return EXIT_SUCCESS;
 }
 
 gint
@@ -533,70 +566,27 @@ main (gint argc, gchar *argv[])
 {
   GtkApplication *app;
   int status;
-  GtkClipboard *clipboard;
-  GError *error = NULL;
-
-  if (!clipman_history_clipman_daemon_running ())
-    {
-      g_warning ("The clipboard daemon is not running, exiting. You can launch it with 'xfce4-clipman'.");
-      clipman_common_show_warning_dialog ();
-      return FALSE;
-    }
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-  app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_FLAGS_NONE);
-
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
-    {
-      g_warning ("Unable to register GApplication: %s", error->message);
-      g_error_free (error);
-      error = NULL;
-    }
-
-  if (g_application_get_is_remote (G_APPLICATION (app)))
-    {
-      g_warning ("%s already running", argv[0]);
-      return FALSE;
-    }
-
-  g_signal_connect (app, "activate", G_CALLBACK (clipman_history_activate), NULL);
+  /* check if clipman daemon is running */
+  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "handle-local-options", G_CALLBACK (clipman_history_clipman_daemon_running), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+  if (status != EXIT_SUCCESS)
+    return EXIT_FAILURE;
 
-  /* doing copy and paste outside of g_main to assure window being already gone and
-   * as in some occasions the implicit gtk_clipboard_store() lags for 10 seconds
-   */
-  if (shutdown_data.do_copy)
-    {
-      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-      gtk_clipboard_set_text (clipboard, shutdown_data.text, -1);
+  /* run clipman-history app */
+  app = gtk_application_new ("org.xfce.clipman.history", G_APPLICATION_HANDLES_COMMAND_LINE);
+  g_signal_connect (app, "command-line", G_CALLBACK (clipman_history_command_line), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
 
-      if (shutdown_data.add_primary_clipboard)
-        {
-          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-          gtk_clipboard_set_text (clipboard, shutdown_data.text, -1);
-        }
-      g_free (shutdown_data.text);
-
-      /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
-      if (internal_paste_on_activate != PASTE_INACTIVE)
-        {
-          cb_paste_on_activate (internal_paste_on_activate);
-        }
-
-      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-      /* we are out of the g_main - so we have store() on our own */
-      gtk_clipboard_store (clipboard);
-
-      if (shutdown_data.add_primary_clipboard)
-        {
-          clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
-          /* we are out of the g_main - so we have store() on our own */
-          gtk_clipboard_store (clipboard);
-        }
-    }
+  /* Should be after gtk_widget_destroy() to assure focus being in the (previous) "target" window */
+  if (internal_paste_on_activate != PASTE_INACTIVE)
+    clipman_common_paste_on_activate (internal_paste_on_activate);
 
   return status;
 }

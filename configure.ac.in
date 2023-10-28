@@ -11,18 +11,31 @@ dnl *** Version information ***
 dnl ***************************
 m4_define([project_version_major], [1])
 m4_define([project_version_minor], [6])
-m4_define([project_version_micro], [1])
+m4_define([project_version_micro], [5])
 m4_define([project_version_build], [@REVISION@])
 m4_define([project_version_tag], [git]) # leave empty for release
 m4_define([project_version], [project_version_major().project_version_minor().project_version_micro()ifelse(project_version_tag(), [git], [project_version_tag()-project_version_build()], [project_version_tag()])])
 
+dnl minimum required versions
+m4_define([glib_min_version], [2.60.0])
+m4_define([gtk_min_version], [3.22.29])
+m4_define([libxfce4ui_min_version], [4.14.0])
+m4_define([libxfce4util_min_version], [4.14.0])
+m4_define([libxfce4panel_min_version], [4.14.0])
+m4_define([xfconf_minimum_version], [4.14.0])
+m4_define([libx11_min_version], [1.6.7])
+m4_define([libxproto_min_version], [7.0.0])
+m4_define([libxtst_min_version], [1.0.0])
+m4_define([wayland_min_version], [1.15.0])
+m4_define([libqrencode_min_version], [3.3.0])
+
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2005-2020
+AC_COPYRIGHT([Copyright (c) 2003-2023
         The Xfce development team. All rights reserved.])
-AC_INIT([Clipman], [project_version], [https://bugzilla.xfce.org/], [xfce4-clipman-plugin],
-        [https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin])
+AC_INIT([Clipman], [project_version], [https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin], [xfce4-clipman-plugin],
+        [https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin/start])
 AC_CONFIG_HEADERS([config.h])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
@@ -47,7 +60,6 @@ dnl *** Check for basic programs ***
 dnl ********************************
 AC_PROG_CC()
 AM_PROG_CC_C_O()
-AC_PROG_LD()
 AC_PROG_INSTALL()
 AC_PROG_LN_S()
 IT_PROG_INTLTOOL([0.35.0])
@@ -60,27 +72,44 @@ AC_CHECK_HEADERS([locale.h])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_LIBX11_REQUIRE()
-XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.60.0])
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.60.0])
-XDT_CHECK_PACKAGE([GDKX], [gdk-x11-3.0], [3.22.29])
-XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.29])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.14.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.14.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.14.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.14.0])
-XDT_CHECK_PACKAGE([LIBXPROTO], [xproto], [7.0.0])
-XDT_CHECK_PACKAGE([LIBXTST], [xtst], [1.0.0])
+XDT_CHECK_PACKAGE([GIO], [gio-2.0], [glib_min_version])
+XDT_CHECK_PACKAGE([GIO_UNIX], [gio-unix-2.0], [glib_min_version])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [glib_min_version])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [gtk_min_version])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [libxfce4ui_min_version])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [libxfce4util_min_version])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [libxfce4panel_min_version])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [xfconf_min_version])
 
-dnl *****************************
-dnl *** Check for libqrencode ***
-dnl *****************************
-XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [3.3.0], libqrencode, [QR Code support])
-if test x"$QRENCODE_FOUND" = x"yes"; then
-	enable_qrencode=yes
-else
-	enable_qrencode=no
+dnl ***********************************
+dnl *** Check for optional packages ***
+dnl ***********************************
+XDT_CHECK_OPTIONAL_FEATURE([X11],
+                           [x11],
+                           [
+                             XDT_FEATURE_DEPENDENCY([LIBX11], [x11], [libx11_min_version])
+                             XDT_FEATURE_DEPENDENCY([GDK_X11], [gdk-x11-3.0], [gtk_min_version])
+                             XDT_FEATURE_DEPENDENCY([LIBXPROTO], [xproto], [libxproto_min_version])
+                           ],
+                           [the X11 windowing system])
+XDT_CHECK_OPTIONAL_FEATURE([WAYLAND],
+                           [wayland],
+                           [
+                             XDT_FEATURE_DEPENDENCY([GDK_WAYLAND], [gdk-wayland-3.0], [gtk_min_version])
+                             XDT_FEATURE_DEPENDENCY([WAYLAND_SCANNER], [wayland-scanner], [wayland_min_version])
+                             XDT_FEATURE_DEPENDENCY([WAYLAND_CLIENT], [wayland-client], [wayland_min_version])
+                           ],
+                           [the Wayland windowing system])
+if test x"$ENABLE_X11" != x"yes" -a x"$ENABLE_WAYLAND" != x"yes"; then
+  AC_MSG_ERROR([Either both X11 and Wayland support was disabled, or required dependencies are missing. One of the two must be enabled.])
 fi
+if test x"$ENABLE_X11" != x"yes"; then
+  dnl Do not check for optional X11 packages if X11 is disabled
+  enable_libxtst=no
+fi
+XDT_CHECK_OPTIONAL_PACKAGE([LIBXTST], [xtst], [libxtst_min_version], [libxtst], [Libxtst support])
+
+XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [libqrencode_min_version], libqrencode, [QR Code support])
 
 dnl ******************************
 dnl *** Check for i18n support ***
@@ -106,10 +135,11 @@ data/icons/32x32/Makefile
 data/icons/48x48/Makefile
 data/icons/64x64/Makefile
 data/icons/scalable/Makefile
-x11-clipboard-manager/Makefile
+clipboard-manager/Makefile
 panel-plugin/Makefile
 tests/Makefile
 po/Makefile.in
+protocols/Makefile
 ])
 AC_OUTPUT
 
@@ -119,6 +149,11 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-echo "    * Debug Support:    $enable_debug"
-echo "    * QR Code:          $enable_qrencode"
+echo "* Debug Support:      $enable_debug"
+echo "* X11 Support:        ${ENABLE_X11:-no}"
+if test x"$ENABLE_X11" = x"yes"; then
+echo "  * Libxtst Support:  ${LIBXTST_FOUND:-no}"
+fi
+echo "* Wayland Support:    ${ENABLE_WAYLAND:-no}"
+echo "* QR Code Support:    ${QRENCODE_FOUND:-no}"
 echo

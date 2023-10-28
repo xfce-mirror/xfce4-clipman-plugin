@@ -16,8 +16,7 @@ cb (GtkClipboard *clipboard,
   if (!gtk_clipboard_wait_for_targets (clipboard, &atoms, &n_atoms))
     return;
 
-  gint i;
-  for (i = 0; i < n_atoms; i++)
+  for (gint i = 0; i < n_atoms; i++)
     {
       if (atoms[i] == gdk_atom_intern_static_string ("TARGETS")
           || atoms[i] == gdk_atom_intern_static_string ("MULTIPLE")

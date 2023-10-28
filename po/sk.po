@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2016,2020
+# 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2022
 # Robert Hartl <hartl.robert@gmail.com>, 2009-2010
 # Slavko <linux@slavino.sk>, 2015
 # 7dcd6f74323fe8d9c477949ff8fcbb1c_c427b63 <3fcd202e3dfab15fda15b8e88e54d449_7173>, 2011
@@ -11,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-11-25 09:24+0000\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2022\n"
+"Language-Team: Slovak (http://app.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,9 +72,9 @@ msgstr "Skrátiť URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:77
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman"
 
@@ -96,24 +97,68 @@ msgstr "Ctrl+V"
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:133
+msgid "shows actions"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:134
+msgid "hides actions"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>Obnoviť akcie</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:537
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Naozaj chcete obnoviť akcie na predvolené systémové hodnoty?"
 
+#: ../panel-plugin/xfce4-clipman-history.c:230
+msgid "Enter search phrase here"
+msgstr "Sem zadajte hľadanú frázu"
+
+#. Insert empty menu item
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
+msgid "History is empty"
+msgstr ""
+
+#: ../panel-plugin/xfce4-clipman-history.c:356
+#, c-format
+msgid "_Paste"
+msgstr "_Vložiť"
+
+#: ../panel-plugin/xfce4-clipman-history.c:361
+#, c-format
+msgid "_Copy"
+msgstr "_Kopírovať"
+
+#: ../panel-plugin/xfce4-clipman-history.c:394
+msgid "Clipman History"
+msgstr "História programu Clipman"
+
+#: ../panel-plugin/xfce4-clipman-history.c:400
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Help"
+msgstr "_Pomocník"
+
+#: ../panel-plugin/xfce4-clipman-history.c:408
+#: ../panel-plugin/xfce4-clipman-history.c:410
+msgid "_Settings"
+msgstr "_Nastavenia"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "Nastavenia správcu schránky"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "Prispôsobuje vašu schránku"
+
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
 msgstr "Nastavenia programu Clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-#: ../panel-plugin/xfce4-clipman-history.c:441
-#: ../panel-plugin/xfce4-clipman-history.c:443
-msgid "_Help"
-msgstr "_Pomocník"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -125,83 +170,86 @@ msgstr "Synchronizovať výbery m_yšou"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Ak je zaškrtnuté, výbery budú synchronizované s predvolenou schránkou tak, že budete môcť vložiť to, čo označíte"
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_Persist mouse selections"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
 msgstr "Podpora _QR kódov"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "Ak je zaškrtnuté, v ponuke sa zobrazí QR kód aktuálne vybraného záznamu schránky"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
 msgstr "Automaticky vložiť vybranú položku z histórie"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "_Paste instantly:"
 msgstr "_Vložiť okamžite:"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "<b>General</b>"
 msgstr "<b>Všeobecné</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
 msgstr "_Umiestniť ponuku pri ukazovateľ myši"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "Zobraziť vyskakovaciu ponuku pri ukazovateli myši iba pre príkaz xfce4-popup-clipman"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
 msgstr "Maximum položiek:"
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
 msgstr "<b>Ponuka</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "_Behavior"
 msgstr "_Správanie"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>_Povoliť automatické akcie</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "Ak je zaškrtnuté, text schránky bude otestovaný na zhodu s regulárnymi výrazmi a ponuka automaticky zobrazí možné akcie.\nInak sa ponuka zobrazí iba pri vyvolaní akcií \"xfce4-popup-clipman-actions\" (a je nájdená zhoda)"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "_Show actions by holding Control"
-msgstr "_Zobraziť akcie pri stlačení Ctrl"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "Keď označujete výber (myšou alebo klávesnicou) pri stlačenom klávese Ctrl, bude zobrazené menu príslušnej akcie"
-
 #: ../panel-plugin/settings-dialog.ui.h:21
-msgid "S_kip actions by holding Control"
-msgstr "Pres_kočiť akcie pri stlačenom Ctrl"
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "Ak je výber ukončený (myšou alebo klávesnicou) a tlačidlo Control je stále stlačené, vyskakovacia ponuka pre odpovedajúce akcie bude preskočená"
+msgid "_Pressing Ctrl during selection:"
+msgstr ""
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -279,111 +327,71 @@ msgid "Edit Action"
 msgstr "Upraviť akciu"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "_Zrušiť"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "_OK"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "Názov:"
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "Vzorka:"
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "V príkazoch môžete použiť nahradzujúce parametre „\\1“, „\\2“ atď. Parameter „\\0“ reprezentuje úplný text. Vzorka je vždy zakotvená v špeciálnych znakoch ^$"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid "Activate only on manual copy"
-msgstr "Aktivovať len na ručné kopírovanie"
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid ""
-"By default the action is triggered by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "Obvykle je akcia vykonaná výberom. Zaškrtnite túto voľbu, ak sa má akcia vykonať iba pri ručnom kopírovaní."
-
 #: ../panel-plugin/settings-dialog.ui.h:46
+msgid "Activate on manual copy instead of selection"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:47
+msgid ""
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>Akcia</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "Príkaz:"
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>Príkazy</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "Sem zadajte váš vlastný text, napríklad URL, názov súboru, atď."
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "Regulárne výrazy"
 
-#: ../panel-plugin/main-panel-plugin.c:111
-#: ../panel-plugin/main-status-icon.c:159
+#: ../panel-plugin/main-panel-plugin.c:117
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "_Zakázať"
 
-#: ../panel-plugin/actions.c:368
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr "Nedá sa spustiť príkaz \"%s\"\n\n%s"
-
-#: ../panel-plugin/menu.c:255
-msgid "Are you sure you want to clear the history?"
-msgstr "Naozaj chcete vyčistiť históriu?"
-
-#: ../panel-plugin/menu.c:260
-msgid "Don't ask again"
-msgstr "Nepýtať sa znova"
-
-#: ../panel-plugin/menu.c:306
-msgid "Unable to open the clipman history dialog"
-msgstr "Nie je možné otvoriť dialógové okno s históriou programu Clipman"
-
-#: ../panel-plugin/menu.c:455
-msgid "Could not generate QR-Code."
-msgstr "Nepodarilo sa vygenerovať QR kód."
-
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
-msgid "Clipboard is empty"
-msgstr "Schránka je prázdna"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "_Zobraziť úplnú históriu..."
-
-#: ../panel-plugin/menu.c:608
-msgid "_Clear history"
-msgstr "Vy_mazať históriu"
-
-#: ../panel-plugin/menu.c:615
-msgid "_Clipman settings..."
-msgstr "_Nastavenia programu _Clipman..."
-
-#: ../panel-plugin/plugin.c:321
-msgid "Contributors:"
-msgstr "Prispievatelia:"
-
-#: ../panel-plugin/plugin.c:335
-msgid "Clipboard Manager for Xfce"
-msgstr "Správca schránky pre Xfce"
-
-#: ../panel-plugin/plugin.c:343
-msgid "translator-credits"
-msgstr "Robert Hartl <hartl.robert@gmail.com>\nTomáš Vadina <kyberdev@gmail.com>"
-
-#: ../panel-plugin/plugin.c:357
-msgid "Unable to open the settings dialog"
-msgstr "Nedá sa otvoriť dialóg nastavení"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -402,33 +410,50 @@ msgstr "Môžete ho spustiť pomocou príkazu „xfce4-clipman“."
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Démon správcu schránky nie je spustený."
 
-#: ../panel-plugin/xfce4-clipman-history.c:256
-msgid "Enter search phrase here"
-msgstr "Sem zadajte hľadanú frázu"
+#: ../panel-plugin/menu.c:245
+msgid "Are you sure you want to clear the history?"
+msgstr "Naozaj chcete vyčistiť históriu?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:414
-#, c-format
-msgid "_Paste"
-msgstr "_Vložiť"
+#: ../panel-plugin/menu.c:250
+msgid "Don't ask again"
+msgstr "Nepýtať sa znova"
 
-#: ../panel-plugin/xfce4-clipman-history.c:419
-#, c-format
-msgid "_Copy"
-msgstr "_Kopírovať"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:435
-msgid "Clipman History"
-msgstr "História programu Clipman"
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
+msgid "_Clear history"
+msgstr "Vy_mazať históriu"
 
-#: ../panel-plugin/xfce4-clipman-history.c:449
-#: ../panel-plugin/xfce4-clipman-history.c:451
-msgid "_Settings"
-msgstr "_Nastavenia"
+#: ../panel-plugin/menu.c:454
+msgid "_Clear clipboard"
+msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "Nastavenia správcu schránky"
+#: ../panel-plugin/menu.c:500
+msgid "Could not generate QR-Code."
+msgstr "Nepodarilo sa vygenerovať QR kód."
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "Prispôsobuje vašu schránku"
+#: ../panel-plugin/menu.c:613
+msgid "_Show full history..."
+msgstr "_Zobraziť úplnú históriu..."
+
+#: ../panel-plugin/menu.c:630
+msgid "_Clipman settings..."
+msgstr "_Nastavenia programu _Clipman..."
+
+#: ../panel-plugin/plugin.c:329
+msgid "Contributors:"
+msgstr "Prispievatelia:"
+
+#: ../panel-plugin/plugin.c:343
+msgid "Clipboard Manager for Xfce"
+msgstr "Správca schránky pre Xfce"
+
+#: ../panel-plugin/plugin.c:351
+msgid "translator-credits"
+msgstr "Robert Hartl <hartl.robert@gmail.com>\nTomáš Vadina <kyberdev@gmail.com>"
+
+#: ../panel-plugin/plugin.c:365
+msgid "Unable to open the settings dialog"
+msgstr "Nedá sa otvoriť dialóg nastavení"

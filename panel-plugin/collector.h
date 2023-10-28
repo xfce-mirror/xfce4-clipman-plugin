@@ -51,8 +51,9 @@ struct _ClipmanCollector
 GType                   clipman_collector_get_type              (void);
 
 ClipmanCollector *      clipman_collector_get                   (void);
-void                    clipman_collector_set_is_restoring      (ClipmanCollector *collector);
-void                    clipman_collector_show_actions          (void);
+void                    clipman_collector_set_is_restoring      (ClipmanCollector *collector,
+                                                                 GtkClipboard     *clipboard);
+void                    clipman_collector_clear_cache           (ClipmanCollector *collector);
 
 #endif /* !__CLIPMAN_COLLECTOR_H__ */
 

@@ -8,17 +8,18 @@
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
 # Levi Zhou <congzhou821@gmail.com>, 2016
 # Mingcong Bai <jeffbai@aosc.xyz>, 2016
+# No Body, 2022-2023
 # 玉堂白鹤 <yjwork@qq.com>, 2014
-# Xiaobo Zhou <zhouxiaobo.500@gmail.com>, 2014
-# 玉堂白鹤 <yjwork@qq.com>, 2015,2020
+# Cally Mal <zhouxiaobo.500@gmail.com>, 2014
+# 玉堂白鹤 <yjwork@qq.com>, 2015,2020,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 00:32+0200\n"
-"PO-Revision-Date: 2020-04-09 02:46+0000\n"
-"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
+"POT-Creation-Date: 2023-08-18 12:50+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2015,2020,2023\n"
+"Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,9 +76,9 @@ msgstr "短 URL"
 
 #: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
 #: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:77
-#: ../panel-plugin/main-status-icon.c:81 ../panel-plugin/plugin.c:95
-#: ../panel-plugin/plugin.c:333
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
+#: ../panel-plugin/plugin.c:341
 msgid "Clipman"
 msgstr "Clipman 剪贴板管理器"
 
@@ -100,24 +101,68 @@ msgstr "Ctrl + V"
 msgid "Shift+Insert"
 msgstr "Shift + Ins"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:535
+#: ../panel-plugin/xfce4-clipman-settings.c:133
+msgid "shows actions"
+msgstr "显示动作"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:134
+msgid "hides actions"
+msgstr "隐藏动作"
+
+#: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
 msgstr "<b>重置动作</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:537
+#: ../panel-plugin/xfce4-clipman-settings.c:522
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "您确定要重置此动作为系统默认值吗？"
 
+#: ../panel-plugin/xfce4-clipman-history.c:230
+msgid "Enter search phrase here"
+msgstr "在此处输入搜索词组"
+
+#. Insert empty menu item
+#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
+msgid "History is empty"
+msgstr "历史记录为空"
+
+#: ../panel-plugin/xfce4-clipman-history.c:356
+#, c-format
+msgid "_Paste"
+msgstr "粘贴(_P)"
+
+#: ../panel-plugin/xfce4-clipman-history.c:361
+#, c-format
+msgid "_Copy"
+msgstr "复制(_C)"
+
+#: ../panel-plugin/xfce4-clipman-history.c:394
+msgid "Clipman History"
+msgstr "Clipman 历史"
+
+#: ../panel-plugin/xfce4-clipman-history.c:400
+#: ../panel-plugin/xfce4-clipman-history.c:402
+#: ../panel-plugin/settings-dialog.ui.h:2
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../panel-plugin/xfce4-clipman-history.c:408
+#: ../panel-plugin/xfce4-clipman-history.c:410
+msgid "_Settings"
+msgstr "设置(_S)"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
+msgid "Clipboard Manager Settings"
+msgstr "剪贴板管理器设置"
+
+#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
+msgid "Customize your clipboard"
+msgstr "自定义剪贴板"
+
 #: ../panel-plugin/settings-dialog.ui.h:1
 msgid "Clipman Settings"
 msgstr "Clipman 设置"
-
-#: ../panel-plugin/settings-dialog.ui.h:2
-#: ../panel-plugin/xfce4-clipman-history.c:441
-#: ../panel-plugin/xfce4-clipman-history.c:443
-msgid "_Help"
-msgstr "帮助(_H)"
 
 #: ../panel-plugin/settings-dialog.ui.h:3
 msgid "_Close"
@@ -129,83 +174,86 @@ msgstr "同步鼠标选择区(_S)"
 
 #: ../panel-plugin/settings-dialog.ui.h:5
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "如果选中，选择区会以一种您能粘贴您所选内容的方式与默认的剪贴板同步"
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr "如果选中，所选内容将与默认剪贴板同步，因此您可以使用 Ctrl-V 粘贴所选内容。相反，手动复制将与主剪贴板同步，因此您可以通过中键单击粘贴所复制的内容。"
 
 #: ../panel-plugin/settings-dialog.ui.h:6
+msgid "_Persist mouse selections"
+msgstr "保留鼠标选项(_P)"
+
+#: ../panel-plugin/settings-dialog.ui.h:7
+msgid ""
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr "如果选中，主剪贴板（中键粘贴）将在当前选择丢失时（例如，在文本区域的任何地方单击左键）持续到下一次选择"
+
+#: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
 msgstr "QR 码支持(_Q)"
 
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: ../panel-plugin/settings-dialog.ui.h:9
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
 msgstr "如果选中，菜单将会显示当前选中的剪贴板条目的二维码。"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
+#: ../panel-plugin/settings-dialog.ui.h:10
 msgid "Automatically paste a selected item from the history"
 msgstr "从历史中自动粘贴选中的项目"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
+#: ../panel-plugin/settings-dialog.ui.h:11
 msgid "_Paste instantly:"
 msgstr "立即粘贴(_P)："
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: ../panel-plugin/settings-dialog.ui.h:12
 msgid "<b>General</b>"
 msgstr "<b>通用</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: ../panel-plugin/settings-dialog.ui.h:13
 msgid "P_osition menu at mouse pointer"
 msgstr "在鼠标光标处放置菜单"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
+#: ../panel-plugin/settings-dialog.ui.h:14
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "在鼠标光标位置弹出菜单，仅用于 xfce4-popup-clipman 命令"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr "在鼠标指针位置弹出菜单：对于 xfce4-popup-clipman 命令特别有用"
 
-#: ../panel-plugin/settings-dialog.ui.h:13
+#: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
 msgstr "最大项目: "
 
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: ../panel-plugin/settings-dialog.ui.h:16
 msgid "<b>Menu</b>"
 msgstr "<b>菜单</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
+#: ../panel-plugin/settings-dialog.ui.h:17
 msgid "_Behavior"
 msgstr "行为(_B)"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
+#: ../panel-plugin/settings-dialog.ui.h:18
 msgid "<b>_Enable automatic actions</b>"
 msgstr "<b>启用自动动作(_E) </b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: ../panel-plugin/settings-dialog.ui.h:19
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
 msgstr "如果选中，将尝试使用正则表达式匹配剪贴板文本并在菜单中自动显示可能的动作。\n否则只在调用“xfce4-popup-clipman-actions”（以及存在匹配项）时显示菜单"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "_Show actions by holding Control"
-msgstr "按住 Ctrl 以显示动作（_S)"
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr "选择结束(鼠标或键盘)且仍按住 Ctrl 时，会显示匹配动作的弹出窗口"
-
 #: ../panel-plugin/settings-dialog.ui.h:21
-msgid "S_kip actions by holding Control"
-msgstr "通过按住 Ctrl 跳过动作(_K)"
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr "当选择完成且 Ctrl 键仍然被按下时，将显示或隐藏匹配操作的弹出式菜单"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "选择结束(鼠标或键盘)且仍按住 Ctrl 时，会跳过匹配动作的弹出窗口"
+msgid "_Pressing Ctrl during selection:"
+msgstr "在选取时按下 Ctrl 键: (_P)"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -283,111 +331,71 @@ msgid "Edit Action"
 msgstr "编辑动作"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: ../panel-plugin/settings-dialog.ui.h:42
+msgid "_OK"
+msgstr "确定(_O)"
+
+#: ../panel-plugin/settings-dialog.ui.h:43
 msgid "Name:"
 msgstr "名称："
 
-#: ../panel-plugin/settings-dialog.ui.h:42
+#: ../panel-plugin/settings-dialog.ui.h:44
 msgid "Pattern:"
 msgstr "类型："
 
-#: ../panel-plugin/settings-dialog.ui.h:43
+#: ../panel-plugin/settings-dialog.ui.h:45
 msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
 msgstr "您可以在命令中使用 “\\1”、“\\2” 等替换参数。参数 “\\0” 代表完整文本。该模式始终固定在特殊字符 ^$ 内"
 
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid "Activate only on manual copy"
-msgstr "仅在手动复制时激活"
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid ""
-"By default the action is triggered by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "默认为选中即激活此动作，如果只需要在您手动复制时执行此动作则选中此选项"
-
 #: ../panel-plugin/settings-dialog.ui.h:46
+msgid "Activate on manual copy instead of selection"
+msgstr "启用手动复制而非选择"
+
+#: ../panel-plugin/settings-dialog.ui.h:47
+msgid ""
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr "默认情况下，该操作是由选取触发的：若想改成在您进行手动复制时触发该操作，请选中此选项。请注意，在这种情况下，Ctrl 键不再起作用。"
+
+#: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
 msgstr "<b>动作</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:47
+#: ../panel-plugin/settings-dialog.ui.h:49
 msgid "Command:"
 msgstr "命令："
 
-#: ../panel-plugin/settings-dialog.ui.h:48
+#: ../panel-plugin/settings-dialog.ui.h:50
 msgid "<b>Commands</b>"
 msgstr "<b>命令</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:49
+#: ../panel-plugin/settings-dialog.ui.h:51
 msgid "Type here your custom text, for example a URL, a filename, etc."
 msgstr "在此处输入您的自定义文本，例如 URL，文件名等。"
 
-#: ../panel-plugin/settings-dialog.ui.h:50
+#: ../panel-plugin/settings-dialog.ui.h:52
 msgid "Regular expression"
 msgstr "正则表达"
 
-#: ../panel-plugin/main-panel-plugin.c:111
-#: ../panel-plugin/main-status-icon.c:159
+#: ../panel-plugin/main-panel-plugin.c:117
+#: ../panel-plugin/main-status-icon.c:142
 msgid "_Disable"
 msgstr "禁用(_D)"
 
-#: ../panel-plugin/actions.c:368
+#: ../panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
 msgstr "未能执行命令 “%s”\n\n%s"
-
-#: ../panel-plugin/menu.c:255
-msgid "Are you sure you want to clear the history?"
-msgstr "您确定要清除历史吗？"
-
-#: ../panel-plugin/menu.c:260
-msgid "Don't ask again"
-msgstr "不再询问"
-
-#: ../panel-plugin/menu.c:306
-msgid "Unable to open the clipman history dialog"
-msgstr "无法打开 Clipman 历史记录对话框"
-
-#: ../panel-plugin/menu.c:455
-msgid "Could not generate QR-Code."
-msgstr "无法生成二维码。"
-
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:469 ../panel-plugin/xfce4-clipman-history.c:334
-msgid "Clipboard is empty"
-msgstr "剪贴板是空的"
-
-#: ../panel-plugin/menu.c:602
-msgid "_Show full history..."
-msgstr "显示完整的历史记录(_S)..."
-
-#: ../panel-plugin/menu.c:608
-msgid "_Clear history"
-msgstr "清除历史(_C)"
-
-#: ../panel-plugin/menu.c:615
-msgid "_Clipman settings..."
-msgstr "Clipman 设置(_C)..."
-
-#: ../panel-plugin/plugin.c:321
-msgid "Contributors:"
-msgstr "贡献者："
-
-#: ../panel-plugin/plugin.c:335
-msgid "Clipboard Manager for Xfce"
-msgstr "Xfce 剪贴板管理器"
-
-#: ../panel-plugin/plugin.c:343
-msgid "translator-credits"
-msgstr "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\nHunt Xu <huntxu@live.cn>, 2009.\nChipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
-
-#: ../panel-plugin/plugin.c:357
-msgid "Unable to open the settings dialog"
-msgstr "未能打开设置对话框"
 
 #: ../panel-plugin/common.c:29
 msgid ""
@@ -406,33 +414,50 @@ msgstr "您可以使用“ xfce4-clipman”启动它。"
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "剪贴板管理器守护程序未运行。"
 
-#: ../panel-plugin/xfce4-clipman-history.c:256
-msgid "Enter search phrase here"
-msgstr "在此处输入搜索词组"
+#: ../panel-plugin/menu.c:245
+msgid "Are you sure you want to clear the history?"
+msgstr "您确定要清除历史吗？"
 
-#: ../panel-plugin/xfce4-clipman-history.c:414
-#, c-format
-msgid "_Paste"
-msgstr "粘贴(_P)"
+#: ../panel-plugin/menu.c:250
+msgid "Don't ask again"
+msgstr "不再询问"
 
-#: ../panel-plugin/xfce4-clipman-history.c:419
-#, c-format
-msgid "_Copy"
-msgstr "复制(_C)"
+#: ../panel-plugin/menu.c:299
+msgid "Unable to open the Clipman history dialog"
+msgstr "无法打开 Clipman 历史记录对话框"
 
-#: ../panel-plugin/xfce4-clipman-history.c:435
-msgid "Clipman History"
-msgstr "Clipman 历史"
+#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
+msgid "_Clear history"
+msgstr "清除历史(_C)"
 
-#: ../panel-plugin/xfce4-clipman-history.c:449
-#: ../panel-plugin/xfce4-clipman-history.c:451
-msgid "_Settings"
-msgstr "设置(_S)"
+#: ../panel-plugin/menu.c:454
+msgid "_Clear clipboard"
+msgstr "清空剪贴板(_C)"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "剪贴板管理器设置"
+#: ../panel-plugin/menu.c:500
+msgid "Could not generate QR-Code."
+msgstr "无法生成二维码。"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "自定义剪贴板"
+#: ../panel-plugin/menu.c:613
+msgid "_Show full history..."
+msgstr "显示完整的历史记录(_S)..."
+
+#: ../panel-plugin/menu.c:630
+msgid "_Clipman settings..."
+msgstr "Clipman 设置(_C)..."
+
+#: ../panel-plugin/plugin.c:329
+msgid "Contributors:"
+msgstr "贡献者："
+
+#: ../panel-plugin/plugin.c:343
+msgid "Clipboard Manager for Xfce"
+msgstr "Xfce 剪贴板管理器"
+
+#: ../panel-plugin/plugin.c:351
+msgid "translator-credits"
+msgstr "Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.\nHunt Xu <huntxu@live.cn>, 2009.\nChipong Luo <chipong.luo@yahoo.com>, 2011, 2012。"
+
+#: ../panel-plugin/plugin.c:365
+msgid "Unable to open the settings dialog"
+msgstr "未能打开设置对话框"

@@ -36,11 +36,12 @@
 struct _ClipmanHistoryPrivate
 {
   GSList                       *items;
-  const ClipmanHistoryItem     *item_to_restore;
+  const ClipmanHistoryItem     *image_to_restore;
   guint                         max_texts_in_history;
   guint                         max_images_in_history;
   gboolean                      save_on_quit;
   gboolean                      reorder_items;
+  gint                          scale_factor;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
@@ -179,10 +180,24 @@ _clipman_history_add_item (ClipmanHistory *history,
 
   /* Prepend item to start of the history */
   history->priv->items = g_slist_prepend (history->priv->items, item);
-  history->priv->item_to_restore = item;
 
   /* Emit signal */
   g_signal_emit (history, signals[ITEM_ADDED], 0);
+}
+
+static void
+_clipman_history_image_set_preview (ClipmanHistory *history,
+                                    ClipmanHistoryItem *item)
+{
+  gint size;
+
+  g_return_if_fail (item->type == CLIPMAN_HISTORY_TYPE_IMAGE);
+
+  if (item->preview.image != NULL)
+    g_object_unref (item->preview.image);
+
+  size = 128 * history->priv->scale_factor;
+  item->preview.image = gdk_pixbuf_scale_simple (item->content.image, size, size, GDK_INTERP_BILINEAR);
 }
 
 /*
@@ -240,10 +255,10 @@ clipman_history_add_text (ClipmanHistory *history,
                           const gchar *text)
 {
   ClipmanHistoryItem *item;
-  gchar *tmp1, *tmp2;
-  const gchar *offset;
-  gint preview_length = 48;
   GSList *list;
+
+  if (text == NULL || *text == '\0')
+    return;
 
   /* Search for a previously existing content */
   list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
@@ -258,7 +273,6 @@ clipman_history_add_text (ClipmanHistory *history,
         }
       else
         {
-          history->priv->item_to_restore = item;
           return;
         }
     }
@@ -270,38 +284,8 @@ clipman_history_add_text (ClipmanHistory *history,
   item->type = CLIPMAN_HISTORY_TYPE_TEXT;
   item->content.text = g_strdup (text);
 
-  /* Strip white spaces for preview */
-  tmp2 = tmp1 = g_strdup (text);
-
-  g_strchug (tmp2);
-
-  tmp2 = g_strstr_len (tmp2, preview_length, "  ");
-  while (tmp2)
-    {
-      g_strchug (++tmp2);
-      /* We've already parsed `tmp2 - tmp1` chars */
-      tmp2 = g_strstr_len (tmp2, preview_length - (tmp2 - tmp1), "  ");
-    }
-
-  /* Shorten preview */
-  if (g_utf8_strlen (tmp1, -1) > preview_length)
-    {
-      offset = g_utf8_offset_to_pointer (tmp1, preview_length);
-      tmp2 = g_strndup (tmp1, offset - tmp1);
-      g_free (tmp1);
-      g_strchomp (tmp2);
-
-      tmp1 = g_strconcat (tmp2, "...", NULL);
-      g_free (tmp2);
-    }
-  else
-    g_strchomp (tmp1);
-
-  /* Cleanup special characters from preview */
-  g_strdelimit (tmp1, "\n\r\t", ' ');
-
   /* Set preview */
-  item->preview.text = tmp1;
+  item->preview.text = clipman_common_shorten_preview (text);
 
   _clipman_history_add_item (history, item);
 }
@@ -328,11 +312,12 @@ clipman_history_add_image (ClipmanHistory *history,
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
-  item->preview.image = gdk_pixbuf_scale_simple (GDK_PIXBUF (image), 128, 128, GDK_INTERP_BILINEAR);
+  _clipman_history_image_set_preview (history, item);
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
   _clipman_history_add_item (history, item);
+  history->priv->image_to_restore = item;
 }
 
 /**
@@ -364,21 +349,22 @@ clipman_history_get_max_texts_in_history (ClipmanHistory *history)
 }
 
 /**
- * clipman_history_get_item_to_restore:
+ * clipman_history_get_image_to_restore:
  * @history: a #ClipmanHistory
  *
- * Returns the most recent item that has been added to #ClipmanHistory.
+ * Returns the image to restore, set via clipman_history_set_image_to_restore()
+ * or when adding a new image to history via clipman_history_add_image()
  *
  * Returns: a #const #ClipmanHistoryItem
  */
 const ClipmanHistoryItem *
-clipman_history_get_item_to_restore (ClipmanHistory *history)
+clipman_history_get_image_to_restore (ClipmanHistory *history)
 {
-  return history->priv->item_to_restore;
+  return history->priv->image_to_restore;
 }
 
 /**
- * clipman_history_set_item_to_restore:
+ * clipman_history_set_image_to_restore:
  * @history: a #ClipmanHistory
  * @item: a #ClipmanHistoryItem that must exist inside #ClipmanHistory
  *
@@ -387,16 +373,18 @@ clipman_history_get_item_to_restore (ClipmanHistory *history)
  * must be set as being restored with clipman_collector_set_is_restoring(),
  * than this function is called with the item that contains the image that is
  * getting restored.
- * Instead of being destroyed/recreated inside the history, it will remain at
- * the same position in the history (unlike being pushed to the top) but will
- * be marked as being the most recent item in the history.
  */
 void
-clipman_history_set_item_to_restore (ClipmanHistory *history,
-                                     const ClipmanHistoryItem *item)
+clipman_history_set_image_to_restore (ClipmanHistory *history,
+                                      const ClipmanHistoryItem *item)
 {
-  /* TODO Verify that the item exists in the history */
-  history->priv->item_to_restore = item;
+  history->priv->image_to_restore = item;
+
+  if (item != NULL && history->priv->reorder_items)
+    {
+      history->priv->items = g_slist_remove (history->priv->items, item);
+      history->priv->items = g_slist_prepend (history->priv->items, (gpointer) item);
+    }
 }
 
 /**
@@ -417,9 +405,31 @@ clipman_history_clear (ClipmanHistory *history)
 
   g_slist_free (history->priv->items);
   history->priv->items = NULL;
-  history->priv->item_to_restore = NULL;
+  history->priv->image_to_restore = NULL;
 
   g_signal_emit (history, signals[CLEAR], 0);
+}
+
+void
+clipman_history_set_scale_factor (ClipmanHistory *history,
+                                  GParamSpec *pspec,
+                                  GtkWidget *widget)
+{
+  gint scale_factor;
+
+  g_return_if_fail (GTK_IS_WIDGET (widget));
+
+  scale_factor = gtk_widget_get_scale_factor (widget);
+  if (scale_factor == history->priv->scale_factor)
+    return;
+
+  history->priv->scale_factor = scale_factor;
+  for (GSList *lp = history->priv->items; lp != NULL; lp = lp->next)
+    {
+      ClipmanHistoryItem *item = lp->data;
+      if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+        _clipman_history_image_set_preview (history, item);
+    }
 }
 
 ClipmanHistory *
@@ -446,8 +456,6 @@ static void
 clipman_history_class_init (ClipmanHistoryClass *klass)
 {
   GObjectClass *object_class;
-
-  clipman_history_parent_class = g_type_class_peek_parent (klass);
 
   object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = clipman_history_finalize;
@@ -503,7 +511,8 @@ static void
 clipman_history_init (ClipmanHistory *history)
 {
   history->priv = clipman_history_get_instance_private (history);
-  history->priv->item_to_restore = NULL;
+  history->priv->image_to_restore = NULL;
+  history->priv->scale_factor = 1;
 }
 
 static void
@@ -533,6 +542,8 @@ clipman_history_set_property (GObject *object,
 
     case SAVE_ON_QUIT:
       priv->save_on_quit = g_value_get_boolean (value);
+      if (!priv->save_on_quit)
+        clipman_history_clear (CLIPMAN_HISTORY (object));
       break;
 
     case REORDER_ITEMS:

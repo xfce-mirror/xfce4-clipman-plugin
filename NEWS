@@ -1,3 +1,117 @@
+1.6.5 (2023-09-29)
+=====
+- wayland: Hide skip-action-on-key-down setting
+- wayland: Hide persistent-primary-clipboard setting
+- Add set-text action to plugin app to allow D-Bus calls
+- Add Wayland impl for clipboard-manager
+- Make clipboard manager an interface and add X11 impl
+- Rename x11-clipboard-manager to clipboard-manager
+- Move paste_on_activate() to common
+- Make X11 dependencies optional and guard X11 code paths
+- cleanup: Remove unused project files
+- cleanup: Remove useless variable assignment
+- tests: Add missing include
+- history-dialog: Fix memory leak
+- ui: Mark 2 strings translatable
+- history-dialog: Keep paste-on-activate in sync with the settings (V2)
+- settings: Fix tooltip text
+- status-icon: Enable tooltip
+- status-icon: Add missing sanity check
+- popup-clipman: Replace deprecated gdk_keyboard_grab()
+- Replace deprecated gtk_menu_popup() when possible
+- collector: Do not restore default clipboard if not really empty
+- menu: Fix translated string
+- Update URLs
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), English (United Kingdom),
+  Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian
+
+1.6.4 (2023-07-31)
+=====
+- history-dialog: Fix memory leak
+- history-dialog: Keep paste-on-activate in sync with the settings
+- history-dialog: Remove useless creation/destruction of menu
+- Simplify main app creation
+- history-dialog: Better fit with the way GApplication works
+- settings: Remove wrong signal handler
+- settings: Better fit with the way GApplication works
+- popup-clipman: Enable translations
+- popup-clipman: Properly use GApplication
+- Move default clipboard restoration from manager to collector
+- gsd-clipboard: Add missing sanity check
+- Remove dead code
+- menu: Add some icons
+- history: Clear history when it's disabled
+- menu: Shift entries in reverse order
+- Revert "Enable reverse-order option"
+- menu: Improve management of clear history entries
+- menu: Improve management of primary clipboard entry
+- history: Refactor item_to_restore into image_to_restore
+- settings: Align paste-on-activate combo like other widgets
+- collector: Properly sync primary clipboard when default is empty
+- collector: Fix primary timeout management
+- collector: Remove unused function
+- Make 'add-primary-clipboard' management internal to the collector
+- Make 'add-primary-clipboard' imply 'persistent-primary-clipboard'
+- settings: Fix 'skip-action-on-key-down' sync and improve strings
+- collector: Make actions work again for selections
+- collector: Fix memory leak
+- collector: Properly disconnect signal handlers
+- gsd-clipboard: Properly reset source id
+- menu: Fix crash when selecting QR code
+- Remove XfcePluggable from settings desktop file
+- build: tests: Fix compiler warnings
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), English (United Kingdom),
+  Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian
+
+1.6.3 (2023-03-20)
+=====
+- Update copyright year and bug report address
+- history: Fix inactive copy button (Fixes #54)
+- Shorten the selection text in menu
+- Move text shorten code to common function
+- build: Fix autotools warnings
+- Allow to clear history when only selection is visible
+- Fix blurry images in plugin menu when UI scale > 1
+- Fix link in README
+- Remove ENABLE_NLS ifdefs
+- Update `.gitignore`
+- Add primary clipboard persistence
+- [PATCH] build: Fix intltool lock file problem during make distcheck
+- Fix text preview
+- Replace `g_malloc0()` with safer alternative `g_new0()`
+- Use `filename` before freeing it
+- Fix invalid "Show full history..." menu item behavior (#29)
+- Fix GLib macro expansion compiler warnings
+- Update copyright year
+- Check if already running before adding as panel plugin
+- Do not try to register application twice
+- Correctly handle a timeout source life cycle within a function
+- Fix Gtk-CRITICAL when showing main menu
+- Require glib 2.60
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hungarian, Icelandic, Indonesian,
+  Interlingue, Italian, Japanese, Kazakh, Korean, Lithuanian, Malay,
+  Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese,
+  Portuguese (Brazil), Russian, Serbian, Slovak, Slovenian, Spanish,
+  Swedish, Thai, Turkish, Ukrainian
+
 1.6.1
 ======
 - Add translateable files to POTFILES (Bug #16608)

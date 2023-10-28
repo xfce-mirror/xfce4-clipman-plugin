@@ -21,8 +21,6 @@
 #endif
 
 #include <glib/gstdio.h>
-#include <X11/Xlib.h>
-#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
 #include <libxfce4util/libxfce4util.h>
@@ -41,69 +39,72 @@
 
 
 /*
- * Private functions
+ * Plugin actions
  */
 
-static gboolean
-clipboard_manager_ownership_exists (void)
+static void
+plugin_action_set_text (GSimpleAction *action,
+                        GVariant *value,
+                        gpointer data)
 {
-  Display *display;
-  Atom atom;
-
-  display = gdk_x11_get_default_xdisplay ();
-  atom = XInternAtom (display, "CLIPBOARD_MANAGER", FALSE);
-  return XGetSelectionOwner (display, atom);
+  gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), g_variant_get_string (value, NULL), -1);
 }
+
+static const GActionEntry plugin_actions[] =
+{
+  { "set-text", plugin_action_set_text, "s", NULL, NULL },
+};
+
+
 
 /*
  * Plugin functions
  */
 
 MyPlugin *
-plugin_register (gboolean panel_plugin)
+plugin_register (void)
 {
-  MyPlugin *plugin = g_slice_new0 (MyPlugin);
+  MyPlugin *plugin;
+  GtkApplication *app;
   GError *error = NULL;
 
   /* Locale */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
 
-  /* Daemon */
-  if (!clipboard_manager_ownership_exists ())
-    {
-      plugin->daemon = gsd_clipboard_manager_new ();
-      gsd_clipboard_manager_start (plugin->daemon, NULL);
-    }
-
-  plugin->app = gtk_application_new ("org.xfce.clipman", 0);
-
-  /* all this has already been done in main-status-icon.c in the case of a status icon */
-  if (panel_plugin)
-    {
-      g_application_register (G_APPLICATION (plugin->app), NULL, &error);
-      if (error != NULL)
-        {
-          g_warning ("Unable to register GApplication: %s", error->message);
-          g_error_free (error);
-          error = NULL;
-        }
-
-      if (g_application_get_is_remote (G_APPLICATION (plugin->app)))
-        {
-          g_message ("Primary instance org.xfce.clipman already running");
-          clipman_common_show_info_dialog ();
-          g_object_unref (plugin->app);
-          return NULL;
-        }
-
-      g_set_application_name (_("Clipman"));
-    }
-
-  g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
-
   /* Xfconf */
-  xfconf_init (NULL);
+  if (!xfconf_init (&error))
+    {
+      g_critical ("Xfconf initialization failed: %s", error->message);
+      g_error_free (error);
+      return NULL;
+    }
+
+  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  if (!g_application_register (G_APPLICATION (app), NULL, &error))
+    {
+      g_critical ("Unable to register GApplication: %s", error->message);
+      g_error_free (error);
+      g_object_unref (app);
+      return NULL;
+    }
+
+  if (g_application_get_is_remote (G_APPLICATION (app)))
+    {
+      g_message ("Primary instance org.xfce.clipman already running");
+      clipman_common_show_info_dialog ();
+      g_object_unref (app);
+      return NULL;
+    }
+
+  g_set_application_name (_("Clipman"));
+  plugin = g_slice_new0 (MyPlugin);
+  plugin->app = app;
+  g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
+  g_action_map_add_action_entries (G_ACTION_MAP (app), plugin_actions, G_N_ELEMENTS (plugin_actions), plugin);
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
+
+  /* Daemon */
+  plugin->daemon = xcp_clipboard_manager_get ();
 
   /* ClipmanActions */
   plugin->actions = clipman_actions_get ();
@@ -125,6 +126,8 @@ plugin_register (gboolean panel_plugin)
   plugin->collector = clipman_collector_get ();
   xfconf_g_property_bind (plugin->channel, "/settings/add-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "add-primary-clipboard");
+  xfconf_g_property_bind (plugin->channel, "/settings/persistent-primary-clipboard",
+                          G_TYPE_BOOLEAN, plugin->collector, "persistent-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/history-ignore-primary-clipboard",
                           G_TYPE_BOOLEAN, plugin->collector, "history-ignore-primary-clipboard");
   xfconf_g_property_bind (plugin->channel, "/settings/enable-actions",
@@ -203,9 +206,6 @@ plugin_load (MyPlugin *plugin)
   g_key_file_free (keyfile);
   g_strfreev (texts);
   g_free (filename);
-
-  /* Set no current item */
-  clipman_history_set_item_to_restore (plugin->history, NULL);
 }
 
 void
@@ -294,11 +294,7 @@ plugin_save (MyPlugin *plugin)
 void
 plugin_free (MyPlugin *plugin)
 {
-  if (plugin->daemon != NULL)
-    {
-      gsd_clipboard_manager_stop (plugin->daemon);
-      g_object_unref (plugin->daemon);
-    }
+  g_object_unref (plugin->daemon);
   gtk_widget_destroy (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);
@@ -308,7 +304,8 @@ plugin_free (MyPlugin *plugin)
 #ifdef PANEL_PLUGIN
   gtk_widget_destroy (plugin->button);
 #elif defined (STATUS_ICON)
-  gtk_widget_destroy (plugin->popup_menu);
+  if (plugin->popup_menu != NULL)
+    gtk_widget_destroy (plugin->popup_menu);
 #endif
 
   g_object_unref (plugin->app);
@@ -340,9 +337,9 @@ plugin_about (MyPlugin *plugin)
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
                          "version", PACKAGE_VERSION,
-                         "copyright", "Copyright © 2003-2021 The Xfce development team",
+                         "copyright", "Copyright © 2003-2023 The Xfce development team",
                          "license", license,
-                         "website", "https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin",
+                         "website", PACKAGE_URL,
                          "website-label", "docs.xfce.org",
                          "authors", authors,
                          "documenters", documenters,
@@ -368,37 +365,56 @@ plugin_configure (MyPlugin *plugin)
   }
 }
 
-static void
-plugin_popup_menu_real (GtkClipboard *clipboard,
-                        const gchar  *text,
-                        gpointer      data)
+void
+plugin_popup_menu (MyPlugin *plugin)
 {
-  MyPlugin *plugin = data;
+  GdkEvent *event = gtk_get_current_event ();
+  gboolean popup_command = (event == NULL);
 
-  /* store primary selection for later use */
+  if (popup_command)
+    {
+      GdkSeat *seat = gdk_display_get_default_seat (gdk_display_get_default ());
+      event = gdk_event_new (GDK_BUTTON_PRESS);
+      event->button.window = g_object_ref (gdk_get_default_root_window ());
+      gdk_event_set_device (event, gdk_seat_get_pointer (seat));
+    }
+
+  /* store clipboard contents for later use when the menu is shown: we can't do this
+   * at that time as it iterates the main loop and it causes critical warnings */
+  g_object_set_data_full (G_OBJECT (plugin->menu), "selection-clipboard",
+                          gtk_clipboard_wait_for_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD)), g_free);
   g_object_set_data_full (G_OBJECT (plugin->menu), "selection-primary",
-                          g_strdup (text), g_free);
+                          gtk_clipboard_wait_for_text (gtk_clipboard_get (GDK_SELECTION_PRIMARY)), g_free);
 
   if (xfconf_channel_get_bool (plugin->channel, "/tweaks/popup-at-pointer", FALSE))
     {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                      NULL, NULL,
-                      0, gtk_get_current_event_time ());
-G_GNUC_END_IGNORE_DEPRECATIONS
+#ifdef PANEL_PLUGIN
+      if (!popup_command)
+        {
+          gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+          xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+        }
+#endif
+      gtk_menu_popup_at_pointer (GTK_MENU (plugin->menu), event);
     }
   else
     {
 #ifdef PANEL_PLUGIN
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
+#if LIBXFCE4PANEL_CHECK_VERSION (4, 17, 2)
+      xfce_panel_plugin_popup_menu (plugin->panel_plugin, GTK_MENU (plugin->menu), plugin->button, event);
+#else
+      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
       gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                       plugin->menu_position_func, plugin,
                       0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
-      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
+#endif
+
 #elif defined (STATUS_ICON)
+
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_set_screen (GTK_MENU (plugin->menu),
                            gtk_status_icon_get_screen (plugin->status_icon));
@@ -407,30 +423,7 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
                       0, gtk_get_current_event_time ());
 G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
-  }
-}
+    }
 
-static void
-plugin_popup_menu_primary (GtkClipboard *clipboard,
-                           const gchar  *text,
-                           gpointer      data)
-{
-  MyPlugin *plugin = data;
-
-  /* store clipboard selection for later use */
-  g_object_set_data_full (G_OBJECT (plugin->menu), "selection-clipboard",
-                          g_strdup (text), g_free);
-
-  /* request primary selection */
-  gtk_clipboard_request_text (gtk_clipboard_get (GDK_SELECTION_PRIMARY),
-                              plugin_popup_menu_real, plugin);
-}
-
-void
-plugin_popup_menu (MyPlugin *plugin)
-{
-  /* first, request text of each clipboard asynchronously, to not dispatch
-   * current event associated to menu popup */
-  gtk_clipboard_request_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD),
-                              plugin_popup_menu_primary, plugin);
+  gdk_event_free (event);
 }

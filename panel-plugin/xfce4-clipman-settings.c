@@ -72,7 +72,7 @@ static guint test_regex_changed_timeout = 0;
 
 
 static void
-prop_dialog_run (void)
+prop_dialog_init (void)
 {
   GtkWidget *action_dialog;
   GtkWidget *combobox;
@@ -83,12 +83,16 @@ prop_dialog_run (void)
   /* Behavior tab: General */
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "add-selections")),
                                 DEFAULT_ADD_PRIMARY_CLIPBOARD);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "persistent-selections")),
+                                DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD);
 #ifdef HAVE_QRENCODE
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "show-qr-code")),
                                 DEFAULT_SHOW_QR_CODE);
 #else
   gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
 #endif
+  if (!WINDOWING_IS_X11 ())
+    gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "persistent-selections")));
 
   /* paste-on-activate combobox */
   combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-paste-on-activate"));
@@ -98,6 +102,8 @@ prop_dialog_run (void)
   /* TRANSLATORS: Keyboard shortcut */
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("Shift+Insert"));
   gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
+  if (!WINDOWING_IS_X11 ())
+    gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "hbox1")));
 
 #ifdef HAVE_QRENCODE
   xfconf_g_property_bind (xfconf_channel, "/settings/show-qr-code", G_TYPE_BOOLEAN,
@@ -105,6 +111,8 @@ prop_dialog_run (void)
 #endif
   xfconf_g_property_bind (xfconf_channel, "/settings/add-primary-clipboard", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "add-selections"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/settings/persistent-primary-clipboard", G_TYPE_BOOLEAN,
+                          gtk_builder_get_object (builder, "persistent-selections"), "active");
   xfconf_g_property_bind (xfconf_channel, "/tweaks/paste-on-activate",
                           G_TYPE_UINT, G_OBJECT (combobox), "active");
 
@@ -125,15 +133,17 @@ prop_dialog_run (void)
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
 
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-1")),
-                                DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "skip-action-2")),
-                                !DEFAULT_SKIP_ACTION_ON_KEY_DOWN);
+  combobox = GTK_WIDGET (gtk_builder_get_object (builder, "combobox-skip-action"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("shows actions"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox), _("hides actions"));
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combobox), 0);
+  if (!WINDOWING_IS_X11 ())
+    gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "hbox-skip-action")));
 
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "box-actions"), "sensitive");
-  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down", G_TYPE_BOOLEAN,
-                          gtk_builder_get_object (builder, "skip-action-2"), "active");
+  xfconf_g_property_bind (xfconf_channel, "/tweaks/skip-action-on-key-down",
+                          G_TYPE_BOOLEAN, G_OBJECT (combobox), "active");
 
   g_signal_connect (gtk_builder_get_object (builder, "button-add-action"), "clicked", G_CALLBACK (cb_add_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
@@ -148,7 +158,7 @@ prop_dialog_run (void)
   g_signal_connect (gtk_builder_get_object (builder, "regex-entry"), "changed", G_CALLBACK (cb_test_regex_changed), NULL);
 
   g_signal_connect_swapped (gtk_builder_get_object (builder, "settings-dialog-button-close"), "clicked",
-                             G_CALLBACK (gtk_dialog_response), settings_dialog);
+                            G_CALLBACK (gtk_widget_destroy), settings_dialog);
 
   setup_actions_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "actions")));
   setup_commands_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
@@ -167,9 +177,6 @@ prop_dialog_run (void)
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
   g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
-
-  g_signal_connect_after (gtk_builder_get_object (builder, "button-delete-command"), "clicked",
-                          G_CALLBACK (gtk_dialog_response), NULL);
 
   g_signal_connect_swapped (gtk_builder_get_object (builder, "action-dialog-button-cancel"), "clicked",
                              G_CALLBACK (gtk_dialog_response), action_dialog);
@@ -212,16 +219,6 @@ prop_dialog_run (void)
                           gtk_builder_get_object (builder, "max-texts-in-history"), "sensitive");
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "label-history-size"), "sensitive");
-
-  /* Run the dialog */
-  while ((gtk_dialog_run (GTK_DIALOG (settings_dialog))) == 2);
-
-  gtk_widget_destroy (action_dialog);
-  gtk_widget_destroy (settings_dialog);
-  g_object_unref (G_OBJECT(builder));
-
-  /* Save the actions */
-  clipman_actions_save (actions);
 }
 
 static void
@@ -229,11 +226,10 @@ cb_show_help (GtkButton *button)
 {
   gchar *docpath = NULL;
   gchar *command = NULL;
-
-  /* Find localized documentation path on disk */
-#ifdef ENABLE_NLS
   gchar *locale = NULL;
   gchar *offset;
+
+  /* Find localized documentation path on disk */
 #ifdef HAVE_LOCALE_H
   locale = g_strdup (setlocale (LC_MESSAGES, ""));
   if (locale != NULL)
@@ -271,9 +267,6 @@ cb_show_help (GtkButton *button)
     }
 
   g_free (locale);
-#else
-  docpath = g_strdup (DOCDIR"/html/C/index.html");
-#endif
 
   /* Revert to online documentation if not available on disk */
   if (g_file_test (docpath, G_FILE_TEST_EXISTS))
@@ -285,7 +278,7 @@ cb_show_help (GtkButton *button)
   else
     {
       g_free (docpath);
-      docpath = g_strdup ("http://docs.xfce.org/panel-plugins/clipman/start");
+      docpath = g_strdup (PACKAGE_URL);
     }
 
   /* Open documentation in webbrowser */
@@ -903,47 +896,75 @@ cb_set_action_dialog_button_ok (GtkWidget *widget)
 
 
 
+static void
+shutdown (GApplication *app,
+          gpointer user_data)
+{
+  clipman_actions_save (actions);
+  g_object_unref (actions);
+  g_object_unref (builder);
+  g_object_unref (xfconf_channel);
+  xfconf_shutdown ();
+}
+
+
+
+static gint
+command_line (GApplication *app,
+              GApplicationCommandLine *command_line,
+              gpointer user_data)
+{
+  GError *error = NULL;
+
+  if (g_application_command_line_get_is_remote (command_line))
+    {
+      g_application_activate (app);
+      return EXIT_SUCCESS;
+    }
+
+  if (!xfconf_init (&error))
+    {
+      g_critical ("Xfconf initialization failed: %s", error->message);
+      g_error_free (error);
+      return EXIT_FAILURE;
+    }
+
+  builder = gtk_builder_new ();
+  if (!gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, &error))
+    {
+      g_critical ("GtkBuilder loading failed: %s", error->message);
+      g_error_free (error);
+      g_object_unref (builder);
+      return EXIT_FAILURE;
+    }
+
+  settings_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "settings-dialog"));
+  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), settings_dialog);
+  g_signal_connect (app, "shutdown", G_CALLBACK (shutdown), NULL);
+  xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
+  actions = clipman_actions_get ();
+  prop_dialog_init ();
+  gtk_window_set_application (GTK_WINDOW (settings_dialog), GTK_APPLICATION (app));
+  gtk_widget_show (settings_dialog);
+
+  return EXIT_SUCCESS;
+}
+
+
+
 gint
 main (gint argc,
       gchar *argv[])
 {
   GtkApplication *app;
-  GError *error = NULL;
+  gint ret;
 
-  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, NULL);
-  xfconf_init (NULL);
-  gtk_init (&argc, &argv);
+  xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-  app = gtk_application_new ("org.xfce.Clipman", G_APPLICATION_FLAGS_NONE);
+  app = gtk_application_new ("org.xfce.clipman.settings", G_APPLICATION_HANDLES_COMMAND_LINE);
+  g_signal_connect (app, "command-line", G_CALLBACK (command_line), NULL);
+  ret = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
 
-  g_application_register (G_APPLICATION (app), NULL, &error);
-  if (error != NULL)
-  {
-    g_warning ("Unable to register GApplication: %s", error->message);
-    g_clear_error (&error);
-    return 1;
-  }
-
-  if (g_application_get_is_remote (G_APPLICATION (app)))
-  {
-    g_application_activate (G_APPLICATION (app));
-    g_object_unref (app);
-    return 0;
-  }
-
-  builder = gtk_builder_new ();
-  gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, NULL);
-
-  /* Main Dialog */
-  settings_dialog = GTK_WIDGET (gtk_builder_get_object (builder, "settings-dialog"));
-
-  g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), settings_dialog);
-
-  xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
-  actions = clipman_actions_get ();
-  prop_dialog_run ();
-  g_object_unref (xfconf_channel);
-  g_object_unref (actions);
-  xfconf_shutdown ();
-  return 0;
+  return ret;
 }
