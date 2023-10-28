@@ -481,7 +481,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                    g_param_spec_uint ("max-texts-in-history",
                                                       "MaxTextsInHistory",
                                                       "The number of maximum texts in history",
-                                                      5, 1000, DEFAULT_MAX_TEXTS_IN_HISTORY,
+                                                      5, 1000000, DEFAULT_MAX_TEXTS_IN_HISTORY,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
                                    MAX_IMAGES_IN_HISTORY,

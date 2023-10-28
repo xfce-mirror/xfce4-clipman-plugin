@@ -517,7 +517,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                    g_param_spec_uint ("max-menu-items",
                                                       "MaxMenuItems",
                                                       "Maximum amount of items displayed in the plugin's menu",
-                                                      1, 100, 15,
+                                                      1, 1000, 15,
                                                       G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
 }
 
