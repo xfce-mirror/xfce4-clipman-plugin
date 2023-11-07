@@ -1,3 +1,5 @@
+if ENABLE_WAYLAND
+
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-DG_LOG_DOMAIN=\"libprotocols\" \
@@ -10,7 +12,7 @@ libprotocols_built_sources = \
 	wlr-data-control-unstable-v1.c \
 	wlr-data-control-unstable-v1-client.h
 
-libprotocols_la_SOURCES = \
+nodist_libprotocols_la_SOURCES = \
 	wlr-data-control-unstable-v1.c
 
 libprotocols_la_CFLAGS = \
@@ -24,10 +26,10 @@ libprotocols_la_LDFLAGS = \
 libprotocols_la_LIBADD = \
 	$(WAYLAND_CLIENT_LIBS)
 
-%.c: %.xml
+%.c: $(WLR_PROTOCOLS_PKGDATADIR)/unstable/%.xml
 	$(AM_V_GEN) wayland-scanner private-code $< $@
 
-%-client.h: %.xml
+%-client.h: $(WLR_PROTOCOLS_PKGDATADIR)/unstable/%.xml
 	$(AM_V_GEN) wayland-scanner client-header $< $@
 
 DISTCLEANFILES = \
@@ -36,5 +38,7 @@ DISTCLEANFILES = \
 BUILT_SOURCES = \
 	$(libprotocols_built_sources)
 
+endif # ENABLE_WAYLAND
+
 EXTRA_DIST = \
-	wlr-data-control-unstable-v1.xml
+	wlr-protocols/unstable/wlr-data-control-unstable-v1.xml

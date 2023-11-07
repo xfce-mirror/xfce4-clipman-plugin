@@ -2,13 +2,8 @@ ACLOCAL_AMFLAGS = -I m4  ${ACLOCAL_FLAGS}
 
 NULL = 
 
-SUBDIRS =
-
-if ENABLE_WAYLAND
-SUBDIRS += protocols
-endif
-
-SUBDIRS +=								\
+SUBDIRS =								\
+	protocols								\
 	data								\
 	clipboard-manager								\
 	panel-plugin							\

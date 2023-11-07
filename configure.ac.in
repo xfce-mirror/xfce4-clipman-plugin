@@ -45,7 +45,7 @@ AC_CONFIG_MACRO_DIRS([m4])
 dnl ***************************
 dnl *** Initialize automake ***
 dnl ***************************
-AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2 foreign subdir-objects])
+AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2 foreign subdir-objects tar-ustar])
 AM_MAINTAINER_MODE()
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -103,11 +103,25 @@ XDT_CHECK_OPTIONAL_FEATURE([WAYLAND],
 if test x"$ENABLE_X11" != x"yes" -a x"$ENABLE_WAYLAND" != x"yes"; then
   AC_MSG_ERROR([Either both X11 and Wayland support was disabled, or required dependencies are missing. One of the two must be enabled.])
 fi
+
 if test x"$ENABLE_X11" != x"yes"; then
   dnl Do not check for optional X11 packages if X11 is disabled
   enable_libxtst=no
 fi
 XDT_CHECK_OPTIONAL_PACKAGE([LIBXTST], [xtst], [libxtst_min_version], [libxtst], [Libxtst support])
+
+if test x"$ENABLE_WAYLAND" = x"yes"; then
+  WLR_PROTOCOLS_PKGDATADIR=`$PKG_CONFIG --variable=pkgdatadir wlr-protocols 2>/dev/null || true`
+  if test x"$WLR_PROTOCOLS_PKGDATADIR" = x""; then
+    WLR_PROTOCOLS_PKGDATADIR="$ac_abs_confdir/protocols/wlr-protocols"
+    if test "$(echo "$WLR_PROTOCOLS_PKGDATADIR/"*)" = "$WLR_PROTOCOLS_PKGDATADIR/*"; then
+      AC_MSG_ERROR([$WLR_PROTOCOLS_PKGDATADIR seems empty, did you clone the wlr-protocols submodule?])
+    fi
+  fi
+  AC_MSG_CHECKING([for wlr-protocols])
+  AC_MSG_RESULT([$WLR_PROTOCOLS_PKGDATADIR])
+  AC_SUBST([WLR_PROTOCOLS_PKGDATADIR])
+fi
 
 XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [libqrencode_min_version], libqrencode, [QR Code support])
 
