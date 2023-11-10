@@ -107,11 +107,11 @@ msgstr "Mayús + Ins"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:133
 msgid "shows actions"
-msgstr ""
+msgstr "muestra acciones"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:134
 msgid "hides actions"
-msgstr ""
+msgstr "oculta acciones"
 
 #: ../panel-plugin/xfce4-clipman-settings.c:520
 msgid "<b>Reset actions</b>"
@@ -129,7 +129,7 @@ msgstr "Escriba aquí el término de búsqueda"
 #. Insert empty menu item
 #: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
 msgid "History is empty"
-msgstr ""
+msgstr "El historial esta vacio"
 
 #: ../panel-plugin/xfce4-clipman-history.c:356
 #, c-format
@@ -186,14 +186,14 @@ msgstr "Si está marcada, las selecciones se sincronizarán con el portapapeles 
 
 #: ../panel-plugin/settings-dialog.ui.h:6
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Persistir en las selecciones del mouse"
 
 #: ../panel-plugin/settings-dialog.ui.h:7
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Si está marcado, el portapapeles principal (pegar con el botón central) persistirá hasta la siguiente selección si se pierde la selección actual (por ejemplo, al hacer clic izquierdo en cualquier lugar de un área de texto)"
 
 #: ../panel-plugin/settings-dialog.ui.h:8
 msgid "_QR-Code support"
@@ -225,7 +225,7 @@ msgstr "_Menú en la posición del puntero del ratón"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Aparece el menú en la posición del puntero del mouse: especialmente útil para el comando xfce4-popup-clipman"
 
 #: ../panel-plugin/settings-dialog.ui.h:15
 msgid "Maximum items:"
@@ -253,11 +253,11 @@ msgstr "Si se marca, los textos del portapapeles se compararán con las expresio
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Cuando se realiza la selección y la tecla Control aún está presionada, el menú emergente para acciones coincidentes se mostrará u ocultará"
 
 #: ../panel-plugin/settings-dialog.ui.h:22
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Presionando Ctrl durante la selección:"
 
 #: ../panel-plugin/settings-dialog.ui.h:23
 msgid "Add action"
@@ -359,14 +359,14 @@ msgstr "Puede usar los parámetros de sustitución «\\1», «\\2» y siguientes
 
 #: ../panel-plugin/settings-dialog.ui.h:46
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Activar en copia manual en lugar de selección"
 
 #: ../panel-plugin/settings-dialog.ui.h:47
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "De forma predeterminada, la acción se activa mediante una selección: marque esta opción para activar la acción cuando realice una copia manual. Tenga en cuenta que en este caso la tecla Control ya no tiene ningún efecto."
 
 #: ../panel-plugin/settings-dialog.ui.h:48
 msgid "<b>Action</b>"
@@ -428,7 +428,7 @@ msgstr "No preguntar de nuevo"
 
 #: ../panel-plugin/menu.c:299
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "No se puede abrir el cuadro de diálogo del historial de Clipman"
 
 #: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
 msgid "_Clear history"
@@ -436,7 +436,7 @@ msgstr "_Borrar el historial"
 
 #: ../panel-plugin/menu.c:454
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Borrar portapapeles"
 
 #: ../panel-plugin/menu.c:500
 msgid "Could not generate QR-Code."
