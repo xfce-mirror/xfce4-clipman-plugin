@@ -332,7 +332,7 @@ msgstr "Eylemi Düzenle"
 
 #: ../panel-plugin/settings-dialog.ui.h:41
 msgid "_Cancel"
-msgstr "_İptal Et"
+msgstr "İ_ptal"
 
 #: ../panel-plugin/settings-dialog.ui.h:42
 msgid "_OK"
