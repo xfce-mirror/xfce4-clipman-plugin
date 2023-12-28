@@ -23,7 +23,7 @@
 		<commands>
 			<command>
 				<_name>Edit with Gimp</_name>
-				<exec>gimp-remote &quot;\0&quot;</exec>
+				<exec>gimp &quot;\0&quot;</exec>
 			</command>
 			<command>
 				<_name>View with Ristretto</_name>
