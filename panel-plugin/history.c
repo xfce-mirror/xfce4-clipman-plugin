@@ -235,7 +235,7 @@ __g_slist_compare_texts (gconstpointer a,
   const gchar *text = b;
   if (item->type != CLIPMAN_HISTORY_TYPE_TEXT)
     return -1;
-  return g_ascii_strcasecmp (item->content.text, text);
+  return g_strcmp0 (item->content.text, text);
 }
 
 /*
