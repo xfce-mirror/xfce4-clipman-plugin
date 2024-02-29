@@ -32,6 +32,7 @@ libdaemon_la_CFLAGS =							\
 	@WAYLAND_CLIENT_CFLAGS@							\
 	@GIO_UNIX_CFLAGS@							\
 	@GTK_CFLAGS@							\
+	@LIBXFCE4UI_CFLAGS@						\
 	$(NULL)
 
 libdaemon_la_LIBADD =
@@ -46,4 +47,5 @@ libdaemon_la_LIBADD +=							\
 	@WAYLAND_CLIENT_LIBS@							\
 	@GIO_UNIX_LIBS@							\
 	@GTK_LIBS@							\
+	@LIBXFCE4UI_LIBS@						\
 	$(NULL)

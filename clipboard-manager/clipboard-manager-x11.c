@@ -23,11 +23,14 @@
 
 #include "config.h"
 
-#include <glib.h>
+#include <libxfce4ui/libxfce4ui.h>
+
+#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
+#endif
 
 #include "clipboard-manager-x11.h"
 
@@ -37,6 +40,7 @@ struct _XcpClipboardManagerX11
 {
         GObject parent;
 
+#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
         GtkClipboard *default_clipboard;
         GtkClipboard *primary_clipboard;
 
@@ -48,6 +52,9 @@ struct _XcpClipboardManagerX11
         gboolean      primary_internal_change;
 
         GtkWidget    *window;
+#else
+  XfceClipboardManager *xfce_manager;
+#endif
 };
 
 G_DEFINE_TYPE (XcpClipboardManagerX11, xcp_clipboard_manager_x11, G_TYPE_OBJECT)
@@ -55,6 +62,7 @@ G_DEFINE_TYPE (XcpClipboardManagerX11, xcp_clipboard_manager_x11, G_TYPE_OBJECT)
 static void     xcp_clipboard_manager_x11_finalize    (GObject                  *object);
 
 
+#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
 Atom XA_CLIPBOARD_MANAGER;
 Atom XA_MANAGER;
 
@@ -375,33 +383,20 @@ start_clipboard_idle_cb (gpointer user_data)
 
         return FALSE;
 }
-
-static GObject *
-xcp_clipboard_manager_x11_constructor (GType                  type,
-                                   guint                  n_construct_properties,
-                                   GObjectConstructParam *construct_properties)
-{
-        XcpClipboardManagerX11      *clipboard_manager;
-
-        clipboard_manager = XCP_CLIPBOARD_MANAGER_X11 (G_OBJECT_CLASS (xcp_clipboard_manager_x11_parent_class)->constructor (type,
-                                                                                                      n_construct_properties,
-                                                                                                      construct_properties));
-
-        return G_OBJECT (clipboard_manager);
-}
+#endif
 
 static void
 xcp_clipboard_manager_x11_class_init (XcpClipboardManagerX11Class *klass)
 {
-        GObjectClass   *object_class = G_OBJECT_CLASS (klass);
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->constructor = xcp_clipboard_manager_x11_constructor;
-        object_class->finalize = xcp_clipboard_manager_x11_finalize;
+  object_class->finalize = xcp_clipboard_manager_x11_finalize;
 }
 
 static void
 xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
 {
+#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
         manager->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
         manager->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
@@ -409,20 +404,22 @@ xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
         manager->primary_cache = NULL;
 
         g_idle_add (start_clipboard_idle_cb, manager);
+#else
+  manager->xfce_manager = xfce_clipboard_manager_new (FALSE);
+#endif
 }
 
 static void
 xcp_clipboard_manager_x11_finalize (GObject *object)
 {
-        XcpClipboardManagerX11 *clipboard_manager;
+  XcpClipboardManagerX11 *manager = XCP_CLIPBOARD_MANAGER_X11 (object);
 
-        g_return_if_fail (object != NULL);
-        g_return_if_fail (XCP_IS_CLIPBOARD_MANAGER_X11 (object));
+#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+        xcp_clipboard_manager_x11_stop (manager);
+#else
+  if (manager->xfce_manager != NULL)
+    g_object_unref (manager->xfce_manager);
+#endif
 
-        clipboard_manager = XCP_CLIPBOARD_MANAGER_X11 (object);
-
-        g_return_if_fail (clipboard_manager != NULL);
-        xcp_clipboard_manager_x11_stop (clipboard_manager);
-
-        G_OBJECT_CLASS (xcp_clipboard_manager_x11_parent_class)->finalize (object);
+  G_OBJECT_CLASS (xcp_clipboard_manager_x11_parent_class)->finalize (object);
 }
