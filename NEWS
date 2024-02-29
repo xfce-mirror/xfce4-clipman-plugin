@@ -1,3 +1,21 @@
+1.6.6 (2024-02-29)
+=====
+- Update copyright year
+- Use X11 clipboard manager from libxfce4ui if available
+- collector: Fix sanity check
+- history: Make search case-sensitive
+- actions: Update gimp command (Fixes #96)
+- build: Use system wlr-protocols if avail or fall back to submodule
+- clipboard-manager: Add missing static qualifier
+- build: Lower xfce4-dev-tools requirements to stable version
+- Fix xfce_titled_dialog_create_action_area() deprecation
+- build: Simplify and clarify X11/Wayland distinction
+- build: Define our own windowing macro instead of extending GDK's
+- build: Add check for gdk-wayland
+- Translation Updates:
+  Catalan, Estonian, Finnish, Hebrew, Italian, Russian, Spanish,
+  Swedish, Turkish
+
 1.6.5 (2023-09-29)
 =====
 - wayland: Hide skip-action-on-key-down setting
