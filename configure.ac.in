@@ -62,7 +62,6 @@ AC_PROG_CC()
 AM_PROG_CC_C_O()
 AC_PROG_INSTALL()
 AC_PROG_LN_S()
-IT_PROG_INTLTOOL([0.35.0])
 
 dnl **********************************
 dnl *** Check for standard headers ***
@@ -128,7 +127,11 @@ XDT_CHECK_OPTIONAL_PACKAGE([QRENCODE], [libqrencode], [libqrencode_min_version],
 dnl ******************************
 dnl *** Check for i18n support ***
 dnl ******************************
-XDT_I18N([@LINGUAS@])
+GETTEXT_PACKAGE="$PACKAGE"
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Name of default gettext domain])
+AC_SUBST([GETTEXT_PACKAGE])
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
@@ -149,6 +152,7 @@ data/icons/32x32/Makefile
 data/icons/48x48/Makefile
 data/icons/64x64/Makefile
 data/icons/scalable/Makefile
+data/its/Makefile
 clipboard-manager/Makefile
 panel-plugin/Makefile
 tests/Makefile
