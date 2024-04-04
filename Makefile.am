@@ -19,19 +19,12 @@ EXTRA_DIST =								\
 	COPYING								\
 	NEWS								\
 	README.md								\
-	intltool-extract.in						\
-	intltool-merge.in						\
-	intltool-update.in						\
 	$(NULL)
 
 CLEANFILES =								\
 	$(NULL)
 
 DISTCLEANFILES =							\
-	intltool-extract						\
-	intltool-merge							\
-	intltool-update							\
-	po/.intltool-merge-cache.lock			\
 	$(NULL)
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
