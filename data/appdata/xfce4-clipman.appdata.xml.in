@@ -7,13 +7,13 @@
   <summary>Clipboard manager</summary>
 
   <description>
-    <_p>
+    <p>
       Clipboard Manager provided as a panel plugin for Xfce and as a standalone
       application running in the notification area. It keeps a history of text
       and images of content copied to the clipboard. It also has a feature to
       execute actions on specific text selection by matching them against
       regexes.
-    </_p>
+    </p>
   </description>
 
   <screenshots>
@@ -41,8 +41,8 @@
     <release version="0.9.0" timestamp="1231974000">
       <description>
         <ul>
-          <_li>A rewrite to make it more user-friendly and introduce image support. Work done by David Collins</_li>
-          <_li>Drop the repetitive timeout against a callback/signal to check for clipboard changes.</_li>
+          <li>A rewrite to make it more user-friendly and introduce image support. Work done by David Collins</li>
+          <li>Drop the repetitive timeout against a callback/signal to check for clipboard changes.</li>
         </ul>
       </description>
     </release>
