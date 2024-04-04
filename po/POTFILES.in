@@ -6,7 +6,7 @@ panel-plugin/xfce4-clipman-plugin-autostart.desktop.in
 panel-plugin/xfce4-clipman-settings.c
 panel-plugin/xfce4-clipman-history.c
 panel-plugin/xfce4-clipman-settings.desktop.in
-[type: gettext/glade]panel-plugin/settings-dialog.ui
+panel-plugin/settings-dialog.ui
 panel-plugin/main-panel-plugin.c
 panel-plugin/main-status-icon.c
 panel-plugin/actions.c
