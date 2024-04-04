@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
-_Name=Clipboard Manager Settings
-_Comment=Customize your clipboard
+Name=Clipboard Manager Settings
+Comment=Customize your clipboard
 Exec=xfce4-clipman-settings
 Icon=xfce4-clipman-plugin
 Terminal=false
