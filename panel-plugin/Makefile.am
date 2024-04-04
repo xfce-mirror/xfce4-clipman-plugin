@@ -217,7 +217,11 @@ libclipman_la_LIBADD =							\
 actionsdir = $(sysconfdir)/xdg/xfce4/panel
 actions_in_files = xfce4-clipman-actions.xml.in
 actions_DATA = $(actions_in_files:.xml.in=.xml)
-@INTLTOOL_XML_RULE@
+
+$(actions_DATA): Makefile
+
+$(actions_DATA): $(actions_in_files) Makefile
+	$(AM_V_GEN)GETTEXTDATADIRS=$(srcdir) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 #
 # Desktop Entry File
@@ -226,15 +230,20 @@ actions_DATA = $(actions_in_files:.xml.in=.xml)
 pluginsdir = $(datadir)/xfce4/panel/plugins
 plugins_in_files = xfce4-clipman-plugin.desktop.in
 plugins_DATA = $(plugins_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(plugins_DATA): $(plugins_in_files) Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 appsdir = $(datadir)/applications
 apps_in_files = xfce4-clipman-settings.desktop.in
+xfce4-clipman-settings.desktop: xfce4-clipman-settings.desktop.in Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 if ENABLE_X11
 apps_in_files += xfce4-clipman.desktop.in
+xfce4-clipman.desktop: xfce4-clipman.desktop.in Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 endif
 apps_DATA = $(apps_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(apps_DATA): Makefile
 
 #
 # Autostart File
@@ -245,7 +254,8 @@ if ENABLE_X11
 autostartdir = $(sysconfdir)/xdg/autostart
 autostart_in_files = xfce4-clipman-plugin-autostart.desktop.in
 autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(autostart_DATA): $(autostart_in_files) Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 endif
 
@@ -259,6 +269,8 @@ EXTRA_DIST =								\
 	$(autostart_in_files)						\
 	$(plugins_in_files)						\
 	$(apps_in_files)						\
+	its/xfce.its							\
+	its/xfce.loc							\
 	$(NULL)
 
 CLEANFILES =								\
