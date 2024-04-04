@@ -18,39 +18,39 @@
 -->
 <actions>
 	<action>
-		<_name>Image</_name>
+		<name>Image</name>
 		<regex>(http|ftp).+\.(jpg|png|gif)</regex>
 		<commands>
 			<command>
-				<_name>Edit with Gimp</_name>
+				<name>Edit with Gimp</name>
 				<exec>gimp &quot;\0&quot;</exec>
 			</command>
 			<command>
-				<_name>View with Ristretto</_name>
+				<name>View with Ristretto</name>
 				<exec>ristretto &quot;\0&quot;</exec>
 			</command>
 		</commands>
 	</action>
 	<action>
-		<_name>Bugz</_name>
+		<name>Bugz</name>
 		<regex>bug\s*#?\s*([0-9]+)</regex>
 		<commands>
 			<command>
-				<_name>Xfce Bug</_name>
+				<name>Xfce Bug</name>
 				<exec>exo-open http://bugzilla.xfce.org/show_bug.cgi?id=\1</exec>
 			</command>
 			<command>
-				<_name>GNOME Bug</_name>
+				<name>GNOME Bug</name>
 				<exec>exo-open http://bugzilla.gnome.org/show_bug.cgi?id=\1</exec>
 			</command>
 		</commands>
 	</action>
 	<action>
-		<_name>Long URL</_name>
+		<name>Long URL</name>
 		<regex>http://[^\s]{120,}</regex>
 		<commands>
 			<command>
-				<_name>Shrink the URL</_name>
+				<name>Shrink the URL</name>
 				<exec>exo-open http://tinyurl.com/create.php?url=\0</exec>
 			</command>
 		</commands>
