@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-18 12:50+0200\n"
+"POT-Creation-Date: 2024-04-06 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
@@ -23,366 +23,76 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
-msgid ""
-"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
-"application running in the notification area. It keeps a history of text and"
-" images of content copied to the clipboard. It also has a feature to execute"
-" actions on specific text selection by matching them against regexes."
-msgstr "Ο διαχειριστής προχείρων παρέχεται ως πρόσθετο στο ταμπλό για το Xfce και είναι μια αυτόνομη εφαρμογή που εκτελείται στην περιοχή ειδοποιήσεων. Διατηρεί ιστορικό των κειμένων και εικόνων, του περιεχομένου που αντιγραφικέ στο πρόχειρο. Έχει επίσης μια λειτουργία να εκτελούνται ενέργειες με συγκεκριμένη επιλογή κειμένου με ταίριασμα σε κανονικές εκφράσεις."
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-msgid "Clipboard Manager"
-msgstr "Διαχειριστής Προχείρου"
-
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-msgid "Clipboard Manager Autostart File"
-msgstr "Αρχείο αυτόματης εκκίνησης διαχειριστή προχείρου"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Image"
-msgstr "Εικόνα"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
-msgid "Edit with Gimp"
-msgstr "Επεξεργασία με gimp"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "View with Ristretto"
-msgstr "Εμφάνιση με το ristretto"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Bugz"
-msgstr "Σφάλματα"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Xfce Bug"
-msgstr "Σφάλμα xfce"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "GNOME Bug"
-msgstr "Σφάλμα gnome"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
-msgid "Long URL"
-msgstr "Μεγάλο url"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
-msgid "Shrink the URL"
-msgstr "Σμίκρυνση του url"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:83
-#: ../panel-plugin/main-status-icon.c:111 ../panel-plugin/plugin.c:97
-#: ../panel-plugin/plugin.c:341
-msgid "Clipman"
-msgstr "Clipman"
-
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-msgid "Clipboard manager"
-msgstr "Διαχειριστής προχείρου"
-
-#: ../panel-plugin/xfce4-clipman-settings.c:97
+#: ../panel-plugin/xfce4-clipman-settings.c:99
 msgid "None"
 msgstr "Κανένα"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:99
+#: ../panel-plugin/xfce4-clipman-settings.c:101
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:101
+#: ../panel-plugin/xfce4-clipman-settings.c:103
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:133
+#: ../panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:134
+#: ../panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:520
+#: ../panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
 msgstr "<b>Ενέργειες επαναφοράς</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:522
+#: ../panel-plugin/xfce4-clipman-settings.c:528
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε την επαναφορά των ενεργειών στις αρχικές τιμές του συστήματος;"
 
-#: ../panel-plugin/xfce4-clipman-history.c:230
+#: ../panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
 msgstr "Δώστε φράση προς αναζήτηση"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:290 ../panel-plugin/menu.c:432
+#: ../panel-plugin/xfce4-clipman-history.c:323 ../panel-plugin/menu.c:372
 msgid "History is empty"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-history.c:356
-#, c-format
+#: ../panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
 msgstr "_Επικόλληση"
 
-#: ../panel-plugin/xfce4-clipman-history.c:361
-#, c-format
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "_Copy"
 msgstr "_Αντιγραφή"
 
-#: ../panel-plugin/xfce4-clipman-history.c:394
+#: ../panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
 msgstr "Ιστορικό Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:400
-#: ../panel-plugin/xfce4-clipman-history.c:402
-#: ../panel-plugin/settings-dialog.ui.h:2
+#: ../panel-plugin/xfce4-clipman-history.c:436
+#: ../panel-plugin/xfce4-clipman-history.c:438
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../panel-plugin/xfce4-clipman-history.c:408
-#: ../panel-plugin/xfce4-clipman-history.c:410
+#: ../panel-plugin/xfce4-clipman-history.c:444
+#: ../panel-plugin/xfce4-clipman-history.c:446
 msgid "_Settings"
 msgstr "_Ρυθμίσεις"
 
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:1
-msgid "Clipboard Manager Settings"
-msgstr "Ρυθμίσεις Διαχειριστή Προχείρου"
-
-#: ../panel-plugin/xfce4-clipman-settings.desktop.in.h:2
-msgid "Customize your clipboard"
-msgstr "Προσαρμόστε το πρόχειρό σας"
-
-#: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Clipman Settings"
-msgstr "Ρυθμίσεις Clipman"
-
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "_Close"
-msgstr "_Κλείσιμο"
-
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Sync mouse _selections"
-msgstr "_Συγχρονισμός επιλογών ποντικιού"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid ""
-"If checked, selections will be synced with the default clipboard, so you can"
-" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
-" with the primary clipboard, so you can paste what you copy with middle-"
-"click."
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "_Persist mouse selections"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid ""
-"If checked, the primary clipboard (middle-click paste) will persist until "
-"next selection if current selection is lost (e.g. by left-clicking anywhere "
-"in a text area)"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid "_QR-Code support"
-msgstr "Υποστήριξη για κώδικες _QR"
-
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "Αν είναι επιλεγμένο θα εμφανίζεται στο μενού ένας κώδικας QR της επιλεγμένης καταχώρισης προχείρου"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "Automatically paste a selected item from the history"
-msgstr "Αυτόματη επικόλληση επιλεγμένου αντικειμένου από το ιστορικό"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "_Paste instantly:"
-msgstr "Άμεση _επικόλληση"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "<b>General</b>"
-msgstr "<b>Γενικά</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "P_osition menu at mouse pointer"
-msgstr "_Τοποθέτηση μενού στον δείκτη του ποντικιού"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid ""
-"Popup the menu at the mouse pointer position: especially useful for the "
-"xfce4-popup-clipman command"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "Maximum items:"
-msgstr "Μέγιστος αριθμός αντικειμένων:"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "<b>Menu</b>"
-msgstr "<b>Μενού</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "_Behavior"
-msgstr "Σ_υμπεριφορά"
-
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "<b>_Enable automatic actions</b>"
-msgstr "_Ενεργοποίηση αυτοματοποιημένων ενεργειών"
-
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Εάν επιλεχθεί, τα κείμενα του προχείρου θα συγκρίνονται με κανονικές παραστάσεις και ένα μενού θα εμφανίζει τις πιθανές ενέργειες αυτόματα\nΕιδάλλως το μενού θα εμφανίζεται μόνο όταν καλείται το \"xfce4-popup-clipman-actions\" (αν έχει βρεθεί κάτι που ταιριάζει)"
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid ""
-"When the selection is done and the Control key is still pressed down, the "
-"popup menu for matched actions will be shown or hidden"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid "_Pressing Ctrl during selection:"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Add action"
-msgstr "Προσθήκη"
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "Edit action"
-msgstr "Επεξεργασία"
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "Delete action"
-msgstr "Διαγραφή"
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid "Reset all actions to the system default values"
-msgstr "Επαναφορά όλων των ενεργειών στις αρχικές τιμές του συστήματος."
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "_Actions"
-msgstr "Ε_νέργειες"
-
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "<b>Remember history</b>"
-msgstr "<b>Α_ποθήκευση ιστορικού</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Remember last copied _image"
-msgstr "Αποθήκευση τελευταίας αντιγραμμένης _εικόνας"
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid ""
-"If checked, this option allows one to store one image inside the history"
-msgstr "Εάν επιλεχθεί, αυτή η επιλογή επιτρέπει την αποθήκευση μίας εικόνας μέσα στο ιστορικό"
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "_Reorder history items"
-msgstr "_Αναταξινόμηση αντικειμένων ιστορικού"
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Η μετακίνηση του τελευταία αντεγραμμένου κειμένου στην κορυφή του ιστορικού, βοηθά στην αναταξινόμηση παλιών αντικειμένων"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Re_verse history order"
-msgstr "Αν_τιστροφή σειράς ιστορικού"
-
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid "Reverse order of the history shown in the menu"
-msgstr "Εάν επιλεχθεί, το ιστορικό θα εμφανίζεται με αντίστροφη σειρά"
-
-#: ../panel-plugin/settings-dialog.ui.h:35
-msgid "Ignore mouse s_elections"
-msgstr "Α_γνόησε τις επιλογές του ποντικιού"
-
-#: ../panel-plugin/settings-dialog.ui.h:36
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Εάν επιλεχθεί, οι επιλογές δεν θα επηρεάσουν το ιστορικό εκτός από τις προσωπικές αντιγραφές"
-
-#: ../panel-plugin/settings-dialog.ui.h:37
-msgid "Size of the _history:"
-msgstr "Μέγεθος του _ιστορικού:"
-
-#: ../panel-plugin/settings-dialog.ui.h:38
-msgid "5"
-msgstr "5"
-
-#: ../panel-plugin/settings-dialog.ui.h:39
-msgid "H_istory"
-msgstr "_Ιστορικό"
-
-#: ../panel-plugin/settings-dialog.ui.h:40
-msgid "Edit Action"
-msgstr "Επεξεργασία ενέργειας"
-
-#: ../panel-plugin/settings-dialog.ui.h:41
-msgid "_Cancel"
-msgstr "Άκ_υρο"
-
-#: ../panel-plugin/settings-dialog.ui.h:42
-msgid "_OK"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "Name:"
-msgstr "Όνομα:"
-
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid "Pattern:"
-msgstr "Μοτίβο:"
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. The pattern is"
-" always anchored within the special characters ^$"
-msgstr "Μπορείτε να χρησιμοποιήσετε παραμέτρους αντικατάστασης \"\\1\", \"\\2\" κλπ. στις εντολές. Η παράμετρος \"\\0\" αναπαριστά ολόκληρο το κείμενο. Το μοτίβο πάντα βρίσκεται ανάμεσα στους ειδικούς χαρακτήρες ^$"
-
-#: ../panel-plugin/settings-dialog.ui.h:46
-msgid "Activate on manual copy instead of selection"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:47
-msgid ""
-"By default the action is triggered by a selection: check this option to "
-"trigger the action when you make a manual copy instead. Note that in this "
-"case, the Control key no longer has any effect."
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:48
-msgid "<b>Action</b>"
-msgstr "<b>Ενέργεια</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:49
-msgid "Command:"
-msgstr "Εντολή:"
-
-#: ../panel-plugin/settings-dialog.ui.h:50
-msgid "<b>Commands</b>"
-msgstr "<b>Εντολές</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:51
-msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Γράψε εδώ το κείμενο σου, για παράδειγμα ένα URL, ένα όνομα αρχείου, κτλ."
-
-#: ../panel-plugin/settings-dialog.ui.h:52
-msgid "Regular expression"
-msgstr "Κανονική έκφραση"
+#: ../panel-plugin/main-panel-plugin.c:83
+#: ../panel-plugin/main-status-icon.c:117 ../panel-plugin/plugin.c:99
+#: ../panel-plugin/plugin.c:336
+msgid "Clipman"
+msgstr "Clipman"
 
 #: ../panel-plugin/main-panel-plugin.c:117
-#: ../panel-plugin/main-status-icon.c:142
+#: ../panel-plugin/main-status-icon.c:148
 msgid "_Disable"
 msgstr "_Απενεργοποίηση"
 
@@ -394,67 +104,67 @@ msgid ""
 "%s"
 msgstr "Αδυναμία εκτέλεσης της εντολής \"%s\"\n\n%s"
 
-#: ../panel-plugin/common.c:29
+#: ../panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
 msgstr "Η υπηρεσία διαχείρισης προχείρου δεν μπόρεσε να ξεκινήσει επειδή ήδη τρέχει."
 
-#: ../panel-plugin/common.c:30
+#: ../panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
 msgstr "Ο διαχειριστής προχείρου του Xfce ήδη τρέχει."
 
-#: ../panel-plugin/common.c:37
+#: ../panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
 msgstr "Μπορείτε να το ξεκινήσετε με 'xfce4-clipman'."
 
-#: ../panel-plugin/common.c:39
+#: ../panel-plugin/common.c:48
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Η υπηρεσία διαχείρισης προχείρου δεν τρέχει."
 
-#: ../panel-plugin/menu.c:245
+#: ../panel-plugin/menu.c:185
 msgid "Are you sure you want to clear the history?"
 msgstr "Είστε σίγουροι ότι επιθυμείτε τον καθαρισμό του ιστορικού;"
 
-#: ../panel-plugin/menu.c:250
+#: ../panel-plugin/menu.c:190
 msgid "Don't ask again"
 msgstr "Να μη γίνει ερώτηση πάλι"
 
-#: ../panel-plugin/menu.c:299
+#: ../panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: ../panel-plugin/menu.c:354 ../panel-plugin/menu.c:622
+#: ../panel-plugin/menu.c:294 ../panel-plugin/menu.c:560
 msgid "_Clear history"
 msgstr "_Εκκαθάριση ιστορικού"
 
-#: ../panel-plugin/menu.c:454
+#: ../panel-plugin/menu.c:394
 msgid "_Clear clipboard"
 msgstr ""
 
-#: ../panel-plugin/menu.c:500
+#: ../panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
 msgstr "Αδυναμία δημιουργίας QR-Code."
 
-#: ../panel-plugin/menu.c:613
+#: ../panel-plugin/menu.c:551
 msgid "_Show full history..."
 msgstr "_Δείξε όλο το ιστορικό..."
 
-#: ../panel-plugin/menu.c:630
+#: ../panel-plugin/menu.c:568
 msgid "_Clipman settings..."
 msgstr "_Ρυθμίσεις Clipman..."
 
-#: ../panel-plugin/plugin.c:329
+#: ../panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr "Συντελεστές:"
 
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Διαχειριστής προχείρου για το xfce"
 
-#: ../panel-plugin/plugin.c:351
+#: ../panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr "Evaggelos Balaskas"
 
-#: ../panel-plugin/plugin.c:365
+#: ../panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Αδυναμία ανοίγματος του διαλόγου ρυθμίσεων"
