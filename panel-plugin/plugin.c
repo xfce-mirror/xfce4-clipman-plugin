@@ -57,6 +57,25 @@ static const GActionEntry plugin_actions[] =
  * Plugin functions
  */
 
+static void
+plugin_clear (MyPlugin *plugin)
+{
+  gchar *dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
+  GDir *dir = g_dir_open (dirname, 0, NULL);
+  if (dir != NULL)
+    {
+      const gchar *name;
+      while ((name = g_dir_read_name (dir)) != NULL)
+        {
+          gchar *filename = g_build_filename (dirname, name, NULL);
+          g_unlink (filename);
+          g_free (filename);
+        }
+      g_dir_close (dir);
+    }
+  g_free (dirname);
+}
+
 MyPlugin *
 plugin_register (void)
 {
@@ -153,7 +172,7 @@ plugin_register (void)
   g_signal_connect_swapped (plugin->history, "item-added",
                             G_CALLBACK (plugin_save), plugin);
   g_signal_connect_swapped (plugin->history, "clear",
-                            G_CALLBACK (plugin_save), plugin);
+                            G_CALLBACK (plugin_clear), plugin);
 
   return plugin;
 }
@@ -163,7 +182,7 @@ plugin_load (MyPlugin *plugin)
 {
   GKeyFile *keyfile;
   gchar **texts = NULL;
-  gchar *filename;
+  gchar *dirname, *basename, *filename;
   GdkPixbuf *image;
   gint i = 0;
   gboolean save_on_quit;
@@ -173,14 +192,18 @@ plugin_load (MyPlugin *plugin)
   if (save_on_quit == FALSE)
     return;
 
+  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
+
   /* Load images */
   while (TRUE)
     {
-      filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), i++);
+      basename = g_strdup_printf ("image%d.png", i++);
+      filename = g_build_filename (dirname, basename, NULL);
       DBG ("Loading image from cache file %s", filename);
       image = gdk_pixbuf_new_from_file (filename, NULL);
       g_unlink (filename);
       g_free (filename);
+      g_free (basename);
       if (image == NULL)
         break;
 
@@ -189,7 +212,7 @@ plugin_load (MyPlugin *plugin)
     }
 
   /* Load texts */
-  filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
+  filename = g_build_filename (dirname, "textsrc", NULL);
   DBG ("Loading texts from cache file %s", filename);
   keyfile = g_key_file_new ();
   if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, NULL))
@@ -202,6 +225,7 @@ plugin_load (MyPlugin *plugin)
   g_key_file_free (keyfile);
   g_strfreev (texts);
   g_free (filename);
+  g_free (dirname);
 }
 
 void
@@ -212,31 +236,22 @@ plugin_save (MyPlugin *plugin)
   GKeyFile *keyfile;
   const gchar **texts;
   gchar *data;
-  gchar *filename;
-  gchar *dirname;
-  const gchar *name;
+  gchar *dirname, *basename, *filename;
   gint n_texts, n_images;
   gboolean save_on_quit;
-  GDir *dir;
-
-  /* Create initial directory and remove cache files */
-  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
-
-  dir = g_dir_open (dirname, 0, NULL);
-  while ((name = g_dir_read_name (dir)) != NULL)
-    {
-      filename = g_build_filename (dirname, name, NULL);
-      g_unlink (filename);
-      g_free (filename);
-    }
-  g_dir_close (dir);
-
-  g_free (dirname);
 
   /* Return if the history must not be saved */
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
   if (save_on_quit == FALSE)
     return;
+
+  /* Create initial directory if needed */
+  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
+  if (dirname == NULL)
+    {
+      g_warning ("Failed to create Clipman cache directory");
+      return;
+    }
 
   /* Save the history */
   list = clipman_history_get_list (plugin->history);
@@ -255,12 +270,14 @@ plugin_save (MyPlugin *plugin)
               break;
 
             case CLIPMAN_HISTORY_TYPE_IMAGE:
-              filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), n_images++);
+              basename = g_strdup_printf ("image%d.png", n_images++);
+              filename = g_build_filename (dirname, basename, NULL);
               if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
                 g_warning ("Failed to save image to cache file %s", filename);
               else
                 DBG ("Saved image to cache file %s", filename);
               g_free (filename);
+              g_free (basename);
               break;
 
             default:
@@ -270,7 +287,7 @@ plugin_save (MyPlugin *plugin)
 
       if (n_texts > 0)
         {
-          filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
+          filename = g_build_filename (dirname, "textsrc", NULL);
           keyfile = g_key_file_new ();
           g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
           data = g_key_file_to_data (keyfile, NULL, NULL);
@@ -285,6 +302,8 @@ plugin_save (MyPlugin *plugin)
       g_free (texts);
       g_slist_free (list);
     }
+
+  g_free (dirname);
 }
 
 void
