@@ -8,7 +8,6 @@ Makefile.in.in
 .libs
 *.o
 configure
-configure.ac
 Makefile
 *.lo
 *.la
