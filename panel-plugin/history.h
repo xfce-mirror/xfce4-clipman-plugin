@@ -46,6 +46,7 @@ struct _ClipmanHistoryItem
       gchar                *text;
       GdkPixbuf            *image;
     } preview;
+  gchar                    *filename;
 };
 
 /*

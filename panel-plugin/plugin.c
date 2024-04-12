@@ -253,13 +253,11 @@ plugin_save (MyPlugin *plugin)
   if (list != NULL)
     {
       const gchar **texts = g_new0 (const gchar *, g_slist_length (list));
-      gint n_texts = 0, n_images = 0;
+      gint n_texts = 0;
 
       for (GSList *l = g_slist_reverse (list); l != NULL; l = l->next)
         {
           ClipmanHistoryItem *item = l->data;
-          GError *error = NULL;
-          gchar *basename, *filename;
 
           switch (item->type)
             {
@@ -268,18 +266,34 @@ plugin_save (MyPlugin *plugin)
               break;
 
             case CLIPMAN_HISTORY_TYPE_IMAGE:
-              basename = g_strdup_printf ("image%d.png", n_images++);
-              filename = g_build_filename (dirname, basename, NULL);
-              if (!gdk_pixbuf_save (item->content.image, filename, "png", &error, NULL))
+              if (item->filename == NULL)
                 {
-                  g_warning ("Failed to save image to cache file %s: %s", filename, error->message);
-                  g_error_free (error);
-                  g_unlink (filename);
+                  GError *error = NULL;
+                  gint n = 0;
+                  gchar *basename = g_strdup_printf ("image%d.png", n);
+
+                  item->filename = g_build_filename (dirname, basename, NULL);
+                  while (g_file_test (item->filename, G_FILE_TEST_EXISTS))
+                    {
+                      g_free (item->filename);
+                      g_free (basename);
+                      basename = g_strdup_printf ("image%d.png", ++n);
+                      item->filename = g_build_filename (dirname, basename, NULL);
+                    }
+
+                  if (!gdk_pixbuf_save (item->content.image, item->filename, "png", &error, NULL))
+                    {
+                      g_warning ("Failed to save image to cache file %s: %s", item->filename, error->message);
+                      g_error_free (error);
+                      g_unlink (item->filename);
+                      g_free (item->filename);
+                      item->filename = NULL;
+                    }
+                  else
+                    DBG ("Saved image to cache file %s", item->filename);
+
+                  g_free (basename);
                 }
-              else
-                DBG ("Saved image to cache file %s", filename);
-              g_free (filename);
-              g_free (basename);
               break;
 
             default:

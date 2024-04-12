@@ -21,6 +21,7 @@
 #endif
 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
@@ -219,6 +220,11 @@ __clipman_history_item_free (ClipmanHistoryItem *item)
       DBG ("Delete image (%p)", item->content.image);
       g_object_unref (item->content.image);
       g_object_unref (item->preview.image);
+      if (item->filename != NULL)
+        {
+          g_unlink (item->filename);
+          g_free (item->filename);
+        }
       break;
 
     default:
@@ -513,7 +519,17 @@ clipman_history_init (ClipmanHistory *history)
 static void
 clipman_history_finalize (GObject *object)
 {
+  ClipmanHistory *history = CLIPMAN_HISTORY (object);
+
+  for (GSList *lp = history->priv->items; lp != NULL; lp = lp->next)
+   {
+     /* reset filenames now so image files are not deleted in clear() */
+     ClipmanHistoryItem *item = lp->data;
+     g_free (item->filename);
+     item->filename = NULL;
+   }
   clipman_history_clear (CLIPMAN_HISTORY (object));
+
   G_OBJECT_CLASS (clipman_history_parent_class)->finalize (object);
 }
 
