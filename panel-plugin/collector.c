@@ -39,6 +39,7 @@ struct _ClipmanCollectorPrivate
   ClipmanHistory       *history;
   GtkClipboard         *default_clipboard;
   GtkClipboard         *primary_clipboard;
+  GdkPixbuf            *current_image;
   gchar                *default_cache;
   gchar                *primary_cache;
   guint                 primary_clipboard_timeout;
@@ -129,8 +130,6 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
                            GdkEventOwnerChange *event,
                            GtkClipboard *clipboard)
 {
-  GdkPixbuf *image;
-
   g_return_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard));
 
   /* Jump over if collector is inhibited */
@@ -157,18 +156,18 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           return;
         }
 
+      g_clear_object (&collector->priv->current_image);
       if (gtk_clipboard_wait_is_image_available (collector->priv->default_clipboard))
         {
-          image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
+          GdkPixbuf *image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
             {
+              collector->priv->current_image = image;
               clipman_history_add_image (collector->priv->history, image);
-              g_object_unref (image);
             }
         }
       else
         {
-          clipman_history_set_image_to_restore (collector->priv->history, NULL);
           gtk_clipboard_request_text (collector->priv->default_clipboard,
                                       (GtkClipboardTextReceivedFunc)cb_request_text,
                                       collector);
@@ -296,9 +295,7 @@ cb_request_text (GtkClipboard *clipboard,
  * @collector: a #ClipmanCollector
  *
  * Call this function before modifying the content of a #GtkClipboard so that
- * the new content won't be looked by #ClipmanCollector.  Useful to prevent an
- * image from being saved twice.
- * See also clipman_history_set_image_to_restore().
+ * the new content won't be looked by #ClipmanCollector.
  */
 void
 clipman_collector_set_is_restoring (ClipmanCollector *collector,
@@ -313,10 +310,17 @@ clipman_collector_set_is_restoring (ClipmanCollector *collector,
 void
 clipman_collector_clear_cache (ClipmanCollector *collector)
 {
+  g_clear_object (&collector->priv->current_image);
   g_free (collector->priv->default_cache);
   g_free (collector->priv->primary_cache);
   collector->priv->default_cache = NULL;
   collector->priv->primary_cache = NULL;
+}
+
+GdkPixbuf *
+clipman_collector_get_current_image (ClipmanCollector *collector)
+{
+  return collector->priv->current_image;
 }
 
 ClipmanCollector *
@@ -416,6 +420,9 @@ clipman_collector_constructed (GObject *object)
                            G_CALLBACK (cb_clipboard_owner_change), collector, G_CONNECT_SWAPPED);
   g_signal_connect_object (collector->priv->primary_clipboard, "owner-change",
                            G_CALLBACK (cb_clipboard_owner_change), collector, G_CONNECT_SWAPPED);
+
+  /* initialize image cache for proper detection at startup in the menu */
+  collector->priv->current_image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
 }
 
 static void

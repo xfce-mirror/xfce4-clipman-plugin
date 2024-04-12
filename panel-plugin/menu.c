@@ -130,30 +130,18 @@ cb_set_clipboard_from_primary (GtkMenuItem *mi, GObject *menu)
 static void
 cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
 {
-  GtkClipboard *clipboard;
-  ClipmanCollector *collector;
-  ClipmanHistory *history;
+  GtkClipboard *clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
 
   switch (item->type)
     {
     case CLIPMAN_HISTORY_TYPE_TEXT:
-      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
+      DBG ("Copy text `%s' to default clipboard", item->content.text);
       gtk_clipboard_set_text (clipboard, item->content.text, -1);
       break;
 
     case CLIPMAN_HISTORY_TYPE_IMAGE:
       DBG ("Copy image (%p) to default clipboard", item->content.image);
-
-      history = clipman_history_get ();
-      clipman_history_set_image_to_restore (history, item);
-      g_object_unref (history);
-
-      collector = clipman_collector_get ();
-      clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
-      clipman_collector_set_is_restoring (collector, clipboard);
-      g_object_unref (collector);
-
-      gtk_clipboard_set_image (clipboard, GDK_PIXBUF (item->content.image));
+      gtk_clipboard_set_image (clipboard, item->content.image);
       break;
 
     default:
@@ -256,16 +244,16 @@ static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
   GtkWidget *mi, *image;
-#ifdef HAVE_QRENCODE
   GdkPixbuf *pixbuf;
-#endif
+  ClipmanCollector *collector;
   ClipmanHistoryItem *item;
-  const ClipmanHistoryItem *item_to_restore;
+  const ClipmanHistoryItem *item_to_restore = NULL;
   GSList *list, *l;
   gint pos = 0;
   guint i = 0, offset = 0;
   const gchar *selection_primary;
   const gchar *selection_clipboard;
+  GBytes *pixel_bytes = NULL;
   gchar *selection_primary_short;
   gboolean skip_primary = FALSE;
   cairo_surface_t *surface;
@@ -273,12 +261,14 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
   /* retrieve clipboard and primary selections */
   selection_clipboard = g_object_get_data (G_OBJECT (menu), "selection-clipboard");
+  collector = clipman_collector_get ();
+  if ((pixbuf = clipman_collector_get_current_image (collector)) != NULL)
+    pixel_bytes = gdk_pixbuf_read_pixel_bytes (pixbuf);
+  g_object_unref (collector);
+
   selection_primary = g_object_get_data (G_OBJECT (menu), "selection-primary");
   if (selection_primary == NULL)
     skip_primary = TRUE;
-
-  /* Get the image to restore from the history, if any */
-  item_to_restore = clipman_history_get_image_to_restore (menu->priv->history);
 
   /* Clear the previous menu items */
   g_slist_free_full (menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
@@ -308,16 +298,42 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new_with_label (item->preview.text);
 G_GNUC_END_IGNORE_DEPRECATIONS
+          if (item_to_restore == NULL && g_strcmp0 (selection_clipboard, item->content.text) == 0)
+            {
+              item_to_restore = item;
+              image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
+              if (g_strcmp0 (selection_primary, item->content.text) == 0)
+                skip_primary = TRUE;
+            }
+          else if (!skip_primary && g_strcmp0 (selection_primary, item->content.text) == 0)
+            {
+              skip_primary = TRUE;
+              image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
+G_GNUC_END_IGNORE_DEPRECATIONS
+            }
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
+G_GNUC_END_IGNORE_DEPRECATIONS
           surface = gdk_cairo_surface_create_from_pixbuf (item->preview.image, scale_factor, NULL);
           image = gtk_image_new_from_surface (surface);
           cairo_surface_destroy (surface);
           gtk_container_add (GTK_CONTAINER (mi), image);
+          if (item_to_restore == NULL && pixel_bytes != NULL && g_bytes_equal (pixel_bytes, item->pixel_bytes))
+            {
+              item_to_restore = item;
+              image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
 G_GNUC_END_IGNORE_DEPRECATIONS
+            }
           break;
 
         default:
@@ -327,39 +343,14 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
       g_signal_connect (mi, "activate", G_CALLBACK (cb_set_clipboard), item);
       g_object_set_data (G_OBJECT (mi), "paste-on-activate", GUINT_TO_POINTER (menu->priv->paste_on_activate));
-
-      if (item == item_to_restore || (
-            item->type == CLIPMAN_HISTORY_TYPE_TEXT
-            && g_strcmp0 (selection_clipboard, item->content.text) == 0
-          ))
-        {
-          item_to_restore = item;
-          if (g_strcmp0 (selection_primary, selection_clipboard) == 0)
-            skip_primary = TRUE;
-
-          image = gtk_image_new_from_icon_name ("edit-paste-symbolic",
-                                                GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM(mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
-        }
-      else if (item->type == CLIPMAN_HISTORY_TYPE_TEXT
-               && g_strcmp0 (selection_primary, item->content.text) == 0)
-        {
-          skip_primary = TRUE;
-          image = gtk_image_new_from_icon_name ("input-mouse-symbolic",
-                                                GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM(mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
-        }
-
       menu->priv->list = g_slist_prepend (menu->priv->list, mi);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, pos++);
       gtk_widget_show_all (mi);
     }
 
   g_slist_free (list);
+  if (pixel_bytes != NULL)
+    g_bytes_unref (pixel_bytes);
 
   if (pos == 0)
     {

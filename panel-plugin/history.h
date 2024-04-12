@@ -47,6 +47,7 @@ struct _ClipmanHistoryItem
       GdkPixbuf            *image;
     } preview;
   gchar                    *filename;
+  GBytes                   *pixel_bytes;
 };
 
 /*
@@ -94,9 +95,6 @@ ClipmanHistoryItem *        clipman_history_add_image                (ClipmanHis
                                                                       const GdkPixbuf          *image);
 GSList *                    clipman_history_get_list                 (ClipmanHistory           *history);
 guint                       clipman_history_get_max_texts_in_history (ClipmanHistory           *history);
-const ClipmanHistoryItem *  clipman_history_get_image_to_restore     (ClipmanHistory           *history);
-void                        clipman_history_set_image_to_restore     (ClipmanHistory           *history,
-                                                                      const ClipmanHistoryItem *item);
 guint                       clipman_history_get_max_images_in_history (ClipmanHistory           *history);
 void                        clipman_history_clear                    (ClipmanHistory           *history);
 void                        clipman_history_set_scale_factor         (ClipmanHistory           *history,
