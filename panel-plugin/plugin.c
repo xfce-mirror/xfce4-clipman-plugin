@@ -231,13 +231,8 @@ plugin_load (MyPlugin *plugin)
 void
 plugin_save (MyPlugin *plugin)
 {
-  GSList *list, *l;
-  const ClipmanHistoryItem *item;
-  GKeyFile *keyfile;
-  const gchar **texts;
-  gchar *data;
-  gchar *dirname, *basename, *filename;
-  gint n_texts, n_images;
+  GSList *list;
+  gchar *dirname;
   gboolean save_on_quit;
 
   /* Return if the history must not be saved */
@@ -255,13 +250,16 @@ plugin_save (MyPlugin *plugin)
 
   /* Save the history */
   list = clipman_history_get_list (plugin->history);
-  list = g_slist_reverse (list);
   if (list != NULL)
     {
-      texts = g_new0 (const gchar *, g_slist_length (list));
-      for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
+      const gchar **texts = g_new0 (const gchar *, g_slist_length (list));
+      gint n_texts = 0, n_images = 0;
+
+      for (GSList *l = g_slist_reverse (list); l != NULL; l = l->next)
         {
-          item = l->data;
+          ClipmanHistoryItem *item = l->data;
+          GError *error = NULL;
+          gchar *basename, *filename;
 
           switch (item->type)
             {
@@ -272,8 +270,12 @@ plugin_save (MyPlugin *plugin)
             case CLIPMAN_HISTORY_TYPE_IMAGE:
               basename = g_strdup_printf ("image%d.png", n_images++);
               filename = g_build_filename (dirname, basename, NULL);
-              if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
-                g_warning ("Failed to save image to cache file %s", filename);
+              if (!gdk_pixbuf_save (item->content.image, filename, "png", &error, NULL))
+                {
+                  g_warning ("Failed to save image to cache file %s: %s", filename, error->message);
+                  g_error_free (error);
+                  g_unlink (filename);
+                }
               else
                 DBG ("Saved image to cache file %s", filename);
               g_free (filename);
@@ -287,15 +289,20 @@ plugin_save (MyPlugin *plugin)
 
       if (n_texts > 0)
         {
-          filename = g_build_filename (dirname, "textsrc", NULL);
-          keyfile = g_key_file_new ();
+          GKeyFile *keyfile = g_key_file_new ();
+          GError *error = NULL;
+          gchar *filename = g_build_filename (dirname, "textsrc", NULL);
+
           g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
-          data = g_key_file_to_data (keyfile, NULL, NULL);
-          g_file_set_contents (filename, data, -1, NULL);
-          DBG ("Saved texts to cache file %s", filename);
+          if (!g_key_file_save_to_file (keyfile, filename, &error))
+            {
+              g_warning ("Failed to save history to cache file %s: %s", filename, error->message);
+              g_error_free (error);
+            }
+          else
+            DBG ("Saved texts to cache file %s", filename);
 
           g_key_file_free (keyfile);
-          g_free (data);
           g_free (filename);
         }
 
