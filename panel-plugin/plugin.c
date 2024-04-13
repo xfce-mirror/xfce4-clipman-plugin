@@ -181,10 +181,8 @@ void
 plugin_load (MyPlugin *plugin)
 {
   GKeyFile *keyfile;
-  gchar **texts = NULL;
-  gchar *dirname, *basename, *filename;
-  GdkPixbuf *image;
-  gint i = 0;
+  GDir *dir;
+  gchar *dirname, *filename;
   gboolean save_on_quit;
 
   /* Return if the history must not be saved */
@@ -195,20 +193,36 @@ plugin_load (MyPlugin *plugin)
   dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
 
   /* Load images */
-  while (TRUE)
+  dir = g_dir_open (dirname, 0, NULL);
+  if (dir != NULL)
     {
-      basename = g_strdup_printf ("image%d.png", i++);
-      filename = g_build_filename (dirname, basename, NULL);
-      DBG ("Loading image from cache file %s", filename);
-      image = gdk_pixbuf_new_from_file (filename, NULL);
-      g_unlink (filename);
-      g_free (filename);
-      g_free (basename);
-      if (image == NULL)
-        break;
+      const gchar *name;
+      while ((name = g_dir_read_name (dir)) != NULL)
+        {
+          if (g_str_has_prefix (name, "image"))
+            {
+              GError *error = NULL;
+              GdkPixbuf *image;
 
-      clipman_history_add_image (plugin->history, image);
-      g_object_unref (image);
+              filename = g_build_filename (dirname, name, NULL);
+              image = gdk_pixbuf_new_from_file (filename, &error);
+              if (image == NULL)
+                {
+                  g_warning ("Failed to load image from cache file %s: %s", filename, error->message);
+                  g_error_free (error);
+                }
+              else
+                {
+                  DBG ("Loaded image from cache file %s", filename);
+                  ClipmanHistoryItem *item = clipman_history_add_image (plugin->history, image);
+                  if (item != NULL)
+                    item->filename = g_strdup (filename);
+                  g_object_unref (image);
+                }
+              g_free (filename);
+            }
+        }
+      g_dir_close (dir);
     }
 
   /* Load texts */
@@ -217,13 +231,13 @@ plugin_load (MyPlugin *plugin)
   keyfile = g_key_file_new ();
   if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, NULL))
     {
-      texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
-      for (i = 0; texts != NULL && texts[i] != NULL; i++)
+      gchar **texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
+      for (gint i = 0; texts != NULL && texts[i] != NULL; i++)
         clipman_history_add_text (plugin->history, texts[i]);
+      g_strfreev (texts);
     }
 
   g_key_file_free (keyfile);
-  g_strfreev (texts);
   g_free (filename);
   g_free (dirname);
 }

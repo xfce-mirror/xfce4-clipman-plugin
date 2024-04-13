@@ -304,14 +304,14 @@ clipman_history_add_text (ClipmanHistory *history,
  * Stores an image inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest image.
  */
-void
+ClipmanHistoryItem *
 clipman_history_add_image (ClipmanHistory *history,
                            const GdkPixbuf *image)
 {
   ClipmanHistoryItem *item;
 
   if (history->priv->max_images_in_history == 0)
-    return;
+    return NULL;
 
   DBG ("Store image (%p)", image);
 
@@ -324,6 +324,8 @@ clipman_history_add_image (ClipmanHistory *history,
 
   _clipman_history_add_item (history, item);
   history->priv->image_to_restore = item;
+
+  return item;
 }
 
 /**
