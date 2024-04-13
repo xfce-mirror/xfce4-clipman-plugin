@@ -145,7 +145,7 @@ _clipman_history_add_item (ClipmanHistory *history,
     {
       while (n_images >= history->priv->max_images_in_history)
         {
-          guint i = 1;
+          guint i = 0;
 
           for (list = history->priv->items; list != NULL; list = list->next)
             {
