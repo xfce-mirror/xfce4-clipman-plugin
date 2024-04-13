@@ -396,14 +396,9 @@ clipman_history_set_image_to_restore (ClipmanHistory *history,
 void
 clipman_history_clear (ClipmanHistory *history)
 {
-  GSList *list;
-
   DBG ("Clear the history");
 
-  for (list = history->priv->items; list != NULL; list = list->next)
-    __clipman_history_item_free (list->data);
-
-  g_slist_free (history->priv->items);
+  g_slist_free_full (history->priv->items, (GDestroyNotify) __clipman_history_item_free);
   history->priv->items = NULL;
   history->priv->image_to_restore = NULL;
 

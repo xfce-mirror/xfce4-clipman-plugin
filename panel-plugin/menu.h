@@ -51,6 +51,6 @@ struct _ClipmanMenu
 
 GType                   clipman_menu_get_type           (void);
 
-GtkWidget *             clipman_menu_new                (void);
+ClipmanMenu *           clipman_menu_new                (void);
 
 #endif /* !__CLIPMAN_MENU_H__ */

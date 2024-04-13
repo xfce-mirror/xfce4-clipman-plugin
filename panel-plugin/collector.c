@@ -431,6 +431,8 @@ clipman_collector_finalize (GObject *object)
   g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
   clipman_collector_clear_cache (collector);
+
+  G_OBJECT_CLASS (clipman_collector_parent_class)->finalize (object);
 }
 
 static void

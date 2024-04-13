@@ -30,6 +30,7 @@
 #include "actions.h"
 #include "collector.h"
 #include "history.h"
+#include "menu.h"
 
 /*
  * MyPlugin structure
@@ -50,7 +51,7 @@ struct _MyPlugin
   ClipmanActions       *actions;
   ClipmanCollector     *collector;
   ClipmanHistory       *history;
-  GtkWidget            *menu;
+  ClipmanMenu          *menu;
   GtkMenuPositionFunc   menu_position_func;
   GtkWidget            *popup_menu;
   gulong                popup_menu_id;

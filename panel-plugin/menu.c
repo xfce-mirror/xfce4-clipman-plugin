@@ -80,12 +80,6 @@ GdkPixbuf *             clipman_menu_qrcode             (char *text,
 
 
 /*
- * Private methods declarations
- */
-
-static void            _clipman_menu_free_list          (ClipmanMenu *menu);
-
-/*
  * Callbacks declarations
  */
 
@@ -287,7 +281,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   item_to_restore = clipman_history_get_image_to_restore (menu->priv->history);
 
   /* Clear the previous menu items */
-  _clipman_menu_free_list (menu);
+  g_slist_free_full (menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
+  menu->priv->list = NULL;
 
   /* Set the clear history item sensitive */
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
@@ -449,24 +444,14 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   _clipman_menu_adjust_geometry(menu);
 }
 
-static void
-_clipman_menu_free_list (ClipmanMenu *menu)
-{
-  GSList *list;
-  for (list = menu->priv->list; list != NULL; list = list->next)
-    gtk_widget_destroy (GTK_WIDGET (list->data));
-  g_slist_free (menu->priv->list);
-  menu->priv->list = NULL;
-}
-
 /*
  * Public methods
  */
 
-GtkWidget *
+ClipmanMenu *
 clipman_menu_new (void)
 {
-  return g_object_new (CLIPMAN_TYPE_MENU, NULL);
+  return g_object_ref_sink (g_object_new (CLIPMAN_TYPE_MENU, NULL));
 }
 
 /*
@@ -579,7 +564,10 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 static void
 clipman_menu_finalize (GObject *object)
 {
-  _clipman_menu_free_list (CLIPMAN_MENU (object));
+  ClipmanMenu *menu = CLIPMAN_MENU (object);
+
+  g_object_unref (menu->priv->history);
+
   G_OBJECT_CLASS (clipman_menu_parent_class)->finalize (object);
 }
 

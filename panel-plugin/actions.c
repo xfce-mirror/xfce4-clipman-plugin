@@ -415,10 +415,7 @@ cb_file_changed (ClipmanActions *actions,
 static void
 _clipman_actions_free_list (ClipmanActions *actions)
 {
-  GSList *l;
-  for (l = actions->priv->entries; l != NULL; l = l->next)
-    __clipman_actions_entry_free (l->data);
-  g_slist_free (actions->priv->entries);
+  g_slist_free_full (actions->priv->entries, (GDestroyNotify) __clipman_actions_entry_free);
   actions->priv->entries = NULL;
 }
 
@@ -979,9 +976,12 @@ static void
 clipman_actions_finalize (GObject *object)
 {
   ClipmanActions *actions = CLIPMAN_ACTIONS (object);
+
   _clipman_actions_free_list (actions);
   g_object_unref (actions->priv->file_monitor);
   g_object_unref (actions->priv->file);
+
+  G_OBJECT_CLASS (clipman_actions_parent_class)->finalize (object);
 }
 
 static void

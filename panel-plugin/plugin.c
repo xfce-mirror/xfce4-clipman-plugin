@@ -31,10 +31,6 @@
 
 #include "common.h"
 #include "plugin.h"
-#include "actions.h"
-#include "collector.h"
-#include "history.h"
-#include "menu.h"
 
 
 
@@ -295,7 +291,7 @@ void
 plugin_free (MyPlugin *plugin)
 {
   g_object_unref (plugin->daemon);
-  gtk_widget_destroy (plugin->menu);
+  g_object_unref (plugin->menu);
   g_object_unref (plugin->channel);
   g_object_unref (plugin->actions);
   g_object_unref (plugin->collector);
