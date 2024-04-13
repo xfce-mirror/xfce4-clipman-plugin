@@ -342,18 +342,16 @@ clipman_history_get_list (ClipmanHistory *history)
   return g_slist_copy (history->priv->items);
 }
 
-/**
- * clipman_history_get_max_texts_in_history:
- * @history: a #ClipmanHistory
- *
- * Returns the most recent item that has been added to #ClipmanHistory.
- *
- * Returns: a #const #ClipmanHistoryItem
- */
 guint
 clipman_history_get_max_texts_in_history (ClipmanHistory *history)
 {
   return history->priv->max_texts_in_history;
+}
+
+guint
+clipman_history_get_max_images_in_history (ClipmanHistory *history)
+{
+  return history->priv->max_images_in_history;
 }
 
 /**

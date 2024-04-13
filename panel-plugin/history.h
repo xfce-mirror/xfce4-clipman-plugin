@@ -97,6 +97,7 @@ guint                       clipman_history_get_max_texts_in_history (ClipmanHis
 const ClipmanHistoryItem *  clipman_history_get_image_to_restore     (ClipmanHistory           *history);
 void                        clipman_history_set_image_to_restore     (ClipmanHistory           *history,
                                                                       const ClipmanHistoryItem *item);
+guint                       clipman_history_get_max_images_in_history (ClipmanHistory           *history);
 void                        clipman_history_clear                    (ClipmanHistory           *history);
 void                        clipman_history_set_scale_factor         (ClipmanHistory           *history,
                                                                       GParamSpec               *pspec,

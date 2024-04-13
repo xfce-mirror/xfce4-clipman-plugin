@@ -177,10 +177,36 @@ plugin_register (void)
   return plugin;
 }
 
+static gint
+compare_images (gconstpointer a,
+                gconstpointer b)
+{
+  gint pos_a = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (a), "image-pos"));
+  gint pos_b = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (b), "image-pos"));
+  return pos_a < pos_b ? -1 : (pos_a > pos_b ? 1 : 0);
+}
+
+static gint
+add_next_image (ClipmanHistory *history,
+                GList **_images)
+{
+  GList *images = *_images;
+  ClipmanHistoryItem *item = clipman_history_add_image (history, images->data);
+  if (item != NULL)
+    item->filename = g_strdup (g_object_get_data (G_OBJECT (images->data), "filename"));
+  g_object_unref (images->data);
+  *_images = images = g_list_delete_link (images, images);
+  if (images != NULL)
+    return GPOINTER_TO_INT (g_object_get_data (images->data, "image-pos"));
+
+  return -1;
+}
+
 void
 plugin_load (MyPlugin *plugin)
 {
   GKeyFile *keyfile;
+  GList *images = NULL;
   GDir *dir;
   gchar *dirname, *filename;
   gboolean save_on_quit;
@@ -214,10 +240,9 @@ plugin_load (MyPlugin *plugin)
               else
                 {
                   DBG ("Loaded image from cache file %s", filename);
-                  ClipmanHistoryItem *item = clipman_history_add_image (plugin->history, image);
-                  if (item != NULL)
-                    item->filename = g_strdup (filename);
-                  g_object_unref (image);
+                  g_object_set_data_full (G_OBJECT (image), "image-name", g_strdup (name), g_free);
+                  g_object_set_data_full (G_OBJECT (image), "filename", g_strdup (filename), g_free);
+                  images = g_list_prepend (images, image);
                 }
               g_free (filename);
             }
@@ -232,11 +257,45 @@ plugin_load (MyPlugin *plugin)
   if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, NULL))
     {
       gchar **texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
-      for (gint i = 0; texts != NULL && texts[i] != NULL; i++)
-        clipman_history_add_text (plugin->history, texts[i]);
-      g_strfreev (texts);
+      gint image_pos = -1;
+
+      /* prepare image list */
+      if (images != NULL)
+        {
+          for (GList *lp = images; lp != NULL; lp = lp->next)
+            {
+              const gchar *image_name = g_object_get_data (G_OBJECT (lp->data), "image-name");
+              image_pos = g_key_file_get_integer (keyfile, "images", image_name, NULL);
+              g_object_set_data (G_OBJECT (lp->data), "image-pos", GINT_TO_POINTER (image_pos));
+            }
+          images = g_list_sort (images, compare_images);
+          image_pos = GPOINTER_TO_INT (g_object_get_data (images->data, "image-pos"));
+
+          /* shouldn't happen: first add images that weren't found in keyfile (end of history) */
+          while (image_pos == 0)
+            image_pos = add_next_image (plugin->history, &images);
+        }
+
+      /* add texts and images in order */
+      if (texts != NULL)
+        {
+          gint n_items = 0;
+          for (gchar **text = texts; *text != NULL; n_items++)
+            {
+              if (n_items == image_pos)
+                image_pos = add_next_image (plugin->history, &images);
+              else
+                clipman_history_add_text (plugin->history, *text++);
+            }
+          g_strfreev (texts);
+        }
+
+      /* add remaining images, if any (start of history) */
+      while (images != NULL)
+        add_next_image (plugin->history, &images);
     }
 
+  g_list_free_full (images, (GDestroyNotify) g_object_unref);
   g_key_file_free (keyfile);
   g_free (filename);
   g_free (dirname);
@@ -267,9 +326,10 @@ plugin_save (MyPlugin *plugin)
   if (list != NULL)
     {
       const gchar **texts = g_new0 (const gchar *, g_slist_length (list));
-      gint n_texts = 0;
+      GdkPoint image_pos[clipman_history_get_max_images_in_history (plugin->history)];
+      gint n_items = 0, n_texts = 0, n_images = 0;
 
-      for (GSList *l = g_slist_reverse (list); l != NULL; l = l->next)
+      for (GSList *l = g_slist_reverse (list); l != NULL; l = l->next, n_items++)
         {
           ClipmanHistoryItem *item = l->data;
 
@@ -308,6 +368,13 @@ plugin_save (MyPlugin *plugin)
 
                   g_free (basename);
                 }
+
+              if (item->filename != NULL)
+                {
+                  image_pos[n_images].x = atoi (g_strrstr_len (item->filename, -1, "image") + 5);
+                  image_pos[n_images].y = n_items;
+                  n_images++;
+                }
               break;
 
             default:
@@ -315,13 +382,22 @@ plugin_save (MyPlugin *plugin)
             }
         }
 
-      if (n_texts > 0)
+      if (n_texts > 0 || n_images > 0)
         {
           GKeyFile *keyfile = g_key_file_new ();
           GError *error = NULL;
           gchar *filename = g_build_filename (dirname, "textsrc", NULL);
 
-          g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
+          if (n_texts > 0)
+            g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
+
+          for (gint n = 0; n < n_images; n++)
+            {
+              gchar *basename = g_strdup_printf ("image%d.png", image_pos[n].x);
+              g_key_file_set_integer (keyfile, "images", basename, image_pos[n].y);
+              g_free (basename);
+            }
+
           if (!g_key_file_save_to_file (keyfile, filename, &error))
             {
               g_warning ("Failed to save history to cache file %s: %s", filename, error->message);
