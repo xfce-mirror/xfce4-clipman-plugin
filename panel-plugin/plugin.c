@@ -57,6 +57,25 @@ static const GActionEntry plugin_actions[] =
  * Plugin functions
  */
 
+static void
+plugin_clear (MyPlugin *plugin)
+{
+  gchar *dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
+  GDir *dir = g_dir_open (dirname, 0, NULL);
+  if (dir != NULL)
+    {
+      const gchar *name;
+      while ((name = g_dir_read_name (dir)) != NULL)
+        {
+          gchar *filename = g_build_filename (dirname, name, NULL);
+          g_unlink (filename);
+          g_free (filename);
+        }
+      g_dir_close (dir);
+    }
+  g_free (dirname);
+}
+
 MyPlugin *
 plugin_register (void)
 {
@@ -153,19 +172,43 @@ plugin_register (void)
   g_signal_connect_swapped (plugin->history, "item-added",
                             G_CALLBACK (plugin_save), plugin);
   g_signal_connect_swapped (plugin->history, "clear",
-                            G_CALLBACK (plugin_save), plugin);
+                            G_CALLBACK (plugin_clear), plugin);
 
   return plugin;
+}
+
+static gint
+compare_images (gconstpointer a,
+                gconstpointer b)
+{
+  gint pos_a = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (a), "image-pos"));
+  gint pos_b = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (b), "image-pos"));
+  return pos_a < pos_b ? -1 : (pos_a > pos_b ? 1 : 0);
+}
+
+static gint
+add_next_image (ClipmanHistory *history,
+                GList **_images)
+{
+  GList *images = *_images;
+  ClipmanHistoryItem *item = clipman_history_add_image (history, images->data);
+  if (item != NULL)
+    item->filename = g_strdup (g_object_get_data (G_OBJECT (images->data), "filename"));
+  g_object_unref (images->data);
+  *_images = images = g_list_delete_link (images, images);
+  if (images != NULL)
+    return GPOINTER_TO_INT (g_object_get_data (images->data, "image-pos"));
+
+  return -1;
 }
 
 void
 plugin_load (MyPlugin *plugin)
 {
   GKeyFile *keyfile;
-  gchar **texts = NULL;
-  gchar *filename;
-  GdkPixbuf *image;
-  gint i = 0;
+  GList *images = NULL;
+  GDir *dir;
+  gchar *dirname, *filename;
   gboolean save_on_quit;
 
   /* Return if the history must not be saved */
@@ -173,80 +216,122 @@ plugin_load (MyPlugin *plugin)
   if (save_on_quit == FALSE)
     return;
 
-  /* Load images */
-  while (TRUE)
-    {
-      filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), i++);
-      DBG ("Loading image from cache file %s", filename);
-      image = gdk_pixbuf_new_from_file (filename, NULL);
-      g_unlink (filename);
-      g_free (filename);
-      if (image == NULL)
-        break;
+  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
 
-      clipman_history_add_image (plugin->history, image);
-      g_object_unref (image);
+  /* Load images */
+  dir = g_dir_open (dirname, 0, NULL);
+  if (dir != NULL)
+    {
+      const gchar *name;
+      while ((name = g_dir_read_name (dir)) != NULL)
+        {
+          if (g_str_has_prefix (name, "image"))
+            {
+              GError *error = NULL;
+              GdkPixbuf *image;
+
+              filename = g_build_filename (dirname, name, NULL);
+              image = gdk_pixbuf_new_from_file (filename, &error);
+              if (image == NULL)
+                {
+                  g_warning ("Failed to load image from cache file %s: %s", filename, error->message);
+                  g_error_free (error);
+                }
+              else
+                {
+                  DBG ("Loaded image from cache file %s", filename);
+                  g_object_set_data_full (G_OBJECT (image), "image-name", g_strdup (name), g_free);
+                  g_object_set_data_full (G_OBJECT (image), "filename", g_strdup (filename), g_free);
+                  images = g_list_prepend (images, image);
+                }
+              g_free (filename);
+            }
+        }
+      g_dir_close (dir);
     }
 
   /* Load texts */
-  filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
+  filename = g_build_filename (dirname, "textsrc", NULL);
   DBG ("Loading texts from cache file %s", filename);
   keyfile = g_key_file_new ();
   if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, NULL))
     {
-      texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
-      for (i = 0; texts != NULL && texts[i] != NULL; i++)
-        clipman_history_add_text (plugin->history, texts[i]);
+      gchar **texts = g_key_file_get_string_list (keyfile, "texts", "texts", NULL, NULL);
+      gint image_pos = -1;
+
+      /* prepare image list */
+      if (images != NULL)
+        {
+          for (GList *lp = images; lp != NULL; lp = lp->next)
+            {
+              const gchar *image_name = g_object_get_data (G_OBJECT (lp->data), "image-name");
+              image_pos = g_key_file_get_integer (keyfile, "images", image_name, NULL);
+              g_object_set_data (G_OBJECT (lp->data), "image-pos", GINT_TO_POINTER (image_pos));
+            }
+          images = g_list_sort (images, compare_images);
+          image_pos = GPOINTER_TO_INT (g_object_get_data (images->data, "image-pos"));
+
+          /* shouldn't happen: first add images that weren't found in keyfile (end of history) */
+          while (image_pos == 0)
+            image_pos = add_next_image (plugin->history, &images);
+        }
+
+      /* add texts and images in order */
+      if (texts != NULL)
+        {
+          gint n_items = 0;
+          for (gchar **text = texts; *text != NULL; n_items++)
+            {
+              if (n_items == image_pos)
+                image_pos = add_next_image (plugin->history, &images);
+              else
+                clipman_history_add_text (plugin->history, *text++);
+            }
+          g_strfreev (texts);
+        }
+
+      /* add remaining images, if any (start of history) */
+      while (images != NULL)
+        add_next_image (plugin->history, &images);
     }
 
+  g_list_free_full (images, (GDestroyNotify) g_object_unref);
   g_key_file_free (keyfile);
-  g_strfreev (texts);
   g_free (filename);
+  g_free (dirname);
 }
 
 void
 plugin_save (MyPlugin *plugin)
 {
-  GSList *list, *l;
-  const ClipmanHistoryItem *item;
-  GKeyFile *keyfile;
-  const gchar **texts;
-  gchar *data;
-  gchar *filename;
+  GSList *list;
   gchar *dirname;
-  const gchar *name;
-  gint n_texts, n_images;
   gboolean save_on_quit;
-  GDir *dir;
-
-  /* Create initial directory and remove cache files */
-  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
-
-  dir = g_dir_open (dirname, 0, NULL);
-  while ((name = g_dir_read_name (dir)) != NULL)
-    {
-      filename = g_build_filename (dirname, name, NULL);
-      g_unlink (filename);
-      g_free (filename);
-    }
-  g_dir_close (dir);
-
-  g_free (dirname);
 
   /* Return if the history must not be saved */
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
   if (save_on_quit == FALSE)
     return;
 
+  /* Create initial directory if needed */
+  dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", TRUE);
+  if (dirname == NULL)
+    {
+      g_warning ("Failed to create Clipman cache directory");
+      return;
+    }
+
   /* Save the history */
   list = clipman_history_get_list (plugin->history);
-  list = g_slist_reverse (list);
   if (list != NULL)
     {
-      texts = g_new0 (const gchar *, g_slist_length (list));
-      for (n_texts = n_images = 0, l = list; l != NULL; l = l->next)
+      const gchar **texts = g_new0 (const gchar *, g_slist_length (list));
+      GdkPoint image_pos[clipman_history_get_max_images_in_history (plugin->history)];
+      gint n_items = 0, n_texts = 0, n_images = 0;
+
+      for (GSList *l = g_slist_reverse (list); l != NULL; l = l->next, n_items++)
         {
-          item = l->data;
+          ClipmanHistoryItem *item = l->data;
 
           switch (item->type)
             {
@@ -255,12 +340,41 @@ plugin_save (MyPlugin *plugin)
               break;
 
             case CLIPMAN_HISTORY_TYPE_IMAGE:
-              filename = g_strdup_printf ("%s/xfce4/clipman/image%d.png", g_get_user_cache_dir (), n_images++);
-              if (!gdk_pixbuf_save (item->content.image, filename, "png", NULL, NULL))
-                g_warning ("Failed to save image to cache file %s", filename);
-              else
-                DBG ("Saved image to cache file %s", filename);
-              g_free (filename);
+              if (item->filename == NULL)
+                {
+                  GError *error = NULL;
+                  gint n = 0;
+                  gchar *basename = g_strdup_printf ("image%d.png", n);
+
+                  item->filename = g_build_filename (dirname, basename, NULL);
+                  while (g_file_test (item->filename, G_FILE_TEST_EXISTS))
+                    {
+                      g_free (item->filename);
+                      g_free (basename);
+                      basename = g_strdup_printf ("image%d.png", ++n);
+                      item->filename = g_build_filename (dirname, basename, NULL);
+                    }
+
+                  if (!gdk_pixbuf_save (item->content.image, item->filename, "png", &error, NULL))
+                    {
+                      g_warning ("Failed to save image to cache file %s: %s", item->filename, error->message);
+                      g_error_free (error);
+                      g_unlink (item->filename);
+                      g_free (item->filename);
+                      item->filename = NULL;
+                    }
+                  else
+                    DBG ("Saved image to cache file %s", item->filename);
+
+                  g_free (basename);
+                }
+
+              if (item->filename != NULL)
+                {
+                  image_pos[n_images].x = atoi (g_strrstr_len (item->filename, -1, "image") + 5);
+                  image_pos[n_images].y = n_items;
+                  n_images++;
+                }
               break;
 
             default:
@@ -268,23 +382,39 @@ plugin_save (MyPlugin *plugin)
             }
         }
 
-      if (n_texts > 0)
+      if (n_texts > 0 || n_images > 0)
         {
-          filename = g_strdup_printf ("%s/xfce4/clipman/textsrc", g_get_user_cache_dir ());
-          keyfile = g_key_file_new ();
-          g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
-          data = g_key_file_to_data (keyfile, NULL, NULL);
-          g_file_set_contents (filename, data, -1, NULL);
-          DBG ("Saved texts to cache file %s", filename);
+          GKeyFile *keyfile = g_key_file_new ();
+          GError *error = NULL;
+          gchar *filename = g_build_filename (dirname, "textsrc", NULL);
+
+          if (n_texts > 0)
+            g_key_file_set_string_list (keyfile, "texts", "texts", texts, n_texts);
+
+          for (gint n = 0; n < n_images; n++)
+            {
+              gchar *basename = g_strdup_printf ("image%d.png", image_pos[n].x);
+              g_key_file_set_integer (keyfile, "images", basename, image_pos[n].y);
+              g_free (basename);
+            }
+
+          if (!g_key_file_save_to_file (keyfile, filename, &error))
+            {
+              g_warning ("Failed to save history to cache file %s: %s", filename, error->message);
+              g_error_free (error);
+            }
+          else
+            DBG ("Saved texts to cache file %s", filename);
 
           g_key_file_free (keyfile);
-          g_free (data);
           g_free (filename);
         }
 
       g_free (texts);
       g_slist_free (list);
     }
+
+  g_free (dirname);
 }
 
 void

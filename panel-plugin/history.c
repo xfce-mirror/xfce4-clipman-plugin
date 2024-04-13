@@ -21,6 +21,7 @@
 #endif
 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
@@ -36,7 +37,6 @@
 struct _ClipmanHistoryPrivate
 {
   GSList                       *items;
-  const ClipmanHistoryItem     *image_to_restore;
   guint                         max_texts_in_history;
   guint                         max_images_in_history;
   gboolean                      save_on_quit;
@@ -145,7 +145,7 @@ _clipman_history_add_item (ClipmanHistory *history,
     {
       while (n_images >= history->priv->max_images_in_history)
         {
-          guint i = 1;
+          guint i = 0;
 
           for (list = history->priv->items; list != NULL; list = list->next)
             {
@@ -219,6 +219,12 @@ __clipman_history_item_free (ClipmanHistoryItem *item)
       DBG ("Delete image (%p)", item->content.image);
       g_object_unref (item->content.image);
       g_object_unref (item->preview.image);
+      g_bytes_unref (item->pixel_bytes);
+      if (item->filename != NULL)
+        {
+          g_unlink (item->filename);
+          g_free (item->filename);
+        }
       break;
 
     default:
@@ -236,6 +242,17 @@ __g_slist_compare_texts (gconstpointer a,
   if (item->type != CLIPMAN_HISTORY_TYPE_TEXT)
     return -1;
   return g_strcmp0 (item->content.text, text);
+}
+
+static gint
+__g_slist_compare_images (gconstpointer a,
+                          gconstpointer b)
+{
+  const ClipmanHistoryItem *item = a;
+  const GBytes *pixel_bytes = b;
+  if (item->type != CLIPMAN_HISTORY_TYPE_IMAGE)
+    return -1;
+  return g_bytes_compare (item->pixel_bytes, pixel_bytes);
 }
 
 /*
@@ -261,7 +278,7 @@ clipman_history_add_text (ClipmanHistory *history,
     return;
 
   /* Search for a previously existing content */
-  list = g_slist_find_custom (history->priv->items, text, (GCompareFunc)__g_slist_compare_texts);
+  list = g_slist_find_custom (history->priv->items, text, __g_slist_compare_texts);
   if (list != NULL)
     {
       DBG ("Found a previous occurence for text `%s'", text);
@@ -298,26 +315,47 @@ clipman_history_add_text (ClipmanHistory *history,
  * Stores an image inside the history.  If the history is growing over the
  * maximum number of items, it will delete the oldest image.
  */
-void
+ClipmanHistoryItem *
 clipman_history_add_image (ClipmanHistory *history,
                            const GdkPixbuf *image)
 {
   ClipmanHistoryItem *item;
+  GBytes *pixel_bytes;
+  GSList *list;
 
   if (history->priv->max_images_in_history == 0)
-    return;
+    return NULL;
+
+  /* Search for a previously existing content */
+  pixel_bytes = gdk_pixbuf_read_pixel_bytes (image);
+  list = g_slist_find_custom (history->priv->items, pixel_bytes, __g_slist_compare_images);
+  g_bytes_unref (pixel_bytes);
+  if (list != NULL)
+    {
+      DBG ("Found a previous occurence for image (%p)", image);
+      item = list->data;
+      if (history->priv->reorder_items)
+        {
+          history->priv->items = g_slist_remove (history->priv->items, item);
+          history->priv->items = g_slist_prepend (history->priv->items, item);
+          g_signal_emit (history, signals[ITEM_ADDED], 0);
+        }
+      return NULL;
+    }
 
   DBG ("Store image (%p)", image);
 
   item = g_slice_new0 (ClipmanHistoryItem);
   item->type = CLIPMAN_HISTORY_TYPE_IMAGE;
   item->content.image = gdk_pixbuf_copy (image);
+  item->pixel_bytes = gdk_pixbuf_read_pixel_bytes (item->content.image);
   _clipman_history_image_set_preview (history, item);
 
   DBG ("Copy of image (%p) is (%p)", image, item->content.image);
 
   _clipman_history_add_item (history, item);
-  history->priv->image_to_restore = item;
+
+  return item;
 }
 
 /**
@@ -334,57 +372,16 @@ clipman_history_get_list (ClipmanHistory *history)
   return g_slist_copy (history->priv->items);
 }
 
-/**
- * clipman_history_get_max_texts_in_history:
- * @history: a #ClipmanHistory
- *
- * Returns the most recent item that has been added to #ClipmanHistory.
- *
- * Returns: a #const #ClipmanHistoryItem
- */
 guint
 clipman_history_get_max_texts_in_history (ClipmanHistory *history)
 {
   return history->priv->max_texts_in_history;
 }
 
-/**
- * clipman_history_get_image_to_restore:
- * @history: a #ClipmanHistory
- *
- * Returns the image to restore, set via clipman_history_set_image_to_restore()
- * or when adding a new image to history via clipman_history_add_image()
- *
- * Returns: a #const #ClipmanHistoryItem
- */
-const ClipmanHistoryItem *
-clipman_history_get_image_to_restore (ClipmanHistory *history)
+guint
+clipman_history_get_max_images_in_history (ClipmanHistory *history)
 {
-  return history->priv->image_to_restore;
-}
-
-/**
- * clipman_history_set_image_to_restore:
- * @history: a #ClipmanHistory
- * @item: a #ClipmanHistoryItem that must exist inside #ClipmanHistory
- *
- * This function is used as a hack around the images as they cannot be
- * compared.  Before setting the clipboard with an image, the #ClipmanCollector
- * must be set as being restored with clipman_collector_set_is_restoring(),
- * than this function is called with the item that contains the image that is
- * getting restored.
- */
-void
-clipman_history_set_image_to_restore (ClipmanHistory *history,
-                                      const ClipmanHistoryItem *item)
-{
-  history->priv->image_to_restore = item;
-
-  if (item != NULL && history->priv->reorder_items)
-    {
-      history->priv->items = g_slist_remove (history->priv->items, item);
-      history->priv->items = g_slist_prepend (history->priv->items, (gpointer) item);
-    }
+  return history->priv->max_images_in_history;
 }
 
 /**
@@ -400,7 +397,6 @@ clipman_history_clear (ClipmanHistory *history)
 
   g_slist_free_full (history->priv->items, (GDestroyNotify) __clipman_history_item_free);
   history->priv->items = NULL;
-  history->priv->image_to_restore = NULL;
 
   g_signal_emit (history, signals[CLEAR], 0);
 }
@@ -506,14 +502,23 @@ static void
 clipman_history_init (ClipmanHistory *history)
 {
   history->priv = clipman_history_get_instance_private (history);
-  history->priv->image_to_restore = NULL;
   history->priv->scale_factor = 1;
 }
 
 static void
 clipman_history_finalize (GObject *object)
 {
+  ClipmanHistory *history = CLIPMAN_HISTORY (object);
+
+  for (GSList *lp = history->priv->items; lp != NULL; lp = lp->next)
+   {
+     /* reset filenames now so image files are not deleted in clear() */
+     ClipmanHistoryItem *item = lp->data;
+     g_free (item->filename);
+     item->filename = NULL;
+   }
   clipman_history_clear (CLIPMAN_HISTORY (object));
+
   G_OBJECT_CLASS (clipman_history_parent_class)->finalize (object);
 }
 
