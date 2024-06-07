@@ -352,6 +352,11 @@ offer_request_data (struct zwlr_data_control_offer_v1 *offer,
     }
   else if (load_data->data_type == DATA_TYPE_IMAGE)
     gdk_pixbuf_new_from_stream_async (stream, cancellable, offer_request_image, load_data);
+  else
+    {
+      g_warn_if_reached ();
+      offer_destroy_load_data (load_data);
+    }
 
   g_object_unref (stream);
   g_object_unref (cancellable);
