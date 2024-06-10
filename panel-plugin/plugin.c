@@ -289,7 +289,7 @@ plugin_load (MyPlugin *plugin)
         add_next_image (plugin->history, &images);
     }
 
-  g_list_free_full (images, (GDestroyNotify) g_object_unref);
+  g_list_free_full (images, g_object_unref);
   g_key_file_free (keyfile);
   g_free (filename);
   g_free (dirname);

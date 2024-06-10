@@ -77,10 +77,10 @@ static void             clipman_actions_get_property        (GObject *object,
  */
 
 static void            _clipman_actions_free_list           (ClipmanActions *actions);
-static gint           __clipman_actions_entry_compare       (gpointer a,
-                                                             gpointer b);
-static gint           __clipman_actions_entry_compare_name  (gpointer a,
-                                                             gpointer b);
+static gint           __clipman_actions_entry_compare       (gconstpointer a,
+                                                             gconstpointer b);
+static gint           __clipman_actions_entry_compare_name  (gconstpointer a,
+                                                             gconstpointer b);
 static void           __clipman_actions_entry_free          (ClipmanActionsEntry *entry);
 
 /*
@@ -399,7 +399,7 @@ cb_file_changed (ClipmanActions *actions,
           source = NULL;
         }
 
-      source_id = g_timeout_add_seconds (1, (GSourceFunc)timeout_file_changed, actions);
+      source_id = g_timeout_add_seconds (1, timeout_file_changed, actions);
 
       /* retrieve the timer source and increase its ref count to test its destruction next time */
       source = g_main_context_find_source_by_id (NULL, source_id);
@@ -419,8 +419,8 @@ _clipman_actions_free_list (ClipmanActions *actions)
 }
 
 static gint
-__clipman_actions_entry_compare (gpointer a,
-                                 gpointer b)
+__clipman_actions_entry_compare (gconstpointer a,
+                                 gconstpointer b)
 {
   const ClipmanActionsEntry *entrya = a;
   const ClipmanActionsEntry *entryb = b;
@@ -428,8 +428,8 @@ __clipman_actions_entry_compare (gpointer a,
 }
 
 static gint
-__clipman_actions_entry_compare_name (gpointer a,
-                                      gpointer b)
+__clipman_actions_entry_compare_name (gconstpointer a,
+                                      gconstpointer b)
 {
   const ClipmanActionsEntry *entry = a;
   const char *name = b;
@@ -487,7 +487,7 @@ clipman_actions_add (ClipmanActions *actions,
   g_return_val_if_fail (command_name != NULL, FALSE);
   g_return_val_if_fail (command != NULL, FALSE);
 
-  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  l = g_slist_find_custom (actions->priv->entries, action_name, __clipman_actions_entry_compare_name);
 
   /* Add a new entry to the list */
   if (l == NULL)
@@ -506,11 +506,10 @@ clipman_actions_add (ClipmanActions *actions,
       entry->pattern = g_strdup (regex);
       entry->regex = _regex;
       entry->group = 0;
-      entry->commands = g_hash_table_new_full ((GHashFunc)g_str_hash, (GEqualFunc)g_str_equal,
-                                               (GDestroyNotify)g_free, (GDestroyNotify)g_free);
+      entry->commands = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
       g_hash_table_insert (entry->commands, g_strdup (command_name), g_strdup (command));
 
-      actions->priv->entries = g_slist_insert_sorted (actions->priv->entries, entry, (GCompareFunc)__clipman_actions_entry_compare);
+      actions->priv->entries = g_slist_insert_sorted (actions->priv->entries, entry, __clipman_actions_entry_compare);
       return TRUE;
     }
 
@@ -538,7 +537,7 @@ clipman_actions_remove (ClipmanActions *actions,
   ClipmanActionsEntry *entry;
   GSList *l;
 
-  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  l = g_slist_find_custom (actions->priv->entries, action_name, __clipman_actions_entry_compare_name);
   if (l == NULL)
     {
       g_warning ("No corresponding entry `%s'", action_name);
@@ -575,7 +574,7 @@ clipman_actions_remove_command (ClipmanActions *actions,
   GSList *l;
   gboolean found;
 
-  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  l = g_slist_find_custom (actions->priv->entries, action_name, __clipman_actions_entry_compare_name);
   if (l == NULL)
     {
       g_warning ("No corresponding entry `%s'", action_name);
@@ -617,7 +616,7 @@ clipman_actions_set_group (ClipmanActions *actions,
   ClipmanActionsEntry *entry;
   GSList *l;
 
-  l = g_slist_find_custom (actions->priv->entries, action_name, (GCompareFunc)__clipman_actions_entry_compare_name);
+  l = g_slist_find_custom (actions->priv->entries, action_name, __clipman_actions_entry_compare_name);
   if (l == NULL)
     {
       g_warning ("No corresponding entry `%s'", action_name);
@@ -733,7 +732,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
     }
 
   actions->priv->menu = gtk_menu_new ();
-  g_object_set_data_full (G_OBJECT (actions->priv->menu), "text", g_strdup (text), (GDestroyNotify)g_free);
+  g_object_set_data_full (G_OBJECT (actions->priv->menu), "text", g_strdup (text), g_free);
 
   for (l = entries; l != NULL; l = l->next)
     {
