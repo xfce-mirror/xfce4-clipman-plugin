@@ -1,6 +1,6 @@
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <clipboard-manager/daemon.h>
+#include <clipboard-manager/clipboard-manager.h>
 
 int main (int argc, char *argv[])
 {
@@ -16,4 +16,3 @@ int main (int argc, char *argv[])
 
   return 0;
 }
-

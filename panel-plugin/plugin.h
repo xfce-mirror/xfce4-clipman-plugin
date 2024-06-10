@@ -26,7 +26,7 @@
 #include <libxfce4panel/libxfce4panel.h>
 #endif
 
-#include <clipboard-manager/daemon.h>
+#include <clipboard-manager/clipboard-manager.h>
 #include "actions.h"
 #include "collector.h"
 #include "history.h"

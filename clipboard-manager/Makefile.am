@@ -9,7 +9,6 @@ AM_CPPFLAGS =								\
 noinst_LTLIBRARIES = libdaemon.la
 
 libdaemon_la_SOURCES =							\
-	daemon.h							\
 	clipboard-manager.c		clipboard-manager.h		\
 	$(NULL)
 
