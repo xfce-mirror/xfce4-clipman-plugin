@@ -31,15 +31,23 @@
 
 
 
-static void xcp_clipboard_manager_wayland_finalize (GObject *object);
+static void
+xcp_clipboard_manager_wayland_finalize (GObject *object);
 
-static void registry_global (void *data, struct wl_registry *registry, uint32_t id, const char *interface, uint32_t version);
-static void registry_global_remove (void *data, struct wl_registry *registry, uint32_t id);
-static void device_data_offer (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
-static void device_selection (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
-static void device_finished (void *data, struct zwlr_data_control_device_v1 *device);
-static void device_primary_selection (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
-static void offer_offer (void *data, struct zwlr_data_control_offer_v1 *offer, const char *mime_type);
+static void
+registry_global (void *data, struct wl_registry *registry, uint32_t id, const char *interface, uint32_t version);
+static void
+registry_global_remove (void *data, struct wl_registry *registry, uint32_t id);
+static void
+device_data_offer (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
+static void
+device_selection (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
+static void
+device_finished (void *data, struct zwlr_data_control_device_v1 *device);
+static void
+device_primary_selection (void *data, struct zwlr_data_control_device_v1 *device, struct zwlr_data_control_offer_v1 *offer);
+static void
+offer_offer (void *data, struct zwlr_data_control_offer_v1 *offer, const char *mime_type);
 
 
 
@@ -85,22 +93,19 @@ typedef struct _XcpLoadData
   gchar *text;
 } XcpLoadData;
 
-static const struct wl_registry_listener registry_listener =
-{
+static const struct wl_registry_listener registry_listener = {
   .global = registry_global,
   .global_remove = registry_global_remove,
 };
 
-static const struct zwlr_data_control_device_v1_listener device_listener =
-{
+static const struct zwlr_data_control_device_v1_listener device_listener = {
   .data_offer = device_data_offer,
   .selection = device_selection,
   .finished = device_finished,
   .primary_selection = device_primary_selection,
 };
 
-static const struct zwlr_data_control_offer_v1_listener offer_listener =
-{
+static const struct zwlr_data_control_offer_v1_listener offer_listener = {
   .offer = offer_offer,
 };
 
@@ -302,7 +307,7 @@ offer_request_data (struct zwlr_data_control_offer_v1 *offer,
   GError *error = NULL;
   gint fds[2];
   gint flags = 0;
-#if GLIB_CHECK_VERSION (2, 77, 0)
+#if GLIB_CHECK_VERSION(2, 77, 0)
   flags |= O_NONBLOCK;
 #endif
 
@@ -319,7 +324,7 @@ offer_request_data (struct zwlr_data_control_offer_v1 *offer,
       return FALSE;
     }
 
-#if !GLIB_CHECK_VERSION (2, 77, 0)
+#if !GLIB_CHECK_VERSION(2, 77, 0)
   if (!g_unix_set_fd_nonblocking (fds[0], TRUE, &error) || !g_unix_set_fd_nonblocking (fds[1], TRUE, &error))
     {
       g_warning ("Failed to set nonblock flag on pipe: %s", error->message);

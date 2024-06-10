@@ -29,7 +29,7 @@
 
 #include <libxfce4ui/libxfce4ui.h>
 
-#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 5)
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
@@ -42,7 +42,7 @@ struct _XcpClipboardManagerX11
 {
   GObject parent;
 
-#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 5)
   /* clang-format off */
         GtkClipboard *default_clipboard;
         GtkClipboard *primary_clipboard;
@@ -63,10 +63,11 @@ struct _XcpClipboardManagerX11
 
 G_DEFINE_TYPE (XcpClipboardManagerX11, xcp_clipboard_manager_x11, G_TYPE_OBJECT)
 
-static void     xcp_clipboard_manager_x11_finalize    (GObject                  *object);
+static void
+xcp_clipboard_manager_x11_finalize (GObject *object);
 
 
-#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 5)
 /* clang-format off */
 Atom XA_CLIPBOARD_MANAGER;
 Atom XA_MANAGER;
@@ -402,7 +403,7 @@ xcp_clipboard_manager_x11_class_init (XcpClipboardManagerX11Class *klass)
 static void
 xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
 {
-#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 5)
   /* clang-format off */
         manager->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
         manager->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
@@ -422,7 +423,7 @@ xcp_clipboard_manager_x11_finalize (GObject *object)
 {
   XcpClipboardManagerX11 *manager = XCP_CLIPBOARD_MANAGER_X11 (object);
 
-#if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 5)
   /* clang-format off */
         xcp_clipboard_manager_x11_stop (manager);
   /* clang-format on */

@@ -36,16 +36,23 @@
  */
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
-static MyPlugin*        status_icon_register            (void);
-static void             cb_status_icon_activate         (MyPlugin *plugin);
-static void             cb_status_icon_popup_menu       (MyPlugin *plugin,
-                                                         guint button,
-                                                         guint activate_time);
-static void             cb_status_icon_quit             (MyPlugin *plugin);
-static void             cb_status_icon_finalize         (gpointer  data,
-                                                         GObject  *where_the_object_was);
-static void             install_autostart_file          (void);
-static void             update_autostart_file           (gboolean autostart);
+static MyPlugin *
+status_icon_register (void);
+static void
+cb_status_icon_activate (MyPlugin *plugin);
+static void
+cb_status_icon_popup_menu (MyPlugin *plugin,
+                           guint button,
+                           guint activate_time);
+static void
+cb_status_icon_quit (MyPlugin *plugin);
+static void
+cb_status_icon_finalize (gpointer data,
+                         GObject *where_the_object_was);
+static void
+install_autostart_file (void);
+static void
+update_autostart_file (gboolean autostart);
 
 /*
  * Plugin Registration
@@ -103,7 +110,7 @@ status_icon_register (void)
     return NULL;
 
   /* Menu Position Func */
-  plugin->menu_position_func = (GtkMenuPositionFunc)gtk_status_icon_position_menu;
+  plugin->menu_position_func = (GtkMenuPositionFunc) gtk_status_icon_position_menu;
 
   /* Status Icon */
   if (gtk_icon_theme_has_icon (gtk_icon_theme_get_default (), "clipman"))
@@ -162,13 +169,13 @@ cb_status_icon_popup_menu (MyPlugin *plugin, guint button, guint activate_time)
 
   gtk_menu_set_screen (GTK_MENU (plugin->popup_menu), gtk_status_icon_get_screen (plugin->status_icon));
 
-  if(!gtk_widget_has_grab(plugin->popup_menu))
-  {
-    gtk_grab_add(plugin->popup_menu);
-  }
+  if (!gtk_widget_has_grab (plugin->popup_menu))
+    {
+      gtk_grab_add (plugin->popup_menu);
+    }
 
   gtk_menu_popup (GTK_MENU (plugin->popup_menu), NULL, NULL,
-                  (GtkMenuPositionFunc)gtk_status_icon_position_menu, plugin->status_icon,
+                  (GtkMenuPositionFunc) gtk_status_icon_position_menu, plugin->status_icon,
                   0, gtk_get_current_event_time ());
 }
 
@@ -181,8 +188,8 @@ cb_status_icon_quit (MyPlugin *plugin)
 }
 
 static void
-cb_status_icon_finalize (gpointer  data,
-                         GObject  *where_the_object_was)
+cb_status_icon_finalize (gpointer data,
+                         GObject *where_the_object_was)
 {
   MyPlugin *plugin = data;
 
@@ -198,8 +205,8 @@ install_autostart_file (void)
   GKeyFile *keyfile;
   gchar *data;
 
-  sysfile = g_strdup (SYSCONFDIR"/xdg/autostart/"PACKAGE"-autostart.desktop");
-  userfile = g_strdup_printf ("%s/autostart/"PACKAGE"-autostart.desktop", g_get_user_config_dir ());
+  sysfile = g_strdup (SYSCONFDIR "/xdg/autostart/" PACKAGE "-autostart.desktop");
+  userfile = g_strdup_printf ("%s/autostart/" PACKAGE "-autostart.desktop", g_get_user_config_dir ());
 
   if (!g_file_test (sysfile, G_FILE_TEST_EXISTS))
     {
@@ -235,7 +242,7 @@ update_autostart_file (gboolean autostart)
   GKeyFile *keyfile;
   gchar *data;
 
-  userfile = g_strdup_printf ("%s/autostart/"PACKAGE"-autostart.desktop", g_get_user_config_dir ());
+  userfile = g_strdup_printf ("%s/autostart/" PACKAGE "-autostart.desktop", g_get_user_config_dir ());
 
   /* Check if the user autostart file exists */
   if (!g_file_test (userfile, G_FILE_TEST_EXISTS))

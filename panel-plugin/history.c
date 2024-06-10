@@ -32,12 +32,12 @@
 
 struct _ClipmanHistoryPrivate
 {
-  GSList                       *items;
-  guint                         max_texts_in_history;
-  guint                         max_images_in_history;
-  gboolean                      save_on_quit;
-  gboolean                      reorder_items;
-  gint                          scale_factor;
+  GSList *items;
+  guint max_texts_in_history;
+  guint max_images_in_history;
+  gboolean save_on_quit;
+  gboolean reorder_items;
+  gint scale_factor;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanHistory, clipman_history, G_TYPE_OBJECT)
@@ -58,30 +58,36 @@ enum
 };
 static guint signals[LAST_SIGNAL];
 
-static void             clipman_history_finalize           (GObject *object);
-static void             clipman_history_set_property       (GObject *object,
-                                                            guint property_id,
-                                                            const GValue *value,
-                                                            GParamSpec *pspec);
-static void             clipman_history_get_property       (GObject *object,
-                                                            guint property_id,
-                                                            GValue *value,
-                                                            GParamSpec *pspec);
+static void
+clipman_history_finalize (GObject *object);
+static void
+clipman_history_set_property (GObject *object,
+                              guint property_id,
+                              const GValue *value,
+                              GParamSpec *pspec);
+static void
+clipman_history_get_property (GObject *object,
+                              guint property_id,
+                              GValue *value,
+                              GParamSpec *pspec);
 
 /*
  * Private methods declarations
  */
 
-static void            _clipman_history_add_item           (ClipmanHistory *history,
-                                                            ClipmanHistoryItem *item);
+static void
+_clipman_history_add_item (ClipmanHistory *history,
+                           ClipmanHistoryItem *item);
 
 /*
  * Misc functions declarations
  */
 
-static void           __clipman_history_item_free          (ClipmanHistoryItem *item);
-static gint           __g_slist_compare_texts              (gconstpointer a,
-                                                            gconstpointer b);
+static void
+__clipman_history_item_free (ClipmanHistoryItem *item);
+static gint
+__g_slist_compare_texts (gconstpointer a,
+                         gconstpointer b);
 
 
 
@@ -427,7 +433,7 @@ clipman_history_get (void)
   if (singleton == NULL)
     {
       singleton = g_object_new (CLIPMAN_TYPE_HISTORY, NULL);
-      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer)&singleton);
+      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer) &singleton);
     }
   else
     g_object_ref (G_OBJECT (singleton));
@@ -451,14 +457,14 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
 
   signals[ITEM_ADDED] =
     g_signal_new ("item-added", G_TYPE_FROM_CLASS (klass),
-                  G_SIGNAL_RUN_LAST|G_SIGNAL_ACTION,
+                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (ClipmanHistoryClass, item_added),
                   0, NULL, g_cclosure_marshal_VOID__VOID,
                   G_TYPE_NONE, 0);
 
   signals[CLEAR] =
     g_signal_new ("clear", G_TYPE_FROM_CLASS (klass),
-                  G_SIGNAL_RUN_LAST|G_SIGNAL_ACTION,
+                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (ClipmanHistoryClass, clear),
                   0, NULL, g_cclosure_marshal_VOID__VOID,
                   G_TYPE_NONE, 0);
@@ -469,21 +475,21 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                       "MaxTextsInHistory",
                                                       "The number of maximum texts in history",
                                                       5, 1000, DEFAULT_MAX_TEXTS_IN_HISTORY,
-                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
                                    MAX_IMAGES_IN_HISTORY,
                                    g_param_spec_uint ("max-images-in-history",
                                                       "MaxImagesInHistory",
                                                       "The number of maximum images in history",
                                                       0, 5, DEFAULT_MAX_IMAGES_IN_HISTORY,
-                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
                                    SAVE_ON_QUIT,
                                    g_param_spec_boolean ("save-on-quit",
                                                          "SaveOnQuit",
                                                          "True if the history must be saved on quit",
                                                          DEFAULT_SAVE_ON_QUIT,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class,
                                    REORDER_ITEMS,
@@ -491,7 +497,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                          "ReorderItems",
                                                          "Always push last clipboard content to the top of the history",
                                                          DEFAULT_REORDER_ITEMS,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 }
 
 static void
@@ -507,12 +513,12 @@ clipman_history_finalize (GObject *object)
   ClipmanHistory *history = CLIPMAN_HISTORY (object);
 
   for (GSList *lp = history->priv->items; lp != NULL; lp = lp->next)
-   {
-     /* reset filenames now so image files are not deleted in clear() */
-     ClipmanHistoryItem *item = lp->data;
-     g_free (item->filename);
-     item->filename = NULL;
-   }
+    {
+      /* reset filenames now so image files are not deleted in clear() */
+      ClipmanHistoryItem *item = lp->data;
+      g_free (item->filename);
+      item->filename = NULL;
+    }
   clipman_history_clear (CLIPMAN_HISTORY (object));
 
   G_OBJECT_CLASS (clipman_history_parent_class)->finalize (object);

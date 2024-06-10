@@ -31,7 +31,8 @@ struct _XcpClipboardManagerInterface
   GTypeInterface g_iface;
 };
 
-XcpClipboardManager *xcp_clipboard_manager_get (void);
+XcpClipboardManager *
+xcp_clipboard_manager_get (void);
 
 G_END_DECLS
 

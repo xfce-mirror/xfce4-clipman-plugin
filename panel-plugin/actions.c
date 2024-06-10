@@ -48,11 +48,11 @@
 
 struct _ClipmanActionsPrivate
 {
-  GFile                *file;
-  GFileMonitor         *file_monitor;
-  GSList               *entries;
-  GtkWidget            *menu;
-  gboolean              skip_action_on_key_down;
+  GFile *file;
+  GFileMonitor *file_monitor;
+  GSList *entries;
+  GtkWidget *menu;
+  gboolean skip_action_on_key_down;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)
@@ -62,59 +62,70 @@ enum
   SKIP_ACTION_ON_KEY_DOWN = 1,
 };
 
-static void             clipman_actions_finalize            (GObject *object);
-static void             clipman_actions_set_property        (GObject *object,
-                                                             guint property_id,
-                                                             const GValue *value,
-                                                             GParamSpec *pspec);
-static void             clipman_actions_get_property        (GObject *object,
-                                                             guint property_id,
-                                                             GValue *value,
-                                                             GParamSpec *pspec);
+static void
+clipman_actions_finalize (GObject *object);
+static void
+clipman_actions_set_property (GObject *object,
+                              guint property_id,
+                              const GValue *value,
+                              GParamSpec *pspec);
+static void
+clipman_actions_get_property (GObject *object,
+                              guint property_id,
+                              GValue *value,
+                              GParamSpec *pspec);
 
 /*
  * Misc functions declarations
  */
 
-static void            _clipman_actions_free_list           (ClipmanActions *actions);
-static gint           __clipman_actions_entry_compare       (gconstpointer a,
-                                                             gconstpointer b);
-static gint           __clipman_actions_entry_compare_name  (gconstpointer a,
-                                                             gconstpointer b);
-static void           __clipman_actions_entry_free          (ClipmanActionsEntry *entry);
+static void
+_clipman_actions_free_list (ClipmanActions *actions);
+static gint
+__clipman_actions_entry_compare (gconstpointer a,
+                                 gconstpointer b);
+static gint
+__clipman_actions_entry_compare_name (gconstpointer a,
+                                      gconstpointer b);
+static void
+__clipman_actions_entry_free (ClipmanActionsEntry *entry);
 
 /*
  * Callbacks declarations
  */
 
-static void             cb_entry_activated                  (GtkMenuItem *mi,
-                                                             gpointer user_data);
-static void             cb_file_changed                     (ClipmanActions *actions,
-                                                             GFile *file,
-                                                             GFile *other_file,
-                                                             GFileMonitorEvent event_type);
+static void
+cb_entry_activated (GtkMenuItem *mi,
+                    gpointer user_data);
+static void
+cb_file_changed (ClipmanActions *actions,
+                 GFile *file,
+                 GFile *other_file,
+                 GFileMonitorEvent event_type);
 /*
  * XML Parser declarations
  */
 
-static void             start_element_handler               (GMarkupParseContext *context,
-                                                             const gchar *element_name,
-                                                             const gchar **attribute_names,
-                                                             const gchar **attribute_values,
-                                                             gpointer user_data,
-                                                             GError **error);
-static void             end_element_handler                 (GMarkupParseContext *context,
-                                                             const gchar *element_name,
-                                                             gpointer user_data,
-                                                             GError **error);
-static void             text_handler                        (GMarkupParseContext *context,
-                                                             const gchar *text,
-                                                             gsize text_len,
-                                                             gpointer user_data,
-                                                             GError **error);
+static void
+start_element_handler (GMarkupParseContext *context,
+                       const gchar *element_name,
+                       const gchar **attribute_names,
+                       const gchar **attribute_values,
+                       gpointer user_data,
+                       GError **error);
+static void
+end_element_handler (GMarkupParseContext *context,
+                     const gchar *element_name,
+                     gpointer user_data,
+                     GError **error);
+static void
+text_handler (GMarkupParseContext *context,
+              const gchar *text,
+              gsize text_len,
+              gpointer user_data,
+              GError **error);
 
-static GMarkupParser markup_parser =
-{
+static GMarkupParser markup_parser = {
   start_element_handler,
   end_element_handler,
   text_handler,
@@ -318,7 +329,7 @@ text_handler (GMarkupParseContext *context,
       break;
 
     case GROUP:
-      parser->group = (gint)g_strtod (text, NULL);
+      parser->group = (gint) g_strtod (text, NULL);
       break;
 
     case COMMAND_NAME:
@@ -385,14 +396,14 @@ cb_file_changed (ClipmanActions *actions,
                  GFileMonitorEvent event_type)
 {
   static GSource *source = NULL;
-  guint           source_id;
+  guint source_id;
 
   if (event_type == G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT)
     {
       /* drop the previous timer source */
       if (source != NULL)
         {
-          if (! g_source_is_destroyed (source))
+          if (!g_source_is_destroyed (source))
             g_source_destroy (source);
 
           g_source_unref (source);
@@ -494,7 +505,7 @@ clipman_actions_add (ClipmanActions *actions,
     {
       /* Validate the regex */
       regex_anchored = g_strdup_printf ("%s$", regex);
-      _regex = g_regex_new (regex_anchored, G_REGEX_CASELESS|G_REGEX_ANCHORED, 0, NULL);
+      _regex = g_regex_new (regex_anchored, G_REGEX_CASELESS | G_REGEX_ANCHORED, 0, NULL);
       g_free (regex_anchored);
       if (_regex == NULL)
         return FALSE;
@@ -695,11 +706,11 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
   GtkWidget *mi;
   GSList *l, *entries;
   GdkModifierType state = 0;
-  GdkDisplay* display = gdk_display_get_default ();
+  GdkDisplay *display = gdk_display_get_default ();
   GdkSeat *seat = gdk_display_get_default_seat (display);
   GdkDevice *device = gdk_seat_get_pointer (seat);
-  GdkScreen* screen = gdk_screen_get_default ();
-  GdkWindow * root_win = gdk_screen_get_root_window (screen);
+  GdkScreen *screen = gdk_screen_get_default ();
+  GdkWindow *root_win = gdk_screen_get_root_window (screen);
   GdkEvent *event;
 
   if (group == ACTION_GROUP_SELECTION)
@@ -745,20 +756,20 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
       mi = gtk_separator_menu_item_new ();
       gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
 
-        {
-          GHashTableIter iter;
-          gpointer key, value;
-          g_hash_table_iter_init (&iter, entry->commands);
-          while (g_hash_table_iter_next (&iter, &key, &value))
-            {
-              mi = gtk_menu_item_new_with_label ((const gchar *)key);
-              g_object_set_data (G_OBJECT (mi), "text", g_object_get_data (G_OBJECT (actions->priv->menu), "text"));
-              g_object_set_data (G_OBJECT (mi), "command", value);
-              g_object_set_data (G_OBJECT (mi), "regex", entry->regex);
-              gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
-              g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
-            }
-        }
+      {
+        GHashTableIter iter;
+        gpointer key, value;
+        g_hash_table_iter_init (&iter, entry->commands);
+        while (g_hash_table_iter_next (&iter, &key, &value))
+          {
+            mi = gtk_menu_item_new_with_label ((const gchar *) key);
+            g_object_set_data (G_OBJECT (mi), "text", g_object_get_data (G_OBJECT (actions->priv->menu), "text"));
+            g_object_set_data (G_OBJECT (mi), "command", value);
+            g_object_set_data (G_OBJECT (mi), "regex", entry->regex);
+            gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
+            g_signal_connect (mi, "activate", G_CALLBACK (cb_entry_activated), NULL);
+          }
+      }
 
       mi = gtk_separator_menu_item_new ();
       gtk_container_add (GTK_CONTAINER (actions->priv->menu), mi);
@@ -769,10 +780,10 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
 
   gtk_widget_show_all (actions->priv->menu);
 
-  if(!gtk_widget_has_grab(actions->priv->menu))
-  {
-    gtk_grab_add(actions->priv->menu);
-  }
+  if (!gtk_widget_has_grab (actions->priv->menu))
+    {
+      gtk_grab_add (actions->priv->menu);
+    }
 
   event = gdk_event_new (GDK_BUTTON_PRESS);
   event->button.window = g_object_ref (root_win);
@@ -798,7 +809,7 @@ clipman_actions_load (ClipmanActions *actions)
   GMarkupParseContext *context;
   EntryParser *parser;
 
-  load = g_file_load_contents (actions->priv->file, NULL, &data, (gsize*)&size, NULL, NULL);
+  load = g_file_load_contents (actions->priv->file, NULL, &data, (gsize *) &size, NULL, NULL);
 
   if (!load)
     {
@@ -809,8 +820,8 @@ clipman_actions_load (ClipmanActions *actions)
       dir = NULL;
 
       /* Load from system wide file */
-      filename = g_strdup (SYSCONFDIR"/xdg/xfce4/panel/xfce4-clipman-actions.xml");
-      load = g_file_get_contents (filename, &data, (gsize*)&size, NULL);
+      filename = g_strdup (SYSCONFDIR "/xdg/xfce4/panel/xfce4-clipman-actions.xml");
+      load = g_file_get_contents (filename, &data, (gsize *) &size, NULL);
       g_free (filename);
     }
 
@@ -871,25 +882,25 @@ clipman_actions_save (ClipmanActions *actions)
 
       g_string_append (output, "\t\t<commands>\n");
 
-        {
-          GHashTableIter iter;
-          gpointer key, value;
-          g_hash_table_iter_init (&iter, entry->commands);
-          while (g_hash_table_iter_next (&iter, &key, &value))
-            {
-              g_string_append (output, "\t\t\t<command>\n");
+      {
+        GHashTableIter iter;
+        gpointer key, value;
+        g_hash_table_iter_init (&iter, entry->commands);
+        while (g_hash_table_iter_next (&iter, &key, &value))
+          {
+            g_string_append (output, "\t\t\t<command>\n");
 
-              tmp = g_markup_escape_text (key, -1);
-              g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
-              g_free (tmp);
+            tmp = g_markup_escape_text (key, -1);
+            g_string_append_printf (output, "\t\t\t\t<name>%s</name>\n", tmp);
+            g_free (tmp);
 
-              tmp = g_markup_escape_text (value, -1);
-              g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
-              g_free (tmp);
+            tmp = g_markup_escape_text (value, -1);
+            g_string_append_printf (output, "\t\t\t\t<exec>%s</exec>\n", tmp);
+            g_free (tmp);
 
-              g_string_append (output, "\t\t\t</command>\n");
-            }
-        }
+            g_string_append (output, "\t\t\t</command>\n");
+          }
+      }
 
       g_string_append (output, "\t\t</commands>\n");
 
@@ -920,7 +931,7 @@ clipman_actions_get (void)
   if (singleton == NULL)
     {
       singleton = g_object_new (CLIPMAN_TYPE_ACTIONS, NULL);
-      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer)&singleton);
+      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer) &singleton);
     }
   else
     g_object_ref (G_OBJECT (singleton));
@@ -947,7 +958,7 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
                                                          "SkipActionOnKeyDown",
                                                          "Skip the action if the Control key is pressed down",
                                                          DEFAULT_SKIP_ACTION_ON_KEY_DOWN,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 }
 
 static void

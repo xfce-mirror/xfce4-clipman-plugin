@@ -36,24 +36,31 @@
  * Panel Plugin
  */
 
-static void             panel_plugin_register           (XfcePanelPlugin *panel_plugin);
-static gboolean         panel_plugin_register_check     (GdkScreen *screen);
+static void
+panel_plugin_register (XfcePanelPlugin *panel_plugin);
+static gboolean
+panel_plugin_register_check (GdkScreen *screen);
 XFCE_PANEL_PLUGIN_REGISTER_WITH_CHECK (panel_plugin_register, panel_plugin_register_check);
 
-static gboolean         plugin_set_size                 (MyPlugin *plugin,
-                                                         gint size);
-static gboolean         cb_button_pressed               (GtkButton *button,
-                                                         GdkEventButton *event,
-                                                         MyPlugin *plugin);
-static void             cb_menu_deactivate              (GtkMenuShell *menu,
-                                                         MyPlugin *plugin);
-static void             cb_inhibit_toggled              (GtkCheckMenuItem *mi,
-                                                         gpointer user_data);
-static void             my_plugin_position_menu         (GtkMenu *menu,
-                                                         gint *x,
-                                                         gint *y,
-                                                         gboolean *push_in,
-                                                         MyPlugin *plugin);
+static gboolean
+plugin_set_size (MyPlugin *plugin,
+                 gint size);
+static gboolean
+cb_button_pressed (GtkButton *button,
+                   GdkEventButton *event,
+                   MyPlugin *plugin);
+static void
+cb_menu_deactivate (GtkMenuShell *menu,
+                    MyPlugin *plugin);
+static void
+cb_inhibit_toggled (GtkCheckMenuItem *mi,
+                    gpointer user_data);
+static void
+my_plugin_position_menu (GtkMenu *menu,
+                         gint *x,
+                         gint *y,
+                         gboolean *push_in,
+                         MyPlugin *plugin);
 
 
 
@@ -76,7 +83,7 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   GtkStyleContext *context;
 
   /* Menu Position Func */
-  my_plugin->menu_position_func = (GtkMenuPositionFunc)my_plugin_position_menu;
+  my_plugin->menu_position_func = (GtkMenuPositionFunc) my_plugin_position_menu;
 
   /* Panel Plugin */
   my_plugin->panel_plugin = panel_plugin;
@@ -85,11 +92,11 @@ panel_plugin_register (XfcePanelPlugin *panel_plugin)
   /* Panel Button */
   my_plugin->button = xfce_panel_create_toggle_button ();
   if (gtk_icon_theme_has_icon (icon_theme, "clipman-symbolic"))
-      my_plugin->image = gtk_image_new_from_icon_name ("clipman-symbolic", GTK_ICON_SIZE_MENU);
+    my_plugin->image = gtk_image_new_from_icon_name ("clipman-symbolic", GTK_ICON_SIZE_MENU);
   else if (gtk_icon_theme_has_icon (icon_theme, "edit-paste-symbolic"))
-      my_plugin->image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
+    my_plugin->image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
   else
-      my_plugin->image = gtk_image_new_from_icon_name ("edit-paste", GTK_ICON_SIZE_MENU);
+    my_plugin->image = gtk_image_new_from_icon_name ("edit-paste", GTK_ICON_SIZE_MENU);
   gtk_container_add (GTK_CONTAINER (my_plugin->button), my_plugin->image);
   gtk_container_add (GTK_CONTAINER (panel_plugin), my_plugin->button);
   gtk_widget_set_name (GTK_WIDGET (my_plugin->button), "xfce4-clipman-plugin");
@@ -221,39 +228,39 @@ my_plugin_position_menu (GtkMenu *menu,
 
   switch (screen_position)
     {
-      case XFCE_SCREEN_POSITION_NW_H:
-      case XFCE_SCREEN_POSITION_N:
-      case XFCE_SCREEN_POSITION_NE_H:
-        above = FALSE;
-        G_GNUC_FALLTHROUGH;
-      case XFCE_SCREEN_POSITION_SW_H:
-      case XFCE_SCREEN_POSITION_S:
-      case XFCE_SCREEN_POSITION_SE_H:
-        if (above)
-          /* Show menu above */
-          *y -= minimum_size.height;
-        else
-          /* Show menu below */
-          *y += button_height;
+    case XFCE_SCREEN_POSITION_NW_H:
+    case XFCE_SCREEN_POSITION_N:
+    case XFCE_SCREEN_POSITION_NE_H:
+      above = FALSE;
+      G_GNUC_FALLTHROUGH;
+    case XFCE_SCREEN_POSITION_SW_H:
+    case XFCE_SCREEN_POSITION_S:
+    case XFCE_SCREEN_POSITION_SE_H:
+      if (above)
+        /* Show menu above */
+        *y -= minimum_size.height;
+      else
+        /* Show menu below */
+        *y += button_height;
 
-        if (*x + minimum_size.width > geometry->width)
-          /* Adjust horizontal position */
-          *x = geometry->width - minimum_size.width;
+      if (*x + minimum_size.width > geometry->width)
+        /* Adjust horizontal position */
+        *x = geometry->width - minimum_size.width;
 
-        break;
+      break;
 
-      default:
-        if (*x + button_width + minimum_size.width > geometry->width)
-          /* Show menu on the right */
-          *x -= minimum_size.width;
-        else
-          /* Show menu on the left */
-          *x += button_width;
+    default:
+      if (*x + button_width + minimum_size.width > geometry->width)
+        /* Show menu on the right */
+        *x -= minimum_size.width;
+      else
+        /* Show menu on the left */
+        *x += button_width;
 
-        if (*y + minimum_size.height > geometry->height)
-          /* Adjust vertical position */
-          *y = geometry->height - minimum_size.height;
+      if (*y + minimum_size.height > geometry->height)
+        /* Adjust vertical position */
+        *y = geometry->height - minimum_size.height;
 
-        break;
+      break;
     }
 }

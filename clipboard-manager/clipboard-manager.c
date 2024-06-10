@@ -50,7 +50,7 @@ xcp_clipboard_manager_default_init (XcpClipboardManagerInterface *iface)
 XcpClipboardManager *
 xcp_clipboard_manager_get (void)
 {
- static XcpClipboardManager *manager = NULL;
+  static XcpClipboardManager *manager = NULL;
 
   if (manager != NULL)
     return g_object_ref (manager);
