@@ -17,20 +17,14 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
-#include <glib/gstdio.h>
-#include <gtk/gtk.h>
-#include <xfconf/xfconf.h>
-#include <libxfce4util/libxfce4util.h>
-
-#ifdef PANEL_PLUGIN
-#include <libxfce4panel/libxfce4panel.h>
+#include "config.h"
 #endif
 
 #include "common.h"
 #include "plugin.h"
+
+#include <glib/gstdio.h>
+#include <libxfce4util/libxfce4util.h>
 
 
 
@@ -46,8 +40,7 @@ plugin_action_set_text (GSimpleAction *action,
   gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), g_variant_get_string (value, NULL), -1);
 }
 
-static const GActionEntry plugin_actions[] =
-{
+static const GActionEntry plugin_actions[] = {
   { "set-text", plugin_action_set_text, "s", NULL, NULL },
 };
 
@@ -123,8 +116,8 @@ plugin_register (void)
 
   /* ClipmanActions */
   plugin->actions = clipman_actions_get ();
-  xfconf_g_property_bind  (plugin->channel, "/tweaks/skip-action-on-key-down",
-                           G_TYPE_BOOLEAN, plugin->actions, "skip-action-on-key-down");
+  xfconf_g_property_bind (plugin->channel, "/tweaks/skip-action-on-key-down",
+                          G_TYPE_BOOLEAN, plugin->actions, "skip-action-on-key-down");
 
   /* ClipmanHistory */
   plugin->history = clipman_history_get ();
@@ -295,7 +288,7 @@ plugin_load (MyPlugin *plugin)
         add_next_image (plugin->history, &images);
     }
 
-  g_list_free_full (images, (GDestroyNotify) g_object_unref);
+  g_list_free_full (images, g_object_unref);
   g_key_file_free (keyfile);
   g_free (filename);
   g_free (dirname);
@@ -429,7 +422,7 @@ plugin_free (MyPlugin *plugin)
 
 #ifdef PANEL_PLUGIN
   gtk_widget_destroy (plugin->button);
-#elif defined (STATUS_ICON)
+#elif defined(STATUS_ICON)
   if (plugin->popup_menu != NULL)
     gtk_widget_destroy (plugin->popup_menu);
 #endif
@@ -442,16 +435,21 @@ plugin_free (MyPlugin *plugin)
 void
 plugin_about (MyPlugin *plugin)
 {
-  const gchar *authors[] = { "(c) 2014-2020 Simon Steinbeiss",
-                             "(c) 2008-2014 Mike Massonnet",
-                             "(c) 2005-2006 Nick Schermer",
-                             "(c) 2003 Eduard Roccatello",
-                             "",
-                             _("Contributors:"),
-                             "(c) 2008-2009 David Collins",
-                             "(c) 2013 Christian Hesse",
-                             NULL, };
-  const gchar *documenters[] = { "Mike Massonnet", NULL, };
+  const gchar *authors[] = {
+    "(c) 2014-2020 Simon Steinbeiss",
+    "(c) 2008-2014 Mike Massonnet",
+    "(c) 2005-2006 Nick Schermer",
+    "(c) 2003 Eduard Roccatello",
+    "",
+    _("Contributors:"),
+    "(c) 2008-2009 David Collins",
+    "(c) 2013 Christian Hesse",
+    NULL,
+  };
+  const gchar *documenters[] = {
+    "Mike Massonnet",
+    NULL,
+  };
   const gchar *license =
     "This program is free software; you can redistribute it and/or modify\n"
     "it under the terms of the GNU General Public License as published by\n"
@@ -481,14 +479,14 @@ plugin_configure (MyPlugin *plugin)
 
   g_spawn_command_line_async ("xfce4-clipman-settings", &error);
   if (error != NULL)
-  {
-    error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-                                           _("Unable to open the settings dialog"));
-    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
-    gtk_dialog_run (GTK_DIALOG (error_dialog));
-    gtk_widget_destroy (error_dialog);
-    g_error_free (error);
-  }
+    {
+      error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+                                             _("Unable to open the settings dialog"));
+      gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
+      gtk_dialog_run (GTK_DIALOG (error_dialog));
+      gtk_widget_destroy (error_dialog);
+      g_error_free (error);
+    }
 }
 
 void
@@ -527,27 +525,27 @@ plugin_popup_menu (MyPlugin *plugin)
     {
 #ifdef PANEL_PLUGIN
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-#if LIBXFCE4PANEL_CHECK_VERSION (4, 17, 2)
+#if LIBXFCE4PANEL_CHECK_VERSION(4, 17, 2)
       xfce_panel_plugin_popup_menu (plugin->panel_plugin, GTK_MENU (plugin->menu), plugin->button, event);
 #else
       xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
       gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                       plugin->menu_position_func, plugin,
                       0, gtk_get_current_event_time ());
-G_GNUC_END_IGNORE_DEPRECATIONS
+      G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
 
-#elif defined (STATUS_ICON)
+#elif defined(STATUS_ICON)
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_menu_set_screen (GTK_MENU (plugin->menu),
                            gtk_status_icon_get_screen (plugin->status_icon));
       gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
                       plugin->menu_position_func, plugin->status_icon,
                       0, gtk_get_current_event_time ());
-G_GNUC_END_IGNORE_DEPRECATIONS
+      G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
     }
 

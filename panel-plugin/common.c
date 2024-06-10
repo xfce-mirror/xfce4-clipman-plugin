@@ -17,26 +17,26 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
+#include "common.h"
+
 #include <gtk/gtk.h>
+#include <libxfce4ui/libxfce4ui.h>
+
 #ifdef HAVE_LIBXTST
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #endif
 
-#include <libxfce4ui/libxfce4ui.h>
-
-#include <common.h>
-
 void
 clipman_common_show_info_dialog (void)
 {
   xfce_dialog_show_info (NULL,
                          _("Could not start the Clipboard Manager Daemon because it is already running."),
-                         _("The Xfce Clipboard Manager is already running."));
+                         "%s", _("The Xfce Clipboard Manager is already running."));
 }
 
 void
@@ -44,8 +44,7 @@ clipman_common_show_warning_dialog (void)
 {
   xfce_dialog_show_warning (NULL,
                             _("You can launch it with 'xfce4-clipman'."),
-                            "%s",
-                            _("The Clipboard Manager Daemon is not running."));
+                            "%s", _("The Clipboard Manager Daemon is not running."));
 }
 
 gchar *

@@ -1,8 +1,15 @@
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "panel-plugin/actions.h"
+
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <panel-plugin/actions.h>
 
-int main (int argc, char *argv[])
+int
+main (int argc,
+      char *argv[])
 {
   ClipmanActions *actions;
 
@@ -29,4 +36,3 @@ int main (int argc, char *argv[])
 
   return 0;
 }
-

@@ -17,19 +17,22 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
+
+#include "clipboard-manager.h"
 
 #ifdef ENABLE_X11
+#include "clipboard-manager-x11.h"
+
 #include <gdk/gdkx.h>
-#include <clipboard-manager/clipboard-manager-x11.h>
-#endif
-#ifdef ENABLE_WAYLAND
-#include <gdk/gdkwayland.h>
-#include <clipboard-manager/clipboard-manager-wayland.h>
 #endif
 
-#include <clipboard-manager/clipboard-manager.h>
+#ifdef ENABLE_WAYLAND
+#include "clipboard-manager-wayland.h"
+
+#include <gdk/gdkwayland.h>
+#endif
 
 
 
@@ -47,7 +50,7 @@ xcp_clipboard_manager_default_init (XcpClipboardManagerInterface *iface)
 XcpClipboardManager *
 xcp_clipboard_manager_get (void)
 {
- static XcpClipboardManager *manager = NULL;
+  static XcpClipboardManager *manager = NULL;
 
   if (manager != NULL)
     return g_object_ref (manager);

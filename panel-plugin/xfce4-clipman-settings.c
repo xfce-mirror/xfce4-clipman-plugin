@@ -17,51 +17,74 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#ifdef HAVE_LOCALE_H
-#include <locale.h>
-#endif
+#include "actions.h"
+#include "common.h"
+#include "settings-dialog_ui.h"
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
 
-#include "common.h"
-#include "settings-dialog_ui.h"
-#include "actions.h"
+#ifdef HAVE_LOCALE_H
+#include <locale.h>
+#endif
 
-static void             cb_show_help                    (GtkButton *button);
-static void             setup_actions_treeview          (GtkTreeView *treeview);
-static void             refresh_actions_treeview        (GtkTreeView *treeview);
-static void             apply_action                    (const gchar *original_action_name);
-static void             cb_actions_selection_changed    (GtkTreeSelection *selection);
-static void             cb_add_action                   (GtkButton *button);
-static void             cb_edit_action                  (GtkButton *button);
-static void             cb_actions_row_activated        (GtkTreeView *treeview,
-                                                         GtkTreePath *path,
-                                                         GtkTreeViewColumn *column);
-static void             cb_delete_action                (GtkButton *button);
-static void             cb_reset_actions                (GtkButton *button);
-static void             setup_commands_treeview         (GtkTreeView *treeview);
-static void             entry_dialog_cleanup            (void);
-static void             cb_commands_selection_changed   (GtkTreeSelection *selection);
-static void             cb_add_command                  (GtkButton *button);
-static void             cb_refresh_command              (GtkButton *button);
-static void             cb_delete_command               (GtkButton *button);
-static void             setup_test_regex_dialog         (void);
-static void             cb_test_regex                   (GtkButton *button);
-static void             cb_test_regex_changed           (GtkWidget *widget);
-static gboolean         cb_regex_focus_in_event         (GtkWidget *widget,
-                                                         GdkEvent  *event,
-                                                         gpointer   user_data);
-static gboolean         cb_regex_focus_out_event        (GtkWidget *widget,
-                                                         GdkEvent  *event,
-                                                         gpointer   user_data);
-static void             update_test_regex_textview_tags (void);
-static void             cb_set_action_dialog_button_ok  (GtkWidget *widget);
+static void
+cb_show_help (GtkButton *button);
+static void
+setup_actions_treeview (GtkTreeView *treeview);
+static void
+refresh_actions_treeview (GtkTreeView *treeview);
+static void
+apply_action (const gchar *original_action_name);
+static void
+cb_actions_selection_changed (GtkTreeSelection *selection);
+static void
+cb_add_action (GtkButton *button);
+static void
+cb_edit_action (GtkButton *button);
+static void
+cb_actions_row_activated (GtkTreeView *treeview,
+                          GtkTreePath *path,
+                          GtkTreeViewColumn *column);
+static void
+cb_delete_action (GtkButton *button);
+static void
+cb_reset_actions (GtkButton *button);
+static void
+setup_commands_treeview (GtkTreeView *treeview);
+static void
+entry_dialog_cleanup (void);
+static void
+cb_commands_selection_changed (GtkTreeSelection *selection);
+static void
+cb_add_command (GtkButton *button);
+static void
+cb_refresh_command (GtkButton *button);
+static void
+cb_delete_command (GtkButton *button);
+static void
+setup_test_regex_dialog (void);
+static void
+cb_test_regex (GtkButton *button);
+static void
+cb_test_regex_changed (GtkWidget *widget);
+static gboolean
+cb_regex_focus_in_event (GtkWidget *widget,
+                         GdkEvent *event,
+                         gpointer user_data);
+static gboolean
+cb_regex_focus_out_event (GtkWidget *widget,
+                          GdkEvent *event,
+                          gpointer user_data);
+static void
+update_test_regex_textview_tags (void);
+static void
+cb_set_action_dialog_button_ok (GtkWidget *widget);
 
 static XfconfChannel *xfconf_channel = NULL;
 static GtkBuilder *builder = NULL;
@@ -89,7 +112,7 @@ prop_dialog_init (void)
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "show-qr-code")),
                                 DEFAULT_SHOW_QR_CODE);
 #else
-  gtk_widget_hide(GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
+  gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "show-qr-code")));
 #endif
   if (!WINDOWING_IS_X11 ())
     gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (builder, "persistent-selections")));
@@ -120,7 +143,7 @@ prop_dialog_init (void)
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "popup-at-pointer")),
                                 DEFAULT_POPUP_AT_POINTER);
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-menu-items")),
-                             (gdouble)DEFAULT_MAX_MENU_ITEMS);
+                             (gdouble) DEFAULT_MAX_MENU_ITEMS);
 
   xfconf_g_property_bind (xfconf_channel, "/tweaks/popup-at-pointer", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "popup-at-pointer"), "active");
@@ -129,7 +152,7 @@ prop_dialog_init (void)
 
   /* Actions tab and dialog */
   gtk_switch_set_state (GTK_SWITCH (gtk_builder_get_object (builder, "enable-actions")),
-                                DEFAULT_ENABLE_ACTIONS);
+                        DEFAULT_ENABLE_ACTIONS);
   xfconf_g_property_bind (xfconf_channel, "/settings/enable-actions", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "enable-actions"), "active");
 
@@ -152,7 +175,7 @@ prop_dialog_init (void)
   g_signal_connect (gtk_builder_get_object (builder, "actions"), "row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-add-command"), "clicked", G_CALLBACK (cb_add_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-refresh-command"), "clicked", G_CALLBACK (cb_refresh_command), NULL);
-  g_signal_connect (gtk_builder_get_object (builder, "button-delete-command"), "clicked", G_CALLBACK(cb_delete_command), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "button-delete-command"), "clicked", G_CALLBACK (cb_delete_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "settings-dialog-button-help"), "clicked", G_CALLBACK (cb_show_help), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-action-pattern"), "clicked", G_CALLBACK (cb_test_regex), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "regex-entry"), "changed", G_CALLBACK (cb_test_regex_changed), NULL);
@@ -179,13 +202,13 @@ prop_dialog_init (void)
                           G_CALLBACK (cb_set_action_dialog_button_ok), NULL);
 
   g_signal_connect_swapped (gtk_builder_get_object (builder, "action-dialog-button-cancel"), "clicked",
-                             G_CALLBACK (gtk_dialog_response), action_dialog);
+                            G_CALLBACK (gtk_dialog_response), action_dialog);
 
   /* History tab */
   gtk_switch_set_state (GTK_SWITCH (gtk_builder_get_object (builder, "save-on-quit")),
                         DEFAULT_SAVE_ON_QUIT);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "store-an-image")),
-                                (gboolean)DEFAULT_MAX_IMAGES_IN_HISTORY);
+                                (gboolean) DEFAULT_MAX_IMAGES_IN_HISTORY);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reorder-items")),
                                 DEFAULT_REORDER_ITEMS);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "reverse-order")),
@@ -193,7 +216,7 @@ prop_dialog_init (void)
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "history-ignore-selections")),
                                 DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD);
   gtk_spin_button_set_value (GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "max-texts-in-history")),
-                             (gdouble)DEFAULT_MAX_TEXTS_IN_HISTORY);
+                             (gdouble) DEFAULT_MAX_TEXTS_IN_HISTORY);
 
   xfconf_g_property_bind (xfconf_channel, "/settings/save-on-quit", G_TYPE_BOOLEAN,
                           gtk_builder_get_object (builder, "save-on-quit"), "active");
@@ -244,24 +267,24 @@ cb_show_help (GtkButton *button)
   locale = g_strdup ("C");
 #endif
 
-  docpath = g_strdup_printf (DOCDIR"/html/%s/index.html", locale);
+  docpath = g_strdup_printf (DOCDIR "/html/%s/index.html", locale);
   if (!g_file_test (docpath, G_FILE_TEST_EXISTS))
     {
       offset = g_strrstr (locale, "_");
       if (offset == NULL)
         {
           g_free (docpath);
-          docpath = g_strdup (DOCDIR"/html/C/index.html");
+          docpath = g_strdup (DOCDIR "/html/C/index.html");
         }
       else
         {
           *offset = '\0';
           g_free (docpath);
-          docpath = g_strdup_printf (DOCDIR"/html/%s/index.html", locale);
+          docpath = g_strdup_printf (DOCDIR "/html/%s/index.html", locale);
           if (!g_file_test (docpath, G_FILE_TEST_EXISTS))
             {
               g_free (docpath);
-              docpath = g_strdup (DOCDIR"/html/C/index.html");
+              docpath = g_strdup (DOCDIR "/html/C/index.html");
             }
         }
     }
@@ -364,7 +387,7 @@ apply_action (const gchar *original_action_name)
 
   action_name = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")));
   regex = gtk_entry_get_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")));
-  group = (gint)gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "manual")));
+  group = (gint) gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "manual")));
 
   treeview = GTK_WIDGET (gtk_builder_get_object (builder, "commands"));
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (treeview));
@@ -465,18 +488,18 @@ cb_actions_row_activated (GtkTreeView *treeview,
 
   commands_model = gtk_tree_view_get_model (GTK_TREE_VIEW (gtk_builder_get_object (builder, "commands")));
 
-    {
-      GHashTableIter hiter;
-      gpointer key, value;
-      g_hash_table_iter_init (&hiter, entry->commands);
-      while (g_hash_table_iter_next (&hiter, &key, &value))
-        {
-          title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *)key, (gchar *)value);
-          gtk_list_store_append (GTK_LIST_STORE (commands_model), &iter);
-          gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
-          g_free (title);
-        }
-    }
+  {
+    GHashTableIter hiter;
+    gpointer key, value;
+    g_hash_table_iter_init (&hiter, entry->commands);
+    while (g_hash_table_iter_next (&hiter, &key, &value))
+      {
+        title = g_markup_printf_escaped ("<b>%s</b>\n<small>%s</small>", (gchar *) key, (gchar *) value);
+        gtk_list_store_append (GTK_LIST_STORE (commands_model), &iter);
+        gtk_list_store_set (GTK_LIST_STORE (commands_model), &iter, 0, title, 1, key, 2, value, -1);
+        g_free (title);
+      }
+  }
 
   gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "action-name")), entry->action_name);
   gtk_entry_set_text (GTK_ENTRY (gtk_builder_get_object (builder, "regex")), entry->pattern);
@@ -520,7 +543,7 @@ cb_reset_actions (GtkButton *button)
   gint res;
 
   dialog = gtk_message_dialog_new_with_markup (GTK_WINDOW (settings_dialog),
-                                               GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_QUESTION,
                                                GTK_BUTTONS_YES_NO,
                                                _("<b>Reset actions</b>"));
@@ -756,7 +779,7 @@ cb_test_regex_changed (GtkWidget *widget)
 {
   if (test_regex_changed_timeout == 0)
     gtk_entry_set_icon_from_icon_name (GTK_ENTRY (gtk_builder_get_object (builder, "regex-entry")),
-                                   GTK_ENTRY_ICON_SECONDARY, "gtk-refresh");
+                                       GTK_ENTRY_ICON_SECONDARY, "gtk-refresh");
 
   if (test_regex_changed_timeout > 0)
     g_source_remove (test_regex_changed_timeout);
@@ -766,8 +789,8 @@ cb_test_regex_changed (GtkWidget *widget)
 
 static gboolean
 cb_regex_focus_in_event (GtkWidget *widget,
-                         GdkEvent  *event,
-                         gpointer   user_data)
+                         GdkEvent *event,
+                         gpointer user_data)
 {
   GtkWidget *infobar = GTK_WIDGET (user_data);
 
@@ -779,8 +802,8 @@ cb_regex_focus_in_event (GtkWidget *widget,
 
 static gboolean
 cb_regex_focus_out_event (GtkWidget *widget,
-                          GdkEvent  *event,
-                          gpointer   user_data)
+                          GdkEvent *event,
+                          gpointer user_data)
 {
   GtkWidget *infobar = GTK_WIDGET (user_data);
 
@@ -813,7 +836,7 @@ update_test_regex_textview_tags (void)
 
   /* Build Regex */
   pattern = gtk_entry_get_text (GTK_ENTRY (entry));
-  regex = g_regex_new (pattern, G_REGEX_CASELESS|G_REGEX_MULTILINE, 0, NULL);
+  regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_MULTILINE, 0, NULL);
   if (regex == NULL)
     {
       gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, "dialog-error");
@@ -854,7 +877,7 @@ update_test_regex_textview_tags (void)
             gtk_text_buffer_apply_tag_by_name (buffer, "match-secondary", &tag_start, &tag_end);
         }
     }
-  while  (g_match_info_next (match_info, NULL));
+  while (g_match_info_next (match_info, NULL));
 
   g_regex_unref (regex);
   g_match_info_free (match_info);

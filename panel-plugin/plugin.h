@@ -19,18 +19,19 @@
 #ifndef __CLIPMAN_PLUGIN_H__
 #define __CLIPMAN_PLUGIN_H__
 
+#include "actions.h"
+#include "collector.h"
+#include "history.h"
+#include "menu.h"
+
+#include "clipboard-manager/clipboard-manager.h"
+
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
 
 #ifdef PANEL_PLUGIN
 #include <libxfce4panel/libxfce4panel.h>
 #endif
-
-#include <clipboard-manager/daemon.h>
-#include "actions.h"
-#include "collector.h"
-#include "history.h"
-#include "menu.h"
 
 /*
  * MyPlugin structure
@@ -40,38 +41,45 @@ typedef struct _MyPlugin MyPlugin;
 struct _MyPlugin
 {
 #ifdef PANEL_PLUGIN
-  XfcePanelPlugin      *panel_plugin;
-  GtkWidget            *button;
-  GtkWidget            *image;
-#elif defined (STATUS_ICON)
-  GtkStatusIcon        *status_icon;
+  XfcePanelPlugin *panel_plugin;
+  GtkWidget *button;
+  GtkWidget *image;
+#elif defined(STATUS_ICON)
+  GtkStatusIcon *status_icon;
 #endif
-  XcpClipboardManager  *daemon;
-  XfconfChannel        *channel;
-  ClipmanActions       *actions;
-  ClipmanCollector     *collector;
-  ClipmanHistory       *history;
-  ClipmanMenu          *menu;
-  GtkMenuPositionFunc   menu_position_func;
-  GtkWidget            *popup_menu;
-  gulong                popup_menu_id;
-  GtkApplication       *app;
-  GtkWidget            *dialog;
-  GtkWidget            *treeview;
-  GtkWidget            *submit_button;
-  GtkWidget            *entry;
+  XcpClipboardManager *daemon;
+  XfconfChannel *channel;
+  ClipmanActions *actions;
+  ClipmanCollector *collector;
+  ClipmanHistory *history;
+  ClipmanMenu *menu;
+  GtkMenuPositionFunc menu_position_func;
+  GtkWidget *popup_menu;
+  gulong popup_menu_id;
+  GtkApplication *app;
+  GtkWidget *dialog;
+  GtkWidget *treeview;
+  GtkWidget *submit_button;
+  GtkWidget *entry;
 };
 
 /*
  * Plugin functions
  */
 
-MyPlugin*               plugin_register                 (void);
-void                    plugin_load                     (MyPlugin *plugin);
-void                    plugin_save                     (MyPlugin *plugin);
-void                    plugin_free                     (MyPlugin *plugin);
-void                    plugin_about                    (MyPlugin *plugin);
-void                    plugin_configure                (MyPlugin *plugin);
-void                    plugin_popup_menu               (MyPlugin *plugin);
+MyPlugin *
+plugin_register (void);
+void
+plugin_load (MyPlugin *plugin);
+void
+plugin_save (MyPlugin *plugin);
+void
+plugin_free (MyPlugin *plugin);
+void
+plugin_about (MyPlugin *plugin);
+void
+plugin_configure (MyPlugin *plugin);
+void
+plugin_popup_menu (MyPlugin *plugin);
 
 #endif /* !__CLIPMAN_PLUGIN_H__ */

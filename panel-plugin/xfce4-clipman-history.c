@@ -19,18 +19,17 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
+#include "common.h"
+#include "history.h"
+#include "plugin.h"
 
+#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
-
-#include "common.h"
-#include <plugin.h>
-#include <history.h>
 
 
 enum
@@ -43,18 +42,21 @@ enum
 guint internal_paste_on_activate = PASTE_INACTIVE;
 
 
-GtkWidget   *clipman_history_dialog_init               (MyPlugin  *plugin);
-GtkWidget   *clipman_history_treeview_init             (MyPlugin  *plugin);
-static void  clipman_history_copy_or_paste_on_activate (MyPlugin  *plugin,
-                                                        guint      paste_on_activate);
+GtkWidget *
+clipman_history_dialog_init (MyPlugin *plugin);
+GtkWidget *
+clipman_history_treeview_init (MyPlugin *plugin);
+static void
+clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
+                                           guint paste_on_activate);
 
 
 
 static void
-clipman_history_row_activated (GtkTreeView       *treeview,
-                               GtkTreePath       *path,
+clipman_history_row_activated (GtkTreeView *treeview,
+                               GtkTreePath *path,
                                GtkTreeViewColumn *column,
-                               MyPlugin          *plugin)
+                               MyPlugin *plugin)
 {
   GtkWidget *window;
   GtkTreeSelection *selection;
@@ -80,7 +82,7 @@ clipman_history_row_activated (GtkTreeView       *treeview,
   /* set clipboard text from the daemon instance */
   proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
                                          G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES
-                                         | G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS,
+                                           | G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS,
                                          NULL, "org.xfce.clipman", "/org/xfce/clipman",
                                          "org.gtk.Actions", NULL, &error);
   if (proxy != NULL)
@@ -139,17 +141,16 @@ clipman_history_search_entry_activate (GtkEntry *entry,
 
 static gboolean
 clipman_history_visible_func (GtkTreeModel *model,
-                              GtkTreeIter  *iter,
-                              gpointer      user_data)
+                              GtkTreeIter *iter,
+                              gpointer user_data)
 {
-
-  GtkEntry    *entry = GTK_ENTRY (user_data);
+  GtkEntry *entry = GTK_ENTRY (user_data);
   const gchar *text;
-  gchar       *name;
-  gchar       *normalized;
-  gchar       *text_casefolded;
-  gchar       *name_casefolded;
-  gboolean     visible = FALSE;
+  gchar *name;
+  gchar *normalized;
+  gchar *text_casefolded;
+  gchar *name_casefolded;
+  gboolean visible = FALSE;
 
   /* search string from dialog */
   text = gtk_entry_get_text (entry);
@@ -203,27 +204,26 @@ clipman_history_treeview_filter_and_select (MyPlugin *plugin)
 
 static gboolean
 clipman_history_key_event (GtkWidget *widget,
-                           GdkEvent  *event,
-                           MyPlugin  *plugin)
+                           GdkEvent *event,
+                           MyPlugin *plugin)
 {
   GdkModifierType state = 0;
   gint ctrl_mask = 0;
-  GdkDisplay* display = gdk_display_get_default ();
+  GdkDisplay *display = gdk_display_get_default ();
 
   GdkSeat *seat = gdk_display_get_default_seat (display);
   GdkDevice *device = gdk_seat_get_pointer (seat);
-  GdkScreen* screen = gdk_screen_get_default ();
-  GdkWindow * root_win = gdk_screen_get_root_window (screen);
+  GdkScreen *screen = gdk_screen_get_default ();
+  GdkWindow *root_win = gdk_screen_get_root_window (screen);
 
   /* Check if the user is holding the Ctrl key and update Copy/Paste button accordingly */
   gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
   ctrl_mask = state & GDK_CONTROL_MASK;
   if (ctrl_mask == GDK_CONTROL_MASK)
     {
-      if ((((GdkEventKey*)event)->type == GDK_KEY_RELEASE)
-          && ((((GdkEventKey*)event)->keyval == GDK_KEY_Return
-              || ((GdkEventKey*)event)->keyval == GDK_KEY_KP_Enter)
-             ))
+      if (((GdkEventKey *) event)->type == GDK_KEY_RELEASE
+          && (((GdkEventKey *) event)->keyval == GDK_KEY_Return
+              || ((GdkEventKey *) event)->keyval == GDK_KEY_KP_Enter))
         {
           clipman_history_search_entry_activate (GTK_ENTRY (plugin->entry), plugin);
           return TRUE;
@@ -341,7 +341,7 @@ clipman_history_treeview_init (MyPlugin *plugin)
               break;
 
             default:
-              DBG("Ignoring non-text history type %d", item->type);
+              DBG ("Ignoring non-text history type %d", item->type);
               continue;
             }
         }
@@ -359,8 +359,8 @@ clipman_history_treeview_init (MyPlugin *plugin)
 
 static void
 clipman_history_dialog_response (GtkWidget *dialog,
-                                 gint       response_id,
-                                 MyPlugin  *plugin)
+                                 gint response_id,
+                                 MyPlugin *plugin)
 {
   if (response_id == GTK_RESPONSE_HELP)
     xfce_dialog_show_help (GTK_WINDOW (dialog), "clipman", NULL, NULL);
@@ -374,7 +374,7 @@ clipman_history_dialog_response (GtkWidget *dialog,
 
 static void
 clipman_history_copy_or_paste_on_activate (MyPlugin *plugin,
-                                           guint     paste_on_activate)
+                                           guint paste_on_activate)
 {
   GtkWidget *icon;
   const gchar *button_text;
@@ -429,26 +429,26 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-clipman-plugin");
   gtk_window_set_default_size (GTK_WINDOW (dialog), 350, 450);
 
-#if LIBXFCE4UI_CHECK_VERSION (4,15,1)
-#if !LIBXFCE4UI_CHECK_VERSION (4,19,3)
+#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
+#if !LIBXFCE4UI_CHECK_VERSION(4, 19, 3)
   xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
 #endif
-  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _( "_Help"), GTK_RESPONSE_HELP);
 #else
   button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
 #endif
   icon = gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
-#if LIBXFCE4UI_CHECK_VERSION (4,15,1)
-  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _("_Settings"), GTK_RESPONSE_OK);
+#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
+  button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _( "_Settings"), GTK_RESPONSE_OK);
 #else
   button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Settings"), GTK_RESPONSE_OK);
 #endif
   icon = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
-#if LIBXFCE4UI_CHECK_VERSION (4,15,1)
+#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
   plugin->submit_button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), "label", GTK_RESPONSE_APPLY);
   xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_APPLY);
 #else
@@ -562,7 +562,8 @@ clipman_history_clipman_daemon_running (GApplication *app,
 }
 
 gint
-main (gint argc, gchar *argv[])
+main (gint argc,
+      gchar *argv[])
 {
   GtkApplication *app;
   int status;

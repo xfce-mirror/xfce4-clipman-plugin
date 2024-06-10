@@ -22,35 +22,37 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#define CLIPMAN_TYPE_MENU                  (clipman_menu_get_type())
+#define CLIPMAN_TYPE_MENU (clipman_menu_get_type ())
 
-#define CLIPMAN_MENU(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_MENU, ClipmanMenu))
-#define CLIPMAN_MENU_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_MENU, ClipmanMenuClass))
+#define CLIPMAN_MENU(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_MENU, ClipmanMenu))
+#define CLIPMAN_MENU_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_MENU, ClipmanMenuClass))
 
-#define CLIPMAN_IS_MENU(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_MENU))
-#define CLIPMAN_IS_MENU_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_MENU))
+#define CLIPMAN_IS_MENU(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_MENU))
+#define CLIPMAN_IS_MENU_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_MENU))
 
-#define CLIPMAN_MENU_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_MENU, ClipmanMenuClass))
+#define CLIPMAN_MENU_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_MENU, ClipmanMenuClass))
 
-typedef struct _ClipmanMenuClass           ClipmanMenuClass;
-typedef struct _ClipmanMenu                ClipmanMenu;
-typedef struct _ClipmanMenuPrivate         ClipmanMenuPrivate;
+typedef struct _ClipmanMenuClass ClipmanMenuClass;
+typedef struct _ClipmanMenu ClipmanMenu;
+typedef struct _ClipmanMenuPrivate ClipmanMenuPrivate;
 
 struct _ClipmanMenuClass
 {
-  GtkMenuClass           parent_class;
+  GtkMenuClass parent_class;
 };
 
 struct _ClipmanMenu
 {
-  GtkMenu                parent;
+  GtkMenu parent;
 
   /* Private */
-  ClipmanMenuPrivate    *priv;
+  ClipmanMenuPrivate *priv;
 };
 
-GType                   clipman_menu_get_type           (void);
+GType
+clipman_menu_get_type (void);
 
-ClipmanMenu *           clipman_menu_new                (void);
+ClipmanMenu *
+clipman_menu_new (void);
 
 #endif /* !__CLIPMAN_MENU_H__ */

@@ -1,3 +1,7 @@
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <glib.h>
 #include <gtk/gtk.h>
 
@@ -30,7 +34,7 @@ cb (GtkClipboard *clipboard,
       selection_data = gtk_clipboard_wait_for_contents (clipboard, atoms[i]);
       if (selection_data != NULL)
         {
-          g_print ("%s (f:%d, l:%d)\n", atom_name, gtk_selection_data_get_format (selection_data), gtk_selection_data_get_length(selection_data));
+          g_print ("%s (f:%d, l:%d)\n", atom_name, gtk_selection_data_get_format (selection_data), gtk_selection_data_get_length (selection_data));
           gtk_selection_data_free (selection_data);
         }
       else
@@ -51,7 +55,9 @@ cb (GtkClipboard *clipboard,
     }
 }
 
-int main (int argc, char *argv[])
+int
+main (int argc,
+      char *argv[])
 {
   GtkClipboard *clipboard;
 
@@ -72,4 +78,3 @@ int main (int argc, char *argv[])
 
   return 0;
 }
-

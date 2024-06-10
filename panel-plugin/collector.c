@@ -17,17 +17,15 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <gtk/gtk.h>
-
-#include "common.h"
 #include "actions.h"
-#include "history.h"
-#include <libxfce4util/libxfce4util.h>
-
 #include "collector.h"
+#include "common.h"
+#include "history.h"
+
+#include <libxfce4util/libxfce4util.h>
 
 /*
  * GObject declarations
@@ -35,21 +33,21 @@
 
 struct _ClipmanCollectorPrivate
 {
-  ClipmanActions       *actions;
-  ClipmanHistory       *history;
-  GtkClipboard         *default_clipboard;
-  GtkClipboard         *primary_clipboard;
-  GdkPixbuf            *current_image;
-  gchar                *default_cache;
-  gchar                *primary_cache;
-  guint                 primary_clipboard_timeout;
-  gboolean              default_internal_change;
-  gboolean              primary_internal_change;
-  gboolean              add_primary_clipboard;
-  gboolean              persistent_primary_clipboard;
-  gboolean              history_ignore_primary_clipboard;
-  gboolean              enable_actions;
-  gboolean              inhibit;
+  ClipmanActions *actions;
+  ClipmanHistory *history;
+  GtkClipboard *default_clipboard;
+  GtkClipboard *primary_clipboard;
+  GdkPixbuf *current_image;
+  gchar *default_cache;
+  gchar *primary_cache;
+  guint primary_clipboard_timeout;
+  gboolean default_internal_change;
+  gboolean primary_internal_change;
+  gboolean add_primary_clipboard;
+  gboolean persistent_primary_clipboard;
+  gboolean history_ignore_primary_clipboard;
+  gboolean enable_actions;
+  gboolean inhibit;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
@@ -63,27 +61,33 @@ enum
   INHIBIT,
 };
 
-static void             clipman_collector_constructed       (GObject *object);
-static void             clipman_collector_finalize          (GObject *object);
-static void             clipman_collector_set_property      (GObject *object,
-                                                             guint property_id,
-                                                             const GValue *value,
-                                                             GParamSpec *pspec);
-static void             clipman_collector_get_property      (GObject *object,
-                                                             guint property_id,
-                                                             GValue *value,
-                                                             GParamSpec *pspec);
+static void
+clipman_collector_constructed (GObject *object);
+static void
+clipman_collector_finalize (GObject *object);
+static void
+clipman_collector_set_property (GObject *object,
+                                guint property_id,
+                                const GValue *value,
+                                GParamSpec *pspec);
+static void
+clipman_collector_get_property (GObject *object,
+                                guint property_id,
+                                GValue *value,
+                                GParamSpec *pspec);
 
 /*
  * Callbacks declarations
  */
 
-static void             cb_clipboard_owner_change           (ClipmanCollector *collector,
-                                                             GdkEventOwnerChange *event,
-                                                             GtkClipboard *clipboard);
-static void             cb_request_text                     (GtkClipboard *clipboard,
-                                                             const gchar *text,
-                                                             ClipmanCollector *collector);
+static void
+cb_clipboard_owner_change (ClipmanCollector *collector,
+                           GdkEventOwnerChange *event,
+                           GtkClipboard *clipboard);
+static void
+cb_request_text (GtkClipboard *clipboard,
+                 const gchar *text,
+                 ClipmanCollector *collector);
 
 
 
@@ -95,11 +99,11 @@ cb_check_primary_clipboard (gpointer user_data)
 {
   ClipmanCollector *collector = user_data;
   GdkModifierType state = 0;
-  GdkDisplay* display = gdk_display_get_default ();
+  GdkDisplay *display = gdk_display_get_default ();
   GdkSeat *seat = gdk_display_get_default_seat (display);
   GdkDevice *device = gdk_seat_get_pointer (seat);
-  GdkScreen* screen = gdk_screen_get_default ();
-  GdkWindow * root_win = gdk_screen_get_root_window (screen);
+  GdkScreen *screen = gdk_screen_get_default ();
+  GdkWindow *root_win = gdk_screen_get_root_window (screen);
 
   g_return_val_if_fail (GTK_IS_CLIPBOARD (collector->priv->default_clipboard) && GTK_IS_CLIPBOARD (collector->priv->primary_clipboard), FALSE);
 
@@ -113,11 +117,11 @@ cb_check_primary_clipboard (gpointer user_data)
 
   /* Postpone until the selection is done */
   gdk_window_get_device_position (root_win, device, NULL, NULL, &state);
-  if (state & (GDK_BUTTON1_MASK|GDK_SHIFT_MASK))
+  if (state & (GDK_BUTTON1_MASK | GDK_SHIFT_MASK))
     return TRUE;
 
   gtk_clipboard_request_text (collector->priv->primary_clipboard,
-                              (GtkClipboardTextReceivedFunc)cb_request_text,
+                              (GtkClipboardTextReceivedFunc) cb_request_text,
                               collector);
 
   collector->priv->primary_clipboard_timeout = 0;
@@ -169,7 +173,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
       else
         {
           gtk_clipboard_request_text (collector->priv->default_clipboard,
-                                      (GtkClipboardTextReceivedFunc)cb_request_text,
+                                      (GtkClipboardTextReceivedFunc) cb_request_text,
                                       collector);
         }
     }
@@ -205,11 +209,11 @@ cb_request_text (GtkClipboard *clipboard,
   if (text == NULL)
     {
       /* Restore primary clipboard on deselection */
-      if (clipboard == collector->priv->primary_clipboard && collector->priv->primary_cache != NULL && (
-            (collector->priv->persistent_primary_clipboard && !collector->priv->add_primary_clipboard)
-            || (collector->priv->add_primary_clipboard
-                && gtk_clipboard_wait_is_text_available (collector->priv->default_clipboard))
-         ))
+      if (clipboard == collector->priv->primary_clipboard
+          && collector->priv->primary_cache != NULL
+          && ((collector->priv->persistent_primary_clipboard && !collector->priv->add_primary_clipboard)
+              || (collector->priv->add_primary_clipboard
+                  && gtk_clipboard_wait_is_text_available (collector->priv->default_clipboard))))
         {
           collector->priv->primary_internal_change = TRUE;
           gtk_clipboard_set_text (collector->priv->primary_clipboard, collector->priv->primary_cache, -1);
@@ -331,7 +335,7 @@ clipman_collector_get (void)
   if (singleton == NULL)
     {
       singleton = g_object_new (CLIPMAN_TYPE_COLLECTOR, NULL);
-      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer)&singleton);
+      g_object_add_weak_pointer (G_OBJECT (singleton), (gpointer) &singleton);
     }
   else
     g_object_ref (G_OBJECT (singleton));
@@ -359,35 +363,35 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "AddPrimaryClipboard",
                                                          "Sync the primary clipboard with the default clipboard",
                                                          DEFAULT_ADD_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, PERSISTENT_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("persistent-primary-clipboard",
                                                          "PersistentPrimaryClipboard",
                                                          "Make the primary clipboard persistent over deselection",
                                                          DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, HISTORY_IGNORE_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("history-ignore-primary-clipboard",
                                                          "HistoryIgnorePrimaryClipboard",
                                                          "Exclude the primary clipboard contents from the history",
                                                          DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, ENABLE_ACTIONS,
                                    g_param_spec_boolean ("enable-actions",
                                                          "EnableActions",
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, INHIBIT,
                                    g_param_spec_boolean ("inhibit",
                                                          "Inhibit",
                                                          "Set to TRUE to disable the collector",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 }
 
 static void

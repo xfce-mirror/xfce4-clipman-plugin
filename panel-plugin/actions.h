@@ -28,69 +28,79 @@
 typedef struct _ClipmanActionsEntry ClipmanActionsEntry;
 struct _ClipmanActionsEntry
 {
-  gchar                *action_name;
-  gchar                *pattern;
-  GRegex               *regex;
-  gint                  group;
-  GHashTable           *commands;
+  gchar *action_name;
+  gchar *pattern;
+  GRegex *regex;
+  gint group;
+  GHashTable *commands;
 };
 
 /*
  * ClipmanActions GObject declaration
  */
 
-#define CLIPMAN_TYPE_ACTIONS                  (clipman_actions_get_type())
+#define CLIPMAN_TYPE_ACTIONS (clipman_actions_get_type ())
 
-#define CLIPMAN_ACTIONS(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActions))
-#define CLIPMAN_ACTIONS_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
+#define CLIPMAN_ACTIONS(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActions))
+#define CLIPMAN_ACTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
 
-#define CLIPMAN_IS_ACTIONS(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_ACTIONS))
-#define CLIPMAN_IS_ACTIONS_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_ACTIONS))
+#define CLIPMAN_IS_ACTIONS(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_ACTIONS))
+#define CLIPMAN_IS_ACTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_ACTIONS))
 
-#define CLIPMAN_ACTIONS_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
+#define CLIPMAN_ACTIONS_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
 
-typedef struct _ClipmanActionsClass           ClipmanActionsClass;
-typedef struct _ClipmanActions                ClipmanActions;
-typedef struct _ClipmanActionsPrivate         ClipmanActionsPrivate;
+typedef struct _ClipmanActionsClass ClipmanActionsClass;
+typedef struct _ClipmanActions ClipmanActions;
+typedef struct _ClipmanActionsPrivate ClipmanActionsPrivate;
 
 struct _ClipmanActionsClass
 {
-  GObjectClass              parent_class;
+  GObjectClass parent_class;
 };
 
 struct _ClipmanActions
 {
-  GObject                   parent;
+  GObject parent;
 
   /* Private */
-  ClipmanActionsPrivate    *priv;
+  ClipmanActionsPrivate *priv;
 };
 
-GType                   clipman_actions_get_type               (void);
+GType
+clipman_actions_get_type (void);
 
-ClipmanActions *      	clipman_actions_get                    (void);
-gboolean                clipman_actions_add                    (ClipmanActions *actions,
-                                                                const gchar *action_name,
-                                                                const gchar *regex,
-                                                                const gchar *command_name,
-                                                                const gchar *command);
-gboolean                clipman_actions_remove                 (ClipmanActions *actions,
-                                                                const gchar *action_name);
-gboolean                clipman_actions_remove_command         (ClipmanActions *actions,
-                                                                const gchar *action_name,
-                                                                const gchar *command_name);
-void                    clipman_actions_set_group              (ClipmanActions *actions,
-                                                                const gchar *action_name,
-                                                                gint group);
-const GSList *          clipman_actions_get_entries            (ClipmanActions *actions);
-GSList *                clipman_actions_match                  (ClipmanActions *actions,
-                                                                gint group,
-                                                                const gchar *match);
-void                    clipman_actions_match_with_menu        (ClipmanActions *actions,
-                                                                gint group,
-                                                                const gchar *match);
-void                    clipman_actions_load                   (ClipmanActions *actions);
-void                    clipman_actions_save                   (ClipmanActions *actions);
+ClipmanActions *
+clipman_actions_get (void);
+gboolean
+clipman_actions_add (ClipmanActions *actions,
+                     const gchar *action_name,
+                     const gchar *regex,
+                     const gchar *command_name,
+                     const gchar *command);
+gboolean
+clipman_actions_remove (ClipmanActions *actions,
+                        const gchar *action_name);
+gboolean
+clipman_actions_remove_command (ClipmanActions *actions,
+                                const gchar *action_name,
+                                const gchar *command_name);
+void
+clipman_actions_set_group (ClipmanActions *actions,
+                           const gchar *action_name,
+                           gint group);
+const GSList *
+clipman_actions_get_entries (ClipmanActions *actions);
+GSList *
+clipman_actions_match (ClipmanActions *actions,
+                       gint group,
+                       const gchar *match);
+void
+clipman_actions_match_with_menu (ClipmanActions *actions,
+                                 gint group,
+                                 const gchar *match);
+void
+clipman_actions_load (ClipmanActions *actions);
+void
+clipman_actions_save (ClipmanActions *actions);
 
 #endif /* !__CLIPMAN_ACTIONS_H__ */
-

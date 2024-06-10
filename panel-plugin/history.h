@@ -35,70 +35,77 @@ typedef enum
 typedef struct _ClipmanHistoryItem ClipmanHistoryItem;
 struct _ClipmanHistoryItem
 {
-  ClipmanHistoryType        type;
+  ClipmanHistoryType type;
   union
-    {
-      gchar                *text;
-      GdkPixbuf            *image;
-    } content;
+  {
+    gchar *text;
+    GdkPixbuf *image;
+  } content;
   union
-    {
-      gchar                *text;
-      GdkPixbuf            *image;
-    } preview;
-  gchar                    *filename;
-  GBytes                   *pixel_bytes;
+  {
+    gchar *text;
+    GdkPixbuf *image;
+  } preview;
+  gchar *filename;
+  GBytes *pixel_bytes;
 };
 
 /*
  * ClipmanHistory
  */
 
-#define CLIPMAN_TYPE_HISTORY                  (clipman_history_get_type())
+#define CLIPMAN_TYPE_HISTORY (clipman_history_get_type ())
 
-#define CLIPMAN_HISTORY(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistory))
-#define CLIPMAN_HISTORY_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
+#define CLIPMAN_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistory))
+#define CLIPMAN_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
 
-#define CLIPMAN_IS_HISTORY(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_HISTORY))
-#define CLIPMAN_IS_HISTORY_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_HISTORY))
+#define CLIPMAN_IS_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_HISTORY))
+#define CLIPMAN_IS_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_HISTORY))
 
-#define CLIPMAN_HISTORY_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
+#define CLIPMAN_HISTORY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
 
-typedef struct _ClipmanHistoryClass           ClipmanHistoryClass;
-typedef struct _ClipmanHistory                ClipmanHistory;
-typedef struct _ClipmanHistoryPrivate         ClipmanHistoryPrivate;
+typedef struct _ClipmanHistoryClass ClipmanHistoryClass;
+typedef struct _ClipmanHistory ClipmanHistory;
+typedef struct _ClipmanHistoryPrivate ClipmanHistoryPrivate;
 
 struct _ClipmanHistoryClass
 {
-  GObjectClass              parent_class;
+  GObjectClass parent_class;
 
-  void
-  (*item_added)             (ClipmanHistory *history);
-  void
-  (*clear)                  (ClipmanHistory *history);
+  void (*item_added) (ClipmanHistory *history);
+  void (*clear) (ClipmanHistory *history);
 };
 
 struct _ClipmanHistory
 {
-  GObject                   parent;
+  GObject parent;
 
   /* Private */
-  ClipmanHistoryPrivate    *priv;
+  ClipmanHistoryPrivate *priv;
 };
 
-GType                       clipman_history_get_type                 (void);
+GType
+clipman_history_get_type (void);
 
-ClipmanHistory *            clipman_history_get                      (void);
-void                        clipman_history_add_text                 (ClipmanHistory           *history,
-                                                                      const gchar              *text);
-ClipmanHistoryItem *        clipman_history_add_image                (ClipmanHistory           *history,
-                                                                      const GdkPixbuf          *image);
-GSList *                    clipman_history_get_list                 (ClipmanHistory           *history);
-guint                       clipman_history_get_max_texts_in_history (ClipmanHistory           *history);
-guint                       clipman_history_get_max_images_in_history (ClipmanHistory           *history);
-void                        clipman_history_clear                    (ClipmanHistory           *history);
-void                        clipman_history_set_scale_factor         (ClipmanHistory           *history,
-                                                                      GParamSpec               *pspec,
-                                                                      GtkWidget                *widget);
+ClipmanHistory *
+clipman_history_get (void);
+void
+clipman_history_add_text (ClipmanHistory *history,
+                          const gchar *text);
+ClipmanHistoryItem *
+clipman_history_add_image (ClipmanHistory *history,
+                           const GdkPixbuf *image);
+GSList *
+clipman_history_get_list (ClipmanHistory *history);
+guint
+clipman_history_get_max_texts_in_history (ClipmanHistory *history);
+guint
+clipman_history_get_max_images_in_history (ClipmanHistory *history);
+void
+clipman_history_clear (ClipmanHistory *history);
+void
+clipman_history_set_scale_factor (ClipmanHistory *history,
+                                  GParamSpec *pspec,
+                                  GtkWidget *widget);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */

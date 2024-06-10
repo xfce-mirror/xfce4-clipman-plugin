@@ -17,21 +17,19 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <gtk/gtk.h>
+#include "collector.h"
+#include "common.h"
+#include "history.h"
+#include "menu.h"
+
 #include <libxfce4ui/libxfce4ui.h>
 
 #ifdef HAVE_QRENCODE
 #include <qrencode.h>
 #endif
-
-#include "common.h"
-#include "collector.h"
-#include "history.h"
-
-#include "menu.h"
 
 /*
  * GObject declarations
@@ -39,16 +37,16 @@
 
 struct _ClipmanMenuPrivate
 {
-  GtkWidget            *mi_clear_history;
-  ClipmanHistory       *history;
-  GSList               *list;
-  gboolean              reverse_order;
+  GtkWidget *mi_clear_history;
+  ClipmanHistory *history;
+  GSList *list;
+  gboolean reverse_order;
 #ifdef HAVE_QRENCODE
-  gboolean              show_qr_code;
+  gboolean show_qr_code;
 #endif
-  guint                 paste_on_activate;
-  guint                 max_menu_items;
-  gboolean              never_confirm_history_clear;
+  guint paste_on_activate;
+  guint max_menu_items;
+  gboolean never_confirm_history_clear;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
@@ -64,18 +62,22 @@ enum
   MAX_MENU_ITEMS,
 };
 
-static void             clipman_menu_finalize           (GObject *object);
-static void             clipman_menu_set_property       (GObject *object,
-                                                         guint property_id,
-                                                         const GValue *value,
-                                                         GParamSpec *pspec);
-static void             clipman_menu_get_property       (GObject *object,
-                                                         guint property_id,
-                                                         GValue *value,
-                                                         GParamSpec *pspec);
+static void
+clipman_menu_finalize (GObject *object);
+static void
+clipman_menu_set_property (GObject *object,
+                           guint property_id,
+                           const GValue *value,
+                           GParamSpec *pspec);
+static void
+clipman_menu_get_property (GObject *object,
+                           guint property_id,
+                           GValue *value,
+                           GParamSpec *pspec);
 #ifdef HAVE_QRENCODE
-GdkPixbuf *             clipman_menu_qrcode             (char *text,
-                                                         gint scale_factor);
+GdkPixbuf *
+clipman_menu_qrcode (char *text,
+                     gint scale_factor);
 #endif
 
 
@@ -84,12 +86,15 @@ GdkPixbuf *             clipman_menu_qrcode             (char *text,
  */
 
 #ifdef HAVE_QRENCODE
-static void		cb_set_qrcode                   (GtkMenuItem *mi,
-                                                         const GdkPixbuf *pixbuf);
+static void
+cb_set_qrcode (GtkMenuItem *mi,
+               const GdkPixbuf *pixbuf);
 #endif
-static void             cb_set_clipboard                (GtkMenuItem *mi,
-                                                         const ClipmanHistoryItem *item);
-static void             cb_clear_history                (ClipmanMenu *menu);
+static void
+cb_set_clipboard (GtkMenuItem *mi,
+                  const ClipmanHistoryItem *item);
+static void
+cb_clear_history (ClipmanMenu *menu);
 
 
 
@@ -99,7 +104,8 @@ static void             cb_clear_history                (ClipmanMenu *menu);
 
 #ifdef HAVE_QRENCODE
 static void
-cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
+cb_set_qrcode (GtkMenuItem *mi,
+               const GdkPixbuf *pixbuf)
 {
   GtkClipboard *clipboard;
   ClipmanCollector *collector;
@@ -119,7 +125,8 @@ cb_set_qrcode (GtkMenuItem *mi, const GdkPixbuf *pixbuf)
 #endif
 
 static void
-cb_set_clipboard_from_primary (GtkMenuItem *mi, GObject *menu)
+cb_set_clipboard_from_primary (GtkMenuItem *mi,
+                               GObject *menu)
 {
   GtkClipboard *clipboard;
 
@@ -128,7 +135,8 @@ cb_set_clipboard_from_primary (GtkMenuItem *mi, GObject *menu)
 }
 
 static void
-cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
+cb_set_clipboard (GtkMenuItem *mi,
+                  const ClipmanHistoryItem *item)
 {
   GtkClipboard *clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
 
@@ -145,7 +153,7 @@ cb_set_clipboard (GtkMenuItem *mi, const ClipmanHistoryItem *item)
       break;
 
     default:
-      DBG("Ignoring unknown history type %d", item->type);
+      DBG ("Ignoring unknown history type %d", item->type);
       return;
     }
 
@@ -170,9 +178,9 @@ cb_clear_history (ClipmanMenu *menu)
       {
         GtkWidget *content_area = gtk_message_dialog_get_message_area (GTK_MESSAGE_DIALOG (dialog));
         GtkWidget *checkbox = gtk_check_button_new_with_label (_("Don't ask again"));
-        g_object_bind_property(G_OBJECT (checkbox), "active",
-                               G_OBJECT (menu), "never-confirm-history-clear",
-                               G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+        g_object_bind_property (G_OBJECT (checkbox), "active",
+                                G_OBJECT (menu), "never-confirm-history-clear",
+                                G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
         gtk_widget_show (checkbox);
         gtk_container_add (GTK_CONTAINER (content_area), checkbox);
 
@@ -185,7 +193,6 @@ cb_clear_history (ClipmanMenu *menu)
             return;
           }
       }
-
     }
 
   clipman_history_clear (menu->priv->history);
@@ -207,7 +214,7 @@ cb_clear_history (ClipmanMenu *menu)
 
 static void
 cb_launch_clipman_bin (ClipmanMenu *menu,
-                       gpointer     user_data)
+                       gpointer user_data)
 {
   GError *error = NULL;
   GtkWidget *error_dialog;
@@ -216,14 +223,14 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
   g_spawn_command_line_async (command, &error);
 
   if (error != NULL)
-  {
-    error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-                                           _("Unable to open the Clipman history dialog"));
-    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
-    gtk_dialog_run (GTK_DIALOG (error_dialog));
-    gtk_widget_destroy (error_dialog);
-    g_error_free (error);
-  }
+    {
+      error_dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+                                             _("Unable to open the Clipman history dialog"));
+      gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (error_dialog), "%s", error->message);
+      gtk_dialog_run (GTK_DIALOG (error_dialog));
+      gtk_widget_destroy (error_dialog);
+      g_error_free (error);
+    }
 }
 
 /*
@@ -295,16 +302,16 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new_with_label (item->preview.text);
-G_GNUC_END_IGNORE_DEPRECATIONS
+          G_GNUC_END_IGNORE_DEPRECATIONS
           if (item_to_restore == NULL && g_strcmp0 (selection_clipboard, item->content.text) == 0)
             {
               item_to_restore = item;
               image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
               gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+              G_GNUC_END_IGNORE_DEPRECATIONS
               if (g_strcmp0 (selection_primary, item->content.text) == 0)
                 skip_primary = TRUE;
             }
@@ -312,16 +319,16 @@ G_GNUC_END_IGNORE_DEPRECATIONS
             {
               skip_primary = TRUE;
               image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
               gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+              G_GNUC_END_IGNORE_DEPRECATIONS
             }
           break;
 
         case CLIPMAN_HISTORY_TYPE_IMAGE:
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
-G_GNUC_END_IGNORE_DEPRECATIONS
+          G_GNUC_END_IGNORE_DEPRECATIONS
           surface = gdk_cairo_surface_create_from_pixbuf (item->preview.image, scale_factor, NULL);
           image = gtk_image_new_from_surface (surface);
           cairo_surface_destroy (surface);
@@ -330,14 +337,14 @@ G_GNUC_END_IGNORE_DEPRECATIONS
             {
               item_to_restore = item;
               image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
               gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+              G_GNUC_END_IGNORE_DEPRECATIONS
             }
           break;
 
         default:
-          DBG("Ignoring unknown history type %d", item->type);
+          DBG ("Ignoring unknown history type %d", item->type);
           continue;
         }
 
@@ -386,11 +393,11 @@ G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_widget_show_all (mi);
 
       selection_primary_short = clipman_common_shorten_preview (selection_primary);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       mi = gtk_image_menu_item_new_with_label (selection_primary_short);
       image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
       gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+      G_GNUC_END_IGNORE_DEPRECATIONS
       g_free (selection_primary_short);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
       gtk_widget_show_all (mi);
@@ -409,9 +416,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
       if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text, scale_factor)) != NULL)
         {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
           mi = gtk_image_menu_item_new ();
-G_GNUC_END_IGNORE_DEPRECATIONS
+          G_GNUC_END_IGNORE_DEPRECATIONS
           surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale_factor, NULL);
           gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_surface (surface));
           cairo_surface_destroy (surface);
@@ -432,7 +439,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
     }
 #endif
 
-  _clipman_menu_adjust_geometry(menu);
+  _clipman_menu_adjust_geometry (menu);
 }
 
 /*
@@ -464,7 +471,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "ReverseOrder",
                                                          "Set to TRUE to display the menu in the reverse order",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
 #ifdef HAVE_QRENCODE
   g_object_class_install_property (object_class, SHOW_QR_CODE,
@@ -472,7 +479,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "ShowQrCode",
                                                          "Set to TRUE to display QR-Code in the menu",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 #endif
 
   g_object_class_install_property (object_class, PASTE_ON_ACTIVATE,
@@ -480,21 +487,21 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                       "PasteOnActivate",
                                                       "Paste the content of a menu item when it is activated",
                                                       0, 2, 0,
-                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, NEVER_CONFIRM_HISTORY_CLEAR,
                                    g_param_spec_boolean ("never-confirm-history-clear",
                                                          "NeverConfirmHistoryClear",
                                                          "Set to FALSE to clear the history list with confirmation",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 
   g_object_class_install_property (object_class, MAX_MENU_ITEMS,
                                    g_param_spec_uint ("max-menu-items",
                                                       "MaxMenuItems",
                                                       "Maximum amount of items displayed in the plugin's menu",
                                                       1, 100, 15,
-                                                      G_PARAM_CONSTRUCT|G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
 }
 
 static void
@@ -523,28 +530,28 @@ clipman_menu_init (ClipmanMenu *menu)
   max_texts_in_history = clipman_history_get_max_texts_in_history (menu->priv->history);
   if (max_texts_in_history > menu->priv->max_menu_items)
     {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       mi = gtk_image_menu_item_new_with_mnemonic (_("_Show full history..."));
       image = gtk_image_new_from_icon_name ("accessories-dictionary-symbolic", GTK_ICON_SIZE_MENU);
       gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+      G_GNUC_END_IGNORE_DEPRECATIONS
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
       g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-history");
     }
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_with_mnemonic (_("_Clear history"));
   image = gtk_image_new_from_icon_name ("edit-clear-symbolic", GTK_ICON_SIZE_MENU);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu->priv->mi_clear_history), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   mi = gtk_image_menu_item_new_with_mnemonic (_("_Clipman settings..."));
   image = gtk_image_new_from_icon_name ("preferences-system-symbolic", GTK_ICON_SIZE_MENU);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-settings");
 
@@ -635,39 +642,40 @@ GdkPixbuf *
 clipman_menu_qrcode (char *text,
                      gint scale_factor)
 {
-	QRcode *qrcode;
-	GdkPixbuf *pixbuf, *pixbuf_scaled;
-	int i, j, k, rowstride, channels, size;
-	guchar *pixel;
-	unsigned char *data;
+  QRcode *qrcode;
+  GdkPixbuf *pixbuf, *pixbuf_scaled;
+  int i, j, k, rowstride, channels, size;
+  guchar *pixel;
+  unsigned char *data;
 
-	qrcode = QRcode_encodeString8bit(text, 0, QR_ECLEVEL_L);
+  qrcode = QRcode_encodeString8bit (text, 0, QR_ECLEVEL_L);
 
-	if (qrcode == NULL)
-		return NULL;
+  if (qrcode == NULL)
+    return NULL;
 
-	data = qrcode->data;
+  data = qrcode->data;
 
-	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, qrcode->width + 2, qrcode->width + 2);
+  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, qrcode->width + 2, qrcode->width + 2);
 
-	pixel = gdk_pixbuf_get_pixels (pixbuf);
-	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
-	channels = gdk_pixbuf_get_n_channels (pixbuf);
+  pixel = gdk_pixbuf_get_pixels (pixbuf);
+  rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+  channels = gdk_pixbuf_get_n_channels (pixbuf);
 
-	gdk_pixbuf_fill(pixbuf, 0xffffffff);
-	for (i = 1; i <= qrcode->width; i++)
-		for (j = 1; j <= qrcode->width; j++) {
-			for (k = 0; k < channels; k++)
-				pixel[i * rowstride + j * channels + k] = !(*data & 0x1) * 0xff;
-			data++;
-		}
+  gdk_pixbuf_fill (pixbuf, 0xffffffff);
+  for (i = 1; i <= qrcode->width; i++)
+    for (j = 1; j <= qrcode->width; j++)
+      {
+        for (k = 0; k < channels; k++)
+          pixel[i * rowstride + j * channels + k] = !(*data & 0x1) * 0xff;
+        data++;
+      }
 
-	size = (qrcode->width + 2) * 3 * scale_factor;
-	pixbuf_scaled = gdk_pixbuf_scale_simple (pixbuf, size, size, GDK_INTERP_NEAREST);
+  size = (qrcode->width + 2) * 3 * scale_factor;
+  pixbuf_scaled = gdk_pixbuf_scale_simple (pixbuf, size, size, GDK_INTERP_NEAREST);
 
-	QRcode_free(qrcode);
-	g_object_unref(pixbuf);
+  QRcode_free (qrcode);
+  g_object_unref (pixbuf);
 
-	return pixbuf_scaled;
+  return pixbuf_scaled;
 }
 #endif

@@ -1,8 +1,15 @@
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "clipboard-manager/clipboard-manager.h"
+
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <clipboard-manager/daemon.h>
 
-int main (int argc, char *argv[])
+int
+main (int argc,
+      char *argv[])
 {
   XcpClipboardManager *daemon;
 
@@ -16,4 +23,3 @@ int main (int argc, char *argv[])
 
   return 0;
 }
-
