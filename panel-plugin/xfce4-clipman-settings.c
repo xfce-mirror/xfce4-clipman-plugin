@@ -17,21 +17,21 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#ifdef HAVE_LOCALE_H
-#include <locale.h>
-#endif
+#include "actions.h"
+#include "common.h"
+#include "settings-dialog_ui.h"
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
 
-#include "common.h"
-#include "settings-dialog_ui.h"
-#include "actions.h"
+#ifdef HAVE_LOCALE_H
+#include <locale.h>
+#endif
 
 static void             cb_show_help                    (GtkButton *button);
 static void             setup_actions_treeview          (GtkTreeView *treeview);

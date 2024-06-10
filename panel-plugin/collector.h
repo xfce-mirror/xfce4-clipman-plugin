@@ -20,6 +20,7 @@
 #define __CLIPMAN_COLLECTOR_H__
 
 #include <glib-object.h>
+#include <gtk/gtk.h>
 
 #define CLIPMAN_TYPE_COLLECTOR                  (clipman_collector_get_type())
 

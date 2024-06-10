@@ -17,20 +17,14 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
-#include <glib/gstdio.h>
-#include <gtk/gtk.h>
-#include <xfconf/xfconf.h>
-#include <libxfce4util/libxfce4util.h>
-
-#ifdef PANEL_PLUGIN
-#include <libxfce4panel/libxfce4panel.h>
+#include "config.h"
 #endif
 
 #include "common.h"
 #include "plugin.h"
+
+#include <glib/gstdio.h>
+#include <libxfce4util/libxfce4util.h>
 
 
 

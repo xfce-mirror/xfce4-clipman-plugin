@@ -19,18 +19,17 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
+#include "common.h"
+#include "history.h"
+#include "plugin.h"
 
+#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4util/libxfce4util.h>
-
-#include "common.h"
-#include <plugin.h>
-#include <history.h>
 
 
 enum

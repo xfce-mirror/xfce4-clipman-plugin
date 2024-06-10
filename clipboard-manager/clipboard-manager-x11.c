@@ -21,26 +21,29 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
+
+#include "clipboard-manager-x11.h"
 
 #include <libxfce4ui/libxfce4ui.h>
 
 #if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+#include <X11/Xatom.h>
+#include <X11/Xlib.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
 #endif
-
-#include "clipboard-manager-x11.h"
 
 
 
 struct _XcpClipboardManagerX11
 {
-        GObject parent;
+  GObject parent;
 
 #if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+  /* clang-format off */
         GtkClipboard *default_clipboard;
         GtkClipboard *primary_clipboard;
 
@@ -52,6 +55,7 @@ struct _XcpClipboardManagerX11
         gboolean      primary_internal_change;
 
         GtkWidget    *window;
+  /* clang-format on */
 #else
   XfceClipboardManager *xfce_manager;
 #endif
@@ -63,6 +67,7 @@ static void     xcp_clipboard_manager_x11_finalize    (GObject                  
 
 
 #if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+/* clang-format off */
 Atom XA_CLIPBOARD_MANAGER;
 Atom XA_MANAGER;
 
@@ -383,6 +388,7 @@ start_clipboard_idle_cb (gpointer user_data)
 
         return FALSE;
 }
+/* clang-format on */
 #endif
 
 static void
@@ -397,6 +403,7 @@ static void
 xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
 {
 #if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+  /* clang-format off */
         manager->default_clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);
         manager->primary_clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
 
@@ -404,6 +411,7 @@ xcp_clipboard_manager_x11_init (XcpClipboardManagerX11 *manager)
         manager->primary_cache = NULL;
 
         g_idle_add (start_clipboard_idle_cb, manager);
+  /* clang-format on */
 #else
   manager->xfce_manager = xfce_clipboard_manager_new (FALSE);
 #endif
@@ -415,7 +423,9 @@ xcp_clipboard_manager_x11_finalize (GObject *object)
   XcpClipboardManagerX11 *manager = XCP_CLIPBOARD_MANAGER_X11 (object);
 
 #if !LIBXFCE4UI_CHECK_VERSION (4, 19, 5)
+  /* clang-format off */
         xcp_clipboard_manager_x11_stop (manager);
+  /* clang-format on */
 #else
   if (manager->xfce_manager != NULL)
     g_object_unref (manager->xfce_manager);

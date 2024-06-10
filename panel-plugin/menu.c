@@ -17,21 +17,19 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <gtk/gtk.h>
+#include "collector.h"
+#include "common.h"
+#include "history.h"
+#include "menu.h"
+
 #include <libxfce4ui/libxfce4ui.h>
 
 #ifdef HAVE_QRENCODE
 #include <qrencode.h>
 #endif
-
-#include "common.h"
-#include "collector.h"
-#include "history.h"
-
-#include "menu.h"
 
 /*
  * GObject declarations

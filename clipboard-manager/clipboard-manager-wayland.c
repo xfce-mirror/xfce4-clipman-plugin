@@ -17,17 +17,17 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
-#include <glib-unix.h>
-#include <gio/gunixinputstream.h>
-#include <gdk/gdkwayland.h>
-#include <gtk/gtk.h>
-
-#include <protocols/wlr-data-control-unstable-v1-client.h>
-
 #include "clipboard-manager-wayland.h"
+
+#include "protocols/wlr-data-control-unstable-v1-client.h"
+
+#include <gdk/gdkwayland.h>
+#include <gio/gunixinputstream.h>
+#include <glib-unix.h>
+#include <gtk/gtk.h>
 
 
 

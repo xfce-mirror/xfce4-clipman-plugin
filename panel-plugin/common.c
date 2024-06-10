@@ -17,19 +17,19 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
+#include "common.h"
+
 #include <gtk/gtk.h>
+#include <libxfce4ui/libxfce4ui.h>
+
 #ifdef HAVE_LIBXTST
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #endif
-
-#include <libxfce4ui/libxfce4ui.h>
-
-#include <common.h>
 
 void
 clipman_common_show_info_dialog (void)

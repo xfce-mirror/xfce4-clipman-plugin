@@ -23,8 +23,16 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
+
+#include "actions.h"
+#include "common.h"
+
+#include <gio/gio.h>
+#include <gtk/gtk.h>
+#include <libxfce4ui/libxfce4ui.h>
+#include <libxfce4util/libxfce4util.h>
 
 #ifdef HAVE_LOCALE_H
 #include <locale.h>
@@ -33,15 +41,6 @@
 #ifdef HAVE_STRING_H
 #include <string.h>
 #endif
-
-#include <gio/gio.h>
-#include <gtk/gtk.h>
-#include <libxfce4ui/libxfce4ui.h>
-#include <libxfce4util/libxfce4util.h>
-
-#include "common.h"
-
-#include "actions.h"
 
 /*
  * GObject declarations

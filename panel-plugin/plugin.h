@@ -19,18 +19,19 @@
 #ifndef __CLIPMAN_PLUGIN_H__
 #define __CLIPMAN_PLUGIN_H__
 
+#include "actions.h"
+#include "collector.h"
+#include "history.h"
+#include "menu.h"
+
+#include "clipboard-manager/clipboard-manager.h"
+
 #include <gtk/gtk.h>
 #include <xfconf/xfconf.h>
 
 #ifdef PANEL_PLUGIN
 #include <libxfce4panel/libxfce4panel.h>
 #endif
-
-#include <clipboard-manager/clipboard-manager.h>
-#include "actions.h"
-#include "collector.h"
-#include "history.h"
-#include "menu.h"
 
 /*
  * MyPlugin structure
