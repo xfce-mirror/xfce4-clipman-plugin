@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
-# hoek <hoek@tuta.io>, 2014
-# hoek <hoek@tuta.io>, 2014
+# d703b7c9f8279b67f8ff243fa8f12e4a_ead0287 <01cbd6dcada4ad6beac99d868e1751df_141855>, 2014
+# d703b7c9f8279b67f8ff243fa8f12e4a_ead0287 <01cbd6dcada4ad6beac99d868e1751df_141855>, 2014
 # marcin mikołajczak <me@mkljczk.pl>, 2016
 # marcin mikołajczak <me@mkljczk.pl>, 2016
 # Marek Adamski, 2022-2024
@@ -50,7 +50,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Menedżer schowka umieszczony jako wtyczka dla panelu Xfce i jako samodzielna aplikacja działająca w obszarze powiadomień. Przechowuje historię tekstu i obrazów z treści skopiowanych do schowka. Posiada również funkcję do wykonywania czynności na konkretnie wybranym tekście, dopasowując je do wyrażeń regularnych."
+msgstr "Menedżer schowka umieszczony jako wtyczka dla panelu Xfce i jako samodzielny program działający w obszarze powiadomień. Przechowuje historię tekstu i obrazów z treści skopiowanych do schowka. Posiada również funkcję do wykonywania czynności na konkretnie wybranym tekście, dopasowując je do wyrażeń regularnych."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
@@ -321,7 +321,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "W poleceniach można użyć parametrów podstawienia \"\\1\", \"\\2\" itd. Parametr \"\\0\" reprezentuje pełny tekst. Wzór jest zawsze zakotwiczony w znakach specjalnych ^$"
+msgstr "W poleceniach można użyć parametrów podstawienia „\\1”, „\\2” itd. Parametr „\\0” reprezentuje pełny tekst. Wzór jest zawsze zakotwiczony w znakach specjalnych ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
