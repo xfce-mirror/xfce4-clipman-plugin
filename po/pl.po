@@ -93,7 +93,7 @@ msgstr "Przywrócić domyślne czynności?"
 
 #: panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
-msgstr "Wpisz szukaną frazę tutaj"
+msgstr "Wpisz tutaj szukaną frazę"
 
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
