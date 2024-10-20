@@ -65,11 +65,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
-msgstr ""
+msgstr "แสดงการกระทำ"
 
 #: panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
-msgstr ""
+msgstr "ซ่อนการกระทำ"
 
 #: panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
@@ -87,7 +87,7 @@ msgstr "ป้อนคำค้นที่นี่"
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
 msgid "History is empty"
-msgstr ""
+msgstr "ประวัติว่างเปล่า"
 
 #: panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
@@ -129,7 +129,7 @@ msgstr "ปิ_ด"
 
 #: panel-plugin/settings-dialog.ui:117
 msgid "Sync mouse _selections"
-msgstr "ปรับตามการเ_ลือกด้วยเมาส์"
+msgstr "ปรับการเ_ลือกด้วยเมาส์ให้ตรงกัน"
 
 #: panel-plugin/settings-dialog.ui:122
 msgid ""
@@ -137,18 +137,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "ถ้าเลือก การป้ายเลือกจะถูกปรับไปยังคลิปบอร์ดปริยาย ทำให้คุณสามารถแปะสิ่งที่เลือกได้ด้วย Ctrl-V และในทางกลับกัน การสั่งคัดลอกด้วยแป้นพิมพ์ก็จะถูกปรับไปยังคลิปบอร์ดชั้นต้น ทำให้คุณสามารถแปะสิ่งที่คัดลอกไว้ได้ด้วยเมาส์ปุ่มกลาง"
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_คงการเลือกด้วยเมาส์ไว้"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "ถ้าเลือก คลิปบอร์ดชั้นต้น (สำหรับแปะด้วยเมาส์ปุ่มกลาง) จะคงอยู่จนกว่าจะมีการป้ายเลือกครั้งต่อไป แม้การเลือกปัจจุบันจะหายไปแล้ว (เช่น ด้วยการคลิกซ้ายที่แห่งใดแห่งหนึ่งในบริเวณข้อความ)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -180,7 +180,7 @@ msgstr "เปิดเมนูที่_ตำแหน่งตัวชี�
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "ผุดเมนูที่ตำแหน่งตัวชี้เมาส์: มีประโยชน์โดยเฉพาะสำหรับคำสั่ง xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -208,11 +208,11 @@ msgstr "ถ้าเลือก ก็จะเทียบข้อควา�
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "เมื่อการเลือกเสร็จสิ้นโดยที่ปุ่ม Control ยังกดค้างอยู่ จะให้ผุดเมนูสำหรับการกระทำที่ตรงกับสิ่งที่เลือกหรือไม่"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "การ_กด Ctrl ขณะเลือก:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -314,14 +314,14 @@ msgstr "คุณสามารถใช้พารามิเตอร์ส
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "เรียกทำงานเมื่อสั่งคัดลอกด้วยแป้นพิมพ์แทนเมื่อเลือกด้วยเมาส์"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "โดยปกติ จะเรียกทำงานการกระทำเมื่อเลือกด้วยเมาส์ แต่เมื่อเลือกตัวเลือกนี้จะเรียกการกระทำเมื่อคุณสั่งคัดลอกด้วยแป้นพิมพ์แทน ซึ่งในกรณีนี้ ปุ่ม Control จะไม่มีผลเกี่ยวข้องแล้ว"
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -382,7 +382,7 @@ msgstr "ไม่ต้องถามอีก"
 
 #: panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "ไม่สามารถเปิดกล่องโต้ตอบประวัติของ Clipman"
 
 #: panel-plugin/menu.c:294 panel-plugin/menu.c:560
 msgid "_Clear history"
@@ -390,7 +390,7 @@ msgstr "_ล้างประวัติ"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_ล้างคลิปบอร์ด"
 
 #: panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
