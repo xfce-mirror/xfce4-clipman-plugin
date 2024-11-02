@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2020
+# Daniel Muñiz Fontoira <dani@damufo.eu>, 2024
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 # Xosé, 2018
 msgid ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2020\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,11 +67,11 @@ msgstr "Maiús+Inserir"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
-msgstr ""
+msgstr "amosar as accións"
 
 #: panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
-msgstr ""
+msgstr "agochar as accións"
 
 #: panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
@@ -88,7 +89,7 @@ msgstr "Insira unha frase a buscar aquí"
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
 msgid "History is empty"
-msgstr ""
+msgstr "Baleirar o historial"
 
 #: panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
@@ -138,18 +139,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Se está marcada, as seleccións sincronizaranse co portapapeis predeterminado, polo que pode pegar o que seleccione con Ctrl-V. Pola contra, as copias manuais sincronizaranse co portapapeis principal, polo que pode pegar o que copie facendo clic co botón do medio."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Conservar as seleccións do rato"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Se está marcado, o portapapeis principal (pegar co botón do medio) conservarase até a seguinte selección se se perde a selección actual (por exemplo, facendo clic co botón esquerdo nunha área de texto)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -181,7 +182,7 @@ msgstr "C_olocar o menú no punteiro do rato"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Abre o menú na posición do punteiro do rato: especialmente útil para a orde xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -209,11 +210,11 @@ msgstr "Se está marcada, os textos do portapapeis coincidirán coas expresións
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Cando remate a selección e a tecla Control aínda estivera premida, o menú emerxente para as accións correspondentes amosarase ou agocharase"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Premendo Ctrl durante a selección:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -315,14 +316,14 @@ msgstr "Pode usar os parámetros de substitución \"\\1\", \"\\2\" etc. nas orde
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Activar na copia manual en lugar da selección"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "De xeito predeterminado, a acción actívase mediante unha selección: marque esta opción para activar a acción cando faga unha copia manual. Teña en conta que neste caso, a tecla Control xa non ten ningún efecto."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -383,7 +384,7 @@ msgstr "Non volver preguntar"
 
 #: panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Non se puido abrir o diálogo do historial do Clipman"
 
 #: panel-plugin/menu.c:294 panel-plugin/menu.c:560
 msgid "_Clear history"
@@ -391,7 +392,7 @@ msgstr "Limpar o _historial"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "_Limpar o portapapeis"
 
 #: panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
