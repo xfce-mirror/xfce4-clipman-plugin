@@ -5,14 +5,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2014,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
-# Quentin PAGÈS, 2022
+# Quentin PAGÈS, 2022,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Quentin PAGÈS, 2022\n"
+"Last-Translator: Quentin PAGÈS, 2022,2024\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Gestionari de quichapapièrs"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
@@ -66,11 +66,11 @@ msgstr "Shift+Inser"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
-msgstr ""
+msgstr "aficha las accions"
 
 #: panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
-msgstr ""
+msgstr "amaga las accions"
 
 #: panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
@@ -88,7 +88,7 @@ msgstr ""
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
 msgid "History is empty"
-msgstr ""
+msgstr "L'istoric es void"
 
 #: panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
@@ -100,7 +100,7 @@ msgstr "_Copiar"
 
 #: panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
-msgstr ""
+msgstr "Istoric Clipman"
 
 #: panel-plugin/xfce4-clipman-history.c:436
 #: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
@@ -114,11 +114,11 @@ msgstr "_Paramètres"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:4
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Paramètres del gestionari de quichapapièrs"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:5
 msgid "Customize your clipboard"
-msgstr ""
+msgstr "Personalizatz vòstre quichapapièrs"
 
 #: panel-plugin/settings-dialog.ui:30
 msgid "Clipman Settings"
@@ -284,7 +284,7 @@ msgstr "5"
 
 #: panel-plugin/settings-dialog.ui:753
 msgid "H_istory"
-msgstr ""
+msgstr "_Istoric"
 
 #: panel-plugin/settings-dialog.ui:777
 msgid "Edit Action"
@@ -391,7 +391,7 @@ msgstr "Es_cafar l''istoric"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "Es_cafar l''istoric"
 
 #: panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
@@ -399,11 +399,11 @@ msgstr "Fracàs de generacion del còde QR"
 
 #: panel-plugin/menu.c:551
 msgid "_Show full history..."
-msgstr ""
+msgstr "_Afichar l’istoric complèt"
 
 #: panel-plugin/menu.c:568
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "_Paramètres de Clipman..."
 
 #: panel-plugin/plugin.c:324
 msgid "Contributors:"
