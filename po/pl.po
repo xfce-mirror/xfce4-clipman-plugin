@@ -50,7 +50,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Menedżer schowka umieszczony jako wtyczka dla panelu Xfce i jako samodzielny program działający w obszarze powiadomień. Przechowuje historię tekstu i obrazów z treści skopiowanych do schowka. Posiada również funkcję do wykonywania czynności na konkretnie wybranym tekście, dopasowując je do wyrażeń regularnych."
+msgstr "Menedżer schowka umieszczony jako wtyczka dla panelu Xfce i jako samodzielny program działający w obszarze powiadomień. Przechowuje historię tekstu i obrazów z treści skopiowanych do schowka. Ma również funkcję wykonywania czynności na konkretnie zaznaczonym tekście, dopasowując je do wyrażeń regularnych."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
@@ -148,7 +148,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr "Jeśli wybrano, zaznaczenia zostaną zsynchronizowane z domyślnym schowkiem, więc możesz wkleić to, co zaznaczysz, naciskając Ctrl-V. I odwrotnie, ręczne kopie zostaną zsynchronizowane z głównym schowkiem, więc możesz wkleić to, co skopiowano, klikając środkowym przyciskiem myszy."
+msgstr "Jeśli wybrano, zaznaczenia zostaną zsynchronizowane z domyślnym schowkiem, więc możesz wkleić to, co zaznaczysz, naciskając Ctrl-V. I odwrotnie, ręczne kopie zostaną zsynchronizowane z głównym schowkiem, więc możesz wkleić to, co skopiowano, klikając środkowym przyciskiem myszy."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
@@ -159,7 +159,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr "Jeśli wybrano, główny schowek (wklejanie środkowym kliknięciem) pozostanie do następnego zaznaczenia, jeśli bieżące zaznaczenie zostanie utracone (np. przez kliknięcie lewym przyciskiem myszy w dowolnym miejscu w obszarze tekstowym)"
+msgstr "Jeśli wybrano, główny schowek (wklejanie środkowym kliknięciem) pozostanie do następnego zaznaczenia, jeśli bieżące zaznaczenie zostanie utracone (np. przez kliknięcie lewym przyciskiem myszy dowolnego miejsca w obszarze tekstowym)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -185,13 +185,13 @@ msgstr "<b>Ogólne</b>"
 
 #: panel-plugin/settings-dialog.ui:245
 msgid "P_osition menu at mouse pointer"
-msgstr "Wyświetlanie menu w p_ozycji kursora myszy"
+msgstr "Wyświetlanie menu w p_ozycji kursora myszy"
 
 #: panel-plugin/settings-dialog.ui:249
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr "Wyskakujące menu w pozycji wskaźnika myszy: szczególnie przydatne dla polecenia xfce4-popup-clipman"
+msgstr "Wyskakujące menu w pozycji wskaźnika myszy: szczególnie przydatne dla polecenia xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -213,13 +213,13 @@ msgstr "<b>_Włączenie automatycznych czynności</b>"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Jeśli wybrano, dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla automatycznie menu z możliwymi czynnościami.\nW przeciwnym przypadku menu będzie wyświetlane tylko przy wywołaniu „xfce4-popup-clipman-actions” (i odnalezieniu wyniku)"
+msgstr "Jeśli wybrano, dopasowuje zawartość schowka do wyrażeń regularnych i wyświetla automatycznie menu z możliwymi czynnościami.\nW przeciwnym razie menu będzie wyświetlane tylko przy wywołaniu „xfce4-popup-clipman-actions” (i odnalezieniu wyniku)"
 
 #: panel-plugin/settings-dialog.ui:384
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr "Gdy zaznaczenie zostanie wykonane, a klawisz Control jest nadal wciśnięty, wyskakujące menu dla pasujących czynności zostanie pokazane lub ukryte"
+msgstr "Gdy zaznaczenie zostanie wykonane, a klawisz Control jest nadal wciśnięty, wyskakujące menu dla pasujących czynności zostanie pokazane lub ukryte"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
@@ -256,7 +256,7 @@ msgstr "Zapamiętywanie ostatnio skopiowanego _obrazu"
 #: panel-plugin/settings-dialog.ui:635
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr "Jeśli wybrano, ta opcja pozwala na przechowywanie jednego obrazu w historii"
+msgstr "Jeśli wybrano, ta opcja pozwala na przechowywanie jednego obrazu w historii"
 
 #: panel-plugin/settings-dialog.ui:647
 msgid "_Reorder history items"
@@ -265,7 +265,7 @@ msgstr "_Zmienianie kolejności elementów"
 #: panel-plugin/settings-dialog.ui:651
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. Umożliwia zmianę kolejności elementów."
+msgstr "Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. Umożliwia zmianę kolejności elementów."
 
 #: panel-plugin/settings-dialog.ui:663
 msgid "Re_verse history order"
@@ -273,7 +273,7 @@ msgstr "_Odwrócenie kolejności elementów historii"
 
 #: panel-plugin/settings-dialog.ui:667
 msgid "Reverse order of the history shown in the menu"
-msgstr "Odwraca kolejność elementów historii w menu apletu"
+msgstr "Odwraca kolejność elementów historii w menu apletu"
 
 #: panel-plugin/settings-dialog.ui:679
 msgid "Ignore mouse s_elections"
@@ -282,7 +282,7 @@ msgstr "Ignorowanie zaznacz_enia myszy"
 #: panel-plugin/settings-dialog.ui:684
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Jeśli wybrano, zaznaczenia nie wpłyną na historię, z wyjątkiem kopii ręcznych"
+msgstr "Jeśli wybrano, zaznaczenia nie wpłyną na historię, z wyjątkiem kopii ręcznych"
 
 #: panel-plugin/settings-dialog.ui:703
 msgid "Size of the _history:"
@@ -321,7 +321,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "W poleceniach można użyć parametrów podstawienia „\\1”, „\\2” itd. Parametr „\\0” reprezentuje pełny tekst. Wzór jest zawsze zakotwiczony w znakach specjalnych ^$"
+msgstr "W poleceniach można użyć parametrów podstawienia „\\1”, „\\2” itd. Parametr „\\0” reprezentuje pełny tekst. Wzór jest zawsze zakotwiczony w znakach specjalnych ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
@@ -332,7 +332,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr "Domyślnie czynność jest wyzwalana przez zaznaczenie: włącz tę opcję, aby zamiast tego uruchamiać czynność podczas ręcznego kopiowania. Zauważ, że w tym przypadku klawisz Control nie ma już żadnego efektu."
+msgstr "Domyślnie czynność jest wyzwalana przez zaznaczenie: włącz tę opcję, aby zamiast tego uruchamiać czynność podczas ręcznego kopiowania. Zauważ, że w tym przypadku klawisz Control nie ma już żadnego efektu."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -377,7 +377,7 @@ msgstr "Menedżer schowka Xfce jest już uruchomiony."
 
 #: panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr "Możesz uruchomić go za pomocą 'xfce4-clipman'."
+msgstr "Możesz uruchomić go za pomocą „xfce4-clipman”."
 
 #: panel-plugin/common.c:48
 msgid "The Clipboard Manager Daemon is not running."
@@ -389,7 +389,7 @@ msgstr "Wyczyścić historię schowka?"
 
 #: panel-plugin/menu.c:190
 msgid "Don't ask again"
-msgstr "Pomijanie tego pytania w przyszłości"
+msgstr "Pomijanie tego pytania w przyszłości"
 
 #: panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
