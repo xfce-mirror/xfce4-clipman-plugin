@@ -8,6 +8,7 @@
 # Gábor P., 2020
 # gyeben <gyonkibendeguz@gmail.com>, 2016
 # gyeben <gyonkibendeguz@gmail.com>, 2014
+# László Varga, 2024
 # PB, 2020
 # Robert Huszar, 2022
 # Attila SZERVÁC <sas@321.hu>, 2007
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Robert Huszar, 2022\n"
+"Last-Translator: László Varga, 2024\n"
 "Language-Team: Hungarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,7 @@ msgstr "Vágólapkezelő"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Clipboard Manager Autostart Fájl"
 
 #: panel-plugin/xfce4-clipman-settings.c:99
 msgid "None"
@@ -71,11 +72,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
-msgstr ""
+msgstr "tevékenyég mutatása"
 
 #: panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
-msgstr ""
+msgstr "tevékenység elrejtése"
 
 #: panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
@@ -88,12 +89,12 @@ msgstr "Biztosan visszaállítja a műveleteket a rendszer alapértelmezett ért
 
 #: panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Írja ide a keresési kifejezést"
 
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
 msgid "History is empty"
-msgstr ""
+msgstr "A napló üres"
 
 #: panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
@@ -105,7 +106,7 @@ msgstr "_Másolás"
 
 #: panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
-msgstr ""
+msgstr "Clipman napló"
 
 #: panel-plugin/xfce4-clipman-history.c:436
 #: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
@@ -135,7 +136,7 @@ msgstr "_Bezárás"
 
 #: panel-plugin/settings-dialog.ui:117
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Szinkronizált egér _kiválasztás"
 
 #: panel-plugin/settings-dialog.ui:122
 msgid ""
@@ -147,7 +148,7 @@ msgstr ""
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Az egérrel történő kiválasztás megtartása"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
@@ -297,11 +298,11 @@ msgstr "Művelet szerkesztése"
 
 #: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
 msgid "_Cancel"
-msgstr ""
+msgstr "_Mégsem"
 
 #: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
 msgid "_OK"
-msgstr ""
+msgstr "_Rendben"
 
 #: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
 msgid "Name:"
@@ -364,19 +365,19 @@ msgstr "A(z) „%s” parancs nem hajtható végre\n\n%s"
 #: panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Nem indítható el a Clipboard Manager, mert már fut"
 
 #: panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Az Xfce Clipboard Manager jelenleg is fut"
 
 #: panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Elindíthatja a 'xfce4-clipman' segítségével."
 
 #: panel-plugin/common.c:48
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "A Clipboard Manager démon nem fut."
 
 #: panel-plugin/menu.c:185
 msgid "Are you sure you want to clear the history?"
