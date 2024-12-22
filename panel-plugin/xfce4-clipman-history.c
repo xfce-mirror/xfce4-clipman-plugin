@@ -430,32 +430,19 @@ clipman_history_dialog_init (MyPlugin *plugin)
   gtk_window_set_default_size (GTK_WINDOW (dialog), 350, 450);
   gtk_window_set_type_hint (GTK_WINDOW (dialog), GDK_WINDOW_TYPE_HINT_NORMAL);
 
-#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
 #if !LIBXFCE4UI_CHECK_VERSION(4, 19, 3)
   xfce_titled_dialog_create_action_area (XFCE_TITLED_DIALOG (dialog));
 #endif
   button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _( "_Help"), GTK_RESPONSE_HELP);
-#else
-  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Help"), GTK_RESPONSE_HELP);
-#endif
   icon = gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
-#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
   button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), _( "_Settings"), GTK_RESPONSE_OK);
-#else
-  button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Settings"), GTK_RESPONSE_OK);
-#endif
   icon = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (button), icon);
 
-#if LIBXFCE4UI_CHECK_VERSION(4, 15, 1)
   plugin->submit_button = xfce_titled_dialog_add_button (XFCE_TITLED_DIALOG (dialog), "label", GTK_RESPONSE_APPLY);
   xfce_titled_dialog_set_default_response (XFCE_TITLED_DIALOG (dialog), GTK_RESPONSE_APPLY);
-#else
-  plugin->submit_button = gtk_dialog_add_button (GTK_DIALOG (dialog), "label", GTK_RESPONSE_APPLY);
-  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_APPLY);
-#endif
   gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (plugin->submit_button)), "suggested-action");
 
   g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (clipman_history_dialog_response), plugin);
