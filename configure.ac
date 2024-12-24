@@ -9,7 +9,7 @@ dnl
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
-XDT_VERSION_INIT([1.6.6], [git])
+XDT_VERSION_INIT([1.6.7])
 
 dnl minimum required versions
 m4_define([glib_min_version], [2.60.0])

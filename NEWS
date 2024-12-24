@@ -1,3 +1,37 @@
+1.6.7 (2024-12-24)
+=====
+- build: Bump dependency versions and fix deprecation warnings
+- I18n: Update po/LINGUAS list
+- Make history window a main app window
+- Apply .clang-format file
+- Preliminary cleanup
+- Clean up and sort includes
+- clang-format: Add file
+- cleanup: Remove clipboard-manager/daemon.h
+- scan-build: Fix unix.Malloc
+- gcc-analyzer: Add false positive file
+- history: Fix image cycling when max-images > 1
+- Compare images using GBytes API
+- plugin: Restore image position in history at startup
+- plugin: Walk the cache directory to load images
+- plugin: Save images only once
+- plugin: Refactor save()
+- plugin: Distinguish clear() and save()
+- Fix memory management of main objects
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- I18n: Update po/LINGUAS list
+- build: Get rid of intltool
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), English (United Kingdom),
+  Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian
+
 1.6.6 (2024-02-29)
 =====
 - Update copyright year
