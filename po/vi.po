@@ -1,264 +1,354 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
 # Automatically generated, 2009
+# Cas Pascal <casboi86@gmail.com>, 2024
 # Nguyễn Quốc Vinh, <kureikain@gmail.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 20:51+0200\n"
-"PO-Revision-Date: 2013-11-19 16:28+0000\n"
-"Last-Translator: Nick <nick@xfce.org>\n"
-"Language-Team: Vietnamese (http://www.transifex.com/projects/p/xfce/language/vi/)\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:51+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: Cas Pascal <casboi86@gmail.com>, 2024\n"
+"Language-Team: Vietnamese (http://app.transifex.com/xfce/xfce-panel-plugins/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:72
-#: ../panel-plugin/main-status-icon.c:61 ../panel-plugin/main-status-icon.c:94
-#: ../panel-plugin/plugin.c:336
+#: data/appdata/xfce4-clipman.appdata.xml.in:6
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
+#: panel-plugin/main-panel-plugin.c:83 panel-plugin/main-status-icon.c:117
+#: panel-plugin/plugin.c:99 panel-plugin/plugin.c:336
 msgid "Clipman"
 msgstr "Clipman"
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
+#: data/appdata/xfce4-clipman.appdata.xml.in:7
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
 msgid "Clipboard manager"
 msgstr "Trình quản lý bộ nhớ đệm"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Image"
-msgstr "Ảnh"
+#: data/appdata/xfce4-clipman.appdata.xml.in:10
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Trình quản lí bộ đệm được cung cấp dưới dạng một plugin thanh tác vụ hoặc một chương trình riêng chạy trong vùng thông báo. Nó lưu trữ lịch sử sao chép các văn bản và hình ảnh. Trình quản lí cũng có tính năng thực hiện các lệnh khác nhau lên các mục được chọn bằng cách so sánh chúng với các regex."
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
-msgid "Edit with Gimp"
-msgstr "Chỉnh sửa bằng Gimp"
+#: panel-plugin/xfce4-clipman.desktop.in:5
+msgid "Clipboard Manager"
+msgstr "Trình quản lý bộ nhớ đệm"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "View with Ristretto"
-msgstr "Xem bằng Ristretto"
+#: panel-plugin/xfce4-clipman.desktop.in:6
+msgid "Clipboard Manager Autostart File"
+msgstr "Tập lệnh tự động thực thi trình quản lí bộ đệm"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Bugz"
-msgstr ""
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Xfce Bug"
-msgstr "Lỗi của Xfce"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "GNOME Bug"
-msgstr "Lỗi của GNOME"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
-msgid "Long URL"
-msgstr "Đại chỉ URL đầy đủ"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
-msgid "Shrink the URL"
-msgstr "Địa chỉ URL thu gọn"
-
-#: ../panel-plugin/xfce4-clipman-settings.c:190
+#: panel-plugin/xfce4-clipman-settings.c:99
 msgid "None"
-msgstr ""
+msgstr "Không"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:192
+#: panel-plugin/xfce4-clipman-settings.c:101
 msgid "Ctrl+V"
 msgstr ""
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:194
+#: panel-plugin/xfce4-clipman-settings.c:103
 msgid "Shift+Insert"
 msgstr ""
 
-#: ../panel-plugin/xfce4-clipman-settings.c:517
-msgid "<b>Reset actions</b>"
-msgstr ""
+#: panel-plugin/xfce4-clipman-settings.c:137
+msgid "shows actions"
+msgstr "hiển thị các hành động"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:519
+#: panel-plugin/xfce4-clipman-settings.c:138
+msgid "hides actions"
+msgstr "ẩn các hành động"
+
+#: panel-plugin/xfce4-clipman-settings.c:526
+msgid "<b>Reset actions</b>"
+msgstr "<b>Đặt lại các hành động</b>"
+
+#: panel-plugin/xfce4-clipman-settings.c:528
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr ""
+msgstr "Bạn có chắc rằng bạn muốn đặt lại các hành động về mặc định của hệ thống?"
 
-#: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Configure the plugin"
-msgstr "Cấu hình plugin"
+#: panel-plugin/xfce4-clipman-history.c:263
+msgid "Enter search phrase here"
+msgstr "Nhập cụm từ tìm kiếm ở đây"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
-msgid "Sync _selections"
-msgstr "Đồng bộ _lựa chọn"
+#. Insert empty menu item
+#: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
+msgid "History is empty"
+msgstr "Lịch sử đang trống"
 
-#: ../panel-plugin/settings-dialog.ui.h:3
+#: panel-plugin/xfce4-clipman-history.c:389
+msgid "_Paste"
+msgstr "Dán"
+
+#: panel-plugin/xfce4-clipman-history.c:394
+msgid "_Copy"
+msgstr "Sao chép"
+
+#: panel-plugin/xfce4-clipman-history.c:428
+msgid "Clipman History"
+msgstr "Lịch sử clipman"
+
+#: panel-plugin/xfce4-clipman-history.c:436
+#: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
+msgid "_Help"
+msgstr "Trợ giúp"
+
+#: panel-plugin/xfce4-clipman-history.c:444
+#: panel-plugin/xfce4-clipman-history.c:446
+msgid "_Settings"
+msgstr "Tuỳ chọn"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:4
+msgid "Clipboard Manager Settings"
+msgstr "Tuỳ chọn trình quản lí bộ nhớ đệm"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:5
+msgid "Customize your clipboard"
+msgstr "Tuỳ chỉnh bộ nhớ đệm của bạn"
+
+#: panel-plugin/settings-dialog.ui:30
+msgid "Clipman Settings"
+msgstr "Tuỳ chỉnh Clipman"
+
+#: panel-plugin/settings-dialog.ui:65
+msgid "_Close"
+msgstr "Đóng"
+
+#: panel-plugin/settings-dialog.ui:117
+msgid "Sync mouse _selections"
+msgstr "Tự động sao chép khi chọn văn bản"
+
+#: panel-plugin/settings-dialog.ui:122
 msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "Nếu đánh dấu, sự lựa chọn(văn bản, file, hình ảnh) sẽ được đồng bộ với bộ nhớ đệm mặc định theo cách mà bạn có thể sao chép những gì mà bạn đã chọn"
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr "Khi bật, văn bản được chọn sẽ được đồng bộ hoá với bộ nhớ đệm mặc định ngay lập tức, bạn có thể dán mục đã chọn với Ctrl-V. Ngược lại, các văn bản được sao chép sẽ được đồng bộ hoá với bộ nhớ đệm cơ bản, bạn có thể dán vằn nút chuột giữa."
 
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "<b>Behavior</b>"
-msgstr "<b>Hành vi</b>"
+#: panel-plugin/settings-dialog.ui:134
+msgid "_Persist mouse selections"
+msgstr "Ghi nhớ văn bản được chọn"
 
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "Save on _quit"
-msgstr "Lưu khi _thoát"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
+#: panel-plugin/settings-dialog.ui:139
 msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "Nếu được đánh dấu, tuỳ chọn này sẽ khôi phục lịch sử lại trên mỗi phiên làm việc mới của Xfce"
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr "Khi bật, bộ nhớ đệm cơ bản (dán bằng nút chuột giữa) sẽ ghi nhớ văn bản đã chọn (kể cả khi bạn huỷ chọn) cho tới khi bạn chọn một vùng khác."
 
-#: ../panel-plugin/settings-dialog.ui.h:7
-msgid "Store last copied _image"
-msgstr ""
+#: panel-plugin/settings-dialog.ui:151
+msgid "_QR-Code support"
+msgstr "Hỗ trợ mã QR"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "Nếu đánh dấu, tuỳ chọn này sẽ cho phép lưu trữ một ảnh trong lịch sử sử dụng"
+#: panel-plugin/settings-dialog.ui:156
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Khi bật, danh sách sẽ hiển thị phiên bản mã QR của mục sao chép được chọn"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Ignore s_elections"
-msgstr ""
+#: panel-plugin/settings-dialog.ui:170
+msgid "Automatically paste a selected item from the history"
+msgstr "Tự động dán khi chọn một mục trong lịch sử"
 
-#: ../panel-plugin/settings-dialog.ui.h:10
+#: panel-plugin/settings-dialog.ui:176
+msgid "_Paste instantly:"
+msgstr "Dán ngay lập tức:"
+
+#: panel-plugin/settings-dialog.ui:214
+msgid "<b>General</b>"
+msgstr "<b>Chung</b>"
+
+#: panel-plugin/settings-dialog.ui:245
+msgid "P_osition menu at mouse pointer"
+msgstr "Mở danh sách dưới con trỏ"
+
+#: panel-plugin/settings-dialog.ui:249
+msgid ""
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr "Danh sách sẽ mở ở vị trí của con trỏ: hữu dụng khi sử dụng lệnh xfce4-popup-clipman"
+
+#: panel-plugin/settings-dialog.ui:267
+msgid "Maximum items:"
+msgstr "Số lượng mục tối đa:"
+
+#: panel-plugin/settings-dialog.ui:304
+msgid "<b>Menu</b>"
+msgstr "<b>Danh sách</b>"
+
+#: panel-plugin/settings-dialog.ui:321
+msgid "_Behavior"
+msgstr "Hành vi"
+
+#: panel-plugin/settings-dialog.ui:343
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>Bật các hành động tự động</b>"
+
+#: panel-plugin/settings-dialog.ui:358
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Khi bật, các văn bản trong lịch sử sẽ được so sánh với các regex và một danh sách sẽ hiển thị cho biết các hành động có sẵn.\nNgược lại, danh sách hành động sẽ chỉ hiện khi gọi \"xfce4-popup-clipman-actions\" (và khi một mục khớp với regex)"
+
+#: panel-plugin/settings-dialog.ui:384
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr "Khi đã chọn xong mục mà phím Ctrl vẫn đang đè, danh sách hiển thị sẽ hiện hoặc bị ẩn"
+
+#: panel-plugin/settings-dialog.ui:390
+msgid "_Pressing Ctrl during selection:"
+msgstr "Nhấn Ctrl khi đang chọn:"
+
+#: panel-plugin/settings-dialog.ui:459
+msgid "Add action"
+msgstr "Thêm hành động"
+
+#: panel-plugin/settings-dialog.ui:481
+msgid "Edit action"
+msgstr "Chỉnh sửa hành động"
+
+#: panel-plugin/settings-dialog.ui:503
+msgid "Delete action"
+msgstr "Xoá hành động"
+
+#: panel-plugin/settings-dialog.ui:524
+msgid "Reset all actions to the system default values"
+msgstr "Đặt lại các hành động về mặc định của hệ thống"
+
+#: panel-plugin/settings-dialog.ui:571
+msgid "_Actions"
+msgstr "Hành động"
+
+#: panel-plugin/settings-dialog.ui:594
+msgid "<b>Remember history</b>"
+msgstr "<b>Ghi nhớ lịch sử</b>"
+
+#: panel-plugin/settings-dialog.ui:631
+msgid "Remember last copied _image"
+msgstr "Ghi nhớ ảnh được sao chép gần đây nhất"
+
+#: panel-plugin/settings-dialog.ui:635
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "Khi bật, cho phép lưu một ảnh vào lịch sử"
+
+#: panel-plugin/settings-dialog.ui:647
+msgid "_Reorder history items"
+msgstr "Sắp xếp lại các mục trong lịch sử"
+
+#: panel-plugin/settings-dialog.ui:651
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Đẩy mục mới vào đầu của lịch sử, hữu dụng cho việc sắp xếp lại các mục cũ"
+
+#: panel-plugin/settings-dialog.ui:663
+msgid "Re_verse history order"
+msgstr "Đảo ngược thứ tự lịch sử"
+
+#: panel-plugin/settings-dialog.ui:667
+msgid "Reverse order of the history shown in the menu"
+msgstr "Đảo ngược thứ tự của các mục trong danh sách lịch sử"
+
+#: panel-plugin/settings-dialog.ui:679
+msgid "Ignore mouse s_elections"
+msgstr "Bỏ qua vùng chộn của chuột"
+
+#: panel-plugin/settings-dialog.ui:684
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "Nếu đánh dấu, sự lựa chọn sẽ không ảnh hưởng tới lịch sử sử dụng ngoại trừ khi sao chép thủ công"
 
-#: ../panel-plugin/settings-dialog.ui.h:11
+#: panel-plugin/settings-dialog.ui:703
 msgid "Size of the _history:"
 msgstr "Kích thước của lịch sử sử dụng"
 
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid "<b>History</b>"
-msgstr "<b>Lịch sử</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "General"
-msgstr "Tổng quát"
-
-#: ../panel-plugin/settings-dialog.ui.h:14
-msgid "Enable _actions"
-msgstr "Cho phép _hành động"
-
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions "
-"and a menu will display possible actions"
-msgstr "Nếu đánh dấu,  văn bản trong bộ nhớ đệm sẽ được kiếm trả dựa trên các biểu thức chính quy và một trình đơn sẽ hiển thị những hành động bạn có thể làm"
-
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Actions"
-msgstr "Hành động"
-
-#: ../panel-plugin/settings-dialog.ui.h:17
-msgid "Automatically paste a selected item from the history"
+#: panel-plugin/settings-dialog.ui:719
+msgid "5"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "_Paste instantly:"
-msgstr ""
+#: panel-plugin/settings-dialog.ui:753
+msgid "H_istory"
+msgstr "Lịch sử"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "P_osition menu at mouse pointer"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:21
-msgid "_Reorder history items"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:22
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "Re_verse history order"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "Reverse order of the history shown in the menu"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Skip actions by holding Control"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:26
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:27
-msgid "Tweaks"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:28
+#: panel-plugin/settings-dialog.ui:777
 msgid "Edit Action"
 msgstr "Sửa hành động"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr "Bạn có thể sử dụng tham số thay thế \"\\1\", \"\\2\" và tương tự trong các lệnh. Tham số \"\\0\"  đại diên cho toàn bộ văn bản. Nếu bạn không biết biểu thức chính quy, hãy xem qua trong tài liệu của Clipman có nói về nó"
+#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
+msgid "_Cancel"
+msgstr "Huỷ"
 
-#: ../panel-plugin/settings-dialog.ui.h:30
+#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
+msgid "_OK"
+msgstr "_OK"
+
+#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
 msgid "Name:"
 msgstr "Tên:"
 
-#: ../panel-plugin/settings-dialog.ui.h:31
+#: panel-plugin/settings-dialog.ui:898
 msgid "Pattern:"
 msgstr "Mẫu:"
 
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "The pattern is always anchored within the special characters ^$"
+#: panel-plugin/settings-dialog.ui:985
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
 msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Activate only on manual copy"
-msgstr "Chỉ kích hoạt khi sao chép thủ công"
+#: panel-plugin/settings-dialog.ui:1011
+msgid "Activate on manual copy instead of selection"
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:34
+#: panel-plugin/settings-dialog.ui:1016
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "Theo mặc định, hành động này được bắt chặn bở việc lựa chọn, đánh dấu vào tuỳ chọn này để chỉ được bắt chặn khi bạn thực hiện sao chép thủ công"
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr ""
 
-#: ../panel-plugin/settings-dialog.ui.h:35
+#: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
 msgstr "<b>Hành động</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: panel-plugin/settings-dialog.ui:1102
 msgid "Command:"
 msgstr "Lệnh:"
 
-#: ../panel-plugin/settings-dialog.ui.h:37
+#: panel-plugin/settings-dialog.ui:1243
 msgid "<b>Commands</b>"
 msgstr "<b>Lệnh</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
+#: panel-plugin/settings-dialog.ui:1269
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr ""
+
+#: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
 msgstr ""
 
-#: ../panel-plugin/actions.c:370
+#: panel-plugin/main-panel-plugin.c:117 panel-plugin/main-status-icon.c:148
+msgid "_Disable"
+msgstr ""
+
+#: panel-plugin/actions.c:367
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -266,35 +356,67 @@ msgid ""
 "%s"
 msgstr "Không thể thực hiện lệnh \"%s\"\n\n%s"
 
-#: ../panel-plugin/menu.c:198
+#: panel-plugin/common.c:38
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr ""
+
+#: panel-plugin/common.c:39
+msgid "The Xfce Clipboard Manager is already running."
+msgstr ""
+
+#: panel-plugin/common.c:46
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr ""
+
+#: panel-plugin/common.c:48
+msgid "The Clipboard Manager Daemon is not running."
+msgstr ""
+
+#: panel-plugin/menu.c:185
 msgid "Are you sure you want to clear the history?"
 msgstr "Bạn có thực sự muốn xoá lịch sử sử dụng?"
 
-#: ../panel-plugin/menu.c:207
+#: panel-plugin/menu.c:190
 msgid "Don't ask again"
 msgstr ""
 
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:304
-msgid "Clipboard is empty"
-msgstr "Bộ nhớ trống"
-
-#: ../panel-plugin/menu.c:399
-msgid "_Disable"
+#: panel-plugin/menu.c:239
+msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:324
+#: panel-plugin/menu.c:294 panel-plugin/menu.c:560
+msgid "_Clear history"
+msgstr ""
+
+#: panel-plugin/menu.c:394
+msgid "_Clear clipboard"
+msgstr ""
+
+#: panel-plugin/menu.c:440
+msgid "Could not generate QR-Code."
+msgstr ""
+
+#: panel-plugin/menu.c:551
+msgid "_Show full history..."
+msgstr ""
+
+#: panel-plugin/menu.c:568
+msgid "_Clipman settings..."
+msgstr ""
+
+#: panel-plugin/plugin.c:324
 msgid "Contributors:"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:338
+#: panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
 msgstr "Trình quản ly bộ nhớ đệm cho Xfce"
 
-#: ../panel-plugin/plugin.c:346
+#: panel-plugin/plugin.c:346
 msgid "translator-credits"
 msgstr "Công trạng người dịch:"
 
-#: ../panel-plugin/plugin.c:360
+#: panel-plugin/plugin.c:360
 msgid "Unable to open the settings dialog"
 msgstr "Không thể mở hộp thoại thiết lập"
