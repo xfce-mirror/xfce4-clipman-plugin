@@ -40,7 +40,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Trình quản lí bộ đệm được cung cấp dưới dạng một plugin thanh tác vụ hoặc một chương trình riêng chạy trong vùng thông báo. Nó lưu trữ lịch sử sao chép các văn bản và hình ảnh. Trình quản lí cũng có tính năng thực hiện các lệnh khác nhau lên các mục được chọn bằng cách so sánh chúng với các regex."
+msgstr "Trình quản lí bộ đệm được cung cấp dưới dạng một plugin thanh tác vụ hoặc một chương trình riêng chạy trong vùng thông báo. Nó lưu trữ lịch sử sao chép các văn bản và hình ảnh. Trình quản lí cũng có tính năng thực hiện các lệnh khác nhau lên các mục được chọn bằng cách so sánh chúng với các biểu thức chính quy."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
@@ -57,12 +57,12 @@ msgstr "Không"
 #. TRANSLATORS: Keyboard shortcut
 #: panel-plugin/xfce4-clipman-settings.c:101
 msgid "Ctrl+V"
-msgstr ""
+msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
 #: panel-plugin/xfce4-clipman-settings.c:103
 msgid "Shift+Insert"
-msgstr ""
+msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
@@ -203,7 +203,7 @@ msgstr "<b>Bật các hành động tự động</b>"
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Khi bật, các văn bản trong lịch sử sẽ được so sánh với các regex và một danh sách sẽ hiển thị cho biết các hành động có sẵn.\nNgược lại, danh sách hành động sẽ chỉ hiện khi gọi \"xfce4-popup-clipman-actions\" (và khi một mục khớp với regex)"
+msgstr "Khi bật, các văn bản trong lịch sử sẽ được so sánh với các biểu thức chính quy và một danh sách sẽ hiển thị cho biết các hành động có sẵn.\nNgược lại, danh sách hành động sẽ chỉ hiện khi gọi \"xfce4-popup-clipman-actions\" (và khi một mục khớp với biểu thức chính quy)"
 
 #: panel-plugin/settings-dialog.ui:384
 msgid ""
@@ -280,7 +280,7 @@ msgstr "Kích thước của lịch sử sử dụng"
 
 #: panel-plugin/settings-dialog.ui:719
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: panel-plugin/settings-dialog.ui:753
 msgid "H_istory"
@@ -311,18 +311,18 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Bạn có thể sử dụng các tham số thay thế \"\\1\", \"\\2\" và tượng tự trong lệnh. Tham sô \"\\0\" biểu diễn cho toàn bộ văn bản. Các mẫu luôn được đặt giữa cặp ký tự đặc biệt: ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Kích hoạt khi người dùng sao chép"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Theo mặc định, hành động này được kích hoạt khi văn bản được chọn: chọn mục này để chỉ kích hoạt văn bản được sao chép. Lưu ý rằng trong trường hợp này, phím Ctrl không còn tác dụng."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -338,15 +338,15 @@ msgstr "<b>Lệnh</b>"
 
 #: panel-plugin/settings-dialog.ui:1269
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Gõ văn bản tuỳ chỉnh của bạn ở đây, ví dụng: đường liên kết URL, tên tập tin, vv..."
 
 #: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
-msgstr ""
+msgstr "Biểu thức chính quy"
 
 #: panel-plugin/main-panel-plugin.c:117 panel-plugin/main-status-icon.c:148
 msgid "_Disable"
-msgstr ""
+msgstr "Vô hiệu hoá"
 
 #: panel-plugin/actions.c:367
 #, c-format
@@ -359,19 +359,19 @@ msgstr "Không thể thực hiện lệnh \"%s\"\n\n%s"
 #: panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Không thể khởi động daemon trình quản lý bộ nhớ đệm bởi vì một daemon tương tự đã chạy rồi."
 
 #: panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Trình quản lý bộ nhớ đệm của Xfce đã chạy rồi."
 
 #: panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Bạn có thể chạy nó với lệnh 'xfce4-clipman'."
 
 #: panel-plugin/common.c:48
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Daemon trình quản lý bộ nhớ đệm đang không chạy."
 
 #: panel-plugin/menu.c:185
 msgid "Are you sure you want to clear the history?"
@@ -379,35 +379,35 @@ msgstr "Bạn có thực sự muốn xoá lịch sử sử dụng?"
 
 #: panel-plugin/menu.c:190
 msgid "Don't ask again"
-msgstr ""
+msgstr "Không hỏi lại"
 
 #: panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Không thể mở hộp thoại lịch sử của Clipman"
 
 #: panel-plugin/menu.c:294 panel-plugin/menu.c:560
 msgid "_Clear history"
-msgstr ""
+msgstr "Xoá lịch sử"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "Xoá bộ nhớ đệm"
 
 #: panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
-msgstr ""
+msgstr "Không thể tạo mã QR."
 
 #: panel-plugin/menu.c:551
 msgid "_Show full history..."
-msgstr ""
+msgstr "Hiện lịch sử đầy đủ..."
 
 #: panel-plugin/menu.c:568
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "Tuỳ chọn Clipman..."
 
 #: panel-plugin/plugin.c:324
 msgid "Contributors:"
-msgstr ""
+msgstr "Các thành viên đóng góp"
 
 #: panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
