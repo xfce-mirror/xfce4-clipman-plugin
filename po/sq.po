@@ -149,7 +149,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr "Në iu vëntë shenjë, e papastra parësore (ngjitje me klikim të butonit të mesit) do të mbahet, deri në përzgjedhjen pasuese, nëse përzgjedhja e tanishme humbet (p.sh. duke klikuar kudo qoftë me të majtin, në një fushë tekstesh)"
+msgstr "Në iu vëntë shenjë, e papastra parësore (ngjitje me klikim të butonit të mesit) do të mbahet, deri në përzgjedhjen pasuese, nëse përzgjedhja e tanishme humbet (p.sh., duke klikuar kudo qoftë me të majtin, në një fushë tekstesh)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -237,11 +237,11 @@ msgstr "_Veprime"
 
 #: panel-plugin/settings-dialog.ui:594
 msgid "<b>Remember history</b>"
-msgstr "<b>Mba mend historikun</b>"
+msgstr "<b>Mbaj mend historikun</b>"
 
 #: panel-plugin/settings-dialog.ui:631
 msgid "Remember last copied _image"
-msgstr "Mba mend _figurën e fundit të kopjuar"
+msgstr "Mbaj mend _figurën e fundit të kopjuar"
 
 #: panel-plugin/settings-dialog.ui:635
 msgid ""
@@ -311,7 +311,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "Te urdhrat mund të përdorni parametrat e zëvendësimit \"\\1\", \"\\2\" e me radhë. Parametri \"\\0\" përfaqëson tekstin e plotë. Rregullsia paraprihet gjithnjë me shenjat speciale ^$"
+msgstr "Te urdhrat mund të përdorni parametrat e zëvendësimit “\\1”, “\\2” e me radhë. Parametri “\\0” përfaqëson tekstin e plotë. Rregullsia paraprihet gjithnjë me shenjat speciale ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
@@ -354,7 +354,7 @@ msgid ""
 "Unable to execute the command \"%s\"\n"
 "\n"
 "%s"
-msgstr "S’arrihet të përmbushet urdhri \"%s\"\n\n%s"
+msgstr "S’arrihet të përmbushet urdhri “%s”\n\n%s"
 
 #: panel-plugin/common.c:38
 msgid ""
@@ -403,11 +403,11 @@ msgstr "_Shfaqni historikun e plotë…"
 
 #: panel-plugin/menu.c:568
 msgid "_Clipman settings..."
-msgstr "Rregullime _Clipman…"
+msgstr "Rregullime _Clipman-i…"
 
 #: panel-plugin/plugin.c:324
 msgid "Contributors:"
-msgstr "Pjesëmarrës:"
+msgstr "Kontribues:"
 
 #: panel-plugin/plugin.c:338
 msgid "Clipboard Manager for Xfce"
