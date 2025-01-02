@@ -6,7 +6,7 @@
 # Dušan Kazik <prescott66@gmail.com>, 2016,2020
 # 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2022
 # Robert Hartl <hartl.robert@gmail.com>, 2009-2010
-# Slavko <linux@slavino.sk>, 2015
+# Slavko <linux@slavino.sk>, 2015,2025
 # 7dcd6f74323fe8d9c477949ff8fcbb1c_c427b63 <3fcd202e3dfab15fda15b8e88e54d449_7173>, 2011
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2022\n"
+"Last-Translator: Slavko <linux@slavino.sk>, 2015,2025\n"
 "Language-Team: Slovak (http://app.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,11 +68,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:137
 msgid "shows actions"
-msgstr ""
+msgstr "zobrazí akcie"
 
 #: panel-plugin/xfce4-clipman-settings.c:138
 msgid "hides actions"
-msgstr ""
+msgstr "skryje akcie"
 
 #: panel-plugin/xfce4-clipman-settings.c:526
 msgid "<b>Reset actions</b>"
@@ -90,7 +90,7 @@ msgstr "Sem zadajte hľadanú frázu"
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
 msgid "History is empty"
-msgstr ""
+msgstr "História je prázdna"
 
 #: panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
@@ -132,7 +132,7 @@ msgstr "_Zatvoriť"
 
 #: panel-plugin/settings-dialog.ui:117
 msgid "Sync mouse _selections"
-msgstr "Synchronizovať výbery m_yšou"
+msgstr "Synchronizovať výber m_yšou"
 
 #: panel-plugin/settings-dialog.ui:122
 msgid ""
@@ -140,22 +140,22 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Ak je zvolené, výbery budú synchronizované s predvolenou schránkou, takže výber myšou možno vložiť pomocou Ctrl-V. Naopak, manuálne kopírovania budú synchronizované s primárnou schránkou, takže možno kopírované vložiť stredným tlačidlom myši."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Trvalý výber myšou"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Ak je zvolené, bude primárna schránka (vkladanie stredným tlačidlom) zachovaná až do ďalšieho výberu, ak je aktuálny výber stratený (napr. kliknutím ľavým tlačidlom kdekoľvek v textovej oblasti)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
-msgstr "Podpora _QR kódov"
+msgstr "Podpora kódov _QR"
 
 #: panel-plugin/settings-dialog.ui:156
 msgid ""
@@ -183,7 +183,7 @@ msgstr "_Umiestniť ponuku pri ukazovateľ myši"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Zobraziť vyskakovaciu ponuku pri ukazovateli myši, užitočné najmä pre príkaz xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -211,11 +211,11 @@ msgstr "Ak je zaškrtnuté, text schránky bude otestovaný na zhodu s regulárn
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Po dokončení výberu a keď je Ctrl stále stlačené, bude zobrazené alebo skryté vyskakovacie okna príslušných akcií"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "Stlačenie _Ctrl počas výberu:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -306,7 +306,7 @@ msgstr "Názov:"
 
 #: panel-plugin/settings-dialog.ui:898
 msgid "Pattern:"
-msgstr "Vzorka:"
+msgstr "Vzor:"
 
 #: panel-plugin/settings-dialog.ui:985
 msgid ""
@@ -317,14 +317,14 @@ msgstr "V príkazoch môžete použiť nahradzujúce parametre „\\1“, „\\2
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktivovať pri manuálnom kopírovaní namiesto pri výbere"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Predvolene je akcia spustená výberom: vyberte túto možnosť, keď má byť akcia namiesto toho spustená manuálnym kopírovaním. V takom prípade klávesa Ctrl nemá viac žiadny efekt."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -385,7 +385,7 @@ msgstr "Nepýtať sa znova"
 
 #: panel-plugin/menu.c:239
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Nemožno otvoriť dialóg histórie Clipman"
 
 #: panel-plugin/menu.c:294 panel-plugin/menu.c:560
 msgid "_Clear history"
@@ -393,7 +393,7 @@ msgstr "Vy_mazať históriu"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "Vy_mazať schránku"
 
 #: panel-plugin/menu.c:440
 msgid "Could not generate QR-Code."
