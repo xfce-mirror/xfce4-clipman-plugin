@@ -299,7 +299,7 @@ msgstr "Άκ_υρο"
 
 #: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
 msgid "_OK"
-msgstr ""
+msgstr "_Εντάξει"
 
 #: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
 msgid "Name:"
