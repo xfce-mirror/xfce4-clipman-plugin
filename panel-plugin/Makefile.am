@@ -42,6 +42,7 @@ xfce4_popup_clipman_CFLAGS =                                            \
 	@LIBXTST_CFLAGS@						\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UI_CFLAGS@						\
+	@LIBXFCE4UTIL_CFLAGS@						\
 	$(NULL)
 
 xfce4_popup_clipman_LDADD =						\
@@ -49,6 +50,7 @@ xfce4_popup_clipman_LDADD =						\
 	@LIBXTST_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\
+	@LIBXFCE4UTIL_LIBS@						\
 	$(NULL)
 
 #
@@ -106,6 +108,7 @@ xfce4_clipman_settings_CFLAGS =						\
 	@LIBX11_CFLAGS@							\
 	@GTK_CFLAGS@							\
 	@LIBXFCE4UI_CFLAGS@						\
+	@LIBXFCE4UTIL_CFLAGS@						\
 	@XFCONF_CFLAGS@							\
 	$(NULL)
 
@@ -114,6 +117,7 @@ xfce4_clipman_settings_LDADD =						\
 	@LIBX11_LIBS@							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\
+	@LIBXFCE4UTIL_LIBS@						\
 	@XFCONF_LIBS@							\
 	$(NULL)
 
