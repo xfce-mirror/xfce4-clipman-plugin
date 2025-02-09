@@ -26,3 +26,7 @@ test_xfakekey_SOURCES = test_xfakekey.c
 test_xfakekey_CFLAGS = @GTK_CFLAGS@ @LIBX11_CFLAGS@ @LIBXTST_CFLAGS@
 test_xfakekey_LDADD = @GTK_LIBS@ @LIBX11_LIBS@ @LIBXTST_LIBS@
 endif
+
+EXTRA_DIST = \
+	meson.build \
+	$(NULL)
