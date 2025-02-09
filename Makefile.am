@@ -19,6 +19,10 @@ EXTRA_DIST =								\
 	COPYING								\
 	NEWS								\
 	README.md								\
+	meson.build							\
+	meson_options.txt						\
+	po/meson.build							\
+	xfce-revision.h.in						\
 	$(NULL)
 
 CLEANFILES =								\
