@@ -270,6 +270,7 @@ EXTRA_DIST =								\
 	$(autostart_in_files)						\
 	$(plugins_in_files)						\
 	$(apps_in_files)						\
+	meson.build							\
 	$(NULL)
 
 CLEANFILES =								\
