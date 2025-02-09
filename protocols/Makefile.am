@@ -41,4 +41,6 @@ BUILT_SOURCES = \
 endif # ENABLE_WAYLAND
 
 EXTRA_DIST = \
-	wlr-protocols/unstable/wlr-data-control-unstable-v1.xml
+	wlr-protocols/unstable/wlr-data-control-unstable-v1.xml \
+	meson.build \
+	$(NULL)
