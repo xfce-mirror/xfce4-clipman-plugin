@@ -1,0 +1,34 @@
+option(
+  'x11',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for the X11 windowing system',
+)
+
+option(
+  'wayland',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for the Wayland windowing system',
+)
+
+option(
+  'qrencode',
+  type: 'feature',
+  value: 'auto',
+  description: 'QR code support',
+)
+
+option(
+  'xtst',
+  type: 'feature',
+  value: 'auto',
+  description: 'Xtst support (X11 only)',
+)
+
+option(
+  'tests',
+  type: 'boolean',
+  value: true,
+  description: 'Whether or not to build test programs',
+)

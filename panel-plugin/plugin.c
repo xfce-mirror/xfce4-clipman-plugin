@@ -19,6 +19,9 @@
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include "common.h"
 #include "plugin.h"
@@ -460,7 +463,7 @@ plugin_about (MyPlugin *plugin)
                          "program-name", _("Clipman"),
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),
-                         "version", PACKAGE_VERSION,
+                         "version", VERSION_FULL,
                          "copyright", "Copyright © 2003-2024 The Xfce development team",
                          "license", license,
                          "website", PACKAGE_URL,

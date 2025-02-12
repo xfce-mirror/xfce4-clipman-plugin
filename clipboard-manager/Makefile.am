@@ -48,3 +48,7 @@ libdaemon_la_LIBADD +=							\
 	@GTK_LIBS@							\
 	@LIBXFCE4UI_LIBS@						\
 	$(NULL)
+
+EXTRA_DIST = \
+	meson.build \
+	$(NULL)
