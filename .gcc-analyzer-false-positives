@@ -1,4 +1,4 @@
 # n < n_images and n_images++ iff image_pos[n_images] is set
-plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value '\*image_pos\[n\].x' \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
-plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value '\*image_pos\[n\].x' \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
-plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value '\*image_pos\[n\].x' \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
+plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value .+\*image_pos\[n\].x.+ \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
+plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value .+\*image_pos\[n\].x.+ \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
+plugin.c:[0-9]+:[0-9]+: warning: use of uninitialized value .+\*image_pos\[n\].x.+ \[CWE-457\] \[-Wanalyzer-use-of-uninitialized-value\]
