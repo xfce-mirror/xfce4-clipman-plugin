@@ -24,48 +24,61 @@ main (void)
   key_code = XKeysymToKeycode (display, key_sym);
   XTestFakeKeyEvent (display, key_code, True, CurrentTime);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XStringToKeysym ("2");
   key_code = XKeysymToKeycode (display, key_sym);
   XTestFakeKeyEvent (display, key_code, True, CurrentTime);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XStringToKeysym ("3");
   key_code = XKeysymToKeycode (display, key_sym);
   XTestFakeKeyEvent (display, key_code, True, CurrentTime);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_Return;
   key_code = XKeysymToKeycode (display, key_sym);
   XTestFakeKeyEvent (display, key_code, True, CurrentTime);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
 
-  printf ("XTestFakeKeyEvent: %d\n", ret);
-
-  /*key_sym = XK_Control_L;
+  key_sym = XK_Control_L;
   key_code = XKeysymToKeycode (display, key_sym);
-  XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  ret = XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_v;
   key_code = XKeysymToKeycode (display, key_sym);
   XTestFakeKeyEvent (display, key_code, True, CurrentTime);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_Control_L;
   key_code = XKeysymToKeycode (display, key_sym);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-
-  printf ("XTestFakeKeyEvent: %d\n", ret);*/
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
 
   key_sym = XK_Shift_L;
   key_code = XKeysymToKeycode (display, key_sym);
-  XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  ret = XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_Insert;
   key_code = XKeysymToKeycode (display, key_sym);
-  XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  ret = XTestFakeKeyEvent (display, key_code, True, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_Insert;
   key_code = XKeysymToKeycode (display, key_sym);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
+
   key_sym = XK_Shift_L;
   key_code = XKeysymToKeycode (display, key_sym);
   ret = XTestFakeKeyEvent (display, key_code, False, CurrentTime);
-
-  printf ("XTestFakeKeyEvent: %d\n", ret);
+  printf ("XTestFakeKeyEvent (%s): %d\n", XKeysymToString (key_sym), ret);
 
   printf ("Closing display in 5s...\n");
   usleep (5000000);
