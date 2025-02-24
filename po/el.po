@@ -10,6 +10,7 @@
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2015
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
 # ebal <ebalaskas@ebalaskas.gr>, 2008
+# Ioannis LM, 2025
 # Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021\n"
+"Last-Translator: Ioannis LM, 2025\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -392,7 +393,7 @@ msgstr "Αδυναμία ανοίγματος του ιστορικού"
 
 #: panel-plugin/menu.c:294 panel-plugin/menu.c:560
 msgid "_Clear history"
-msgstr "_Εκκαθάριση ιστορικού"
+msgstr "Ε_κκαθάριση ιστορικού"
 
 #: panel-plugin/menu.c:394
 msgid "_Clear clipboard"
@@ -404,7 +405,7 @@ msgstr "Αδυναμία δημιουργίας QR-Code."
 
 #: panel-plugin/menu.c:551
 msgid "_Show full history..."
-msgstr "_Εμφάνιση του ιστορικού..."
+msgstr "_Εμφάνιση ιστορικού..."
 
 #: panel-plugin/menu.c:568
 msgid "_Clipman settings..."
