@@ -122,7 +122,7 @@ _clipman_history_add_item (ClipmanHistory *history,
 
   /* free last images from history if max_images is reached */
   list = history->priv->items;
-  while (n_images > history->priv->max_images_in_history)
+  while (list != NULL && n_images > history->priv->max_images_in_history)
     {
       GSList *next = g_slist_next (list);
       DBG ("Delete oldest images from the history");
@@ -139,7 +139,7 @@ _clipman_history_add_item (ClipmanHistory *history,
   list_length = g_slist_length (history->priv->items) + 1;
 
   /* truncate history to max_items (max_texts stands for the size of the history) */
-  while (list_length > history->priv->max_texts_in_history)
+  while (history->priv->items != NULL && list_length > history->priv->max_texts_in_history)
     {
       DBG ("Delete oldest contents from the history");
       _item = history->priv->items->data;
