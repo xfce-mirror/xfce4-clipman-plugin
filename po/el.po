@@ -11,6 +11,7 @@
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
 # ebal <ebalaskas@ebalaskas.gr>, 2008
 # Ioannis LM, 2025
+# Ioannis LM, 2025
 # Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Ioannis LM, 2025\n"
+"Last-Translator: Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,7 +145,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr "Αν το επιλέξετε, οι επιλογές σας θα συγχρονίζονται με τις προεπιλογές στο πρόχειρο, για να μπορείτε να επικολλήσετε αυτό που επιλέγετε με Ctrl-V. Αντίθετα, οι προσωπικές σας αντιγραφές θα συγχρονιστούν στο πρόχειρο, για να μπορείτε να επικολλήσετε αυτό που αντιγράφετε με μεσαίο κλικ."
+msgstr "Αν το επιλέξετε, οι επιλογές σας θα συγχρονιστούν με τη προεπιλογή στο πρόχειρο, για να μπορείτε να επικολλήσετε αυτό που επιλέγετε με Ctrl-V. Αντίθετα, οι αντιγραφές σας θα συγχρονιστούν με το πρώτο στο πρόχειρο, για να μπορείτε να επικολλήσετε αυτό που αντιγράφετε με μεσαίο κλικ."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
@@ -155,7 +156,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr "Αν το επιλέξετε, το πρόχειρο (επικόλληση με μεσαίο κλικ) θα παραμείνει μέχρι την επόμενη επιλογή εάν χάσετε τη τρέχουσα επιλογή (π.χ. κάνοντας αριστερό κλικ οπουδήποτε σε μια περιοχή κειμένου)"
+msgstr "Αν το επιλέξετε, το πρόχειρο (επικόλληση με μεσαίο κλικ) θα παραμείνει μέχρι την επόμενη επιλογή, εάν χαθεί η τρέχουσα (π.χ. κάνοντας αριστερό κλικ οπουδήποτε σε μια περιοχή του κειμένου)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -169,7 +170,7 @@ msgstr "Αν το επιλέξετε, το μενού εμφανίζει το κ
 
 #: panel-plugin/settings-dialog.ui:170
 msgid "Automatically paste a selected item from the history"
-msgstr "Αυτόματη επικόλληση επιλεγμένου στοιχείου από το ιστορικό"
+msgstr "Αυτόματη επικόλληση του επιλεγμένου στοιχείου από το ιστορικό"
 
 #: panel-plugin/settings-dialog.ui:176
 msgid "_Paste instantly:"
@@ -252,7 +253,7 @@ msgstr "Αποθήκευση τελευταίας αντιγραμμένης _ε
 #: panel-plugin/settings-dialog.ui:635
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr "Αν το επιλέξετε, επιτρέπει την αποθήκευση μιας εικόνας στο ιστορικό"
+msgstr "Αν το επιλέξετε, επιτρέπει την αποθήκευση εικόνας στο ιστορικό"
 
 #: panel-plugin/settings-dialog.ui:647
 msgid "_Reorder history items"
@@ -261,7 +262,7 @@ msgstr "_Αναταδιάταξη ιστορικού"
 #: panel-plugin/settings-dialog.ui:651
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Μετακίνηση του τελευταίου αντιγραμμένου κειμένου στην κορυφή του ιστορικού, χρήσιμο για την αναδιάταξη παλαιών στοιχείων"
+msgstr "Μετακίνηση του τελευταίου κειμένου που έχετε αντιγράψει στην κορυφή του ιστορικού, χρήσιμο για την αναδιάταξη παλαιών εγγραφών"
 
 #: panel-plugin/settings-dialog.ui:663
 msgid "Re_verse history order"
@@ -328,7 +329,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr "Από προεπιλογή, η ενέργεια ενεργοποιείται με την επιλογή: επιλέξτε το για να ενεργοποιείται και όταν αντιγράφετε. Σημειώστε ότι, σε αυτή τη περίπτωση το πλήκτρο Control δεν έχει καμία επίδραση."
+msgstr "Από προεπιλογή, η ενέργεια ενεργοποιείται μόνο με την επιλογή: επιλέξτε το για να ενεργοποιείται και όταν αντιγράφετε. Σημειώστε ότι, σε αυτή τη περίπτωση το πλήκτρο Control δεν έχει καμία επίδραση."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
