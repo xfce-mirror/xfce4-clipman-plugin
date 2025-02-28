@@ -163,7 +163,13 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
       g_clear_object (&collector->priv->current_image);
       if (gtk_clipboard_wait_is_image_available (collector->priv->default_clipboard))
         {
-          GdkPixbuf *image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
+          GdkPixbuf *image;
+
+          /* first clear default cache, so we don't restore it while waiting */
+          g_free (collector->priv->default_cache);
+          collector->priv->default_cache = NULL;
+
+          image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
             {
               collector->priv->current_image = image;
