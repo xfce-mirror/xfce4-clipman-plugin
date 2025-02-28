@@ -102,85 +102,54 @@ _clipman_history_add_item (ClipmanHistory *history,
   GSList *list;
   ClipmanHistoryItem *_item;
   guint list_length;
-  guint n_texts = 0;
   guint n_images = 0;
 
-  /* Count initial items */
+  /* we're going to work from last item */
+  history->priv->items = g_slist_reverse (history->priv->items);
+
+  /* count images */
   for (list = history->priv->items; list != NULL; list = list->next)
     {
       _item = list->data;
-      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
-        {
-          n_texts++;
-        }
-      else if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+      if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
         {
           n_images++;
         }
     }
 
-  list_length = n_texts + n_images;
+  if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
+    n_images++;
 
-  /* First truncate history to max_items (max_texts stands for the size of the history) */
-  while (list_length > history->priv->max_texts_in_history)
+  /* free last images from history if max_images is reached */
+  list = history->priv->items;
+  while (n_images > history->priv->max_images_in_history)
     {
-      DBG ("Delete oldest content from the history");
-      list = g_slist_last (history->priv->items);
+      GSList *next = g_slist_next (list);
+      DBG ("Delete oldest images from the history");
       _item = list->data;
-
-      if (_item->type == CLIPMAN_HISTORY_TYPE_TEXT)
+      if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
         {
-          n_texts--;
-        }
-      else if (_item->type == CLIPMAN_HISTORY_TYPE_IMAGE)
-        {
+          __clipman_history_item_free (_item);
+          history->priv->items = g_slist_delete_link (history->priv->items, list);
           n_images--;
         }
+      list = next;
+    }
+
+  list_length = g_slist_length (history->priv->items) + 1;
+
+  /* truncate history to max_items (max_texts stands for the size of the history) */
+  while (list_length > history->priv->max_texts_in_history)
+    {
+      DBG ("Delete oldest contents from the history");
+      _item = history->priv->items->data;
+      __clipman_history_item_free (_item);
+      history->priv->items = g_slist_delete_link (history->priv->items, history->priv->items);
       list_length--;
-
-      __clipman_history_item_free (_item);
-      history->priv->items = g_slist_remove (history->priv->items, _item);
-    }
-
-  /* Free last image from history if max_images is reached, otherwise last item from history */
-  if (item->type == CLIPMAN_HISTORY_TYPE_IMAGE && n_images >= history->priv->max_images_in_history)
-    {
-      while (n_images >= history->priv->max_images_in_history)
-        {
-          guint i = 0;
-
-          for (list = history->priv->items; list != NULL; list = list->next)
-            {
-              _item = list->data;
-
-              if (_item->type != CLIPMAN_HISTORY_TYPE_IMAGE)
-                continue;
-
-              i++;
-
-              if (i < n_images)
-                continue;
-
-              if (n_images >= history->priv->max_images_in_history)
-                {
-                  __clipman_history_item_free (_item);
-                  history->priv->items = g_slist_remove (history->priv->items, _item);
-                }
-              n_images--;
-
-              break;
-            }
-        }
-    }
-  else if (list_length == history->priv->max_texts_in_history)
-    {
-      list = g_slist_last (history->priv->items);
-      _item = list->data;
-      __clipman_history_item_free (_item);
-      history->priv->items = g_slist_remove (history->priv->items, _item);
     }
 
   /* Prepend item to start of the history */
+  history->priv->items = g_slist_reverse (history->priv->items);
   history->priv->items = g_slist_prepend (history->priv->items, item);
 
   /* Emit signal */
