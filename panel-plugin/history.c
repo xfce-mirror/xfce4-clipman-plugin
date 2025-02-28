@@ -500,15 +500,30 @@ clipman_history_set_property (GObject *object,
                               GParamSpec *pspec)
 {
   ClipmanHistoryPrivate *priv = CLIPMAN_HISTORY (object)->priv;
+  guint old_value;
 
   switch (property_id)
     {
     case MAX_TEXTS_IN_HISTORY:
+      old_value = priv->max_texts_in_history;
       priv->max_texts_in_history = g_value_get_uint (value);
+      if (priv->items != NULL && priv->max_texts_in_history < old_value)
+        {
+          ClipmanHistoryItem *item = priv->items->data;
+          priv->items = g_slist_delete_link (priv->items, priv->items);
+          _clipman_history_add_item (CLIPMAN_HISTORY (object), item);
+        }
       break;
 
     case MAX_IMAGES_IN_HISTORY:
+      old_value = priv->max_images_in_history;
       priv->max_images_in_history = g_value_get_uint (value);
+      if (priv->items != NULL && priv->max_images_in_history < old_value)
+        {
+          ClipmanHistoryItem *item = priv->items->data;
+          priv->items = g_slist_delete_link (priv->items, priv->items);
+          _clipman_history_add_item (CLIPMAN_HISTORY (object), item);
+        }
       break;
 
     case SAVE_ON_QUIT:
