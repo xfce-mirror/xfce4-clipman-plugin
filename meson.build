@@ -37,6 +37,11 @@ glib = dependency('glib-2.0', version: dependency_versions['glib'])
 gtk = dependency('gtk+-3.0', version: dependency_versions['gtk'])
 libxfce4panel = dependency('libxfce4panel-2.0', version: dependency_versions['xfce4'])
 libxfce4ui = dependency('libxfce4ui-2', version: dependency_versions['xfce4'])
+if libxfce4ui.version().version_compare('< 4.21.0')
+  open_cmd = 'exo-open'
+else
+  open_cmd = 'xfce-open'
+endif
 libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['xfce4'])
 xfconf = dependency('libxfconf-0', version: dependency_versions['xfce4'])
 

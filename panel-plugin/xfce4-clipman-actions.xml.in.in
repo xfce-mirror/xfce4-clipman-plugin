@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE actions [
+	<!ELEMENT actions (action+)>
+	<!ELEMENT action (name,regex,commands)>
+	<!ELEMENT commands (command+)>
+	<!ELEMENT command (name,exec)>
+
+	<!ELEMENT name (#PCDATA)>
+	<!ATTLIST name xml:lang CDATA #IMPLIED>
+	<!ELEMENT regex (#PCDATA)>
+	<!ELEMENT exec (#PCDATA)>
+]>
+<!--
+  Copyright (c) 2009-2011 Mike Massonnet <mmassonnet@xfce.org>
+
+  Default Clipman actions configuration file, which gets installed system-wide.
+  This should act more like an example, and is therefore kept simple.
+-->
+<actions>
+	<action>
+		<name>Image</name>
+		<regex>(http|ftp).+\.(jpg|png|gif)</regex>
+		<commands>
+			<command>
+				<name>Edit with Gimp</name>
+				<exec>gimp &quot;\0&quot;</exec>
+			</command>
+			<command>
+				<name>View with Ristretto</name>
+				<exec>ristretto &quot;\0&quot;</exec>
+			</command>
+		</commands>
+	</action>
+	<action>
+		<name>Bugz</name>
+		<regex>bug\s*#?\s*([0-9]+)</regex>
+		<commands>
+			<command>
+				<name>Xfce Bug</name>
+				<exec>@OPEN_CMD@ https://bugzilla.xfce.org/show_bug.cgi?id=\1</exec>
+			</command>
+			<command>
+				<name>GNOME Bug</name>
+				<exec>@OPEN_CMD@ https://bugzilla.gnome.org/show_bug.cgi?id=\1</exec>
+			</command>
+		</commands>
+	</action>
+	<action>
+		<name>Long URL</name>
+		<regex>https?://[^\s]{120,}</regex>
+		<commands>
+			<command>
+				<name>Shrink the URL</name>
+				<exec>@OPEN_CMD@ https://tinyurl.com/create.php?url=\0</exec>
+			</command>
+		</commands>
+	</action>
+</actions>
