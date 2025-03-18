@@ -58,6 +58,7 @@ AC_PROG_CC()
 AM_PROG_CC_C_O()
 AC_PROG_INSTALL()
 AC_PROG_LN_S()
+AC_PROG_SED()
 
 dnl **********************************
 dnl *** Check for standard headers ***

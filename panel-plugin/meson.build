@@ -182,8 +182,16 @@ plugin_lib = shared_library(
   install_dir: get_option('prefix') / get_option('libdir') / plugin_install_subdir,
 )
 
+actions_xml_in = configure_file(
+  configuration: configuration_data({
+    'OPEN_CMD': open_cmd,
+  }),
+  input: 'xfce4-clipman-actions.xml.in.in',
+  output: 'xfce4-clipman-actions.xml.in',
+  install: false,
+)
 i18n.merge_file(
-  input: 'xfce4-clipman-actions.xml.in',
+  input: actions_xml_in,
   output: 'xfce4-clipman-actions.xml',
   po_dir: '..' / 'po',
   type: 'xml',
