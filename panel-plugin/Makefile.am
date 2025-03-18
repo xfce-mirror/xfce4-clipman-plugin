@@ -219,8 +219,12 @@ libclipman_la_LIBADD =							\
 #
 
 actionsdir = $(sysconfdir)/xdg/xfce4/panel
-actions_in_files = xfce4-clipman-actions.xml.in
+actions_in_in_files = xfce4-clipman-actions.xml.in.in
+actions_in_files = $(actions_in_in_files:.xml.in.in=.xml.in)
 actions_DATA = $(actions_in_files:.xml.in=.xml)
+
+$(actions_in_files): $(actions_in_in_files) Makefile
+	$(AM_V_GEN) $(SED) -e "s,\@OPEN_CMD\@,exo-open,g" $< >$@
 
 $(actions_DATA): $(actions_in_files) Makefile
 	$(AM_V_GEN)GETTEXTDATADIRS=$(top_srcdir)/data $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
@@ -266,7 +270,7 @@ endif
 
 EXTRA_DIST =								\
 	settings-dialog.ui						\
-	$(actions_in_files)						\
+	$(actions_in_in_files)						\
 	$(autostart_in_files)						\
 	$(plugins_in_files)						\
 	$(apps_in_files)						\
@@ -274,6 +278,7 @@ EXTRA_DIST =								\
 	$(NULL)
 
 CLEANFILES =								\
+	$(actions_in_files)						\
 	$(actions_DATA)							\
 	$(autostart_DATA)						\
 	$(plugins_DATA)							\

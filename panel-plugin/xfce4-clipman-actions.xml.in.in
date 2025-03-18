@@ -37,11 +37,11 @@
 		<commands>
 			<command>
 				<name>Xfce Bug</name>
-				<exec>exo-open https://bugzilla.xfce.org/show_bug.cgi?id=\1</exec>
+				<exec>@OPEN_CMD@ https://bugzilla.xfce.org/show_bug.cgi?id=\1</exec>
 			</command>
 			<command>
 				<name>GNOME Bug</name>
-				<exec>exo-open https://bugzilla.gnome.org/show_bug.cgi?id=\1</exec>
+				<exec>@OPEN_CMD@ https://bugzilla.gnome.org/show_bug.cgi?id=\1</exec>
 			</command>
 		</commands>
 	</action>
@@ -51,7 +51,7 @@
 		<commands>
 			<command>
 				<name>Shrink the URL</name>
-				<exec>exo-open https://tinyurl.com/create.php?url=\0</exec>
+				<exec>@OPEN_CMD@ https://tinyurl.com/create.php?url=\0</exec>
 			</command>
 		</commands>
 	</action>
