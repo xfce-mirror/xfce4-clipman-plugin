@@ -1,10 +1,3 @@
-settings_dialog_ui_h = custom_target(
-  'settings-dialog_ui.h',
-  input: 'settings-dialog.ui',
-  output: 'settings-dialog_ui.h',
-  command: [xdt_csource, '--static', '--strip-comments', '--strip-content', '--name=settings_dialog_ui', '--output=@OUTPUT@', '@INPUT@'],
-)
-
 xfce4_popup_clipman_sources = [
   'common.c',
   'common.h',
@@ -69,7 +62,12 @@ xfce4_clipman_settings_sources = [
   'actions.h',
   'common.h',
   'xfce4-clipman-settings.c',
-] + settings_dialog_ui_h
+]
+
+xfce4_clipman_settings_sources += gnome.compile_resources(
+  'clipman-dialogs-resources',
+  'clipman-dialogs.gresource.xml',
+)
 
 executable(
   'xfce4-clipman-settings',

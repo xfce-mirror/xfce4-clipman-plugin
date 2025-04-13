@@ -45,8 +45,6 @@ endif
 libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['xfce4'])
 xfconf = dependency('libxfconf-0', version: dependency_versions['xfce4'])
 
-xdt_csource = find_program('xdt-csource')
-
 # Feature: 'x11'
 x11_deps = []
 x11_deps += dependency('x11', version: dependency_versions['x11'], required: get_option('x11'))

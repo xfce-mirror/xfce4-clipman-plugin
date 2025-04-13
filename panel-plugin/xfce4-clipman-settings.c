@@ -22,7 +22,6 @@
 
 #include "actions.h"
 #include "common.h"
-#include "settings-dialog_ui.h"
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
@@ -953,7 +952,7 @@ command_line (GApplication *app,
     }
 
   builder = gtk_builder_new ();
-  if (!gtk_builder_add_from_string (builder, settings_dialog_ui, settings_dialog_ui_length, &error))
+  if (!gtk_builder_add_from_resource (builder, "/org/xfce/clipman-plugin/settings-dialog.ui", &error))
     {
       g_critical ("GtkBuilder loading failed: %s", error->message);
       g_error_free (error);

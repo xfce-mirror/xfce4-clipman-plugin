@@ -16,15 +16,13 @@ if ENABLE_X11
 bin_PROGRAMS += xfce4-clipman
 endif
 
-#
-# Maintainer Mode
-#
 BUILT_SOURCES =
-if MAINTAINER_MODE
-BUILT_SOURCES += settings-dialog_ui.h
-settings-dialog_ui.h: settings-dialog.ui
-	$(AM_V_GEN) xdt-csource --static --strip-comments --strip-content --name=settings_dialog_ui $< >$@
-endif
+BUILT_SOURCES += clipman-dialogs-resources.c
+
+clipman_dialogs_glade_files = $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/clipman-dialogs.gresource.xml)
+
+clipman-dialogs-resources.c: $(srcdir)/clipman-dialogs.gresource.xml $(clipman_dialogs_glade_files) Makefile
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
 
 #
 # Popup Command
@@ -96,9 +94,9 @@ xfce4_clipman_history_LDADD =						\
 #
 
 xfce4_clipman_settings_SOURCES =					\
+	clipman-dialogs-resources.c					\
 	xfce4-clipman-settings.c					\
 	common.h							\
-	settings-dialog_ui.h						\
 	actions.c			actions.h			\
 	$(NULL)
 
@@ -270,6 +268,7 @@ endif
 #
 
 EXTRA_DIST =								\
+	clipman-dialogs.gresource.xml					\
 	settings-dialog.ui						\
 	$(actions_in_in_files)						\
 	$(autostart_in_files)						\
