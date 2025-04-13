@@ -9,6 +9,7 @@ dnl
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
+m4_define([copyright_year], [2025])
 XDT_VERSION_INIT([1.6.7], [git])
 
 dnl minimum required versions
@@ -27,7 +28,7 @@ m4_define([libqrencode_min_version], [3.3.0])
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2003-2024
+AC_COPYRIGHT([Copyright (c) 2003-copyright_year()
         The Xfce development team. All rights reserved.])
 AC_INIT([Clipman], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin], [xfce4-clipman-plugin],
         [https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin/start])
@@ -37,6 +38,9 @@ AC_CANONICAL_TARGET()
 AC_REVISION([xdt_version_build])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
+COPYRIGHT_YEAR=copyright_year()
+AC_DEFINE_UNQUOTED([COPYRIGHT_YEAR], ["$COPYRIGHT_YEAR"], [Copyright year])
+AC_SUBST([COPYRIGHT_YEAR])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -76,6 +80,7 @@ XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [libxfce4ui_min_version])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [libxfce4util_min_version])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [libxfce4panel_min_version])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [xfconf_min_version])
+XDT_CHECK_PACKAGE_BINARY([GLIB_COMPILE_RESOURCES], [gio-2.0], [glib_compile_resources], [glib-compile-resources])
 
 dnl ***********************************
 dnl *** Check for optional packages ***
