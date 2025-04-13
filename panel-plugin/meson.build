@@ -153,7 +153,7 @@ plugin_sources = [
   'plugin.h',
 ] + xfce_revision_h
 
-plugin_lib = shared_library(
+plugin_lib = shared_module(
   'clipman',
   plugin_sources,
   gnu_symbol_visibility: 'hidden',
