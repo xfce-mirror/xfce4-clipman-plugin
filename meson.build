@@ -1,14 +1,10 @@
 project(
   'xfce4-clipman-plugin',
   'c',
-  version: '1.6.7-dev',
-  license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.61.0',
-  default_options: [
-    'c_std=gnu11',
-    'buildtype=debugoptimized',
-    'warning_level=2',
-  ]
+version : '1.7.0',
+  license : 'GPL-2.0-or-later',
+  meson_version : '>= 0.61.0',
+  default_options : ['c_std=gnu11', 'buildtype=debugoptimized', 'warning_level=2']
 )
 
 project_namespace = 'panel-plugins'

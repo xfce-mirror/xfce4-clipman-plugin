@@ -10,7 +10,7 @@ dnl ***************************
 dnl *** Version information ***
 dnl ***************************
 m4_define([copyright_year], [2025])
-XDT_VERSION_INIT([1.6.7], [git])
+XDT_VERSION_INIT([1.7.0])
 
 dnl minimum required versions
 m4_define([glib_min_version], [2.60.0])
