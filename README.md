@@ -42,17 +42,17 @@ For concrete information on the minimum required versions, check [configure.ac.i
 From source code repository: 
 
     % cd xfce4-clipman-plugin
-    % ./autogen.sh
-    % make
-    % make install
+    % meson setup build
+    % meson compile -C build
+    % meson install -C build
 
 From release tarball:
 
-    % tar xf xfce4-clipman-plugin-<version>.tar.bz2
+    % tar xf xfce4-clipman-plugin-<version>.tar.xz
     % cd xfce4-clipman-plugin-<version>
-    % ./configure
-    % make
-    % make install
+    % meson setup build
+    % meson compile -C build
+    % meson install -C build
 
 ### Reporting Bugs
 
