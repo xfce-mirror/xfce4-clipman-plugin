@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # abuyop <abuyop@gmail.com>, 2014,2016,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:51+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-15 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>, 2014,2016,2021\n"
 "Language-Team: Malay (http://app.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
@@ -18,335 +18,78 @@ msgstr ""
 "Language: ms\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: data/appdata/xfce4-clipman.appdata.xml.in:6
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
-#: panel-plugin/main-panel-plugin.c:83 panel-plugin/main-status-icon.c:117
-#: panel-plugin/plugin.c:99 panel-plugin/plugin.c:336
-msgid "Clipman"
-msgstr "Clipman"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:7
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
-msgid "Clipboard manager"
-msgstr "Pengurus papan keratan"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:10
-msgid ""
-"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
-"application running in the notification area. It keeps a history of text and"
-" images of content copied to the clipboard. It also has a feature to execute"
-" actions on specific text selection by matching them against regexes."
-msgstr "Pengurus Papan Keratan disediakan sebagai pemalam panel untuk Xfce dan sebagai aplikasi berdiri-sendiri yang berjalan di dalam kawasan pemberitahuan. Ia menyimpan sejarah teks dan imej kandungan yang disalin ke dalam papan keratan. ia juga mempunyai fitur untuk lakukan tindakan pada pemilihan teks tertentu dengan memadan ia dengan regex."
-
-#: panel-plugin/xfce4-clipman.desktop.in:5
-msgid "Clipboard Manager"
-msgstr "Pengurus Papan Keratan"
-
-#: panel-plugin/xfce4-clipman.desktop.in:6
-msgid "Clipboard Manager Autostart File"
-msgstr "Fail Auto-mula Pengurus Papan Keratan"
-
-#: panel-plugin/xfce4-clipman-settings.c:99
+#: ../panel-plugin/xfce4-clipman-settings.c:121
 msgid "None"
 msgstr "Tiada"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:101
+#: ../panel-plugin/xfce4-clipman-settings.c:123
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:103
+#: ../panel-plugin/xfce4-clipman-settings.c:125
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: panel-plugin/xfce4-clipman-settings.c:137
+#: ../panel-plugin/xfce4-clipman-settings.c:159
 msgid "shows actions"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-settings.c:138
+#: ../panel-plugin/xfce4-clipman-settings.c:160
 msgid "hides actions"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-settings.c:526
+#: ../panel-plugin/xfce4-clipman-settings.c:548
 msgid "<b>Reset actions</b>"
 msgstr "<b>Tetap semula tindakan</b>"
 
-#: panel-plugin/xfce4-clipman-settings.c:528
+#: ../panel-plugin/xfce4-clipman-settings.c:550
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Anda pasti ingin menetap semula tindakan ke nilai lalai sistem?"
 
-#: panel-plugin/xfce4-clipman-history.c:263
+#: ../panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
 msgstr "Masukkan frasa gelintar di sini"
 
 #. Insert empty menu item
-#: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
+#: ../panel-plugin/xfce4-clipman-history.c:323 ../panel-plugin/menu.c:365
 msgid "History is empty"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-history.c:389
+#: ../panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
 msgstr "_Tampal"
 
-#: panel-plugin/xfce4-clipman-history.c:394
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "_Copy"
 msgstr "_Salin"
 
-#: panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
 msgstr "Sejarah Clipman"
 
-#: panel-plugin/xfce4-clipman-history.c:436
-#: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
+#: ../panel-plugin/xfce4-clipman-history.c:436
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: panel-plugin/xfce4-clipman-history.c:444
-#: panel-plugin/xfce4-clipman-history.c:446
+#: ../panel-plugin/xfce4-clipman-history.c:440
 msgid "_Settings"
 msgstr "T_etapan"
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:4
-msgid "Clipboard Manager Settings"
-msgstr "Tetapan Pengurus Papan Keratan"
+#: ../panel-plugin/main-panel-plugin.c:90
+#: ../panel-plugin/main-status-icon.c:124 ../panel-plugin/plugin.c:110
+#: ../panel-plugin/plugin.c:463
+msgid "Clipman"
+msgstr "Clipman"
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:5
-msgid "Customize your clipboard"
-msgstr "Suai papan keratan anda"
-
-#: panel-plugin/settings-dialog.ui:30
-msgid "Clipman Settings"
-msgstr "Tetapan Clipman"
-
-#: panel-plugin/settings-dialog.ui:65
-msgid "_Close"
-msgstr "_Tutup"
-
-#: panel-plugin/settings-dialog.ui:117
-msgid "Sync mouse _selections"
-msgstr "Segerak _pemilihan tetikus"
-
-#: panel-plugin/settings-dialog.ui:122
-msgid ""
-"If checked, selections will be synced with the default clipboard, so you can"
-" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
-" with the primary clipboard, so you can paste what you copy with middle-"
-"click."
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:134
-msgid "_Persist mouse selections"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:139
-msgid ""
-"If checked, the primary clipboard (middle-click paste) will persist until "
-"next selection if current selection is lost (e.g. by left-clicking anywhere "
-"in a text area)"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:151
-msgid "_QR-Code support"
-msgstr "Sokongan Kod _QR"
-
-#: panel-plugin/settings-dialog.ui:156
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "Jika ditanda, menu menunjukkan Kod-QR bagi masukan papan keratan terpilih semasa"
-
-#: panel-plugin/settings-dialog.ui:170
-msgid "Automatically paste a selected item from the history"
-msgstr "Tampal item terpilih secara automatik dari sejarah"
-
-#: panel-plugin/settings-dialog.ui:176
-msgid "_Paste instantly:"
-msgstr "Tam_pal dengan segera:"
-
-#: panel-plugin/settings-dialog.ui:214
-msgid "<b>General</b>"
-msgstr "<b>Am</b>"
-
-#: panel-plugin/settings-dialog.ui:245
-msgid "P_osition menu at mouse pointer"
-msgstr "Ke_dudukan menu pada penuding tetikus"
-
-#: panel-plugin/settings-dialog.ui:249
-msgid ""
-"Popup the menu at the mouse pointer position: especially useful for the "
-"xfce4-popup-clipman command"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:267
-msgid "Maximum items:"
-msgstr "Item maksimum:"
-
-#: panel-plugin/settings-dialog.ui:304
-msgid "<b>Menu</b>"
-msgstr "<b>Menu</b>"
-
-#: panel-plugin/settings-dialog.ui:321
-msgid "_Behavior"
-msgstr "_Kelakuan"
-
-#: panel-plugin/settings-dialog.ui:343
-msgid "<b>_Enable automatic actions</b>"
-msgstr "<b>B_enarkan tindakan automatik</b>"
-
-#: panel-plugin/settings-dialog.ui:358
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Jika ditanda, teks papan keratan akan dipadankan dengan ungkapan nalar dan menu akan paparkan tindakan yang sesuai secara automatik.\nJika tidak, menu hanya akan muncul bila memanggil \"xfce4-popup-clipman-actions\" (dan padanan ditemui)"
-
-#: panel-plugin/settings-dialog.ui:384
-msgid ""
-"When the selection is done and the Control key is still pressed down, the "
-"popup menu for matched actions will be shown or hidden"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:390
-msgid "_Pressing Ctrl during selection:"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:459
-msgid "Add action"
-msgstr "Tambah tindakan"
-
-#: panel-plugin/settings-dialog.ui:481
-msgid "Edit action"
-msgstr "Sunting tindakan"
-
-#: panel-plugin/settings-dialog.ui:503
-msgid "Delete action"
-msgstr "Padam tindakan"
-
-#: panel-plugin/settings-dialog.ui:524
-msgid "Reset all actions to the system default values"
-msgstr "Tetap semula semua tindakan ke nilai lalai sistem"
-
-#: panel-plugin/settings-dialog.ui:571
-msgid "_Actions"
-msgstr "_Tindakan"
-
-#: panel-plugin/settings-dialog.ui:594
-msgid "<b>Remember history</b>"
-msgstr "<b>Ingat sejarah</b>"
-
-#: panel-plugin/settings-dialog.ui:631
-msgid "Remember last copied _image"
-msgstr "Ingat _imej terakhir disalin"
-
-#: panel-plugin/settings-dialog.ui:635
-msgid ""
-"If checked, this option allows one to store one image inside the history"
-msgstr "Jika ditanda, pilihan ini membolehkan penyimpanan satu imej di dalam sejarah"
-
-#: panel-plugin/settings-dialog.ui:647
-msgid "_Reorder history items"
-msgstr "Te_rtib semula item sejarah"
-
-#: panel-plugin/settings-dialog.ui:651
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Tolak teks terakhir disalin ke bahagian teratas sejarah, berguna untuk tertib semula item lama"
-
-#: panel-plugin/settings-dialog.ui:663
-msgid "Re_verse history order"
-msgstr "S_ongsangkan tertib sejarah"
-
-#: panel-plugin/settings-dialog.ui:667
-msgid "Reverse order of the history shown in the menu"
-msgstr "Songsangkan tertib sejarah yang ditunjukkan dalam menu"
-
-#: panel-plugin/settings-dialog.ui:679
-msgid "Ignore mouse s_elections"
-msgstr "Abai p_emilihan tetikus"
-
-#: panel-plugin/settings-dialog.ui:684
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Jika ditanda, pemilihan tidak mempengaruhi sejarah kecuali salinan manual"
-
-#: panel-plugin/settings-dialog.ui:703
-msgid "Size of the _history:"
-msgstr "Saiz se_jarah:"
-
-#: panel-plugin/settings-dialog.ui:719
-msgid "5"
-msgstr "5"
-
-#: panel-plugin/settings-dialog.ui:753
-msgid "H_istory"
-msgstr "Se_jarah"
-
-#: panel-plugin/settings-dialog.ui:777
-msgid "Edit Action"
-msgstr "Sunting Tindakan"
-
-#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
-msgid "_Cancel"
-msgstr "_Batal"
-
-#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
-msgid "_OK"
-msgstr "_OK"
-
-#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
-msgid "Name:"
-msgstr "Nama:"
-
-#: panel-plugin/settings-dialog.ui:898
-msgid "Pattern:"
-msgstr "Corak:"
-
-#: panel-plugin/settings-dialog.ui:985
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. The pattern is"
-" always anchored within the special characters ^$"
-msgstr "Anda boleh guna parameter ganti  \"\\1\", \"\\2\" dan seterusnya di dalam perintah. Parameter \"\\0\" mewakili teks lengkap. Pola sentiasa ditambat dengan aksara khas ^$"
-
-#: panel-plugin/settings-dialog.ui:1011
-msgid "Activate on manual copy instead of selection"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1016
-msgid ""
-"By default the action is triggered by a selection: check this option to "
-"trigger the action when you make a manual copy instead. Note that in this "
-"case, the Control key no longer has any effect."
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1033
-msgid "<b>Action</b>"
-msgstr "<b>Tindakan</b>"
-
-#: panel-plugin/settings-dialog.ui:1102
-msgid "Command:"
-msgstr "Perintah:"
-
-#: panel-plugin/settings-dialog.ui:1243
-msgid "<b>Commands</b>"
-msgstr "<b>Perintah</b>"
-
-#: panel-plugin/settings-dialog.ui:1269
-msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Taip teks suai anda di sini, contohnya URL, nama fail, dan lain-lain."
-
-#: panel-plugin/settings-dialog.ui:1273
-msgid "Regular expression"
-msgstr "Ungkapan nalar"
-
-#: panel-plugin/main-panel-plugin.c:117 panel-plugin/main-status-icon.c:148
+#: ../panel-plugin/main-panel-plugin.c:124
+#: ../panel-plugin/main-status-icon.c:155
 msgid "_Disable"
 msgstr "_Dilumpuhkan"
 
-#: panel-plugin/actions.c:367
+#: ../panel-plugin/actions.c:377
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -354,67 +97,67 @@ msgid ""
 "%s"
 msgstr "Tidak boleh lakukan perintah \"%s\"\n\n%s"
 
-#: panel-plugin/common.c:38
+#: ../panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
 msgstr "Tidak dapat membuka Daemon Pengurus Papan Keratan kerana ia sudah dijalankan."
 
-#: panel-plugin/common.c:39
+#: ../panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
 msgstr "Pengurus Papan Keratan Xfce sudah dijalankan."
 
-#: panel-plugin/common.c:46
+#: ../panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
 msgstr "Anda boleh melancarkannya dengan 'xfce4-clipman'."
 
-#: panel-plugin/common.c:48
+#: ../panel-plugin/common.c:47
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Daemon Pengurus Papan Keratan tidak berjalan."
 
-#: panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:175
 msgid "Are you sure you want to clear the history?"
 msgstr "Anda pasti mahu kosongkan sejarah?"
 
-#: panel-plugin/menu.c:190
+#: ../panel-plugin/menu.c:180
 msgid "Don't ask again"
 msgstr "Jangan tanya lagi"
 
-#: panel-plugin/menu.c:239
+#: ../panel-plugin/menu.c:228
 msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: panel-plugin/menu.c:294 panel-plugin/menu.c:560
+#: ../panel-plugin/menu.c:286 ../panel-plugin/menu.c:543
 msgid "_Clear history"
 msgstr "_Kosongkan sejarah"
 
-#: panel-plugin/menu.c:394
+#: ../panel-plugin/menu.c:387
 msgid "_Clear clipboard"
 msgstr ""
 
-#: panel-plugin/menu.c:440
+#: ../panel-plugin/menu.c:433
 msgid "Could not generate QR-Code."
 msgstr "Tidak dapat jana Kod-QR."
 
-#: panel-plugin/menu.c:551
+#: ../panel-plugin/menu.c:534
 msgid "_Show full history..."
 msgstr "_Tunjuk sejarah penuh..."
 
-#: panel-plugin/menu.c:568
+#: ../panel-plugin/menu.c:551
 msgid "_Clipman settings..."
 msgstr "Tetapan _Clipman..."
 
-#: panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:447
 msgid "Contributors:"
 msgstr "Penyumbang:"
 
-#: panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:465
 msgid "Clipboard Manager for Xfce"
 msgstr "Pengurus Papan Keratan untuk Xfce"
 
-#: panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:473
 msgid "translator-credits"
 msgstr "abuyop <abuyop@gmail.com>"
 
-#: panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:487
 msgid "Unable to open the settings dialog"
 msgstr "Tidak boleh buka dialog tetapan"
