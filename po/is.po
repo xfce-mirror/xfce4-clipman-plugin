@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Sveinn í Felli <sv1@fellsnet.is>, 2012,2014,2016-2017,2019
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:51+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-15 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>, 2012,2014,2016\n"
 "Language-Team: Icelandic (http://app.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
@@ -19,335 +19,78 @@ msgstr ""
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
 
-#: data/appdata/xfce4-clipman.appdata.xml.in:6
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
-#: panel-plugin/main-panel-plugin.c:83 panel-plugin/main-status-icon.c:117
-#: panel-plugin/plugin.c:99 panel-plugin/plugin.c:336
-msgid "Clipman"
-msgstr "Klippispjald"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:7
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
-msgid "Clipboard manager"
-msgstr "Klippispjaldsstjóri"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:10
-msgid ""
-"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
-"application running in the notification area. It keeps a history of text and"
-" images of content copied to the clipboard. It also has a feature to execute"
-" actions on specific text selection by matching them against regexes."
-msgstr "Klippiborðsstjórinn (Clipboard Manager) er gefinn út sem skjástikuviðbót fyrir XFCE og einnig sem sjálfstætt forrit sem keyrir í tilkynningasvæði kerfisbakkans. Hann heldur utan um feril þeirra texta og myndefnis sem hefur verið afritað á klippispjaldið. Hann er einnig með þann möguleika að keyra ákveðnar aðgerðir á tiltekinn valinn textameð því að bera hann saman við reglulegar segðir (regexes)."
-
-#: panel-plugin/xfce4-clipman.desktop.in:5
-msgid "Clipboard Manager"
-msgstr ""
-
-#: panel-plugin/xfce4-clipman.desktop.in:6
-msgid "Clipboard Manager Autostart File"
-msgstr ""
-
-#: panel-plugin/xfce4-clipman-settings.c:99
+#: ../panel-plugin/xfce4-clipman-settings.c:121
 msgid "None"
 msgstr "Ekkert"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:101
+#: ../panel-plugin/xfce4-clipman-settings.c:123
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:103
+#: ../panel-plugin/xfce4-clipman-settings.c:125
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: panel-plugin/xfce4-clipman-settings.c:137
+#: ../panel-plugin/xfce4-clipman-settings.c:159
 msgid "shows actions"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-settings.c:138
+#: ../panel-plugin/xfce4-clipman-settings.c:160
 msgid "hides actions"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-settings.c:526
+#: ../panel-plugin/xfce4-clipman-settings.c:548
 msgid "<b>Reset actions</b>"
 msgstr "<b>Endurstilla aðgerðir</b>"
 
-#: panel-plugin/xfce4-clipman-settings.c:528
+#: ../panel-plugin/xfce4-clipman-settings.c:550
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Ertu viss um að þú viljir frumstilla aðgerðinar á sjálfgefin gildi kerfisins?"
 
-#: panel-plugin/xfce4-clipman-history.c:263
+#: ../panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
 msgstr ""
 
 #. Insert empty menu item
-#: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
+#: ../panel-plugin/xfce4-clipman-history.c:323 ../panel-plugin/menu.c:365
 msgid "History is empty"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-history.c:389
+#: ../panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-history.c:394
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "_Copy"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-history.c:436
-#: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
+#: ../panel-plugin/xfce4-clipman-history.c:436
 msgid "_Help"
 msgstr "_Hjálp"
 
-#: panel-plugin/xfce4-clipman-history.c:444
-#: panel-plugin/xfce4-clipman-history.c:446
+#: ../panel-plugin/xfce4-clipman-history.c:440
 msgid "_Settings"
 msgstr ""
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:4
-msgid "Clipboard Manager Settings"
-msgstr ""
+#: ../panel-plugin/main-panel-plugin.c:90
+#: ../panel-plugin/main-status-icon.c:124 ../panel-plugin/plugin.c:110
+#: ../panel-plugin/plugin.c:463
+msgid "Clipman"
+msgstr "Klippispjald"
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:5
-msgid "Customize your clipboard"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:30
-msgid "Clipman Settings"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:65
-msgid "_Close"
-msgstr "_Loka"
-
-#: panel-plugin/settings-dialog.ui:117
-msgid "Sync mouse _selections"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:122
-msgid ""
-"If checked, selections will be synced with the default clipboard, so you can"
-" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
-" with the primary clipboard, so you can paste what you copy with middle-"
-"click."
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:134
-msgid "_Persist mouse selections"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:139
-msgid ""
-"If checked, the primary clipboard (middle-click paste) will persist until "
-"next selection if current selection is lost (e.g. by left-clicking anywhere "
-"in a text area)"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:151
-msgid "_QR-Code support"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:156
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "Ef hakað er við þetta, þá birtir valmyndin QR-kóða fyrir valda klippispjaldsfærslu"
-
-#: panel-plugin/settings-dialog.ui:170
-msgid "Automatically paste a selected item from the history"
-msgstr "Líma sjálfvirkt valið atriði af ferilsskrá"
-
-#: panel-plugin/settings-dialog.ui:176
-msgid "_Paste instantly:"
-msgstr "_Líma strax:"
-
-#: panel-plugin/settings-dialog.ui:214
-msgid "<b>General</b>"
-msgstr "<b>Almennt</b>"
-
-#: panel-plugin/settings-dialog.ui:245
-msgid "P_osition menu at mouse pointer"
-msgstr "Staðsetja valmynd við _músarbendil"
-
-#: panel-plugin/settings-dialog.ui:249
-msgid ""
-"Popup the menu at the mouse pointer position: especially useful for the "
-"xfce4-popup-clipman command"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:267
-msgid "Maximum items:"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:304
-msgid "<b>Menu</b>"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:321
-msgid "_Behavior"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:343
-msgid "<b>_Enable automatic actions</b>"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:358
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Ef hakað er við þetta, þá verður texti klippispjaldsins mátaður við reglulegar segðir, valmynd mun birta mögulegar aðgerðir.\nAnnars mun valmyndin einungis birtast við skipunina \"xfce4-popup-clipman-actions\" (og að samsvörun hafi fundist)"
-
-#: panel-plugin/settings-dialog.ui:384
-msgid ""
-"When the selection is done and the Control key is still pressed down, the "
-"popup menu for matched actions will be shown or hidden"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:390
-msgid "_Pressing Ctrl during selection:"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:459
-msgid "Add action"
-msgstr "Bæta við aðgerð"
-
-#: panel-plugin/settings-dialog.ui:481
-msgid "Edit action"
-msgstr "Breyta aðgerð"
-
-#: panel-plugin/settings-dialog.ui:503
-msgid "Delete action"
-msgstr "Eyða aðgerð"
-
-#: panel-plugin/settings-dialog.ui:524
-msgid "Reset all actions to the system default values"
-msgstr "Frumstilla allar aðgerðir á sjálfgefin gildi kerfisins"
-
-#: panel-plugin/settings-dialog.ui:571
-msgid "_Actions"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:594
-msgid "<b>Remember history</b>"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:631
-msgid "Remember last copied _image"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:635
-msgid ""
-"If checked, this option allows one to store one image inside the history"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:647
-msgid "_Reorder history items"
-msgstr "Snúa við _röð ferils"
-
-#: panel-plugin/settings-dialog.ui:651
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Ýta síðasta afritaða texta efst á ferilsskrána, nýtist til að endurraða eldri atriðum."
-
-#: panel-plugin/settings-dialog.ui:663
-msgid "Re_verse history order"
-msgstr "Snúa _við röð ferils"
-
-#: panel-plugin/settings-dialog.ui:667
-msgid "Reverse order of the history shown in the menu"
-msgstr "Snúa við röðun ferilsskrár miðað við valmyndina"
-
-#: panel-plugin/settings-dialog.ui:679
-msgid "Ignore mouse s_elections"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:684
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Ef hakað er við þetta, þá hafa valin atriði ekki áhrif á ferilsskrána nema ef um handvirk afrit er að ræða"
-
-#: panel-plugin/settings-dialog.ui:703
-msgid "Size of the _history:"
-msgstr "Lengd _ferils:"
-
-#: panel-plugin/settings-dialog.ui:719
-msgid "5"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:753
-msgid "H_istory"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:777
-msgid "Edit Action"
-msgstr "Breyta aðgerð"
-
-#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
-msgid "_Cancel"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
-msgid "_OK"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
-msgid "Name:"
-msgstr "Heiti:"
-
-#: panel-plugin/settings-dialog.ui:898
-msgid "Pattern:"
-msgstr "Mynstur:"
-
-#: panel-plugin/settings-dialog.ui:985
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. The pattern is"
-" always anchored within the special characters ^$"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1011
-msgid "Activate on manual copy instead of selection"
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1016
-msgid ""
-"By default the action is triggered by a selection: check this option to "
-"trigger the action when you make a manual copy instead. Note that in this "
-"case, the Control key no longer has any effect."
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1033
-msgid "<b>Action</b>"
-msgstr "<b>Aðgerð</b>"
-
-#: panel-plugin/settings-dialog.ui:1102
-msgid "Command:"
-msgstr "Skipun:"
-
-#: panel-plugin/settings-dialog.ui:1243
-msgid "<b>Commands</b>"
-msgstr "<b>Skipanir</b>"
-
-#: panel-plugin/settings-dialog.ui:1269
-msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
-
-#: panel-plugin/settings-dialog.ui:1273
-msgid "Regular expression"
-msgstr "Regluleg segð"
-
-#: panel-plugin/main-panel-plugin.c:117 panel-plugin/main-status-icon.c:148
+#: ../panel-plugin/main-panel-plugin.c:124
+#: ../panel-plugin/main-status-icon.c:155
 msgid "_Disable"
 msgstr "_Afvirkja"
 
-#: panel-plugin/actions.c:367
+#: ../panel-plugin/actions.c:377
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -355,67 +98,67 @@ msgid ""
 "%s"
 msgstr "Get ekki keyrt skipunina \"%s\"\n\n%s"
 
-#: panel-plugin/common.c:38
+#: ../panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
 msgstr ""
 
-#: panel-plugin/common.c:39
+#: ../panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
 msgstr ""
 
-#: panel-plugin/common.c:46
+#: ../panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
 msgstr ""
 
-#: panel-plugin/common.c:48
+#: ../panel-plugin/common.c:47
 msgid "The Clipboard Manager Daemon is not running."
 msgstr ""
 
-#: panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:175
 msgid "Are you sure you want to clear the history?"
 msgstr "Ertu viss um að þú viljir eyða skipanaferlinum?"
 
-#: panel-plugin/menu.c:190
+#: ../panel-plugin/menu.c:180
 msgid "Don't ask again"
 msgstr "Ekki spyrja aftur"
 
-#: panel-plugin/menu.c:239
+#: ../panel-plugin/menu.c:228
 msgid "Unable to open the Clipman history dialog"
 msgstr ""
 
-#: panel-plugin/menu.c:294 panel-plugin/menu.c:560
+#: ../panel-plugin/menu.c:286 ../panel-plugin/menu.c:543
 msgid "_Clear history"
 msgstr "_Hreinsa feril"
 
-#: panel-plugin/menu.c:394
+#: ../panel-plugin/menu.c:387
 msgid "_Clear clipboard"
 msgstr ""
 
-#: panel-plugin/menu.c:440
+#: ../panel-plugin/menu.c:433
 msgid "Could not generate QR-Code."
 msgstr "Gat ekki útbúið QR-kóða:"
 
-#: panel-plugin/menu.c:551
+#: ../panel-plugin/menu.c:534
 msgid "_Show full history..."
 msgstr ""
 
-#: panel-plugin/menu.c:568
+#: ../panel-plugin/menu.c:551
 msgid "_Clipman settings..."
 msgstr ""
 
-#: panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:447
 msgid "Contributors:"
 msgstr "Framlag frá:"
 
-#: panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:465
 msgid "Clipboard Manager for Xfce"
 msgstr "Klippispjalsstýring fyrir Xfce"
 
-#: panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:473
 msgid "translator-credits"
 msgstr "Sveinn í Felli, sv1@fellsnet.is, 2012-2019"
 
-#: panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:487
 msgid "Unable to open the settings dialog"
 msgstr "Tókst ekki að opna stillingaglugga"
