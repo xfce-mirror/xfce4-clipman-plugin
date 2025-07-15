@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:51+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-15 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Moo, 2023\n"
 "Language-Team: Lithuanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
@@ -20,335 +20,78 @@ msgstr ""
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: data/appdata/xfce4-clipman.appdata.xml.in:6
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
-#: panel-plugin/main-panel-plugin.c:83 panel-plugin/main-status-icon.c:117
-#: panel-plugin/plugin.c:99 panel-plugin/plugin.c:336
-msgid "Clipman"
-msgstr "Clipman"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:7
-#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
-#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
-msgid "Clipboard manager"
-msgstr "Iškarpinės tvarkytuvė"
-
-#: data/appdata/xfce4-clipman.appdata.xml.in:10
-msgid ""
-"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
-"application running in the notification area. It keeps a history of text and"
-" images of content copied to the clipboard. It also has a feature to execute"
-" actions on specific text selection by matching them against regexes."
-msgstr "Iškarpinės tvarkytuvė pateikiama kaip Xfce skydelio įskiepis bei kaip atskira, pranešimų srityje vykdoma, programa. Ji saugo, į iškarpinę nukopijuoto turinio teksto ir paveikslų, žurnalą. Programoje taip pat yra galimybė, esant tam tikro teksto žymėjimui, vykdyti veiksmus, atitinkančius tam tikrus reguliariuosius reiškinius."
-
-#: panel-plugin/xfce4-clipman.desktop.in:5
-msgid "Clipboard Manager"
-msgstr "Iškarpinės tvarkytuvė"
-
-#: panel-plugin/xfce4-clipman.desktop.in:6
-msgid "Clipboard Manager Autostart File"
-msgstr "Iškarpinės tvarkytuvės automatinio paleidimo failas"
-
-#: panel-plugin/xfce4-clipman-settings.c:99
+#: ../panel-plugin/xfce4-clipman-settings.c:121
 msgid "None"
 msgstr "Joks"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:101
+#: ../panel-plugin/xfce4-clipman-settings.c:123
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: panel-plugin/xfce4-clipman-settings.c:103
+#: ../panel-plugin/xfce4-clipman-settings.c:125
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: panel-plugin/xfce4-clipman-settings.c:137
+#: ../panel-plugin/xfce4-clipman-settings.c:159
 msgid "shows actions"
 msgstr "rodo veiksmus"
 
-#: panel-plugin/xfce4-clipman-settings.c:138
+#: ../panel-plugin/xfce4-clipman-settings.c:160
 msgid "hides actions"
 msgstr "slepia veiksmus"
 
-#: panel-plugin/xfce4-clipman-settings.c:526
+#: ../panel-plugin/xfce4-clipman-settings.c:548
 msgid "<b>Reset actions</b>"
 msgstr "<b>Atstatyti veiksmus</b>"
 
-#: panel-plugin/xfce4-clipman-settings.c:528
+#: ../panel-plugin/xfce4-clipman-settings.c:550
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Ar tikrai norite atstatyti veiksmus į jų numatytąsias reikšmes?"
 
-#: panel-plugin/xfce4-clipman-history.c:263
+#: ../panel-plugin/xfce4-clipman-history.c:263
 msgid "Enter search phrase here"
 msgstr "Čia įveskite ieškomą frazę"
 
 #. Insert empty menu item
-#: panel-plugin/xfce4-clipman-history.c:323 panel-plugin/menu.c:372
+#: ../panel-plugin/xfce4-clipman-history.c:323 ../panel-plugin/menu.c:365
 msgid "History is empty"
 msgstr "Istorija yra tuščia"
 
-#: panel-plugin/xfce4-clipman-history.c:389
+#: ../panel-plugin/xfce4-clipman-history.c:389
 msgid "_Paste"
 msgstr "Į_dėti"
 
-#: panel-plugin/xfce4-clipman-history.c:394
+#: ../panel-plugin/xfce4-clipman-history.c:394
 msgid "_Copy"
 msgstr "_Kopijuoti"
 
-#: panel-plugin/xfce4-clipman-history.c:428
+#: ../panel-plugin/xfce4-clipman-history.c:428
 msgid "Clipman History"
 msgstr "Clipman istorija"
 
-#: panel-plugin/xfce4-clipman-history.c:436
-#: panel-plugin/xfce4-clipman-history.c:438 panel-plugin/settings-dialog.ui:49
+#: ../panel-plugin/xfce4-clipman-history.c:436
 msgid "_Help"
 msgstr "Ž_inynas"
 
-#: panel-plugin/xfce4-clipman-history.c:444
-#: panel-plugin/xfce4-clipman-history.c:446
+#: ../panel-plugin/xfce4-clipman-history.c:440
 msgid "_Settings"
 msgstr "Nu_statymai"
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:4
-msgid "Clipboard Manager Settings"
-msgstr "Iškarpinės tvarkytuvės nustatymai"
+#: ../panel-plugin/main-panel-plugin.c:90
+#: ../panel-plugin/main-status-icon.c:124 ../panel-plugin/plugin.c:110
+#: ../panel-plugin/plugin.c:463
+msgid "Clipman"
+msgstr "Clipman"
 
-#: panel-plugin/xfce4-clipman-settings.desktop.in:5
-msgid "Customize your clipboard"
-msgstr "Tinkinti savo iškarpinę"
-
-#: panel-plugin/settings-dialog.ui:30
-msgid "Clipman Settings"
-msgstr "Clipman nustatymai"
-
-#: panel-plugin/settings-dialog.ui:65
-msgid "_Close"
-msgstr "_Užverti"
-
-#: panel-plugin/settings-dialog.ui:117
-msgid "Sync mouse _selections"
-msgstr "Sinchronizuoti žymėjimus _pele"
-
-#: panel-plugin/settings-dialog.ui:122
-msgid ""
-"If checked, selections will be synced with the default clipboard, so you can"
-" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
-" with the primary clipboard, so you can paste what you copy with middle-"
-"click."
-msgstr "Jei pažymėta, žymėjimai bus sinchronizuojami su numatytąja iškarpine, taigi, naudodami Ctrl-V, galėsite įdėti tai, ką esate nukopijavę. Kopijavimai rankiniu būdu, priešingai, bus sinchronizuojami su pirmine iškarpine, taigi, įdėti tai, ką esate nukopijavę, galėsite naudodami vidurinįjį pelės mygtuką."
-
-#: panel-plugin/settings-dialog.ui:134
-msgid "_Persist mouse selections"
-msgstr "_Išliekantys žymėjimai pele"
-
-#: panel-plugin/settings-dialog.ui:139
-msgid ""
-"If checked, the primary clipboard (middle-click paste) will persist until "
-"next selection if current selection is lost (e.g. by left-clicking anywhere "
-"in a text area)"
-msgstr "Jei pažymėta, pirminė iškarpinė (įdėjimas viduriniuoju pelės mygtuku) išliks iki kito žymėjimo tuo atveju, jei dabartinis žymėjimas buvo prarastas (pvz., kur nors teksto srityje buvo spustelėta kairiuoju pelės mygtuku)"
-
-#: panel-plugin/settings-dialog.ui:151
-msgid "_QR-Code support"
-msgstr "_QR kodo palaikymas"
-
-#: panel-plugin/settings-dialog.ui:156
-msgid ""
-"If checked, the menu shows a QR-Code of the currently selected clipboard "
-"entry"
-msgstr "Jei pažymėta, meniu bus rodomas šiuo metu pažymėto iškarpinės įrašo QR-kodas"
-
-#: panel-plugin/settings-dialog.ui:170
-msgid "Automatically paste a selected item from the history"
-msgstr "Automatiškai įklijuoti pasirinktą elementą iš istorijos"
-
-#: panel-plugin/settings-dialog.ui:176
-msgid "_Paste instantly:"
-msgstr "_Iškart įdėti:"
-
-#: panel-plugin/settings-dialog.ui:214
-msgid "<b>General</b>"
-msgstr "<b>Bendra</b>"
-
-#: panel-plugin/settings-dialog.ui:245
-msgid "P_osition menu at mouse pointer"
-msgstr "_Pelės žymeklio vieta"
-
-#: panel-plugin/settings-dialog.ui:249
-msgid ""
-"Popup the menu at the mouse pointer position: especially useful for the "
-"xfce4-popup-clipman command"
-msgstr "Parodyti iškylantįjį meniu pelės rodyklės vietoje: ypatingai naudinga naudojant su xfce4-popup-clipman komanda"
-
-#: panel-plugin/settings-dialog.ui:267
-msgid "Maximum items:"
-msgstr "Daugiausia elementų:"
-
-#: panel-plugin/settings-dialog.ui:304
-msgid "<b>Menu</b>"
-msgstr "<b>Meniu</b>"
-
-#: panel-plugin/settings-dialog.ui:321
-msgid "_Behavior"
-msgstr "_Elgsena"
-
-#: panel-plugin/settings-dialog.ui:343
-msgid "<b>_Enable automatic actions</b>"
-msgstr "<b>Į_jungti automatinius veiksmus</b>"
-
-#: panel-plugin/settings-dialog.ui:358
-msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Jei pažymėta, iškarpinės tekstas bus palygintas su reguliariaisiais reiškiniais ir automatiškai bus parodytas meniu su galimais veiksmais.\nKitu atveju, meniu atsiras tik iškviečiant „xfce4-popup-clipman-actions“ (ir kai buvo rasta atitiktis)"
-
-#: panel-plugin/settings-dialog.ui:384
-msgid ""
-"When the selection is done and the Control key is still pressed down, the "
-"popup menu for matched actions will be shown or hidden"
-msgstr "Kai yra atliktas žymėjimas ir vis dar nuspaustas Control (Vald) klavišas, bus rodomas arba slepiamas iškylantysis visų atitinkančių veiksmų meniu"
-
-#: panel-plugin/settings-dialog.ui:390
-msgid "_Pressing Ctrl during selection:"
-msgstr "_Nuspaudus Ctrl klavišą žymėjimo metu:"
-
-#: panel-plugin/settings-dialog.ui:459
-msgid "Add action"
-msgstr "Pridėti veiksmą"
-
-#: panel-plugin/settings-dialog.ui:481
-msgid "Edit action"
-msgstr "Keisti veiksmą"
-
-#: panel-plugin/settings-dialog.ui:503
-msgid "Delete action"
-msgstr "Ištrinti veiksmą"
-
-#: panel-plugin/settings-dialog.ui:524
-msgid "Reset all actions to the system default values"
-msgstr "Atstatyti visus veiksmus į numatytąsias sistemos reikšmes"
-
-#: panel-plugin/settings-dialog.ui:571
-msgid "_Actions"
-msgstr "_Veiksmai"
-
-#: panel-plugin/settings-dialog.ui:594
-msgid "<b>Remember history</b>"
-msgstr "<b>Įsiminti istoriją</b>"
-
-#: panel-plugin/settings-dialog.ui:631
-msgid "Remember last copied _image"
-msgstr "Įsiminti paskutinį nukopijuotą paveikslą"
-
-#: panel-plugin/settings-dialog.ui:635
-msgid ""
-"If checked, this option allows one to store one image inside the history"
-msgstr "Jei pažymėta, šis parametras leidžia saugoti vieną paveikslą istorijos viduje"
-
-#: panel-plugin/settings-dialog.ui:647
-msgid "_Reorder history items"
-msgstr "_Surikiuoti istorijos įrašus"
-
-#: panel-plugin/settings-dialog.ui:651
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Perkelti paskutinį kopijuotą tekstą į istorijos viršų, naudinga senų įrašų rūšiavimui"
-
-#: panel-plugin/settings-dialog.ui:663
-msgid "Re_verse history order"
-msgstr "A_tvirkštinė istorijos rikiavimo tvarka"
-
-#: panel-plugin/settings-dialog.ui:667
-msgid "Reverse order of the history shown in the menu"
-msgstr "Atvirkštinė istorijos, rodomos meniu, tvarka"
-
-#: panel-plugin/settings-dialog.ui:679
-msgid "Ignore mouse s_elections"
-msgstr "_Nepaisyti žymėjimų pele"
-
-#: panel-plugin/settings-dialog.ui:684
-msgid ""
-"If checked, the selections won't affect the history except the manual copies"
-msgstr "Jei pažymėta, pasirinkimai neįtakos istorijos nebent kopijuosite rankiniu būdu"
-
-#: panel-plugin/settings-dialog.ui:703
-msgid "Size of the _history:"
-msgstr "Istorijos _dydis:"
-
-#: panel-plugin/settings-dialog.ui:719
-msgid "5"
-msgstr "5"
-
-#: panel-plugin/settings-dialog.ui:753
-msgid "H_istory"
-msgstr "_Istorija"
-
-#: panel-plugin/settings-dialog.ui:777
-msgid "Edit Action"
-msgstr "Keisti veiksmą"
-
-#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
-msgid "_Cancel"
-msgstr "_Atsisakyti"
-
-#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
-msgid "_OK"
-msgstr "_Gerai"
-
-#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
-msgid "Name:"
-msgstr "Pavadinimas:"
-
-#: panel-plugin/settings-dialog.ui:898
-msgid "Pattern:"
-msgstr "Šablonas:"
-
-#: panel-plugin/settings-dialog.ui:985
-msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. The pattern is"
-" always anchored within the special characters ^$"
-msgstr "Komandose galite naudoti pakaitos parametrus „\\1“, „\\2“ ir t.t. Parametras „\\0“ atvaizduoja visą tekstą. Šablonas yra visada pririšamas specialių simbolių ^$ viduje"
-
-#: panel-plugin/settings-dialog.ui:1011
-msgid "Activate on manual copy instead of selection"
-msgstr "Aktyvuoti, kai kopijuojama rankiniu būdu, o ne kai žymima"
-
-#: panel-plugin/settings-dialog.ui:1016
-msgid ""
-"By default the action is triggered by a selection: check this option to "
-"trigger the action when you make a manual copy instead. Note that in this "
-"case, the Control key no longer has any effect."
-msgstr "Pagal numatymą, šį veiksmą sukelia žymėjimas: pažymėkite šią parinktį, kad vietoj to, veiksmą sukeltų kopijavimas rankiniu būdu. Turėkite omenyje, kad šiuo atveju, Control (Vald) klavišas neturės jokios įtakos."
-
-#: panel-plugin/settings-dialog.ui:1033
-msgid "<b>Action</b>"
-msgstr "<b>Veiksmas</b>"
-
-#: panel-plugin/settings-dialog.ui:1102
-msgid "Command:"
-msgstr "Komanda:"
-
-#: panel-plugin/settings-dialog.ui:1243
-msgid "<b>Commands</b>"
-msgstr "<b>Komandos</b>"
-
-#: panel-plugin/settings-dialog.ui:1269
-msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Įrašykite čia savo tinkintą tekstą, pavyzdžiui, URL adresą ar failo pavadinimą ir t.t."
-
-#: panel-plugin/settings-dialog.ui:1273
-msgid "Regular expression"
-msgstr "Reguliarieji reiškiniai"
-
-#: panel-plugin/main-panel-plugin.c:117 panel-plugin/main-status-icon.c:148
+#: ../panel-plugin/main-panel-plugin.c:124
+#: ../panel-plugin/main-status-icon.c:155
 msgid "_Disable"
 msgstr "Išju_ngti"
 
-#: panel-plugin/actions.c:367
+#: ../panel-plugin/actions.c:377
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -356,67 +99,67 @@ msgid ""
 "%s"
 msgstr "Nepavyko įvykdyti komandos „%s“\n\n%s"
 
-#: panel-plugin/common.c:38
+#: ../panel-plugin/common.c:38
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
 msgstr "Nepavyko paleisti iškarpinės tvarkytuvės tarnybos, nes ji jau veikia."
 
-#: panel-plugin/common.c:39
+#: ../panel-plugin/common.c:39
 msgid "The Xfce Clipboard Manager is already running."
 msgstr "Xfce iškarpinės tvarkytuvė jau veikia."
 
-#: panel-plugin/common.c:46
+#: ../panel-plugin/common.c:46
 msgid "You can launch it with 'xfce4-clipman'."
 msgstr "Galite ją paleisti, naudodami „xfce4-clipman“."
 
-#: panel-plugin/common.c:48
+#: ../panel-plugin/common.c:47
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Neveikia iškarpinės tvarkytuvės tarnyba."
 
-#: panel-plugin/menu.c:185
+#: ../panel-plugin/menu.c:175
 msgid "Are you sure you want to clear the history?"
 msgstr "Ar tikrai norite išvalyti istoriją?"
 
-#: panel-plugin/menu.c:190
+#: ../panel-plugin/menu.c:180
 msgid "Don't ask again"
 msgstr "Daugiau neklausti"
 
-#: panel-plugin/menu.c:239
+#: ../panel-plugin/menu.c:228
 msgid "Unable to open the Clipman history dialog"
 msgstr "Nepavyko atverti Clipman istorijos dialogo"
 
-#: panel-plugin/menu.c:294 panel-plugin/menu.c:560
+#: ../panel-plugin/menu.c:286 ../panel-plugin/menu.c:543
 msgid "_Clear history"
 msgstr "_Išvalyti istoriją"
 
-#: panel-plugin/menu.c:394
+#: ../panel-plugin/menu.c:387
 msgid "_Clear clipboard"
 msgstr "_Išvalyti iškarpinę"
 
-#: panel-plugin/menu.c:440
+#: ../panel-plugin/menu.c:433
 msgid "Could not generate QR-Code."
 msgstr "Nepavyko sukurti QR-kodo."
 
-#: panel-plugin/menu.c:551
+#: ../panel-plugin/menu.c:534
 msgid "_Show full history..."
 msgstr "_Rodyti visą istoriją..."
 
-#: panel-plugin/menu.c:568
+#: ../panel-plugin/menu.c:551
 msgid "_Clipman settings..."
 msgstr "_Clipman nustatymai..."
 
-#: panel-plugin/plugin.c:324
+#: ../panel-plugin/plugin.c:447
 msgid "Contributors:"
 msgstr "Prisidėjo:"
 
-#: panel-plugin/plugin.c:338
+#: ../panel-plugin/plugin.c:465
 msgid "Clipboard Manager for Xfce"
 msgstr "Iškarpinės tvarkytuvė skirta Xfce"
 
-#: panel-plugin/plugin.c:346
+#: ../panel-plugin/plugin.c:473
 msgid "translator-credits"
 msgstr "Algimantas Margevičius <margevicius.algimantas@gmail.com>\nMoo"
 
-#: panel-plugin/plugin.c:360
+#: ../panel-plugin/plugin.c:487
 msgid "Unable to open the settings dialog"
 msgstr "Nepavyko atverti nustatymų dialogo"
