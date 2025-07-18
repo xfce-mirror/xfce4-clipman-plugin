@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
 # Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-15 00:50+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:05+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
 "Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
@@ -18,78 +18,333 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:121
+#: data/appdata/xfce4-clipman.appdata.xml.in:6
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
+#: panel-plugin/main-panel-plugin.c:86 panel-plugin/main-status-icon.c:120
+#: panel-plugin/plugin.c:107 panel-plugin/plugin.c:460
+msgid "Clipman"
+msgstr "Clipman"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:7
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
+msgid "Clipboard manager"
+msgstr "Gestionar clipboard"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:10
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "Gestionarul de clipboard oferit ca modul de panou pentru Xfce și ca aplicație autonomă care rulează în zona de notificare. Acesta păstrează un istoric al conținutului de text și imagini copiat în clipboard. De asemenea, are o caracteristică de a executa acțiuni pe selecții de text specifice prin potrivirea acestora cu expresii regulate."
+
+#: panel-plugin/xfce4-clipman.desktop.in:5
+msgid "Clipboard Manager"
+msgstr "Gestionar clipboard"
+
+#: panel-plugin/xfce4-clipman.desktop.in:6
+msgid "Clipboard Manager Autostart File"
+msgstr "Fișier auto-start pentru gestionarul de clipboard"
+
+#: panel-plugin/xfce4-clipman-settings.c:117
 msgid "None"
 msgstr "Nimic"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:123
+#: panel-plugin/xfce4-clipman-settings.c:119
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:125
+#: panel-plugin/xfce4-clipman-settings.c:121
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:159
+#: panel-plugin/xfce4-clipman-settings.c:155
 msgid "shows actions"
 msgstr "afișează acțiunile"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:160
+#: panel-plugin/xfce4-clipman-settings.c:156
 msgid "hides actions"
 msgstr "ascunde acțiunile"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:548
+#: panel-plugin/xfce4-clipman-settings.c:544
 msgid "<b>Reset actions</b>"
 msgstr "<b>Reinițializare acțiuni</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:550
+#: panel-plugin/xfce4-clipman-settings.c:546
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "Sunteți sigur că doriți să readuceți acțiunile la valorile implicite ale sistemului?"
 
-#: ../panel-plugin/xfce4-clipman-history.c:263
+#: panel-plugin/xfce4-clipman-history.c:259
 msgid "Enter search phrase here"
 msgstr "Introduceți termenii de căutare"
 
 #. Insert empty menu item
-#: ../panel-plugin/xfce4-clipman-history.c:323 ../panel-plugin/menu.c:365
+#: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
 msgid "History is empty"
 msgstr "Jurnalul istoricului este gol"
 
-#: ../panel-plugin/xfce4-clipman-history.c:389
+#: panel-plugin/xfce4-clipman-history.c:385
 msgid "_Paste"
 msgstr "Li_pește"
 
-#: ../panel-plugin/xfce4-clipman-history.c:394
+#: panel-plugin/xfce4-clipman-history.c:390
 msgid "_Copy"
 msgstr "_Copiază"
 
-#: ../panel-plugin/xfce4-clipman-history.c:428
+#: panel-plugin/xfce4-clipman-history.c:424
 msgid "Clipman History"
 msgstr "Istoric Clipman"
 
-#: ../panel-plugin/xfce4-clipman-history.c:436
+#: panel-plugin/xfce4-clipman-history.c:432 panel-plugin/settings-dialog.ui:49
 msgid "_Help"
 msgstr "_Ajutor"
 
-#: ../panel-plugin/xfce4-clipman-history.c:440
+#: panel-plugin/xfce4-clipman-history.c:436
 msgid "_Settings"
 msgstr "_Configurări"
 
-#: ../panel-plugin/main-panel-plugin.c:90
-#: ../panel-plugin/main-status-icon.c:124 ../panel-plugin/plugin.c:110
-#: ../panel-plugin/plugin.c:463
-msgid "Clipman"
-msgstr "Clipman"
+#: panel-plugin/xfce4-clipman-settings.desktop.in:4
+msgid "Clipboard Manager Settings"
+msgstr "Configurări gestionar clipboard"
 
-#: ../panel-plugin/main-panel-plugin.c:124
-#: ../panel-plugin/main-status-icon.c:155
+#: panel-plugin/xfce4-clipman-settings.desktop.in:5
+msgid "Customize your clipboard"
+msgstr "Personalizați-vă clipboard-ul"
+
+#: panel-plugin/settings-dialog.ui:30
+msgid "Clipman Settings"
+msgstr "Configurări Clipman"
+
+#: panel-plugin/settings-dialog.ui:65
+msgid "_Close"
+msgstr "În_chide"
+
+#: panel-plugin/settings-dialog.ui:117
+msgid "Sync mouse _selections"
+msgstr "Sincronizare _selecții mouse"
+
+#: panel-plugin/settings-dialog.ui:122
+msgid ""
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr "Dacă este bifată, selecțiile vor fi sincronizate cu clipboard-ul implicit, astfel încât să puteți lipi ceea ce selectați cu Ctrl-V. Dimpotrivă, copiile manuale vor fi sincronizate cu clipboard-ul principal, astfel încât să puteți lipi ceea ce copiați cu clic pe butonul din mijloc al mouse-ului."
+
+#: panel-plugin/settings-dialog.ui:134
+msgid "_Persist mouse selections"
+msgstr "Selecții _persistente ale mouse-ului"
+
+#: panel-plugin/settings-dialog.ui:139
+msgid ""
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr "Dacă este bifată, clipboard-ul primar (lipire prin clic pe butonul din mijloc al mouse-ului) va persista până la următoarea selecție dacă selecția curentă este pierdută (de exemplu, prin clic cu butonul din stânga al mouse-ului oriunde într-o zonă de text)"
+
+#: panel-plugin/settings-dialog.ui:151
+msgid "_QR-Code support"
+msgstr "Suport pentru coduri _QR"
+
+#: panel-plugin/settings-dialog.ui:156
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "Dacă este bifată, meniul afișează un cod QR al intrării din clipboard selectate în prezent"
+
+#: panel-plugin/settings-dialog.ui:170
+msgid "Automatically paste a selected item from the history"
+msgstr "Lipește automat un element selectat din istoric"
+
+#: panel-plugin/settings-dialog.ui:176
+msgid "_Paste instantly:"
+msgstr "Li_pire instantanee:"
+
+#: panel-plugin/settings-dialog.ui:214
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: panel-plugin/settings-dialog.ui:245
+msgid "P_osition menu at mouse pointer"
+msgstr "P_poziționarea meniului la indicatorul mouse-ului"
+
+#: panel-plugin/settings-dialog.ui:249
+msgid ""
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr "Afișează meniul la poziția indicatorului mouse-ului: util mai ales pentru comanda «xfce4-popup-clipman»"
+
+#: panel-plugin/settings-dialog.ui:267
+msgid "Maximum items:"
+msgstr "Numărul maxim de elemente:"
+
+#: panel-plugin/settings-dialog.ui:304
+msgid "<b>Menu</b>"
+msgstr "<b>Meniu</b>"
+
+#: panel-plugin/settings-dialog.ui:321
+msgid "_Behavior"
+msgstr "Comportame_nt"
+
+#: panel-plugin/settings-dialog.ui:343
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>Activ_ează acțiunili automate</b>"
+
+#: panel-plugin/settings-dialog.ui:358
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "Dacă este bifată, textele din clipboard vor fi comparate cu expresiile regulate și un meniu va afișa automat acțiunile posibile.\nÎn caz contrar, meniul va apărea numai atunci când se apelează «xfce4-popup-clipman-actions» (și a fost găsită o potrivire)"
+
+#: panel-plugin/settings-dialog.ui:384
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr "Când selecția este finalizată și tasta «Control» este încă apăsată, meniul contextual pentru acțiunile potrivite va fi afișat sau ascuns"
+
+#: panel-plugin/settings-dialog.ui:390
+msgid "_Pressing Ctrl during selection:"
+msgstr "Apăsarea tastei «Ctrl» în timpul selecției:"
+
+#: panel-plugin/settings-dialog.ui:459
+msgid "Add action"
+msgstr "Adaugă acțiune"
+
+#: panel-plugin/settings-dialog.ui:481
+msgid "Edit action"
+msgstr "Editează acțiunea"
+
+#: panel-plugin/settings-dialog.ui:503
+msgid "Delete action"
+msgstr "Șterge acțiunea"
+
+#: panel-plugin/settings-dialog.ui:524
+msgid "Reset all actions to the system default values"
+msgstr "Restabilește toate acțiunile la valorile implicite ale sistemului"
+
+#: panel-plugin/settings-dialog.ui:571
+msgid "_Actions"
+msgstr "_Acțiuni"
+
+#: panel-plugin/settings-dialog.ui:594
+msgid "<b>Remember history</b>"
+msgstr "<b>Memorează istoricul</b>"
+
+#: panel-plugin/settings-dialog.ui:631
+msgid "Remember last copied _image"
+msgstr "Memorează ultima _imagine copiată"
+
+#: panel-plugin/settings-dialog.ui:635
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "Dacă este bifată, această opțiune permite stocarea unei imagini în cadrul istoricului"
+
+#: panel-plugin/settings-dialog.ui:647
+msgid "_Reorder history items"
+msgstr "_Reordonează elementele din istoric"
+
+#: panel-plugin/settings-dialog.ui:651
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "Plasează ultimul text copiat în partea de sus a istoricului, util pentru reordonarea elementelor vechi"
+
+#: panel-plugin/settings-dialog.ui:663
+msgid "Re_verse history order"
+msgstr "In_versează ordinea istoricului"
+
+#: panel-plugin/settings-dialog.ui:667
+msgid "Reverse order of the history shown in the menu"
+msgstr "Inversează ordinea istoricului afișat în meniu"
+
+#: panel-plugin/settings-dialog.ui:679
+msgid "Ignore mouse s_elections"
+msgstr "Ignoră s_elecțiile mouse-ului"
+
+#: panel-plugin/settings-dialog.ui:684
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "Dacă este bifată, selecțiile nu vor afecta istoricul, cu excepția copiilor manuale"
+
+#: panel-plugin/settings-dialog.ui:703
+msgid "Size of the _history:"
+msgstr "Dimensiunea _istoricului:"
+
+#: panel-plugin/settings-dialog.ui:719
+msgid "5"
+msgstr "5"
+
+#: panel-plugin/settings-dialog.ui:753
+msgid "H_istory"
+msgstr "_Istoric"
+
+#: panel-plugin/settings-dialog.ui:777
+msgid "Edit Action"
+msgstr "Editează acțiunea"
+
+#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
+msgid "_Cancel"
+msgstr "_Renunță"
+
+#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
+msgid "_OK"
+msgstr "_Ok"
+
+#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
+msgid "Name:"
+msgstr "Nume:"
+
+#: panel-plugin/settings-dialog.ui:898
+msgid "Pattern:"
+msgstr "Model:"
+
+#: panel-plugin/settings-dialog.ui:985
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr "Puteți utiliza parametrii de substituție „\\1”, „\\2” și așa mai departe în comenzi. Parametrul „\\0” reprezintă textul complet. Modelul este întotdeauna anclat în caracterele speciale ^$"
+
+#: panel-plugin/settings-dialog.ui:1011
+msgid "Activate on manual copy instead of selection"
+msgstr "Activată la copierea manuală în loc de selecție"
+
+#: panel-plugin/settings-dialog.ui:1016
+msgid ""
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr "În mod implicit, acțiunea este declanșată de o selecție: bifați această opțiune pentru a declanșa acțiunea atunci când efectuați o copiere manuală. Rețineți că, în acest caz, tasta «Control» nu mai are niciun efect."
+
+#: panel-plugin/settings-dialog.ui:1033
+msgid "<b>Action</b>"
+msgstr "<b>Acțiune</b>"
+
+#: panel-plugin/settings-dialog.ui:1102
+msgid "Command:"
+msgstr "Comandă:"
+
+#: panel-plugin/settings-dialog.ui:1243
+msgid "<b>Commands</b>"
+msgstr "<b>Comenzi</b>"
+
+#: panel-plugin/settings-dialog.ui:1269
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr "Introduceți aici textul dvs. personalizat, de exemplu o adresă URL, un nume de fișier etc."
+
+#: panel-plugin/settings-dialog.ui:1273
+msgid "Regular expression"
+msgstr "Expresie regulată"
+
+#: panel-plugin/main-panel-plugin.c:120 panel-plugin/main-status-icon.c:151
 msgid "_Disable"
 msgstr "_Dezactivează"
 
-#: ../panel-plugin/actions.c:377
+#: panel-plugin/actions.c:373
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -97,67 +352,67 @@ msgid ""
 "%s"
 msgstr "Nu s-a putut executa comanda „%s”\n\n%s"
 
-#: ../panel-plugin/common.c:38
+#: panel-plugin/common.c:34
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
 msgstr "Nu s-a putut porni demonul de gestionare a clipboard-ului deoarece acesta rulează deja."
 
-#: ../panel-plugin/common.c:39
+#: panel-plugin/common.c:35
 msgid "The Xfce Clipboard Manager is already running."
 msgstr "Gestionarul de clipboard Xfce rulează deja."
 
-#: ../panel-plugin/common.c:46
+#: panel-plugin/common.c:42
 msgid "You can launch it with 'xfce4-clipman'."
 msgstr "Îl puteți lansa cu comanda «xfce4-clipman»."
 
-#: ../panel-plugin/common.c:47
+#: panel-plugin/common.c:43
 msgid "The Clipboard Manager Daemon is not running."
 msgstr "Demonul de gestionare a clipboard-ului nu rulează."
 
-#: ../panel-plugin/menu.c:175
+#: panel-plugin/menu.c:171
 msgid "Are you sure you want to clear the history?"
 msgstr "Sunteți sigur că doriți să ștergeți istoricul?"
 
-#: ../panel-plugin/menu.c:180
+#: panel-plugin/menu.c:176
 msgid "Don't ask again"
 msgstr "Nu mai întreba"
 
-#: ../panel-plugin/menu.c:228
+#: panel-plugin/menu.c:224
 msgid "Unable to open the Clipman history dialog"
 msgstr "Nu se poate deschide fereastra de dialog a istoricului Clipman"
 
-#: ../panel-plugin/menu.c:286 ../panel-plugin/menu.c:543
+#: panel-plugin/menu.c:282 panel-plugin/menu.c:539
 msgid "_Clear history"
 msgstr "Șterge istori_cul"
 
-#: ../panel-plugin/menu.c:387
+#: panel-plugin/menu.c:383
 msgid "_Clear clipboard"
 msgstr "Șterge clipboard-ul"
 
-#: ../panel-plugin/menu.c:433
+#: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
 msgstr "Nu s-a putut genera codul QR."
 
-#: ../panel-plugin/menu.c:534
+#: panel-plugin/menu.c:530
 msgid "_Show full history..."
 msgstr "Afișează i_storicul complet..."
 
-#: ../panel-plugin/menu.c:551
+#: panel-plugin/menu.c:547
 msgid "_Clipman settings..."
 msgstr "Configurări _Clipman"
 
-#: ../panel-plugin/plugin.c:447
+#: panel-plugin/plugin.c:444
 msgid "Contributors:"
 msgstr "Contribuitori:"
 
-#: ../panel-plugin/plugin.c:465
+#: panel-plugin/plugin.c:462
 msgid "Clipboard Manager for Xfce"
 msgstr "Gestionar de clipboard pentru Xfce"
 
-#: ../panel-plugin/plugin.c:473
+#: panel-plugin/plugin.c:470
 msgid "translator-credits"
 msgstr "Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>"
 
-#: ../panel-plugin/plugin.c:487
+#: panel-plugin/plugin.c:484
 msgid "Unable to open the settings dialog"
 msgstr "Nu s-a putut deschide dialogul cu opțiuni"
