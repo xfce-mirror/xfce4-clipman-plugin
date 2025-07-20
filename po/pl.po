@@ -146,7 +146,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr "Jeśli wybrano, zaznaczenia zostaną zsynchronizowane z domyślnym schowkiem, więc możesz wkleić to, co zaznaczysz, naciskając Ctrl-V. I odwrotnie, ręczne kopie zostaną zsynchronizowane z głównym schowkiem, więc możesz wkleić to, co skopiowano, klikając środkowym przyciskiem myszy."
+msgstr "Jeśli wybrano, zaznaczenia zostaną zsynchronizowane z domyślnym schowkiem, więc możesz wkleić to, co zaznaczysz, naciskając Ctrl-V. I odwrotnie, ręczne kopie zostaną zsynchronizowane z głównym schowkiem, więc możesz wkleić to, co skopiowano, klikając środkowym przyciskiem myszy"
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
@@ -263,7 +263,7 @@ msgstr "_Zmienianie kolejności elementów"
 #: panel-plugin/settings-dialog.ui:651
 msgid ""
 "Push last copied text to the top of the history, useful to reorder old items"
-msgstr "Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. Umożliwia zmianę kolejności elementów."
+msgstr "Przemieszcza ostatnio skopiowany ciąg na pierwszą pozycję w historii. Umożliwia zmianę kolejności elementów"
 
 #: panel-plugin/settings-dialog.ui:663
 msgid "Re_verse history order"
