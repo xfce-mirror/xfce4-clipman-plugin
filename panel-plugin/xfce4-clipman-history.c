@@ -133,6 +133,7 @@ clipman_history_search_entry_activate (GtkEntry *entry,
   path = gtk_tree_model_get_path (model, &iter);
   column = gtk_tree_view_get_column (GTK_TREE_VIEW (plugin->treeview), COLUMN_PREVIEW);
   clipman_history_row_activated (GTK_TREE_VIEW (plugin->treeview), path, column, plugin);
+  gtk_tree_path_free (path);
 }
 
 static gboolean
