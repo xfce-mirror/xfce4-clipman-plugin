@@ -451,8 +451,6 @@ clipman_history_shutdown (GApplication *app,
 {
   MyPlugin *plugin = user_data;
 
-  plugin_save (plugin);
-
   g_object_unref (plugin->channel);
   g_object_unref (plugin->history);
   g_slice_free (MyPlugin, plugin);
