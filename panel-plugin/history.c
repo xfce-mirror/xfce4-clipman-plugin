@@ -269,7 +269,7 @@ clipman_history_add_text (ClipmanHistory *history,
   item->content.text = g_strdup (text);
 
   /* Set preview */
-  item->preview.text = clipman_common_shorten_preview (text);
+  item->preview.text = clipman_common_get_preview (text);
 
   _clipman_history_add_item (history, item);
 }

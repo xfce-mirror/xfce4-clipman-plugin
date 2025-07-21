@@ -44,15 +44,14 @@ clipman_common_show_warning_dialog (void)
 }
 
 gchar *
-clipman_common_shorten_preview (const gchar *text)
+clipman_common_get_preview (const gchar *text)
 {
   const gint preview_length = 48;
   gchar *tmp1, *tmp2;
-  const gchar *offset;
 
-  /* Strip white spaces for preview */
   tmp2 = tmp1 = g_strdup (text);
 
+  /* Remove leading white spaces for preview */
   g_strchug (tmp2);
 
   tmp2 = g_strstr_len (tmp2, preview_length, "  ");
@@ -63,19 +62,8 @@ clipman_common_shorten_preview (const gchar *text)
       tmp2 = g_strstr_len (tmp2, preview_length - (tmp2 - tmp1), "  ");
     }
 
-  /* Shorten preview */
-  if (g_utf8_strlen (tmp1, -1) > preview_length)
-    {
-      offset = g_utf8_offset_to_pointer (tmp1, preview_length);
-      tmp2 = g_strndup (tmp1, offset - tmp1);
-      g_free (tmp1);
-      g_strchomp (tmp2);
-
-      tmp1 = g_strconcat (tmp2, "...", NULL);
-      g_free (tmp2);
-    }
-  else
-    g_strchomp (tmp1);
+  /* Remove trailing white spaces for preview */
+  g_strchomp (tmp1);
 
   /* Cleanup special characters from preview */
   g_strdelimit (tmp1, "\n\r\t", ' ');
