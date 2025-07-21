@@ -25,7 +25,7 @@ See [NEWS](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/mas
   * [xfconf](https://gitlab.xfce.org/xfce/xfconf)
   * [xfce4-panel](https://gitlab.xfce.org/xfce/xfce4-panel)
 
-For concrete information on the minimum required versions, check [configure.ac.in](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/master/configure.ac.in).
+For concrete information on the minimum required versions, check [meson.build](https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/blob/master/meson.build).
 
 ### Source Code Repository
 
