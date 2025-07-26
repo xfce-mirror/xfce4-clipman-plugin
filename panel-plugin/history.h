@@ -36,14 +36,15 @@ typedef struct _ClipmanHistoryItem ClipmanHistoryItem;
 struct _ClipmanHistoryItem
 {
   ClipmanHistoryType type;
-  union
+  struct
   {
     gchar *text;
     GdkPixbuf *image;
   } content;
-  union
+  struct
   {
     gchar *text;
+    gchar *text_ellipsized;
     GdkPixbuf *image;
   } preview;
   gchar *filename;

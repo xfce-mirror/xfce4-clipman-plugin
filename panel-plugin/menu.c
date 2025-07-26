@@ -244,19 +244,6 @@ _clipman_menu_adjust_geometry (ClipmanMenu *menu)
 }
 
 static void
-ellipsize_label (GtkWidget *widget,
-                 gpointer data)
-{
-  if (GTK_IS_LABEL (widget))
-    {
-      gtk_label_set_ellipsize (GTK_LABEL (widget), PANGO_ELLIPSIZE_END);
-      gtk_label_set_max_width_chars (GTK_LABEL (widget), 48);
-    }
-  else if (GTK_IS_CONTAINER (widget))
-    gtk_container_forall (GTK_CONTAINER (widget), ellipsize_label, data);
-}
-
-static void
 _clipman_menu_update_list (ClipmanMenu *menu)
 {
   GtkWidget *mi, *image;
@@ -312,7 +299,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
           G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          mi = gtk_image_menu_item_new_with_label (item->preview.text);
+          mi = gtk_image_menu_item_new_with_label (item->preview.text_ellipsized);
           G_GNUC_END_IGNORE_DEPRECATIONS
           if (item_to_restore == NULL && g_strcmp0 (selection_clipboard, item->content.text) == 0)
             {
@@ -401,7 +388,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
       gtk_widget_show_all (mi);
 
-      selection_primary_short = clipman_common_get_preview (selection_primary);
+      selection_primary_short = clipman_common_get_preview (selection_primary, TRUE);
       G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       mi = gtk_image_menu_item_new_with_label (selection_primary_short);
       image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
@@ -448,7 +435,6 @@ _clipman_menu_update_list (ClipmanMenu *menu)
     }
 #endif
 
-  gtk_container_forall (GTK_CONTAINER (menu), ellipsize_label, NULL);
   _clipman_menu_adjust_geometry (menu);
 }
 

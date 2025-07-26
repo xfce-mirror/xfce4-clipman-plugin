@@ -180,6 +180,7 @@ __clipman_history_item_free (ClipmanHistoryItem *item)
       DBG ("Delete text `%s'", item->content.text);
       g_free (item->content.text);
       g_free (item->preview.text);
+      g_free (item->preview.text_ellipsized);
       break;
 
     case CLIPMAN_HISTORY_TYPE_IMAGE:
@@ -269,7 +270,8 @@ clipman_history_add_text (ClipmanHistory *history,
   item->content.text = g_strdup (text);
 
   /* Set preview */
-  item->preview.text = clipman_common_get_preview (text);
+  item->preview.text = clipman_common_get_preview (text, FALSE);
+  item->preview.text_ellipsized = clipman_common_get_preview (text, TRUE);
 
   _clipman_history_add_item (history, item);
 }

@@ -44,29 +44,38 @@ clipman_common_show_warning_dialog (void)
 }
 
 gchar *
-clipman_common_get_preview (const gchar *text)
+clipman_common_get_preview (const gchar *text,
+                            gboolean ellipsized)
 {
   const gint preview_length = 48;
   gchar *tmp1, *tmp2;
 
   tmp2 = tmp1 = g_strdup (text);
 
-  /* Remove leading white spaces for preview */
-  g_strchug (tmp2);
+  /* cleanup special characters from preview */
+  g_strdelimit (tmp1, "\n\r\t", ' ');
 
-  tmp2 = g_strstr_len (tmp2, preview_length, "  ");
+  /* remove leading and trailing white spaces for preview */
+  g_strstrip (tmp1);
+
+  /* replace consecutive spaces with a single space */
+  tmp2 = g_strstr_len (tmp2, -1, "  ");
   while (tmp2)
     {
       g_strchug (++tmp2);
-      /* We've already parsed `tmp2 - tmp1` chars */
-      tmp2 = g_strstr_len (tmp2, preview_length - (tmp2 - tmp1), "  ");
+      tmp2 = g_strstr_len (tmp2, -1, "  ");
     }
 
-  /* Remove trailing white spaces for preview */
-  g_strchomp (tmp1);
-
-  /* Cleanup special characters from preview */
-  g_strdelimit (tmp1, "\n\r\t", ' ');
+  /* ellipsize if needed */
+  if (ellipsized && g_utf8_strlen (tmp1, -1) > preview_length)
+    {
+      gchar *offset = g_utf8_offset_to_pointer (tmp1, preview_length);
+      tmp2 = g_strndup (tmp1, offset - tmp1);
+      g_free (tmp1);
+      g_strchomp (tmp2);
+      tmp1 = g_strconcat (tmp2, "...", NULL);
+      g_free (tmp2);
+    }
 
   return tmp1;
 }
