@@ -10,6 +10,7 @@
 # C. E., 2020
 # Michael Martins, 2014
 # Michael Martins, 2020,2024
+# Michael Martins, 2025
 # Og Maciel <ogmaciel@gnome.org>, 2009
 # The Cat, 2023
 # Vladimir Melo <vladimirmelo@foresightlinux.org>, 2008
@@ -19,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:05+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Michael Martins, 2020,2024\n"
+"Last-Translator: Michael Martins, 2025\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,11 +48,11 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Gerenciador de Área de Transferência fornecido como um plugin de painel para o Xfce e como um aplicativo independente em execução na área de notificação. Ele mantém um histórico de texto e imagens de conteúdos copiados para a área de transferência. Ele também possui um recurso para executar ações sobre a seleção de texto específico, combinando-os contra expressões regulares"
+msgstr "Gerenciador de área de transferência fornecido como um plugin de painel para o Xfce e como um aplicativo independente em execução na área de notificação. Ele mantém um histórico de texto e imagens de conteúdos copiados para a área de transferência. Ele também possui um recurso para executar ações sobre a seleção de texto específico, combinando-os contra expressões regulares"
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
-msgstr "Gerenciador da Área de Transferência"
+msgstr "Gerenciador de área de transferência"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
@@ -119,7 +120,7 @@ msgstr "_Configurações"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:4
 msgid "Clipboard Manager Settings"
-msgstr "Gerenciador de Configurações da área de transferência"
+msgstr "Configurações do gerenciador de área de transferência"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:5
 msgid "Customize your clipboard"
@@ -190,7 +191,7 @@ msgstr "Abrir o menu na posição do ponteiro do mouse: especialmente útil para
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
-msgstr "Itens máximos:"
+msgstr "Máximo de itens:"
 
 #: panel-plugin/settings-dialog.ui:304
 msgid "<b>Menu</b>"
@@ -202,19 +203,19 @@ msgstr "_Comportamento"
 
 #: panel-plugin/settings-dialog.ui:343
 msgid "<b>_Enable automatic actions</b>"
-msgstr "<b>_Habilitar ações automáticas</b>"
+msgstr "<b>_Ativar ações automáticas</b>"
 
 #: panel-plugin/settings-dialog.ui:358
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr "Se marcado, os textos da área de transferência serão comparados com expressões regulares e um menu exibirá as ações possíveis.\nCaso contrário o menu aparecerá apenas ao chamar \"xfce4-popup-clipman-actions\" (e um item coincidente foi encontrado)"
+msgstr "Se marcado, os textos da área de transferência serão comparados com expressões regulares e um menu exibirá as ações possíveis.\nCaso contrário o menu aparecerá apenas ao chamar \"xfce4-popup-clipman-actions\" (e um item coincidente for encontrado)"
 
 #: panel-plugin/settings-dialog.ui:384
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr "Quando a seleção estiver concluída e a tecla Control ainda estiver pressionada, o menu pop-up das ações correspondentes será exibido ou ocultado"
+msgstr "Quando a seleção estiver concluída e a tecla Ctrl ainda estiver pressionada, o menu popup das ações correspondentes será exibido ou ocultado"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
@@ -293,7 +294,7 @@ msgstr "H_istórico"
 
 #: panel-plugin/settings-dialog.ui:777
 msgid "Edit Action"
-msgstr "Editar Ação"
+msgstr "Editar ação"
 
 #: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
 msgid "_Cancel"
@@ -320,14 +321,14 @@ msgstr "Você pode usar os parâmetros de substituição \"\\1\", \"\\2\" e assi
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr "Ativar em cópia manual em vez da seleção"
+msgstr "Ativar na cópia manual em vez da seleção"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr "Por padrão, a ação é ativada por uma seleção: marque essa opção para ativar a ação quando você fizer uma cópia manual. Observe que, nesse caso, a tecla Control não tem mais efeito."
+msgstr "Por padrão, a ação é ativada por uma seleção: marque essa opção para ativar a ação quando você fizer uma cópia manual. Observe que, nesse caso, a tecla Ctrl não tem mais efeito."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -343,7 +344,7 @@ msgstr "<b>Comandos</b>"
 
 #: panel-plugin/settings-dialog.ui:1269
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Digite aqui o seu texto personalizado, por exemplo, uma URL, um nome de arquivo, etc."
+msgstr "Digite aqui seu texto personalizado, por exemplo, uma URL, um nome de arquivo, etc."
 
 #: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
