@@ -419,7 +419,7 @@ msgstr "Współtwórcy:"
 
 #: panel-plugin/plugin.c:462
 msgid "Clipboard Manager for Xfce"
-msgstr "Menedżer schowka dla Xfce"
+msgstr "Menedżer schowka Xfce."
 
 #: panel-plugin/plugin.c:470
 msgid "translator-credits"
