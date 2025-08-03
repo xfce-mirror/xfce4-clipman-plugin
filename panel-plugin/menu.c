@@ -77,6 +77,9 @@ clipman_menu_qrcode (char *text,
 #endif
 
 
+static void
+_clipman_menu_update_list (ClipmanMenu *menu);
+
 /*
  * Callbacks declarations
  */
@@ -229,6 +232,49 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
     }
 }
 
+static gboolean
+cb_on_menu_item_enter (GtkWidget *item, GdkEventCrossing *event, gpointer delete_btn)
+{
+  // double-toggle the visibility of the delete button to make it able to receive events
+  gtk_widget_set_visible (GTK_WIDGET (delete_btn), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (delete_btn), TRUE);
+  gtk_widget_set_opacity (delete_btn, 1.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_menu_item_leave (GtkWidget *item, GdkEventCrossing *event, gpointer delete_btn)
+{
+  gtk_widget_set_opacity (delete_btn, 0.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_delete_btn_enter (GtkWidget *widget, GdkEventCrossing *event, gpointer user_data)
+{
+  gtk_widget_set_opacity (widget, 1.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_delete_btn_leave (GtkWidget *widget, GdkEventCrossing *event, gpointer user_data)
+{
+  gtk_widget_set_opacity (widget, 0.0);
+  return FALSE;
+}
+
+static void
+cb_delete_entry (GtkButton *button, gpointer user_data)
+{
+  ClipmanMenu *menu = g_object_get_data (G_OBJECT (button), "menu");
+  gpointer item_ptr = g_object_get_data (G_OBJECT (button), "item_ptr");
+  if (menu && item_ptr)
+    {
+      clipman_history_remove_item (menu->priv->history, item_ptr);
+      _clipman_menu_update_list (menu);
+    }
+}
+
 /*
  * Private methods
  */
@@ -243,28 +289,51 @@ _clipman_menu_adjust_geometry (ClipmanMenu *menu)
   gtk_widget_size_allocate (GTK_WIDGET (menu), &allocation);
 }
 
+static void
+_clipman_menu_item_add_delete_button (GtkWidget *box, gpointer item_ptr, ClipmanMenu *menu)
+{
+  g_return_if_fail (GTK_IS_BOX (box));
+  GtkWidget *delete_btn = gtk_button_new_from_icon_name ("user-trash-symbolic", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_valign (delete_btn, GTK_ALIGN_CENTER);
+  gtk_widget_set_halign (delete_btn, GTK_ALIGN_END);
+  // hide delete button via opacity so it can be shown on hover without changing the layout
+  gtk_widget_set_opacity (delete_btn, 0.0);
+  gtk_style_context_add_class (gtk_widget_get_style_context (delete_btn), "flat");
+  gtk_box_pack_end (GTK_BOX (box), delete_btn, FALSE, FALSE, 0);
+
+  GtkWidget *menu_item = gtk_widget_get_parent (box);
+  if (menu_item && GTK_IS_MENU_ITEM (menu_item)) {
+    g_signal_connect (menu_item, "enter-notify-event", G_CALLBACK (cb_on_menu_item_enter), delete_btn);
+    g_signal_connect (menu_item, "leave-notify-event", G_CALLBACK (cb_on_menu_item_leave), delete_btn);
+  }
+  g_signal_connect (delete_btn, "enter-notify-event", G_CALLBACK (cb_on_delete_btn_enter), NULL);
+  g_signal_connect (delete_btn, "leave-notify-event", G_CALLBACK (cb_on_delete_btn_leave), NULL);
+  g_signal_connect (delete_btn, "clicked", G_CALLBACK (cb_delete_entry), NULL);
+  g_object_set_data (G_OBJECT (delete_btn), "menu", menu);
+  g_object_set_data (G_OBJECT (delete_btn), "item_ptr", item_ptr);
+}
+
 static GtkWidget *
-_clipman_menu_item_with_icon (const gchar *label_text, const gchar *icon_name, gboolean with_mnemonic)
+_clipman_menu_item (const gchar *label_text, const gchar *icon_name, gboolean with_mnemonic, gboolean show_delete, gpointer item_ptr, ClipmanMenu *menu)
 {
   GtkWidget *item = gtk_menu_item_new ();
   GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-  GtkWidget *image;
-  GtkWidget *label;
-  if (with_mnemonic)
-    label = gtk_label_new_with_mnemonic (label_text);
-  else
-    label = gtk_label_new (label_text);
-
-  if (icon_name)
-    image = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
-  else
-    image = gtk_image_new ();
+  GtkWidget *image = icon_name
+    ? gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU)
+    : gtk_image_new ();
+  GtkWidget *label = with_mnemonic
+    ? gtk_label_new_with_mnemonic (label_text)
+    : gtk_label_new (label_text);
 
   gtk_widget_set_halign (image, GTK_ALIGN_START);
   gtk_widget_set_valign (image, GTK_ALIGN_CENTER);
   gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
   gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
   gtk_container_add (GTK_CONTAINER (item), box);
+
+  if (show_delete)
+    _clipman_menu_item_add_delete_button (box, item_ptr, menu);
+
   gtk_widget_show_all (item);
   return item;
 }
@@ -369,9 +438,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
               icon_name = "input-mouse-symbolic";
               skip_primary = TRUE;
             }
-          mi = _clipman_menu_item_with_icon (item->preview.text_ellipsized, icon_name, FALSE);
+          mi = _clipman_menu_item (item->preview.text_ellipsized, icon_name, FALSE, TRUE, item, menu);
           break;
-
         case CLIPMAN_HISTORY_TYPE_IMAGE:
           GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
           surface = gdk_cairo_surface_create_from_pixbuf (item->preview.image, scale_factor, NULL);
@@ -390,6 +458,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
           gtk_box_pack_start (GTK_BOX (box), image, TRUE, TRUE, 0);
           mi = gtk_menu_item_new ();
           gtk_container_add (GTK_CONTAINER (mi), box);
+          _clipman_menu_item_add_delete_button (box, item, menu);
           gtk_widget_show_all (mi);
           break;
 
@@ -443,7 +512,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       gtk_widget_show_all (mi);
 
       selection_primary_short = clipman_common_get_preview (selection_primary, TRUE);
-      mi = _clipman_menu_item_with_icon (selection_primary_short, "input-mouse-symbolic", FALSE);
+      mi = _clipman_menu_item (selection_primary_short, "input-mouse-symbolic", FALSE, FALSE, NULL, menu);
       g_free (selection_primary_short);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
       gtk_widget_show_all (mi);
@@ -576,16 +645,16 @@ clipman_menu_init (ClipmanMenu *menu)
   max_texts_in_history = clipman_history_get_max_texts_in_history (menu->priv->history);
   if (max_texts_in_history > menu->priv->max_menu_items)
     {
-      mi = _clipman_menu_item_with_icon (_("_Show full history..."), "accessories-dictionary-symbolic", TRUE);
+      mi = _clipman_menu_item (_("_Show full history..."), "accessories-dictionary-symbolic", TRUE, FALSE, NULL, menu);
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
       g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-history");
     }
 
-  menu->priv->mi_clear_history = mi = _clipman_menu_item_with_icon (_("_Clear history"), "edit-clear-symbolic", TRUE);
+  menu->priv->mi_clear_history = mi = _clipman_menu_item (_("_Clear history"), "edit-clear-symbolic", TRUE, FALSE, NULL, menu);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
 
-  mi = _clipman_menu_item_with_icon (_("_Clipman settings..."), "preferences-system-symbolic", TRUE);
+  mi = _clipman_menu_item (_("_Clipman settings..."), "preferences-system-symbolic", TRUE, FALSE, NULL, menu);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-settings");
 
