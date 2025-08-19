@@ -77,6 +77,9 @@ clipman_menu_qrcode (char *text,
 #endif
 
 
+static void
+_clipman_menu_update_list (ClipmanMenu *menu);
+
 /*
  * Callbacks declarations
  */
@@ -229,6 +232,49 @@ cb_launch_clipman_bin (ClipmanMenu *menu,
     }
 }
 
+static gboolean
+cb_on_menu_item_enter (GtkWidget *item, GdkEventCrossing *event, gpointer delete_btn)
+{
+  // double-toggle the visibility of the delete button to make it able to receive events
+  gtk_widget_set_visible (GTK_WIDGET (delete_btn), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (delete_btn), TRUE);
+  gtk_widget_set_opacity (delete_btn, 1.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_menu_item_leave (GtkWidget *item, GdkEventCrossing *event, gpointer delete_btn)
+{
+  gtk_widget_set_opacity (delete_btn, 0.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_delete_btn_enter (GtkWidget *widget, GdkEventCrossing *event, gpointer user_data)
+{
+  gtk_widget_set_opacity (widget, 1.0);
+  return FALSE;
+}
+
+static gboolean
+cb_on_delete_btn_leave (GtkWidget *widget, GdkEventCrossing *event, gpointer user_data)
+{
+  gtk_widget_set_opacity (widget, 0.0);
+  return FALSE;
+}
+
+static void
+cb_delete_entry (GtkButton *button, gpointer user_data)
+{
+  ClipmanMenu *menu = g_object_get_data (G_OBJECT (button), "menu");
+  gpointer item_ptr = g_object_get_data (G_OBJECT (button), "item_ptr");
+  if (menu && item_ptr)
+    {
+      clipman_history_remove_item (menu->priv->history, item_ptr);
+      _clipman_menu_update_list (menu);
+    }
+}
+
 /*
  * Private methods
  */
@@ -241,6 +287,87 @@ _clipman_menu_adjust_geometry (ClipmanMenu *menu)
   gtk_widget_get_preferred_width (GTK_WIDGET (menu), NULL, &allocation.width);
   gtk_widget_get_preferred_height (GTK_WIDGET (menu), NULL, &allocation.height);
   gtk_widget_size_allocate (GTK_WIDGET (menu), &allocation);
+}
+
+static void
+_clipman_menu_item_add_delete_button (GtkWidget *box, gpointer item_ptr, ClipmanMenu *menu)
+{
+  g_return_if_fail (GTK_IS_BOX (box));
+  GtkWidget *delete_btn = gtk_button_new_from_icon_name ("user-trash-symbolic", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_valign (delete_btn, GTK_ALIGN_CENTER);
+  gtk_widget_set_halign (delete_btn, GTK_ALIGN_END);
+  // hide delete button via opacity so it can be shown on hover without changing the layout
+  gtk_widget_set_opacity (delete_btn, 0.0);
+  gtk_style_context_add_class (gtk_widget_get_style_context (delete_btn), "flat");
+  gtk_box_pack_end (GTK_BOX (box), delete_btn, FALSE, FALSE, 0);
+
+  GtkWidget *menu_item = gtk_widget_get_parent (box);
+  if (menu_item && GTK_IS_MENU_ITEM (menu_item)) {
+    g_signal_connect (menu_item, "enter-notify-event", G_CALLBACK (cb_on_menu_item_enter), delete_btn);
+    g_signal_connect (menu_item, "leave-notify-event", G_CALLBACK (cb_on_menu_item_leave), delete_btn);
+  }
+  g_signal_connect (delete_btn, "enter-notify-event", G_CALLBACK (cb_on_delete_btn_enter), NULL);
+  g_signal_connect (delete_btn, "leave-notify-event", G_CALLBACK (cb_on_delete_btn_leave), NULL);
+  g_signal_connect (delete_btn, "clicked", G_CALLBACK (cb_delete_entry), NULL);
+  g_object_set_data (G_OBJECT (delete_btn), "menu", menu);
+  g_object_set_data (G_OBJECT (delete_btn), "item_ptr", item_ptr);
+}
+
+static GtkWidget *
+_clipman_menu_item (const gchar *label_text, const gchar *icon_name, gboolean with_mnemonic, gboolean show_delete, gpointer item_ptr, ClipmanMenu *menu)
+{
+  GtkWidget *item = gtk_menu_item_new ();
+  GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *image = icon_name
+    ? gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU)
+    : gtk_image_new ();
+  GtkWidget *label = with_mnemonic
+    ? gtk_label_new_with_mnemonic (label_text)
+    : gtk_label_new (label_text);
+
+  gtk_widget_set_halign (image, GTK_ALIGN_START);
+  gtk_widget_set_valign (image, GTK_ALIGN_CENTER);
+  gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (item), box);
+
+  if (show_delete)
+    _clipman_menu_item_add_delete_button (box, item_ptr, menu);
+
+  gtk_widget_show_all (item);
+  return item;
+}
+
+static void
+_clipman_menu_item_set_label (GtkWidget *menu_item, const gchar *label_text, gboolean with_mnemonic)
+{
+  GtkWidget *box, *label = NULL;
+  GList *children, *l;
+
+  g_return_if_fail (GTK_IS_MENU_ITEM (menu_item));
+
+  box = gtk_bin_get_child (GTK_BIN (menu_item));
+  if (!box || !GTK_IS_CONTAINER (box))
+    return;
+
+  children = gtk_container_get_children (GTK_CONTAINER (box));
+  for (l = children; l != NULL; l = l->next)
+    {
+      if (GTK_IS_LABEL (l->data))
+        {
+          label = l->data;
+          break;
+        }
+    }
+  if (label)
+    {
+      if (with_mnemonic)
+        gtk_label_set_text_with_mnemonic (GTK_LABEL (label), label_text);
+      else
+        gtk_label_set_text (GTK_LABEL (label), label_text);
+    }
+
+  g_list_free (children);
 }
 
 static void
@@ -279,7 +406,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
   /* Set the clear history item sensitive */
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
-  gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear history"));
+  _clipman_menu_item_set_label (GTK_WIDGET (menu->priv->mi_clear_history), _("_Clear history"), TRUE);
 
   /* Insert an updated list of menu items */
   list = clipman_history_get_list (menu->priv->history);
@@ -298,45 +425,41 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       switch (item->type)
         {
         case CLIPMAN_HISTORY_TYPE_TEXT:
-          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          mi = gtk_image_menu_item_new_with_label (item->preview.text_ellipsized);
-          G_GNUC_END_IGNORE_DEPRECATIONS
+          const gchar *icon_name = NULL;
           if (item_to_restore == NULL && g_strcmp0 (selection_clipboard, item->content.text) == 0)
             {
+              icon_name = "edit-paste-symbolic";
               item_to_restore = item;
-              image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
-              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-              G_GNUC_END_IGNORE_DEPRECATIONS
               if (g_strcmp0 (selection_primary, item->content.text) == 0)
                 skip_primary = TRUE;
             }
           else if (!skip_primary && g_strcmp0 (selection_primary, item->content.text) == 0)
             {
+              icon_name = "input-mouse-symbolic";
               skip_primary = TRUE;
-              image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
-              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-              G_GNUC_END_IGNORE_DEPRECATIONS
             }
+          mi = _clipman_menu_item (item->preview.text_ellipsized, icon_name, FALSE, TRUE, item, menu);
           break;
-
         case CLIPMAN_HISTORY_TYPE_IMAGE:
-          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          mi = gtk_image_menu_item_new ();
-          G_GNUC_END_IGNORE_DEPRECATIONS
+          GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
           surface = gdk_cairo_surface_create_from_pixbuf (item->preview.image, scale_factor, NULL);
           image = gtk_image_new_from_surface (surface);
           cairo_surface_destroy (surface);
-          gtk_container_add (GTK_CONTAINER (mi), image);
+
+          GtkWidget *icon;
           if (item_to_restore == NULL && pixel_bytes != NULL && g_bytes_equal (pixel_bytes, item->pixel_bytes))
             {
+              icon = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
               item_to_restore = item;
-              image = gtk_image_new_from_icon_name ("edit-paste-symbolic", GTK_ICON_SIZE_MENU);
-              G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-              gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-              G_GNUC_END_IGNORE_DEPRECATIONS
             }
+          else
+            icon = gtk_image_new ();
+          gtk_box_pack_start (GTK_BOX (box), icon, FALSE, FALSE, 0);
+          gtk_box_pack_start (GTK_BOX (box), image, TRUE, TRUE, 0);
+          mi = gtk_menu_item_new ();
+          gtk_container_add (GTK_CONTAINER (mi), box);
+          _clipman_menu_item_add_delete_button (box, item, menu);
+          gtk_widget_show_all (mi);
           break;
 
         default:
@@ -380,7 +503,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
           /* Set the clear history item sensitive */
           gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
-          gtk_menu_item_set_label (GTK_MENU_ITEM (menu->priv->mi_clear_history), _("_Clear clipboard"));
+          _clipman_menu_item_set_label (menu->priv->mi_clear_history, _("_Clear clipboard"), TRUE);
         }
 
       mi = gtk_separator_menu_item_new ();
@@ -389,11 +512,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
       gtk_widget_show_all (mi);
 
       selection_primary_short = clipman_common_get_preview (selection_primary, TRUE);
-      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      mi = gtk_image_menu_item_new_with_label (selection_primary_short);
-      image = gtk_image_new_from_icon_name ("input-mouse-symbolic", GTK_ICON_SIZE_MENU);
-      gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-      G_GNUC_END_IGNORE_DEPRECATIONS
+      mi = _clipman_menu_item (selection_primary_short, "input-mouse-symbolic", FALSE, FALSE, NULL, menu);
       g_free (selection_primary_short);
       gtk_menu_shell_insert (GTK_MENU_SHELL (menu), mi, reverse_order ? pos++ : 0);
       gtk_widget_show_all (mi);
@@ -412,9 +531,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
 
       if ((pixbuf = clipman_menu_qrcode (item_to_restore->content.text, scale_factor)) != NULL)
         {
-          G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          mi = gtk_image_menu_item_new ();
-          G_GNUC_END_IGNORE_DEPRECATIONS
+          mi = gtk_menu_item_new ();
           surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale_factor, NULL);
           gtk_container_add (GTK_CONTAINER (mi), gtk_image_new_from_surface (surface));
           cairo_surface_destroy (surface);
@@ -507,6 +624,8 @@ clipman_menu_init (ClipmanMenu *menu)
   GtkWidget *image;
   guint max_texts_in_history;
 
+  gtk_menu_set_reserve_toggle_size (GTK_MENU (menu), FALSE);
+
   menu->priv = clipman_menu_get_instance_private (menu);
 
   /* ClipmanHistory */
@@ -526,28 +645,16 @@ clipman_menu_init (ClipmanMenu *menu)
   max_texts_in_history = clipman_history_get_max_texts_in_history (menu->priv->history);
   if (max_texts_in_history > menu->priv->max_menu_items)
     {
-      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      mi = gtk_image_menu_item_new_with_mnemonic (_("_Show full history..."));
-      image = gtk_image_new_from_icon_name ("accessories-dictionary-symbolic", GTK_ICON_SIZE_MENU);
-      gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-      G_GNUC_END_IGNORE_DEPRECATIONS
+      mi = _clipman_menu_item (_("_Show full history..."), "accessories-dictionary-symbolic", TRUE, FALSE, NULL, menu);
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
       g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-history");
     }
 
-  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  menu->priv->mi_clear_history = mi = gtk_image_menu_item_new_with_mnemonic (_("_Clear history"));
-  image = gtk_image_new_from_icon_name ("edit-clear-symbolic", GTK_ICON_SIZE_MENU);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu->priv->mi_clear_history), image);
-  G_GNUC_END_IGNORE_DEPRECATIONS
+  menu->priv->mi_clear_history = mi = _clipman_menu_item (_("_Clear history"), "edit-clear-symbolic", TRUE, FALSE, NULL, menu);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect_swapped (mi, "activate", G_CALLBACK (cb_clear_history), menu);
 
-  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  mi = gtk_image_menu_item_new_with_mnemonic (_("_Clipman settings..."));
-  image = gtk_image_new_from_icon_name ("preferences-system-symbolic", GTK_ICON_SIZE_MENU);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mi), image);
-  G_GNUC_END_IGNORE_DEPRECATIONS
+  mi = _clipman_menu_item (_("_Clipman settings..."), "preferences-system-symbolic", TRUE, FALSE, NULL, menu);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
   g_signal_connect (mi, "activate", G_CALLBACK (cb_launch_clipman_bin), "xfce4-clipman-settings");
 

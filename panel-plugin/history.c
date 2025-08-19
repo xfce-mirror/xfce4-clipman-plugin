@@ -569,3 +569,19 @@ clipman_history_get_property (GObject *object,
       break;
     }
 }
+
+void
+clipman_history_remove_item (ClipmanHistory *history,
+                             ClipmanHistoryItem *item)
+{
+  if (history == NULL || item == NULL)
+    return;
+
+  GSList *found = g_slist_find (history->priv->items, item);
+  if (found != NULL)
+    {
+      __clipman_history_item_free (item);
+      history->priv->items = g_slist_remove (history->priv->items, item);
+      g_signal_emit (history, signals[ITEM_ADDED], 0);
+    }
+}
