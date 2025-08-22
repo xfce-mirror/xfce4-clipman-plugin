@@ -293,9 +293,11 @@ static void
 _clipman_menu_item_add_delete_button (GtkWidget *box, gpointer item_ptr, ClipmanMenu *menu)
 {
   g_return_if_fail (GTK_IS_BOX (box));
-  GtkWidget *delete_btn = gtk_button_new_from_icon_name ("user-trash-symbolic", GTK_ICON_SIZE_MENU);
+  GtkWidget *delete_btn = gtk_button_new_from_icon_name ("edit-delete", GTK_ICON_SIZE_MENU);
   gtk_widget_set_valign (delete_btn, GTK_ALIGN_CENTER);
   gtk_widget_set_halign (delete_btn, GTK_ALIGN_END);
+  GtkStyleContext *styleContext = gtk_widget_get_style_context (delete_btn);
+  gtk_style_context_add_class(styleContext, "delete_btn");
   // hide delete button via opacity so it can be shown on hover without changing the layout
   gtk_widget_set_opacity (delete_btn, 0.0);
   gtk_style_context_add_class (gtk_widget_get_style_context (delete_btn), "flat");
@@ -388,6 +390,11 @@ _clipman_menu_update_list (ClipmanMenu *menu)
   gboolean skip_primary = FALSE;
   cairo_surface_t *surface;
   gint scale_factor = gtk_widget_get_scale_factor (GTK_WIDGET (menu));
+  GtkCssProvider* css = gtk_css_provider_new();
+  GdkScreen* screen = gdk_display_get_default_screen(gdk_display_get_default());
+
+  gtk_css_provider_load_from_data (css, ".delete_btn {padding: 0px; margin-top: -4px; margin-bottom: -4px;}", -1, NULL);
+  gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
   /* retrieve clipboard and primary selections */
   selection_clipboard = g_object_get_data (G_OBJECT (menu), "selection-clipboard");
@@ -475,6 +482,8 @@ _clipman_menu_update_list (ClipmanMenu *menu)
     }
 
   g_slist_free (list);
+  g_object_unref (css);
+
   if (pixel_bytes != NULL)
     g_bytes_unref (pixel_bytes);
 
