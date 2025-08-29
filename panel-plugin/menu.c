@@ -80,6 +80,9 @@ clipman_menu_qrcode (char *text,
 static void
 _clipman_menu_update_list (ClipmanMenu *menu);
 
+static void
+_clipman_menu_update_list_shrink_controlled (ClipmanMenu *menu, gboolean prevent_width_shrinking);
+
 /*
  * Callbacks declarations
  */
@@ -271,7 +274,7 @@ cb_delete_entry (GtkButton *button, gpointer user_data)
   if (menu && item_ptr)
     {
       clipman_history_remove_item (menu->priv->history, item_ptr);
-      _clipman_menu_update_list (menu);
+      _clipman_menu_update_list_shrink_controlled (menu, TRUE);
     }
 }
 
@@ -280,13 +283,30 @@ cb_delete_entry (GtkButton *button, gpointer user_data)
  */
 
 static void
-_clipman_menu_adjust_geometry (ClipmanMenu *menu)
+_clipman_menu_adjust_geometry_shrink_controlled (ClipmanMenu *menu, const gboolean prevent_width_shrinking)
 {
   GtkAllocation allocation = {};
 
   gtk_widget_get_preferred_width (GTK_WIDGET (menu), NULL, &allocation.width);
   gtk_widget_get_preferred_height (GTK_WIDGET (menu), NULL, &allocation.height);
+  if (prevent_width_shrinking)
+    {
+      int minimum_width = gtk_widget_get_allocated_width (GTK_WIDGET (menu));
+      allocation.width = minimum_width > allocation.width ? minimum_width : allocation.width;
+      gtk_widget_set_size_request (GTK_WIDGET (menu), allocation.width, -1);
+    }
+  else
+    {
+      gtk_widget_set_size_request (GTK_WIDGET (menu), -1, -1);
+    }
   gtk_widget_size_allocate (GTK_WIDGET (menu), &allocation);
+  gtk_menu_reposition (GTK_MENU (menu));
+}
+
+static void
+_clipman_menu_adjust_geometry (ClipmanMenu *menu)
+{
+  _clipman_menu_adjust_geometry_shrink_controlled (menu, FALSE);
 }
 
 static void
@@ -373,7 +393,7 @@ _clipman_menu_item_set_label (GtkWidget *menu_item, const gchar *label_text, gbo
 }
 
 static void
-_clipman_menu_update_list (ClipmanMenu *menu)
+_clipman_menu_update_list_shrink_controlled (ClipmanMenu *menu, const gboolean prevent_width_shrinking)
 {
   GtkWidget *mi, *image;
   GdkPixbuf *pixbuf;
@@ -561,7 +581,13 @@ _clipman_menu_update_list (ClipmanMenu *menu)
     }
 #endif
 
-  _clipman_menu_adjust_geometry (menu);
+  _clipman_menu_adjust_geometry_shrink_controlled (menu, prevent_width_shrinking);
+}
+
+static void
+_clipman_menu_update_list (ClipmanMenu *menu)
+{
+  _clipman_menu_update_list_shrink_controlled (menu, FALSE);
 }
 
 /*
@@ -646,6 +672,7 @@ clipman_menu_init (ClipmanMenu *menu)
 
   /* Connect signal on show to update the items */
   g_signal_connect_swapped (menu, "show", G_CALLBACK (_clipman_menu_update_list), menu);
+  g_signal_connect_swapped (menu, "map", G_CALLBACK (_clipman_menu_adjust_geometry), menu);
 
   /* Footer items */
   mi = gtk_separator_menu_item_new ();
