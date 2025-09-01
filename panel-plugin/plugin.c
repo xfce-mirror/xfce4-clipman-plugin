@@ -162,7 +162,7 @@ plugin_register (void)
   plugin_load (plugin);
 
   /* Connect signal to save content */
-  g_signal_connect_swapped (plugin->history, "item-added",
+  g_signal_connect_swapped (plugin->history, "items-changed",
                             G_CALLBACK (plugin_save), plugin);
   g_signal_connect_swapped (plugin->history, "clear",
                             G_CALLBACK (plugin_clear), plugin);

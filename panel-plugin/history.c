@@ -423,7 +423,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
   object_class->get_property = clipman_history_get_property;
 
   signals[ITEM_ADDED] =
-    g_signal_new ("item-added", G_TYPE_FROM_CLASS (klass),
+    g_signal_new ("items-changed", G_TYPE_FROM_CLASS (klass),
                   G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (ClipmanHistoryClass, item_added),
                   0, NULL, g_cclosure_marshal_VOID__VOID,
