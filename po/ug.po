@@ -1,306 +1,349 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 18:31+0200\n"
-"PO-Revision-Date: 2017-09-23 19:02+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Uighur (http://www.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:05+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ug\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/appdata/xfce4-clipman.appdata.xml.in.h:1
+#: data/appdata/xfce4-clipman.appdata.xml.in:6
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
+#: panel-plugin/main-panel-plugin.c:86 panel-plugin/main-status-icon.c:120
+#: panel-plugin/plugin.c:107 panel-plugin/plugin.c:460
+msgid "Clipman"
+msgstr "Clipman چاپلاش تاختىسى باشقۇرغۇچ"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:7
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
+msgid "Clipboard manager"
+msgstr "چاپلاش تاختىسىنى باشقۇرغۇچ"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:10
 msgid ""
 "Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "چاپلاش تاختىسى باشقۇرغۇچ Xfce نىڭ كۆزنەكچە قىستۇرمىسى، ئۇ ئۇقتۇرۇش رايونىدا ئايرىم ئىجرا قىلىنىدۇ. ئۇ تېكىست ۋە سۈرەتنىڭ چاپلاش تاختىسىغا كۆچۈرۈلۈش تارىخىنى ساقلاپ قالىدۇ. ئۇنىڭ يەنە تاللانغان تېكىست مۇنتىزىم ئىپادىگە ماس كەلگەندە مەشغۇلات ئىجرا قىلىش ئىقتىدارى بار."
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:1
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:1
-#: ../panel-plugin/main-panel-plugin.c:73
-#: ../panel-plugin/main-status-icon.c:62 ../panel-plugin/plugin.c:319
-msgid "Clipman"
-msgstr "Clipman"
+#: panel-plugin/xfce4-clipman.desktop.in:5
+msgid "Clipboard Manager"
+msgstr "چاپلاش تاختىسىنى باشقۇرغۇچ"
 
-#: ../panel-plugin/xfce4-clipman.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin.desktop.in.h:2
-#: ../panel-plugin/xfce4-clipman-plugin-autostart.desktop.in.h:2
-msgid "Clipboard manager"
-msgstr "چاپلاش تاختىسىنى باشقۇرغۇ"
+#: panel-plugin/xfce4-clipman.desktop.in:6
+msgid "Clipboard Manager Autostart File"
+msgstr "چاپلاش تاختىسىنى باشقۇرغۇچنىڭ ئۆزلۈكىدىن قوزغىلىش ھۆججىتى"
 
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:1
-msgid "Image"
-msgstr "سۈرەت"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:2
-msgid "Edit with Gimp"
-msgstr "GIMP دە تەھرىرلەش"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:3
-msgid "View with Ristretto"
-msgstr "Ristretto دە كۆرسەت"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:4
-msgid "Bugz"
-msgstr "Bugz"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:5
-msgid "Xfce Bug"
-msgstr "Xfce  كەمتۈكى"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:6
-msgid "GNOME Bug"
-msgstr "گىنوم كەمتۈكى"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:7
-msgid "Long URL"
-msgstr "ئۇزۇن URL"
-
-#: ../panel-plugin/xfce4-clipman-actions.xml.in.h:8
-msgid "Shrink the URL"
-msgstr "URL نى قىسقارتىڭ"
-
-#: ../panel-plugin/xfce4-clipman-settings.c:184
+#: panel-plugin/xfce4-clipman-settings.c:117
 msgid "None"
 msgstr "يوق"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:186
+#: panel-plugin/xfce4-clipman-settings.c:119
 msgid "Ctrl+V"
 msgstr "Ctrl+V"
 
 #. TRANSLATORS: Keyboard shortcut
-#: ../panel-plugin/xfce4-clipman-settings.c:188
+#: panel-plugin/xfce4-clipman-settings.c:121
 msgid "Shift+Insert"
 msgstr "Shift+Insert"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:511
+#: panel-plugin/xfce4-clipman-settings.c:155
+msgid "shows actions"
+msgstr "مەشغۇلاتنى كۆرسەت"
+
+#: panel-plugin/xfce4-clipman-settings.c:156
+msgid "hides actions"
+msgstr "مەشغۇلاتنى يوشۇر"
+
+#: panel-plugin/xfce4-clipman-settings.c:544
 msgid "<b>Reset actions</b>"
 msgstr "<b>مەشغۇلاتلارنى ئەسلىگە قايتۇرۇش</b>"
 
-#: ../panel-plugin/xfce4-clipman-settings.c:513
+#: panel-plugin/xfce4-clipman-settings.c:546
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
 msgstr "مەشغۇلاتلارنى سىستېمىنىڭ كۆڭۈلدىكى قىممىتىگە ئەسلىگە قايتۇرسۇنمۇ؟"
 
-#: ../panel-plugin/settings-dialog.ui.h:1
-msgid "Edit Action"
-msgstr "مەشغۇلات تەھرىرلەش"
+#: panel-plugin/xfce4-clipman-history.c:259
+msgid "Enter search phrase here"
+msgstr "ئىزدەيدىغاننى بۇ يەرگە كىرگۈزۈڭ"
 
-#: ../panel-plugin/settings-dialog.ui.h:2
+#. Insert empty menu item
+#: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
+msgid "History is empty"
+msgstr "تارىخ خاتىرىسى بوش"
+
+#: panel-plugin/xfce4-clipman-history.c:385
+msgid "_Paste"
+msgstr "چاپلا(_P)"
+
+#: panel-plugin/xfce4-clipman-history.c:390
+msgid "_Copy"
+msgstr "كۆچۈر(_C)"
+
+#: panel-plugin/xfce4-clipman-history.c:424
+msgid "Clipman History"
+msgstr "Clipman تارىخى"
+
+#: panel-plugin/xfce4-clipman-history.c:432 panel-plugin/settings-dialog.ui:49
+msgid "_Help"
+msgstr "ياردەم(_H)"
+
+#: panel-plugin/xfce4-clipman-history.c:436
+msgid "_Settings"
+msgstr "تەڭشەك(_S)"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:4
+msgid "Clipboard Manager Settings"
+msgstr "چاپلاش تاختىسىنى باشقۇرغۇچ تەڭشىكى"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:5
+msgid "Customize your clipboard"
+msgstr "چاپلاش تاختىسىنى خاسلاشتۇر"
+
+#: panel-plugin/settings-dialog.ui:30
+msgid "Clipman Settings"
+msgstr "Clipman تەڭشىكى"
+
+#: panel-plugin/settings-dialog.ui:65
+msgid "_Close"
+msgstr "ياپ(_C)"
+
+#: panel-plugin/settings-dialog.ui:117
+msgid "Sync mouse _selections"
+msgstr "چاشقىنەك تاللاش قەدەمداش(_S)"
+
+#: panel-plugin/settings-dialog.ui:122
 msgid ""
-"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
-"commands. The parameter \"\\0\" represents the complete text. If you don't "
-"know regular expressions, have a look at the documentation of Clipman that "
-"has an introdution for them."
-msgstr "بۇيرۇقتا \"\\1\"、\"\\2\"  دېگەندەك قىممەت ئالىدىغان پارامېتىر ئىشلەتكىلى بولىدۇ. پارامېتىر \"\\0\" تولۇق تېكىستنى ئىپادىلەيدۇ.  مۇنتىزىم ئىپادىنى بىلمىسىڭىز Clipman نىڭ پۈتۈكىگە قاراڭ."
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr "ئەگەر تاللانسا، تاللانغان مەزمۇن بىلەن كۆڭۈلدىكى چاپلاش تاختىسى قەدەمداشلىنىدۇ، شۇڭا سىز Ctrl-V بىلەن تاللىغان مەزمۇننى چاپلىيالايسىز. ئەكسىچە، قولدا كۆچۈرۈش ئاساسىي چاپلاش تاختىسى بىلەن قەدەمداشلىنىدۇ شۇڭا ئوتتۇرا توپچە بىلەن كۆچۈرگەن مەزمۇننى چاپلىيالايسىز."
 
-#: ../panel-plugin/settings-dialog.ui.h:3
-msgid "Name:"
-msgstr "ئاتى:"
+#: panel-plugin/settings-dialog.ui:134
+msgid "_Persist mouse selections"
+msgstr "ساقلاپ قالغان چاشقىنەك تاللىشى(_P)"
 
-#: ../panel-plugin/settings-dialog.ui.h:4
-msgid "Pattern:"
-msgstr "ئەندىزە:"
-
-#: ../panel-plugin/settings-dialog.ui.h:5
-msgid "The pattern is always anchored within the special characters ^$"
-msgstr "مەزكۇر ئەندىزىگە ئالاھىدە ھەرپ ^$ ھەمىشە قوللىنىلىدۇ"
-
-#: ../panel-plugin/settings-dialog.ui.h:6
-msgid "Activate only on manual copy"
-msgstr "قولدا كۆچۈرگەندىلا ئاكتىپلىسۇن"
-
-#: ../panel-plugin/settings-dialog.ui.h:7
+#: panel-plugin/settings-dialog.ui:139
 msgid ""
-"By default the action is triggerred by a selection, check this option to "
-"trigger the action only when you make a manual copy"
-msgstr "كۆڭۈلدە تاللاش تاماملانغاندا مەشغۇلات ئېلىپ بېرىلىدۇ، بىراق بۇ تاللانما تاللانسا، پەقەت قولدا كۆچۈرگەندىلا مەشغۇلات ئېلىپ بېرىلىدۇ."
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr "ئەگەر تاللانسا، ئاساسىي چاپلاش تاختىسى (ئوتتۇرا توپچە چېكىپ چاپلاش) نۆۋەتتىكى تاللاش يوقالغاندا (مەسىلەن، تېكىست رايونىنىڭ خالىغان جايىدا سول توپچە چېكىلىدۇ) كېيىنكى قېتىملىق تاللاشقىچە داۋاملىشىدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:8
-msgid "<b>Action</b>"
-msgstr "<b>مەشغۇلات</b>"
+#: panel-plugin/settings-dialog.ui:151
+msgid "_QR-Code support"
+msgstr "_QR قوللاش"
 
-#: ../panel-plugin/settings-dialog.ui.h:9
-msgid "Command:"
-msgstr "بۇيرۇق:"
-
-#: ../panel-plugin/settings-dialog.ui.h:10
-msgid "<b>Commands</b>"
-msgstr "<b>بۇيرۇقلار</b>"
-
-#: ../panel-plugin/settings-dialog.ui.h:11
-msgid "Sync _selections"
-msgstr "تاللانغىنى بىلەن ماس قەدەملە(_S)"
-
-#: ../panel-plugin/settings-dialog.ui.h:12
-msgid ""
-"If checked, the selections will be synced with the default clipboard in a "
-"way that you can paste what you select"
-msgstr "تاللانسا، تاللانغان تېكىست بىلەن كۆڭۈلدىكى  چاپلاش تاختىسى  قەدەمداشلىشىپ، تاللانغان ھامان چاپلىغىلى بولىدۇ"
-
-#: ../panel-plugin/settings-dialog.ui.h:13
-msgid "Show _QR-Code"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:14
+#: panel-plugin/settings-dialog.ui:156
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr ""
+msgstr "ئەگەر تاللانسا، تىزىملىك نۆۋەتتە تاللانغان چاپلاش تاختىسىدىكى تۈرنىڭ QR كودىنى كۆرسىتىدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:15
-msgid "<b>Behavior</b>"
-msgstr "<b>ئىش-ھەرىكەت</b>"
+#: panel-plugin/settings-dialog.ui:170
+msgid "Automatically paste a selected item from the history"
+msgstr "تاللانغان تۈرنى تارىخ خاتىرىسىدىن ئۆزلۈكىدىن چاپلايدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:16
-msgid "Save on _quit"
-msgstr "ئاخىرلاشقاندا ساقلا(_Q)"
+#: panel-plugin/settings-dialog.ui:176
+msgid "_Paste instantly:"
+msgstr "شۇ ھامان چاپلا(_P):"
 
-#: ../panel-plugin/settings-dialog.ui.h:17
+#: panel-plugin/settings-dialog.ui:214
+msgid "<b>General</b>"
+msgstr "<b>ئادەتتىكى</b>"
+
+#: panel-plugin/settings-dialog.ui:245
+msgid "P_osition menu at mouse pointer"
+msgstr "تىزىملىك چاشقىنەك بار ئورۇندا تۇرسۇن(_O)"
+
+#: panel-plugin/settings-dialog.ui:249
 msgid ""
-"If checked, this option will restore the history on every new Xfce session"
-msgstr "تاللانسا، يېڭىدىن Xfce ئەڭگىمەسى باشلانغاندا ئىزنى ئەسلىگە كەلتۈرىدۇ"
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr "چاشقىنەك نىشانلىغۇچىنىڭ ھازىرقى ئورنىدا تىزىملىكنى قاڭقىتىدۇ: بولۇپمۇ xfce4-popup-clipman بۇيرۇقىنى ئىشلىتىشكە پايدىلىق"
 
-#: ../panel-plugin/settings-dialog.ui.h:18
-msgid "Store last copied _image"
-msgstr "ئەڭ ئاخىرقى قېتىم كۆچۈرگەن سۈرەتنى ساقلا(_I)"
+#: panel-plugin/settings-dialog.ui:267
+msgid "Maximum items:"
+msgstr "ئەڭ كۆپ تۈر:"
 
-#: ../panel-plugin/settings-dialog.ui.h:19
-msgid "If checked, this option allows to store one image inside the history"
-msgstr "تاللانسا، رەسىمنى ئىزدا ساقلىغىلى بولىدۇ"
+#: panel-plugin/settings-dialog.ui:304
+msgid "<b>Menu</b>"
+msgstr "<b>تىزىملىك</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:20
-msgid "Ignore s_elections"
-msgstr "تاللانغانغا پەرۋا قىلماق(_E)"
+#: panel-plugin/settings-dialog.ui:321
+msgid "_Behavior"
+msgstr "ھەرىكەت(_B)"
 
-#: ../panel-plugin/settings-dialog.ui.h:21
+#: panel-plugin/settings-dialog.ui:343
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>ئاپتوماتىك مەشغۇلاتنى قوزغىتىدۇ(_E)</b>"
+
+#: panel-plugin/settings-dialog.ui:358
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "ئەگەر تاللانسا، مۇنتىزىم ئىپادە ئىشلىتىپ چاپلاش تاختىسىدىكى تېكىست بىلەن ماسلاشتۇرىدۇ ھەمدە تىزىملىكتە مۇمكىن بولغان مەشغۇلاتنى ئۆزلۈكىدىن كۆرسىتىدۇ. ئۇنداق بولمىسا، «xfce4-popup-clipman-actions» نى چاقىرغان (ۋە ماس كەلگىنى تېپىلغان) دا تىزىملىكنى كۆرسىتىدۇ"
+
+#: panel-plugin/settings-dialog.ui:384
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr "تاللاش تاماملىنىپ ھەمدە Control كۇنۇپكىسى بېسىپ تۇرۇلغان بولسا، ماس كېلىدىغان مەشغۇلاتنىڭ قاڭقىش تىزىملىكى كۆرۈنىدۇ ياكى يوشۇرۇلىدۇ"
+
+#: panel-plugin/settings-dialog.ui:390
+msgid "_Pressing Ctrl during selection:"
+msgstr "تاللاۋاتقاندا Ctrl بېسىلىدۇ(_P):"
+
+#: panel-plugin/settings-dialog.ui:459
+msgid "Add action"
+msgstr "قوشۇش مەشغۇلاتى"
+
+#: panel-plugin/settings-dialog.ui:481
+msgid "Edit action"
+msgstr "تەھرىرلەش مەشغۇلاتى"
+
+#: panel-plugin/settings-dialog.ui:503
+msgid "Delete action"
+msgstr "ئۆچۈرۈش مەشغۇلاتى"
+
+#: panel-plugin/settings-dialog.ui:524
+msgid "Reset all actions to the system default values"
+msgstr "بارلىق مەشغۇلاتنى سىستېمىنىڭ كۆڭۈلدىكى قىممىتىگە قايتۇرىدۇ"
+
+#: panel-plugin/settings-dialog.ui:571
+msgid "_Actions"
+msgstr "مەشغۇلات(_A)"
+
+#: panel-plugin/settings-dialog.ui:594
+msgid "<b>Remember history</b>"
+msgstr "<b>تارىخنى ئەستە تۇت</b>"
+
+#: panel-plugin/settings-dialog.ui:631
+msgid "Remember last copied _image"
+msgstr "ئاخىرقى كۆچۈرگەن سۈرەتنى ئەستە تۇت(_I)"
+
+#: panel-plugin/settings-dialog.ui:635
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "ئەگەر تاللانسا، بۇ تاللانما تارىخ خاتىرىسىگە بىر سۈرەت ساقلاشقا يول قويىدۇ"
+
+#: panel-plugin/settings-dialog.ui:647
+msgid "_Reorder history items"
+msgstr "ئىزلارنى قايتا تەرتىپلە(_R)"
+
+#: panel-plugin/settings-dialog.ui:651
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "ئاخىرقى قېتىم كۆچۈرگەن تېكىستنى تارىخ خاتىرىسىنىڭ ئەڭ بېشىغا يۆتكەيدۇ، كونا تۈرنى قايتا تەرتىپلەشكە پايدىلىق"
+
+#: panel-plugin/settings-dialog.ui:663
+msgid "Re_verse history order"
+msgstr "ئىز تەرتىپىنى تەتۈر قىل(_V)"
+
+#: panel-plugin/settings-dialog.ui:667
+msgid "Reverse order of the history shown in the menu"
+msgstr "تىزىملىكتە كۆرسىتىلگەن ئىزنىڭ تەرتىپىنى تەتۈر قىلىدۇ"
+
+#: panel-plugin/settings-dialog.ui:679
+msgid "Ignore mouse s_elections"
+msgstr "چاشقىنەك تاللاش رايونىغا پەرۋا قىلمايدۇ(_E)"
+
+#: panel-plugin/settings-dialog.ui:684
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
 msgstr "تاللانسا، ئىزغا قولدا كۆچۈرۈلگەن نەرسىلا كىرىدۇ، تاللانغان تېكىست رايونىغا تەسىر قىلمايدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:22
+#: panel-plugin/settings-dialog.ui:703
 msgid "Size of the _history:"
 msgstr "ئىزنىڭ چوڭلۇقى(_H):"
 
-#: ../panel-plugin/settings-dialog.ui.h:23
-msgid "<b>History</b>"
-msgstr "<b>ئىز</b>"
+#: panel-plugin/settings-dialog.ui:719
+msgid "5"
+msgstr "5"
 
-#: ../panel-plugin/settings-dialog.ui.h:24
-msgid "General"
-msgstr "ئادەتتىكى"
+#: panel-plugin/settings-dialog.ui:753
+msgid "H_istory"
+msgstr "تارىخ(_I)"
 
-#: ../panel-plugin/settings-dialog.ui.h:25
-msgid "_Enable automatic actions"
-msgstr ""
+#: panel-plugin/settings-dialog.ui:777
+msgid "Edit Action"
+msgstr "تەھرىرلەش مەشغۇلاتى"
 
-#: ../panel-plugin/settings-dialog.ui.h:26
+#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
+msgid "_Cancel"
+msgstr "ۋاز كەچ(_C)"
+
+#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
+msgid "_OK"
+msgstr "جەزملە(_O)"
+
+#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
+msgid "Name:"
+msgstr "ئاتى:"
+
+#: panel-plugin/settings-dialog.ui:898
+msgid "Pattern:"
+msgstr "ئەندىزە:"
+
+#: panel-plugin/settings-dialog.ui:985
 msgid ""
-"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
-"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr "بۇيرۇقتا «1\\»، «2\\» ۋە شۇنىڭغا ئوخشاش نامزات پارامېتىرلارنى ئىشلىتەلەيسىز. «0\\» پارامېتىر تولۇق تېكىستكە ۋەكىللىك قىلىدۇ.مەزكۇر ئەندىزە ھەمىشە ئالاھىدە ھەرپ $^ ئىچىگە مۇقىملىنىدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:28
-msgid "Add action"
-msgstr ""
+#: panel-plugin/settings-dialog.ui:1011
+msgid "Activate on manual copy instead of selection"
+msgstr "تاللاشنىڭ ئورنىغا قولدا كۆچۈرۈشنى ئاكتىپلايدۇ"
 
-#: ../panel-plugin/settings-dialog.ui.h:29
-msgid "Edit action"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:30
-msgid "Delete action"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:31
-msgid "Reset all actions to the system default values"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:32
-msgid "Actions"
-msgstr "مەشغۇلاتلار"
-
-#: ../panel-plugin/settings-dialog.ui.h:33
-msgid "Automatically paste a selected item from the history"
-msgstr "تاللانغان تۈرنى ئىزدىن ئاپتوماتىك چاپلىسۇن"
-
-#: ../panel-plugin/settings-dialog.ui.h:34
-msgid "_Paste instantly:"
-msgstr "شۇ ھامان چاپلا(_P):"
-
-#: ../panel-plugin/settings-dialog.ui.h:35
-msgid "P_osition menu at mouse pointer"
-msgstr "تىزىملىك چاشقىنەك بار ئورۇندا تۇرسۇن(_O)"
-
-#: ../panel-plugin/settings-dialog.ui.h:36
+#: panel-plugin/settings-dialog.ui:1016
 msgid ""
-"Popup the menu at the mouse pointer position, only for the xfce4-popup-"
-"clipman command"
-msgstr "بۇيرۇق xfce4-popup-clipman نى ئىجرا قىلغاندا تىزىملىكنى چاشقىنەك ئىسترېلكىسىنىڭ ئورنىدا سەكرىتىپ كۆرسىتىدۇ."
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr "كۆڭۈلدىكى ئەھۋالدا، مەزكۇر مەشغۇلات تاللاشتىن قوزغىلىدۇ: ئەگەر قولدا كۆچۈرگەندە ئاندىن مەزكۇر مەشغۇلاتنى قوزغىتىشقا ئۆزگەرتمەكچى بولسىڭىز، بۇ تاللانمىنى تاللاڭ. ئەسكەرتىش، بۇ خىل ئەھۋالدا Control كۇنۇپكىسى ئۈنۈمىنى يوقىتىدۇ."
 
-#: ../panel-plugin/settings-dialog.ui.h:37
-msgid "_Reorder history items"
-msgstr "ئىزلارنى قايتا تەرتىپلە(_R)"
+#: panel-plugin/settings-dialog.ui:1033
+msgid "<b>Action</b>"
+msgstr "<b>مەشغۇلات</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:38
-msgid ""
-"Push last copied text to the top of the history, useful to reorder old items"
-msgstr "ئىزدا كۆچۈرگەن مەزمۇن بىلەن ئوخشاش مەزمۇن بولسا ئۇنى ئىزنىڭ ئەڭ بېشىغا يۆتكەيدۇ."
+#: panel-plugin/settings-dialog.ui:1102
+msgid "Command:"
+msgstr "بۇيرۇق:"
 
-#: ../panel-plugin/settings-dialog.ui.h:39
-msgid "Re_verse history order"
-msgstr "ئىز تەرتىپىنى تەتۈر قىل(_V)"
+#: panel-plugin/settings-dialog.ui:1243
+msgid "<b>Commands</b>"
+msgstr "<b>بۇيرۇقلار</b>"
 
-#: ../panel-plugin/settings-dialog.ui.h:40
-msgid "Reverse order of the history shown in the menu"
-msgstr "تىزىملىكتە كۆرسىتىلگەن ئىزنىڭ تەرتىپىنى تەتۈر قىلىدۇ"
+#: panel-plugin/settings-dialog.ui:1269
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr "بۇ جايغا مەسىلەن تور ئادرېسى، ھۆججەت ئىسمى قاتارلىق ئىختىيارى ئۇچۇرنى كىرگۈزۈڭ."
 
-#: ../panel-plugin/settings-dialog.ui.h:41
-msgid "_Show actions by holding Control"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:42
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be shown"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:43
-msgid "S_kip actions by holding Control"
-msgstr ""
-
-#: ../panel-plugin/settings-dialog.ui.h:44
-msgid ""
-"When the selection is done (mouse or keyboard) and the Control key is still "
-"pressed down, the popup menu for matched actions will be skipped"
-msgstr "تاللاش تاماملانغاندا(چاشقىنەك ياكى ھەرپتاختىسى ئىشلىتىپ) Control كۇنۇپكىسى يەنىلا بېسىلىپ تۇرسا، ئىزدەش مەشغۇلاتىڭ سەكرىمە تىزىملىكى كۆرسىتىلمەيدۇ."
-
-#: ../panel-plugin/settings-dialog.ui.h:45
-msgid "Tweaks"
-msgstr "تەپسىلاتلار"
-
-#: ../panel-plugin/settings-dialog.ui.h:46
+#: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
 msgstr "مۇنتىزىم ئىپادە"
 
-#: ../panel-plugin/main-panel-plugin.c:97
-#: ../panel-plugin/main-status-icon.c:137
+#: panel-plugin/main-panel-plugin.c:120 panel-plugin/main-status-icon.c:151
 msgid "_Disable"
-msgstr "ئىناۋەتسىز(_D)"
+msgstr "چەكلە(_D)"
 
-#: ../panel-plugin/actions.c:370
+#: panel-plugin/actions.c:373
 #, c-format
 msgid ""
 "Unable to execute the command \"%s\"\n"
@@ -308,39 +351,67 @@ msgid ""
 "%s"
 msgstr "بۇيرۇق \"%s\" نى ئىجرا قىلغىلى بولمىدى \n\n%s"
 
-#: ../panel-plugin/menu.c:234
-msgid "Are you sure you want to clear the history?"
-msgstr "ئىزلارنى تازىلىۋېتەمسىز؟"
+#: panel-plugin/common.c:34
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "چاپلاش تاختىسى باشقۇرغۇچ نازارەتچىسىنى قوزغىتالمىدى چۈنكى ئۇ ئىجرا قىلىنىۋېتىپتۇ."
 
-#: ../panel-plugin/menu.c:239
+#: panel-plugin/common.c:35
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "Xfce چاپلاش تاختىسى باشقۇرغۇچ ئىجرا بولۇۋېتىپتۇ."
+
+#: panel-plugin/common.c:42
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "ئۇنى «xfce4-clipman» دە قوزغىتالايسىز."
+
+#: panel-plugin/common.c:43
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "چاپلاش تاختىسى باشقۇرغۇچ نازارەتچىسى ئىجرا بولمايۋاتىدۇ."
+
+#: panel-plugin/menu.c:171
+msgid "Are you sure you want to clear the history?"
+msgstr "تارىخنى تازىلىۋېتەمسىز؟"
+
+#: panel-plugin/menu.c:176
 msgid "Don't ask again"
 msgstr "قايتا سورىما"
 
-#: ../panel-plugin/menu.c:362
-msgid "Could not generate QR-Code."
-msgstr ""
+#: panel-plugin/menu.c:224
+msgid "Unable to open the Clipman history dialog"
+msgstr "‫Clipman نىڭ تارىخ خاتىرىسى سۆزلەشكۈسىنى ئاچالمايدۇ"
 
-#. Insert empty menu item
-#: ../panel-plugin/menu.c:376
-msgid "Clipboard is empty"
-msgstr "چاپلاش تاختىسى قۇرۇق"
-
-#: ../panel-plugin/menu.c:475
+#: panel-plugin/menu.c:282 panel-plugin/menu.c:539
 msgid "_Clear history"
-msgstr ""
+msgstr "تارىخ تازىلا(_C)"
 
-#: ../panel-plugin/plugin.c:307
+#: panel-plugin/menu.c:383
+msgid "_Clear clipboard"
+msgstr "چاپلاش تاختىسىنى تازىلا(_C)"
+
+#: panel-plugin/menu.c:429
+msgid "Could not generate QR-Code."
+msgstr "‫QR كودىنى ھاسىلليالمايدۇ."
+
+#: panel-plugin/menu.c:530
+msgid "_Show full history..."
+msgstr "تولۇق تارىخ خاتىرىسىنى كۆرسەت(_S)…"
+
+#: panel-plugin/menu.c:547
+msgid "_Clipman settings..."
+msgstr "Clipman تەڭشىكى()…"
+
+#: panel-plugin/plugin.c:444
 msgid "Contributors:"
 msgstr "تۆھپىكارلار:"
 
-#: ../panel-plugin/plugin.c:321
+#: panel-plugin/plugin.c:462
 msgid "Clipboard Manager for Xfce"
-msgstr "Xfce دىكى چاپلاش تاختىسىنى باشقۇرغۇ"
+msgstr "Xfce دىكى چاپلاش تاختىسىنى باشقۇرغۇچ"
 
-#: ../panel-plugin/plugin.c:329
+#: panel-plugin/plugin.c:470
 msgid "translator-credits"
-msgstr "غەيرەت ت.كەنجى <gheyret@gmail.com>"
+msgstr "غەيرەت ت.كەنجى <gheyret@gmail.com>\nئابدۇقادىر ئابلىز <sahranbay@gmail.com>"
 
-#: ../panel-plugin/plugin.c:343
+#: panel-plugin/plugin.c:484
 msgid "Unable to open the settings dialog"
 msgstr "تەڭشەك كۆزنىكىنى كۆرسەتكىلى بولمىدى"
