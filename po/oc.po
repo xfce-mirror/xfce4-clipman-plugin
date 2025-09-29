@@ -3,8 +3,9 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
-# Cédric Valmary <cvalmary@yahoo.fr>, 2014,2016
+# Cédric Valmary <cvalmary@yahoo.fr>, 2013-2014,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2022,2024
 # Quentin PAGÈS, 2022,2024
 msgid ""
 msgstr ""
@@ -40,7 +41,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr ""
+msgstr "Lo gestionari de quichapapièrs es provesit coma plugin de panèl per Xfce e coma aplicacion autonòma foncionant dins la zòna de notificacion. Consèrva un istoric del tèxt e dels imatges del contengut copiat dins lo quichapapièrs. Tanben a una foncionalitat per executar d'accions sus una seleccion de tèxt especifica en las fasent correspondre a d'expressions regularas."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
@@ -48,7 +49,7 @@ msgstr "Gestionari de quichapapièrs"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
-msgstr ""
+msgstr "Fichièr d’aviada auto del gestionari de quichapapièrs"
 
 #: panel-plugin/xfce4-clipman-settings.c:117
 msgid "None"
@@ -79,11 +80,11 @@ msgstr "<b>Reïnicializar las accions</b>"
 #: panel-plugin/xfce4-clipman-settings.c:546
 msgid ""
 "Are you sure you want to reset the actions to the system default values?"
-msgstr "Sètz segur que volètz reïnicializar las accions a las valors per defaut del sistèma ?"
+msgstr "Volètz vertadièrament reïnicializar las accions a las valors per defaut del sistèma ?"
 
 #: panel-plugin/xfce4-clipman-history.c:259
 msgid "Enter search phrase here"
-msgstr ""
+msgstr "Picatz una frasa de cercar aicí"
 
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
@@ -128,7 +129,7 @@ msgstr "_Tampar"
 
 #: panel-plugin/settings-dialog.ui:117
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Sincronizar las _seleccions a la mirga"
 
 #: panel-plugin/settings-dialog.ui:122
 msgid ""
@@ -136,22 +137,22 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "S'es marcat, las seleccions seràn sincronizadas amb lo quichapapièrs per defaut, per que poscatz pegar çò que seleccionatz amb Ctrl-V. A l'invèrs, las còpias manualas seràn sincronizadas amb lo quichapapièrs primari, per que poscatz pegar çò que copiatz amb un clic central."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "_Perdurar las seleccions a la mirga"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "S'es marcat, lo quichapapièrs primari (còpia amb clic central) persistirà fins a la seleccion seguenta se la seleccion actuala es perduda (per exemple, en clicant amb lo boton esquèrre endacòm mai dins una zòna de tèxte)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
-msgstr ""
+msgstr "Presa en carga dels _QR còdis"
 
 #: panel-plugin/settings-dialog.ui:156
 msgid ""
@@ -179,7 +180,7 @@ msgstr "P_osicionar lo menú amb lo puntador de la mirga"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Afichar lo menú a la posicion del puntador de la mirga : particularament util per la comanda xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -195,23 +196,23 @@ msgstr "_Compòrtament"
 
 #: panel-plugin/settings-dialog.ui:343
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>_Activar las accions automaticas</b>"
 
 #: panel-plugin/settings-dialog.ui:358
 msgid ""
 "If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
 "Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
-msgstr ""
+msgstr "S'es marcat, los tèxtes del quichapapièrs seràn comparats a d'expressions racionalas e un menú aficharà automaticament las accions possiblas.\nSenon, lo menú apareisserà pas qu'en apelant « xfce4-popup-clipman-actions » (e qu'una correspondéncia es estada trobada)"
 
 #: panel-plugin/settings-dialog.ui:384
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Quand la seleccion es facha e que la tòca Ctrl es totjorn<ctrl61> quichada, lo menú desplegable per las accions concordantas serà mostrat o amagat"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "_Quichar Ctrl pendent la seleccion :"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -235,16 +236,16 @@ msgstr "_Accions"
 
 #: panel-plugin/settings-dialog.ui:594
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Memorizar l’istoric</b>"
 
 #: panel-plugin/settings-dialog.ui:631
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Memorizar lo darrièr _imatge copiat"
 
 #: panel-plugin/settings-dialog.ui:635
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "S'es marada, aquesta opcion permet de servar un imatge dins l'istoric"
 
 #: panel-plugin/settings-dialog.ui:647
 msgid "_Reorder history items"
@@ -265,7 +266,7 @@ msgstr "Inversa l'òrdre de l'istoric mostrat dins lo menú"
 
 #: panel-plugin/settings-dialog.ui:679
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Ignorar las s_eleccions a la mirga"
 
 #: panel-plugin/settings-dialog.ui:684
 msgid ""
@@ -309,18 +310,18 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Podètz utilizar los paramètres de substitucion \"\\1\", \"\\2\" e mai dins las comandas. Lo paramètre \"\\0\" representa lo tèxte complèt. Lo motiu es totjorn ancorat dins los caractèrs especials ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Activar sus còpia manuala al lòc de seleccion"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Per defaut l'accion es desencadenada per una seleccion : marcatz aquesta opcion per desencadenar l'accion quand realizatz una còpia manuala a la plaça. Notatz que dins aqueste cas, la tòca Ctrl a pas mai cap d'efièch."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -336,7 +337,7 @@ msgstr "<b>Comandas</b>"
 
 #: panel-plugin/settings-dialog.ui:1269
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Picatz aicí vòstre tèxte personalizat, per exemple una URL, un nom de fichièr, etc."
 
 #: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
@@ -357,19 +358,19 @@ msgstr "Impossible d'executar la comanda « %s »\n\n%s"
 #: panel-plugin/common.c:34
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Lo demòni del gestionari de quichapapièrs se podiá pas aviar perque es ja en execucion."
 
 #: panel-plugin/common.c:35
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Lo Gestionari de quichapapièrs Xfce es ja en execucion."
 
 #: panel-plugin/common.c:42
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Lo podètz lançar amb « xfce4-clipman »."
 
 #: panel-plugin/common.c:43
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Lo demòni del gestionari de quichapapièrs es pas en execucion."
 
 #: panel-plugin/menu.c:171
 msgid "Are you sure you want to clear the history?"
@@ -381,23 +382,23 @@ msgstr "Demandar pas mai"
 
 #: panel-plugin/menu.c:224
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Impossible de dobrir la bóstia de dialòg de l'istoric de Clipman"
 
 #: panel-plugin/menu.c:282 panel-plugin/menu.c:539
 msgid "_Clear history"
-msgstr "Es_cafar l''istoric"
+msgstr "Es_cafar l'istoric"
 
 #: panel-plugin/menu.c:383
 msgid "_Clear clipboard"
-msgstr "Es_cafar l''istoric"
+msgstr "Es_cafar l'istoric"
 
 #: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
-msgstr "Fracàs de generacion del còde QR"
+msgstr "Fracàs de generacion del còde QR."
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
-msgstr "_Afichar l’istoric complèt"
+msgstr "_Afichar l’istoric complèt..."
 
 #: panel-plugin/menu.c:547
 msgid "_Clipman settings..."
@@ -413,7 +414,7 @@ msgstr "Gestionari de quichapapièrs per Xfce"
 
 #: panel-plugin/plugin.c:470
 msgid "translator-credits"
-msgstr "Cédric Valmary (totenoc.org)"
+msgstr "Cédric Valmary (totenoc.org)\nQuentin PAGÈS"
 
 #: panel-plugin/plugin.c:484
 msgid "Unable to open the settings dialog"
