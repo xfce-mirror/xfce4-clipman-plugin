@@ -321,7 +321,7 @@ msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr "Per defaut l'accion es desencadenada per una seleccion : marcatz aquesta opcion per desencadenar l'accion quand realizatz una còpia manuala a la plaça. Notatz que dins aqueste cas, la tòca Ctrl a pas mai cap d'efièch."
+msgstr "Per defaut l'accion es desencadenada per una seleccion : marcatz aquesta opcion per desencadenar l'accion quand realizatz una còpia manuala a la plaça. Notatz que dins aqueste cas, la tòca Ctrl a pas mai cap d'efièit."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -374,7 +374,7 @@ msgstr "Lo demòni del gestionari de quichapapièrs es pas en execucion."
 
 #: panel-plugin/menu.c:171
 msgid "Are you sure you want to clear the history?"
-msgstr "Sètz segur que volètz escafar l'istoric ?"
+msgstr "Volètz vertadièrament escafar l'istoric ?"
 
 #: panel-plugin/menu.c:176
 msgid "Don't ask again"
@@ -394,7 +394,7 @@ msgstr "Es_cafar l'istoric"
 
 #: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
-msgstr "Fracàs de generacion del còde QR."
+msgstr "Fracàs de generacion del còdi QR."
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
