@@ -208,7 +208,7 @@ msgstr "S'es marcat, los tèxtes del quichapapièrs seràn comparats a d'express
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr "Quand la seleccion es facha e que la tòca Ctrl es totjorn<ctrl61> quichada, lo menú desplegable per las accions concordantas serà mostrat o amagat"
+msgstr "Quand la seleccion es faita e que la tòca Ctrl es totjorn<ctrl61> quichada, lo menú desplegable per las accions concordantas serà mostrat o amagat"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
