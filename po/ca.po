@@ -44,7 +44,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "El gestor del porta-retalls es proporciona com a connector del tauler per a Xfce i com a aplicació autònoma que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiats al porta-retalls. També té una característica per executar accions en una selecció de text específica fent-les coincidir amb execucions regulars."
+msgstr "El gestor del porta-retalls es proporciona com a connector del panell per a Xfce i com a aplicació autònoma que s'executa a l'àrea de notificació. Manté un historial de text i imatges de contingut copiats al porta-retalls. També té una característica per executar accions en una selecció de text específica fent-les coincidir amb execucions regulars."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
