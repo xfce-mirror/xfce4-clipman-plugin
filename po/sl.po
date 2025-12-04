@@ -44,7 +44,7 @@ msgstr "Upravljalnik odložišča Clipman je na voljo kot vtičnik za Xfce pano 
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
-msgstr "Upravljanik odložišča Clipman"
+msgstr "Upravljalnik odložišča Clipman"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
@@ -100,7 +100,7 @@ msgstr "_Kopiraj"
 
 #: panel-plugin/xfce4-clipman-history.c:424
 msgid "Clipman History"
-msgstr "Clipman zgodovina "
+msgstr "Clipman zgodovina"
 
 #: panel-plugin/xfce4-clipman-history.c:432 panel-plugin/settings-dialog.ui:49
 msgid "_Help"
@@ -112,7 +112,7 @@ msgstr "_Nastavitve"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:4
 msgid "Clipboard Manager Settings"
-msgstr "Nastavitve upravljanika odložišča Clipman"
+msgstr "Nastavitve upravljalnika odložišča Clipman"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:5
 msgid "Customize your clipboard"
@@ -357,11 +357,11 @@ msgstr "Ni bilo mogoče zagnati ukaza \"%s\"\n\n%s"
 #: panel-plugin/common.c:34
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr "Ne morem zagnati demona upravljalnika odložišča Clišman, ker je ta že zagnan."
+msgstr "Ne morem zagnati demona upravljalnika odložišča Clipman, ker je ta že zagnan."
 
 #: panel-plugin/common.c:35
 msgid "The Xfce Clipboard Manager is already running."
-msgstr "Xfce upravljalnik odložišča Clipman je že zagnan"
+msgstr "Xfce upravljalnik odložišča Clipman je že zagnan."
 
 #: panel-plugin/common.c:42
 msgid "You can launch it with 'xfce4-clipman'."
@@ -397,7 +397,7 @@ msgstr "Ni bilo mogoče ustvariti QR-kode"
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
-msgstr "Prikaži v_so zgodovino"
+msgstr "Prikaži v_so zgodovino..."
 
 #: panel-plugin/menu.c:547
 msgid "_Clipman settings..."
