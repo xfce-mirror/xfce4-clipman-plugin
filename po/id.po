@@ -3,8 +3,9 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
-# Andhika Padmawan <andhika.padmawan@gmail.com>, 2014
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2009,2014
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2009
+# Arif Budiman <arifpedia@gmail.com>, 2026
 # Triyan W. Nugroho <triyan.wn@gmail.com>, 2020
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:05+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>, 2020\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>, 2026\n"
 "Language-Team: Indonesian (http://app.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,11 +67,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:155
 msgid "shows actions"
-msgstr ""
+msgstr "menampilkan tindakan"
 
 #: panel-plugin/xfce4-clipman-settings.c:156
 msgid "hides actions"
-msgstr ""
+msgstr "menyembunyikan tindakan"
 
 #: panel-plugin/xfce4-clipman-settings.c:544
 msgid "<b>Reset actions</b>"
@@ -88,7 +89,7 @@ msgstr "Masukkan frasa pencarian di sini"
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
 msgid "History is empty"
-msgstr ""
+msgstr "Riwayat kosong"
 
 #: panel-plugin/xfce4-clipman-history.c:385
 msgid "_Paste"
@@ -136,18 +137,18 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Jika dicentang, pilihan akan disinkronkan dengan papan klip default, sehingga Anda dapat menempelkan apa yang Anda pilih dengan Ctrl-V. Sebaliknya, penyalinan manual akan disinkronkan dengan papan klip utama, sehingga Anda dapat menempelkan apa yang Anda salin dengan klik tengah."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "Pertahankan pilihan mouse"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Jika dicentang, papan klip utama (tempel dengan klik tengah) akan dipertahankan hingga pilihan berikutnya jika pilihan saat ini hilang (misalnya dengan mengklik kiri di mana saja dalam area teks)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -179,7 +180,7 @@ msgstr "P_osisi menu di penunjuk tetikus"
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Munculkan menu pada posisi penunjuk mouse: sangat berguna untuk perintah xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -207,11 +208,11 @@ msgstr "Jika dicentang, teks papan klip akan disesuaikan dengan ekspresi reguler
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Saat pemilihan selesai dan tombol Control masih ditekan, menu popup untuk tindakan yang cocok akan ditampilkan atau disembunyikan"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "Menekan Ctrl saat pemilihan:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -313,14 +314,14 @@ msgstr "Anda bisa menggunakan parameter penggantian \"\\1\", \"\\2\" dan seterus
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Aktifkan pada penyalinan manual alih-alih pemilihan"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Secara default tindakan dipicu oleh pemilihan: centang opsi ini untuk memicu tindakan saat Anda melakukan penyalinan manual sebagai gantinya. Perhatikan bahwa dalam hal ini, tombol Control tidak lagi berpengaruh."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -381,7 +382,7 @@ msgstr "Jangan tanyakan lagi"
 
 #: panel-plugin/menu.c:224
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Tidak dapat membuka dialog riwayat Clipman"
 
 #: panel-plugin/menu.c:282 panel-plugin/menu.c:539
 msgid "_Clear history"
@@ -389,7 +390,7 @@ msgstr "_bersihkan riwayat"
 
 #: panel-plugin/menu.c:383
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "Bersihkan papan klip"
 
 #: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
