@@ -288,7 +288,7 @@ msgstr "Әрекетті баптау"
 
 #: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
 msgid "_Cancel"
-msgstr ""
+msgstr "_Бас тарту"
 
 #: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
 msgid "_OK"
