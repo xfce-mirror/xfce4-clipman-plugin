@@ -64,11 +64,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:155
 msgid "shows actions"
-msgstr ""
+msgstr "әрекеттерді көрсетеді"
 
 #: panel-plugin/xfce4-clipman-settings.c:156
 msgid "hides actions"
-msgstr ""
+msgstr "әрекеттерді жасырады"
 
 #: panel-plugin/xfce4-clipman-settings.c:544
 msgid "<b>Reset actions</b>"
@@ -86,7 +86,7 @@ msgstr "Осында іздеу сөзін енгізіңіз"
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
 msgid "History is empty"
-msgstr ""
+msgstr "Тарих бос"
 
 #: panel-plugin/xfce4-clipman-history.c:385
 msgid "_Paste"
@@ -126,7 +126,7 @@ msgstr "_Жабу"
 
 #: panel-plugin/settings-dialog.ui:117
 msgid "Sync mouse _selections"
-msgstr ""
+msgstr "Тышқан _таңдауларын синхрондау"
 
 #: panel-plugin/settings-dialog.ui:122
 msgid ""
@@ -134,28 +134,28 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr ""
+msgstr "Егер белгіленсе, таңдаулар әдепкі алмасу буферімен синхрондалады, сондықтан Ctrl-V пернелерімен таңдалған нәрсені кірістіре аласыз. Керісінше, қолмен көшірілгендер негізгі алмасу буферімен синхрондалады, сондықтан ортаңғы батырманы шерту арқылы көшірген нәрсені кірістіре аласыз."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
-msgstr ""
+msgstr "Тышқан таңдауларын _сақтау"
 
 #: panel-plugin/settings-dialog.ui:139
 msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr ""
+msgstr "Егер белгіленсе, ағымдағы таңдау жоғалған жағдайда (мысалы, мәтіндік аймақтың кез келген жерін сол жақ батырмамен шерту арқылы), негізгі алмасу буфері (ортаңғы батырмамен кірістіру) келесі таңдауға дейін сақталады"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
-msgstr ""
+msgstr "QR-_код қолдауы"
 
 #: panel-plugin/settings-dialog.ui:156
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Белгіленген болса, мәзірде ағымдағы таңдалған алмасу буфері элементінің QR-коды көрсетіледі."
+msgstr "Белгіленген болса, мәзірде ағымдағы таңдалған алмасу буфері элементінің QR-коды көрсетіледі"
 
 #: panel-plugin/settings-dialog.ui:170
 msgid "Automatically paste a selected item from the history"
@@ -177,7 +177,7 @@ msgstr "Мәзірді тышқан курс_оры қасында көрсет�
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr ""
+msgstr "Мәзірді тышқан көрсеткішінің орнында шығару: әсіресе xfce4-popup-clipman командасы үшін пайдалы"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -193,7 +193,7 @@ msgstr "_Мінез-құлығы"
 
 #: panel-plugin/settings-dialog.ui:343
 msgid "<b>_Enable automatic actions</b>"
-msgstr ""
+msgstr "<b>Автоматты әрекеттерді іс_ке қосу</b>"
 
 #: panel-plugin/settings-dialog.ui:358
 msgid ""
@@ -205,11 +205,11 @@ msgstr "Таңдалған болса, алмасу буферінің мәті�
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr ""
+msgstr "Таңдау аяқталып, Control пернесі басулы тұрғанда, сәйкес әрекеттерге арналған қалқымалы мәзір көрсетіледі немесе жасырылады"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr ""
+msgstr "Таңдау кезінде Ctrl пернесін _басу:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -229,20 +229,20 @@ msgstr "Барлық әрекеттерді бастапқы мәндерге т
 
 #: panel-plugin/settings-dialog.ui:571
 msgid "_Actions"
-msgstr ""
+msgstr "Ә_рекеттер"
 
 #: panel-plugin/settings-dialog.ui:594
 msgid "<b>Remember history</b>"
-msgstr ""
+msgstr "<b>Тарихты есте сақтау</b>"
 
 #: panel-plugin/settings-dialog.ui:631
 msgid "Remember last copied _image"
-msgstr ""
+msgstr "Соңғы көшірілген _суретті есте сақтау"
 
 #: panel-plugin/settings-dialog.ui:635
 msgid ""
 "If checked, this option allows one to store one image inside the history"
-msgstr ""
+msgstr "Егер белгіленсе, бұл опция тарих ішінде бір суретті сақтауға мүмкіндік береді"
 
 #: panel-plugin/settings-dialog.ui:647
 msgid "_Reorder history items"
@@ -263,7 +263,7 @@ msgstr "Мәзірде тарих кері ретте көрсетіледі"
 
 #: panel-plugin/settings-dialog.ui:679
 msgid "Ignore mouse s_elections"
-msgstr ""
+msgstr "Тышқан _таңдауларын елемеу"
 
 #: panel-plugin/settings-dialog.ui:684
 msgid ""
@@ -276,11 +276,11 @@ msgstr "Тар_их өлшемі:"
 
 #: panel-plugin/settings-dialog.ui:719
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: panel-plugin/settings-dialog.ui:753
 msgid "H_istory"
-msgstr ""
+msgstr "Т_арих"
 
 #: panel-plugin/settings-dialog.ui:777
 msgid "Edit Action"
@@ -307,18 +307,18 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr ""
+msgstr "Командаларда \"\\1\", \"\\2\" және т.б. ауыстыру параметрлерін пайдалануға болады. \"\\0\" параметрі толық мәтінді білдіреді. Үлгі әрқашан ^$ арнайы таңбаларымен шектеледі"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
-msgstr ""
+msgstr "Таңдаудың орнына қолмен көшіру кезінде белсендіру"
 
 #: panel-plugin/settings-dialog.ui:1016
 msgid ""
 "By default the action is triggered by a selection: check this option to "
 "trigger the action when you make a manual copy instead. Note that in this "
 "case, the Control key no longer has any effect."
-msgstr ""
+msgstr "Әдетте әрекет таңдау арқылы іске қосылады: оның орнына қолмен көшіру кезінде әрекетті іске қосу үшін бұл опцияны белгілеңіз. Бұл жағдайда Control пернесі бұдан былай ешқандай әсер етпейтінін ескеріңіз."
 
 #: panel-plugin/settings-dialog.ui:1033
 msgid "<b>Action</b>"
@@ -334,7 +334,7 @@ msgstr "<b>Командалар</b>"
 
 #: panel-plugin/settings-dialog.ui:1269
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr ""
+msgstr "Мұнда таңдамалы мәтінді енгізіңіз, мысалы, URL, файл аты және т.б."
 
 #: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
@@ -355,19 +355,19 @@ msgstr "\"%s\" командасын жөнелту мүмкін емес\n\n%s"
 #: panel-plugin/common.c:34
 msgid ""
 "Could not start the Clipboard Manager Daemon because it is already running."
-msgstr ""
+msgstr "Алмасу буфері менеджерінің қызметін іске қосу мүмкін болмады, өйткені ол бұрыннан жұмыс істеп тұр."
 
 #: panel-plugin/common.c:35
 msgid "The Xfce Clipboard Manager is already running."
-msgstr ""
+msgstr "Xfce алмасу буфері менеджері жұмыс істеп тұр."
 
 #: panel-plugin/common.c:42
 msgid "You can launch it with 'xfce4-clipman'."
-msgstr ""
+msgstr "Оны 'xfce4-clipman' арқылы іске қосуға болады."
 
 #: panel-plugin/common.c:43
 msgid "The Clipboard Manager Daemon is not running."
-msgstr ""
+msgstr "Алмасу буфері менеджерінің қызметі жұмыс істеп тұрған жоқ."
 
 #: panel-plugin/menu.c:171
 msgid "Are you sure you want to clear the history?"
@@ -379,7 +379,7 @@ msgstr "Келесі рет сұрамау"
 
 #: panel-plugin/menu.c:224
 msgid "Unable to open the Clipman history dialog"
-msgstr ""
+msgstr "Clipman тарихы сұхбат терезесін ашу мүмкін емес"
 
 #: panel-plugin/menu.c:282 panel-plugin/menu.c:539
 msgid "_Clear history"
@@ -387,7 +387,7 @@ msgstr "Тарихты та_зарту"
 
 #: panel-plugin/menu.c:383
 msgid "_Clear clipboard"
-msgstr ""
+msgstr "Алмасу буферін _тазалау"
 
 #: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
@@ -395,11 +395,11 @@ msgstr "QR-кодын генерациялау мүмкін емес."
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
-msgstr ""
+msgstr "Толық тарихты _көрсету..."
 
 #: panel-plugin/menu.c:547
 msgid "_Clipman settings..."
-msgstr ""
+msgstr "Clipman _баптаулары..."
 
 #: panel-plugin/plugin.c:444
 msgid "Contributors:"
@@ -411,7 +411,7 @@ msgstr "Xfce үшін алмасу буфері басқарушысы"
 
 #: panel-plugin/plugin.c:470
 msgid "translator-credits"
-msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #: panel-plugin/plugin.c:484
 msgid "Unable to open the settings dialog"
