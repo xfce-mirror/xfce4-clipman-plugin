@@ -104,7 +104,9 @@ plugin_register (void)
       return NULL;
     }
 
+#ifdef STATUS_ICON
   g_set_application_name (_("Clipman"));
+#endif
   plugin = g_slice_new0 (MyPlugin);
   plugin->app = app;
   g_signal_connect_swapped (plugin->app, "activate", G_CALLBACK (plugin_popup_menu), plugin);
