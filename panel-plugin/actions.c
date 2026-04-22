@@ -501,7 +501,7 @@ clipman_actions_add (ClipmanActions *actions,
     {
       /* Validate the regex */
       regex_anchored = g_strdup_printf ("%s$", regex);
-      _regex = g_regex_new (regex_anchored, G_REGEX_CASELESS | G_REGEX_ANCHORED, G_REGEX_MATCH_NOTEMPTY, NULL);
+      _regex = g_regex_new (regex_anchored, G_REGEX_CASELESS | G_REGEX_ANCHORED | G_REGEX_DOTALL, G_REGEX_MATCH_NOTEMPTY, NULL);
       g_free (regex_anchored);
       if (_regex == NULL)
         return FALSE;
