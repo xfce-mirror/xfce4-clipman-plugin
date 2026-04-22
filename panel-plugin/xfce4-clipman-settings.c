@@ -407,6 +407,8 @@ apply_action (const gchar *original_action_name)
   /* Refresh the actions treeview */
   treeview = GTK_WIDGET (gtk_builder_get_object (builder, "actions"));
   refresh_actions_treeview (GTK_TREE_VIEW (treeview));
+
+  clipman_actions_save (actions);
 }
 
 static void
@@ -918,7 +920,6 @@ static void
 shutdown (GApplication *app,
           gpointer user_data)
 {
-  clipman_actions_save (actions);
   g_object_unref (actions);
   g_object_unref (builder);
   g_object_unref (xfconf_channel);
