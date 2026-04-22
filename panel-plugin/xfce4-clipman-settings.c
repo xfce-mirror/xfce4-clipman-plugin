@@ -831,7 +831,7 @@ update_test_regex_textview_tags (void)
 
   /* Build Regex */
   pattern = gtk_entry_get_text (GTK_ENTRY (entry));
-  regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_MULTILINE, 0, NULL);
+  regex = clipman_actions_get_regex (pattern);
   if (regex == NULL)
     {
       gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry), GTK_ENTRY_ICON_SECONDARY, "dialog-error");

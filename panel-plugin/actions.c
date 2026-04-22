@@ -488,7 +488,6 @@ clipman_actions_add (ClipmanActions *actions,
   ClipmanActionsEntry *entry;
   GSList *l;
   GRegex *_regex;
-  gchar *regex_anchored;
 
   g_return_val_if_fail (action_name != NULL, FALSE);
   g_return_val_if_fail (command_name != NULL, FALSE);
@@ -500,9 +499,7 @@ clipman_actions_add (ClipmanActions *actions,
   if (l == NULL)
     {
       /* Validate the regex */
-      regex_anchored = g_strdup_printf ("%s$", regex);
-      _regex = g_regex_new (regex_anchored, G_REGEX_CASELESS | G_REGEX_ANCHORED | G_REGEX_DOTALL, G_REGEX_MATCH_NOTEMPTY, NULL);
-      g_free (regex_anchored);
+      _regex = clipman_actions_get_regex (regex);
       if (_regex == NULL)
         return FALSE;
 
@@ -933,6 +930,15 @@ clipman_actions_get (void)
     g_object_ref (G_OBJECT (singleton));
 
   return singleton;
+}
+
+GRegex *
+clipman_actions_get_regex (const gchar *pattern)
+{
+  gchar *anchored = g_strdup_printf ("%s$", pattern);
+  GRegex *regex = g_regex_new (anchored, G_REGEX_CASELESS | G_REGEX_ANCHORED | G_REGEX_DOTALL, G_REGEX_MATCH_NOTEMPTY, NULL);
+  g_free (anchored);
+  return regex;
 }
 
 /*
