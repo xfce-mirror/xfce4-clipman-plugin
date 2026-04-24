@@ -1,0 +1,418 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
+# 
+# Translators:
+# BoneNI, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:05+0200\n"
+"PO-Revision-Date: 2013-07-03 18:52+0000\n"
+"Last-Translator: BoneNI, 2026\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:6
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:5
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:4
+#: panel-plugin/main-panel-plugin.c:86 panel-plugin/main-status-icon.c:120
+#: panel-plugin/plugin.c:107 panel-plugin/plugin.c:460
+msgid "Clipman"
+msgstr "Clipman"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:7
+#: panel-plugin/xfce4-clipman-plugin.desktop.in:6
+#: panel-plugin/xfce4-clipman-plugin-autostart.desktop.in:5
+msgid "Clipboard manager"
+msgstr "ຕົວຈັດການຄລິບບອດ"
+
+#: data/appdata/xfce4-clipman.appdata.xml.in:10
+msgid ""
+"Clipboard Manager provided as a panel plugin for Xfce and as a standalone "
+"application running in the notification area. It keeps a history of text and"
+" images of content copied to the clipboard. It also has a feature to execute"
+" actions on specific text selection by matching them against regexes."
+msgstr "ຕົວຈັດການຄລິບບອດທີ່ມີໃຫ້ໃນຮູບແບບປລັກອິນແຜງຄວບຄຸມສຳລັບ Xfce ແລະ ເປັນແອັບພລິເຄຊັນທີ່ເຮັດວຽກດ້ວຍຕົວເອງໃນສ່ວນແຈ້ງເຕືອນ. ມັນເຮັດໜ້າທີ່ເກັບປະຫວັດຂໍ້ຄວາມ ແລະ ຮູບພາບທີ່ຖືກສຳເນົາໄວ້ໃນຄລິບບອດ. ນອກຈາກນີ້ ຍັງມີຄຸນສົມບັດໃນການສັ່ງການກັບຂໍ້ຄວາມທີ່ເລືອກໂດຍການຈັບຄູ່ກັບນິພົດປົກກະຕິ (regexes)."
+
+#: panel-plugin/xfce4-clipman.desktop.in:5
+msgid "Clipboard Manager"
+msgstr "ຕົວຈັດການຄລິບບອດ"
+
+#: panel-plugin/xfce4-clipman.desktop.in:6
+msgid "Clipboard Manager Autostart File"
+msgstr "ໄຟລ໌ເລີ່ມຕົ້ນອັດຕະໂນມັດຂອງຕົວຈັດການຄລິບບອດ"
+
+#: panel-plugin/xfce4-clipman-settings.c:117
+msgid "None"
+msgstr "ບໍ່ມີ"
+
+#. TRANSLATORS: Keyboard shortcut
+#: panel-plugin/xfce4-clipman-settings.c:119
+msgid "Ctrl+V"
+msgstr "Ctrl+V"
+
+#. TRANSLATORS: Keyboard shortcut
+#: panel-plugin/xfce4-clipman-settings.c:121
+msgid "Shift+Insert"
+msgstr "Shift+Insert"
+
+#: panel-plugin/xfce4-clipman-settings.c:155
+msgid "shows actions"
+msgstr "ສະແດງການກະທຳ"
+
+#: panel-plugin/xfce4-clipman-settings.c:156
+msgid "hides actions"
+msgstr "ເຊື່ອງການກະທຳ"
+
+#: panel-plugin/xfce4-clipman-settings.c:544
+msgid "<b>Reset actions</b>"
+msgstr "<b>ຕັ້ງຄ່າການກະທຳຄືນໃໝ່</b>"
+
+#: panel-plugin/xfce4-clipman-settings.c:546
+msgid ""
+"Are you sure you want to reset the actions to the system default values?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຕັ້ງຄ່າການກະທຳຄືນໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນຂອງລະບົບ?"
+
+#: panel-plugin/xfce4-clipman-history.c:259
+msgid "Enter search phrase here"
+msgstr "ປ້ອນຄຳຄົ້ນຫາທີ່ນີ້"
+
+#. Insert empty menu item
+#: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
+msgid "History is empty"
+msgstr "ປະຫວັດຫວ່າງເປົ່າ"
+
+#: panel-plugin/xfce4-clipman-history.c:385
+msgid "_Paste"
+msgstr "_ວາງ"
+
+#: panel-plugin/xfce4-clipman-history.c:390
+msgid "_Copy"
+msgstr "_ສຳເນົາ"
+
+#: panel-plugin/xfce4-clipman-history.c:424
+msgid "Clipman History"
+msgstr "ປະຫວັດ Clipman"
+
+#: panel-plugin/xfce4-clipman-history.c:432 panel-plugin/settings-dialog.ui:49
+msgid "_Help"
+msgstr "_ຊ່ວຍເຫຼືອ"
+
+#: panel-plugin/xfce4-clipman-history.c:436
+msgid "_Settings"
+msgstr "_ການຕັ້ງຄ່າ"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:4
+msgid "Clipboard Manager Settings"
+msgstr "ການຕັ້ງຄ່າຕົວຈັດການຄລິບບອດ"
+
+#: panel-plugin/xfce4-clipman-settings.desktop.in:5
+msgid "Customize your clipboard"
+msgstr "ປັບແຕ່ງຄລິບບອດຂອງທ່ານ"
+
+#: panel-plugin/settings-dialog.ui:30
+msgid "Clipman Settings"
+msgstr "ການຕັ້ງຄ່າ Clipman"
+
+#: panel-plugin/settings-dialog.ui:65
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/settings-dialog.ui:117
+msgid "Sync mouse _selections"
+msgstr "_ປະສານຂໍ້ມູນການເລືອກດ້ວຍເມົາສ໌"
+
+#: panel-plugin/settings-dialog.ui:122
+msgid ""
+"If checked, selections will be synced with the default clipboard, so you can"
+" paste what you select with Ctrl-V. Conversely, manual copies will be synced"
+" with the primary clipboard, so you can paste what you copy with middle-"
+"click."
+msgstr "ຫາກເລືອກ, ສິ່ງທີ່ເລືອກຈະຖືກປະສານຂໍ້ມູນກັບຄລິບບອດມາດຕະຖານ, ເພື່ອໃຫ້ທ່ານສາມາດວາງສິ່ງທີ່ເລືອກດ້ວຍ Ctrl-V. ໃນທາງກັບກັນ, ການສຳເນົາດ້ວຍມືຈະຖືກປະສານຂໍ້ມູນກັບຄລິບບອດຫຼັກ, ເພື່ອໃຫ້ທ່ານສາມາດວາງສິ່ງທີ່ທ່ານສຳເນົາດ້ວຍການຄລິກປຸ່ມກາງຂອງເມົາສ໌."
+
+#: panel-plugin/settings-dialog.ui:134
+msgid "_Persist mouse selections"
+msgstr "_ຮັກສາສິ່ງທີ່ເລືອກດ້ວຍເມົາສ໌ໄວ້"
+
+#: panel-plugin/settings-dialog.ui:139
+msgid ""
+"If checked, the primary clipboard (middle-click paste) will persist until "
+"next selection if current selection is lost (e.g. by left-clicking anywhere "
+"in a text area)"
+msgstr "ຫາກເລືອກ, ຄລິບບອດຫຼັກ (ວາງດ້ວຍປຸ່ມກາງ) ຈະຍັງຄົງຢູ່ຈົນກວ່າຈະມີການເລືອກໃໝ່ ຫາກສິ່ງທີ່ເລືອກໃນປັດຈຸບັນຫາຍໄປ (ຕົວຢ່າງ: ການຄລິກຊ້າຍໃສ່ບ່ອນໃດນຶ່ງໃນເຂດຂໍ້ຄວາມ)"
+
+#: panel-plugin/settings-dialog.ui:151
+msgid "_QR-Code support"
+msgstr "ການຮອງຮັບ _QR-Code"
+
+#: panel-plugin/settings-dialog.ui:156
+msgid ""
+"If checked, the menu shows a QR-Code of the currently selected clipboard "
+"entry"
+msgstr "ຫາກເລືອກ, ເມນູຈະສະແດງ QR-Code ຂອງລາຍການຄລິບບອດທີ່ຖືກເລືອກໃນປັດຈຸບັນ"
+
+#: panel-plugin/settings-dialog.ui:170
+msgid "Automatically paste a selected item from the history"
+msgstr "ວາງລາຍການທີ່ເລືອກຈາກປະຫວັດໂດຍອັດຕະໂນມັດ"
+
+#: panel-plugin/settings-dialog.ui:176
+msgid "_Paste instantly:"
+msgstr "_ວາງທັນທີ:"
+
+#: panel-plugin/settings-dialog.ui:214
+msgid "<b>General</b>"
+msgstr "<b>ທົ່ວໄປ</b>"
+
+#: panel-plugin/settings-dialog.ui:245
+msgid "P_osition menu at mouse pointer"
+msgstr "ຕັ້ງ_ຕຳແໜ່ງເມນູໄວ້ທີ່ຕົວຊີ້ເມົາສ໌"
+
+#: panel-plugin/settings-dialog.ui:249
+msgid ""
+"Popup the menu at the mouse pointer position: especially useful for the "
+"xfce4-popup-clipman command"
+msgstr "ສະແດງເມນູປັອບອັບຢູ່ຕຳແໜ່ງຕົວຊີ້ເມົາສ໌: ເປັນປະໂຫຍດຫຼາຍສຳລັບຄຳສັ່ງ xfce4-popup-clipman"
+
+#: panel-plugin/settings-dialog.ui:267
+msgid "Maximum items:"
+msgstr "ຈຳນວນລາຍການສູງສຸດ:"
+
+#: panel-plugin/settings-dialog.ui:304
+msgid "<b>Menu</b>"
+msgstr "<b>ເມນູ</b>"
+
+#: panel-plugin/settings-dialog.ui:321
+msgid "_Behavior"
+msgstr "_ພຶດຕິກຳ"
+
+#: panel-plugin/settings-dialog.ui:343
+msgid "<b>_Enable automatic actions</b>"
+msgstr "<b>_ເປີດໃຊ້ການກະທຳອັດຕະໂນມັດ</b>"
+
+#: panel-plugin/settings-dialog.ui:358
+msgid ""
+"If checked, the clipboard texts will be matched against regular expressions and a menu will display possible actions automatically.\n"
+"Otherwise the menu will only appear when calling \"xfce4-popup-clipman-actions\" (and a match was found)"
+msgstr "ຫາກເລືອກ, ຂໍ້ຄວາມໃນຄລິບບອດຈະຖືກນຳໄປຈັບຄູ່ກັບນິພົດປົກກະຕິ ແລະ ເມນູຈະສະແດງການກະທຳທີ່ເປັນໄປໄດ້ໂດຍອັດຕະໂນມັດ.\nຖ້າບໍ່ດັ່ງນັ້ນ ເມນູຈະປາກົດຂຶ້ນເມື່ອເອີ້ນໃຊ້ \"xfce4-popup-clipman-actions\" ເທົ່ານັ້ນ (ແລະ ເມື່ອພົບການຈັບຄູ່)"
+
+#: panel-plugin/settings-dialog.ui:384
+msgid ""
+"When the selection is done and the Control key is still pressed down, the "
+"popup menu for matched actions will be shown or hidden"
+msgstr "ເມື່ອການເລືອກສຳເລັດ ແລະ ຍັງກົດປຸ່ມ Control ຄ້າງໄວ້, ເມນູປັອບອັບສຳລັບການກະທຳທີ່ກົງກັນຈະຖືກສະແດງ ຫຼື ເຊື່ອງ"
+
+#: panel-plugin/settings-dialog.ui:390
+msgid "_Pressing Ctrl during selection:"
+msgstr "_ກົດ Ctrl ໃນຂະນະທີ່ເລືອກ:"
+
+#: panel-plugin/settings-dialog.ui:459
+msgid "Add action"
+msgstr "ເພີ່ມການກະທຳ"
+
+#: panel-plugin/settings-dialog.ui:481
+msgid "Edit action"
+msgstr "ແກ້ໄຂການກະທຳ"
+
+#: panel-plugin/settings-dialog.ui:503
+msgid "Delete action"
+msgstr "ລຶບການກະທຳ"
+
+#: panel-plugin/settings-dialog.ui:524
+msgid "Reset all actions to the system default values"
+msgstr "ຕັ້ງຄ່າການກະທຳທັງໝົດຄືນໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນຂອງລະບົບ"
+
+#: panel-plugin/settings-dialog.ui:571
+msgid "_Actions"
+msgstr "_ການກະທຳ"
+
+#: panel-plugin/settings-dialog.ui:594
+msgid "<b>Remember history</b>"
+msgstr "<b>ຈົດຈຳປະຫວັດ</b>"
+
+#: panel-plugin/settings-dialog.ui:631
+msgid "Remember last copied _image"
+msgstr "ຈົດຈຳ_ຮູບພາບທີ່ສຳເນົາຫຼ້າສຸດ"
+
+#: panel-plugin/settings-dialog.ui:635
+msgid ""
+"If checked, this option allows one to store one image inside the history"
+msgstr "ຖ້າໝາຍເລືອກ, ຕົວເລືອກນີ້ຈະອະນຸຍາດໃຫ້ເກັບຮູບພາບໜຶ່ງຮູບໄວ້ໃນປະຫວັດ."
+
+#: panel-plugin/settings-dialog.ui:647
+msgid "_Reorder history items"
+msgstr "_ຈັດລຽງລຳດັບປະຫວັດໃໝ່"
+
+#: panel-plugin/settings-dialog.ui:651
+msgid ""
+"Push last copied text to the top of the history, useful to reorder old items"
+msgstr "ດັນຂໍ້ຄວາມທີ່ສຳເນົາຫຼ້າສຸດໄປໄວ້ທາງເທິງຂອງປະຫວັດ, ມີປະໂຫຍດໃນການຈັດລຽງລາຍການເກົ່າຄືນໃໝ່"
+
+#: panel-plugin/settings-dialog.ui:663
+msgid "Re_verse history order"
+msgstr "_ປີ້ນລຳດັບປະຫວັດ"
+
+#: panel-plugin/settings-dialog.ui:667
+msgid "Reverse order of the history shown in the menu"
+msgstr "ປີ້ນລຳດັບຂອງປະຫວັດທີ່ສະແດງໃນເມນູ"
+
+#: panel-plugin/settings-dialog.ui:679
+msgid "Ignore mouse s_elections"
+msgstr "ລະເວັ້ນການເ_ລືອກດ້ວຍເມົາສ໌"
+
+#: panel-plugin/settings-dialog.ui:684
+msgid ""
+"If checked, the selections won't affect the history except the manual copies"
+msgstr "ຫາກເລືອກ, ສິ່ງທີ່ເລືອກຈະບໍ່ມີຜົນຕໍ່ປະຫວັດ ຍົກເວັ້ນການສຳເນົາດ້ວຍມື"
+
+#: panel-plugin/settings-dialog.ui:703
+msgid "Size of the _history:"
+msgstr "ຂະໜາດຂອງ_ປະຫວັດ:"
+
+#: panel-plugin/settings-dialog.ui:719
+msgid "5"
+msgstr "5"
+
+#: panel-plugin/settings-dialog.ui:753
+msgid "H_istory"
+msgstr "ປະ_ຫວັດ"
+
+#: panel-plugin/settings-dialog.ui:777
+msgid "Edit Action"
+msgstr "ແກ້ໄຂການກະທຳ"
+
+#: panel-plugin/settings-dialog.ui:803 panel-plugin/settings-dialog.ui:1298
+msgid "_Cancel"
+msgstr "_ຍົກເລີກ"
+
+#: panel-plugin/settings-dialog.ui:817 panel-plugin/settings-dialog.ui:1312
+msgid "_OK"
+msgstr "_ຕົກລົງ"
+
+#: panel-plugin/settings-dialog.ui:886 panel-plugin/settings-dialog.ui:1114
+msgid "Name:"
+msgstr "ຊື່:"
+
+#: panel-plugin/settings-dialog.ui:898
+msgid "Pattern:"
+msgstr "ຮູບແບບ:"
+
+#: panel-plugin/settings-dialog.ui:985
+msgid ""
+"You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
+"commands. The parameter \"\\0\" represents the complete text. The pattern is"
+" always anchored within the special characters ^$"
+msgstr "ທ່ານສາມາດໃຊ້ພາຣາມິເຕີແທນທີ່ \"\\1\", \"\\2\" ແລະ ຕໍ່ໆໄປໃນຄຳສັ່ງໄດ້. ພາຣາມິເຕີ \"\\0\" ໝາຍເຖິງຂໍ້ຄວາມທັງໝົດ. ຮູບແບບຈະຖືກກຳນົດຂອບເຂດດ້ວຍຕົວອັກສອນພິເສດ ^$ ສະເໝີ"
+
+#: panel-plugin/settings-dialog.ui:1011
+msgid "Activate on manual copy instead of selection"
+msgstr "ເປີດໃຊ້ງານເມື່ອສຳເນົາດ້ວຍມື ແທນການເລືອກຂໍ້ຄວາມ"
+
+#: panel-plugin/settings-dialog.ui:1016
+msgid ""
+"By default the action is triggered by a selection: check this option to "
+"trigger the action when you make a manual copy instead. Note that in this "
+"case, the Control key no longer has any effect."
+msgstr "ໂດຍປົກກະຕິ ການກະທຳຈະຖືກກະຕຸ້ນດ້ວຍການເລືອກຂໍ້ຄວາມ: ເລືອກຕົວເລືອກນີ້ເພື່ອໃຫ້ການກະທຳເຮັດວຽກເມື່ອທ່ານສຳເນົາດ້ວຍມືແທນ. ໝາຍເຫດວ່າໃນກໍລະນີນີ້, ປຸ່ມ Control ຈະບໍ່ມີຜົນໃດໆອີກຕໍ່ໄປ."
+
+#: panel-plugin/settings-dialog.ui:1033
+msgid "<b>Action</b>"
+msgstr "<b>ການກະທຳ</b>"
+
+#: panel-plugin/settings-dialog.ui:1102
+msgid "Command:"
+msgstr "ຄຳສັ່ງ:"
+
+#: panel-plugin/settings-dialog.ui:1243
+msgid "<b>Commands</b>"
+msgstr "<b>ຄຳສັ່ງ</b>"
+
+#: panel-plugin/settings-dialog.ui:1269
+msgid "Type here your custom text, for example a URL, a filename, etc."
+msgstr "ພິມຂໍ້ຄວາມທີ່ທ່ານຕ້ອງການທີ່ນີ້, ຕົວຢ່າງ: URL, ຊື່ໄຟລ໌ ແລະ ອື່ນໆ."
+
+#: panel-plugin/settings-dialog.ui:1273
+msgid "Regular expression"
+msgstr "ນິພົດປົກກະຕິ"
+
+#: panel-plugin/main-panel-plugin.c:120 panel-plugin/main-status-icon.c:151
+msgid "_Disable"
+msgstr "_ປິດໃຊ້ງານ"
+
+#: panel-plugin/actions.c:373
+#, c-format
+msgid ""
+"Unable to execute the command \"%s\"\n"
+"\n"
+"%s"
+msgstr "ບໍ່ສາມາດປະຕິບັດຄຳສັ່ງ \"%s\" ໄດ້\n\n%s"
+
+#: panel-plugin/common.c:34
+msgid ""
+"Could not start the Clipboard Manager Daemon because it is already running."
+msgstr "ບໍ່ສາມາດເລີ່ມຕົ້ນການເຮັດວຽກເບື້ອງຫຼັງຂອງຕົວຈັດການຄລິບບອດໄດ້ ເພາະມັນກຳລັງເຮັດວຽກຢູ່ແລ້ວ."
+
+#: panel-plugin/common.c:35
+msgid "The Xfce Clipboard Manager is already running."
+msgstr "ຕົວຈັດການຄລິບບອດ Xfce ກຳລັງເຮັດວຽກຢູ່ແລ້ວ."
+
+#: panel-plugin/common.c:42
+msgid "You can launch it with 'xfce4-clipman'."
+msgstr "ທ່ານສາມາດເອີ້ນໃຊ້ມັນດ້ວຍ 'xfce4-clipman'."
+
+#: panel-plugin/common.c:43
+msgid "The Clipboard Manager Daemon is not running."
+msgstr "ການເຮັດວຽກເບື້ອງຫຼັງຂອງຕົວຈັດການຄລິບບອດບໍ່ໄດ້ເຮັດວຽກ."
+
+#: panel-plugin/menu.c:171
+msgid "Are you sure you want to clear the history?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບປະຫວັດທັງໝົດ?"
+
+#: panel-plugin/menu.c:176
+msgid "Don't ask again"
+msgstr "ບໍ່ຕ້ອງຖາມອີກ"
+
+#: panel-plugin/menu.c:224
+msgid "Unable to open the Clipman history dialog"
+msgstr "ບໍ່ສາມາດເປີດໜ້າຕ່າງປະຫວັດ Clipman ໄດ້"
+
+#: panel-plugin/menu.c:282 panel-plugin/menu.c:539
+msgid "_Clear history"
+msgstr "_ລຶບປະຫວັດ"
+
+#: panel-plugin/menu.c:383
+msgid "_Clear clipboard"
+msgstr "_ລ້າງຄລິບບອດ"
+
+#: panel-plugin/menu.c:429
+msgid "Could not generate QR-Code."
+msgstr "ບໍ່ສາມາດສ້າງ QR-Code ໄດ້."
+
+#: panel-plugin/menu.c:530
+msgid "_Show full history..."
+msgstr "_ສະແດງປະຫວັດທັງໝົດ..."
+
+#: panel-plugin/menu.c:547
+msgid "_Clipman settings..."
+msgstr "_ການຕັ້ງຄ່າ Clipman..."
+
+#: panel-plugin/plugin.c:444
+msgid "Contributors:"
+msgstr "ຜູ້ມີສ່ວນຮ່ວມ:"
+
+#: panel-plugin/plugin.c:462
+msgid "Clipboard Manager for Xfce"
+msgstr "ຕົວຈັດການຄລິບບອດສຳລັບ Xfce"
+
+#: panel-plugin/plugin.c:470
+msgid "translator-credits"
+msgstr "ເຄຣດິດຜູ້ແປ"
+
+#: panel-plugin/plugin.c:484
+msgid "Unable to open the settings dialog"
+msgstr "ບໍ່ສາມາດເປີດໜ້າຕ່າງການຕັ້ງຄ່າໄດ້"
