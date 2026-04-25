@@ -530,6 +530,8 @@ cb_delete_action (GtkButton *button)
   gtk_tree_model_get (model, &iter, 0, &entry, -1);
   clipman_actions_remove (actions, entry->action_name);
   gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
+
+  clipman_actions_save (actions);
 }
 
 static void
@@ -557,6 +559,7 @@ cb_reset_actions (GtkButton *button)
 
   g_object_unref (actions);
   actions = clipman_actions_get ();
+  clipman_actions_block_monitoring (actions);
   refresh_actions_treeview (GTK_TREE_VIEW (gtk_builder_get_object (builder, "actions")));
 }
 
@@ -962,6 +965,7 @@ command_line (GApplication *app,
   g_signal_connect (app, "shutdown", G_CALLBACK (shutdown), NULL);
   xfconf_channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");
   actions = clipman_actions_get ();
+  clipman_actions_block_monitoring (actions);
   prop_dialog_init ();
   gtk_window_set_application (GTK_WINDOW (settings_dialog), GTK_APPLICATION (app));
   gtk_widget_show (settings_dialog);

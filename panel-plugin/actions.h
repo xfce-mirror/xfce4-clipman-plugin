@@ -102,6 +102,8 @@ void
 clipman_actions_load (ClipmanActions *actions);
 void
 clipman_actions_save (ClipmanActions *actions);
+void
+clipman_actions_block_monitoring (ClipmanActions *actions);
 GRegex *
 clipman_actions_get_regex (const gchar *pattern);
 

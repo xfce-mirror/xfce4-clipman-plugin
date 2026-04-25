@@ -49,6 +49,7 @@ struct _ClipmanActionsPrivate
   GSList *entries;
   GtkWidget *menu;
   gboolean skip_action_on_key_down;
+  gboolean block_monitoring;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)
@@ -393,6 +394,9 @@ cb_file_changed (ClipmanActions *actions,
 {
   static GSource *source = NULL;
   guint source_id;
+
+  if (actions->priv->block_monitoring)
+    return;
 
   if (event_type == G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT)
     {
@@ -930,6 +934,12 @@ clipman_actions_get (void)
     g_object_ref (G_OBJECT (singleton));
 
   return singleton;
+}
+
+void
+clipman_actions_block_monitoring (ClipmanActions *actions)
+{
+  actions->priv->block_monitoring = TRUE;
 }
 
 GRegex *
