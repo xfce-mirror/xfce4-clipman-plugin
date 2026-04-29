@@ -423,7 +423,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
   object_class->get_property = clipman_history_get_property;
 
   signals[ITEM_ADDED] =
-    g_signal_new ("item-added", G_TYPE_FROM_CLASS (klass),
+    g_signal_new ("items-changed", G_TYPE_FROM_CLASS (klass),
                   G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                   G_STRUCT_OFFSET (ClipmanHistoryClass, item_added),
                   0, NULL, g_cclosure_marshal_VOID__VOID,
@@ -567,5 +567,21 @@ clipman_history_get_property (GObject *object,
 
     default:
       break;
+    }
+}
+
+void
+clipman_history_remove_item (ClipmanHistory *history,
+                             ClipmanHistoryItem *item)
+{
+  if (history == NULL || item == NULL)
+    return;
+
+  GSList *found = g_slist_find (history->priv->items, item);
+  if (found != NULL)
+    {
+      __clipman_history_item_free (item);
+      history->priv->items = g_slist_remove (history->priv->items, item);
+      g_signal_emit (history, signals[ITEM_ADDED], 0);
     }
 }

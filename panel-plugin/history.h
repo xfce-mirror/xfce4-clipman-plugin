@@ -108,5 +108,8 @@ void
 clipman_history_set_scale_factor (ClipmanHistory *history,
                                   GParamSpec *pspec,
                                   GtkWidget *widget);
+void
+clipman_history_remove_item (ClipmanHistory *history,
+                             ClipmanHistoryItem *item);
 
 #endif /* !__CLIPMAN_HISTORY_H__ */
