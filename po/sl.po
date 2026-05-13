@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-clipman-plugin package.
 # 
 # Translators:
-# Dejweed, 2025
+# Dejweed, 2025-2026
 # Arnold Marko <arnold.marko@gmail.com>, 2019-2021,2023
 # Kernc, 2014-2015
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:05+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Dejweed, 2025\n"
+"Last-Translator: Dejweed, 2025-2026\n"
 "Language-Team: Slovenian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +40,7 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Upravljalnik odložišča Clipman je na voljo kot vtičnik za Xfce pano ali kot samostojen program, ki  deluje v področju za obvestila. Shranjuje zgodovino tekstovnih in slikovnih vsebin, ki so bile kopirane na odložišče. Ima tudi funkcijo izvajanja dejanj za določen izbor teksta, ki jih primerja z regularnimi izrazi."
+msgstr "Upravljalnik odložišča Clipman je na voljo kot vtičnik za Xfce pano ali kot samostojen program, ki deluje v področju za obvestila. Shranjuje zgodovino tekstovnih in slikovnih vsebin, ki so bile kopirane na odložišče. Ima tudi funkcijo izvajanja dejanj za določen izbor teksta, ki jih primerja z regularnimi izrazi."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
@@ -136,7 +136,7 @@ msgid ""
 " paste what you select with Ctrl-V. Conversely, manual copies will be synced"
 " with the primary clipboard, so you can paste what you copy with middle-"
 "click."
-msgstr "Če je izbrano, bo označeno sinhornizirano s privzetim odložiščem, tako da lahko izbor prilepite s CTRL+V. Kot alternativa bodo ročne kopije sinhronizirane s primarnim odložiščem, tako da lahko skopirano prilepite s srednjim klikom."
+msgstr "Če je omogočeno, bo označen izbor sinhroniziran s privzetim odložiščem, tako da lahko izbor prilepite s CTRL+V. Kot alternativa bodo ročne kopije sinhronizirane s primarnim odložiščem, tako da lahko skopirano prilepite s srednjim klikom."
 
 #: panel-plugin/settings-dialog.ui:134
 msgid "_Persist mouse selections"
@@ -147,7 +147,7 @@ msgid ""
 "If checked, the primary clipboard (middle-click paste) will persist until "
 "next selection if current selection is lost (e.g. by left-clicking anywhere "
 "in a text area)"
-msgstr "Če je izbarno, bo primarno odložišče (lepljenje s srednjim klikom) ohranjen do naslednjeha označevanja, tudi po tem, ko se sedanji izbor izgubi (ko se npr. nekam levo klikne)"
+msgstr "Če je izbrano, bo primarno odložišče (lepljenje s srednjim klikom) ohranjeno do naslednjega označevanja, tudi po tem, ko se sedanji izbor izgubi (ko se npr. nekam levo klikne)"
 
 #: panel-plugin/settings-dialog.ui:151
 msgid "_QR-Code support"
@@ -157,7 +157,7 @@ msgstr "Podpora za _QR kode"
 msgid ""
 "If checked, the menu shows a QR-Code of the currently selected clipboard "
 "entry"
-msgstr "Če je označeno, ta meni prikaže QR kodo trenutno izbranega vnosa odložišča."
+msgstr "Če je označeno, meni prikaže QR kodo trenutno izbranega vnosa odložišča"
 
 #: panel-plugin/settings-dialog.ui:170
 msgid "Automatically paste a selected item from the history"
@@ -173,13 +173,13 @@ msgstr "<b>Splošno</b>"
 
 #: panel-plugin/settings-dialog.ui:245
 msgid "P_osition menu at mouse pointer"
-msgstr "P_ostavi meni ob miškin kazalec"
+msgstr "Postavi meni ob _miškin kazalec"
 
 #: panel-plugin/settings-dialog.ui:249
 msgid ""
 "Popup the menu at the mouse pointer position: especially useful for the "
 "xfce4-popup-clipman command"
-msgstr "Prikaži meni na položaju kurozorja miške: še posebej primerno za ukaz xfce4-popup-clipman"
+msgstr "Prikaži meni na položaju kazalca miške: še posebej primerno za ukaz xfce4-popup-clipman"
 
 #: panel-plugin/settings-dialog.ui:267
 msgid "Maximum items:"
@@ -207,7 +207,7 @@ msgstr "Če je označeno, bo tekst na odložišču primerjan z regularnimi izraz
 msgid ""
 "When the selection is done and the Control key is still pressed down, the "
 "popup menu for matched actions will be shown or hidden"
-msgstr "Ko je označevanje opravljena in je tipka Ctrl še vedno pritisnjena, bo meni za pripadajoča dejanja prikazan ali skrit"
+msgstr "Ko je označevanje opravljeno in je tipka Ctrl še vedno pritisnjena, bo meni za pripadajoča dejanja prikazan ali skrit"
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
@@ -261,20 +261,20 @@ msgstr "Obrni _vrstni red zgodovine"
 
 #: panel-plugin/settings-dialog.ui:667
 msgid "Reverse order of the history shown in the menu"
-msgstr "Obratno razvrsti predmete zgodovine v meniju."
+msgstr "Obratno razvrsti predmete zgodovine v meniju"
 
 #: panel-plugin/settings-dialog.ui:679
 msgid "Ignore mouse s_elections"
-msgstr "Ignoriraj i_zbire miške"
+msgstr "_Ignoriraj izbire miške"
 
 #: panel-plugin/settings-dialog.ui:684
 msgid ""
 "If checked, the selections won't affect the history except the manual copies"
-msgstr "Izbori besedila ne bodo vplivali na zgodovino, razen če jih ročno kopirate."
+msgstr "Izbori besedila ne bodo vplivali na zgodovino, razen če jih ročno kopirate"
 
 #: panel-plugin/settings-dialog.ui:703
 msgid "Size of the _history:"
-msgstr "Velikost z_godovine:"
+msgstr "V_elikost zgodovine:"
 
 #: panel-plugin/settings-dialog.ui:719
 msgid "5"
@@ -282,7 +282,7 @@ msgstr "5"
 
 #: panel-plugin/settings-dialog.ui:753
 msgid "H_istory"
-msgstr "_Zgodovina"
+msgstr "Z_godovina"
 
 #: panel-plugin/settings-dialog.ui:777
 msgid "Edit Action"
@@ -309,7 +309,7 @@ msgid ""
 "You can use the substitution parameters \"\\1\", \"\\2\" and so on in the "
 "commands. The parameter \"\\0\" represents the complete text. The pattern is"
 " always anchored within the special characters ^$"
-msgstr "V ukazih lahko uporabite nadomestne parametre \"\\1¸\", \"\\2\" in tako dalje. Parameter \"\\0\" predstavlja celoten tekst. Vzroec je vedno zasidran med posebnima znakoma ^$"
+msgstr "V ukazih lahko uporabite nadomestne parametre \"\\1¸\", \"\\2\" in tako dalje. Parameter \"\\0\" predstavlja celoten tekst. Vzorec je vedno zasidran med posebnima znakoma ^$"
 
 #: panel-plugin/settings-dialog.ui:1011
 msgid "Activate on manual copy instead of selection"
@@ -393,7 +393,7 @@ msgstr "_Počisti odložišče"
 
 #: panel-plugin/menu.c:429
 msgid "Could not generate QR-Code."
-msgstr "Ni bilo mogoče ustvariti QR-kode"
+msgstr "Ni bilo mogoče ustvariti QR kode."
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
@@ -417,4 +417,4 @@ msgstr "Prevod: Kiberpipa"
 
 #: panel-plugin/plugin.c:484
 msgid "Unable to open the settings dialog"
-msgstr "Ni mogoče odpreti okna z nastavitvami."
+msgstr "Ni mogoče odpreti okna z nastavitvami"
