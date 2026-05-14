@@ -481,7 +481,7 @@ clipman_history_command_line (GApplication *app,
     }
 
   plugin = g_slice_new0 (MyPlugin);
-  plugin->app = GTK_APPLICATION (app);
+  plugin->app = app;
 
   /* Bind all settings relevant for this application */
   plugin->channel = xfconf_channel_new_with_property_base ("xfce4-panel", "/plugins/clipman");

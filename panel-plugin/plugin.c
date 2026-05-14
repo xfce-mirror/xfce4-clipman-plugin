@@ -73,7 +73,7 @@ MyPlugin *
 plugin_register (void)
 {
   MyPlugin *plugin;
-  GtkApplication *app;
+  GApplication *app;
   GError *error = NULL;
 
   /* Locale */
@@ -87,7 +87,7 @@ plugin_register (void)
       return NULL;
     }
 
-  app = gtk_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
+  app = g_application_new ("org.xfce.clipman", G_APPLICATION_FLAGS_NONE);
   if (!g_application_register (G_APPLICATION (app), NULL, &error))
     {
       g_critical ("Unable to register GApplication: %s", error->message);

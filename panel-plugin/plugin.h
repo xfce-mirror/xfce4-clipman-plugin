@@ -56,7 +56,7 @@ struct _MyPlugin
   GtkMenuPositionFunc menu_position_func;
   GtkWidget *popup_menu;
   gulong popup_menu_id;
-  GtkApplication *app;
+  GApplication *app;
   GtkWidget *dialog;
   GtkWidget *treeview;
   GtkWidget *submit_button;
