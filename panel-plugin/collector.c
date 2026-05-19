@@ -429,6 +429,8 @@ clipman_collector_constructed (GObject *object)
 
   /* initialize image cache for proper detection at startup in the menu */
   collector->priv->current_image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
+
+  G_OBJECT_CLASS (clipman_collector_parent_class)->constructed (object);
 }
 
 static void
