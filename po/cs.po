@@ -335,7 +335,7 @@ msgstr "<b>Příkazy</b>"
 
 #: panel-plugin/settings-dialog.ui:1269
 msgid "Type here your custom text, for example a URL, a filename, etc."
-msgstr "Sem napište svůj text, například umístění URL, název souboru, atd."
+msgstr "Sem napište svůj text, např. adresu URL, název souboru, atd."
 
 #: panel-plugin/settings-dialog.ui:1273
 msgid "Regular expression"
