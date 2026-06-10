@@ -439,21 +439,21 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                       "MaxTextsInHistory",
                                                       "The number of maximum texts in history",
                                                       MAX_MAX_IMAGES_IN_HISTORY, G_MAXUINT, DEFAULT_MAX_TEXTS_IN_HISTORY,
-                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
   g_object_class_install_property (object_class,
                                    MAX_IMAGES_IN_HISTORY,
                                    g_param_spec_uint ("max-images-in-history",
                                                       "MaxImagesInHistory",
                                                       "The number of maximum images in history",
                                                       0, MAX_MAX_IMAGES_IN_HISTORY, DEFAULT_MAX_IMAGES_IN_HISTORY,
-                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
   g_object_class_install_property (object_class,
                                    SAVE_ON_QUIT,
                                    g_param_spec_boolean ("save-on-quit",
                                                          "SaveOnQuit",
                                                          "True if the history must be saved on quit",
                                                          DEFAULT_SAVE_ON_QUIT,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class,
                                    REORDER_ITEMS,
@@ -461,7 +461,7 @@ clipman_history_class_init (ClipmanHistoryClass *klass)
                                                          "ReorderItems",
                                                          "Always push last clipboard content to the top of the history",
                                                          DEFAULT_REORDER_ITEMS,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 static void

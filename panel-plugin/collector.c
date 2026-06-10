@@ -368,35 +368,35 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "AddPrimaryClipboard",
                                                          "Sync the primary clipboard with the default clipboard",
                                                          DEFAULT_ADD_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, PERSISTENT_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("persistent-primary-clipboard",
                                                          "PersistentPrimaryClipboard",
                                                          "Make the primary clipboard persistent over deselection",
                                                          DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, HISTORY_IGNORE_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("history-ignore-primary-clipboard",
                                                          "HistoryIgnorePrimaryClipboard",
                                                          "Exclude the primary clipboard contents from the history",
                                                          DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, ENABLE_ACTIONS,
                                    g_param_spec_boolean ("enable-actions",
                                                          "EnableActions",
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, INHIBIT,
                                    g_param_spec_boolean ("inhibit",
                                                          "Inhibit",
                                                          "Set to TRUE to disable the collector",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 static void

@@ -971,7 +971,7 @@ clipman_actions_class_init (ClipmanActionsClass *klass)
                                                          "SkipActionOnKeyDown",
                                                          "Skip the action if the Control key is pressed down",
                                                          DEFAULT_SKIP_ACTION_ON_KEY_DOWN,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 static void
