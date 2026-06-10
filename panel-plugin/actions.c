@@ -425,8 +425,7 @@ cb_file_changed (ClipmanActions *actions,
 static void
 _clipman_actions_free_list (ClipmanActions *actions)
 {
-  g_slist_free_full (actions->priv->entries, (GDestroyNotify) __clipman_actions_entry_free);
-  actions->priv->entries = NULL;
+  g_clear_slist (&actions->priv->entries, (GDestroyNotify) __clipman_actions_entry_free);
 }
 
 static gint
@@ -733,12 +732,7 @@ clipman_actions_match_with_menu (ClipmanActions *actions,
 
   DBG ("Build the menu with actions");
 
-  if (GTK_IS_MENU (actions->priv->menu))
-    {
-      gtk_widget_destroy (actions->priv->menu);
-      actions->priv->menu = NULL;
-    }
-
+  g_clear_pointer (&actions->priv->menu, gtk_widget_destroy);
   actions->priv->menu = gtk_menu_new ();
   g_object_set_data_full (G_OBJECT (actions->priv->menu), "text", g_strdup (text), g_free);
 
@@ -813,8 +807,7 @@ clipman_actions_load (ClipmanActions *actions)
       /* Create user directory early to be sure it exists for next actions */
       GFile *dir = g_file_get_parent (actions->priv->file);
       g_file_make_directory_with_parents (dir, NULL, NULL);
-      g_object_unref (dir);
-      dir = NULL;
+      g_clear_object (&dir);
 
       /* Load from system wide file */
       filename = g_strdup (SYSCONFDIR "/xdg/xfce4/panel/xfce4-clipman-actions.xml");

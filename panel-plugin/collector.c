@@ -162,8 +162,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           GdkPixbuf *image;
 
           /* first clear default cache, so we don't restore it while waiting */
-          g_free (collector->priv->default_cache);
-          collector->priv->default_cache = NULL;
+          g_clear_pointer (&collector->priv->default_cache, g_free);
 
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
@@ -190,11 +189,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           || !collector->priv->history_ignore_primary_clipboard
           || collector->priv->enable_actions)
         {
-          if (collector->priv->primary_clipboard_timeout != 0)
-            {
-              g_source_remove (collector->priv->primary_clipboard_timeout);
-              collector->priv->primary_clipboard_timeout = 0;
-            }
+          g_clear_handle_id (&collector->priv->primary_clipboard_timeout, g_source_remove);
           collector->priv->primary_clipboard_timeout =
             g_timeout_add (250, cb_check_primary_clipboard, collector);
         }
@@ -438,11 +433,7 @@ clipman_collector_finalize (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
 
-  if (collector->priv->primary_clipboard_timeout != 0)
-    {
-      g_source_remove (collector->priv->primary_clipboard_timeout);
-      collector->priv->primary_clipboard_timeout = 0;
-    }
+  g_clear_handle_id (&collector->priv->primary_clipboard_timeout, g_source_remove);
   g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
   clipman_collector_clear_cache (collector);

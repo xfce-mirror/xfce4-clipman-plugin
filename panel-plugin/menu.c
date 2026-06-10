@@ -274,8 +274,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
     skip_primary = TRUE;
 
   /* Clear the previous menu items */
-  g_slist_free_full (menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
-  menu->priv->list = NULL;
+  g_clear_slist (&menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
 
   /* Set the clear history item sensitive */
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);

@@ -355,8 +355,7 @@ plugin_save (MyPlugin *plugin)
                       g_warning ("Failed to save image to cache file %s: %s", item->filename, error->message);
                       g_error_free (error);
                       g_unlink (item->filename);
-                      g_free (item->filename);
-                      item->filename = NULL;
+                      g_clear_pointer (&item->filename, g_free);
                     }
                   else
                     DBG ("Saved image to cache file %s", item->filename);

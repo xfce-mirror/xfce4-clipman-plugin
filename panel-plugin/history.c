@@ -363,10 +363,7 @@ void
 clipman_history_clear (ClipmanHistory *history)
 {
   DBG ("Clear the history");
-
-  g_slist_free_full (history->priv->items, (GDestroyNotify) __clipman_history_item_free);
-  history->priv->items = NULL;
-
+  g_clear_slist (&history->priv->items, (GDestroyNotify) __clipman_history_item_free);
   g_signal_emit (history, signals[CLEAR], 0);
 }
 
@@ -483,8 +480,7 @@ clipman_history_finalize (GObject *object)
     {
       /* reset filenames now so image files are not deleted in clear() */
       ClipmanHistoryItem *item = lp->data;
-      g_free (item->filename);
-      item->filename = NULL;
+      g_clear_pointer (&item->filename, g_free);
     }
   clipman_history_clear (CLIPMAN_HISTORY (object));
 
