@@ -208,7 +208,7 @@ plugin_load (MyPlugin *plugin)
 
   /* Return if the history must not be saved */
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
-  if (save_on_quit == FALSE)
+  if (!save_on_quit)
     return;
 
   dirname = xfce_resource_save_location (XFCE_RESOURCE_CACHE, "xfce4/clipman/", FALSE);
@@ -305,7 +305,7 @@ plugin_save (MyPlugin *plugin)
 
   /* Return if the history must not be saved */
   g_object_get (plugin->history, "save-on-quit", &save_on_quit, NULL);
-  if (save_on_quit == FALSE)
+  if (!save_on_quit)
     return;
 
   /* Create initial directory if needed */
