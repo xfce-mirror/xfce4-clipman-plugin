@@ -932,9 +932,9 @@ shutdown (GApplication *app,
 
 
 static gint
-command_line (GApplication *app,
-              GApplicationCommandLine *command_line,
-              gpointer user_data)
+command_line_cb (GApplication *app,
+                 GApplicationCommandLine *command_line,
+                 gpointer user_data)
 {
   GError *error = NULL;
 
@@ -985,7 +985,7 @@ main (gint argc,
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   app = gtk_application_new ("org.xfce.clipman.settings", G_APPLICATION_HANDLES_COMMAND_LINE);
-  g_signal_connect (app, "command-line", G_CALLBACK (command_line), NULL);
+  g_signal_connect (app, "command-line", G_CALLBACK (command_line_cb), NULL);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
   g_object_unref (app);
 
