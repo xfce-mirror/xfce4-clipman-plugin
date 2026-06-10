@@ -167,7 +167,7 @@ prop_dialog_init (void)
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-delete-action"), "clicked", G_CALLBACK (cb_delete_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-reset-actions"), "clicked", G_CALLBACK (cb_reset_actions), NULL);
-  g_signal_connect (gtk_builder_get_object (builder, "actions"), "row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "actions"), "row-activated", G_CALLBACK (cb_actions_row_activated), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-add-command"), "clicked", G_CALLBACK (cb_add_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-refresh-command"), "clicked", G_CALLBACK (cb_refresh_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-delete-command"), "clicked", G_CALLBACK (cb_delete_command), NULL);
