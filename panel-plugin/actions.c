@@ -50,6 +50,14 @@ typedef struct _ClipmanActionsPrivate
   GtkWidget *menu;
   gboolean skip_action_on_key_down;
   gboolean block_monitoring;
+} ClipmanActionsPrivate;
+
+struct _ClipmanActions
+{
+  GObject parent;
+
+  /* Private */
+  ClipmanActionsPrivate *priv;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanActions, clipman_actions, G_TYPE_OBJECT)

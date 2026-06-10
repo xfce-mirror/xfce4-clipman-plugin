@@ -31,7 +31,7 @@
  * GObject declarations
  */
 
-struct _ClipmanMenuPrivate
+typedef struct _ClipmanMenuPrivate
 {
   GtkWidget *mi_clear_history;
   ClipmanHistory *history;
@@ -43,6 +43,14 @@ struct _ClipmanMenuPrivate
   guint paste_on_activate;
   guint max_menu_items;
   gboolean never_confirm_history_clear;
+} ClipmanMenuPrivate;
+
+struct _ClipmanMenu
+{
+  GtkMenu parent;
+
+  /* Private */
+  ClipmanMenuPrivate *priv;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)

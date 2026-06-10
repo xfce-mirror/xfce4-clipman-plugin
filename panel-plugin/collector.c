@@ -27,7 +27,7 @@
  * GObject declarations
  */
 
-struct _ClipmanCollectorPrivate
+typedef struct _ClipmanCollectorPrivate
 {
   ClipmanActions *actions;
   ClipmanHistory *history;
@@ -44,6 +44,14 @@ struct _ClipmanCollectorPrivate
   gboolean history_ignore_primary_clipboard;
   gboolean enable_actions;
   gboolean inhibit;
+} ClipmanCollectorPrivate;
+
+struct _ClipmanCollector
+{
+  GObject parent;
+
+  /* Private */
+  ClipmanCollectorPrivate *priv;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
