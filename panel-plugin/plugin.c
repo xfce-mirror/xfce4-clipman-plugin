@@ -527,17 +527,7 @@ plugin_popup_menu (MyPlugin *plugin)
     {
 #ifdef PANEL_PLUGIN
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (plugin->button), TRUE);
-#if LIBXFCE4PANEL_CHECK_VERSION(4, 17, 2)
       xfce_panel_plugin_popup_menu (plugin->panel_plugin, GTK_MENU (plugin->menu), plugin->button, event);
-#else
-      xfce_panel_plugin_register_menu (plugin->panel_plugin, GTK_MENU (plugin->menu));
-      gtk_menu_set_screen (GTK_MENU (plugin->menu), gtk_widget_get_screen (plugin->button));
-      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gtk_menu_popup (GTK_MENU (plugin->menu), NULL, NULL,
-                      plugin->menu_position_func, plugin,
-                      0, gtk_get_current_event_time ());
-      G_GNUC_END_IGNORE_DEPRECATIONS
-#endif
 
 #elif defined(STATUS_ICON)
 

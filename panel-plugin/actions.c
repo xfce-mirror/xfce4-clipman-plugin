@@ -42,7 +42,7 @@
  * GObject declarations
  */
 
-struct _ClipmanActionsPrivate
+typedef struct _ClipmanActionsPrivate
 {
   GFile *file;
   GFileMonitor *file_monitor;
