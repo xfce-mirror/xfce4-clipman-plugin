@@ -194,7 +194,7 @@ static void
 default_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
-        if (event->send_event == TRUE) {
+        if (event->send_event) {
                 return;
         }
 
@@ -272,19 +272,19 @@ static void
 primary_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
-        if (event->send_event == TRUE) {
+        if (event->send_event) {
                 return;
         }
         g_clear_handle_id (&manager->primary_timeout, g_source_remove);
 
         if (event->owner != 0) {
-                if (manager->primary_internal_change == TRUE) {
+                if (manager->primary_internal_change) {
                         manager->primary_internal_change = FALSE;
                         return;
                 }
                 manager->primary_timeout = g_timeout_add (250, primary_clipboard_store, manager);
         }
-        else if (gtk_clipboard_wait_is_text_available (manager->primary_clipboard) == FALSE) {
+        else if (!gtk_clipboard_wait_is_text_available (manager->primary_clipboard)) {
                 manager->primary_timeout = g_timeout_add (250, primary_clipboard_restore, manager);
         }
 }
