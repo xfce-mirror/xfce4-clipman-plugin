@@ -199,6 +199,7 @@ install_autostart_file (void)
   gchar *sysfile;
   gchar *userfile;
   GKeyFile *keyfile;
+  GError *error = NULL;
   gchar *data;
 
   sysfile = g_strdup (SYSCONFDIR "/xdg/autostart/" PACKAGE "-autostart.desktop");
@@ -222,7 +223,11 @@ install_autostart_file (void)
   g_key_file_load_from_file (keyfile, sysfile, G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
   g_key_file_set_boolean (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
   data = g_key_file_to_data (keyfile, NULL, NULL);
-  g_file_set_contents (userfile, data, -1, NULL);
+  if (!g_file_set_contents (userfile, data, -1, &error))
+    {
+      g_warning ("Failed so save file '%s': %s", userfile, error->message);
+      g_error_free (error);
+    }
   g_free (data);
   g_key_file_free (keyfile);
 
@@ -236,6 +241,7 @@ update_autostart_file (gboolean autostart)
 {
   gchar *userfile;
   GKeyFile *keyfile;
+  GError *error = NULL;
   gchar *data;
 
   userfile = g_strdup_printf ("%s/autostart/" PACKAGE "-autostart.desktop", g_get_user_config_dir ());
@@ -255,7 +261,11 @@ update_autostart_file (gboolean autostart)
   g_key_file_set_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_TRY_EXEC, "xfce4-clipman");
   g_key_file_set_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, "xfce4-clipman");
   data = g_key_file_to_data (keyfile, NULL, NULL);
-  g_file_set_contents (userfile, data, -1, NULL);
+  if (!g_file_set_contents (userfile, data, -1, &error))
+    {
+      g_warning ("Failed so save file '%s': %s", userfile, error->message);
+      g_error_free (error);
+    }
   g_free (data);
   g_key_file_free (keyfile);
   g_free (userfile);
