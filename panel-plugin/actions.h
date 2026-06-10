@@ -40,34 +40,7 @@ struct _ClipmanActionsEntry
  */
 
 #define CLIPMAN_TYPE_ACTIONS (clipman_actions_get_type ())
-
-#define CLIPMAN_ACTIONS(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActions))
-#define CLIPMAN_ACTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
-
-#define CLIPMAN_IS_ACTIONS(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_ACTIONS))
-#define CLIPMAN_IS_ACTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_ACTIONS))
-
-#define CLIPMAN_ACTIONS_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_ACTIONS, ClipmanActionsClass))
-
-typedef struct _ClipmanActionsClass ClipmanActionsClass;
-typedef struct _ClipmanActions ClipmanActions;
-typedef struct _ClipmanActionsPrivate ClipmanActionsPrivate;
-
-struct _ClipmanActionsClass
-{
-  GObjectClass parent_class;
-};
-
-struct _ClipmanActions
-{
-  GObject parent;
-
-  /* Private */
-  ClipmanActionsPrivate *priv;
-};
-
-GType
-clipman_actions_get_type (void);
+G_DECLARE_FINAL_TYPE (ClipmanActions, clipman_actions, CLIPMAN, ACTIONS, GObject)
 
 ClipmanActions *
 clipman_actions_get (void);

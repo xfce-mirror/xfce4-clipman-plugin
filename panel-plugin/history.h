@@ -55,19 +55,17 @@ struct _ClipmanHistoryItem
  * ClipmanHistory
  */
 
-#define CLIPMAN_TYPE_HISTORY (clipman_history_get_type ())
-
-#define CLIPMAN_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistory))
-#define CLIPMAN_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
-
-#define CLIPMAN_IS_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_HISTORY))
-#define CLIPMAN_IS_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_HISTORY))
-
-#define CLIPMAN_HISTORY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
-
 typedef struct _ClipmanHistoryClass ClipmanHistoryClass;
 typedef struct _ClipmanHistory ClipmanHistory;
 typedef struct _ClipmanHistoryPrivate ClipmanHistoryPrivate;
+
+#define CLIPMAN_TYPE_HISTORY (clipman_history_get_type ())
+#define CLIPMAN_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistory))
+#define CLIPMAN_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
+#define CLIPMAN_IS_HISTORY(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CLIPMAN_TYPE_HISTORY))
+#define CLIPMAN_IS_HISTORY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CLIPMAN_TYPE_HISTORY))
+#define CLIPMAN_HISTORY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CLIPMAN_TYPE_HISTORY, ClipmanHistoryClass))
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (ClipmanHistory, g_object_unref)
 
 struct _ClipmanHistoryClass
 {

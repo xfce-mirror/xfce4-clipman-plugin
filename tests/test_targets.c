@@ -59,12 +59,12 @@ main (int argc,
 
   gtk_init (&argc, &argv);
 
-  if (argc > 1 && !g_strcmp0 (argv[1], "-p"))
+  if (argc > 1 && g_strcmp0 (argv[1], "-p") == 0)
     print_text = TRUE;
-  else if (argc > 2 && !g_strcmp0 (argv[2], "-p"))
+  else if (argc > 2 && g_strcmp0 (argv[2], "-p") == 0)
     print_text = TRUE;
 
-  if (argc > 1 && !g_strcmp0 (argv[1], "-s"))
+  if (argc > 1 && g_strcmp0 (argv[1], "-s") == 0)
     clipboard = gtk_clipboard_get (GDK_SELECTION_PRIMARY);
   else
     clipboard = gtk_clipboard_get (GDK_SELECTION_CLIPBOARD);

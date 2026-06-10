@@ -103,10 +103,7 @@ default_clipboard_store (XcpClipboardManagerX11 *manager)
                 return;
         }
 
-        if (manager->default_cache != NULL) {
-                g_slist_free_full (manager->default_cache, cb_selection_data_free);
-                manager->default_cache = NULL;
-        }
+        g_clear_slist (&manager->default_cache, cb_selection_data_free);
 
         for (i = 0; i < n_atoms; i++) {
                 if (atoms[i] == gdk_atom_intern_static_string ("TARGETS")
@@ -197,7 +194,7 @@ static void
 default_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
-        if (event->send_event == TRUE) {
+        if (event->send_event) {
                 return;
         }
 
@@ -275,22 +272,19 @@ static void
 primary_clipboard_owner_change (XcpClipboardManagerX11 *manager,
                                 GdkEventOwnerChange *event)
 {
-        if (event->send_event == TRUE) {
+        if (event->send_event) {
                 return;
         }
-        if (manager->primary_timeout != 0) {
-                g_source_remove (manager->primary_timeout);
-                manager->primary_timeout = 0;
-        }
+        g_clear_handle_id (&manager->primary_timeout, g_source_remove);
 
         if (event->owner != 0) {
-                if (manager->primary_internal_change == TRUE) {
+                if (manager->primary_internal_change) {
                         manager->primary_internal_change = FALSE;
                         return;
                 }
                 manager->primary_timeout = g_timeout_add (250, primary_clipboard_store, manager);
         }
-        else if (gtk_clipboard_wait_is_text_available (manager->primary_clipboard) == FALSE) {
+        else if (!gtk_clipboard_wait_is_text_available (manager->primary_clipboard)) {
                 manager->primary_timeout = g_timeout_add (250, primary_clipboard_restore, manager);
         }
 }
@@ -306,13 +300,8 @@ xcp_clipboard_manager_x11_stop (XcpClipboardManagerX11 *manager)
         if (manager->window != NULL) {
                 gtk_widget_destroy (manager->window);
         }
-        if (manager->default_cache != NULL) {
-                g_slist_free_full (manager->default_cache, cb_selection_data_free);
-                manager->default_cache = NULL;
-        }
-        if (manager->primary_cache != NULL) {
-                g_free (manager->primary_cache);
-        }
+        g_clear_slist (&manager->default_cache, cb_selection_data_free);
+        g_free (manager->primary_cache);
 }
 
 static gboolean

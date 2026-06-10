@@ -31,7 +31,7 @@
  * GObject declarations
  */
 
-struct _ClipmanMenuPrivate
+typedef struct _ClipmanMenuPrivate
 {
   GtkWidget *mi_clear_history;
   ClipmanHistory *history;
@@ -43,6 +43,14 @@ struct _ClipmanMenuPrivate
   guint paste_on_activate;
   guint max_menu_items;
   gboolean never_confirm_history_clear;
+} ClipmanMenuPrivate;
+
+struct _ClipmanMenu
+{
+  GtkMenu parent;
+
+  /* Private */
+  ClipmanMenuPrivate *priv;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanMenu, clipman_menu, GTK_TYPE_MENU)
@@ -274,8 +282,7 @@ _clipman_menu_update_list (ClipmanMenu *menu)
     skip_primary = TRUE;
 
   /* Clear the previous menu items */
-  g_slist_free_full (menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
-  menu->priv->list = NULL;
+  g_clear_slist (&menu->priv->list, (GDestroyNotify) gtk_widget_destroy);
 
   /* Set the clear history item sensitive */
   gtk_widget_set_sensitive (menu->priv->mi_clear_history, TRUE);
@@ -467,7 +474,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "ReverseOrder",
                                                          "Set to TRUE to display the menu in the reverse order",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
 #ifdef HAVE_QRENCODE
   g_object_class_install_property (object_class, SHOW_QR_CODE,
@@ -475,7 +482,7 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                          "ShowQrCode",
                                                          "Set to TRUE to display QR-Code in the menu",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 #endif
 
   g_object_class_install_property (object_class, PASTE_ON_ACTIVATE,
@@ -483,21 +490,21 @@ clipman_menu_class_init (ClipmanMenuClass *klass)
                                                       "PasteOnActivate",
                                                       "Paste the content of a menu item when it is activated",
                                                       0, 2, 0,
-                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, NEVER_CONFIRM_HISTORY_CLEAR,
                                    g_param_spec_boolean ("never-confirm-history-clear",
                                                          "NeverConfirmHistoryClear",
                                                          "Set to FALSE to clear the history list with confirmation",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, MAX_MENU_ITEMS,
                                    g_param_spec_uint ("max-menu-items",
                                                       "MaxMenuItems",
                                                       "Maximum amount of items displayed in the plugin's menu",
                                                       1, 100, 15,
-                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                      G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 static void

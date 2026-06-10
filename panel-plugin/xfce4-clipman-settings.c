@@ -167,7 +167,7 @@ prop_dialog_init (void)
   g_signal_connect (gtk_builder_get_object (builder, "button-edit-action"), "clicked", G_CALLBACK (cb_edit_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-delete-action"), "clicked", G_CALLBACK (cb_delete_action), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-reset-actions"), "clicked", G_CALLBACK (cb_reset_actions), NULL);
-  g_signal_connect (gtk_builder_get_object (builder, "actions"), "row_activated", G_CALLBACK (cb_actions_row_activated), NULL);
+  g_signal_connect (gtk_builder_get_object (builder, "actions"), "row-activated", G_CALLBACK (cb_actions_row_activated), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-add-command"), "clicked", G_CALLBACK (cb_add_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-refresh-command"), "clicked", G_CALLBACK (cb_refresh_command), NULL);
   g_signal_connect (gtk_builder_get_object (builder, "button-delete-command"), "clicked", G_CALLBACK (cb_delete_command), NULL);
@@ -932,9 +932,9 @@ shutdown (GApplication *app,
 
 
 static gint
-command_line (GApplication *app,
-              GApplicationCommandLine *command_line,
-              gpointer user_data)
+command_line_cb (GApplication *app,
+                 GApplicationCommandLine *command_line,
+                 gpointer user_data)
 {
   GError *error = NULL;
 
@@ -985,7 +985,7 @@ main (gint argc,
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   app = gtk_application_new ("org.xfce.clipman.settings", G_APPLICATION_HANDLES_COMMAND_LINE);
-  g_signal_connect (app, "command-line", G_CALLBACK (command_line), NULL);
+  g_signal_connect (app, "command-line", G_CALLBACK (command_line_cb), NULL);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
   g_object_unref (app);
 

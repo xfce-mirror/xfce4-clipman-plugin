@@ -27,7 +27,7 @@
  * GObject declarations
  */
 
-struct _ClipmanCollectorPrivate
+typedef struct _ClipmanCollectorPrivate
 {
   ClipmanActions *actions;
   ClipmanHistory *history;
@@ -44,6 +44,14 @@ struct _ClipmanCollectorPrivate
   gboolean history_ignore_primary_clipboard;
   gboolean enable_actions;
   gboolean inhibit;
+} ClipmanCollectorPrivate;
+
+struct _ClipmanCollector
+{
+  GObject parent;
+
+  /* Private */
+  ClipmanCollectorPrivate *priv;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (ClipmanCollector, clipman_collector, G_TYPE_OBJECT)
@@ -162,8 +170,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           GdkPixbuf *image;
 
           /* first clear default cache, so we don't restore it while waiting */
-          g_free (collector->priv->default_cache);
-          collector->priv->default_cache = NULL;
+          g_clear_pointer (&collector->priv->default_cache, g_free);
 
           image = gtk_clipboard_wait_for_image (collector->priv->default_clipboard);
           if (image != NULL)
@@ -190,11 +197,7 @@ cb_clipboard_owner_change (ClipmanCollector *collector,
           || !collector->priv->history_ignore_primary_clipboard
           || collector->priv->enable_actions)
         {
-          if (collector->priv->primary_clipboard_timeout != 0)
-            {
-              g_source_remove (collector->priv->primary_clipboard_timeout);
-              collector->priv->primary_clipboard_timeout = 0;
-            }
+          g_clear_handle_id (&collector->priv->primary_clipboard_timeout, g_source_remove);
           collector->priv->primary_clipboard_timeout =
             g_timeout_add (250, cb_check_primary_clipboard, collector);
         }
@@ -365,35 +368,35 @@ clipman_collector_class_init (ClipmanCollectorClass *klass)
                                                          "AddPrimaryClipboard",
                                                          "Sync the primary clipboard with the default clipboard",
                                                          DEFAULT_ADD_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, PERSISTENT_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("persistent-primary-clipboard",
                                                          "PersistentPrimaryClipboard",
                                                          "Make the primary clipboard persistent over deselection",
                                                          DEFAULT_PERSISTENT_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, HISTORY_IGNORE_PRIMARY_CLIPBOARD,
                                    g_param_spec_boolean ("history-ignore-primary-clipboard",
                                                          "HistoryIgnorePrimaryClipboard",
                                                          "Exclude the primary clipboard contents from the history",
                                                          DEFAULT_HISTORY_IGNORE_PRIMARY_CLIPBOARD,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, ENABLE_ACTIONS,
                                    g_param_spec_boolean ("enable-actions",
                                                          "EnableActions",
                                                          "Set to TRUE to enable actions (match the clipboard texts against regex's)",
                                                          DEFAULT_ENABLE_ACTIONS,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (object_class, INHIBIT,
                                    g_param_spec_boolean ("inhibit",
                                                          "Inhibit",
                                                          "Set to TRUE to disable the collector",
                                                          FALSE,
-                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE));
+                                                         G_PARAM_CONSTRUCT | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -438,11 +441,7 @@ clipman_collector_finalize (GObject *object)
 {
   ClipmanCollector *collector = CLIPMAN_COLLECTOR (object);
 
-  if (collector->priv->primary_clipboard_timeout != 0)
-    {
-      g_source_remove (collector->priv->primary_clipboard_timeout);
-      collector->priv->primary_clipboard_timeout = 0;
-    }
+  g_clear_handle_id (&collector->priv->primary_clipboard_timeout, g_source_remove);
   g_object_unref (collector->priv->actions);
   g_object_unref (collector->priv->history);
   clipman_collector_clear_cache (collector);
