@@ -163,6 +163,8 @@ clipman_history_visible_func (GtkTreeModel *model,
     {
       /* casefold the name */
       normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
+      g_free (name);
+
       name_casefolded = g_utf8_casefold (normalized, -1);
       g_free (normalized);
 
