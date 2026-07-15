@@ -397,8 +397,7 @@ device_finished (void *data,
 {
   XcpClipboardManagerWayland *manager = data;
 
-  zwlr_data_control_device_v1_destroy (manager->wl_device);
-  manager->wl_device = NULL;
+  g_clear_pointer (&manager->wl_device, zwlr_data_control_device_v1_destroy);
 }
 
 

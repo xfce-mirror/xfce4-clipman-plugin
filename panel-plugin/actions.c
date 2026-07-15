@@ -414,8 +414,7 @@ cb_file_changed (ClipmanActions *actions,
           if (!g_source_is_destroyed (source))
             g_source_destroy (source);
 
-          g_source_unref (source);
-          source = NULL;
+          g_clear_pointer (&source, g_source_unref);
         }
 
       source_id = g_timeout_add_seconds (1, timeout_file_changed, actions);
