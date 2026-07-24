@@ -5,7 +5,7 @@
 # Translators:
 # Denis Štogl <denisstogl@gmail.com>, 2013
 # Edin Veskovic <edin.lockedin@gmail.com>, 2014
-# Ivica  Kolić <ikoli@yahoo.com>, 2013,2020
+# Ivica  Kolić <ikoli@yahoo.com>, 2013,2020,2026
 # Ivica  Kolić <ikoli@yahoo.com>, 2011
 # Lovro Kudelić <lovro.kudelic@outlook.com>, 2016
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:05+0200\n"
 "PO-Revision-Date: 2013-07-03 18:52+0000\n"
-"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>, 2013,2020\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>, 2013,2020,2026\n"
 "Language-Team: Croatian (http://app.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,11 +42,11 @@ msgid ""
 "application running in the notification area. It keeps a history of text and"
 " images of content copied to the clipboard. It also has a feature to execute"
 " actions on specific text selection by matching them against regexes."
-msgstr "Clipboard Manager odnosno Upravitelj međuspremnikom postoji kao dodatak za ploču ili kao samostalna aplikacija koja se izvodi u području obavijesti. Čuva povijest teksta i slika kopiranih u međuspremnik. Uz to pruža mogućnost izvođenja akcija nad određenim tekstom uspoređujeći ga s regexom."
+msgstr "Upravitelj međuspremnikom postoji kao dodatak za ploču ili kao samostalna aplikacija koja se izvodi u području obavijesti. Čuva povijest teksta i slika kopiranih u međuspremnik. Uz to pruža mogućnost izvođenja akcija nad određenim tekstom uspoređujeći ga s regexom."
 
 #: panel-plugin/xfce4-clipman.desktop.in:5
 msgid "Clipboard Manager"
-msgstr ""
+msgstr "Upravitelj međuspremnika"
 
 #: panel-plugin/xfce4-clipman.desktop.in:6
 msgid "Clipboard Manager Autostart File"
@@ -68,11 +68,11 @@ msgstr "Shift+Insert"
 
 #: panel-plugin/xfce4-clipman-settings.c:155
 msgid "shows actions"
-msgstr ""
+msgstr "prikazuje radnju"
 
 #: panel-plugin/xfce4-clipman-settings.c:156
 msgid "hides actions"
-msgstr ""
+msgstr "skriva radnju"
 
 #: panel-plugin/xfce4-clipman-settings.c:544
 msgid "<b>Reset actions</b>"
@@ -90,7 +90,7 @@ msgstr ""
 #. Insert empty menu item
 #: panel-plugin/xfce4-clipman-history.c:319 panel-plugin/menu.c:361
 msgid "History is empty"
-msgstr ""
+msgstr "Povijest je prazna"
 
 #: panel-plugin/xfce4-clipman-history.c:385
 msgid "_Paste"
@@ -114,7 +114,7 @@ msgstr "_Postavke"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:4
 msgid "Clipboard Manager Settings"
-msgstr ""
+msgstr "Postavke Upravitelja međuspremnikom"
 
 #: panel-plugin/xfce4-clipman-settings.desktop.in:5
 msgid "Customize your clipboard"
