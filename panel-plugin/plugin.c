@@ -465,7 +465,6 @@ plugin_about (MyPlugin *plugin)
                          "copyright", "Copyright © 2003-" COPYRIGHT_YEAR " The Xfce development team",
                          "license", license,
                          "website", PACKAGE_URL,
-                         "website-label", "docs.xfce.org",
                          "authors", authors,
                          "documenters", documenters,
                          "translator-credits", _("translator-credits"),
