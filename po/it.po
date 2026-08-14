@@ -9,7 +9,7 @@
 # Emanuele Petriglia <inbox@emanuelepetriglia.com>, 2020-2021,2023-2024
 # Enrico B. <enricobe@hotmail.com>, 2016
 # Gianluca Foddis <gianluca.foddis@gmail.com>, Cristian Marchi <cri.penta@gmail.com>, 2009
-# Vincenzo Reale <vinx.reale@gmail.com>, 2020
+# Vincenzo Reale <smart2128vr@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
