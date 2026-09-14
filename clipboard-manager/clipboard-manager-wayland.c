@@ -24,6 +24,7 @@
 #include <gio/gunixinputstream.h>
 #include <glib-unix.h>
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
 
 
 
@@ -75,6 +76,8 @@ struct _XcpClipboardManagerWayland
   GtkClipboard *clipboards[N_CLIPBOARD_TYPES];
   GCancellable *cancellables[N_CLIPBOARD_TYPES];
   gboolean own_changes[N_CLIPBOARD_TYPES];
+  guint set_primary_clipboard_id;
+  gchar *primary_text;
   gchar *mime_type;
   XcpDataType data_type;
 };
@@ -154,6 +157,8 @@ xcp_clipboard_manager_wayland_finalize (GObject *object)
   for (gint i = 0; i < N_CLIPBOARD_TYPES; i++)
     g_cancellable_cancel (manager->cancellables[i]);
 
+  g_clear_handle_id (&manager->set_primary_clipboard_id, g_source_remove);
+  g_free (manager->primary_text);
   g_free (manager->mime_type);
 
   if (manager->wl_device != NULL)
@@ -249,12 +254,25 @@ offer_request_image (GObject *source_object,
 
 
 static void
+set_clipboard_text (XcpClipboardManagerWayland *manager,
+                    XcpClipboardType clipboard_type,
+                    const gchar *text)
+{
+  manager->own_changes[clipboard_type] = TRUE;
+  gtk_clipboard_set_text (manager->clipboards[clipboard_type], text, -1);
+  wl_display_roundtrip (gdk_wayland_display_get_wl_display (gdk_display_get_default ()));
+  manager->own_changes[clipboard_type] = FALSE;
+  g_signal_emit_by_name (manager->clipboards[clipboard_type], "owner-change", NULL);
+}
+
+
+
+static void
 offer_request_text (GObject *source_object,
                     GAsyncResult *res,
                     gpointer data)
 {
   XcpLoadData *load_data = data;
-  GtkClipboard *clipboard = load_data->manager->clipboards[load_data->clipboard_type];
   GInputStream *stream = G_INPUT_STREAM (source_object);
   GError *error = NULL;
   gssize size = g_input_stream_read_finish (stream, res, &error);
@@ -281,11 +299,23 @@ offer_request_text (GObject *source_object,
       return;
     }
 
-  load_data->manager->own_changes[load_data->clipboard_type] = TRUE;
-  gtk_clipboard_set_text (clipboard, load_data->text, -1);
-  wl_display_roundtrip (gdk_wayland_display_get_wl_display (gdk_display_get_default ()));
-  load_data->manager->own_changes[load_data->clipboard_type] = FALSE;
-  g_signal_emit_by_name (clipboard, "owner-change", NULL);
+  if (!xfce_str_is_empty (load_data->text))
+    {
+      if (load_data->clipboard_type == CLIPBOARD_TYPE_PRIMARY)
+        {
+          g_free (load_data->manager->primary_text);
+          load_data->manager->primary_text = g_strdup (load_data->text);
+
+          /* don't reset our own selection (e.g. in a panel plugin text entry) */
+          gchar *text = gtk_clipboard_wait_for_text (load_data->manager->clipboards[CLIPBOARD_TYPE_PRIMARY]);
+          if (g_strcmp0 (text, load_data->text) != 0)
+            set_clipboard_text (load_data->manager, load_data->clipboard_type, load_data->text);
+        }
+      else
+        {
+          set_clipboard_text (load_data->manager, load_data->clipboard_type, load_data->text);
+        }
+    }
 
   offer_destroy_load_data (load_data);
 }
@@ -402,6 +432,17 @@ device_finished (void *data,
 
 
 
+static gboolean
+set_primary_clipboard (gpointer data)
+{
+  XcpClipboardManagerWayland *manager = data;
+  set_clipboard_text (manager, CLIPBOARD_TYPE_PRIMARY, manager->primary_text);
+  manager->set_primary_clipboard_id = 0;
+  return FALSE;
+}
+
+
+
 static void
 device_primary_selection (void *data,
                           struct zwlr_data_control_device_v1 *device,
@@ -410,9 +451,16 @@ device_primary_selection (void *data,
   XcpClipboardManagerWayland *manager = data;
 
   g_cancellable_cancel (manager->cancellables[CLIPBOARD_TYPE_PRIMARY]);
+  g_clear_handle_id (&manager->set_primary_clipboard_id, g_source_remove);
 
   if (offer == NULL)
-    return;
+    {
+      /* if we do not receive a new offer shortly, it means that the primary clipboard
+       * has been cleared, in which case we must restore it */
+      if (manager->primary_text != NULL && !manager->own_changes[CLIPBOARD_TYPE_PRIMARY])
+        manager->set_primary_clipboard_id = g_timeout_add (100, set_primary_clipboard, manager);
+      return;
+    }
 
   if (manager->own_changes[CLIPBOARD_TYPE_PRIMARY] || manager->data_type == DATA_TYPE_NONE)
     {
