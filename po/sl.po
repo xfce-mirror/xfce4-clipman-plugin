@@ -5,7 +5,7 @@
 # Translators:
 # Dejweed, 2025-2026
 # Arnold Marko <arnold.marko@gmail.com>, 2019-2021,2023
-# Kernc, 2014-2015
+# K, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
@@ -92,7 +92,7 @@ msgstr "Zgodovina je prazna"
 
 #: panel-plugin/xfce4-clipman-history.c:385
 msgid "_Paste"
-msgstr "_Prilepi"
+msgstr "P_rilepi"
 
 #: panel-plugin/xfce4-clipman-history.c:390
 msgid "_Copy"
@@ -104,7 +104,7 @@ msgstr "Clipman zgodovina"
 
 #: panel-plugin/xfce4-clipman-history.c:432 panel-plugin/settings-dialog.ui:49
 msgid "_Help"
-msgstr "Pomo_č"
+msgstr "_Pomoč"
 
 #: panel-plugin/xfce4-clipman-history.c:436
 msgid "_Settings"
@@ -165,7 +165,7 @@ msgstr "Samodejno prilepi izbiro iz zgodovine"
 
 #: panel-plugin/settings-dialog.ui:176
 msgid "_Paste instantly:"
-msgstr "_Prilepi takoj:"
+msgstr "Prilepi _takoj:"
 
 #: panel-plugin/settings-dialog.ui:214
 msgid "<b>General</b>"
@@ -211,7 +211,7 @@ msgstr "Ko je označevanje opravljeno in je tipka Ctrl še vedno pritisnjena, bo
 
 #: panel-plugin/settings-dialog.ui:390
 msgid "_Pressing Ctrl during selection:"
-msgstr "_Pritisnjen Ctrl med označevanjem"
+msgstr "Pritiskanje _Ctrl med označevanjem:"
 
 #: panel-plugin/settings-dialog.ui:459
 msgid "Add action"
@@ -397,11 +397,11 @@ msgstr "Ni bilo mogoče ustvariti QR kode."
 
 #: panel-plugin/menu.c:530
 msgid "_Show full history..."
-msgstr "Prikaži v_so zgodovino..."
+msgstr "Prikaži _vso zgodovino ..."
 
 #: panel-plugin/menu.c:547
 msgid "_Clipman settings..."
-msgstr "Nastvaitve upravljanika odložiš_ča..."
+msgstr "Nastvaitve upravljanika odložiš_ča ..."
 
 #: panel-plugin/plugin.c:444
 msgid "Contributors:"
