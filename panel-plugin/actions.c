@@ -190,7 +190,7 @@ start_element_handler (GMarkupParseContext *context,
   switch (parser->state)
     {
     case START:
-      if (!g_ascii_strcasecmp (element_name, "actions"))
+      if (g_ascii_strcasecmp (element_name, "actions") == 0)
         parser->state = ACTIONS;
       break;
 
@@ -198,7 +198,7 @@ start_element_handler (GMarkupParseContext *context,
       parser->name_use = FALSE;
       parser->name_match = XFCE_LOCALE_NO_MATCH;
 
-      if (!g_ascii_strcasecmp (element_name, "action"))
+      if (g_ascii_strcasecmp (element_name, "action") == 0)
         parser->state = ACTION;
       break;
 
@@ -206,17 +206,17 @@ start_element_handler (GMarkupParseContext *context,
       parser->name_use = FALSE;
       parser->name_match = XFCE_LOCALE_NO_MATCH;
 
-      if (!g_ascii_strcasecmp (element_name, "command"))
+      if (g_ascii_strcasecmp (element_name, "command") == 0)
         parser->state = COMMAND;
       break;
 
     case ACTION:
     case COMMAND:
-      if (!g_ascii_strcasecmp (element_name, "name"))
+      if (g_ascii_strcasecmp (element_name, "name") == 0)
         {
           for (n = 0; attribute_names[n] != NULL; n++)
             {
-              if (!g_ascii_strcasecmp (attribute_names[n], "xml:lang"))
+              if (g_ascii_strcasecmp (attribute_names[n], "xml:lang") == 0)
                 break;
             }
 
@@ -238,13 +238,13 @@ start_element_handler (GMarkupParseContext *context,
 
           parser->state = (parser->state == ACTION) ? ACTION_NAME : COMMAND_NAME;
         }
-      else if (!g_ascii_strcasecmp (element_name, "regex"))
+      else if (g_ascii_strcasecmp (element_name, "regex") == 0)
         parser->state = REGEX;
-      else if (!g_ascii_strcasecmp (element_name, "group"))
+      else if (g_ascii_strcasecmp (element_name, "group") == 0)
         parser->state = GROUP;
-      else if (!g_ascii_strcasecmp (element_name, "commands"))
+      else if (g_ascii_strcasecmp (element_name, "commands") == 0)
         parser->state = COMMANDS;
-      else if (!g_ascii_strcasecmp (element_name, "exec"))
+      else if (g_ascii_strcasecmp (element_name, "exec") == 0)
         parser->state = EXEC;
       break;
 
