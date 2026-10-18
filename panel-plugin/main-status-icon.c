@@ -98,6 +98,15 @@ cb_status_icon_is_embedded (gpointer user_data)
   return FALSE;
 }
 
+static void
+cb_icon_theme_changed (GtkIconTheme *icon_theme,
+                       GtkStatusIcon *status_icon)
+{
+  GIcon *icon = g_themed_icon_new ("clipman");
+  gtk_status_icon_set_from_gicon (status_icon, icon);
+  g_object_unref (icon);
+}
+
 static MyPlugin *
 status_icon_register (void)
 {
@@ -123,6 +132,8 @@ status_icon_register (void)
     g_signal_connect_swapped (plugin->status_icon, "popup-menu",
                               G_CALLBACK (cb_status_icon_popup_menu), plugin);
   g_object_weak_ref (G_OBJECT (plugin->status_icon), cb_status_icon_finalize, plugin);
+  g_signal_connect_object (gtk_icon_theme_get_default (), "changed",
+                           G_CALLBACK (cb_icon_theme_changed), plugin->status_icon, 0);
 
   return plugin;
 }
