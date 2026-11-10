@@ -457,7 +457,11 @@ plugin_about (MyPlugin *plugin)
     "the Free Software Foundation; either version 2 of the License, or\n"
     "(at your option) any later version.\n";
 
+#if LIBXFCE4PANEL_CHECK_VERSION(4, 21, 4)
+  xfce_panel_gtk_show_about_dialog (
+#else
   gtk_show_about_dialog (NULL,
+#endif
                          "program-name", _("Clipman"),
                          "logo-icon-name", "xfce4-clipman-plugin",
                          "comments", _("Clipboard Manager for Xfce"),

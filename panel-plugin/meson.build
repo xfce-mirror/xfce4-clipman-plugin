@@ -43,6 +43,7 @@ executable(
   dependencies: [
     gio,
     gtk,
+    libxfce4panel,
     libxfce4ui,
     libxfce4util,
     qrencode,
@@ -115,6 +116,7 @@ if enable_x11
     dependencies: [
       gio,
       gtk,
+      libxfce4panel,
       libxfce4ui,
       libxfce4util,
       qrencode,

@@ -27,11 +27,8 @@
 #include "clipboard-manager/clipboard-manager.h"
 
 #include <gtk/gtk.h>
-#include <xfconf/xfconf.h>
-
-#ifdef PANEL_PLUGIN
 #include <libxfce4panel/libxfce4panel.h>
-#endif
+#include <xfconf/xfconf.h>
 
 /*
  * MyPlugin structure
